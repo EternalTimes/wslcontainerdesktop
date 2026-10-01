@@ -15,21 +15,35 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System.Text.Json.Serialization;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace WslContainerDesktop.Models;
 
-/// <summary>A network row as returned by `wslc network list --format json`.</summary>
-public sealed class NetworkInfo
+/// <summary>
+/// A network row as returned by `wslc network list --format json`. Observable so the "Used by"
+/// column can fill in after the list is already on screen.
+/// </summary>
+public sealed class NetworkInfo : ObservableObject
 {
+    /// <summary>
+    /// Returns the network name. List controls use this as each row's screen-reader name;
+    /// without it Narrator announces the .NET type name instead.
+    /// </summary>
+    public override string ToString() => Name;
+
+    /// <summary>Gets or sets the id.</summary>
     [JsonPropertyName("Id")]
     public string? Id { get; set; }
 
+    /// <summary>Gets or sets the name.</summary>
     [JsonPropertyName("Name")]
     public string Name { get; set; } = string.Empty;
 
+    /// <summary>Gets or sets the driver.</summary>
     [JsonPropertyName("Driver")]
     public string? Driver { get; set; }
 
+    /// <summary>Gets or sets the scope.</summary>
     [JsonPropertyName("Scope")]
     public string? Scope { get; set; }
 
@@ -40,13 +54,82 @@ public sealed class NetworkInfo
     [JsonIgnore]
     public bool IsBuiltIn { get; set; }
 
+    /// <summary>Gets a value indicating whether this value can modify.</summary>
     [JsonIgnore]
     public bool CanModify => !IsBuiltIn;
 
+    /// <summary>Gets the driver display.</summary>
     [JsonIgnore]
     public string DriverDisplay => string.IsNullOrEmpty(Driver) ? "bridge" : Driver!;
 
-    /// <summary>Creates a fallback default bridge entry for WSLC versions that omit it.</summary>
+    /// <summary>
+    /// Names of the containers attached to this network, running or stopped. Filled in by
+    /// <c>NetworkUsageResolver</c> after the list loads.
+    /// </summary>
+    [JsonIgnore]
+    public IReadOnlyList<string> ContainerUsers
+    {
+        get => _containerUsers;
+        set
+        {
+            if (SetProperty(ref _containerUsers, value))
+                OnUsageChanged();
+        }
+    }
+
+    private IReadOnlyList<string> _containerUsers = [];
+
+    /// <summary>
+    /// True when every container could be inspected, so an empty <see cref="ContainerUsers"/> really
+    /// means the network is not in use. False means some containers are unknown.
+    /// </summary>
+    [JsonIgnore]
+    public bool UsageComplete
+    {
+        get => _usageComplete;
+        set
+        {
+            if (SetProperty(ref _usageComplete, value))
+                OnUsageChanged();
+        }
+    }
+
+    private bool _usageComplete;
+
+    /// <summary>
+    /// True until usage has been worked out, so the column can say "Checking…" instead of
+    /// briefly claiming "Unknown".
+    /// </summary>
+    [JsonIgnore]
+    public bool UsagePending
+    {
+        get => _usagePending;
+        set
+        {
+            if (SetProperty(ref _usagePending, value))
+                OnUsageChanged();
+        }
+    }
+
+    private bool _usagePending;
+
+    private void OnUsageChanged()
+    {
+        OnPropertyChanged(nameof(UsedByDisplay));
+        OnPropertyChanged(nameof(UsedByTooltip));
+    }
+
+    /// <summary>Text for the "Used by" column: the attached containers, "Not in use", or "Unknown".</summary>
+    [JsonIgnore]
+    public string UsedByDisplay => UsagePending ? "Checking…" : ContainerUsers.Count > 0
+        ? string.Join(", ", ContainerUsers) + (UsageComplete ? string.Empty : " (others unknown)")
+        : UsageComplete ? "Not in use" : "Unknown";
+
+    /// <summary>Tooltip for the "Used by" column, explaining where the list comes from.</summary>
+    [JsonIgnore]
+    public string UsedByTooltip => $"{UsedByDisplay}\n\nIncludes stopped containers, which rejoin this network when they start.";
+
+    /// <summary>Creates a synthesized default bridge entry when the engine omits it from a successful list.</summary>
     public static NetworkInfo DefaultBridge() => new()
     {
         Name = "bridge",
@@ -56,6 +139,7 @@ public sealed class NetworkInfo
         IsBuiltIn = true,
     };
 
+    /// <summary>Gets the network ID shortened for table display.</summary>
     [JsonIgnore]
     public string ShortId
     {
