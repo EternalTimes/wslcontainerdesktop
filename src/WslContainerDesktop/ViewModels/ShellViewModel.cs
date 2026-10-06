@@ -82,7 +82,7 @@ public partial class ShellViewModel : ObservableObject
         var color = snapshot.State switch
         {
             Models.ClusterState.Running => Color.FromArgb(255, 45, 200, 95),
-            Models.ClusterState.Stopped => Color.FromArgb(255, 240, 180, 40),
+            Models.ClusterState.Stopped or Models.ClusterState.Starting => Color.FromArgb(255, 240, 180, 40),
             _ => Color.FromArgb(255, 150, 150, 150),
         };
 

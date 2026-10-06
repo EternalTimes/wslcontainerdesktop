@@ -35,6 +35,13 @@ public interface IWslSystemService
     Task<CommandResult> ShutdownWslAsync(CancellationToken ct = default);
 
     /// <summary>
+    /// Lists the distributions running right now (<c>wsl --list --running --quiet</c>). Unlike any
+    /// command run inside a distribution, this never starts one. Returns null when the answer can't
+    /// be determined.
+    /// </summary>
+    Task<IReadOnlySet<string>?> GetRunningDistributionsAsync(CancellationToken ct = default);
+
+    /// <summary>
     /// Checks whether a newer WSL app version is available by comparing the installed version
     /// against the latest release published on the <c>microsoft/WSL</c> GitHub repository.
     /// <c>wsl --update</c> has no offline "check only" mode, so availability is inferred from that

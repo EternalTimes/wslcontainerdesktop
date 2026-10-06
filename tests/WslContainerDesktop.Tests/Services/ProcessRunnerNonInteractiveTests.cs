@@ -151,6 +151,56 @@ public sealed class ProcessRunnerNonInteractiveTests
         Assert.Equal("EOF:0", result.StandardOutput.Trim());
     }
 
+    [WindowsFact]
+    public Task StatusTimeoutReapsItsProcessBeforeReturning() => VerifyStatusProcessCleanupAsync(false);
+
+    [WindowsFact]
+    public Task StatusCancellationReapsItsProcessBeforeReturning() => VerifyStatusProcessCleanupAsync(true);
+
+    private static async Task VerifyStatusProcessCleanupAsync(bool callerCancellation)
+    {
+        var started = new TaskCompletionSource<int>(TaskCreationOptions.RunContinuationsAsynchronously);
+        using var cancel = new CancellationTokenSource();
+        var run = ProcessExecutor.RunAsync(
+            PowerShell("[Console]::WriteLine($PID); Start-Sleep -Seconds 60"),
+            onLine: line =>
+            {
+                if (int.TryParse(line, out var id)) started.TrySetResult(id);
+            },
+            timeout: TimeSpan.FromSeconds(5),
+            ct: cancel.Token);
+        int pid;
+        try
+        {
+            pid = await started.Task.WaitAsync(Guard);
+            if (callerCancellation)
+            {
+                cancel.Cancel();
+                await Assert.ThrowsAnyAsync<OperationCanceledException>(() => run.WaitAsync(Guard));
+            }
+            else
+            {
+                var result = await run.WaitAsync(Guard);
+                Assert.False(result.Success);
+                Assert.Contains("timed out", result.ErrorText);
+            }
+        }
+        finally
+        {
+            cancel.Cancel();
+        }
+
+        try
+        {
+            using var process = Process.GetProcessById(pid);
+            Assert.True(process.HasExited, "The observation must finish process cleanup before releasing the lifecycle gate.");
+        }
+        catch (ArgumentException)
+        {
+            // A reaped process no longer has an entry in the process table.
+        }
+    }
+
     internal static ProcessStartInfo PowerShell(string command)
     {
         var psi = new ProcessStartInfo(Path.Combine(Environment.SystemDirectory, @"WindowsPowerShell\v1.0\powershell.exe"))

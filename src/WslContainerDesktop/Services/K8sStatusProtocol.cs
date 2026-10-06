@@ -14,6 +14,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+using WslContainerDesktop.Models;
+
 namespace WslContainerDesktop.Services;
 
 /// <summary>
@@ -23,10 +25,15 @@ namespace WslContainerDesktop.Services;
 /// </summary>
 internal static class K8sStatusProtocol
 {
+    /// <summary>Bounds each read-only status invocation; installer and lifecycle commands are separate.</summary>
+    public static readonly TimeSpan ProbeTimeout = TimeSpan.FromSeconds(30);
+
     /// <summary>Probe marker emitted when k3s is not installed in the distro.</summary>
     public const string StateNotInstalled = "@@STATE=notinstalled";
     /// <summary>Probe marker emitted when k3s is installed but not running.</summary>
     public const string StateStopped = "@@STATE=stopped";
+    /// <summary>Probe marker emitted while systemd is still starting the k3s service.</summary>
+    public const string StateStarting = "@@STATE=starting";
     /// <summary>Probe marker emitted before JSON data when k3s is running.</summary>
     public const string StateRunning = "@@STATE=running";
 
@@ -41,10 +48,51 @@ internal static class K8sStatusProtocol
     /// Done in one shell so we only pay wsl.exe cold-start/distro-attach once.
     /// </summary>
     public static string BuildProbeScript(string dataMarker, string kubectlListCommand) =>
+        $"{BuildStateProbeScript()}; echo '{dataMarker}'; {kubectlListCommand}";
+
+    /// <summary>Builds a probe that only emits the install/service state marker, listing nothing.</summary>
+    public static string BuildStateProbeScript() =>
         $"if [ ! -f /usr/local/bin/k3s-uninstall.sh ]; then echo '{StateNotInstalled}'; exit 0; fi; " +
         "a=$(systemctl is-active k3s 2>/dev/null || true); " +
+        $"if [ \"$a\" = activating ]; then echo '{StateStarting}'; exit 0; fi; " +
         $"if [ \"$a\" != active ]; then echo '{StateStopped}'; exit 0; fi; " +
-        $"echo '{StateRunning}'; echo '{dataMarker}'; {kubectlListCommand} 2>/dev/null";
+        $"echo '{StateRunning}'";
+
+    /// <summary>Maps the state marker in a probe's output to a cluster state; Unknown when none is present.</summary>
+    public static ClusterState ParseState(string output) =>
+        Contains(output, StateNotInstalled) ? ClusterState.NotInstalled
+        : Contains(output, StateStarting) ? ClusterState.Starting
+        : Contains(output, StateStopped) ? ClusterState.Stopped
+        : Contains(output, StateRunning) ? ClusterState.Running
+        : ClusterState.Unknown;
+
+    /// <summary>Requires protocol evidence and a successful command before accepting a status observation.</summary>
+    public static ClusterStatus ParseResult(CommandResult result, string distro)
+    {
+        var state = ParseState(result.StandardOutput);
+        if (state == ClusterState.Unknown || !result.Success)
+        {
+            var diagnostic = !result.Success || !string.IsNullOrWhiteSpace(result.StandardError) ? result.ErrorText
+                : string.IsNullOrWhiteSpace(result.StandardOutput)
+                    ? "The status probe returned no output."
+                    : $"The status probe returned no recognized state marker: {result.StandardOutput.Trim()}";
+            return new ClusterStatus
+            {
+                State = ClusterState.Unknown,
+                Distro = distro,
+                Message = state == ClusterState.Running
+                    ? $"k3s reported an active service, but the resource query failed: {diagnostic}"
+                    : diagnostic,
+            };
+        }
+
+        return new ClusterStatus
+        {
+            State = state, Distro = distro,
+            Message = state == ClusterState.Starting ? "k3s is starting."
+                : state == ClusterState.Stopped ? "k3s is installed but not running." : string.Empty,
+        };
+    }
 
     /// <summary>Returns the text following <paramref name="marker"/>, or empty if the marker is absent.</summary>
     public static string SectionAfter(string output, string marker)
@@ -55,5 +103,5 @@ internal static class K8sStatusProtocol
 
     /// <summary>Returns whether a probe output contains a marker token exactly.</summary>
     public static bool Contains(string output, string marker) =>
-        output.Contains(marker, StringComparison.Ordinal);
+        output.Split('\n').Any(line => string.Equals(line.TrimEnd('\r'), marker, StringComparison.Ordinal));
 }

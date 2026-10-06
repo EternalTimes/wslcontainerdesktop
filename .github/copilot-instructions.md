@@ -94,16 +94,24 @@ Key cross-cutting services to understand before changing behavior:
 
 - **All external process calls funnel through `ProcessExecutor.RunAsync`.** `ProcessRunner` wraps
   `wslc.exe`; `WslRootShell` wraps `wsl.exe -u root -e sh -c "…"` for k3s and owns shell escaping.
-  Long-lived streams (`logs -f`, `wslc events`, `port-forward`) are owned by
-  `LogStreamer` / `EngineEventStream` / `PortForwardManager`, not `ProcessExecutor`.
+  Long-lived streams (`logs -f`, `wslc events`, `port-forward`, the k3s keep-alive) are owned by
+  `LogStreamer` / `EngineEventStream` / `PortForwardManager` / `KubernetesKeepAlive`, not `ProcessExecutor`.
 - **`StatusMonitor`** is the *single* background poller and source of truth for engine + cluster
   health (tray, status bar, pages all observe it). It raises events on the UI thread via a captured
   `DispatcherQueue`, so it is registered with a DI **factory** and first resolved in `OnLaunched`.
+- **Background polling must never start a WSL distribution** (issue #126). Starting one boots WSLg,
+  which resets Windows' display and sleep idle timers. Only run a command inside a distribution from a
+  background poll while `KubernetesKeepAlive` holds it: a distribution nothing holds can stop between a
+  `wsl --list --running --quiet` check and the command, which then starts it again; see
+  `K8sFooterProbePolicy`. Polling that only feeds visible UI waits on
+  `IWindowVisibility` (hidden, minimized or display-off pauses it).
 - **`WslRequirementService` / `WslPolicyService` / `EngineEventStream` / `WslcSettingsFileService`**
   own the 3.0.1 gate, enterprise WSL policy checks, `wslc events`, and `system info`-discovered settings file edits.
 - **`KubernetesService`** is a thin facade over collaborators (`K8sInstaller`, `K8sResourceClient`,
-  `PortForwardManager`, `K8sManifestSanitizer`). k3s status probes use sentinel markers
-  (`@@STATE=`, `@@NODES`, …) — never hand-write them; use the constants in `K8sStatusProtocol`.
+  `PortForwardManager`, `KubernetesKeepAlive`, `K8sManifestSanitizer`). k3s status probes use sentinel
+  markers (`@@STATE=`, `@@NODES`, …); never hand-write them, use the constants in `K8sStatusProtocol`.
+  While the app runs, `KubernetesKeepAlive` holds one idle session so the pinned k3s distribution
+  stays up; it ends with the app, and nothing changes WSL or Windows configuration.
 - **Compose** is "desktop-as-daemon": `ComposeImporter` parses `docker-compose.yml`;
   `ComposeProjectSupervisor` brings a project up/down/restart as a unit, and `HealthWatchdog` /
   `RestartPolicyWatchdog` enforce app probes, auto-heal & `restart:` policies while the app is open.

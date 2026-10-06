@@ -174,6 +174,10 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
         _autostart = Services.GetRequiredService<ContainerAutostartService>();
         _ = _autostart.RestoreThenAttachAsync();
 
+        // Keep an installed k3s cluster running while the app runs (one deliberate start of its WSL
+        // distribution here, never from polling). Fire-and-forget: failures must never block launch.
+        _ = KeepKubernetesRunningAsync();
+
         _window = new MainWindow();
         _window.ApplyTheme(settings.Theme);
 
@@ -232,6 +236,22 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
         catch (Exception ex)
         {
             _logger?.LogWarning(ex, "Failed to stop port-forwards before updating.");
+        }
+    }
+
+    /// <summary>
+    /// Keeps the k3s distribution running while the app runs, when k3s is installed and the user
+    /// hasn't stopped it. Errors are logged and never surface at launch.
+    /// </summary>
+    private async Task KeepKubernetesRunningAsync()
+    {
+        try
+        {
+            await Services.GetRequiredService<IKubernetesService>().SyncKeepAliveAsync().ConfigureAwait(false);
+        }
+        catch (Exception ex)
+        {
+            _logger?.LogWarning(ex, "Could not keep the k3s distribution running.");
         }
     }
 
@@ -433,6 +453,16 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
             _logger?.LogWarning(ex, "Failed to stop port-forwards during shutdown.");
         }
 
+        // Stop keeping the k3s distribution running; WSL stops it once idle, as for a manual install.
+        try
+        {
+            Services.GetRequiredService<IKubernetesService>().ReleaseKeepAlive();
+        }
+        catch (Exception ex)
+        {
+            _logger?.LogWarning(ex, "Failed to release the k3s keep-alive session during shutdown.");
+        }
+
         _watchdog?.Dispose();
         _restartWatchdog?.Dispose();
         _autostart?.Dispose();
@@ -490,6 +520,8 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
         services.AddSingleton<IWslSystemService, WslSystemService>();
         services.AddSingleton<WslDistroInventory>();
         services.AddSingleton<IKubernetesService, KubernetesService>();
+        services.AddSingleton<WindowVisibility>();
+        services.AddSingleton<IWindowVisibility>(sp => sp.GetRequiredService<WindowVisibility>());
         services.AddSingleton<IAzureCliService, AzureCliService>();
         services.AddSingleton<IRegistryCredentialStore, RegistryCredentialStore>();
         services.AddSingleton<IAiCredentialStore, AiCredentialStore>();
@@ -593,6 +625,7 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
             sp.GetRequiredService<INotificationService>(),
             sp.GetRequiredService<IWslRequirementService>(),
             sp.GetRequiredService<IEngineEventStream>(),
+            sp.GetRequiredService<IWindowVisibility>(),
             DispatcherQueue.GetForCurrentThread()
                 ?? throw new InvalidOperationException("StatusMonitor must first be resolved on the UI thread."),
             sp.GetRequiredService<ILogger<StatusMonitor>>()));

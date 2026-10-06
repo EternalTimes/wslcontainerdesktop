@@ -19,6 +19,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.UI.Dispatching;
 using WslContainerDesktop.Dialogs;
+using WslContainerDesktop.Helpers;
 using WslContainerDesktop.Models;
 using WslContainerDesktop.Services;
 
@@ -32,9 +33,16 @@ public partial class KubernetesViewModel : ObservableObject
     private readonly DialogService _dialogs;
     private readonly StatusMonitor _monitor;
     private readonly ISettingsService _settings;
+    private readonly IWindowVisibility _visibility;
     private readonly DispatcherQueue _dispatcher;
 
     private CancellationTokenSource? _pollCts;
+    private K8sStartupWatcher? _startupWatcher;
+    private long _pageVisit;
+    private long _refreshRevision;
+
+    // Whether the Kubernetes page is open; only the UI thread reads or writes it.
+    private bool _pageOpen;
 
     /// <summary>Generated cluster state that drives the install/start/stop dashboard states.</summary>
     [ObservableProperty]
@@ -43,6 +51,7 @@ public partial class KubernetesViewModel : ObservableObject
     [NotifyPropertyChangedFor(nameof(IsInstalled))]
     [NotifyPropertyChangedFor(nameof(IsRunning))]
     [NotifyPropertyChangedFor(nameof(IsStopped))]
+    [NotifyPropertyChangedFor(nameof(IsStarting))]
     [NotifyPropertyChangedFor(nameof(IsBusy))]
     private ClusterState _state = ClusterState.Unknown;
 
@@ -69,6 +78,7 @@ public partial class KubernetesViewModel : ObservableObject
     [NotifyPropertyChangedFor(nameof(IsInstalled))]
     [NotifyPropertyChangedFor(nameof(IsRunning))]
     [NotifyPropertyChangedFor(nameof(IsStopped))]
+    [NotifyPropertyChangedFor(nameof(IsStarting))]
     [NotifyPropertyChangedFor(nameof(IsBusy))]
     private bool _working;
 
@@ -186,11 +196,13 @@ public partial class KubernetesViewModel : ObservableObject
     [ObservableProperty]
     private bool _canUseDefaultDistribution;
     /// <summary>True when installed-cluster actions should be shown.</summary>
-    public bool IsInstalled => !Working && State is ClusterState.Stopped or ClusterState.Running;
+    public bool IsInstalled => !Working && State is ClusterState.Stopped or ClusterState.Running or ClusterState.Starting;
     /// <summary>True when resource lists and running-cluster actions should be shown.</summary>
     public bool IsRunning => !Working && State == ClusterState.Running;
     /// <summary>True when the cluster can be started.</summary>
     public bool IsStopped => !Working && State == ClusterState.Stopped;
+    /// <summary>True while systemd is still bringing the k3s service up.</summary>
+    public bool IsStarting => !Working && State == ClusterState.Starting;
     /// <summary>True while a lifecycle operation is blocking other actions.</summary>
     public bool IsBusy => Working;
 
@@ -198,12 +210,13 @@ public partial class KubernetesViewModel : ObservableObject
     public event Action? OperationLogUpdated;
 
     /// <summary>Creates the Kubernetes page model and seeds the namespace filter.</summary>
-    public KubernetesViewModel(IKubernetesService k8s, DialogService dialogs, StatusMonitor monitor, ISettingsService settings)
+    public KubernetesViewModel(IKubernetesService k8s, DialogService dialogs, StatusMonitor monitor, ISettingsService settings, IWindowVisibility visibility)
     {
         _k8s = k8s;
         _dialogs = dialogs;
         _monitor = monitor;
         _settings = settings;
+        _visibility = visibility;
         _dispatcher = DispatcherQueue.GetForCurrentThread();
 
         // Seed the default namespace option so the ComboBox shows a selection immediately.
@@ -273,6 +286,9 @@ public partial class KubernetesViewModel : ObservableObject
     /// <summary>Initializes cluster state from the shared monitor and starts polling when k3s is running.</summary>
     public async Task InitializeAsync()
     {
+        _pageOpen = true;
+        ++_pageVisit;
+
         // Seed from the shared monitor's cached snapshot so the correct view (install hero,
         // stopped card, or the running sub-nav) appears instantly instead of after the full
         // status probe. The authoritative GetStatusAsync below then fills in node/version.
@@ -283,53 +299,59 @@ public partial class KubernetesViewModel : ObservableObject
         {
             State = cached.State;
             StatusMessage = cached.Summary;
-            if (cached.State == ClusterState.Running)
-            {
-                StartPolling();
-            }
         }
 
         await RefreshStatusAsync();
-        if (State == ClusterState.Running)
+    }
+
+    /// <summary>Refreshes the k3s lifecycle status without polling all resources.</summary>
+    [RelayCommand]
+    private Task RefreshStatusAsync() => RefreshStatusCoreAsync(discover: true);
+
+    private async Task RefreshStatusCoreAsync(bool discover)
+    {
+        StopPolling();
+        var visit = _pageVisit;
+        var revision = ++_refreshRevision;
+        var status = discover ? await _k8s.GetStatusAsync() : await _k8s.ObserveStatusAsync();
+        if (!_pageOpen || visit != _pageVisit || revision != _refreshRevision)
+        {
+            return;
+        }
+
+        Apply(status);
+
+        if (State == ClusterState.Starting)
+        {
+            WatchStartup();
+        }
+        else if (State == ClusterState.Running)
         {
             StartPolling();
         }
     }
 
-    /// <summary>Refreshes the k3s lifecycle status without polling all resources.</summary>
-    [RelayCommand]
-    private async Task RefreshStatusAsync()
+    /// <summary>
+    /// Re-checks the status while k3s is starting, then shows the running cluster. It checks only while
+    /// the page can be seen, backing off to ten seconds, until the page is left or its WSL session ends.
+    /// </summary>
+    private void WatchStartup()
     {
-        var status = await _k8s.GetStatusAsync();
-        Apply(status);
-
-        // Remember where an existing cluster lives, so changing WSL's default distribution later
-        // doesn't make the app look for k3s somewhere else and offer to install a second one.
-        if (status.IsInstalled)
-        {
-            PinHostDistro(status.Distro);
-        }
-    }
-
-    /// <summary>Pins k3s to <paramref name="distro"/> when nothing is pinned yet.</summary>
-    private void PinHostDistro(string? distro)
-    {
-        if (!string.IsNullOrWhiteSpace(_settings.WslDistro) ||
-            string.IsNullOrWhiteSpace(distro) || distro is "-" or "default")
+        if (!_pageOpen)
         {
             return;
         }
 
-        _settings.WslDistro = distro;
-        _settings.Save();
+        _startupWatcher ??= new K8sStartupWatcher(_visibility, _k8s.ObserveStatusAsync, Apply, StartPolling);
+        UiSafe.Run(_startupWatcher.StartAsync);
     }
 
     /// <summary>Stops using a pinned distribution that can't host k3s and goes back to WSL's default.</summary>
     [RelayCommand]
     private async Task UseDefaultDistributionAsync()
     {
-        _settings.WslDistro = null;
-        _settings.Save();
+        StopPolling();
+        await _k8s.UseDefaultDistributionAsync();
         await RefreshStatusAsync();
     }
 
@@ -348,7 +370,8 @@ public partial class KubernetesViewModel : ObservableObject
         {
             ClusterState.NotInstalled => "Kubernetes (k3s) is not installed.",
             ClusterState.NoDistribution => KubernetesHostCheck.Summary(status.HostProblem, hostDistro),
-            ClusterState.Stopped => "Cluster is installed but stopped.",
+            ClusterState.Stopped => string.IsNullOrEmpty(status.Message) ? "Cluster is installed but stopped." : status.Message,
+            ClusterState.Starting => "k3s is starting… WSL just started its distribution.",
             ClusterState.Running => $"Cluster running · node {status.NodeName} · {status.KubernetesVersion}",
             ClusterState.Unknown => string.IsNullOrEmpty(status.Message) ? "Unable to determine status." : status.Message,
             _ => status.Message,
@@ -400,9 +423,6 @@ public partial class KubernetesViewModel : ObservableObject
             }
             else
             {
-                // Pin before anything else can change WSL's default distribution.
-                PinHostDistro(host);
-
                 // Hide the op-log on success so it doesn't overlap the running view.
                 ShowOperationLog = false;
             }
@@ -411,10 +431,6 @@ public partial class KubernetesViewModel : ObservableObject
         {
             Working = false;
             await RefreshStatusAsync();
-            if (State == ClusterState.Running)
-            {
-                StartPolling();
-            }
         }
     }
 
@@ -450,6 +466,7 @@ public partial class KubernetesViewModel : ObservableObject
             {
                 // Hide the op-log on success so it doesn't overlap the not-installed view.
                 ShowOperationLog = false;
+
             }
 
             Nodes.Clear();
@@ -563,10 +580,6 @@ public partial class KubernetesViewModel : ObservableObject
         {
             Working = false;
             await RefreshStatusAsync();
-            if (State == ClusterState.Running)
-            {
-                StartPolling();
-            }
         }
     }
 
@@ -591,10 +604,6 @@ public partial class KubernetesViewModel : ObservableObject
         {
             Working = false;
             await RefreshStatusAsync();
-            if (State == ClusterState.Running)
-            {
-                StartPolling();
-            }
         }
     }
 
@@ -622,7 +631,7 @@ public partial class KubernetesViewModel : ObservableObject
         finally
         {
             Working = false;
-            await RefreshStatusAsync();
+            await RefreshStatusCoreAsync(discover: false);
         }
     }
 
@@ -837,10 +846,19 @@ public partial class KubernetesViewModel : ObservableObject
 
     // ---- Resource polling ----------------------------------------------
 
-    /// <summary>Starts the background resource poller that updates bound collections on the UI thread.</summary>
+    /// <summary>
+    /// Starts the background resource poller that updates bound collections on the UI thread. Does
+    /// nothing once the page has been left, because an operation that finishes after that must not
+    /// leave a poller running for a page nobody is on.
+    /// </summary>
     public void StartPolling()
     {
         StopPolling();
+        if (!_pageOpen || !_k8s.CanObserve)
+        {
+            return;
+        }
+
         _pollCts = new CancellationTokenSource();
         var token = _pollCts.Token;
 
@@ -849,9 +867,20 @@ public partial class KubernetesViewModel : ObservableObject
             // Load namespaces once up front.
             try
             {
+                await _visibility.WhenViewableAsync(token).ConfigureAwait(false);
+                token.ThrowIfCancellationRequested();
+                if (!_k8s.CanObserve)
+                {
+                    return;
+                }
                 var nsList = await _k8s.GetNamespacesAsync(token).ConfigureAwait(false);
                 _dispatcher.TryEnqueue(() =>
                 {
+                    if (token.IsCancellationRequested || !_pageOpen || !_k8s.CanObserve)
+                    {
+                        return;
+                    }
+
                     var current = SelectedNamespace;
                     Namespaces.Clear();
                     Namespaces.Add("All namespaces");
@@ -864,6 +893,10 @@ public partial class KubernetesViewModel : ObservableObject
                     SelectedNamespace = Namespaces.Contains(current) ? current : "All namespaces";
                 });
             }
+            catch (OperationCanceledException)
+            {
+                return;
+            }
             catch
             {
                 // ignore
@@ -871,7 +904,21 @@ public partial class KubernetesViewModel : ObservableObject
 
             while (!token.IsCancellationRequested)
             {
+                try
+                {
+                    // The lists only feed the visible page; don't query the cluster while nobody can see it.
+                    await _visibility.WhenViewableAsync(token).ConfigureAwait(false);
+                }
+                catch (OperationCanceledException)
+                {
+                    break;
+                }
+
                 await PollOnceAsync(token).ConfigureAwait(false);
+                if (!_k8s.CanObserve)
+                {
+                    break;
+                }
 
                 try
                 {
@@ -889,6 +936,12 @@ public partial class KubernetesViewModel : ObservableObject
     {
         try
         {
+            token.ThrowIfCancellationRequested();
+            if (!_k8s.CanObserve || !_visibility.IsViewable)
+            {
+                return;
+            }
+
             var ns = SelectedNamespace;
 
             // Run all resource queries concurrently to cut wall-clock time.
@@ -919,6 +972,11 @@ public partial class KubernetesViewModel : ObservableObject
 
             _dispatcher.TryEnqueue(() =>
             {
+                if (token.IsCancellationRequested || !_pageOpen || !_k8s.CanObserve)
+                {
+                    return;
+                }
+
                 Sync(Nodes, nodes);
                 Sync(Deployments, deps);
                 Sync(Pods, pods);
@@ -954,9 +1012,11 @@ public partial class KubernetesViewModel : ObservableObject
         }
     }
 
-    /// <summary>Cancels and disposes the background resource poller.</summary>
+    /// <summary>Cancels and disposes the background resource poller, and stops waiting for k3s to start.</summary>
     public void StopPolling()
     {
+        ++_refreshRevision;
+        _startupWatcher?.Stop();
         try
         {
             _pollCts?.Cancel();
@@ -968,6 +1028,17 @@ public partial class KubernetesViewModel : ObservableObject
 
         _pollCts?.Dispose();
         _pollCts = null;
+    }
+
+    /// <summary>
+    /// Called when the page is left: stops polling and keeps operations that finish later from
+    /// starting it again until the page is opened.
+    /// </summary>
+    public void Deactivate()
+    {
+        _pageOpen = false;
+        ++_pageVisit;
+        StopPolling();
     }
 
     /// <summary>

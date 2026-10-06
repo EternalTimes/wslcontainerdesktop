@@ -35,7 +35,13 @@ public sealed class WslRootShell(ISettingsService settings)
     public string DistroLabel => Distro ?? "default";
 
     /// <summary>Builds a start info that runs <paramref name="bashCommand"/> as root in the host distro.</summary>
-    public ProcessStartInfo BaseStartInfo(string bashCommand)
+    public ProcessStartInfo BaseStartInfo(string bashCommand) => BaseStartInfoFor(Distro, bashCommand);
+
+    /// <summary>
+    /// Builds a start info that runs <paramref name="bashCommand"/> as root in <paramref name="distro"/>,
+    /// or in WSL's default distribution when it is null.
+    /// </summary>
+    public static ProcessStartInfo BaseStartInfoFor(string? distro, string bashCommand)
     {
         var psi = new ProcessStartInfo
         {
@@ -52,10 +58,10 @@ public sealed class WslRootShell(ISettingsService settings)
         // Force wsl.exe to emit UTF-8 rather than UTF-16LE.
         psi.Environment["WSL_UTF8"] = "1";
 
-        if (Distro is not null)
+        if (!string.IsNullOrWhiteSpace(distro))
         {
             psi.ArgumentList.Add("-d");
-            psi.ArgumentList.Add(Distro);
+            psi.ArgumentList.Add(distro);
         }
 
         psi.ArgumentList.Add("-u");
@@ -71,9 +77,10 @@ public sealed class WslRootShell(ISettingsService settings)
     /// <summary>
     /// Runs a root shell command and returns its completed result.
     /// </summary>
-    public Task<CommandResult> RunAsync(string bashCommand, CancellationToken ct) =>
+    public Task<CommandResult> RunAsync(string bashCommand, CancellationToken ct, TimeSpan? timeout = null) =>
         ProcessExecutor.RunAsync(
             BaseStartInfo(bashCommand),
+            timeout: timeout,
             launchErrorContext: "Could not launch wsl.exe.",
             ct: ct);
 

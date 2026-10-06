@@ -14,6 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+using System.Collections.Concurrent;
 using Microsoft.Extensions.Logging;
 using WslContainerDesktop.Models;
 
@@ -24,8 +25,32 @@ namespace WslContainerDesktop.Services;
 /// Covers status probes, list queries for each resource kind, apply, and the
 /// delete/scale/restart/cron/yaml/describe/logs operations.
 /// </summary>
-public sealed class K8sResourceClient(WslRootShell shell, WslDistroInventory distros, ILogger<K8sResourceClient> logger)
+public sealed class K8sResourceClient(WslRootShell shell, WslDistroInventory distros, ILogger<K8sResourceClient> logger) : IK8sStatusProbe
 {
+    // Whether k3s was found installed in each distribution by the latest probe this session.
+    private readonly ConcurrentDictionary<string, bool> _installedByDistro = new(StringComparer.OrdinalIgnoreCase);
+
+    /// <summary>True when a probe this session found k3s isn't installed in <paramref name="distro"/>.</summary>
+    public bool IsKnownNotInstalled(string distro) =>
+        _installedByDistro.TryGetValue(distro, out var installed) && !installed;
+
+    private void Observe(string? distro, ClusterState state)
+    {
+        if (string.IsNullOrWhiteSpace(distro))
+        {
+            return;
+        }
+
+        if (state == ClusterState.NotInstalled)
+        {
+            _installedByDistro[distro] = false;
+        }
+        else if (state is ClusterState.Stopped or ClusterState.Starting or ClusterState.Running)
+        {
+            _installedByDistro[distro] = true;
+        }
+    }
+
     // ---- Status ---------------------------------------------------------
 
     /// <summary>Reads detailed k3s cluster status for the dashboard.</summary>
@@ -50,30 +75,21 @@ public sealed class K8sResourceClient(WslRootShell shell, WslDistroInventory dis
             var script = K8sStatusProtocol.BuildProbeScript(
                 K8sStatusProtocol.NodesMarker, "k3s kubectl get nodes -o json");
 
-            var r = await shell.RunAsync(script, ct).ConfigureAwait(false);
+            var r = await shell.RunAsync(script, ct, K8sStatusProtocol.ProbeTimeout).ConfigureAwait(false);
             var output = r.StandardOutput;
-
-            if (!r.Success && string.IsNullOrWhiteSpace(output))
+            var status = K8sStatusProtocol.ParseResult(r, distroLabel);
+            if (status.State == ClusterState.Unknown)
             {
-                return new ClusterStatus { State = ClusterState.Unknown, Message = r.ErrorText };
+                logger.LogWarning("Kubernetes cluster status unavailable: {Diagnostic}", status.Message);
+                return status;
             }
 
-            if (K8sStatusProtocol.Contains(output, K8sStatusProtocol.StateNotInstalled))
+            Observe(host?.DistroName, status.State);
+            if (status.State != ClusterState.Running)
             {
-                return new ClusterStatus { State = ClusterState.NotInstalled, Distro = distroLabel };
+                return status;
             }
 
-            if (K8sStatusProtocol.Contains(output, K8sStatusProtocol.StateStopped))
-            {
-                return new ClusterStatus
-                {
-                    State = ClusterState.Stopped,
-                    Distro = distroLabel,
-                    Message = "k3s is installed but not running.",
-                };
-            }
-
-            // Running: parse the node JSON that followed the nodes marker.
             var nodeJson = K8sStatusProtocol.SectionAfter(output, K8sStatusProtocol.NodesMarker);
             var node = K8sParser.Nodes(nodeJson).FirstOrDefault();
 
@@ -85,45 +101,39 @@ public sealed class K8sResourceClient(WslRootShell shell, WslDistroInventory dis
                 KubernetesVersion = node?.Version ?? "-",
             };
         }
-        catch (Exception ex)
+        catch (Exception ex) when (ex is not OperationCanceledException)
         {
             logger.LogWarning(ex, "Kubernetes cluster status probe failed.");
             return new ClusterStatus { State = ClusterState.Unknown, Message = ex.Message };
         }
     }
 
-    /// <summary>Reads the compact cluster status used by the app footer.</summary>
-    public async Task<K8sFooterStatus> GetFooterStatusAsync(CancellationToken ct = default)
+    /// <summary>
+    /// Probes the compact status (state + pod counts) used by the app footer in <paramref name="distro"/>,
+    /// which must be the pinned host distribution. Running this starts the distribution if it isn't
+    /// running, so the background footer only calls it for a distribution the keep-alive holds
+    /// (see <see cref="K8sFooterProbePolicy"/>, issue #126).
+    /// </summary>
+    public async Task<K8sFooterStatus> ProbeFooterAsync(string distro, CancellationToken ct = default)
     {
-        // Without a usable host distro every probe would just launch wsl.exe to fail; skip it.
-        if (distros.ResolveKubernetesHost() is { CanHost: false })
-        {
-            return new K8sFooterStatus { State = ClusterState.NoDistribution };
-        }
-
         try
         {
-            // Kept separate from GetStatusAsync so the shared StatusMonitor can poll it cheaply on
-            // its cadence (and warm the WSL distro early).
             var script = K8sStatusProtocol.BuildProbeScript(
                 K8sStatusProtocol.PodsMarker, "k3s kubectl get pods -A -o json");
 
-            var r = await shell.RunAsync(script, ct).ConfigureAwait(false);
+            var r = await shell.RunAsync(script, ct, K8sStatusProtocol.ProbeTimeout).ConfigureAwait(false);
             var output = r.StandardOutput;
-
-            if (K8sStatusProtocol.Contains(output, K8sStatusProtocol.StateNotInstalled))
+            var status = K8sStatusProtocol.ParseResult(r, distro);
+            var state = status.State;
+            if (state == ClusterState.Unknown)
             {
-                return new K8sFooterStatus { State = ClusterState.NotInstalled };
+                logger.LogDebug("Kubernetes footer status unavailable: {Diagnostic}", status.Message);
             }
 
-            if (K8sStatusProtocol.Contains(output, K8sStatusProtocol.StateStopped))
+            Observe(distro, state);
+            if (state != ClusterState.Running)
             {
-                return new K8sFooterStatus { State = ClusterState.Stopped };
-            }
-
-            if (!K8sStatusProtocol.Contains(output, K8sStatusProtocol.StateRunning))
-            {
-                return new K8sFooterStatus { State = ClusterState.Unknown };
+                return new K8sFooterStatus { State = state, Distro = distro };
             }
 
             var podJson = K8sStatusProtocol.SectionAfter(output, K8sStatusProtocol.PodsMarker);
@@ -132,18 +142,46 @@ public sealed class K8sResourceClient(WslRootShell shell, WslDistroInventory dis
             return new K8sFooterStatus
             {
                 State = ClusterState.Running,
+                Distro = distro,
                 PodsRunning = pods.Count(p => p.IsRunning),
                 PodsTotal = pods.Count,
             };
         }
-        catch (Exception ex)
+        catch (Exception ex) when (ex is not OperationCanceledException)
         {
             logger.LogDebug(ex, "Kubernetes footer status probe failed.");
-            return new K8sFooterStatus { State = ClusterState.Unknown };
+            return new K8sFooterStatus { State = ClusterState.Unknown, Distro = distro };
         }
     }
 
     // ---- Resource list queries ------------------------------------------
+
+    /// <summary>
+    /// Reads only whether k3s is installed, starting, stopped or running in the host distribution,
+    /// listing nothing. This starts the distribution if it isn't running, so call it only on purpose.
+    /// </summary>
+    public async Task<ClusterState> ProbeStateAsync(CancellationToken ct = default)
+    {
+        var host = distros.ResolveKubernetesHost();
+        try
+        {
+            var r = await shell.RunAsync(K8sStatusProtocol.BuildStateProbeScript(), ct, K8sStatusProtocol.ProbeTimeout).ConfigureAwait(false);
+            var status = K8sStatusProtocol.ParseResult(r, host?.DistroName ?? shell.DistroLabel);
+            var state = status.State;
+            if (state == ClusterState.Unknown)
+            {
+                logger.LogDebug("Kubernetes state unavailable: {Diagnostic}", status.Message);
+            }
+
+            Observe(host?.DistroName, state);
+            return state;
+        }
+        catch (Exception ex) when (ex is not OperationCanceledException)
+        {
+            logger.LogDebug(ex, "Kubernetes state probe failed.");
+            return ClusterState.Unknown;
+        }
+    }
 
     /// <summary>Lists Kubernetes nodes.</summary>
     public async Task<IReadOnlyList<K8sNode>> GetNodesAsync(CancellationToken ct = default)
@@ -286,4 +324,3 @@ public sealed class K8sResourceClient(WslRootShell shell, WslDistroInventory dis
     public Task<CommandResult> GetPodLogsAsync(string ns, string name, int tailLines, CancellationToken ct = default) =>
         shell.RunAsync($"k3s kubectl logs {WslRootShell.ShellEscape(name)}{WslRootShell.NsArg(ns)} --all-containers=true --tail={tailLines}", ct);
 }
-

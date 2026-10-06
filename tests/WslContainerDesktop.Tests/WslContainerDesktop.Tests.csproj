@@ -187,6 +187,16 @@
     <Compile Include="..\..\src\WslContainerDesktop\Services\WslDistroListParser.cs" Link="Services\WslDistroListParser.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\KubernetesHostCheck.cs" Link="Services\KubernetesHostCheck.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Models\KubernetesHostProblem.cs" Link="Models\KubernetesHostProblem.cs" />
+    <Compile Include="..\..\src\WslContainerDesktop\Models\ClusterStatus.cs" Link="Models\ClusterStatus.cs" />
+    <Compile Include="..\..\src\WslContainerDesktop\Services\K8sStatusProtocol.cs" Link="Services\K8sStatusProtocol.cs" />
+    <Compile Include="..\..\src\WslContainerDesktop\Services\K8sFooterProbePolicy.cs" Link="Services\K8sFooterProbePolicy.cs" />
+    <Compile Include="..\..\src\WslContainerDesktop\Services\K8sKeepAlivePolicy.cs" Link="Services\K8sKeepAlivePolicy.cs" />
+    <Compile Include="..\..\src\WslContainerDesktop\Services\K8sClusterLifecycle.cs" Link="Services\K8sClusterLifecycle.cs" />
+    <Compile Include="..\..\src\WslContainerDesktop\Services\K8sStartupWatcher.cs" Link="Services\K8sStartupWatcher.cs" />
+    <Compile Include="..\..\src\WslContainerDesktop\Services\IK8sStatusProbe.cs" Link="Services\IK8sStatusProbe.cs" />
+    <Compile Include="..\..\src\WslContainerDesktop\Services\IKubernetesKeepAlive.cs" Link="Services\IKubernetesKeepAlive.cs" />
+    <Compile Include="..\..\src\WslContainerDesktop\Services\IWindowVisibility.cs" Link="Services\IWindowVisibility.cs" />
+    <Compile Include="..\..\src\WslContainerDesktop\Services\WindowVisibility.cs" Link="Services\WindowVisibility.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\WslVersionOutputParser.cs" Link="Services\WslVersionOutputParser.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\WslUpdateElevation.cs" Link="Services\WslUpdateElevation.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Models\WslSystemInfo.cs" Link="Models\WslSystemInfo.cs" />
@@ -226,7 +236,6 @@
     <Compile Include="..\..\src\WslContainerDesktop\Services\RegistryCredentialStore.cs" Link="Services\RegistryCredentialStore.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\IAzureCliService.cs" Link="Services\IAzureCliService.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Models\StackTemplate.cs" Link="Models\StackTemplate.cs" />
-    <Compile Include="..\..\src\WslContainerDesktop\Models\ClusterStatus.cs" Link="Models\ClusterStatus.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Models\K8sResources.cs" Link="Models\K8sResources.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Models\K3sInstallResult.cs" Link="Models\K3sInstallResult.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Models\PortForward.cs" Link="Models\PortForward.cs" />

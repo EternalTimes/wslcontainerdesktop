@@ -324,9 +324,30 @@ public sealed class WslSystemService(ILogger<WslSystemService> logger, HttpClien
     public Task<CommandResult> ShutdownWslAsync(CancellationToken ct = default) =>
         RunWslAsync(ct, "--shutdown");
 
+    // ---- Running distributions ----------------------------------------
+
+    private static readonly TimeSpan RunningListTimeout = TimeSpan.FromSeconds(10);
+
+    /// <inheritdoc/>
+    public async Task<IReadOnlySet<string>?> GetRunningDistributionsAsync(CancellationToken ct = default)
+    {
+        var result = await RunWslAsync(RunningListTimeout, killOnAppExit: true, ct, "--list", "--running", "--quiet")
+            .ConfigureAwait(false);
+        if (!result.Success)
+        {
+            logger.LogDebug("wsl --list --running failed with exit code {ExitCode}: {Error}", result.ExitCode, result.ErrorText);
+            return null;
+        }
+
+        return WslDistroListParser.ParseRunningNames(result.StandardOutput);
+    }
+
     // ---- wsl.exe plumbing ---------------------------------------------
 
-    private static Task<CommandResult> RunWslAsync(CancellationToken ct, params string[] args)
+    private static Task<CommandResult> RunWslAsync(CancellationToken ct, params string[] args) =>
+        RunWslAsync(timeout: null, killOnAppExit: false, ct, args);
+
+    private static Task<CommandResult> RunWslAsync(TimeSpan? timeout, bool killOnAppExit, CancellationToken ct, params string[] args)
     {
         var psi = new ProcessStartInfo
         {
@@ -346,6 +367,7 @@ public sealed class WslSystemService(ILogger<WslSystemService> logger, HttpClien
             psi.ArgumentList.Add(arg);
         }
 
-        return ProcessExecutor.RunAsync(psi, launchErrorContext: "Could not launch wsl.exe.", ct: ct);
+        return ProcessExecutor.RunAsync(psi, timeout: timeout, launchErrorContext: "Could not launch wsl.exe.",
+            killOnAppExit: killOnAppExit, ct: ct);
     }
 }

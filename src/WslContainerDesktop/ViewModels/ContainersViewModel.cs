@@ -47,6 +47,7 @@ public partial class ContainersViewModel : ObservableObject, IDisposable
     private readonly IAiAvailabilityService _aiAvailability;
     private readonly IAiCapabilityService _aiCapabilities;
     private readonly ILocalAiSetupService _localAi;
+    private readonly IWindowVisibility _visibility;
     private readonly ILogger<ContainersViewModel> _logger;
     private readonly DispatcherQueue _dispatcher;
     private readonly LogStreamer _logStreamer;
@@ -323,7 +324,7 @@ public partial class ContainersViewModel : ObservableObject, IDisposable
     public ObservableCollection<ContainerGroup> Groups { get; } = new();
 
     /// <summary>Creates the Containers page model and subscribes to inventory, health, and AI availability updates.</summary>
-    public ContainersViewModel(IWslcService wslc, StatusMonitor monitor, HealthWatchdog watchdog, RestartPolicyWatchdog restartWatchdog, DialogService dialogs, ISettingsService settings, RegistryAuthRefresher authRefresher, IRunProfileStore profiles, IComposeProjectStore composeStore, IAiDiagnosticsService aiDiagnostics, IAiAvailabilityService aiAvailability, IAiCapabilityService aiCapabilities, ILocalAiSetupService localAi, ILogger<ContainersViewModel> logger)
+    public ContainersViewModel(IWslcService wslc, StatusMonitor monitor, HealthWatchdog watchdog, RestartPolicyWatchdog restartWatchdog, DialogService dialogs, ISettingsService settings, RegistryAuthRefresher authRefresher, IRunProfileStore profiles, IComposeProjectStore composeStore, IAiDiagnosticsService aiDiagnostics, IAiAvailabilityService aiAvailability, IAiCapabilityService aiCapabilities, ILocalAiSetupService localAi, IWindowVisibility visibility, ILogger<ContainersViewModel> logger)
     {
         _wslc = wslc;
         _monitor = monitor;
@@ -338,6 +339,7 @@ public partial class ContainersViewModel : ObservableObject, IDisposable
         _aiAvailability = aiAvailability;
         _aiCapabilities = aiCapabilities;
         _localAi = localAi;
+        _visibility = visibility;
         _logger = logger;
         _volumeInspector = new ContainerVolumeInspector(wslc);
         _dispatcher = DispatcherQueue.GetForCurrentThread();
@@ -1132,6 +1134,8 @@ public partial class ContainersViewModel : ObservableObject, IDisposable
             {
                 try
                 {
+                    // Live stats only feed the visible page; skip them while nobody can see the window.
+                    await _visibility.WhenViewableAsync(token).ConfigureAwait(false);
                     var stats = await _wslc.GetStatsAsync(target.Id, token).ConfigureAwait(false);
                     _dispatcher.TryEnqueue(() =>
                     {

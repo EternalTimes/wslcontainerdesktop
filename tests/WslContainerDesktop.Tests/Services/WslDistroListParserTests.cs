@@ -82,4 +82,35 @@ public sealed class WslDistroListParserTests
         Assert.Equal("Beendet", distro.State);
         Assert.Equal(2, distro.Version);
     }
+
+    [Fact]
+    public void RunningNamesAreReadOnePerLineAndMatchedCaseInsensitively()
+    {
+        var running = WslDistroListParser.ParseRunningNames("Ubuntu\r\ndocker-desktop\r\n");
+
+        Assert.Equal(2, running.Count);
+        Assert.Contains("ubuntu", running);
+        Assert.Contains("docker-desktop", running);
+    }
+
+    [Theory]
+    [InlineData("")]
+    [InlineData("\r\n\r\n")]
+    [InlineData("   \n")]
+    public void NoRunningDistributionsYieldsAnEmptySet(string output)
+    {
+        Assert.Empty(WslDistroListParser.ParseRunningNames(output));
+    }
+
+    [Fact]
+    public void RunningNamesSurviveUtf16OutputReadAsUtf8()
+    {
+        Assert.Contains("Ubuntu", WslDistroListParser.ParseRunningNames("U\0b\0u\0n\0t\0u\0\r\0\n\0"));
+    }
+
+    [Fact]
+    public void RunningNamesIgnoreAByteOrderMark()
+    {
+        Assert.Contains("Ubuntu", WslDistroListParser.ParseRunningNames("\uFEFFUbuntu\n"));
+    }
 }

@@ -6,6 +6,7 @@
     xmlns:converters="using:WslContainerDesktop.Helpers"
     xmlns:controls="using:WslContainerDesktop.Views.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helpers="using:WslContainerDesktop.Helpers"
     xmlns:k8s="using:WslContainerDesktop.Models"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     x:Name="Root"
@@ -89,6 +90,11 @@
                             FontSize="18"
                             FontWeight="SemiBold"
                             Text="k3s single-node cluster" />
+                        <controls:InfoTip
+                            VerticalAlignment="Center"
+                            Title="{x:Bind helpers:FlagHelp.KubernetesLifetime.Title}"
+                            Flag="{x:Bind helpers:FlagHelp.KubernetesLifetime.Flag}"
+                            Text="{x:Bind helpers:FlagHelp.KubernetesLifetime.Text}" />
                         <Border
                             Padding="10,2"
                             VerticalAlignment="Center"
@@ -96,6 +102,14 @@
                             CornerRadius="10"
                             Visibility="{x:Bind ViewModel.IsRunning, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                             <TextBlock FontSize="12" Foreground="White" Text="Running" />
+                        </Border>
+                        <Border
+                            Padding="10,2"
+                            VerticalAlignment="Center"
+                            Background="{ThemeResource CardBackgroundFillColorSecondaryBrush}"
+                            CornerRadius="10"
+                            Visibility="{x:Bind ViewModel.IsStarting, Mode=OneWay, Converter={StaticResource BoolToVis}}">
+                            <TextBlock FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Text="Starting" />
                         </Border>
                         <Border
                             Padding="10,2"
@@ -319,6 +333,23 @@
                     HorizontalAlignment="Center"
                     Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                     Text="Cluster is stopped. Click Start to bring it up." />
+            </StackPanel>
+
+            <!--  Starting hint  -->
+            <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Spacing="10"
+                Visibility="{x:Bind ViewModel.IsStarting, Mode=OneWay, Converter={StaticResource BoolToVis}}">
+                <ProgressRing
+                    Width="36"
+                    Height="36"
+                    HorizontalAlignment="Center"
+                    IsActive="{x:Bind ViewModel.IsStarting, Mode=OneWay}" />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                    Text="k3s is starting. This usually takes a few seconds." />
             </StackPanel>
 
             <!--  ===== Running: sub-nav shell =====  -->

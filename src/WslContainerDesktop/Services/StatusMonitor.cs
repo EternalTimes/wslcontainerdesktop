@@ -50,7 +50,7 @@ public sealed class K8sStatusSnapshot
     public string Summary { get; init; } = string.Empty;
 
     /// <summary>Whether the cluster is installed (footer indicator is hidden otherwise).</summary>
-    public bool IsInstalled => State is ClusterState.Stopped or ClusterState.Running;
+    public bool IsInstalled => State is ClusterState.Stopped or ClusterState.Running or ClusterState.Starting;
 }
 
 /// <summary>
@@ -67,6 +67,7 @@ public sealed class StatusMonitor : IDisposable, IHealthObservationSource
     private readonly INotificationService _notifications;
     private readonly IWslRequirementService _requirements;
     private readonly IEngineEventStream _events;
+    private readonly IWindowVisibility _visibility;
     private readonly DispatcherQueue _dispatcher;
     private readonly ILogger<StatusMonitor> _logger;
     private readonly NativeHealthMonitor _nativeHealth = new();
@@ -80,6 +81,9 @@ public sealed class StatusMonitor : IDisposable, IHealthObservationSource
     // Serializes container polls so the loop and any RequestRefresh don't run the
     // read-modify-write of Latest + transition detection concurrently.
     private readonly SemaphoreSlim _pollGate = new(1, 1);
+
+    // Keeps the Kubernetes footer refresh from overlapping when the window becomes viewable mid-poll.
+    private readonly SemaphoreSlim _k8sGate = new(1, 1);
 
     // Container IDs the app itself just stopped/restarted/killed, so the resulting
     // running->stopped transition is not surfaced as an "exited" toast. Entries are
@@ -110,7 +114,7 @@ public sealed class StatusMonitor : IDisposable, IHealthObservationSource
     public DispatcherQueue Dispatcher => _dispatcher;
 
     /// <summary>Creates the monitor and captures the current UI dispatcher for event delivery.</summary>
-    public StatusMonitor(IWslcService wslc, IKubernetesService k8s, RegistryAuthRefresher authRefresher, ISettingsService settings, INotificationService notifications, IWslRequirementService requirements, IEngineEventStream events, DispatcherQueue dispatcher, ILogger<StatusMonitor> logger)
+    public StatusMonitor(IWslcService wslc, IKubernetesService k8s, RegistryAuthRefresher authRefresher, ISettingsService settings, INotificationService notifications, IWslRequirementService requirements, IEngineEventStream events, IWindowVisibility visibility, DispatcherQueue dispatcher, ILogger<StatusMonitor> logger)
     {
         _wslc = wslc;
         _k8s = k8s;
@@ -119,10 +123,12 @@ public sealed class StatusMonitor : IDisposable, IHealthObservationSource
         _notifications = notifications;
         _requirements = requirements;
         _events = events;
+        _visibility = visibility;
         _dispatcher = dispatcher;
         _logger = logger;
         _requirements.Changed += OnRequirementChanged;
         _events.EventReceived += OnEngineEventReceived;
+        _visibility.Changed += OnVisibilityChanged;
     }
 
     /// <summary>Starts polling and event-stream listening; safe to call once during app launch.</summary>
@@ -172,9 +178,10 @@ public sealed class StatusMonitor : IDisposable, IHealthObservationSource
     {
         while (!ct.IsCancellationRequested)
         {
-            // Poll containers and Kubernetes together. The k8s probe also warms the WSL
-            // distro early so the Kubernetes page loads quickly when first opened.
-            await Task.WhenAll(PollOnceAsync(), PollK8sOnceAsync()).ConfigureAwait(false);
+            // The Kubernetes status only feeds visible UI, so skip it while nobody can see the window.
+            // It never starts a WSL distribution either way (issue #126).
+            var k8sPoll = _visibility.IsViewable ? PollK8sOnceAsync() : Task.CompletedTask;
+            await Task.WhenAll(PollOnceAsync(), k8sPoll).ConfigureAwait(false);
 
             // Keep Azure-backed registry tokens fresh in the background so pulls/runs keep
             // working. Runs on a slow cadence since ACR tokens last a few hours.
@@ -199,45 +206,80 @@ public sealed class StatusMonitor : IDisposable, IHealthObservationSource
 
     private async Task PollK8sOnceAsync()
     {
-        K8sStatusSnapshot snapshot;
-        try
+        if (!await _k8sGate.WaitAsync(0).ConfigureAwait(false))
         {
-            var status = await _k8s.GetFooterStatusAsync().ConfigureAwait(false);
-            snapshot = status.State switch
-            {
-                ClusterState.Running => new K8sStatusSnapshot
-                {
-                    State = ClusterState.Running,
-                    PodsRunning = status.PodsRunning,
-                    PodsTotal = status.PodsTotal,
-                    Summary = $"Kubernetes: running · {status.PodsRunning}/{status.PodsTotal} pods up",
-                },
-                ClusterState.Stopped => new K8sStatusSnapshot
-                {
-                    State = ClusterState.Stopped,
-                    Summary = "Kubernetes: stopped",
-                },
-                ClusterState.NotInstalled => new K8sStatusSnapshot
-                {
-                    State = ClusterState.NotInstalled,
-                    Summary = "Kubernetes: not installed",
-                },
-                ClusterState.NoDistribution => new K8sStatusSnapshot
-                {
-                    State = ClusterState.NoDistribution,
-                    Summary = "Kubernetes: no usable WSL distribution",
-                },
-                _ => new K8sStatusSnapshot { State = ClusterState.Unknown, Summary = "Kubernetes: unknown" },
-            };
-        }
-        catch (Exception ex)
-        {
-            _logger.LogDebug(ex, "Kubernetes footer status poll failed.");
-            snapshot = new K8sStatusSnapshot { State = ClusterState.Unknown, Summary = "Kubernetes: unknown" };
+            return;
         }
 
-        LatestK8s = snapshot;
-        _dispatcher.TryEnqueue(() => K8sStatusChanged?.Invoke(this, snapshot));
+        try
+        {
+            K8sStatusSnapshot snapshot;
+            try
+            {
+                var status = await _k8s.GetFooterStatusAsync().ConfigureAwait(false);
+                snapshot = status.State switch
+                {
+                    ClusterState.Working => new K8sStatusSnapshot
+                    {
+                        State = ClusterState.Working,
+                        Summary = "Kubernetes: operation in progress",
+                    },
+                    ClusterState.Running => new K8sStatusSnapshot
+                    {
+                        State = ClusterState.Running,
+                        PodsRunning = status.PodsRunning,
+                        PodsTotal = status.PodsTotal,
+                        Summary = $"Kubernetes: running · {status.PodsRunning}/{status.PodsTotal} pods up",
+                    },
+                    ClusterState.Starting => new K8sStatusSnapshot
+                    {
+                        State = ClusterState.Starting,
+                        Summary = "Kubernetes: starting",
+                    },
+                    ClusterState.Stopped => new K8sStatusSnapshot
+                    {
+                        State = ClusterState.Stopped,
+                        Summary = status.DistroStopped
+                            ? $"Kubernetes: not running ({status.Distro} is stopped)"
+                            : status.NotKeptRunning
+                                ? "Kubernetes: not kept running"
+                                : "Kubernetes: stopped",
+                    },
+                    ClusterState.NotInstalled => new K8sStatusSnapshot
+                    {
+                        State = ClusterState.NotInstalled,
+                        Summary = "Kubernetes: not installed",
+                    },
+                    ClusterState.NoDistribution => new K8sStatusSnapshot
+                    {
+                        State = ClusterState.NoDistribution,
+                        Summary = "Kubernetes: no usable WSL distribution",
+                    },
+                    _ => new K8sStatusSnapshot { State = ClusterState.Unknown, Summary = "Kubernetes: unknown" },
+                };
+            }
+            catch (Exception ex)
+            {
+                _logger.LogDebug(ex, "Kubernetes footer status poll failed.");
+                snapshot = new K8sStatusSnapshot { State = ClusterState.Unknown, Summary = "Kubernetes: unknown" };
+            }
+
+            LatestK8s = snapshot;
+            _dispatcher.TryEnqueue(() => K8sStatusChanged?.Invoke(this, snapshot));
+        }
+        finally
+        {
+            _k8sGate.Release();
+        }
+    }
+
+    private void OnVisibilityChanged(object? sender, EventArgs e)
+    {
+        // Show a current Kubernetes status as soon as the window can be seen again.
+        if (_visibility.IsViewable && !_disposed)
+        {
+            _ = Task.Run(PollK8sOnceAsync);
+        }
     }
 
     /// <summary>
@@ -510,12 +552,13 @@ public sealed class StatusMonitor : IDisposable, IHealthObservationSource
         _cts?.Dispose();
         _requirements.Changed -= OnRequirementChanged;
         _events.EventReceived -= OnEngineEventReceived;
+        _visibility.Changed -= OnVisibilityChanged;
         lock (_eventRefreshGate)
         {
             _eventRefreshCts?.Cancel();
             _eventRefreshCts = null;
         }
-        _pollGate.Dispose();
         _disposed = true;
+        _pollGate.Dispose();
     }
 }

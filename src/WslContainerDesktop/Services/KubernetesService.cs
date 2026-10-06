@@ -24,37 +24,66 @@ namespace WslContainerDesktop.Services;
 /// operations run via <c>wsl.exe -u root</c> (no Linux password required); k3s bundles kubectl.
 /// The actual work is delegated to focused collaborators - <see cref="K8sInstaller"/> (lifecycle
 /// and versions), <see cref="K8sResourceClient"/> (status, queries, single-object actions), and
-/// <see cref="PortForwardManager"/> (port-forward sessions) - over a shared <see cref="WslRootShell"/>.
+/// <see cref="PortForwardManager"/> (port-forward sessions) - over a shared <see cref="WslRootShell"/>,
+/// plus <see cref="KubernetesKeepAlive"/>, which keeps the k3s distribution running while the app runs.
 /// </summary>
 public sealed class KubernetesService : IKubernetesService
 {
     private readonly K8sInstaller _installer;
     private readonly K8sResourceClient _resources;
     private readonly PortForwardManager _portForwards;
+    private readonly K8sClusterLifecycle _lifecycle;
 
     /// <summary>Creates the k3s collaborators around the configured WSL distro and shared root shell.</summary>
-    public KubernetesService(ISettingsService settings, WslDistroInventory distros, ILoggerFactory loggerFactory)
+    public KubernetesService(ISettingsService settings, WslDistroInventory distros, IWslSystemService wsl, ILoggerFactory loggerFactory)
     {
         var shell = new WslRootShell(settings);
         _installer = new K8sInstaller(shell);
         _resources = new K8sResourceClient(shell, distros, loggerFactory.CreateLogger<K8sResourceClient>());
         _portForwards = new PortForwardManager(shell);
+        _lifecycle = new K8sClusterLifecycle(settings, distros.ResolveKubernetesHost,
+            wsl.GetRunningDistributionsAsync, _resources,
+            new KubernetesKeepAlive(loggerFactory.CreateLogger<KubernetesKeepAlive>()),
+            loggerFactory.CreateLogger<K8sClusterLifecycle>());
     }
 
     // ---- Status ----
     /// <inheritdoc/>
-    public Task<ClusterStatus> GetStatusAsync(CancellationToken ct = default) => _resources.GetStatusAsync(ct);
+    public Task<ClusterStatus> GetStatusAsync(CancellationToken ct = default) =>
+        _lifecycle.GetStatusAsync(observationOnly: false, ct);
+
     /// <inheritdoc/>
-    public Task<K8sFooterStatus> GetFooterStatusAsync(CancellationToken ct = default) => _resources.GetFooterStatusAsync(ct);
+    public Task<ClusterStatus> ObserveStatusAsync(CancellationToken ct = default) =>
+        _lifecycle.GetStatusAsync(observationOnly: true, ct);
+
+    /// <inheritdoc/>
+    public bool CanObserve => _lifecycle.CanObserve;
+
+    /// <inheritdoc/>
+    public Task UseDefaultDistributionAsync(CancellationToken ct = default) =>
+        _lifecycle.UseDefaultDistributionAsync(ct);
+
+    /// <inheritdoc/>
+    public Task<K8sFooterStatus> GetFooterStatusAsync(CancellationToken ct = default) =>
+        _lifecycle.GetFooterStatusAsync(ct);
+
+    // ---- Keeping the distribution running while the app runs ----
+    /// <inheritdoc/>
+    public Task SyncKeepAliveAsync(CancellationToken ct = default) => _lifecycle.SyncKeepAliveAsync(ct);
+
+    /// <inheritdoc/>
+    public void ReleaseKeepAlive() => _lifecycle.Shutdown();
 
     // ---- Install / lifecycle ----
     /// <inheritdoc/>
     public Task<K3sInstallResult> InstallAsync(string? expectedInstallerHash, Action<string> onOutput, CancellationToken ct = default) =>
-        _installer.InstallAsync(expectedInstallerHash, onOutput, ct);
+        _lifecycle.ChangeAsync(K8sLifecycleAction.Install,
+            token => _installer.InstallAsync(expectedInstallerHash, onOutput, token), result => result.Success, ct);
 
     /// <inheritdoc/>
     public Task<K3sInstallResult> UpgradeAsync(string? version, string? expectedInstallerHash, Action<string> onOutput, CancellationToken ct = default) =>
-        _installer.UpgradeAsync(version, expectedInstallerHash, onOutput, ct);
+        _lifecycle.ChangeAsync(K8sLifecycleAction.Upgrade,
+            token => _installer.UpgradeAsync(version, expectedInstallerHash, onOutput, token), result => result.Success, ct);
 
     /// <inheritdoc/>
     public Task<string?> GetInstalledVersionAsync(CancellationToken ct = default) => _installer.GetInstalledVersionAsync(ct);
@@ -63,11 +92,17 @@ public sealed class KubernetesService : IKubernetesService
     /// <inheritdoc/>
     public Task<string?> GetChannelVersionAsync(string channel, CancellationToken ct = default) => _installer.GetChannelVersionAsync(channel, ct);
     /// <inheritdoc/>
-    public Task<CommandResult> UninstallAsync(Action<string> onOutput, CancellationToken ct = default) => _installer.UninstallAsync(onOutput, ct);
+    public Task<CommandResult> UninstallAsync(Action<string> onOutput, CancellationToken ct = default) =>
+        _lifecycle.ChangeAsync(K8sLifecycleAction.Uninstall,
+            token => _installer.UninstallAsync(onOutput, token), result => result.Success, ct);
+
     /// <inheritdoc/>
-    public Task<CommandResult> StartAsync(CancellationToken ct = default) => _installer.StartAsync(ct);
+    public Task<CommandResult> StartAsync(CancellationToken ct = default) =>
+        _lifecycle.ChangeAsync(K8sLifecycleAction.Start, _installer.StartAsync, result => result.Success, ct);
+
     /// <inheritdoc/>
-    public Task<CommandResult> StopAsync(CancellationToken ct = default) => _installer.StopAsync(ct);
+    public Task<CommandResult> StopAsync(CancellationToken ct = default) =>
+        _lifecycle.ChangeAsync(K8sLifecycleAction.Stop, _installer.StopAsync, result => result.Success, ct);
 
     // ---- Resource list queries ----
     /// <inheritdoc/>

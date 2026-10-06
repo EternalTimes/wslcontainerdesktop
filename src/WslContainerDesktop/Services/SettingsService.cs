@@ -105,6 +105,8 @@ public sealed class SettingsService : ISettingsService
     /// <inheritdoc/>
     public string? WslDistro { get; set; }
     /// <inheritdoc/>
+    public bool KubernetesStoppedByUser { get; set; }
+    /// <inheritdoc/>
     public bool WslUpdatePreRelease { get; set; }
     /// <inheritdoc/>
     public string? DevContainerNpmRegistry { get; set; }
@@ -200,6 +202,7 @@ public sealed class SettingsService : ISettingsService
                 ? new HashSet<string>(approvedTools.Where(t => !string.IsNullOrWhiteSpace(t)), StringComparer.Ordinal)
                 : MigrateLegacyToolApprovals(dto);
             WslDistro = string.IsNullOrWhiteSpace(dto.WslDistro) ? null : dto.WslDistro;
+            KubernetesStoppedByUser = dto.KubernetesStoppedByUser;
             // Before WSL 3.0.1 containers were only on the pre-release channel, so many users enabled it.
             // GA ships on the stable channel: switch those users back once; later choices are kept.
             WslUpdatePreRelease = dto.WslUpdateChannelGaMigrated && dto.WslUpdatePreRelease;
@@ -341,6 +344,7 @@ public sealed class SettingsService : ISettingsService
                 AiAssistantAllowDestructive = AiAssistantAllowDestructive,
                 AiAssistantAutoApprovedTools = _autoApprovedTools.ToList(),
                 WslDistro = WslDistro,
+                KubernetesStoppedByUser = KubernetesStoppedByUser,
                 WslUpdatePreRelease = WslUpdatePreRelease,
                 WslUpdateChannelGaMigrated = true,
                 DevContainerNpmRegistry = DevContainerNpmRegistry,
@@ -467,6 +471,7 @@ public sealed class SettingsService : ISettingsService
         public bool AiAssistantAllowDestructive { get; set; }
         public List<string>? AiAssistantAutoApprovedTools { get; set; }
         public string? WslDistro { get; set; }
+        public bool KubernetesStoppedByUser { get; set; }
         public bool WslUpdatePreRelease { get; set; }
         public bool WslUpdateChannelGaMigrated { get; set; }
         public string? DevContainerNpmRegistry { get; set; }

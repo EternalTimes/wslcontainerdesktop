@@ -796,6 +796,7 @@ public sealed class Wslc301RuntimeTests
         public bool AiAssistantApproveEverything { get; set; }
         public bool AiAssistantAllowDestructive { get; set; }
         public string? WslDistro { get; set; }
+        public bool KubernetesStoppedByUser { get; set; }
         public bool WslUpdatePreRelease { get; set; }
         public string? DevContainerNpmRegistry { get; set; }
         public string? K3sInstallerSha256 { get; set; }

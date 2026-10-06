@@ -61,4 +61,25 @@ public static class WslDistroListParser
 
         return result;
     }
+
+    /// <summary>
+    /// Parses <c>wsl --list --running --quiet</c> output, one distribution name per line, into a
+    /// case-insensitive set. Callers only test membership for a registered name, so a message line
+    /// can never be mistaken for a running distribution.
+    /// </summary>
+    public static IReadOnlySet<string> ParseRunningNames(string output)
+    {
+        var names = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        foreach (var raw in output.Split('\n'))
+        {
+            // NULs appear if wsl.exe ignored WSL_UTF8 and wrote UTF-16, which is read here as UTF-8.
+            var name = raw.Replace("\0", string.Empty, StringComparison.Ordinal).Trim().TrimStart('\uFEFF').Trim();
+            if (name.Length > 0)
+            {
+                names.Add(name);
+            }
+        }
+
+        return names;
+    }
 }

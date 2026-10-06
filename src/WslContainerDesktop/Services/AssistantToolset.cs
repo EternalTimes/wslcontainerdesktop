@@ -118,8 +118,8 @@ public sealed partial class AssistantToolset(
 
         try
         {
-            var status = await kubernetes.GetStatusAsync(ct).ConfigureAwait(false);
-            if (status.State is ClusterState.Running or ClusterState.Stopped)
+            var status = await kubernetes.ObserveStatusAsync(ct).ConfigureAwait(false);
+            if (status.IsInstalled)
             {
                 definitions.AddRange([
                     Tool("list_k8s_resources", "List k3s resources by kind: pods, deployments, services, ingresses, pvc, configmaps, secrets, jobs, cronjobs, namespaces."),

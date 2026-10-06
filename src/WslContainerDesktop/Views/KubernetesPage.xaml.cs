@@ -47,7 +47,7 @@ public sealed partial class KubernetesPage : Page
     protected override void OnNavigatedFrom(NavigationEventArgs e)
     {
         base.OnNavigatedFrom(e);
-        ViewModel.StopPolling();
+        ViewModel.Deactivate();
     }
 
     private void OnOperationLogUpdated()
