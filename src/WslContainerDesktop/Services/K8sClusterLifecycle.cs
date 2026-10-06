@@ -30,7 +30,11 @@ public sealed class K8sClusterLifecycle(
 {
     private readonly SemaphoreSlim _operations = new(1, 1);
     private readonly object _holdGate = new();
+    private readonly object _observationGate = new();
+    private CancellationTokenSource? _observation;
+    private Task _observationCancellation = Task.CompletedTask;
     private long _revision;
+    private int _pendingChanges;
     private volatile bool _shutdown;
 
     /// <summary>Whether recurring page queries still have a held host.</summary>
@@ -41,9 +45,12 @@ public sealed class K8sClusterLifecycle(
     {
         var revision = Interlocked.Read(ref _revision);
         await _operations.WaitAsync(ct).ConfigureAwait(false);
+        var callerToken = ct;
+        using var observation = CancellationTokenSource.CreateLinkedTokenSource(ct);
+        ct = observation.Token;
         try
         {
-            if (!IsCurrent(revision))
+            if (!BeginObservation(revision, observation))
             {
                 return Superseded();
             }
@@ -100,6 +107,11 @@ public sealed class K8sClusterLifecycle(
                     : Unobserved(new(K8sFooterAction.Report, ClusterState.Stopped, NotKeptRunning: true), host);
             }
 
+            if (status.State == ClusterState.Unknown)
+            {
+                return status;
+            }
+
             // Discovery and its hold acquisition are one operation: Stop cannot complete between them.
             // The short commit shares shutdown's fence, so late discovery cannot change settings after exit.
             lock (_holdGate)
@@ -125,9 +137,13 @@ public sealed class K8sClusterLifecycle(
             await SyncCoreAsync(ct).ConfigureAwait(false);
             return IsCurrent(revision) ? status : Superseded();
         }
+        catch (OperationCanceledException) when (!callerToken.IsCancellationRequested && observation.IsCancellationRequested)
+        {
+            return Superseded();
+        }
         finally
         {
-            _operations.Release();
+            await ReleaseObservationAsync(observation).ConfigureAwait(false);
         }
     }
 
@@ -140,10 +156,13 @@ public sealed class K8sClusterLifecycle(
             return new K8sFooterStatus { State = ClusterState.Working, Distro = settings.WslDistro };
         }
 
+        var callerToken = ct;
+        using var observation = CancellationTokenSource.CreateLinkedTokenSource(ct);
+        ct = observation.Token;
         try
         {
             var host = resolveHost();
-            if (!IsCurrent(revision))
+            if (!BeginObservation(revision, observation))
             {
                 return new K8sFooterStatus { Distro = host?.DistroName };
             }
@@ -180,9 +199,13 @@ public sealed class K8sClusterLifecycle(
 
             return status;
         }
+        catch (OperationCanceledException) when (!callerToken.IsCancellationRequested && observation.IsCancellationRequested)
+        {
+            return new K8sFooterStatus { State = ClusterState.Unknown };
+        }
         finally
         {
-            _operations.Release();
+            await ReleaseObservationAsync(observation).ConfigureAwait(false);
         }
     }
 
@@ -212,16 +235,22 @@ public sealed class K8sClusterLifecycle(
     {
         var revision = Interlocked.Read(ref _revision);
         await _operations.WaitAsync(ct).ConfigureAwait(false);
+        var callerToken = ct;
+        using var observation = CancellationTokenSource.CreateLinkedTokenSource(ct);
         try
         {
-            if (IsCurrent(revision))
+            if (BeginObservation(revision, observation))
             {
-                await SyncCoreAsync(ct).ConfigureAwait(false);
+                await SyncCoreAsync(observation.Token).ConfigureAwait(false);
             }
+        }
+        catch (OperationCanceledException) when (!callerToken.IsCancellationRequested && observation.IsCancellationRequested)
+        {
+            // A lifecycle action superseded launch synchronization and now owns the hold.
         }
         finally
         {
-            _operations.Release();
+            await ReleaseObservationAsync(observation).ConfigureAwait(false);
         }
     }
 
@@ -275,8 +304,7 @@ public sealed class K8sClusterLifecycle(
     public async Task<T> ChangeAsync<T>(K8sLifecycleAction action,
         Func<CancellationToken, Task<T>> execute, Func<T, bool> succeeded, CancellationToken ct)
     {
-        Interlocked.Increment(ref _revision);
-        await _operations.WaitAsync(ct).ConfigureAwait(false);
+        await EnterChangeAsync(ct).ConfigureAwait(false);
         try
         {
             ObjectDisposedException.ThrowIf(_shutdown, this);
@@ -325,14 +353,14 @@ public sealed class K8sClusterLifecycle(
             }
 
             Interlocked.Increment(ref _revision);
+            Interlocked.Decrement(ref _pendingChanges);
             _operations.Release();
         }
     }
 
     public async Task UseDefaultDistributionAsync(CancellationToken ct)
     {
-        Interlocked.Increment(ref _revision);
-        await _operations.WaitAsync(ct).ConfigureAwait(false);
+        await EnterChangeAsync(ct).ConfigureAwait(false);
         try
         {
             ObjectDisposedException.ThrowIf(_shutdown, this);
@@ -344,17 +372,90 @@ public sealed class K8sClusterLifecycle(
         finally
         {
             Interlocked.Increment(ref _revision);
+            Interlocked.Decrement(ref _pendingChanges);
             _operations.Release();
         }
     }
 
     public void Shutdown()
     {
+        _shutdown = true;
+        // The observation owner awaits cancellation callbacks before disposing its source.
+        _ = InvalidateObservationsAsync();
         lock (_holdGate)
         {
-            _shutdown = true;
             Interlocked.Increment(ref _revision);
             keepAlive.Release();
+        }
+    }
+
+    private bool BeginObservation(long revision, CancellationTokenSource source)
+    {
+        lock (_observationGate)
+        {
+            if (!IsCurrent(revision) || Volatile.Read(ref _pendingChanges) != 0)
+            {
+                return false;
+            }
+
+            _observation = source;
+            _observationCancellation = Task.CompletedTask;
+            return true;
+        }
+    }
+
+    private async Task EnterChangeAsync(CancellationToken ct)
+    {
+        ct.ThrowIfCancellationRequested();
+        Interlocked.Increment(ref _pendingChanges);
+        try
+        {
+            await InvalidateObservationsAsync().ConfigureAwait(false);
+            await _operations.WaitAsync(ct).ConfigureAwait(false);
+        }
+        catch
+        {
+            Interlocked.Decrement(ref _pendingChanges);
+            throw;
+        }
+    }
+
+    private Task InvalidateObservationsAsync()
+    {
+        lock (_observationGate)
+        {
+            Interlocked.Increment(ref _revision);
+            if (_observation is not null && !_observation.IsCancellationRequested)
+            {
+                // Run callbacks outside this lock; they may complete the observation inline.
+                _observationCancellation = _observation.CancelAsync();
+            }
+
+            return _observationCancellation;
+        }
+    }
+
+    private async Task ReleaseObservationAsync(CancellationTokenSource source)
+    {
+        try
+        {
+            Task cancellation;
+            lock (_observationGate)
+            {
+                if (!ReferenceEquals(_observation, source))
+                {
+                    return;
+                }
+
+                _observation = null;
+                cancellation = _observationCancellation;
+            }
+
+            await cancellation.ConfigureAwait(false);
+        }
+        finally
+        {
+            _operations.Release();
         }
     }
 

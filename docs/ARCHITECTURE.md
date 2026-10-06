@@ -288,6 +288,16 @@ releases the hold. Shutdown also fences late hold acquisition. Footer checks do 
 lifecycle work: they report an operation in progress so the shared container monitor keeps polling.
 Automatic assistant tool discovery uses `ObserveStatusAsync`, not boot-capable discovery.
 
+Lifecycle changes cancel the active observation before waiting for the gate, and pending changes
+prevent new observations from overtaking them. The observation keeps the gate until its process
+cleanup and cancellation callbacks finish; caller cancellation still propagates, while superseded
+observations report Unknown. Detailed, footer, and state-only probes have a 30-second process
+timeout through `ProcessExecutor` (no retry); install and upgrade commands retain their existing
+execution policy. Read-only cancellation does not terminate the separately owned keep-alive.
+Probe output must contain a recognized whole-line state marker and the command must succeed.
+A failed node query after a Running marker reports Unknown with the service evidence and error,
+not a healthy cluster. Unknown discovery leaves Stop intent, the host pin, and the hold untouched.
+
 **Starting state.** Right after the distribution boots, `systemctl is-active k3s` reports `activating`
 for several seconds. The probe emits `@@STATE=starting`, which becomes `ClusterState.Starting`. The
 footer shows it. While the page is visible it re-checks after 2 s, backing off to every 10 s, until

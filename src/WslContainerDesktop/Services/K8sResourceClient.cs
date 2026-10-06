@@ -75,46 +75,19 @@ public sealed class K8sResourceClient(WslRootShell shell, WslDistroInventory dis
             var script = K8sStatusProtocol.BuildProbeScript(
                 K8sStatusProtocol.NodesMarker, "k3s kubectl get nodes -o json");
 
-            var r = await shell.RunAsync(script, ct).ConfigureAwait(false);
+            var r = await shell.RunAsync(script, ct, K8sStatusProtocol.ProbeTimeout).ConfigureAwait(false);
             var output = r.StandardOutput;
-
-            if (!r.Success && string.IsNullOrWhiteSpace(output))
+            var status = K8sStatusProtocol.ParseResult(r, distroLabel);
+            if (status.State == ClusterState.Unknown)
             {
-                return new ClusterStatus { State = ClusterState.Unknown, Message = r.ErrorText };
+                logger.LogWarning("Kubernetes cluster status unavailable: {Diagnostic}", status.Message);
+                return status;
             }
 
-            if (K8sStatusProtocol.Contains(output, K8sStatusProtocol.StateNotInstalled))
+            Observe(host?.DistroName, status.State);
+            if (status.State != ClusterState.Running)
             {
-                Observe(host?.DistroName, ClusterState.NotInstalled);
-                return new ClusterStatus { State = ClusterState.NotInstalled, Distro = distroLabel };
-            }
-
-            if (K8sStatusProtocol.Contains(output, K8sStatusProtocol.StateStarting))
-            {
-                Observe(host?.DistroName, ClusterState.Starting);
-                return new ClusterStatus
-                {
-                    State = ClusterState.Starting,
-                    Distro = distroLabel,
-                    Message = "k3s is starting.",
-                };
-            }
-
-            if (K8sStatusProtocol.Contains(output, K8sStatusProtocol.StateStopped))
-            {
-                Observe(host?.DistroName, ClusterState.Stopped);
-                return new ClusterStatus
-                {
-                    State = ClusterState.Stopped,
-                    Distro = distroLabel,
-                    Message = "k3s is installed but not running.",
-                };
-            }
-
-            // Running: parse the node JSON that followed the nodes marker.
-            if (K8sStatusProtocol.Contains(output, K8sStatusProtocol.StateRunning))
-            {
-                Observe(host?.DistroName, ClusterState.Running);
+                return status;
             }
 
             var nodeJson = K8sStatusProtocol.SectionAfter(output, K8sStatusProtocol.NodesMarker);
@@ -148,9 +121,15 @@ public sealed class K8sResourceClient(WslRootShell shell, WslDistroInventory dis
             var script = K8sStatusProtocol.BuildProbeScript(
                 K8sStatusProtocol.PodsMarker, "k3s kubectl get pods -A -o json");
 
-            var r = await shell.RunAsync(script, ct).ConfigureAwait(false);
+            var r = await shell.RunAsync(script, ct, K8sStatusProtocol.ProbeTimeout).ConfigureAwait(false);
             var output = r.StandardOutput;
-            var state = K8sStatusProtocol.ParseState(output);
+            var status = K8sStatusProtocol.ParseResult(r, distro);
+            var state = status.State;
+            if (state == ClusterState.Unknown)
+            {
+                logger.LogDebug("Kubernetes footer status unavailable: {Diagnostic}", status.Message);
+            }
+
             Observe(distro, state);
             if (state != ClusterState.Running)
             {
@@ -186,8 +165,14 @@ public sealed class K8sResourceClient(WslRootShell shell, WslDistroInventory dis
         var host = distros.ResolveKubernetesHost();
         try
         {
-            var r = await shell.RunAsync(K8sStatusProtocol.BuildStateProbeScript(), ct).ConfigureAwait(false);
-            var state = K8sStatusProtocol.ParseState(r.StandardOutput);
+            var r = await shell.RunAsync(K8sStatusProtocol.BuildStateProbeScript(), ct, K8sStatusProtocol.ProbeTimeout).ConfigureAwait(false);
+            var status = K8sStatusProtocol.ParseResult(r, host?.DistroName ?? shell.DistroLabel);
+            var state = status.State;
+            if (state == ClusterState.Unknown)
+            {
+                logger.LogDebug("Kubernetes state unavailable: {Diagnostic}", status.Message);
+            }
+
             Observe(host?.DistroName, state);
             return state;
         }

@@ -24,6 +24,9 @@ where the signed MSIX and installation steps live.
   distribution after `wsl --shutdown`. Refresh or Start reconnects explicitly. Quickly leaving
   and reopening the page no longer strands its startup watcher, and an older status response
   cannot undo a completed Stop.
+- **Stop no longer waits indefinitely behind a stalled Kubernetes status check.** Lifecycle
+  actions cancel the active check, and status commands also have a timeout. Failed or unrecognized
+  status output no longer reports a running cluster or clears the remembered Stop choice.
 
 ### Changed
 - **The background Kubernetes check only looks at the distribution where k3s was seen installed**,

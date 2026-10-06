@@ -77,9 +77,10 @@ public sealed class WslRootShell(ISettingsService settings)
     /// <summary>
     /// Runs a root shell command and returns its completed result.
     /// </summary>
-    public Task<CommandResult> RunAsync(string bashCommand, CancellationToken ct) =>
+    public Task<CommandResult> RunAsync(string bashCommand, CancellationToken ct, TimeSpan? timeout = null) =>
         ProcessExecutor.RunAsync(
             BaseStartInfo(bashCommand),
+            timeout: timeout,
             launchErrorContext: "Could not launch wsl.exe.",
             ct: ct);
 

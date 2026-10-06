@@ -33,9 +33,64 @@ public sealed class K8sStatusProtocolTests
     [InlineData("@@STATE=running\n@@PODS\n{\"items\":[]}\n", ClusterState.Running)]
     [InlineData("", ClusterState.Unknown)]
     [InlineData("wsl: something went wrong\n", ClusterState.Unknown)]
+    [InlineData("diagnostic mentions @@STATE=running\n", ClusterState.Unknown)]
+    [InlineData("@@STATE=running-invalid\n", ClusterState.Unknown)]
     public void ParsesEachStateMarker(string output, ClusterState expected)
     {
         Assert.Equal(expected, K8sStatusProtocol.ParseState(output));
+    }
+
+    [Theory]
+    [InlineData("", 0)]
+    [InlineData("", 1)]
+    [InlineData("wsl: distribution unavailable", 0)]
+    [InlineData("wsl: distribution unavailable", 1)]
+    [InlineData("diagnostic mentions @@STATE=running", 1)]
+    public void MarkerlessOutputNeverReportsRunning(string output, int exitCode)
+    {
+        var result = K8sStatusProtocol.ParseResult(new CommandResult
+        {
+            ExitCode = exitCode, StandardOutput = output,
+        }, "Ubuntu");
+        Assert.Equal(ClusterState.Unknown, result.State);
+        Assert.Equal("Ubuntu", result.Distro);
+        Assert.False(string.IsNullOrWhiteSpace(result.Message));
+        if (output.Length > 0) Assert.Contains(output, result.Message);
+    }
+
+    [Theory]
+    [InlineData("@@STATE=notinstalled", ClusterState.NotInstalled)]
+    [InlineData("@@STATE=stopped", ClusterState.Stopped)]
+    [InlineData("@@STATE=starting", ClusterState.Starting)]
+    [InlineData("@@STATE=running\r\n@@NODES\r\n{\"items\":[]}", ClusterState.Running)]
+    public void SuccessfulProbeRequiresRecognizedState(string output, ClusterState expected)
+    {
+        Assert.Equal(expected, K8sStatusProtocol.ParseResult(new CommandResult { StandardOutput = output }, "Ubuntu").State);
+    }
+
+    [Fact]
+    public void FailedNodeQueryPreservesServiceEvidenceWithoutClaimingHealthyObservation()
+    {
+        var status = K8sStatusProtocol.ParseResult(new CommandResult
+        {
+            ExitCode = 1, StandardOutput = "@@STATE=running\n@@NODES\n",
+            StandardError = "connection refused",
+        }, "Ubuntu");
+        Assert.Equal(ClusterState.Unknown, status.State);
+        Assert.Contains("active service", status.Message);
+        Assert.Contains("connection refused", status.Message);
+    }
+
+    [Fact]
+    public void TimeoutIsUnknownWithDiagnostic()
+    {
+        var status = K8sStatusProtocol.ParseResult(new CommandResult
+        {
+            ExitCode = -1, StandardError = "The command timed out.",
+        }, "Ubuntu");
+        Assert.Equal(ClusterState.Unknown, status.State);
+        Assert.Contains("timed out", status.Message);
+        Assert.Equal(TimeSpan.FromSeconds(30), K8sStatusProtocol.ProbeTimeout);
     }
 
     [Fact]

@@ -23,6 +23,130 @@ namespace WslContainerDesktop.Tests.Services;
 
 public sealed class K8sClusterLifecycleTests
 {
+    [Theory]
+    [InlineData(false)]
+    [InlineData(true)]
+    public async Task StopCancelsStalledObservationAndWaitsForItsCleanup(bool footer)
+    {
+        var f = new Fixture();
+        await f.Lifecycle.SyncKeepAliveAsync(default);
+        var canceled = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var cleanup = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var cleanedUp = false;
+        async Task Stall(CancellationToken token)
+        {
+            try
+            {
+                await Task.Delay(Timeout.InfiniteTimeSpan, token);
+            }
+            finally
+            {
+                canceled.SetResult();
+                await cleanup.Task;
+                cleanedUp = true;
+            }
+        }
+
+        f.Probe.Status = async token => { await Stall(token); return Running(); };
+        f.Probe.Footer = async (_, token) => { await Stall(token); return new(); };
+        Task read = footer ? f.Lifecycle.GetFooterStatusAsync(default) : f.Read();
+        var stop = f.Change(K8sLifecycleAction.Stop, _ =>
+        {
+            Assert.True(cleanedUp);
+            return Task.FromResult(true);
+        });
+        try
+        {
+            await canceled.Task.WaitAsync(TimeSpan.FromSeconds(5));
+            Assert.False(stop.IsCompleted);
+            Assert.NotNull(f.Hold.Session);
+        }
+        finally
+        {
+            cleanup.TrySetResult();
+        }
+
+        await stop.WaitAsync(TimeSpan.FromSeconds(5));
+        await read;
+        Assert.True(f.Stopped);
+        Assert.Null(f.Hold.Session);
+        Assert.Equal(1, f.Hold.Starts);
+    }
+
+    [Fact]
+    public async Task HostChangeCancelsLaunchStateProbe()
+    {
+        var f = new Fixture();
+        var entered = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var canceled = false;
+        f.Probe.State = async token =>
+        {
+            entered.SetResult();
+            try { await Task.Delay(Timeout.InfiniteTimeSpan, token); }
+            finally { canceled = token.IsCancellationRequested; }
+            return ClusterState.Running;
+        };
+        var sync = f.Lifecycle.SyncKeepAliveAsync(default);
+        await entered.Task.WaitAsync(TimeSpan.FromSeconds(5));
+        await f.Lifecycle.UseDefaultDistributionAsync(default).WaitAsync(TimeSpan.FromSeconds(5));
+        await sync;
+        Assert.True(canceled);
+        Assert.Null(f.Hold.Session);
+        Assert.Null(f.Pinned);
+    }
+
+    [Fact]
+    public async Task CallerCancellationStillPropagatesAndDoesNotReleaseHold()
+    {
+        var f = new Fixture();
+        await f.Lifecycle.SyncKeepAliveAsync(default);
+        var session = f.Hold.Session;
+        f.Probe.Status = async token =>
+        {
+            await Task.Delay(Timeout.InfiniteTimeSpan, token);
+            return Running();
+        };
+        using var caller = new CancellationTokenSource();
+        var read = f.Lifecycle.GetStatusAsync(true, caller.Token);
+        caller.Cancel();
+        await Assert.ThrowsAnyAsync<OperationCanceledException>(() => read);
+        Assert.Same(session, f.Hold.Session);
+        Assert.False(f.Stopped);
+    }
+
+    [Theory]
+    [InlineData(true, "Ubuntu")]
+    [InlineData(false, "Ubuntu")]
+    [InlineData(false, null)]
+    public async Task FailedDiscoveryDoesNotChangeIntentPinOrHold(bool stopped, string? pin)
+    {
+        var f = new Fixture { Stopped = stopped, Pinned = pin };
+        f.Probe.Status = _ => Task.FromResult(K8sStatusProtocol.ParseResult(new CommandResult
+        {
+            ExitCode = 1, StandardOutput = "wsl: diagnostic without state",
+        }, "Ubuntu"));
+        Assert.Equal(ClusterState.Unknown, (await f.Read()).State);
+        Assert.Equal(stopped, f.Stopped);
+        Assert.Equal(pin, f.Pinned);
+        Assert.Equal(0, f.Hold.Starts);
+        Assert.Equal(0, f.Probe.StateCalls);
+        Assert.Equal(0, f.SaveCalls);
+    }
+
+    [Fact]
+    public async Task FailedNodeQueryDoesNotClearStop()
+    {
+        var f = new Fixture { Stopped = true };
+        f.Probe.Status = _ => Task.FromResult(K8sStatusProtocol.ParseResult(new CommandResult
+        {
+            ExitCode = 1, StandardOutput = "@@STATE=running\n@@NODES\n", StandardError = "API unavailable",
+        }, "Ubuntu"));
+        Assert.Equal(ClusterState.Unknown, (await f.Read()).State);
+        Assert.True(f.Stopped);
+        Assert.Equal(0, f.SaveCalls);
+        Assert.Equal(0, f.Hold.Starts);
+    }
+
     [Fact]
     public async Task FooterNeverWaitsForLongLifecycleWork()
     {
@@ -294,6 +418,38 @@ public sealed class K8sClusterLifecycleTests
         Assert.Equal(1, f.Hold.Starts);
     }
 
+    [Fact]
+    public async Task FailedDiscoveryLeavesAnExistingSessionUntouched()
+    {
+        var f = new Fixture();
+        await f.Lifecycle.SyncKeepAliveAsync(default);
+        var session = f.Hold.Session;
+        var stateCalls = f.Probe.StateCalls;
+        f.Probe.Status = _ => Task.FromResult(new ClusterStatus { State = ClusterState.Unknown });
+        await f.Read();
+        Assert.Same(session, f.Hold.Session);
+        Assert.Equal(1, f.Hold.Starts);
+        Assert.Equal(stateCalls, f.Probe.StateCalls);
+        Assert.Equal(0, f.SaveCalls);
+    }
+
+    [Fact]
+    public async Task ShutdownCancelsActiveObservationWithoutReacquiringHold()
+    {
+        var f = new Fixture();
+        await f.Lifecycle.SyncKeepAliveAsync(default);
+        f.Probe.Status = async token =>
+        {
+            await Task.Delay(Timeout.InfiniteTimeSpan, token);
+            return Running();
+        };
+        var read = f.Read();
+        f.Lifecycle.Shutdown();
+        Assert.Equal(ClusterState.Unknown, (await read.WaitAsync(TimeSpan.FromSeconds(5))).State);
+        Assert.Null(f.Hold.Session);
+        Assert.Equal(1, f.Hold.Starts);
+    }
+
     private static ClusterStatus Running() => new() { State = ClusterState.Running, Distro = "Ubuntu" };
 
     private sealed class Fixture
@@ -304,6 +460,7 @@ public sealed class K8sClusterLifecycleTests
         public KubernetesHost? Host = new(KubernetesHostProblem.None, "Ubuntu");
         public IReadOnlySet<string>? Running = new HashSet<string> { "Ubuntu" };
         public int ListCalls;
+        public int SaveCalls;
         public Action? BeforeList;
         public readonly HoldFake Hold = new();
         public readonly ProbeFake Probe = new();
@@ -319,7 +476,7 @@ public sealed class K8sClusterLifecycleTests
                     case "set_WslDistro": Pinned = (string?)args[0]; return null;
                     case "get_KubernetesStoppedByUser": return Stopped;
                     case "set_KubernetesStoppedByUser": Stopped = (bool)args[0]!; return null;
-                    case "Save": SavedStopped = Stopped; return null;
+                    case "Save": SavedStopped = Stopped; SaveCalls++; return null;
                     default: throw new InvalidOperationException(method.Name);
                 }
             });
@@ -352,6 +509,7 @@ public sealed class K8sClusterLifecycleTests
     private sealed class ProbeFake : IK8sStatusProbe
     {
         public Func<CancellationToken, Task<ClusterStatus>> Status = _ => Task.FromResult(Running());
+        public Func<CancellationToken, Task<ClusterState>> State = _ => Task.FromResult(ClusterState.Running);
         public Func<string, CancellationToken, Task<K8sFooterStatus>> Footer = (distro, _) =>
             Task.FromResult(new K8sFooterStatus { State = ClusterState.Running, Distro = distro });
         public int StatusCalls;
@@ -371,7 +529,7 @@ public sealed class K8sClusterLifecycleTests
         public Task<ClusterState> ProbeStateAsync(CancellationToken ct)
         {
             StateCalls++;
-            return Task.FromResult(ClusterState.Running);
+            return State(ct);
         }
     }
 }
