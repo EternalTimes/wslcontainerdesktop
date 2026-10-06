@@ -25,7 +25,7 @@ namespace WslContainerDesktop.Services;
 /// Covers status probes, list queries for each resource kind, apply, and the
 /// delete/scale/restart/cron/yaml/describe/logs operations.
 /// </summary>
-public sealed class K8sResourceClient(WslRootShell shell, WslDistroInventory distros, ILogger<K8sResourceClient> logger)
+public sealed class K8sResourceClient(WslRootShell shell, WslDistroInventory distros, ILogger<K8sResourceClient> logger) : IK8sStatusProbe
 {
     // Whether k3s was found installed in each distribution by the latest probe this session.
     private readonly ConcurrentDictionary<string, bool> _installedByDistro = new(StringComparer.OrdinalIgnoreCase);
@@ -128,7 +128,7 @@ public sealed class K8sResourceClient(WslRootShell shell, WslDistroInventory dis
                 KubernetesVersion = node?.Version ?? "-",
             };
         }
-        catch (Exception ex)
+        catch (Exception ex) when (ex is not OperationCanceledException)
         {
             logger.LogWarning(ex, "Kubernetes cluster status probe failed.");
             return new ClusterStatus { State = ClusterState.Unknown, Message = ex.Message };
@@ -168,7 +168,7 @@ public sealed class K8sResourceClient(WslRootShell shell, WslDistroInventory dis
                 PodsTotal = pods.Count,
             };
         }
-        catch (Exception ex)
+        catch (Exception ex) when (ex is not OperationCanceledException)
         {
             logger.LogDebug(ex, "Kubernetes footer status probe failed.");
             return new K8sFooterStatus { State = ClusterState.Unknown, Distro = distro };
@@ -339,4 +339,3 @@ public sealed class K8sResourceClient(WslRootShell shell, WslDistroInventory dis
     public Task<CommandResult> GetPodLogsAsync(string ns, string name, int tailLines, CancellationToken ct = default) =>
         shell.RunAsync($"k3s kubectl logs {WslRootShell.ShellEscape(name)}{WslRootShell.NsArg(ns)} --all-containers=true --tail={tailLines}", ct);
 }
-

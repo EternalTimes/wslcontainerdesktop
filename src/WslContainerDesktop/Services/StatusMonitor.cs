@@ -219,6 +219,11 @@ public sealed class StatusMonitor : IDisposable, IHealthObservationSource
                 var status = await _k8s.GetFooterStatusAsync().ConfigureAwait(false);
                 snapshot = status.State switch
                 {
+                    ClusterState.Working => new K8sStatusSnapshot
+                    {
+                        State = ClusterState.Working,
+                        Summary = "Kubernetes: operation in progress",
+                    },
                     ClusterState.Running => new K8sStatusSnapshot
                     {
                         State = ClusterState.Running,

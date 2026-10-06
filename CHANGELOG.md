@@ -16,18 +16,22 @@ where the signed MSIX and installation steps live.
 - **The display didn't turn off, and the PC didn't go to sleep, while the app was running**
   ([#126](https://github.com/mhackermsft/wslcontainerdesktop/issues/126)). If you have a WSL 2
   distribution set as WSL's default, the app's background Kubernetes status check started that
-  distribution about every 16 seconds, even if k3s wasn't installed. Each start also started
-  WSLg, which counted as activity and reset Windows' display and sleep timers. It also cost CPU,
+  distribution about every 16 seconds, even if k3s wasn't installed. In controlled testing,
+  repeated starts reset Windows' display and sleep timers. They also cost CPU,
   and with k3s installed it restarted k3s each time. The background check no longer starts any WSL
-  distribution, and the app holds nothing that keeps the PC awake.
+  distribution during normal idle polling, and the app holds nothing that keeps the PC awake.
+- **Kubernetes startup checks stop if their WSL session ends**, rather than restarting the
+  distribution after `wsl --shutdown`. Refresh or Start reconnects explicitly. Quickly leaving
+  and reopening the page no longer strands its startup watcher, and an older status response
+  cannot undo a completed Stop.
 
 ### Changed
 - **The background Kubernetes check only looks at the distribution where k3s was seen installed**,
   and only while the app is keeping that distribution running. If you have never installed k3s, the
   app no longer touches your WSL distributions in the background at all. If k3s was installed before
   2.0.1, or by hand, the footer status appears after you open the **Kubernetes** page once. When the
-  distribution isn't running, the footer says **Kubernetes: not running (<distribution> is
-  stopped)**. If something else started it after the app stopped keeping it running (for example
+  running list confirms the distribution isn't running, the footer says **Kubernetes: not running
+  (<distribution> is stopped)**. When the app has no session holding it (for example
   after `wsl --shutdown`), the footer says **Kubernetes: not kept running**; opening the
   **Kubernetes** page checks it and keeps it running again.
 - **While the app is running, it keeps your k3s cluster's WSL distribution running**, so pods
@@ -46,7 +50,8 @@ where the signed MSIX and installation steps live.
 - **Kubernetes now shows Starting** while k3s comes up after its distribution starts, for example
   when the app launches or when you open the Kubernetes page after WSL stopped the distribution.
   Previously the page could show **Stopped** with a **Start** button during those seconds. The page
-  keeps checking until k3s is up, however long that takes.
+  keeps checking while visible until k3s is up, however long that takes, provided its WSL session
+  remains held.
 - **Live stats and Kubernetes lists pause when you can't see the app.** The Dashboard and
   container stats and the Kubernetes page no longer poll while the window is hidden in the tray,
   minimized, or the display is off, and they refresh as soon as the window is visible again.

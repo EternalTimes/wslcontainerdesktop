@@ -36,8 +36,7 @@ public enum K8sFooterAction
 /// <param name="State">The state to report when nothing is probed.</param>
 /// <param name="DistroStopped">True when k3s can't be running because its distribution isn't running.</param>
 /// <param name="NotKeptRunning">
-/// True when the distribution is running but the app isn't keeping it running, so it may stop at any
-/// moment and is not probed.
+/// True when the app isn't keeping the distribution running, so it is not eligible for probing.
 /// </param>
 public readonly record struct K8sFooterDecision(
     K8sFooterAction Action,
@@ -47,8 +46,8 @@ public readonly record struct K8sFooterDecision(
 
 /// <summary>
 /// Pure rules for the background Kubernetes footer status. A background poll must never start a WSL
-/// distribution: starting one boots WSLg too, which resets Windows' display and sleep idle timers
-/// (issue #126). So the footer only follows the distribution where k3s was seen installed (the
+/// distribution: repeated cold starts reset Windows' display and sleep idle timers in the issue #126
+/// reproduction. So the footer only follows the distribution where k3s was seen installed (the
 /// pin), and probes it only while the app's keep-alive session holds it. A distribution nothing
 /// holds can stop between "is it running?" and the probe (WSL's idle timer fires 15–16 s after the
 /// last session, right when the next poll lands), and the probe would then start it again.

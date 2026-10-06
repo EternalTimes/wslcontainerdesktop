@@ -31,7 +31,7 @@ namespace WslContainerDesktop.Services;
 /// exit (for example <c>wsl --shutdown</c>), so it can never become a loop that keeps booting WSL and
 /// resetting Windows' idle timers (issue #126).
 /// </remarks>
-public sealed class KubernetesKeepAlive(ILogger<KubernetesKeepAlive> logger) : IDisposable
+public sealed class KubernetesKeepAlive(ILogger<KubernetesKeepAlive> logger) : IKubernetesKeepAlive, IDisposable
 {
     private const string HoldCommand = "exec cat >/dev/null";
     private static readonly TimeSpan ReleaseWait = TimeSpan.FromSeconds(5);
@@ -41,6 +41,19 @@ public sealed class KubernetesKeepAlive(ILogger<KubernetesKeepAlive> logger) : I
     private readonly object _stateGate = new();
     private Process? _process;
     private string? _distro;
+    private KubernetesHold? _session;
+
+    /// <inheritdoc/>
+    public KubernetesHold? Session
+    {
+        get
+        {
+            lock (_stateGate)
+            {
+                return _process is null || _process.HasExited ? null : _session;
+            }
+        }
+    }
 
     /// <summary>The distribution currently kept running, or null.</summary>
     public string? HeldDistro
@@ -49,7 +62,7 @@ public sealed class KubernetesKeepAlive(ILogger<KubernetesKeepAlive> logger) : I
         {
             lock (_stateGate)
             {
-                return _process is null ? null : _distro;
+                return _process is null || _process.HasExited ? null : _distro;
             }
         }
     }
@@ -62,7 +75,7 @@ public sealed class KubernetesKeepAlive(ILogger<KubernetesKeepAlive> logger) : I
             Process? previous;
             lock (_stateGate)
             {
-                if (_process is not null && string.Equals(_distro, distro, StringComparison.OrdinalIgnoreCase))
+                if (_process is not null && !_process.HasExited && string.Equals(_distro, distro, StringComparison.OrdinalIgnoreCase))
                 {
                     return;
                 }
@@ -70,6 +83,7 @@ public sealed class KubernetesKeepAlive(ILogger<KubernetesKeepAlive> logger) : I
                 previous = _process;
                 _process = null;
                 _distro = null;
+                _session = null;
             }
 
             Close(previous);
@@ -109,6 +123,7 @@ public sealed class KubernetesKeepAlive(ILogger<KubernetesKeepAlive> logger) : I
 
                 _process = process;
                 _distro = distro;
+                _session = new KubernetesHold(distro);
             }
 
             ChildProcessJob.Shared?.TryAssign(process);
@@ -131,6 +146,7 @@ public sealed class KubernetesKeepAlive(ILogger<KubernetesKeepAlive> logger) : I
                 distro = _distro;
                 _process = null;
                 _distro = null;
+                _session = null;
             }
 
             if (process is null)
@@ -183,6 +199,7 @@ public sealed class KubernetesKeepAlive(ILogger<KubernetesKeepAlive> logger) : I
 
             _process = null;
             _distro = null;
+            _session = null;
         }
 
         int? exitCode = null;

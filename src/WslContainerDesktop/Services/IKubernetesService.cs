@@ -31,6 +31,15 @@ public interface IKubernetesService
     /// </summary>
     Task<ClusterStatus> GetStatusAsync(CancellationToken ct = default);
 
+    /// <summary>Observes the held host only; never acquires a session or reconciles Stop intent.</summary>
+    Task<ClusterStatus> ObserveStatusAsync(CancellationToken ct = default);
+
+    /// <summary>Whether page resource polling still has a held host.</summary>
+    bool CanObserve { get; }
+
+    /// <summary>Explicitly forgets the pinned host and its Stop intent, releasing its session.</summary>
+    Task UseDefaultDistributionAsync(CancellationToken ct = default);
+
     /// <summary>
     /// Lightweight single-call status (state + pod counts) for the nav footer indicator. Polled in the
     /// background, so it never starts a WSL distribution: it only probes the distribution where k3s

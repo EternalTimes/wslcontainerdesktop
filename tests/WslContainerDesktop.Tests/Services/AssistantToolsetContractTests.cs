@@ -894,7 +894,7 @@ public sealed class AssistantToolsetContractTests
                 return Mutate(id, args.OfType<CancellationToken>().Single());
             });
             var kubernetes = NetworkTestProxy.Create<IKubernetesService>((method, args) =>
-                method.Name == nameof(IKubernetesService.GetStatusAsync)
+                method.Name is nameof(IKubernetesService.GetStatusAsync) or nameof(IKubernetesService.ObserveStatusAsync)
                     ? GetStatus((CancellationToken)args[0]!)
                     : throw new InvalidOperationException($"Unexpected Kubernetes call: {method.Name}"));
             var templates = NetworkTestProxy.Create<ITemplateCatalog>((method, _) =>

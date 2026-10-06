@@ -308,7 +308,7 @@ public sealed class AssistantCatalogAdapterTests(ITestOutputHelper output)
             harness.SettingsValues[nameof(ISettingsService.WslcPath)] = "fixture-engine";
         }
         internal AssistantToolset Tools(ISettingsService settings) => new(Compose.Engine.Service,
-            NetworkTestProxy.Create<IKubernetesService>((method, _) => method.Name == nameof(IKubernetesService.GetStatusAsync)
+            NetworkTestProxy.Create<IKubernetesService>((method, _) => method.Name == nameof(IKubernetesService.ObserveStatusAsync)
                 ? Task.FromResult(new ClusterStatus { State = Cluster })
                 : throw new InvalidOperationException("Unexpected cluster action")),
             new TemplateCatalog(NetworkTestProxy.Create<IUserTemplateStore>((method, _) => method.Name switch

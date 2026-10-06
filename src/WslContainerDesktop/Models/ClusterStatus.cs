@@ -79,6 +79,6 @@ public sealed class K8sFooterStatus
     public string? Distro { get; init; }
     /// <summary>True when k3s can't be running because its WSL distribution isn't running.</summary>
     public bool DistroStopped { get; init; }
-    /// <summary>True when the distribution is running but the app isn't keeping it running, so it wasn't probed.</summary>
+    /// <summary>True when the app has no held session for the distribution, so it wasn't probed.</summary>
     public bool NotKeptRunning { get; init; }
 }

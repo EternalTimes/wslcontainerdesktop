@@ -220,26 +220,32 @@ The pin therefore means "k3s was seen installed here": a successful uninstall fr
 and a probe that finds k3s missing is remembered for the session.
 `K8sInstaller` checks that PID 1 is systemd before downloading the installer.
 
-**Background status never starts a distribution (issue #126).** Starting a WSL distribution also
-starts WSLg, which Windows counts as activity: it resets the display and sleep idle timers. v2.0.0
+**Background status must not repeatedly start a distribution (issue #126).** Repeated WSL cold
+starts reset the display and sleep idle timers in the controlled reproduction. WSLg starts were
+correlated, but the particular startup component resetting the timer was not isolated. v2.0.0
 polled the footer status about every 16.5 s, just past WSL's default 15 s `instanceIdleTimeout`, so
 every poll cold-started the default distribution, and the display never turned off. The footer status
 (`KubernetesService.GetFooterStatusAsync`) now follows `K8sFooterProbePolicy`:
 
 - It only checks the pinned distribution, so users who never installed k3s get no background WSL
   activity. A cluster the user stopped from the app is reported Stopped without launching anything.
-- It asks `IWslSystemService.GetRunningDistributionsAsync` (`wsl --list --running --quiet`, which
+- Only while a held session exists, it asks `IWslSystemService.GetRunningDistributionsAsync` (`wsl --list --running --quiet`, which
   starts nothing), and runs the probe (`K8sResourceClient.ProbeFooterAsync`) only when the
   distribution is running **and** `KubernetesKeepAlive` holds it.
 - Otherwise it reports Unknown, NotInstalled or Stopped without launching anything. Stopped carries
-  `DistroStopped` when the distribution isn't running, or `NotKeptRunning` when something else runs
-  it but the app doesn't hold it.
+  `DistroStopped` when the running list confirms the distribution isn't running, or `NotKeptRunning`
+  when the app has no session holding it. No running-list command is needed in the latter case.
 
 The probe needs the keep-alive's session, not just a running distribution. WSL's idle timer fires
 15–16 s after a distribution's last session ends, so one that nothing holds can stop between the
 running check and the probe, and the probe then starts it again; a poll whose period is close to that
 timeout keeps landing in the gap. Never add a periodic background command that runs inside a
 distribution the app doesn't hold.
+
+The hold check and a separate WSL command are not atomic against an external `wsl --shutdown`.
+An already admitted command can race that shutdown. The session's reference identity is checked
+before and after each status probe; session loss invalidates its result and stops subsequent
+startup checks, without automatic hold acquisition or retries.
 
 **Keeping k3s running while the app runs.** WSL keeps a distribution up only while a WSL session is
 open; systemd services such as k3s don't count, per Microsoft's systemd documentation. It stops the
@@ -254,8 +260,8 @@ stop with it.
   WSL's normal idle shutdown applies, exactly as for a k3s install made by hand. Users who want k3s
   independent of the app set `instanceIdleTimeout=-1` themselves; the app changes no WSL or Windows
   configuration.
-- `IKubernetesService.SyncKeepAliveAsync` runs at launch and after Kubernetes page status refreshes
-  and actions, never from a poll. After it newly holds a distribution, one state-only probe
+- `IKubernetesService.SyncKeepAliveAsync` runs at launch; deliberate discovery and Start synchronize
+  the hold inside the lifecycle owner, never from a poll. After it newly holds a distribution, one state-only probe
   (`K8sStatusProtocol.BuildStateProbeScript`) confirms k3s is still installed. The session has just
   started the distribution, so this starts nothing more.
 - If k3s was removed outside the app, or the footer later finds it missing, the session is released.
@@ -274,10 +280,22 @@ stop with it.
   change the flag.
 - Holding one session doesn't block display-off or sleep: only repeated distribution starts did.
 
+**Lifecycle ownership.** `K8sClusterLifecycle` serializes status I/O, Start/Stop, install/upgrade/
+uninstall, host selection, and keep-alive synchronization with an async semaphore. A revision
+invalidates observations queued before or during a lifecycle change. A Stop cannot complete and
+then be undone by an older status response; failed/canceled Stop retains no-auto-start intent and
+releases the hold. Shutdown also fences late hold acquisition. Footer checks do not wait behind
+lifecycle work: they report an operation in progress so the shared container monitor keeps polling.
+Automatic assistant tool discovery uses `ObserveStatusAsync`, not boot-capable discovery.
+
 **Starting state.** Right after the distribution boots, `systemctl is-active k3s` reports `activating`
 for several seconds. The probe emits `@@STATE=starting`, which becomes `ClusterState.Starting`. The
 footer shows it. While the page is visible it re-checks after 2 s, backing off to every 10 s, until
-k3s is up or the page is left.
+k3s is up, the held session ends, or the page is left. `K8sStartupWatcher` uses observation-only
+status and rechecks visibility after its delay. Losing the hold stops watching and shows a message
+to Refresh or Start explicitly. Canceling detaches the watcher immediately; its old continuation
+cannot clear a replacement or publish stale state. Page-visit and refresh revisions also reject
+late initialization results after navigation. Resource polling stops when the hold is lost.
 
 ### Engine events (`EngineEventStream`, `WslcEventParser`, `ActivityLog`)
 
