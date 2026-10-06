@@ -39,6 +39,9 @@ public enum ClusterState
     /// don't need a distribution; only k3s does.
     /// </summary>
     NoDistribution,
+
+    /// <summary>k3s is installed and its service is starting (systemd reports it as activating).</summary>
+    Starting,
 }
 
 /// <summary>Snapshot of the cluster's install/run status.</summary>
@@ -58,7 +61,7 @@ public sealed class ClusterStatus
     public KubernetesHostProblem HostProblem { get; init; }
 
     /// <summary>Gets a value indicating whether this value is installed.</summary>
-    public bool IsInstalled => State is ClusterState.Stopped or ClusterState.Running;
+    public bool IsInstalled => State is ClusterState.Stopped or ClusterState.Running or ClusterState.Starting;
     /// <summary>Gets a value indicating whether this value is running.</summary>
     public bool IsRunning => State == ClusterState.Running;
 }
@@ -72,4 +75,10 @@ public sealed class K8sFooterStatus
     public int PodsRunning { get; init; }
     /// <summary>Gets or sets the pods total.</summary>
     public int PodsTotal { get; init; }
+    /// <summary>The WSL distribution k3s runs in, when known.</summary>
+    public string? Distro { get; init; }
+    /// <summary>True when k3s can't be running because its WSL distribution isn't running.</summary>
+    public bool DistroStopped { get; init; }
+    /// <summary>True when the distribution is running but the app isn't keeping it running, so it wasn't probed.</summary>
+    public bool NotKeptRunning { get; init; }
 }

@@ -15,6 +15,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -39,6 +40,7 @@ public sealed partial class MainWindow : Window
     private readonly IAiAvailabilityService _aiAvailability;
     private readonly IWslRequirementService _requirements;
     private readonly RequirementGateViewModel _gate;
+    private readonly WindowVisibility _visibility;
     private string _currentTag = "dashboard";
 
     private static readonly HashSet<string> GatedTags = new(StringComparer.OrdinalIgnoreCase)
@@ -69,6 +71,7 @@ public sealed partial class MainWindow : Window
         _aiAvailability = App.Current.Services.GetRequiredService<IAiAvailabilityService>();
         _requirements = App.Current.Services.GetRequiredService<IWslRequirementService>();
         _gate = App.Current.Services.GetRequiredService<RequirementGateViewModel>();
+        _visibility = App.Current.Services.GetRequiredService<WindowVisibility>();
 
         ExtendsContentIntoTitleBar = true;
         AppWindow.SetIcon("Assets/AppIcon.ico");
@@ -82,6 +85,21 @@ public sealed partial class MainWindow : Window
         }
 
         AppWindow.Closing += OnAppWindowClosing;
+        AppWindow.Changed += OnAppWindowChanged;
+        try
+        {
+            global::Microsoft.Windows.System.Power.PowerManager.DisplayStatusChanged += OnDisplayStatusChanged;
+            Closed += (_, _) => global::Microsoft.Windows.System.Power.PowerManager.DisplayStatusChanged -= OnDisplayStatusChanged;
+        }
+        catch (Exception ex)
+        {
+            // Without display notifications polling simply isn't paused while the display is off.
+            App.Current.Services.GetService<ILoggerFactory>()?.CreateLogger<MainWindow>()
+                .LogWarning(ex, "Display power notifications are unavailable.");
+        }
+
+        PublishWindowState();
+        PublishDisplayStatus();
         _settings.Changed += OnSettingsChanged;
         _aiAvailability.Changed += OnAiAvailabilityChanged;
         _requirements.Changed += OnRequirementChanged;
@@ -198,6 +216,34 @@ public sealed partial class MainWindow : Window
         {
             args.Cancel = true;
             HideToTray();
+        }
+    }
+
+    // Restoring from minimized raises only size/position changes, so republish on every change;
+    // WindowVisibility raises Changed only when viewability actually flips.
+    private void OnAppWindowChanged(AppWindow sender, AppWindowChangedEventArgs args) => PublishWindowState();
+
+    // Lets UI-only polling pause while the window is hidden in the tray or minimized.
+    private void PublishWindowState() => _visibility.SetWindowState(
+        AppWindow.IsVisible,
+        AppWindow.Presenter is OverlappedPresenter { State: OverlappedPresenterState.Minimized });
+
+    private void OnDisplayStatusChanged(object? sender, object e) => PublishDisplayStatus();
+
+    // Raised on a background thread; WindowVisibility is thread-safe.
+    private void PublishDisplayStatus()
+    {
+        try
+        {
+            _visibility.SetDisplayOn(
+                global::Microsoft.Windows.System.Power.PowerManager.DisplayStatus != global::Microsoft.Windows.System.Power.DisplayStatus.Off);
+        }
+        catch (Exception ex)
+        {
+            // Treat the display as on, so visible UI keeps updating.
+            App.Current.Services.GetService<ILoggerFactory>()?.CreateLogger<MainWindow>()
+                .LogDebug(ex, "Reading the display power state failed.");
+            _visibility.SetDisplayOn(true);
         }
     }
 

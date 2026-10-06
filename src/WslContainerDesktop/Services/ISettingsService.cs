@@ -131,6 +131,12 @@ public interface ISettingsService
     /// <summary>WSL distro to host the k3s cluster. Null/empty uses the WSL default distro.</summary>
     string? WslDistro { get; set; }
 
+    /// <summary>
+    /// True after the user stopped Kubernetes from the app, so the app doesn't keep the k3s
+    /// distribution running until they start it again. Cleared by Start, Install and Uninstall.
+    /// </summary>
+    bool KubernetesStoppedByUser { get; set; }
+
     /// <summary>Include WSL pre-release versions when checking for and applying updates (<c>wsl --update --pre-release</c>).</summary>
     bool WslUpdatePreRelease { get; set; }
 

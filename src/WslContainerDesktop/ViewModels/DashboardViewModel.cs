@@ -106,6 +106,7 @@ public partial class DashboardViewModel : ObservableObject
 {
     private readonly IWslcService _wslc;
     private readonly StatusMonitor _monitor;
+    private readonly IWindowVisibility _visibility;
     private readonly ILogger<DashboardViewModel> _logger;
     private readonly DispatcherQueue _dispatcher;
 
@@ -155,10 +156,11 @@ public partial class DashboardViewModel : ObservableObject
     public ObservableCollection<DashboardStatRow> LiveStats { get; } = new();
 
     /// <summary>Creates the Dashboard view model and stores its injected services.</summary>
-    public DashboardViewModel(IWslcService wslc, StatusMonitor monitor, ILogger<DashboardViewModel> logger)
+    public DashboardViewModel(IWslcService wslc, StatusMonitor monitor, IWindowVisibility visibility, ILogger<DashboardViewModel> logger)
     {
         _wslc = wslc;
         _monitor = monitor;
+        _visibility = visibility;
         _logger = logger;
         _dispatcher = DispatcherQueue.GetForCurrentThread();
         _monitor.StatusChanged += OnStatusChanged;
@@ -232,6 +234,8 @@ public partial class DashboardViewModel : ObservableObject
             {
                 try
                 {
+                    // Live stats only feed the visible page; skip them while nobody can see the window.
+                    await _visibility.WhenViewableAsync(token).ConfigureAwait(false);
                     var stats = await _wslc.GetStatsAsync(token).ConfigureAwait(false);
                     _dispatcher.TryEnqueue(() => ApplyStats(stats));
                 }

@@ -187,6 +187,13 @@ public static class FlagHelp
         "build",
         "Rebuilds service images before applying the selected Compose services. Use it after Dockerfile or build-context changes; it can take longer than reusing existing images.");
 
+    /// <summary>Help entry for how long k3s keeps running inside its WSL distribution.</summary>
+    public static readonly FlagHelpEntry KubernetesLifetime = Entry(
+        "kubernetes-lifetime",
+        "When k3s runs",
+        "instanceIdleTimeout",
+        "k3s runs only while WSL keeps its distribution running. While this app is open it keeps that distribution running, unless you click Stop. After you quit the app, WSL stops the distribution once it's idle (15 seconds by default) and k3s and its pods stop with it, just as for a k3s you install yourself. To keep k3s running without the app, set instanceIdleTimeout=-1 under [general] in %UserProfile%\\.wslconfig. That setting applies to every distribution.");
+
     /// <summary>All help entries, used when a page wants to search or enumerate the help catalog.</summary>
     public static IReadOnlyList<FlagHelpEntry> All { get; } =
     [
@@ -213,6 +220,7 @@ public static class FlagHelp
         RestartWslSession,
         ShutdownWsl,
         ComposeRebuild,
+        KubernetesLifetime,
     ];
 
     private static FlagHelpEntry Entry(string key, string title, string flag, string text) =>

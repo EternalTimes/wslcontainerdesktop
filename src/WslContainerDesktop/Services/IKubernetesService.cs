@@ -24,11 +24,29 @@ namespace WslContainerDesktop.Services;
 /// </summary>
 public interface IKubernetesService
 {
-    /// <summary>Determines whether k3s is installed and whether it is running.</summary>
+    /// <summary>
+    /// Determines whether k3s is installed and whether it is running. This starts the k3s distribution
+    /// if it isn't running, except for a cluster the user stopped from the app. Finding k3s running
+    /// again clears that stop and keeps the distribution running.
+    /// </summary>
     Task<ClusterStatus> GetStatusAsync(CancellationToken ct = default);
 
-    /// <summary>Lightweight single-call probe (state + pod counts) for the nav footer indicator.</summary>
+    /// <summary>
+    /// Lightweight single-call status (state + pod counts) for the nav footer indicator. Polled in the
+    /// background, so it never starts a WSL distribution: it only probes the distribution where k3s
+    /// was seen installed, and only while the app's keep-alive session holds it running.
+    /// </summary>
     Task<K8sFooterStatus> GetFooterStatusAsync(CancellationToken ct = default);
+
+    /// <summary>
+    /// Keeps the k3s distribution running while the app runs, or stops doing so, to match the pinned
+    /// distribution and the user's Start/Stop choice. Holding it boots the distribution if needed,
+    /// so call this only at launch and after explicit Kubernetes actions, never from a poll.
+    /// </summary>
+    Task SyncKeepAliveAsync(CancellationToken ct = default);
+
+    /// <summary>Stops keeping the k3s distribution running (app shutdown); WSL stops it once idle.</summary>
+    void ReleaseKeepAlive();
 
     /// <summary>
     /// Installs k3s in the WSL distro. Streams progress lines via <paramref name="onOutput"/>.
@@ -60,9 +78,15 @@ public interface IKubernetesService
     /// <summary>Uninstalls k3s and cleans up. Streams progress lines via <paramref name="onOutput"/>.</summary>
     Task<CommandResult> UninstallAsync(Action<string> onOutput, CancellationToken ct = default);
 
-    /// <summary>Starts the k3s service inside the configured WSL distro.</summary>
+    /// <summary>
+    /// Starts the k3s service inside the configured WSL distro, clears the user's earlier Stop and
+    /// keeps the distribution running while the app runs.
+    /// </summary>
     Task<CommandResult> StartAsync(CancellationToken ct = default);
-    /// <summary>Stops the k3s service inside the configured WSL distro.</summary>
+    /// <summary>
+    /// Stops the k3s service inside the configured WSL distro, remembers that the user stopped it,
+    /// and stops keeping the distribution running.
+    /// </summary>
     Task<CommandResult> StopAsync(CancellationToken ct = default);
 
     /// <summary>Lists cluster nodes.</summary>
