@@ -83,7 +83,11 @@ public partial class NetworksViewModel : ObservableObject
     public async Task RefreshAsync()
     {
         IsBusy = true;
-        StatusMessage = "Loading networks…";
+        if (Networks.Count == 0)
+        {
+            StatusMessage = "Loading networks…";
+        }
+
         try
         {
             var networks = NetworkDisplayList.Create(await _wslc.ListNetworksAsync());
@@ -92,13 +96,7 @@ public partial class NetworksViewModel : ObservableObject
                 n.UsagePending = true;
             }
 
-            Networks.Clear();
-
-            foreach (var n in networks)
-            {
-                Networks.Add(n);
-            }
-
+            CollectionSync.ReplaceAll(Networks, networks);
             var builtInCount = Networks.Count(n => n.IsBuiltIn);
             var userCount = Networks.Count - builtInCount;
             var builtInLabel = $"{builtInCount} built-in network{(builtInCount == 1 ? "" : "s")}";

@@ -110,4 +110,46 @@ public sealed class WslcEventParserTests
     {
         Assert.False(WslcEventParser.TryParseLine(line, out _));
     }
+
+    [Fact]
+    public void ParsesWsl302HealthStatusEventWithSpaceInAction()
+    {
+        Assert.True(WslcEventParser.TryParseLine(
+            "2026-10-07T09:30:55.367919946-04:00 container health_status: unhealthy 5bdd1b4e0e78 (image=nginx:alpine, name=web)",
+            out var evt));
+
+        Assert.Equal("container", evt.Type);
+        Assert.Equal("health_status: unhealthy", evt.Action);
+        Assert.Equal("unhealthy", evt.HealthStatus);
+        Assert.Equal("5bdd1b4e0e78", evt.ActorId);
+        Assert.Equal("web", evt.DisplayName);
+        Assert.Equal(new DateTimeOffset(2026, 10, 7, 9, 30, 55, 367, TimeSpan.FromHours(-4)),
+            new DateTimeOffset(evt.Timestamp.Ticks / TimeSpan.TicksPerMillisecond * TimeSpan.TicksPerMillisecond, evt.Timestamp.Offset));
+    }
+
+    [Fact]
+    public void NormalizesWhitespaceAfterStatusColon()
+    {
+        Assert.True(WslcEventParser.TryParseLine(
+            "2026-10-07T13:30:55.367919946Z container health_status:   healthy abc123",
+            out var evt));
+
+        Assert.Equal("health_status: healthy", evt.Action);
+        Assert.Equal("healthy", evt.HealthStatus);
+        Assert.Equal("abc123", evt.ActorId);
+        Assert.Equal(TimeSpan.Zero, evt.Timestamp.Offset);
+    }
+
+    [Theory]
+    [InlineData("2026-09-30T10:12:30.1234567-04:00 container stop id1 (exitCode=137, name=a)", "stop", "id1")]
+    [InlineData("2026-10-07T09:30:55.367919946-04:00 container die id1 (execDuration=19, exitCode=137, name=a)", "die", "id1")]
+    [InlineData("2026-10-07T09:30:55.367919946-04:00 image pull nginx:latest", "pull", "nginx:latest")]
+    public void SingleWordActionsFromBothVersionsAreUnchanged(string line, string action, string actor)
+    {
+        Assert.True(WslcEventParser.TryParseLine(line, out var evt));
+
+        Assert.Equal(action, evt.Action);
+        Assert.Equal(actor, evt.ActorId);
+        Assert.Null(evt.HealthStatus);
+    }
 }

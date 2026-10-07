@@ -28,6 +28,9 @@ public interface ISettingsService
     /// <summary>Hide the window to the tray instead of exiting when closed.</summary>
     bool CloseToTray { get; set; }
 
+    /// <summary>Play UI animations: page slides, list item entrances and the nav highlight slide.</summary>
+    bool PageAnimations { get; set; }
+
     /// <summary>Start the app minimized to the tray.</summary>
     bool StartMinimized { get; set; }
 

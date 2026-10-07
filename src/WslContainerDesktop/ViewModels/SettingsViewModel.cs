@@ -66,6 +66,10 @@ public partial class SettingsViewModel : ObservableObject
     [ObservableProperty]
     private bool _closeToTray;
 
+    /// <summary>Bindable state for the "Animations" switch used by the view.</summary>
+    [ObservableProperty]
+    private bool _pageAnimations;
+
     /// <summary>Bindable state for start minimized used by the view.</summary>
     [ObservableProperty]
     private bool _startMinimized;
@@ -557,6 +561,7 @@ public partial class SettingsViewModel : ObservableObject
         _wslcPath = settings.WslcPath;
         _refreshIntervalSeconds = settings.RefreshIntervalSeconds;
         _closeToTray = settings.CloseToTray;
+        _pageAnimations = settings.PageAnimations;
         _startMinimized = settings.StartMinimized;
         _restartRunningContainersOnLaunch = settings.RestartRunningContainersOnLaunch;
         _notificationsEnabled = settings.NotificationsEnabled;
@@ -606,6 +611,13 @@ public partial class SettingsViewModel : ObservableObject
     partial void OnCloseToTrayChanged(bool value)
     {
         _settings.CloseToTray = value;
+        _settings.Save();
+    }
+
+    /// <summary>Persists the animations switch; the shell applies it live via the settings Changed event.</summary>
+    partial void OnPageAnimationsChanged(bool value)
+    {
+        _settings.PageAnimations = value;
         _settings.Save();
     }
 

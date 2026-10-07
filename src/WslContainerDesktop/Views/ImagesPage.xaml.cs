@@ -34,6 +34,7 @@ public sealed partial class ImagesPage : Page
     {
         ViewModel = App.Current.Services.GetRequiredService<ImagesViewModel>();
         InitializeComponent();
+        NavigationCacheMode = NavigationCacheMode.Enabled;
     }
 
     /// <summary>Image inventory view model bound by the page.</summary>

@@ -66,6 +66,8 @@ public enum ActivityKind
     AssistantApprovalApproved,
     /// <summary>Represents the assistant approval rejected option.</summary>
     AssistantApprovalRejected,
+    /// <summary>A container health check changed state (WSL 3.0.2+ <c>health_status</c> events).</summary>
+    ContainerHealth,
 }
 
 /// <summary>
@@ -140,6 +142,7 @@ public sealed class ActivityEvent
         ActivityKind.AssistantToolInvoked => "\uE8D4", // robot
         ActivityKind.AssistantApprovalApproved => "\uE8FB", // accept
         ActivityKind.AssistantApprovalRejected => "\uE711", // cancel
+        ActivityKind.ContainerHealth => "\uEB52",  // heart
         _ => "\uE9D9",
     };
 

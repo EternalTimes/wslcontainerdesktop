@@ -769,6 +769,7 @@ public sealed class Wslc301RuntimeTests
         public string WslcPath { get; set; } = wslcPath;
         public int RefreshIntervalSeconds { get; set; }
         public bool CloseToTray { get; set; }
+        public bool PageAnimations { get; set; } = true;
         public bool StartMinimized { get; set; }
         public bool RestartRunningContainersOnLaunch { get; set; }
         public string Theme { get; set; } = "Default";

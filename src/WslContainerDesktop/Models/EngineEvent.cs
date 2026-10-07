@@ -76,6 +76,25 @@ public sealed class EngineEvent
         }
     }
 
+    /// <summary>
+    /// Gets the reported health state (for example <c>healthy</c> or <c>unhealthy</c>) for a WSL 3.0.2+
+    /// <c>health_status: &lt;state&gt;</c> container event, or <see langword="null"/> for any other event.
+    /// </summary>
+    public string? HealthStatus
+    {
+        get
+        {
+            const string prefix = "health_status:";
+            if (!IsType("container") || !Action.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
+            {
+                return null;
+            }
+
+            var status = Action[prefix.Length..].Trim();
+            return status.Length == 0 ? null : status;
+        }
+    }
+
     /// <summary>Checks whether this value is type.</summary>
     /// <param name="type">The type value supplied by the caller.</param>
     /// <returns>The requested value for the caller.</returns>

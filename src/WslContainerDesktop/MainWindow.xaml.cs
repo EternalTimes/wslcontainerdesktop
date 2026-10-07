@@ -19,6 +19,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using WslContainerDesktop.Helpers;
 using WslContainerDesktop.Services;
 using WslContainerDesktop.Views;
 using WslContainerDesktop.ViewModels;
@@ -105,7 +106,7 @@ public sealed partial class MainWindow : Window
         _requirements.Changed += OnRequirementChanged;
         _gate.OpenSettingsRequested += OnGateOpenSettingsRequested;
 
-        NavFrame.Navigate(typeof(DashboardPage));
+        NavFrame.NavigateWithPreference(typeof(DashboardPage));
         RefreshRequirementGate();
     }
 
@@ -126,6 +127,7 @@ public sealed partial class MainWindow : Window
         _dialogs.XamlRoot = ((FrameworkElement)sender).XamlRoot;
         RefreshAssistantButtonVisibility();
         RefreshRequirementGate();
+        ApplyAnimationPreference();
     }
 
     private void RefreshAssistantButtonVisibility()
@@ -155,6 +157,7 @@ public sealed partial class MainWindow : Window
     {
         DispatcherQueue.TryEnqueue(() =>
         {
+            ApplyAnimationPreference();
             RefreshAssistantButtonVisibility();
 
             // If AI was turned off while the panel was open, close it too.
@@ -177,7 +180,7 @@ public sealed partial class MainWindow : Window
     private void OnGateOpenSettingsRequested(object? sender, EventArgs e)
     {
         _currentTag = "settings";
-        NavFrame.Navigate(typeof(SettingsPage));
+        NavFrame.NavigateWithPreference(typeof(SettingsPage));
         NavView.SelectedItem = null;
         RefreshRequirementGate();
     }
@@ -270,12 +273,49 @@ public sealed partial class MainWindow : Window
         }
     }
 
+    private bool _navIndicatorHidden;
+    private bool? _appliedAnimations;
+
+    /// <summary>Hides or restores the nav pane's sliding selection indicator to match the animations setting.</summary>
+    private void ApplyNavIndicatorPreference()
+    {
+        var animate = _settings.PageAnimations;
+        if (!animate || _navIndicatorHidden)
+        {
+            FrameNavigationExtensions.SetNavIndicatorVisible(NavView, animate);
+            _navIndicatorHidden = !animate;
+        }
+    }
+
+    /// <summary>Applies the animations setting to the shell and the current page (used when the setting changes).</summary>
+    private void ApplyAnimationPreference()
+    {
+        // Every settings save raises Changed; only re-walk the tree when this setting actually flipped.
+        if (_appliedAnimations == _settings.PageAnimations)
+        {
+            return;
+        }
+
+        _appliedAnimations = _settings.PageAnimations;
+        ApplyNavIndicatorPreference();
+        if (NavFrame.Content is DependencyObject page)
+        {
+            FrameNavigationExtensions.ApplyItemTransitions(page, _settings.PageAnimations);
+        }
+    }
+
     private void NavView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
     {
+        // The indicator is (re)created as selection moves; re-hide it once layout has caught up.
+        if (!_settings.PageAnimations)
+        {
+            DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Low, ApplyNavIndicatorPreference);
+        }
+
         if (args.IsSettingsSelected)
         {
             _currentTag = "settings";
-            NavFrame.Navigate(typeof(SettingsPage));
+            NavFrame.NavigateWithPreference(typeof(SettingsPage));
             RefreshRequirementGate();
             return;
         }
@@ -285,7 +325,7 @@ public sealed partial class MainWindow : Window
             _currentTag = item.Tag as string ?? string.Empty;
             if (PageTypeFor(_currentTag) is { } pageType)
             {
-                NavFrame.Navigate(pageType);
+                NavFrame.NavigateWithPreference(pageType);
             }
 
             RefreshRequirementGate();
@@ -325,7 +365,7 @@ public sealed partial class MainWindow : Window
             && PageTypeFor(tag) is { } pageType
             && NavFrame.Content?.GetType() != pageType)
         {
-            NavFrame.Navigate(pageType);
+            NavFrame.NavigateWithPreference(pageType);
         }
     }
 
@@ -395,7 +435,7 @@ public sealed partial class MainWindow : Window
         }
 
         vm.Selected = row;
-        NavFrame.Navigate(typeof(ContainerDetailPage));
+        NavFrame.NavigateWithPreference(typeof(ContainerDetailPage));
     }
 
     /// <summary>Restores and foregrounds the window after the user opens the tray icon.</summary>
