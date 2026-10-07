@@ -321,6 +321,18 @@ brackets. Malformed lines are skipped with debug logging. Events are delivered o
 the captured `DispatcherQueue`, stored in a 500-entry in-memory ring buffer, and de-duplicated by a
 stable key (`timestamp|type|action|actor|attributes`).
 
+The app supports both 3.0.1 and 3.0.2 event output and stays on the text format, because
+`wslc events --format json` only exists in 3.0.2. Differences that matter:
+
+- 3.0.2 adds container `health_status: <state>` events, whose action contains a space. The parser
+  accepts a `word: value` action and normalizes it, and `EngineEventActivity` maps it to a
+  `ContainerHealth` entry; an `unhealthy` state is shown as an error. 3.0.1 never emits these.
+- 3.0.1 reports an exit as one `stop` carrying `exitCode`. 3.0.2 reports it as `die` with `exitCode`,
+  followed, for a user stop, by a `stop` without one at the same time. `EngineEventActivity` drops
+  that extra `stop` (or replaces it if it arrived first), so each stop shows once in Activity. A
+  `stop` that carries an exit code is never dropped.
+- 3.0.2 timestamps have nine fractional digits and use `Z` for UTC; `DateTimeOffset` parses both forms.
+
 When the stream exits, it reconnects with exponential backoff from 1 to 30 seconds. After the first
 event, reconnects pass `--since <last-event-unix-seconds>` and rely on the stable-key de-dup set to
 avoid replay duplicates. Settings or requirement changes kill the current process so the next loop

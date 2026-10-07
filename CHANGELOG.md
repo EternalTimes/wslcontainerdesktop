@@ -26,8 +26,15 @@ where the signed MSIX and installation steps live.
   ([#129](https://github.com/mhackermsft/wslcontainerdesktop/issues/129)). The default is
   unchanged (on). Progress indicators still animate, and dialogs and menus keep Windows' own
   open animation.
+- **Container health changes appear in Activity on WSL 3.0.2.** WSL 3.0.2 reports when a
+  container's health check turns healthy or unhealthy. These now show in the Activity timeline,
+  with unhealthy marked as an error; before, they were silently dropped. WSL 3.0.1 is still
+  supported; it doesn't report these changes.
 
 ### Fixed
+- **Stopping a container showed a duplicate "stopped" entry in Activity on WSL 3.0.2.** WSL 3.0.2
+  reports a stop as both "die" (with the exit code) and "stop"; Activity now shows it once.
+  WSL 3.0.1 is unaffected.
 - **The app could get slower the more often you opened the Containers page.** Each visit left a
   hidden copy of the page alive and updating in the background with every container change; old
   copies are now released when you leave the page.

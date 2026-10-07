@@ -185,6 +185,7 @@
     <Compile Include="..\..\src\WslContainerDesktop\Services\IWslcService.cs" Link="Services\IWslcService.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\IWslcSettingsFileService.cs" Link="Services\IWslcSettingsFileService.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\WslcEventParser.cs" Link="Services\WslcEventParser.cs" />
+    <Compile Include="..\..\src\WslContainerDesktop\Services\EngineEventActivity.cs" Link="Services\EngineEventActivity.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\WslDistroListParser.cs" Link="Services\WslDistroListParser.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\KubernetesHostCheck.cs" Link="Services\KubernetesHostCheck.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Models\KubernetesHostProblem.cs" Link="Models\KubernetesHostProblem.cs" />

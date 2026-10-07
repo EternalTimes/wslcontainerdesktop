@@ -25,9 +25,14 @@ public static partial class WslcEventParser
 {
     private static readonly TimeSpan RegexTimeout = TimeSpan.FromSeconds(1);
 
-    [GeneratedRegex(@"^(?<timestamp>\S+)\s+(?<type>\S+)\s+(?<action>\S+)\s+(?<actor>\S+)(?:\s+\((?<attrs>.*)\))?\s*$",
+    // WSL 3.0.2 added status-carrying actions such as "health_status: unhealthy", whose value
+    // follows a colon and a space; 3.0.1 only emits single-word actions, which still match.
+    [GeneratedRegex(@"^(?<timestamp>\S+)\s+(?<type>\S+)\s+(?<action>[^\s:]+:\s+\S+|\S+)\s+(?<actor>\S+)(?:\s+\((?<attrs>.*)\))?\s*$",
         RegexOptions.CultureInvariant, matchTimeoutMilliseconds: 1000)]
     private static partial Regex EventLineRegex();
+
+    [GeneratedRegex(@":\s+", RegexOptions.CultureInvariant, matchTimeoutMilliseconds: 1000)]
+    private static partial Regex ActionStatusSeparatorRegex();
 
     [GeneratedRegex(@", (?=[A-Za-z_][A-Za-z0-9_.-]*=)", RegexOptions.CultureInvariant, matchTimeoutMilliseconds: 1000)]
     private static partial Regex AttributeBoundaryRegex();
@@ -86,7 +91,7 @@ public static partial class WslcEventParser
             {
                 Timestamp = timestamp,
                 Type = match.Groups["type"].Value,
-                Action = match.Groups["action"].Value,
+                Action = ActionStatusSeparatorRegex().Replace(match.Groups["action"].Value, ": "),
                 ActorId = match.Groups["actor"].Value,
                 Attributes = attributes,
             };

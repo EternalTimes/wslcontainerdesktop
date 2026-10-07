@@ -189,7 +189,18 @@ public sealed class ActivityLog : IActivityLog
             return;
         }
 
-        Record(ToActivityEvent(evt));
+        // WSL 3.0.2+ reports one user stop as both "die" (with the exit code) and "stop"; keep only the die.
+        if (EngineEventActivity.IsRedundantStop(evt, Events))
+        {
+            return;
+        }
+
+        if (EngineEventActivity.FindSupersededStop(evt, Events) is { } supersededStop)
+        {
+            Events.Remove(supersededStop);
+        }
+
+        Record(EngineEventActivity.ToActivityEvent(evt));
     }
 
     /// <summary>
@@ -367,52 +378,6 @@ public sealed class ActivityLog : IActivityLog
         Title = title,
         Detail = shortId,
     };
-
-    private static ActivityEvent ToActivityEvent(EngineEvent evt)
-    {
-        var category = evt.Type.ToLowerInvariant() switch
-        {
-            "container" => ActivityCategory.Container,
-            "image" => ActivityCategory.Image,
-            "network" => ActivityCategory.Network,
-            _ => ActivityCategory.Engine,
-        };
-        var kind = (category, evt.Action.ToLowerInvariant()) switch
-        {
-            (ActivityCategory.Container, "create") => ActivityKind.ContainerCreated,
-            (ActivityCategory.Container, "start") => ActivityKind.ContainerStarted,
-            (ActivityCategory.Container, "stop" or "die" or "kill") => ActivityKind.ContainerStopped,
-            (ActivityCategory.Container, "destroy" or "remove") => ActivityKind.ContainerRemoved,
-            (ActivityCategory.Network, "create") => ActivityKind.NetworkCreated,
-            (ActivityCategory.Network, "connect") => ActivityKind.NetworkConnected,
-            (ActivityCategory.Network, "disconnect") => ActivityKind.NetworkDisconnected,
-            (ActivityCategory.Network, "destroy" or "remove") => ActivityKind.NetworkRemoved,
-            (ActivityCategory.Image, _) => ActivityKind.ImagePulled,
-            _ => ActivityKind.EngineUp,
-        };
-
-        var attrs = evt.Attributes.Count == 0
-            ? null
-            : string.Join(", ", evt.Attributes
-                .Where(kvp => kvp.Key is "image" or "exitCode" or "network" or "name" or "container" or "type")
-                .Select(kvp => $"{kvp.Key}={kvp.Value}"));
-        var name = evt.DisplayName;
-        return new ActivityEvent
-        {
-            Timestamp = evt.Timestamp,
-            Category = category,
-            Kind = kind,
-            Title = $"{evt.Type} {evt.Action}: {name}",
-            Detail = string.IsNullOrWhiteSpace(attrs) ? evt.ActorId : attrs,
-            IsError = evt.ExitCode is > 0,
-            SourceEventKey = evt.StableKey,
-            SourceType = evt.Type,
-            SourceAction = evt.Action,
-            ActorId = evt.ActorId,
-            ContainerId = evt.ContainerId,
-            Attributes = evt.Attributes,
-        };
-    }
 
     private static string? Trim(string? text)
     {
