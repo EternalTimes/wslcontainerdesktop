@@ -96,6 +96,7 @@
     <Compile Include="..\..\src\WslContainerDesktop\Services\ContainerConfigImporter.cs" Link="Services\ContainerConfigImporter.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Models\RunProfile.cs" Link="Models\RunProfile.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Helpers\NetworkDisplayList.cs" Link="Helpers\NetworkDisplayList.cs" />
+    <Compile Include="..\..\src\WslContainerDesktop\Helpers\CollectionSync.cs" Link="Helpers\CollectionSync.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Helpers\ContainerInventoryOperation.cs" Link="Helpers\ContainerInventoryOperation.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Models\ImageInfo.cs" Link="Models\ImageInfo.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Models\ContainerInfo.cs" Link="Models\ContainerInfo.cs" />

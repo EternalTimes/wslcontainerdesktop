@@ -112,6 +112,26 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Spacing="2">
+                            <TextBlock Text="Animations" />
+                            <TextBlock
+                                FontSize="12"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                Text="Slide pages and lists in and animate the navigation highlight. Turn off for instant, animation-free navigation. Progress indicators still spin."
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                        <ToggleSwitch
+                            Grid.Column="1"
+                            MinWidth="0"
+                            AutomationProperties.Name="Animations"
+                            IsOn="{x:Bind ViewModel.PageAnimations, Mode=TwoWay}" />
+                    </Grid>
+                    <Border Height="1" Background="{ThemeResource DividerStrokeColorDefaultBrush}" />
+                    <Grid Padding="0,8" ColumnSpacing="12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Spacing="2">
                             <TextBlock Text="Start minimized to tray" />
                             <TextBlock
                                 FontSize="12"

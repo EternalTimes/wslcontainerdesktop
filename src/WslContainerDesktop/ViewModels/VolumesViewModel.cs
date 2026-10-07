@@ -20,6 +20,7 @@ using CommunityToolkit.Mvvm.Input;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.Extensions.Logging;
 using WslContainerDesktop.Dialogs;
+using WslContainerDesktop.Helpers;
 using WslContainerDesktop.Models;
 using WslContainerDesktop.Services;
 
@@ -79,26 +80,42 @@ public partial class VolumesViewModel : ObservableObject
         refresh.CancelAfter(TimeSpan.FromSeconds(45));
         ct = refresh.Token;
         IsBusy = true;
-        StatusMessage = "Loading volumes…";
+        if (Volumes.Count == 0)
+        {
+            StatusMessage = "Loading volumes…";
+        }
         try
         {
             var volumes = (await _wslc.ListVolumesAsync(ct)).ToList();
 
-            // Enrich each volume with created-time + anonymous flag from inspect.
-            foreach (var v in volumes)
+            // Enrich each volume with created-time + anonymous flag from inspect, a few at a time,
+            // while the container listing for usage runs alongside. Awaiting both together means a
+            // failure in either still fails the refresh and neither is left unobserved.
+            using var gate = new SemaphoreSlim(4);
+            var containersTask = _wslc.ListContainersAsync(all: true, ct: ct);
+            var inspectsTask = Task.WhenAll(volumes.Select(async v =>
             {
-                var inspect = await _wslc.InspectVolumeAsync(v.Name, ct);
-                if (inspect.Success)
+                await gate.WaitAsync(ct);
+                try
                 {
-                    v.EnrichFromInspect(inspect.StandardOutput);
+                    var inspect = await _wslc.InspectVolumeAsync(v.Name, ct);
+                    if (inspect.Success)
+                    {
+                        v.EnrichFromInspect(inspect.StandardOutput);
+                    }
+                    else
+                    {
+                        _logger.LogWarning("Could not inspect volume {Volume}: {Error}", v.Name, inspect.ErrorText);
+                    }
                 }
-                else
+                finally
                 {
-                    _logger.LogWarning("Could not inspect volume {Volume}: {Error}", v.Name, inspect.ErrorText);
+                    gate.Release();
                 }
-            }
+            }));
 
-            var containers = await _wslc.ListContainersAsync(all: true, ct: ct);
+            await Task.WhenAll(inspectsTask, containersTask);
+            var containers = await containersTask;
             var warnings = await VolumeUsageResolver.ResolveAsync(volumes, containers,
                 (id, token) => _wslc.InspectContainerAsync(id, token), ct);
             foreach (var warning in warnings)
@@ -107,14 +124,10 @@ public partial class VolumesViewModel : ObservableObject
             }
 
             ct.ThrowIfCancellationRequested();
-            Volumes.Clear();
-            // Named first, then anonymous; each alphabetical/by-time.
-            foreach (var v in volumes
-                         .OrderBy(v => v.IsAnonymous)
-                         .ThenByDescending(v => v.CreatedAt ?? DateTimeOffset.MinValue))
-            {
-                Volumes.Add(v);
-            }
+            CollectionSync.ReplaceAll(Volumes, volumes
+                .OrderBy(v => v.IsAnonymous)
+                .ThenByDescending(v => v.CreatedAt ?? DateTimeOffset.MinValue)
+                .ToList());
 
             StatusMessage = $"{Volumes.Count} volume{(Volumes.Count == 1 ? "" : "s")}";
             if (warnings.Count > 0)

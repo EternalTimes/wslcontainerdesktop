@@ -19,6 +19,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.UI.Xaml.Controls;
 using WslContainerDesktop.Dialogs;
+using WslContainerDesktop.Helpers;
 using WslContainerDesktop.Models;
 using WslContainerDesktop.Services;
 
@@ -104,30 +105,35 @@ public partial class ImagesViewModel : ObservableObject
     {
         RefreshPolicyState();
         IsBusy = true;
-        StatusMessage = "Loading images…";
+        if (Images.Count == 0)
+        {
+            StatusMessage = "Loading images…";
+        }
+
         try
         {
-            var images = await _wslc.ListImagesAsync();
+            // Both calls are independent engine round trips, so run them together. The usage lookup
+            // never faults, so a failed image listing doesn't leave it unobserved.
+            var imagesTask = _wslc.ListImagesAsync();
+            var containersTask = ListContainersForUsageAsync();
+            var images = await imagesTask;
 
             // Which container holds each image. A dangling row otherwise reads "<none> <none>",
             // which says an image is untagged but not why it is still on disk or why removing it
             // fails — and the answer is almost always a container still referencing it.
-            try
+            if (await containersTask is { } containers)
             {
-                ImageUsageResolver.Apply(images, await _wslc.ListContainersAsync(all: true));
-            }
-            catch (Exception)
-            {
-                // Deliberately silent: usage is an annotation on the listing, not the listing
-                // itself, and the rows are still correct and actionable without it.
-            }
-
-            Images.Clear();
-            foreach (var image in images.OrderBy(i => i.Repository).ThenBy(i => i.Tag))
-            {
-                Images.Add(image);
+                try
+                {
+                    ImageUsageResolver.Apply(images, containers);
+                }
+                catch (Exception)
+                {
+                    // Same reason as ListContainersForUsageAsync: usage is optional annotation.
+                }
             }
 
+            CollectionSync.ReplaceAll(Images, images.OrderBy(i => i.Repository).ThenBy(i => i.Tag).ToList());
             StatusMessage = $"{Images.Count} image{(Images.Count == 1 ? "" : "s")}";
         }
         catch (Exception ex)
@@ -138,6 +144,20 @@ public partial class ImagesViewModel : ObservableObject
         finally
         {
             IsBusy = false;
+        }
+    }
+
+    private async Task<IReadOnlyList<ContainerInfo>?> ListContainersForUsageAsync()
+    {
+        try
+        {
+            return await _wslc.ListContainersAsync(all: true);
+        }
+        catch (Exception)
+        {
+            // Deliberately silent: usage is an annotation on the listing, not the listing
+            // itself, and the rows are still correct and actionable without it.
+            return null;
         }
     }
 
