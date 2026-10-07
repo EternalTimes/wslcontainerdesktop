@@ -59,6 +59,8 @@ public sealed class SettingsService : ISettingsService
     /// <inheritdoc/>
     public string Theme { get; set; } = "Default";
     /// <inheritdoc/>
+    public string Language { get; set; } = AppLanguage.SystemDefault;
+    /// <inheritdoc/>
     public bool NotificationsEnabled { get; set; } = true;
     /// <inheritdoc/>
     public bool NotifyImageEvents { get; set; } = true;
@@ -174,6 +176,9 @@ public sealed class SettingsService : ISettingsService
             StartMinimized = dto.StartMinimized;
             RestartRunningContainersOnLaunch = dto.RestartRunningContainersOnLaunch;
             Theme = string.IsNullOrWhiteSpace(dto.Theme) ? "Default" : dto.Theme;
+            // A hand-edited or stale settings file must not be able to pin the app to a language
+            // that has no Strings\<tag> folder; unknown tags fall back to following the system.
+            Language = AppLanguage.Normalize(dto.Language);
             NotificationsEnabled = dto.NotificationsEnabled;
             NotifyImageEvents = dto.NotifyImageEvents;
             NotifyContainerEvents = dto.NotifyContainerEvents;
@@ -320,6 +325,7 @@ public sealed class SettingsService : ISettingsService
                 StartMinimized = StartMinimized,
                 RestartRunningContainersOnLaunch = RestartRunningContainersOnLaunch,
                 Theme = Theme,
+                Language = Language,
                 NotificationsEnabled = NotificationsEnabled,
                 NotifyImageEvents = NotifyImageEvents,
                 NotifyContainerEvents = NotifyContainerEvents,
@@ -447,6 +453,7 @@ public sealed class SettingsService : ISettingsService
         public bool StartMinimized { get; set; }
         public bool RestartRunningContainersOnLaunch { get; set; } = true;
         public string? Theme { get; set; }
+        public string? Language { get; set; }
         public bool NotificationsEnabled { get; set; } = true;
         public bool NotifyImageEvents { get; set; } = true;
         public bool NotifyContainerEvents { get; set; } = true;

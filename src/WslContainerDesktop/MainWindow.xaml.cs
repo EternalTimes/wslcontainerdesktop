@@ -490,4 +490,20 @@ public sealed partial class MainWindow : Window
             };
         }
     }
+
+    /// <summary>
+    /// Pins the shell root's language so x:Uid lookups resolve against that locale instead of the
+    /// system one. Setting it on the root is enough: Language inherits down the element tree, which
+    /// is why pages do not need to set it themselves.
+    /// </summary>
+    public void ApplyLanguage(string languageTag)
+    {
+        if (Content is FrameworkElement root)
+        {
+            // WinUI 3 types FrameworkElement.Language as a plain BCP-47 string rather than a
+            // Windows.Globalization.Language object. An empty tag means "no override", which sends
+            // every lookup back to the ambient system resource context.
+            root.Language = AppLanguage.Normalize(languageTag);
+        }
+    }
 }

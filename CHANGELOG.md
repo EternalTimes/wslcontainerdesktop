@@ -10,6 +10,16 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html). Each version links to its release,
 where the signed MSIX and installation steps live.
 
+## [Unreleased]
+
+### Added
+- **A UI language setting on the Settings page**. You can now choose the app's UI language from
+  **System default**, **English**, or **简体中文 (Simplified Chinese)**. The choice is saved
+  immediately; a restart reminder is shown while the current session is still running, because the
+  app's `x:Uid` resources are resolved when it does. The Appearance section header and the Theme
+  label and helper text are now resolved from resources; the remaining page strings are migrated in
+  focused batches in later releases.
+
 ## [2.1.0] — 2026-10-06
 
 ### Fixed

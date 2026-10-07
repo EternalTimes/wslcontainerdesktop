@@ -32,6 +32,13 @@ namespace WslContainerDesktop.ViewModels;
 public partial class SettingsViewModel : ObservableObject
 {
     private readonly ISettingsService _settings;
+    private readonly ITextLocalizer _localizer;
+
+    /// <summary>
+    /// Language this process started with, captured before any user edit, so the Settings page can
+    /// tell "changed" from "already in effect".
+    /// </summary>
+    private readonly string _sessionLanguage;
     private readonly IWslcService _wslc;
     private readonly DialogService _dialogs;
     private readonly StartupService _startup;
@@ -90,6 +97,17 @@ public partial class SettingsViewModel : ObservableObject
     /// <summary>Bindable state for selected theme index used by the view.</summary>
     [ObservableProperty]
     private int _selectedThemeIndex;
+
+    /// <summary>Bindable state for the selected UI language index used by the view.</summary>
+    [ObservableProperty]
+    private int _selectedLanguageIndex;
+
+    /// <summary>
+    /// True once the language differs from the one the running session was built with. Resources are
+    /// resolved when elements load, so an already-open window cannot be re-translated in place.
+    /// </summary>
+    [ObservableProperty]
+    private bool _languageChangePending;
 
     /// <summary>Bindable state for notifications enabled used by the view.</summary>
     [ObservableProperty]
@@ -533,10 +551,11 @@ public partial class SettingsViewModel : ObservableObject
     }
 
     /// <summary>Creates the Settings view model and stores its injected services.</summary>
-    public SettingsViewModel(ISettingsService settings, IWslcService wslc, DialogService dialogs, StartupService startup, FileLoggerProvider fileLogger, IAiDiagnosticsService aiDiagnostics, IAiCredentialStore aiCredentials, ILocalAiSetupService localAi, IAiAvailabilityService aiAvailability, IAiCapabilityService aiCapabilities, HttpClient http, ILogger<SettingsViewModel> logger, FoundryLocalSettingsViewModel foundryLocal)
+    public SettingsViewModel(ISettingsService settings, ITextLocalizer localizer, IWslcService wslc, DialogService dialogs, StartupService startup, FileLoggerProvider fileLogger, IAiDiagnosticsService aiDiagnostics, IAiCredentialStore aiCredentials, ILocalAiSetupService localAi, IAiAvailabilityService aiAvailability, IAiCapabilityService aiCapabilities, HttpClient http, ILogger<SettingsViewModel> logger, FoundryLocalSettingsViewModel foundryLocal)
     {
         FoundryLocal = foundryLocal;
         _settings = settings;
+        _localizer = localizer;
         _wslc = wslc;
         _dialogs = dialogs;
         _startup = startup;
@@ -586,6 +605,24 @@ public partial class SettingsViewModel : ObservableObject
             "Dark" => 2,
             _ => 0,
         };
+
+        // Populate the option lists from the localizer rather than hard-coding ComboBoxItem content,
+        // so each language is offered in its own script.
+        ThemeOptions = new[]
+        {
+            _localizer.Get("Settings_Theme_Option_System"),
+            _localizer.Get("Settings_Theme_Option_Light"),
+            _localizer.Get("Settings_Theme_Option_Dark"),
+        };
+        LanguageOptions = AppLanguage.Supported
+            .Select(option => _localizer.Get(option.ResourceKey))
+            .ToArray();
+
+        // Seed the backing fields directly: assigning the observable properties here would run their
+        // change handlers, persisting a value the user never chose.
+        _selectedLanguageIndex = AppLanguage.IndexOf(settings.Language);
+        _sessionLanguage = AppLanguage.Normalize(settings.Language);
+        LanguageChangePending = false;
     }
 
     /// <summary>Handles wslc path changed changes and updates related view-model state.</summary>
@@ -909,6 +946,29 @@ public partial class SettingsViewModel : ObservableObject
     }
 
     public event EventHandler<string>? ThemeChangeRequested;
+
+    /// <summary>Localized theme names, in the order <see cref="SelectedThemeIndex"/> expects.</summary>
+    public IReadOnlyList<string> ThemeOptions { get; }
+
+    /// <summary>Localized UI language names, in the order <see cref="SelectedLanguageIndex"/> expects.</summary>
+    public IReadOnlyList<string> LanguageOptions { get; }
+
+    /// <summary>Handles selected UI language index changed and persists the choice.</summary>
+    partial void OnSelectedLanguageIndexChanged(int value)
+    {
+        // Defensive: the index arrives from the ComboBox, but a stale binding restore or a hand-edited
+        // view could deliver one outside the supported set.
+        var tag = AppLanguage.Supported is { Count: > 0 } options && value >= 0 && value < options.Count
+            ? options[value].Tag
+            : AppLanguage.SystemDefault;
+
+        _settings.Language = tag;
+        _settings.Save();
+
+        // The session's already-loaded resources cannot be re-resolved, so this only ever tells the
+        // user a restart is pending - never that the UI already changed.
+        LanguageChangePending = !string.Equals(tag, _sessionLanguage, StringComparison.Ordinal);
+    }
 
     /// <summary>Opens the folder that holds the rolling diagnostic logs in File Explorer.</summary>
     [RelayCommand]

@@ -115,6 +115,11 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
     var settings = Services.GetRequiredService<ISettingsService>();
     settings.Load();
 
+    // Before anything is constructed: view models build their display text in their constructors, so
+    // the localizer's language has to be settled first or they would cache the previous locale for
+    // the whole session.
+    Services.GetRequiredService<ITextLocalizer>().SetLanguage(settings.Language);
+
         // Reclaim files staged from containers in previous sessions (including any a crash left
         // behind), since they are never deleted while the app is running.
         ContainersViewModel.ClearTempFiles(_logger);
@@ -180,6 +185,7 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
 
         _window = new MainWindow();
         _window.ApplyTheme(settings.Theme);
+        _window.ApplyLanguage(settings.Language);
 
         // In-app updates: report on an update the previous session was closed to install (and
         // clear its download), then offer any newer release once the window exists.
@@ -510,6 +516,7 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
         });
 
         services.AddSingleton<ISettingsService, SettingsService>();
+    services.AddSingleton<ITextLocalizer, TextLocalizer>();
         services.AddSingleton<ProcessRunner>();
         services.AddSingleton<IWslPolicyRegistryReader, RegistryWslPolicyRegistryReader>();
         services.AddSingleton<IWslPolicyService, WslPolicyService>();
