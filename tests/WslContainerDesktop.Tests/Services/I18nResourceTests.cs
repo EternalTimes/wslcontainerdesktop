@@ -53,6 +53,9 @@ public sealed class I18nResourceTests
         Assert.Equal(english, chinese);
         Assert.Equal(english.Length, english.Distinct(StringComparer.Ordinal).Count());
         Assert.Equal(chinese.Length, chinese.Distinct(StringComparer.Ordinal).Count());
+        // PRI names are case insensitive even though XML permits differently cased data keys.
+        Assert.Equal(english.Length, english.Distinct(StringComparer.OrdinalIgnoreCase).Count());
+        Assert.Equal(chinese.Length, chinese.Distinct(StringComparer.OrdinalIgnoreCase).Count());
     }
 
     [Fact]

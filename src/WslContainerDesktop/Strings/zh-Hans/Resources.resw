@@ -9400,7 +9400,7 @@ License: {2} — {3}
   <data name="Root_Audit_Enum_Application" xml:space="preserve">
     <value>应用</value>
   </data>
-  <data name="Root_Audit_Enum_application" xml:space="preserve">
+  <data name="Root_Audit_Enum_ApplicationLowercase" xml:space="preserve">
     <value>应用</value>
   </data>
   <data name="Root_Audit_Enum_No" xml:space="preserve">
