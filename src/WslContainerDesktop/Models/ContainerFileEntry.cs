@@ -14,10 +14,12 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+using WslContainerDesktop.Services;
+
 namespace WslContainerDesktop.Models;
 
 /// <summary>Model object that stores container file entry information used by services, view models, or dialogs.</summary>
-public sealed class ContainerFileEntry
+public sealed class ContainerFileEntry : CommunityToolkit.Mvvm.ComponentModel.ObservableObject
 {
     /// <summary>
     /// Returns the file or folder name. List controls use this as each row's screen-reader name;
@@ -63,26 +65,13 @@ public sealed class ContainerFileEntry
             : "\uE8A5";
 
     /// <summary>Gets the friendly file type label shown in the container file browser.</summary>
-    public string TypeDisplay
-    {
-        get
-        {
-            if (_typeDisplay is null)
-            {
-                if (IsDirectory) _typeDisplay = "Folder";
-                else if (IsSymlink) _typeDisplay = "Shortcut";
-                else
-                {
-                    var ext = System.IO.Path.GetExtension(Name);
-                    _typeDisplay = string.IsNullOrEmpty(ext) ? "File" : ext.TrimStart('.').ToUpperInvariant() + " File";
-                }
-            }
-
-            return _typeDisplay;
-        }
-    }
-
-    private string? _typeDisplay;
+    public string TypeDisplay => IsDirectory
+        ? UiText.Get("Resource_Text_30baa24967e0", "Folder")
+        : IsSymlink
+            ? UiText.Get("Resource_Text_e2012dea310d", "Shortcut")
+            : string.IsNullOrEmpty(System.IO.Path.GetExtension(Name))
+                ? UiText.Get("Resource_Text_2c3cafa4db3f", "File")
+                : UiText.Get("Resource_Text_399694e59ed3", "{0} File", System.IO.Path.GetExtension(Name).TrimStart('.').ToUpperInvariant());
 
     /// <summary>Gets the owner display.</summary>
     public string OwnerDisplay => string.IsNullOrWhiteSpace(Group) || string.Equals(Owner, Group, StringComparison.Ordinal)
@@ -171,4 +160,6 @@ public sealed class ContainerFileEntry
             ? $"{bytes} {suffixes[suffixIndex]}"
             : $"{value:0.#} {suffixes[suffixIndex]}";
     }
+    /// <summary>Refreshes display projections after a UI language change.</summary>
+    internal void RefreshLocalizedText() => OnPropertyChanged(string.Empty);
 }

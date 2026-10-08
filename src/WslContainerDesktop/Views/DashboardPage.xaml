@@ -27,16 +27,15 @@
     <ScrollViewer>
         <StackPanel Margin="24,16,24,24" Spacing="16">
 
-            <!--  Header  -->
+            <!-- Header  -->
             <StackPanel Spacing="2">
-                <TextBlock Style="{ThemeResource TitleTextBlockStyle}" Text="Dashboard" />
-                <TextBlock
+                <TextBlock x:Uid="Resource_Dashboard_001" Style="{ThemeResource TitleTextBlockStyle}" />
+                <TextBlock x:Uid="Resource_Dashboard_002"
                     Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                    Style="{ThemeResource CaptionTextBlockStyle}"
-                    Text="Overview and live performance of your WSL containers" />
+                    Style="{ThemeResource CaptionTextBlockStyle}" />
             </StackPanel>
 
-            <!--  Summary cards (reflow onto multiple rows when narrow)  -->
+            <!-- Summary cards (reflow onto multiple rows when narrow)  -->
             <converters:WrapPanel HorizontalSpacing="14" VerticalSpacing="14">
 
                 <Border Style="{StaticResource StatCard}">
@@ -46,23 +45,22 @@
                                 FontSize="16"
                                 Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
                                 Glyph="&#xE7F4;" />
-                            <TextBlock Foreground="{ThemeResource TextFillColorSecondaryBrush}" Text="Containers" />
+                            <TextBlock x:Uid="Resource_Dashboard_003" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Spacing="6">
                             <TextBlock
                                 FontSize="30"
                                 FontWeight="SemiBold"
                                 Text="{x:Bind ViewModel.RunningContainers, Mode=OneWay}" />
-                            <TextBlock
+                            <TextBlock x:Uid="Resource_Dashboard_004"
                                 Margin="0,0,0,4"
                                 VerticalAlignment="Bottom"
-                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="running" />
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
                         </StackPanel>
                         <TextBlock FontSize="12" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
-                            <Run Text="of" />
+                            <Run x:Uid="Resource_Dashboard_005" />
                             <Run Text="{x:Bind ViewModel.TotalContainers, Mode=OneWay}" />
-                            <Run Text="total" />
+                            <Run x:Uid="Resource_Dashboard_006" />
                         </TextBlock>
                     </StackPanel>
                 </Border>
@@ -74,7 +72,7 @@
                                 FontSize="16"
                                 Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
                                 Glyph="&#xEB9F;" />
-                            <TextBlock Foreground="{ThemeResource TextFillColorSecondaryBrush}" Text="Images" />
+                            <TextBlock x:Uid="Resource_Dashboard_007" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
                         </StackPanel>
                         <TextBlock
                             FontSize="30"
@@ -90,7 +88,7 @@
                                 FontSize="16"
                                 Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
                                 Glyph="&#xE8B7;" />
-                            <TextBlock Foreground="{ThemeResource TextFillColorSecondaryBrush}" Text="Volumes" />
+                            <TextBlock x:Uid="Resource_Dashboard_008" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
                         </StackPanel>
                         <TextBlock
                             FontSize="30"
@@ -107,22 +105,22 @@
                                 Height="12"
                                 VerticalAlignment="Center"
                                 Fill="{x:Bind ViewModel.EngineHealthy, Mode=OneWay, Converter={StaticResource BoolToStatusBrush}}" />
-                            <TextBlock Foreground="{ThemeResource TextFillColorSecondaryBrush}" Text="Engine" />
+                            <TextBlock x:Uid="Resource_Dashboard_009" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
                         </StackPanel>
                         <TextBlock
                             FontSize="24"
                             FontWeight="SemiBold"
-                            Text="{x:Bind ViewModel.EngineStatus, Mode=OneWay}" />
+                            Text="{x:Bind ViewModel.EngineStatusDisplay, Mode=OneWay}" />
                         <TextBlock
                             FontSize="12"
                             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                            Text="{x:Bind ViewModel.EngineVersion, Mode=OneWay}"
+                            Text="{x:Bind ViewModel.EngineVersionDisplay, Mode=OneWay}"
                             TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </Border>
             </converters:WrapPanel>
 
-            <!--  Aggregate CPU  -->
+            <!-- Aggregate CPU  -->
             <Border Style="{StaticResource StatCard}">
                 <StackPanel Spacing="8">
                     <Grid>
@@ -131,7 +129,7 @@
                                 FontSize="16"
                                 Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
                                 Glyph="&#xE950;" />
-                            <TextBlock FontWeight="SemiBold" Text="Total CPU usage" />
+                            <TextBlock x:Uid="Resource_Dashboard_010" FontWeight="SemiBold" />
                         </StackPanel>
                         <TextBlock
                             HorizontalAlignment="Right"
@@ -142,11 +140,10 @@
                 </StackPanel>
             </Border>
 
-            <!--  Live per-container stats  -->
-            <TextBlock
+            <!-- Live per-container stats  -->
+            <TextBlock x:Uid="Resource_Dashboard_011"
                 Margin="2,4,0,0"
-                Style="{ThemeResource BodyStrongTextBlockStyle}"
-                Text="Live container performance" />
+                Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
             <Border
                 Background="{ThemeResource CardBackgroundFillColorSecondaryBrush}"
@@ -173,7 +170,7 @@
                         </VisualStateGroup>
                     </VisualStateManager.VisualStateGroups>
 
-                    <!--  Column header (wide only)  -->
+                    <!-- Column header (wide only)  -->
                     <Grid x:Name="PerfHeader" Padding="16,10" VerticalAlignment="Top">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*" MinWidth="120" />
@@ -182,18 +179,18 @@
                             <ColumnDefinition Width="1.4*" MinWidth="110" />
                             <ColumnDefinition Width="1.4*" MinWidth="110" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Style="{ThemeResource CaptionTextBlockStyle}" Text="NAME" />
+                        <TextBlock x:Uid="Resource_Dashboard_012" Grid.Column="0" Style="{ThemeResource CaptionTextBlockStyle}" />
                         <TextBlock Grid.Column="1" Style="{ThemeResource CaptionTextBlockStyle}" Text="CPU" />
-                        <TextBlock Grid.Column="2" Style="{ThemeResource CaptionTextBlockStyle}" Text="MEMORY" />
-                        <TextBlock Grid.Column="3" Style="{ThemeResource CaptionTextBlockStyle}" Text="NET I/O" />
-                        <TextBlock Grid.Column="4" Style="{ThemeResource CaptionTextBlockStyle}" Text="BLOCK I/O" />
+                        <TextBlock x:Uid="Resource_Dashboard_013" Grid.Column="2" Style="{ThemeResource CaptionTextBlockStyle}" />
+                        <TextBlock x:Uid="Resource_Dashboard_014" Grid.Column="3" Style="{ThemeResource CaptionTextBlockStyle}" />
+                        <TextBlock x:Uid="Resource_Dashboard_015" Grid.Column="4" Style="{ThemeResource CaptionTextBlockStyle}" />
                     </Grid>
 
-                    <!--  Clicking a row opens that container's detail page, like the Containers list.  -->
-                    <ListView
+                    <!-- Clicking a row opens that container's detail page, like the Containers list.  -->
+                    <ListView x:Uid="Resource_Dashboard_016"
                         x:Name="PerfList"
                         Margin="0,40,0,6"
-                        AutomationProperties.Name="Live container performance"
+
                         IsItemClickEnabled="True"
                         ItemClick="PerfList_ItemClick"
                         ItemsSource="{x:Bind ViewModel.LiveStats, Mode=OneWay}"
@@ -306,7 +303,7 @@
                                         TextTrimming="CharacterEllipsis" />
                                 </Grid>
 
-                                <!--  Narrow: stacked card layout  -->
+                                <!-- Narrow: stacked card layout  -->
                                 <StackPanel x:Name="PerfNarrowPanel" Padding="16,10" Spacing="8" Visibility="Collapsed">
                                     <StackPanel Orientation="Horizontal" Spacing="6">
                                         <TextBlock
@@ -345,7 +342,7 @@
                                             <ColumnDefinition Width="64" />
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
-                                        <TextBlock Grid.Column="0" VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}" Text="MEMORY" />
+                                        <TextBlock x:Uid="Resource_Dashboard_017" Grid.Column="0" VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}" />
                                         <StackPanel Grid.Column="1" Spacing="3">
                                             <TextBlock
                                                 FontSize="12"
@@ -365,7 +362,7 @@
                                             <RowDefinition Height="Auto" />
                                             <RowDefinition Height="Auto" />
                                         </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" Grid.Column="0" Style="{ThemeResource CaptionTextBlockStyle}" Text="NET I/O" />
+                                        <TextBlock x:Uid="Resource_Dashboard_018" Grid.Row="0" Grid.Column="0" Style="{ThemeResource CaptionTextBlockStyle}" />
                                         <TextBlock
                                             Grid.Row="0"
                                             Grid.Column="1"
@@ -373,7 +370,7 @@
                                             FontSize="12"
                                             Text="{x:Bind NetIO, Mode=OneWay}"
                                             TextTrimming="CharacterEllipsis" />
-                                        <TextBlock Grid.Row="1" Grid.Column="0" Style="{ThemeResource CaptionTextBlockStyle}" Text="BLOCK I/O" />
+                                        <TextBlock x:Uid="Resource_Dashboard_019" Grid.Row="1" Grid.Column="0" Style="{ThemeResource CaptionTextBlockStyle}" />
                                         <TextBlock
                                             Grid.Row="1"
                                             Grid.Column="1"
@@ -399,10 +396,9 @@
                             FontSize="36"
                             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                             Glyph="&#xE9D9;" />
-                        <TextBlock
+                        <TextBlock x:Uid="Resource_Dashboard_020"
                             HorizontalAlignment="Center"
-                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                            Text="No running containers to report stats for." />
+                            Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
                     </StackPanel>
                 </Grid>
             </Border>

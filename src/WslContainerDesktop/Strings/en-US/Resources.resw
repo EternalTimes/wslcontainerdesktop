@@ -3317,4 +3317,1156 @@ Upgrade to {6} first instead? You can repeat the upgrade afterwards to continue 
   <data name="Workload_Final_c695ffc1a0" xml:space="preserve">
     <value> (failed)</value>
   </data>
+  <data name="Resource_ContainerDetail_001.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Back to containers</value>
+  </data>
+  <data name="Resource_ContainerDetail_001.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Back to containers</value>
+  </data>
+  <data name="Resource_ContainerDetail_002.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Resource_ContainerDetail_002.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Resource_ContainerDetail_003.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="Resource_ContainerDetail_003.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="Resource_ContainerDetail_004.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="Resource_ContainerDetail_005.Text" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="Resource_ContainerDetail_006.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Kill (force stop)</value>
+  </data>
+  <data name="Resource_ContainerDetail_007.Text" xml:space="preserve">
+    <value>Kill (force stop)</value>
+  </data>
+  <data name="Resource_ContainerDetail_008.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Open terminal</value>
+  </data>
+  <data name="Resource_ContainerDetail_008.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Open a shell in the container</value>
+  </data>
+  <data name="Resource_ContainerDetail_009.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Open published port in browser</value>
+  </data>
+  <data name="Resource_ContainerDetail_009.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Open published port in browser</value>
+  </data>
+  <data name="Resource_ContainerDetail_010.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Build a redacted AI diagnosis preview</value>
+  </data>
+  <data name="Resource_ContainerDetail_010.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Build a redacted AI diagnosis preview</value>
+  </data>
+  <data name="Resource_ContainerDetail_011.Text" xml:space="preserve">
+    <value>Diagnose</value>
+  </data>
+  <data name="Resource_ContainerDetail_012.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>More actions</value>
+  </data>
+  <data name="Resource_ContainerDetail_012.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>More actions</value>
+  </data>
+  <data name="Resource_ContainerDetail_013.Text" xml:space="preserve">
+    <value>Export filesystem…</value>
+  </data>
+  <data name="Resource_ContainerDetail_014.Text" xml:space="preserve">
+    <value>Attach to main process…</value>
+  </data>
+  <data name="Resource_ContainerDetail_015.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Resource_ContainerDetail_015.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Resource_ContainerDetail_016.Text" xml:space="preserve">
+    <value>Logs</value>
+  </data>
+  <data name="Resource_ContainerDetail_017.Text" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="Resource_ContainerDetail_018.Text" xml:space="preserve">
+    <value>Stats</value>
+  </data>
+  <data name="Resource_ContainerDetail_019.Text" xml:space="preserve">
+    <value>Inspect</value>
+  </data>
+  <data name="Resource_ContainerDetail_020.Text" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="Resource_ContainerDetail_021.Text" xml:space="preserve">
+    <value>Changes</value>
+  </data>
+  <data name="Resource_ContainerDetail_022.Text" xml:space="preserve">
+    <value>AI diagnosis</value>
+  </data>
+  <data name="Resource_ContainerDetail_023.Text" xml:space="preserve">
+    <value>Send diagnosis</value>
+  </data>
+  <data name="Resource_ContainerDetail_024.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Dismiss diagnosis</value>
+  </data>
+  <data name="Resource_ContainerDetail_024.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Dismiss</value>
+  </data>
+  <data name="Resource_ContainerDetail_025.Header" xml:space="preserve">
+    <value>Technical details</value>
+  </data>
+  <data name="Resource_ContainerDetail_026.Content" xml:space="preserve">
+    <value>Copy details</value>
+  </data>
+  <data name="Resource_ContainerDetail_027.Header" xml:space="preserve">
+    <value>What will be sent (redacted)</value>
+  </data>
+  <data name="Resource_ContainerDetail_028.Text" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="Resource_ContainerDetail_029.Text" xml:space="preserve">
+    <value>Likely cause</value>
+  </data>
+  <data name="Resource_ContainerDetail_030.Content" xml:space="preserve">
+    <value>Copy suggested fix</value>
+  </data>
+  <data name="Resource_ContainerDetail_031.Header" xml:space="preserve">
+    <value>Evidence cited</value>
+  </data>
+  <data name="Resource_ContainerDetail_032.Text" xml:space="preserve">
+    <value>Suggested fix (review-only)</value>
+  </data>
+  <data name="Resource_ContainerDetail_033.PlaceholderText" xml:space="preserve">
+    <value>Search logs…</value>
+  </data>
+  <data name="Resource_ContainerDetail_033.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Filter and highlight matching lines</value>
+  </data>
+  <data name="Resource_ContainerDetail_034.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Previous match</value>
+  </data>
+  <data name="Resource_ContainerDetail_034.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Previous match</value>
+  </data>
+  <data name="Resource_ContainerDetail_035.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Next match</value>
+  </data>
+  <data name="Resource_ContainerDetail_035.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Next match</value>
+  </data>
+  <data name="Resource_ContainerDetail_036.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Match case</value>
+  </data>
+  <data name="Resource_ContainerDetail_036.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Match case</value>
+  </data>
+  <data name="Resource_ContainerDetail_037.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Show only lines that match the search</value>
+  </data>
+  <data name="Resource_ContainerDetail_037.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Show only lines that match the search</value>
+  </data>
+  <data name="Resource_ContainerDetail_038.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Highlight error and warning lines</value>
+  </data>
+  <data name="Resource_ContainerDetail_038.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Highlight error and warning lines</value>
+  </data>
+  <data name="Resource_ContainerDetail_039.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Show timestamps</value>
+  </data>
+  <data name="Resource_ContainerDetail_039.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Show when each line was logged</value>
+  </data>
+  <data name="Resource_ContainerDetail_040.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Wrap long lines</value>
+  </data>
+  <data name="Resource_ContainerDetail_040.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Wrap long lines</value>
+  </data>
+  <data name="Resource_ContainerDetail_041.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Save the visible log to a text file</value>
+  </data>
+  <data name="Resource_ContainerDetail_041.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Save the visible log to a text file</value>
+  </data>
+  <data name="Resource_ContainerDetail_042.Text" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="Resource_ContainerDetail_043.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Clear the log view</value>
+  </data>
+  <data name="Resource_ContainerDetail_043.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Clear the log view</value>
+  </data>
+  <data name="Resource_ContainerDetail_044.Text" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="Resource_ContainerDetail_045.Text" xml:space="preserve">
+    <value>Container ID</value>
+  </data>
+  <data name="Resource_ContainerDetail_046.Text" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="Resource_ContainerDetail_047.Text" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="Resource_ContainerDetail_048.Text" xml:space="preserve">
+    <value>Ports</value>
+  </data>
+  <data name="Resource_ContainerDetail_049.Text" xml:space="preserve">
+    <value>IP address</value>
+  </data>
+  <data name="Resource_ContainerDetail_050.Text" xml:space="preserve">
+    <value>Network</value>
+  </data>
+  <data name="Resource_ContainerDetail_051.Text" xml:space="preserve">
+    <value>Started</value>
+  </data>
+  <data name="Resource_ContainerDetail_052.Text" xml:space="preserve">
+    <value>Command</value>
+  </data>
+  <data name="Resource_ContainerDetail_053.Text" xml:space="preserve">
+    <value>Writable size</value>
+  </data>
+  <data name="Resource_ContainerDetail_054.Text" xml:space="preserve">
+    <value>Virtual size</value>
+  </data>
+  <data name="Resource_ContainerDetail_055.Header" xml:space="preserve">
+    <value>Environment variables</value>
+  </data>
+  <data name="Resource_ContainerDetail_056.Header" xml:space="preserve">
+    <value>Mounts</value>
+  </data>
+  <data name="Resource_ContainerDetail_057.Text" xml:space="preserve">
+    <value>Networks</value>
+  </data>
+  <data name="Resource_ContainerDetail_058.Text" xml:space="preserve">
+    <value>Connect to network…</value>
+  </data>
+  <data name="Resource_ContainerDetail_059.Text" xml:space="preserve">
+    <value>NETWORK</value>
+  </data>
+  <data name="Resource_ContainerDetail_060.Text" xml:space="preserve">
+    <value>ALIASES</value>
+  </data>
+  <data name="Resource_ContainerDetail_061.Content" xml:space="preserve">
+    <value>Disconnect</value>
+  </data>
+  <data name="Resource_ContainerDetail_062.Text" xml:space="preserve">
+    <value>Memory</value>
+  </data>
+  <data name="Resource_ContainerDetail_063.Text" xml:space="preserve">
+    <value>Network I/O</value>
+  </data>
+  <data name="Resource_ContainerDetail_064.Text" xml:space="preserve">
+    <value>Block I/O</value>
+  </data>
+  <data name="Resource_ContainerDetail_065.Text" xml:space="preserve">
+    <value>Processes (PIDs)</value>
+  </data>
+  <data name="Resource_ContainerDetail_066.Text" xml:space="preserve">
+    <value>Updates every 2 seconds. Stats are only available while the container is running.</value>
+  </data>
+  <data name="Resource_ContainerDetail_067.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Navigate up</value>
+  </data>
+  <data name="Resource_ContainerDetail_067.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Navigate up</value>
+  </data>
+  <data name="Resource_ContainerDetail_068.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Resource_ContainerDetail_068.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Resource_ContainerDetail_069.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>New folder</value>
+  </data>
+  <data name="Resource_ContainerDetail_069.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>New folder</value>
+  </data>
+  <data name="Resource_ContainerDetail_070.Text" xml:space="preserve">
+    <value>New folder</value>
+  </data>
+  <data name="Resource_ContainerDetail_071.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Upload files from host to current directory</value>
+  </data>
+  <data name="Resource_ContainerDetail_071.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Upload files from host to current directory</value>
+  </data>
+  <data name="Resource_ContainerDetail_072.Text" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="Resource_ContainerDetail_073.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Upload folder from host to current directory</value>
+  </data>
+  <data name="Resource_ContainerDetail_073.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Upload folder from host to current directory</value>
+  </data>
+  <data name="Resource_ContainerDetail_074.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Resource_ContainerDetail_075.Text" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Resource_ContainerDetail_076.Text" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="Resource_ContainerDetail_077.Text" xml:space="preserve">
+    <value>Modified</value>
+  </data>
+  <data name="Resource_ContainerDetail_078.Text" xml:space="preserve">
+    <value>Permissions</value>
+  </data>
+  <data name="Resource_ContainerDetail_079.Text" xml:space="preserve">
+    <value>If you know where a file or folder is, for example /var/log/app.log, you can still download it.</value>
+  </data>
+  <data name="Resource_ContainerDetail_080.Content" xml:space="preserve">
+    <value>Download by path…</value>
+  </data>
+  <data name="Resource_ContainerDetail_081.Text" xml:space="preserve">
+    <value>Drop to upload</value>
+  </data>
+  <data name="Resource_ContainerDetail_082.Text" xml:space="preserve">
+    <value>Files and folders will be copied into the current directory</value>
+  </data>
+  <data name="Resource_ContainerDetail_083.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Recompute changes</value>
+  </data>
+  <data name="Resource_ContainerDetail_083.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Recompute changes</value>
+  </data>
+  <data name="Resource_ContainerDetail_084.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Resource_ContainerDetail_085.Text" xml:space="preserve">
+    <value>Files added (A), changed (C), or deleted (D) versus the image.</value>
+  </data>
+  <data name="Resource_Containers_001.Text" xml:space="preserve">
+    <value>Containers</value>
+  </data>
+  <data name="Resource_Containers_002.Text" xml:space="preserve">
+    <value>Run a container</value>
+  </data>
+  <data name="Resource_Containers_003.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Import from docker run</value>
+  </data>
+  <data name="Resource_Containers_003.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Prefill the Run dialog from a pasted docker run command</value>
+  </data>
+  <data name="Resource_Containers_004.Text" xml:space="preserve">
+    <value>Import from docker run</value>
+  </data>
+  <data name="Resource_Containers_005.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Resource_Containers_006.Text" xml:space="preserve">
+    <value>Prune stopped</value>
+  </data>
+  <data name="Resource_Containers_007.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Select multiple containers</value>
+  </data>
+  <data name="Resource_Containers_007.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Select multiple containers</value>
+  </data>
+  <data name="Resource_Containers_008.Text" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="Resource_Containers_009.Text" xml:space="preserve">
+    <value>Show all</value>
+  </data>
+  <data name="Resource_Containers_010.Text" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Resource_Containers_011.Text" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="Resource_Containers_012.Text" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Resource_Containers_013.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Resource_Containers_014.Text" xml:space="preserve">
+    <value>NAME</value>
+  </data>
+  <data name="Resource_Containers_015.Text" xml:space="preserve">
+    <value>IMAGE</value>
+  </data>
+  <data name="Resource_Containers_016.Text" xml:space="preserve">
+    <value>PORTS</value>
+  </data>
+  <data name="Resource_Containers_017.Text" xml:space="preserve">
+    <value>NETWORK</value>
+  </data>
+  <data name="Resource_Containers_018.Text" xml:space="preserve">
+    <value>SIZE</value>
+  </data>
+  <data name="Resource_Containers_019.Text" xml:space="preserve">
+    <value>CREATED</value>
+  </data>
+  <data name="Resource_Containers_020.Text" xml:space="preserve">
+    <value>ACTIONS</value>
+  </data>
+  <data name="Resource_Containers_021.Text" xml:space="preserve">
+    <value>Health</value>
+  </data>
+  <data name="Resource_Containers_022.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Resource_Containers_022.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Resource_Containers_023.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="Resource_Containers_023.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="Resource_Containers_024.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="Resource_Containers_024.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="Resource_Containers_025.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Terminal</value>
+  </data>
+  <data name="Resource_Containers_025.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Terminal</value>
+  </data>
+  <data name="Resource_Containers_026.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>More actions</value>
+  </data>
+  <data name="Resource_Containers_026.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>More</value>
+  </data>
+  <data name="Resource_Containers_027.Text" xml:space="preserve">
+    <value>Open in browser</value>
+  </data>
+  <data name="Resource_Containers_028.Text" xml:space="preserve">
+    <value>Health check…</value>
+  </data>
+  <data name="Resource_Containers_029.Text" xml:space="preserve">
+    <value>Save as run profile</value>
+  </data>
+  <data name="Resource_Containers_030.Text" xml:space="preserve">
+    <value>Export filesystem…</value>
+  </data>
+  <data name="Resource_Containers_031.Text" xml:space="preserve">
+    <value>Attach to main process…</value>
+  </data>
+  <data name="Resource_Containers_032.Text" xml:space="preserve">
+    <value>Kill</value>
+  </data>
+  <data name="Resource_Containers_033.Text" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Resource_Containers_034.Text" xml:space="preserve">
+    <value>Health</value>
+  </data>
+  <data name="Resource_Containers_035.Text" xml:space="preserve">
+    <value>IMAGE</value>
+  </data>
+  <data name="Resource_Containers_036.Text" xml:space="preserve">
+    <value>PORTS</value>
+  </data>
+  <data name="Resource_Containers_037.Text" xml:space="preserve">
+    <value>NETWORK</value>
+  </data>
+  <data name="Resource_Containers_038.Text" xml:space="preserve">
+    <value>CREATED</value>
+  </data>
+  <data name="Resource_Containers_039.Text" xml:space="preserve">
+    <value>SIZE</value>
+  </data>
+  <data name="Resource_Containers_040.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Resource_Containers_040.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Resource_Containers_041.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="Resource_Containers_041.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="Resource_Containers_042.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="Resource_Containers_042.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="Resource_Containers_043.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Terminal</value>
+  </data>
+  <data name="Resource_Containers_043.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Terminal</value>
+  </data>
+  <data name="Resource_Containers_044.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>More actions</value>
+  </data>
+  <data name="Resource_Containers_044.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>More</value>
+  </data>
+  <data name="Resource_Containers_045.Text" xml:space="preserve">
+    <value>Open in browser</value>
+  </data>
+  <data name="Resource_Containers_046.Text" xml:space="preserve">
+    <value>Health check…</value>
+  </data>
+  <data name="Resource_Containers_047.Text" xml:space="preserve">
+    <value>Save as run profile</value>
+  </data>
+  <data name="Resource_Containers_048.Text" xml:space="preserve">
+    <value>Export filesystem…</value>
+  </data>
+  <data name="Resource_Containers_049.Text" xml:space="preserve">
+    <value>Attach to main process…</value>
+  </data>
+  <data name="Resource_Containers_050.Text" xml:space="preserve">
+    <value>Kill</value>
+  </data>
+  <data name="Resource_Containers_051.Text" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Resource_Containers_052.Text" xml:space="preserve">
+    <value>No containers yet. Click "Run a container" to get started.</value>
+  </data>
+  <data name="Resource_Dashboard_001.Text" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="Resource_Dashboard_002.Text" xml:space="preserve">
+    <value>Overview and live performance of your WSL containers</value>
+  </data>
+  <data name="Resource_Dashboard_003.Text" xml:space="preserve">
+    <value>Containers</value>
+  </data>
+  <data name="Resource_Dashboard_004.Text" xml:space="preserve">
+    <value>running</value>
+  </data>
+  <data name="Resource_Dashboard_005.Text" xml:space="preserve">
+    <value>of</value>
+  </data>
+  <data name="Resource_Dashboard_006.Text" xml:space="preserve">
+    <value>total</value>
+  </data>
+  <data name="Resource_Dashboard_007.Text" xml:space="preserve">
+    <value>Images</value>
+  </data>
+  <data name="Resource_Dashboard_008.Text" xml:space="preserve">
+    <value>Volumes</value>
+  </data>
+  <data name="Resource_Dashboard_009.Text" xml:space="preserve">
+    <value>Engine</value>
+  </data>
+  <data name="Resource_Dashboard_010.Text" xml:space="preserve">
+    <value>Total CPU usage</value>
+  </data>
+  <data name="Resource_Dashboard_011.Text" xml:space="preserve">
+    <value>Live container performance</value>
+  </data>
+  <data name="Resource_Dashboard_012.Text" xml:space="preserve">
+    <value>NAME</value>
+  </data>
+  <data name="Resource_Dashboard_013.Text" xml:space="preserve">
+    <value>MEMORY</value>
+  </data>
+  <data name="Resource_Dashboard_014.Text" xml:space="preserve">
+    <value>NET I/O</value>
+  </data>
+  <data name="Resource_Dashboard_015.Text" xml:space="preserve">
+    <value>BLOCK I/O</value>
+  </data>
+  <data name="Resource_Dashboard_016.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Live container performance</value>
+  </data>
+  <data name="Resource_Dashboard_017.Text" xml:space="preserve">
+    <value>MEMORY</value>
+  </data>
+  <data name="Resource_Dashboard_018.Text" xml:space="preserve">
+    <value>NET I/O</value>
+  </data>
+  <data name="Resource_Dashboard_019.Text" xml:space="preserve">
+    <value>BLOCK I/O</value>
+  </data>
+  <data name="Resource_Dashboard_020.Text" xml:space="preserve">
+    <value>No running containers to report stats for.</value>
+  </data>
+  <data name="Resource_Endpoints_002.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Resource_Images_016.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Resource_Images_019.Text" xml:space="preserve">
+    <value>Prune</value>
+  </data>
+  <data name="Resource_Images_042.Text" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Resource_Images_056.Text" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Resource_Networks_003.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Resource_Networks_004.Text" xml:space="preserve">
+    <value>Prune</value>
+  </data>
+  <data name="Resource_Networks_016.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Resource_Networks_016.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Resource_Networks_022.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Resource_Networks_022.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Resource_ReclaimSpace_003.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Resource_Registries_015.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Resource_Registries_015.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Resource_Registries_024.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Resource_Registries_024.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Resource_Text_01e8e3e9272d" xml:space="preserve">
+    <value>The selected path is not a regular file.</value>
+  </data>
+  <data name="Resource_Text_06cf19039cfe" xml:space="preserve">
+    <value>
+
+⚠ Some of these are mounted by other containers and would lose data too.</value>
+  </data>
+  <data name="Resource_Text_0a855f042e1d" xml:space="preserve">
+    <value>Remove all stopped containers?</value>
+  </data>
+  <data name="Resource_Text_0b4cce3f68bc" xml:space="preserve">
+    <value>Could not list this directory.</value>
+  </data>
+  <data name="Resource_Text_0cac0038a833" xml:space="preserve">
+    <value>File was not found after copy.</value>
+  </data>
+  <data name="Resource_Text_0f620c7a4975" xml:space="preserve">
+    <value>Download by path…</value>
+  </data>
+  <data name="Resource_Text_10f421d7769d" xml:space="preserve">
+    <value>Creating container from {0}…</value>
+  </data>
+  <data name="Resource_Text_124ff13ed4b4" xml:space="preserve">
+    <value>Download by path</value>
+  </data>
+  <data name="Resource_Text_146781e43eff" xml:space="preserve">
+    <value>Upload incomplete</value>
+  </data>
+  <data name="Resource_Text_15404127f80d" xml:space="preserve">
+    <value>Remove container</value>
+  </data>
+  <data name="Resource_Text_175cc793d8cd" xml:space="preserve">
+    <value>Comparing the container against its image…</value>
+  </data>
+  <data name="Resource_Text_18ff715ccce4" xml:space="preserve">
+    <value>Remove containers</value>
+  </data>
+  <data name="Resource_Text_1afff0157ce3" xml:space="preserve">
+    <value>Attach</value>
+  </data>
+  <data name="Resource_Text_1bc58937f376" xml:space="preserve">
+    <value>Copying {0} into {1}…</value>
+  </data>
+  <data name="Resource_Text_1d10323c27ec" xml:space="preserve">
+    <value>Standalone</value>
+  </data>
+  <data name="Resource_Text_1d6a489471ee" xml:space="preserve">
+    <value>Build diagnosis preview</value>
+  </data>
+  <data name="Resource_Text_20c7c5522fc2" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="Resource_Text_2177fed070db" xml:space="preserve">
+    <value>Creating folder {0}…</value>
+  </data>
+  <data name="Resource_Text_2250bc0a0fff" xml:space="preserve">
+    <value>Collecting and redacting evidence…</value>
+  </data>
+  <data name="Resource_Text_2561aa510ea7" xml:space="preserve">
+    <value>Health check: unhealthy</value>
+  </data>
+  <data name="Resource_Text_259af9c750d4" xml:space="preserve">
+    <value>Starting {0} container(s)…</value>
+  </data>
+  <data name="Resource_Text_25cef6554cad" xml:space="preserve">
+    <value>Upload files…</value>
+  </data>
+  <data name="Resource_Text_26bcd52e50cf" xml:space="preserve">
+    <value>Delete {0} "{1}" from {2}? This cannot be undone.</value>
+  </data>
+  <data name="Resource_Text_281eabe4676a" xml:space="preserve">
+    <value>
+
+Note: volume usage could not be fully determined, so this list may be incomplete.</value>
+  </data>
+  <data name="Resource_Text_291562a2b23c" xml:space="preserve">
+    <value>Delete from container</value>
+  </data>
+  <data name="Resource_Text_295ea1ef065b" xml:space="preserve">
+    <value>Attached to {0}</value>
+  </data>
+  <data name="Resource_Text_2a23b36f66db" xml:space="preserve">
+    <value>Streaming logs for {0}</value>
+  </data>
+  <data name="Resource_Text_2bc3f06a3680" xml:space="preserve">
+    <value>Opened {0}</value>
+  </data>
+  <data name="Resource_Text_2c3cafa4db3f" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="Resource_Text_2f24ebaee0aa" xml:space="preserve">
+    <value>Prune</value>
+  </data>
+  <data name="Resource_Text_2fde889dcf36" xml:space="preserve">
+    <value>Exporting {0} filesystem…</value>
+  </data>
+  <data name="Resource_Text_30baa24967e0" xml:space="preserve">
+    <value>Folder</value>
+  </data>
+  <data name="Resource_Text_3121cab8f91c" xml:space="preserve">
+    <value>Delete these volumes</value>
+  </data>
+  <data name="Resource_Text_32663265855e" xml:space="preserve">
+    <value>Connecting {0} to {1}…</value>
+  </data>
+  <data name="Resource_Text_361423979de2" xml:space="preserve">
+    <value>Logs · {0}</value>
+  </data>
+  <data name="Resource_Text_364d6567206c" xml:space="preserve">
+    <value>Stopping {0}…</value>
+  </data>
+  <data name="Resource_Text_36d578179e3d" xml:space="preserve">
+    <value>The selected path is not a directory.</value>
+  </data>
+  <data name="Resource_Text_385fef159470" xml:space="preserve">
+    <value>Preview is limited to files up to {0} KiB.</value>
+  </data>
+  <data name="Resource_Text_399694e59ed3" xml:space="preserve">
+    <value>{0} File</value>
+  </data>
+  <data name="Resource_Text_3a167b296e0d" xml:space="preserve">
+    <value>{0} of {1} operations failed:
+
+{2}</value>
+  </data>
+  <data name="Resource_Text_3c784acc314d" xml:space="preserve">
+    <value>{0} months ago</value>
+  </data>
+  <data name="Resource_Text_41904cc8b86a" xml:space="preserve">
+    <value>{0} minutes ago</value>
+  </data>
+  <data name="Resource_Text_41f05a5f626f" xml:space="preserve">
+    <value>Exported {0} to {1}. To make an image from it, use Images → Import → Create image from exported files….</value>
+  </data>
+  <data name="Resource_Text_44fa701be401" xml:space="preserve">
+    <value>Could not open this file.</value>
+  </data>
+  <data name="Resource_Text_4d11e46048eb" xml:space="preserve">
+    <value>Disconnect "{0}" from its only network "{1}"? The container will have no network attachments.</value>
+  </data>
+  <data name="Resource_Text_4ea61ec0985e" xml:space="preserve">
+    <value>Health check configured for {0}</value>
+  </data>
+  <data name="Resource_Text_4f0c763a9779" xml:space="preserve">
+    <value>{0} of {1} failed</value>
+  </data>
+  <data name="Resource_Text_4fabdcfbb3cd" xml:space="preserve">
+    <value>Confidence: {0:P0}</value>
+  </data>
+  <data name="Resource_Text_517cef447ed8" xml:space="preserve">
+    <value>Tar archive</value>
+  </data>
+  <data name="Resource_Text_526dc383e386" xml:space="preserve">
+    <value>Full path of a file or folder inside the container</value>
+  </data>
+  <data name="Resource_Text_558c85c42670" xml:space="preserve">
+    <value>Stopping {0} container(s)…</value>
+  </data>
+  <data name="Resource_Text_56e3badc4e6c" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Resource_Text_592c06f9dff1" xml:space="preserve">
+    <value>This container isn't running, so its files can't be listed. You can still upload files.</value>
+  </data>
+  <data name="Resource_Text_5b44479e9557" xml:space="preserve">
+    <value>{0}
+… and {1} more</value>
+  </data>
+  <data name="Resource_Text_5dfeef082bb5" xml:space="preserve">
+    <value>{0} year ago</value>
+  </data>
+  <data name="Resource_Text_5e90eeae3d81" xml:space="preserve">
+    <value>Removing {0} container(s)…</value>
+  </data>
+  <data name="Resource_Text_606d1a1317c3" xml:space="preserve">
+    <value>Some volumes were kept</value>
+  </data>
+  <data name="Resource_Text_606fbf1cfca3" xml:space="preserve">
+    <value>Open the Changes tab to compare the container against its image.</value>
+  </data>
+  <data name="Resource_Text_60c1e625e1e8" xml:space="preserve">
+    <value>Log file</value>
+  </data>
+  <data name="Resource_Text_658d1f8b6e57" xml:space="preserve">
+    <value>Prune containers</value>
+  </data>
+  <data name="Resource_Text_666f53f2d084" xml:space="preserve">
+    <value>The wslc help does not document a detach key sequence; pressing Ctrl+C may stop the container's main process.</value>
+  </data>
+  <data name="Resource_Text_694a9eea485e" xml:space="preserve">
+    <value>Upload to container</value>
+  </data>
+  <data name="Resource_Text_6caa7c7f6403" xml:space="preserve">
+    <value>Health check removed for {0}</value>
+  </data>
+  <data name="Resource_Text_6d6cc85f99eb" xml:space="preserve">
+    <value>{0} month ago</value>
+  </data>
+  <data name="Resource_Text_713907849045" xml:space="preserve">
+    <value>Send diagnosis</value>
+  </data>
+  <data name="Resource_Text_73989d9c5926" xml:space="preserve">
+    <value>Running</value>
+  </data>
+  <data name="Resource_Text_75e2d31e3fc3" xml:space="preserve">
+    <value>Opening {0}…</value>
+  </data>
+  <data name="Resource_Text_770d22e09b5d" xml:space="preserve">
+    <value>Attach opens an interactive terminal connected to the container's main process. </value>
+  </data>
+  <data name="Resource_Text_7a0320794cdb" xml:space="preserve">
+    <value>{0} day ago</value>
+  </data>
+  <data name="Resource_Text_7de825040e20" xml:space="preserve">
+    <value>Deleting {0}…</value>
+  </data>
+  <data name="Resource_Text_7e892fbf5dd3" xml:space="preserve">
+    <value>
+
+If you are unsure, keep them — you can delete volumes later from the Volumes page.</value>
+  </data>
+  <data name="Resource_Text_7f43dc519669" xml:space="preserve">
+    <value>
+
+Kept (still used by other containers): </value>
+  </data>
+  <data name="Resource_Text_800c9b197e97" xml:space="preserve">
+    <value>(no output)</value>
+  </data>
+  <data name="Resource_Text_820d6004b037" xml:space="preserve">
+    <value>Checking…</value>
+  </data>
+  <data name="Resource_Text_851ccf3326fb" xml:space="preserve">
+    <value>Copied path: {0}</value>
+  </data>
+  <data name="Resource_Text_8a0295266057" xml:space="preserve">
+    <value>Preview ready</value>
+  </data>
+  <data name="Resource_Text_8bce8c2e43e4" xml:space="preserve">
+    <value>To download a folder, right-click → Download to…</value>
+  </data>
+  <data name="Resource_Text_8c3c6433325f" xml:space="preserve">
+    <value>Removing "{0}" leaves this storage behind. Its data would be permanently deleted:
+
+</value>
+  </data>
+  <data name="Resource_Text_8e3e84404b4c" xml:space="preserve">
+    <value>Health check: healthy</value>
+  </data>
+  <data name="Resource_Text_9344533c4118" xml:space="preserve">
+    <value>{0} days ago</value>
+  </data>
+  <data name="Resource_Text_93c23d7b9d3d" xml:space="preserve">
+    <value>Couldn't inspect {0}: {1}</value>
+  </data>
+  <data name="Resource_Text_971c419dd609" xml:space="preserve">
+    <value>file</value>
+  </data>
+  <data name="Resource_Text_9804556fd4b8" xml:space="preserve">
+    <value>Copy path</value>
+  </data>
+  <data name="Resource_Text_9838561fcd74" xml:space="preserve">
+    <value>Copied suggested fix to the clipboard.</value>
+  </data>
+  <data name="Resource_Text_9869e506c38f" xml:space="preserve">
+    <value>Expand</value>
+  </data>
+  <data name="Resource_Text_986f9ecd3fff" xml:space="preserve">
+    <value>. Existing engine health is unchanged; native health changes require explicit container recreation.</value>
+  </data>
+  <data name="Resource_Text_9a3274443563" xml:space="preserve">
+    <value>{0} years ago</value>
+  </data>
+  <data name="Resource_Text_9ac3790ec276" xml:space="preserve">
+    <value>Sending diagnosis</value>
+  </data>
+  <data name="Resource_Text_9be9953c1125" xml:space="preserve">
+    <value>{0} change(s) relative to the image.</value>
+  </data>
+  <data name="Resource_Text_9cf188d3a677" xml:space="preserve">
+    <value>Collapse</value>
+  </data>
+  <data name="Resource_Text_9d2c38b4b694" xml:space="preserve">
+    <value>Disconnecting {0} from {1}…</value>
+  </data>
+  <data name="Resource_Text_9e627c7b1aec" xml:space="preserve">
+    <value>New name</value>
+  </data>
+  <data name="Resource_Text_a0ffbf99439d" xml:space="preserve">
+    <value>Starting {0}…</value>
+  </data>
+  <data name="Resource_Text_a28caef66f74" xml:space="preserve">
+    <value>You can retry from the Volumes page.</value>
+  </data>
+  <data name="Resource_Text_a357d651d722" xml:space="preserve">
+    <value>Copying from {0}...</value>
+  </data>
+  <data name="Resource_Text_a711999b72aa" xml:space="preserve">
+    <value>New folder</value>
+  </data>
+  <data name="Resource_Text_a7652bb6962c" xml:space="preserve">
+    <value>The container was removed, but these volumes could not be deleted: {0}. </value>
+  </data>
+  <data name="Resource_Text_a7f8e7cc0d43" xml:space="preserve">
+    <value>just now</value>
+  </data>
+  <data name="Resource_Text_aa284d0c56a2" xml:space="preserve">
+    <value>Unreachable</value>
+  </data>
+  <data name="Resource_Text_aa7b49519d41" xml:space="preserve">
+    <value>Health check: down after {0} restart attempt(s)</value>
+  </data>
+  <data name="Resource_Text_ad507942e77c" xml:space="preserve">
+    <value>The container must be running to compare it against its image.</value>
+  </data>
+  <data name="Resource_Text_ad9df8088c63" xml:space="preserve">
+    <value>Copying {0} to the host…</value>
+  </data>
+  <data name="Resource_Text_afffdd08d81d" xml:space="preserve">
+    <value>folder</value>
+  </data>
+  <data name="Resource_Text_b1a7b2ac9b99" xml:space="preserve">
+    <value>Health check: down</value>
+  </data>
+  <data name="Resource_Text_b2ce023b4255" xml:space="preserve">
+    <value>Folder name</value>
+  </data>
+  <data name="Resource_Text_b41211bd2b39" xml:space="preserve">
+    <value>File not yet staged for drag — select it and try again.</value>
+  </data>
+  <data name="Resource_Text_b89fa9b868b3" xml:space="preserve">
+    <value>Remove container "{0}" ({1})? This cannot be undone.</value>
+  </data>
+  <data name="Resource_Text_b993b0c53719" xml:space="preserve">
+    <value>No results</value>
+  </data>
+  <data name="Resource_Text_ba9007f2e1ff" xml:space="preserve">
+    <value>Killing {0}…</value>
+  </data>
+  <data name="Resource_Text_bc7819b34ff8" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="Resource_Text_bef915666604" xml:space="preserve">
+    <value>Saved run profile "{0}" from {1}</value>
+  </data>
+  <data name="Resource_Text_bf081353c9b0" xml:space="preserve">
+    <value>Uploading {0} item(s) to {1}…</value>
+  </data>
+  <data name="Resource_Text_bf877971d0a8" xml:space="preserve">
+    <value>Suggested fixes are review-only.</value>
+  </data>
+  <data name="Resource_Text_c05fe6c2ab87" xml:space="preserve">
+    <value>… (unnamed)</value>
+  </data>
+  <data name="Resource_Text_c0f95512437f" xml:space="preserve">
+    <value>Some containers failed</value>
+  </data>
+  <data name="Resource_Text_c128d9da3bc5" xml:space="preserve">
+    <value>Health check disabled for {0}</value>
+  </data>
+  <data name="Resource_Text_c4e6ed956953" xml:space="preserve">
+    <value>Operation failed</value>
+  </data>
+  <data name="Resource_Text_c68e758ba4ac" xml:space="preserve">
+    <value>Restarting {0}…</value>
+  </data>
+  <data name="Resource_Text_c97652eb6016" xml:space="preserve">
+    <value>File edits:
+</value>
+  </data>
+  <data name="Resource_Text_cc4941571be3" xml:space="preserve">
+    <value>GPU passthrough enabled</value>
+  </data>
+  <data name="Resource_Text_cc4eac830ba9" xml:space="preserve">
+    <value>{0} hour ago</value>
+  </data>
+  <data name="Resource_Text_cd3422258efb" xml:space="preserve">
+    <value>Download to…</value>
+  </data>
+  <data name="Resource_Text_cee33896303a" xml:space="preserve">
+    <value>{0} hours ago</value>
+  </data>
+  <data name="Resource_Text_cf9b77061f7b" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Resource_Text_d17c7bc1ab98" xml:space="preserve">
+    <value>Removing {0}…</value>
+  </data>
+  <data name="Resource_Text_d2078b7339a5" xml:space="preserve">
+    <value>Save as run profile</value>
+  </data>
+  <data name="Resource_Text_d2865cc8490e" xml:space="preserve">
+    <value>Commands:
+</value>
+  </data>
+  <data name="Resource_Text_d361a643faee" xml:space="preserve">
+    <value>Health check: unhealthy — auto-restarting ({0}/{1})</value>
+  </data>
+  <data name="Resource_Text_d3f4cb898fbe" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="Resource_Text_d45ea5bcae67" xml:space="preserve">
+    <value>Renaming {0}…</value>
+  </data>
+  <data name="Resource_Text_d5e904efdf15" xml:space="preserve">
+    <value>Loading {0}…</value>
+  </data>
+  <data name="Resource_Text_d73c0bb0fa10" xml:space="preserve">
+    <value>Also delete this container's volumes?</value>
+  </data>
+  <data name="Resource_Text_d863ee4cc811" xml:space="preserve">
+    <value>Open the Files tab to browse the container filesystem.</value>
+  </data>
+  <data name="Resource_Text_d8fcde886f51" xml:space="preserve">
+    <value>Disconnect last network</value>
+  </data>
+  <data name="Resource_Text_d91e96180566" xml:space="preserve">
+    <value>Health check: pending</value>
+  </data>
+  <data name="Resource_Text_d9a11a39ea03" xml:space="preserve">
+    <value>No files in {0}</value>
+  </data>
+  <data name="Resource_Text_dcd75e915e17" xml:space="preserve">
+    <value>{0} minute ago</value>
+  </data>
+  <data name="Resource_Text_dfb7ec51e410" xml:space="preserve">
+    <value>Couldn't read a usable configuration from {0}.</value>
+  </data>
+  <data name="Resource_Text_e1f86240b2dd" xml:space="preserve">
+    <value>Fetching logs for {0}…</value>
+  </data>
+  <data name="Resource_Text_e2012dea310d" xml:space="preserve">
+    <value>Shortcut</value>
+  </data>
+  <data name="Resource_Text_e2dfda5ec309" xml:space="preserve">
+    <value>Attach to container</value>
+  </data>
+  <data name="Resource_Text_e344290db93f" xml:space="preserve">
+    <value>Pruning stopped containers…</value>
+  </data>
+  <data name="Resource_Text_e5084bffcc17" xml:space="preserve">
+    <value>{0} selected</value>
+  </data>
+  <data name="Resource_Text_e601f2ca7586" xml:space="preserve">
+    <value>Sending redacted evidence to the selected provider…</value>
+  </data>
+  <data name="Resource_Text_e78ea730d17b" xml:space="preserve">
+    <value>Opened terminal for {0}</value>
+  </data>
+  <data name="Resource_Text_e963907dac5c" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Resource_Text_e9b450d14bc2" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="Resource_Text_eb8b73e789bb" xml:space="preserve">
+    <value>Remove {0} container(s)? This cannot be undone.
+
+{1}</value>
+  </data>
+  <data name="Resource_Text_ed28e0686e12" xml:space="preserve">
+    <value>Disconnect</value>
+  </data>
+  <data name="Resource_Text_ee05172db8a8" xml:space="preserve">
+    <value>Review the redacted payload, then click Send diagnosis.</value>
+  </data>
+  <data name="Resource_Text_ee3d21a8808c" xml:space="preserve">
+    <value>Text file</value>
+  </data>
+  <data name="Resource_Text_efcaf8d58273" xml:space="preserve">
+    <value>{0} item(s) in {1}</value>
+  </data>
+  <data name="Resource_Text_f190b111a23c" xml:space="preserve">
+    <value>GPU: {0}</value>
+  </data>
+  <data name="Resource_Text_f306c4f01fc3" xml:space="preserve">
+    <value>Inspect · {0}</value>
+  </data>
+  <data name="Resource_Text_f64e32064699" xml:space="preserve">
+    <value>The following items could not be copied:
+{0}</value>
+  </data>
+  <data name="Resource_Text_f6fdbe48dc54" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Resource_Text_f82ef289fb04" xml:space="preserve">
+    <value>Keep volumes</value>
+  </data>
+  <data name="Resource_Text_fa5fed7c3e6d" xml:space="preserve">
+    <value>No filesystem changes relative to the image.</value>
+  </data>
+  <data name="Resource_Text_fa69acb015a2" xml:space="preserve">
+    <value>Diagnosis complete</value>
+  </data>
+  <data name="Resource_Text_fce244da09aa" xml:space="preserve">
+    <value>Failed to load networks</value>
+  </data>
+  <data name="Resource_Text_fe4d9482d48f" xml:space="preserve">
+    <value>Preparing diagnosis</value>
+  </data>
+  <data name="Resource_Volumes_003.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Resource_Volumes_004.Text" xml:space="preserve">
+    <value>Prune</value>
+  </data>
+  <data name="Resource_Volumes_015.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Resource_Volumes_015.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Resource_Volumes_020.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Resource_Volumes_020.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Resource_WslEngine_004.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
 </root>
