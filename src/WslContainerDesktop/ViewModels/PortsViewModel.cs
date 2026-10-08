@@ -65,6 +65,12 @@ public sealed class PortEndpointRow
 /// </summary>
 public partial class PortsViewModel : ObservableObject
 {
+    /// <summary>Text projected for the active UI language.</summary>
+    public string InventorySummaryDisplay => UiText.Translate(InventorySummary);
+
+    /// <summary>Text projected for the active UI language.</summary>
+    public string EmptyMessageDisplay => UiText.Translate(EmptyMessage);
+
     private readonly StatusMonitor _monitor;
     private readonly DispatcherQueue _dispatcher;
 
@@ -77,10 +83,12 @@ public partial class PortsViewModel : ObservableObject
 
     /// <summary>Status text explaining whether the endpoint inventory is complete.</summary>
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(InventorySummaryDisplay))]
     private string _inventorySummary = "Every published port across your running containers, in one place.";
 
     /// <summary>Message shown when no endpoint rows are available.</summary>
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(EmptyMessageDisplay))]
     private string _emptyMessage = "No published ports. Start a container that publishes a port to see it here.";
 
     /// <summary>Published endpoints currently visible in the page.</summary>
@@ -198,5 +206,11 @@ public partial class PortsViewModel : ObservableObject
         var package = new DataPackage();
         package.SetText(row.HostAddress);
         Clipboard.SetContent(package);
+    }
+
+    /// <summary>Refreshes display projections after a UI language change.</summary>
+    internal void RefreshLocalizedText()
+    {
+        OnPropertyChanged(string.Empty);
     }
 }
