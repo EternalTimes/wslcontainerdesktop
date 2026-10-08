@@ -31,6 +31,7 @@ public sealed partial class NetworksPage : Page
     {
         ViewModel = App.Current.Services.GetRequiredService<NetworksViewModel>();
         InitializeComponent();
+        NavigationCacheMode = NavigationCacheMode.Enabled;
     }
 
     /// <summary>Network inventory view model bound by the page.</summary>

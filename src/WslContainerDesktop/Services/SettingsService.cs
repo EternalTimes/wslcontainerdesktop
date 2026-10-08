@@ -53,6 +53,8 @@ public sealed class SettingsService : ISettingsService
     /// <inheritdoc/>
     public bool CloseToTray { get; set; } = true;
     /// <inheritdoc/>
+    public bool PageAnimations { get; set; } = true;
+    /// <inheritdoc/>
     public bool StartMinimized { get; set; }
     /// <inheritdoc/>
     public bool RestartRunningContainersOnLaunch { get; set; } = true;
@@ -173,6 +175,7 @@ public sealed class SettingsService : ISettingsService
 
             RefreshIntervalSeconds = Math.Clamp(dto.RefreshIntervalSeconds, AppConstants.RefreshIntervalMinSeconds, AppConstants.RefreshIntervalMaxSeconds);
             CloseToTray = dto.CloseToTray;
+            PageAnimations = dto.PageAnimations;
             StartMinimized = dto.StartMinimized;
             RestartRunningContainersOnLaunch = dto.RestartRunningContainersOnLaunch;
             Theme = string.IsNullOrWhiteSpace(dto.Theme) ? "Default" : dto.Theme;
@@ -322,6 +325,7 @@ public sealed class SettingsService : ISettingsService
                 WslcPath = WslcPath,
                 RefreshIntervalSeconds = RefreshIntervalSeconds,
                 CloseToTray = CloseToTray,
+                PageAnimations = PageAnimations,
                 StartMinimized = StartMinimized,
                 RestartRunningContainersOnLaunch = RestartRunningContainersOnLaunch,
                 Theme = Theme,
@@ -450,6 +454,7 @@ public sealed class SettingsService : ISettingsService
         public string? WslcPath { get; set; }
         public int RefreshIntervalSeconds { get; set; } = 5;
         public bool CloseToTray { get; set; } = true;
+        public bool PageAnimations { get; set; } = true;
         public bool StartMinimized { get; set; }
         public bool RestartRunningContainersOnLaunch { get; set; } = true;
         public string? Theme { get; set; }

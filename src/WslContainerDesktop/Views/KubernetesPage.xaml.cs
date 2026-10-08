@@ -86,7 +86,7 @@ public sealed partial class KubernetesPage : Page
     {
         if (e.ClickedItem is not null)
         {
-            Frame.Navigate(typeof(K8sDetailPage), K8sRef.For(e.ClickedItem));
+            Frame.NavigateWithPreference(typeof(K8sDetailPage), K8sRef.For(e.ClickedItem));
         }
     }
 

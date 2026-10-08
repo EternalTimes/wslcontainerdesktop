@@ -278,6 +278,7 @@ public sealed class WslRequirementServiceTests
             public string WslcPath { get; set; } = path;
             public int RefreshIntervalSeconds { get; set; }
             public bool CloseToTray { get; set; }
+            public bool PageAnimations { get; set; } = true;
             public bool StartMinimized { get; set; }
             public bool RestartRunningContainersOnLaunch { get; set; }
             public string Theme { get; set; } = "Default";

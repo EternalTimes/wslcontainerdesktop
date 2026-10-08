@@ -20,6 +20,35 @@ where the signed MSIX and installation steps live.
   label and helper text are now resolved from resources; the remaining page strings are migrated in
   focused batches in later releases.
 
+## [2.2.0] — 2026-10-07
+
+### Changed
+- **Images, Networks and Volumes lists refresh without flicker.** Switching back to these pages
+  keeps your scroll position and no longer shows "Loading…" over a list you already have. The
+  Images page loads faster because it fetches images and container usage at the same time, and
+  the Volumes page loads faster because it inspects several volumes at once instead of one by one.
+  Images and Networks pages are also kept alive between visits, so returning to them is instant.
+
+### Added
+- **Option to turn off animations** (Settings → General). Switching sections no longer has to
+  slide the page and its lists in, and the navigation highlight stops sliding between items; turn
+  "Animations" off for instant, animation-free navigation
+  ([#129](https://github.com/mhackermsft/wslcontainerdesktop/issues/129)). The default is
+  unchanged (on). Progress indicators still animate, and dialogs and menus keep Windows' own
+  open animation.
+- **Container health changes appear in Activity on WSL 3.0.2.** WSL 3.0.2 reports when a
+  container's health check turns healthy or unhealthy. These now show in the Activity timeline,
+  with unhealthy marked as an error; before, they were silently dropped. WSL 3.0.1 is still
+  supported; it doesn't report these changes.
+
+### Fixed
+- **Stopping a container showed a duplicate "stopped" entry in Activity on WSL 3.0.2.** WSL 3.0.2
+  reports a stop as both "die" (with the exit code) and "stop"; Activity now shows it once.
+  WSL 3.0.1 is unaffected.
+- **The app could get slower the more often you opened the Containers page.** Each visit left a
+  hidden copy of the page alive and updating in the background with every container change; old
+  copies are now released when you leave the page.
+
 ## [2.1.0] — 2026-10-06
 
 ### Fixed
@@ -555,7 +584,8 @@ rather than assuming one schema or flag set.
 Older versions (1.0.0 – 1.5.3) predate this changelog. Their tags remain in the repository, and
 their changes can be reviewed with `git log v1.5.2..v1.5.3` and similar.
 
-[Unreleased]: https://github.com/mhackermsft/wslcontainerdesktop/compare/v2.1.0...main
+[Unreleased]: https://github.com/mhackermsft/wslcontainerdesktop/compare/v2.2.0...main
+[2.2.0]: https://github.com/mhackermsft/wslcontainerdesktop/releases/tag/v2.2.0
 [2.1.0]: https://github.com/mhackermsft/wslcontainerdesktop/releases/tag/v2.1.0
 [2.0.1]: https://github.com/mhackermsft/wslcontainerdesktop/releases/tag/v2.0.1
 [2.0.0]: https://github.com/mhackermsft/wslcontainerdesktop/releases/tag/v2.0.0

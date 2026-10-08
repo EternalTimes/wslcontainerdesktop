@@ -36,9 +36,19 @@ public sealed partial class ContainersPage : Page
         ViewModel = App.Current.Services.GetRequiredService<ContainersViewModel>();
         InitializeComponent();
 
-        // Bind the list to a grouped view over the project groups (headers come from ContainerGroup).
-        _groupedContainers.Source = ViewModel.Groups;
-        ContainersList.ItemsSource = _groupedContainers.View;
+        // Bind the list to a grouped view over the project groups (headers come from ContainerGroup)
+        // only while the page is on screen. The view model outlives every page, so a binding left in
+        // place would keep each visited page alive and reacting to inventory updates.
+        Loaded += (_, _) =>
+        {
+            _groupedContainers.Source = ViewModel.Groups;
+            ContainersList.ItemsSource = _groupedContainers.View;
+        };
+        Unloaded += (_, _) =>
+        {
+            ContainersList.ItemsSource = null;
+            _groupedContainers.Source = null;
+        };
     }
 
     /// <summary>Container list/detail view model bound by the page.</summary>
@@ -55,7 +65,7 @@ public sealed partial class ContainersPage : Page
         if (e.ClickedItem is ContainerRowViewModel row)
         {
             ViewModel.Selected = row;
-            Frame.Navigate(typeof(ContainerDetailPage));
+            Frame.NavigateWithPreference(typeof(ContainerDetailPage));
         }
     }
 

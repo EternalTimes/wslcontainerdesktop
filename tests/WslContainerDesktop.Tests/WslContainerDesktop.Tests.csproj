@@ -96,6 +96,7 @@
     <Compile Include="..\..\src\WslContainerDesktop\Services\ContainerConfigImporter.cs" Link="Services\ContainerConfigImporter.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Models\RunProfile.cs" Link="Models\RunProfile.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Helpers\NetworkDisplayList.cs" Link="Helpers\NetworkDisplayList.cs" />
+    <Compile Include="..\..\src\WslContainerDesktop\Helpers\CollectionSync.cs" Link="Helpers\CollectionSync.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Helpers\ContainerInventoryOperation.cs" Link="Helpers\ContainerInventoryOperation.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Models\ImageInfo.cs" Link="Models\ImageInfo.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Models\ContainerInfo.cs" Link="Models\ContainerInfo.cs" />
@@ -185,6 +186,7 @@
     <Compile Include="..\..\src\WslContainerDesktop\Services\IWslcService.cs" Link="Services\IWslcService.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\IWslcSettingsFileService.cs" Link="Services\IWslcSettingsFileService.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\WslcEventParser.cs" Link="Services\WslcEventParser.cs" />
+    <Compile Include="..\..\src\WslContainerDesktop\Services\EngineEventActivity.cs" Link="Services\EngineEventActivity.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\WslDistroListParser.cs" Link="Services\WslDistroListParser.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\KubernetesHostCheck.cs" Link="Services\KubernetesHostCheck.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Models\KubernetesHostProblem.cs" Link="Models\KubernetesHostProblem.cs" />
