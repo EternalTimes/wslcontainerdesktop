@@ -58,29 +58,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Settings_Appearance_Header.Text" xml:space="preserve">
-    <value>外观</value>
-  </data>
-  <data name="Settings_Theme_Label.Text" xml:space="preserve">
-    <value>主题</value>
-  </data>
-  <data name="Settings_Theme_Help.Text" xml:space="preserve">
-    <value>立即生效。</value>
-  </data>
-  <data name="Settings_Theme_Option_System" xml:space="preserve">
-    <value>跟随系统</value>
-  </data>
-  <data name="Settings_Theme_Option_Light" xml:space="preserve">
-    <value>浅色</value>
-  </data>
-  <data name="Settings_Theme_Option_Dark" xml:space="preserve">
-    <value>深色</value>
+  <!--
+    Source-language string resources (English). Keys are stable identifiers: never rename one once it
+    has been translated, or translators must redo the string. Only <value> is translated.
+    Keys ending in a property name (".Text", ".Header", ".Content") bind to that XAML property via
+    x:Uid; keys with no suffix are read from code through ITextLocalizer.Get.
+  -->  <data name="Settings_Title.Text" xml:space="preserve">
+    <value>设置</value>
   </data>
   <data name="Settings_Language_Header.Text" xml:space="preserve">
     <value>语言</value>
   </data>
   <data name="Settings_Language_Label.Text" xml:space="preserve">
-    <value>语言</value>
+    <value>界面语言</value>
   </data>
   <data name="Settings_Language_Help.Text" xml:space="preserve">
     <value>立即生效。</value>
@@ -94,7 +84,24 @@
   <data name="Settings_Language_Option_ChineseSimplified" xml:space="preserve">
     <value>简体中文</value>
   </data>
-  <!--  Shell navigation  -->
+  <data name="Settings_Appearance_Header.Text" xml:space="preserve">
+    <value>外观</value>
+  </data>
+  <data name="Settings_Theme_Label.Text" xml:space="preserve">
+    <value>主题</value>
+  </data>
+  <data name="Settings_Theme_Help.Text" xml:space="preserve">
+    <value>立即生效。</value>
+  </data>
+  <data name="Settings_Theme_Option_System" xml:space="preserve">
+    <value>使用系统默认</value>
+  </data>
+  <data name="Settings_Theme_Option_Light" xml:space="preserve">
+    <value>浅色</value>
+  </data>
+  <data name="Settings_Theme_Option_Dark" xml:space="preserve">
+    <value>深色</value>
+  </data>
   <data name="Nav_Assistant.Text" xml:space="preserve">
     <value>助手</value>
   </data>
@@ -142,5 +149,293 @@
   </data>
   <data name="Update_WhatsNew.Content" xml:space="preserve">
     <value>更新说明</value>
+  </data>
+  <data name="Settings_Engine_Header.Text" xml:space="preserve">
+    <value>容器引擎</value>
+  </data>
+  <data name="Settings_Engine_Path_Header.Header" xml:space="preserve">
+    <value>wslc.exe 路径</value>
+  </data>
+  <data name="Settings_Engine_Test.Content" xml:space="preserve">
+    <value>测试连接</value>
+  </data>
+  <data name="Settings_Engine_Version.Text" xml:space="preserve">
+    <value>引擎版本：</value>
+  </data>
+  <data name="Settings_DevContainers_Header.Text" xml:space="preserve">
+    <value>开发容器</value>
+  </data>
+  <data name="Settings_DevContainers_Registry_Header.Header" xml:space="preserve">
+    <value>用于构建 feature 的 npm registry</value>
+  </data>
+  <data name="Settings_DevContainers_Registry_Help.Text" xml:space="preserve">
+    <value>基于 Node/npm 的开发容器 feature 会从公共 npm registry 拉取包，而部分企业网络会拦截这些请求。在此填写 registry 或代理 URL，它会作为 NPM_CONFIG_REGISTRY 注入到 feature 构建中。留空则使用各 feature 的默认设置。</value>
+  </data>
+  <data name="Settings_Behavior_Header.Text" xml:space="preserve">
+    <value>行为</value>
+  </data>
+  <data name="Settings_Behavior_CloseToTray_Label.Text" xml:space="preserve">
+    <value>关闭时最小化到系统托盘</value>
+  </data>
+  <data name="Settings_Behavior_CloseToTray_Help.Text" xml:space="preserve">
+    <value>保持应用在托盘运行而不是退出。</value>
+  </data>
+  <data name="Settings_Behavior_Animations_Label.Text" xml:space="preserve">
+    <value>动画</value>
+  </data>
+  <data name="Settings_Behavior_Animations_Help.Text" xml:space="preserve">
+    <value>为页面和列表的滑入以及导航高亮添加动画。关闭后导航即时完成、无动画，进度指示器仍会旋转。</value>
+  </data>
+  <data name="Settings_Behavior_StartMinimized_Label.Text" xml:space="preserve">
+    <value>启动时最小化到托盘</value>
+  </data>
+  <data name="Settings_Behavior_StartMinimized_Help.Text" xml:space="preserve">
+    <value>直接启动到托盘，不显示窗口。</value>
+  </data>
+  <data name="Settings_Behavior_Restart_Label.Text" xml:space="preserve">
+    <value>启动时重启正在运行的容器</value>
+  </data>
+  <data name="Settings_Behavior_Restart_Help.Text" xml:space="preserve">
+    <value>重启系统或关闭 WSL 后，重新启动之前正在运行的容器。你手动停止的容器保持停止状态。</value>
+  </data>
+  <data name="Settings_Behavior_SignIn_Label.Text" xml:space="preserve">
+    <value>登录时启动</value>
+  </data>
+  <data name="Settings_Behavior_Refresh_Label.Text" xml:space="preserve">
+    <value>自动刷新间隔</value>
+  </data>
+  <data name="Settings_Behavior_Refresh_Help.Text" xml:space="preserve">
+    <value>轮询容器状态的频率（秒）。</value>
+  </data>
+  <data name="Settings_Notify_Header.Text" xml:space="preserve">
+    <value>通知</value>
+  </data>
+  <data name="Settings_Notify_Master_Label.Text" xml:space="preserve">
+    <value>显示通知</value>
+  </data>
+  <data name="Settings_Notify_Master_Help.Text" xml:space="preserve">
+    <value>Toast 通知的总开关。关闭后静音所有通知。</value>
+  </data>
+  <data name="Settings_Notify_Image_Label.Text" xml:space="preserve">
+    <value>镜像拉取与构建</value>
+  </data>
+  <data name="Settings_Notify_Image_Help.Text" xml:space="preserve">
+    <value>镜像拉取或构建完成、失败时通知。</value>
+  </data>
+  <data name="Settings_Notify_Stopped_Label.Text" xml:space="preserve">
+    <value>容器已停止</value>
+  </data>
+  <data name="Settings_Notify_Stopped_Help.Text" xml:space="preserve">
+    <value>运行中的容器退出或崩溃时通知。</value>
+  </data>
+  <data name="Settings_Notify_Engine_Label.Text" xml:space="preserve">
+    <value>引擎可用性</value>
+  </data>
+  <data name="Settings_Notify_Engine_Help.Text" xml:space="preserve">
+    <value>容器引擎宕机或恢复时通知。</value>
+  </data>
+  <data name="Settings_Ai_Header.Text" xml:space="preserve">
+    <value>AI 诊断</value>
+  </data>
+  <data name="Settings_Ai_Enable_Label.Text" xml:space="preserve">
+    <value>启用 AI 功能</value>
+  </data>
+  <data name="Settings_Ai_Enable_Help.Text" xml:space="preserve">
+    <value>默认关闭。诊断会提供可审阅的预览；助手对话在每轮中发送经过清理的文本和工具证据。</value>
+  </data>
+  <data name="Settings_Ai_QuickStart_Title.Text" xml:space="preserve">
+    <value>快速开始：在本地运行 AI</value>
+  </data>
+  <data name="Settings_Ai_QuickStart_Help.Text" xml:space="preserve">
+    <value>一键在应用管理的容器中配置 Ollama，按需下载模型，并将其选为你的提供方。</value>
+  </data>
+  <data name="Settings_Ai_WhatSetup_Header.Header" xml:space="preserve">
+    <value>配置会做什么</value>
+  </data>
+  <data name="Settings_Ai_WhatSetup_P1.Text" xml:space="preserve">
+    <value>配置只管理应用自己在 127.0.0.1 上的容器，并复用本机已有的 Ollama 镜像，绝不接管无关的运行时。</value>
+  </data>
+  <data name="Settings_Ai_WhatSetup_P2.Text" xml:space="preserve">
+    <value>如果没有安装模型，配置会先询问再下载。你随时可以在下方选择其他模型。</value>
+  </data>
+  <data name="Settings_Ai_WhatSetup_P3.Text" xml:space="preserve">
+    <value>配置不会假定 GPU 加速或模型能力，而是检查模型实际支持什么并告知结果。</value>
+  </data>
+  <data name="Settings_Ai_SetupOllama.Text" xml:space="preserve">
+    <value>配置 Ollama</value>
+  </data>
+  <data name="Settings_Ai_CancelSetup.Content" xml:space="preserve">
+    <value>取消配置</value>
+  </data>
+  <data name="Settings_Ai_RemoveOllama.Content" xml:space="preserve">
+    <value>移除 Ollama</value>
+  </data>
+  <data name="Settings_Ai_Technical_Header.Header" xml:space="preserve">
+    <value>技术细节</value>
+  </data>
+  <data name="Settings_Ai_CopyDetails.Content" xml:space="preserve">
+    <value>复制详情</value>
+  </data>
+  <data name="Settings_Ai_Provider_Header.Header" xml:space="preserve">
+    <value>提供方</value>
+  </data>
+  <data name="Settings_Ai_Provider_None.Content" xml:space="preserve">
+    <value>无</value>
+  </data>
+  <data name="Settings_Ai_Provider_Copilot.Content" xml:space="preserve">
+    <value>GitHub Copilot（推荐）</value>
+  </data>
+  <data name="Settings_Ai_Provider_Ollama.Content" xml:space="preserve">
+    <value>Ollama（本地）</value>
+  </data>
+  <data name="Settings_Ai_Provider_Azure.Content" xml:space="preserve">
+    <value>Azure OpenAI</value>
+  </data>
+  <data name="Settings_Ai_Provider_OpenAI.Content" xml:space="preserve">
+    <value>OpenAI 兼容</value>
+  </data>
+  <data name="Settings_Ai_Privacy_Header.Header" xml:space="preserve">
+    <value>数据共享与隐私</value>
+  </data>
+  <data name="Settings_Ai_Privacy_Help.Text" xml:space="preserve">
+    <value>在精简 AI 证据和助手审计详情之前，已识别的敏感字段与凭据模式会被遮盖。识别并不完美：未标注或经过编码的密钥可能残留。请审阅诊断预览，不要把密钥粘贴到对话中。你选择的提供方会收到对话和工具证据；本地推理需要本地端点。诊断修复仅供参考复制；助手的变更操作遵循应用的审批设置。</value>
+  </data>
+  <data name="Settings_Ai_ProviderSettings_Header.Header" xml:space="preserve">
+    <value>提供方设置</value>
+  </data>
+  <data name="Settings_Ai_Copilot_SignIn.Content" xml:space="preserve">
+    <value>GitHub Copilot 登录信息</value>
+  </data>
+  <data name="Settings_Ai_Copilot_Model_Header.Header" xml:space="preserve">
+    <value>GitHub Copilot 模型</value>
+  </data>
+  <data name="Settings_Ai_Copilot_Refresh.Content" xml:space="preserve">
+    <value>刷新模型列表</value>
+  </data>
+  <data name="Settings_Ai_Ollama_Endpoint_Header.Header" xml:space="preserve">
+    <value>Ollama 端点</value>
+  </data>
+  <data name="Settings_Ai_Ollama_Model_Header.Header" xml:space="preserve">
+    <value>Ollama 模型（已安装）</value>
+  </data>
+  <data name="Settings_Ai_Ollama_Model_Help.Text" xml:space="preserve">
+    <value>在配置的端点上下载模型，该端点可能是远程的。模型名称和标签会随时间变化，仅凭名称无法判断你会得到什么，或它是否支持工具调用。</value>
+  </data>
+  <data name="Settings_Ai_Ollama_Pull.Header" xml:space="preserve">
+    <value>拉取模型</value>
+  </data>
+  <data name="Settings_Ai_Ollama_Pull.PlaceholderText" xml:space="preserve">
+    <value>已审计的模型标识</value>
+  </data>
+  <data name="Settings_Ai_Ollama_Pull.Content" xml:space="preserve">
+    <value>拉取</value>
+  </data>
+  <data name="Settings_Ai_Azure_Endpoint_Header.Header" xml:space="preserve">
+    <value>Azure OpenAI 端点</value>
+  </data>
+  <data name="Settings_Ai_Azure_Deployment_Header.Header" xml:space="preserve">
+    <value>Azure OpenAI 部署名称</value>
+  </data>
+  <data name="Settings_Ai_OpenAI_Endpoint_Header.Header" xml:space="preserve">
+    <value>OpenAI 兼容端点（基础 URL）</value>
+  </data>
+  <data name="Settings_Ai_OpenAI_Endpoint_Help.Text" xml:space="preserve">
+    <value>指向任何支持 OpenAI chat-completions API 的服务器。示例：https://api.openai.com/v1（OpenAI）、http://localhost:11434/v1（Ollama）、http://localhost:1234/v1（LM Studio）、http://localhost:8000/v1（vLLM / llama.cpp）。请包含你的服务器所用的版本段；/chat/completions 会自动追加。</value>
+  </data>
+  <data name="Settings_Ai_OpenAI_Model_Header.Header" xml:space="preserve">
+    <value>OpenAI 兼容模型</value>
+  </data>
+  <data name="Settings_Ai_ApiKey.Header" xml:space="preserve">
+    <value>API 密钥</value>
+  </data>
+  <data name="Settings_Ai_ApiKey.PlaceholderText" xml:space="preserve">
+    <value>保存在 Windows 凭据管理器中（本地 OpenAI 兼容服务器可不填）</value>
+  </data>
+  <data name="Settings_Ai_SaveKey.Content" xml:space="preserve">
+    <value>保存密钥</value>
+  </data>
+  <data name="Settings_Ai_Capabilities_Help.Text" xml:space="preserve">
+    <value>单独验证能力。测试使用合成的提示词，绝不涉及容器数据或应用操作。</value>
+  </data>
+  <data name="Settings_Ai_TestCapabilities.Content" xml:space="preserve">
+    <value>测试能力</value>
+  </data>
+  <data name="Settings_Ai_CancelTest.Content" xml:space="preserve">
+    <value>取消测试</value>
+  </data>
+  <data name="Settings_Ai_Permissions_Header.Header" xml:space="preserve">
+    <value>容器 AI 助手权限</value>
+  </data>
+  <data name="Settings_Ai_Permissions_Help.Text" xml:space="preserve">
+    <value>只读工具始终自动运行。其他每个工具，打开其开关即可让助手无需询问直接运行。未打开的工具每次都会请求你的批准。</value>
+  </data>
+  <data name="Settings_Ai_AllowDelete.Header" xml:space="preserve">
+    <value>允许助手删除内容</value>
+  </data>
+  <data name="Settings_Ai_AllowDelete.OffContent" xml:space="preserve">
+    <value>关 — 不能删除</value>
+  </data>
+  <data name="Settings_Ai_AllowDelete.OnContent" xml:space="preserve">
+    <value>开 — 可以删除</value>
+  </data>
+  <data name="Settings_Ai_AllowDelete_Help.Text" xml:space="preserve">
+    <value>默认关闭。在你打开之前，助手无法移除容器、数据卷或网络，也无法删除 Kubernetes 资源 — 它会直接说明该操作已关闭，而不会询问。移除数据卷会销毁其中的数据。</value>
+  </data>
+  <data name="Settings_Ai_AutoApprove.Header" xml:space="preserve">
+    <value>让助手无需询问即可执行</value>
+  </data>
+  <data name="Settings_Ai_AutoApprove.OffContent" xml:space="preserve">
+    <value>先询问我（推荐）</value>
+  </data>
+  <data name="Settings_Ai_AutoApprove.OnContent" xml:space="preserve">
+    <value>从不询问</value>
+  </data>
+  <data name="Settings_Ai_AutoApprove_Help.Text" xml:space="preserve">
+    <value>跳过所有提示，包括下方开关无法关闭的 Compose 审阅。它只是免去询问，并不授予删除权限；应用无法安全执行的计划仍会被拒绝。所有操作仍会出现在活动页面。</value>
+  </data>
+  <data name="Settings_Ai_Perm.OffContent" xml:space="preserve">
+    <value>需要批准</value>
+  </data>
+  <data name="Settings_Ai_Perm.OnContent" xml:space="preserve">
+    <value>自动运行</value>
+  </data>
+  <data name="Settings_Diag_Header.Text" xml:space="preserve">
+    <value>诊断</value>
+  </data>
+  <data name="Settings_Diag_Logs_Label.Text" xml:space="preserve">
+    <value>应用日志</value>
+  </data>
+  <data name="Settings_Diag_Logs_Help.Text" xml:space="preserve">
+    <value>用于排查问题的滚动诊断日志。报告问题时请附上这些日志。</value>
+  </data>
+  <data name="Settings_Diag_OpenLogs.Content" xml:space="preserve">
+    <value>打开日志文件夹</value>
+  </data>
+  <data name="Settings_Updates_OnLaunch_Label.Text" xml:space="preserve">
+    <value>应用启动时检查更新</value>
+  </data>
+  <data name="Settings_Updates_OnLaunch_Help.Text" xml:space="preserve">
+    <value>启动时在 GitHub 上查找更新的发行版并提示安装。在你选择“立即更新”之前不会安装任何东西。</value>
+  </data>
+  <data name="Settings_Updates_Check.Content" xml:space="preserve">
+    <value>检查更新</value>
+  </data>
+  <data name="Settings_About_Header.Text" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="Settings_About_Title.Text" xml:space="preserve">
+    <value>WSL Container Desktop</value>
+  </data>
+  <data name="Settings_About_Tagline.Text" xml:space="preserve">
+    <value>用于管理 WSL 容器（wslc）的原生 WinUI 3 应用。</value>
+  </data>
+  <data name="Settings_About_Learn.Content" xml:space="preserve">
+    <value>了解 WSL 容器</value>
+  </data>
+  <data name="Settings_About_GitHub.Content" xml:space="preserve">
+    <value>在 GitHub 上查看</value>
+  </data>
+  <data name="Settings_About_Report.Content" xml:space="preserve">
+    <value>反馈问题</value>
   </data>
 </root>

@@ -62,25 +62,9 @@
     Source-language string resources (English). Keys are stable identifiers: never rename one once it
     has been translated, or translators must redo the string. Only <value> is translated.
     Keys ending in a property name (".Text", ".Header", ".Content") bind to that XAML property via
-    x:Uid; keys with no suffix are read from code through IStringLocalizer.Get.
-  -->
-  <data name="Settings_Appearance_Header.Text" xml:space="preserve">
-    <value>Appearance</value>
-  </data>
-  <data name="Settings_Theme_Label.Text" xml:space="preserve">
-    <value>Theme</value>
-  </data>
-  <data name="Settings_Theme_Help.Text" xml:space="preserve">
-    <value>Applies immediately.</value>
-  </data>
-  <data name="Settings_Theme_Option_System" xml:space="preserve">
-    <value>Use system default</value>
-  </data>
-  <data name="Settings_Theme_Option_Light" xml:space="preserve">
-    <value>Light</value>
-  </data>
-  <data name="Settings_Theme_Option_Dark" xml:space="preserve">
-    <value>Dark</value>
+    x:Uid; keys with no suffix are read from code through ITextLocalizer.Get.
+  -->  <data name="Settings_Title.Text" xml:space="preserve">
+    <value>Settings</value>
   </data>
   <data name="Settings_Language_Header.Text" xml:space="preserve">
     <value>Language</value>
@@ -100,7 +84,24 @@
   <data name="Settings_Language_Option_ChineseSimplified" xml:space="preserve">
     <value>简体中文</value>
   </data>
-  <!--  Shell navigation  -->
+  <data name="Settings_Appearance_Header.Text" xml:space="preserve">
+    <value>Appearance</value>
+  </data>
+  <data name="Settings_Theme_Label.Text" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="Settings_Theme_Help.Text" xml:space="preserve">
+    <value>Applies immediately.</value>
+  </data>
+  <data name="Settings_Theme_Option_System" xml:space="preserve">
+    <value>Use system default</value>
+  </data>
+  <data name="Settings_Theme_Option_Light" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="Settings_Theme_Option_Dark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
   <data name="Nav_Assistant.Text" xml:space="preserve">
     <value>Assistant</value>
   </data>
@@ -148,5 +149,293 @@
   </data>
   <data name="Update_WhatsNew.Content" xml:space="preserve">
     <value>What's new</value>
+  </data>
+  <data name="Settings_Engine_Header.Text" xml:space="preserve">
+    <value>Container engine</value>
+  </data>
+  <data name="Settings_Engine_Path_Header.Header" xml:space="preserve">
+    <value>Path to wslc.exe</value>
+  </data>
+  <data name="Settings_Engine_Test.Content" xml:space="preserve">
+    <value>Test connection</value>
+  </data>
+  <data name="Settings_Engine_Version.Text" xml:space="preserve">
+    <value>Engine version:</value>
+  </data>
+  <data name="Settings_DevContainers_Header.Text" xml:space="preserve">
+    <value>Dev Containers</value>
+  </data>
+  <data name="Settings_DevContainers_Registry_Header.Header" xml:space="preserve">
+    <value>npm registry for feature builds</value>
+  </data>
+  <data name="Settings_DevContainers_Registry_Help.Text" xml:space="preserve">
+    <value>Node/npm-based Dev Container features fetch packages from the public npm registry, which some corporate networks block. Set a registry or proxy URL here and it will be injected into feature builds as NPM_CONFIG_REGISTRY. Leave blank to use each feature's default.</value>
+  </data>
+  <data name="Settings_Behavior_Header.Text" xml:space="preserve">
+    <value>Behavior</value>
+  </data>
+  <data name="Settings_Behavior_CloseToTray_Label.Text" xml:space="preserve">
+    <value>Minimize to system tray on close</value>
+  </data>
+  <data name="Settings_Behavior_CloseToTray_Help.Text" xml:space="preserve">
+    <value>Keep the app running in the tray instead of exiting.</value>
+  </data>
+  <data name="Settings_Behavior_Animations_Label.Text" xml:space="preserve">
+    <value>Animations</value>
+  </data>
+  <data name="Settings_Behavior_Animations_Help.Text" xml:space="preserve">
+    <value>Slide pages and lists in and animate the navigation highlight. Turn off for instant, animation-free navigation. Progress indicators still spin.</value>
+  </data>
+  <data name="Settings_Behavior_StartMinimized_Label.Text" xml:space="preserve">
+    <value>Start minimized to tray</value>
+  </data>
+  <data name="Settings_Behavior_StartMinimized_Help.Text" xml:space="preserve">
+    <value>Launch into the tray without showing the window.</value>
+  </data>
+  <data name="Settings_Behavior_Restart_Label.Text" xml:space="preserve">
+    <value>Restart running containers on launch</value>
+  </data>
+  <data name="Settings_Behavior_Restart_Help.Text" xml:space="preserve">
+    <value>After a reboot or WSL shutdown, start any containers that were running again. Containers you stopped yourself stay stopped.</value>
+  </data>
+  <data name="Settings_Behavior_SignIn_Label.Text" xml:space="preserve">
+    <value>Start when I sign in</value>
+  </data>
+  <data name="Settings_Behavior_Refresh_Label.Text" xml:space="preserve">
+    <value>Auto-refresh interval</value>
+  </data>
+  <data name="Settings_Behavior_Refresh_Help.Text" xml:space="preserve">
+    <value>How often container status is polled (seconds).</value>
+  </data>
+  <data name="Settings_Notify_Header.Text" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="Settings_Notify_Master_Label.Text" xml:space="preserve">
+    <value>Show notifications</value>
+  </data>
+  <data name="Settings_Notify_Master_Help.Text" xml:space="preserve">
+    <value>Master switch for toast notifications. Turn off to mute everything.</value>
+  </data>
+  <data name="Settings_Notify_Image_Label.Text" xml:space="preserve">
+    <value>Image pull &amp; build</value>
+  </data>
+  <data name="Settings_Notify_Image_Help.Text" xml:space="preserve">
+    <value>Notify when an image pull or build completes or fails.</value>
+  </data>
+  <data name="Settings_Notify_Stopped_Label.Text" xml:space="preserve">
+    <value>Container stopped</value>
+  </data>
+  <data name="Settings_Notify_Stopped_Help.Text" xml:space="preserve">
+    <value>Notify when a running container exits or crashes.</value>
+  </data>
+  <data name="Settings_Notify_Engine_Label.Text" xml:space="preserve">
+    <value>Engine availability</value>
+  </data>
+  <data name="Settings_Notify_Engine_Help.Text" xml:space="preserve">
+    <value>Notify when the container engine goes down or recovers.</value>
+  </data>
+  <data name="Settings_Ai_Header.Text" xml:space="preserve">
+    <value>AI diagnostics</value>
+  </data>
+  <data name="Settings_Ai_Enable_Label.Text" xml:space="preserve">
+    <value>Enable AI features</value>
+  </data>
+  <data name="Settings_Ai_Enable_Help.Text" xml:space="preserve">
+    <value>Off by default. Diagnosis offers a reviewable preview; assistant chat sends sanitized text and tool evidence during each turn.</value>
+  </data>
+  <data name="Settings_Ai_QuickStart_Title.Text" xml:space="preserve">
+    <value>Quick start: run AI locally</value>
+  </data>
+  <data name="Settings_Ai_QuickStart_Help.Text" xml:space="preserve">
+    <value>One click sets up Ollama in an app-managed container, downloads a model if you need one, and selects it as your provider.</value>
+  </data>
+  <data name="Settings_Ai_WhatSetup_Header.Header" xml:space="preserve">
+    <value>What setup does</value>
+  </data>
+  <data name="Settings_Ai_WhatSetup_P1.Text" xml:space="preserve">
+    <value>Setup manages only the app's own container on 127.0.0.1 and reuses an Ollama image already on this machine. It never adopts unrelated runtimes.</value>
+  </data>
+  <data name="Settings_Ai_WhatSetup_P2.Text" xml:space="preserve">
+    <value>If no model is installed, setup offers to download one and asks first. You can pick a different model below at any time.</value>
+  </data>
+  <data name="Settings_Ai_WhatSetup_P3.Text" xml:space="preserve">
+    <value>GPU acceleration and model capabilities are never assumed; setup checks what the model supports and tells you the result.</value>
+  </data>
+  <data name="Settings_Ai_SetupOllama.Text" xml:space="preserve">
+    <value>Set up Ollama</value>
+  </data>
+  <data name="Settings_Ai_CancelSetup.Content" xml:space="preserve">
+    <value>Cancel setup</value>
+  </data>
+  <data name="Settings_Ai_RemoveOllama.Content" xml:space="preserve">
+    <value>Remove Ollama</value>
+  </data>
+  <data name="Settings_Ai_Technical_Header.Header" xml:space="preserve">
+    <value>Technical details</value>
+  </data>
+  <data name="Settings_Ai_CopyDetails.Content" xml:space="preserve">
+    <value>Copy details</value>
+  </data>
+  <data name="Settings_Ai_Provider_Header.Header" xml:space="preserve">
+    <value>Provider</value>
+  </data>
+  <data name="Settings_Ai_Provider_None.Content" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Settings_Ai_Provider_Copilot.Content" xml:space="preserve">
+    <value>GitHub Copilot (recommended)</value>
+  </data>
+  <data name="Settings_Ai_Provider_Ollama.Content" xml:space="preserve">
+    <value>Ollama (local)</value>
+  </data>
+  <data name="Settings_Ai_Provider_Azure.Content" xml:space="preserve">
+    <value>Azure OpenAI</value>
+  </data>
+  <data name="Settings_Ai_Provider_OpenAI.Content" xml:space="preserve">
+    <value>OpenAI-compatible</value>
+  </data>
+  <data name="Settings_Ai_Privacy_Header.Header" xml:space="preserve">
+    <value>Data sharing and privacy</value>
+  </data>
+  <data name="Settings_Ai_Privacy_Help.Text" xml:space="preserve">
+    <value>Recognized sensitive fields and credential patterns are masked before AI evidence and assistant audit details are shortened. Detection is not perfect: unlabelled or encoded secrets may remain. Review diagnosis previews and do not paste secrets into chat. The selected provider receives chat and tool evidence; local inference requires a local endpoint. Diagnosis fixes are copy-only; assistant mutations follow the app's approval settings.</value>
+  </data>
+  <data name="Settings_Ai_ProviderSettings_Header.Header" xml:space="preserve">
+    <value>Provider settings</value>
+  </data>
+  <data name="Settings_Ai_Copilot_SignIn.Content" xml:space="preserve">
+    <value>GitHub Copilot sign-in info</value>
+  </data>
+  <data name="Settings_Ai_Copilot_Model_Header.Header" xml:space="preserve">
+    <value>GitHub Copilot model</value>
+  </data>
+  <data name="Settings_Ai_Copilot_Refresh.Content" xml:space="preserve">
+    <value>Refresh models</value>
+  </data>
+  <data name="Settings_Ai_Ollama_Endpoint_Header.Header" xml:space="preserve">
+    <value>Ollama endpoint</value>
+  </data>
+  <data name="Settings_Ai_Ollama_Model_Header.Header" xml:space="preserve">
+    <value>Ollama model (installed)</value>
+  </data>
+  <data name="Settings_Ai_Ollama_Model_Help.Text" xml:space="preserve">
+    <value>Downloads a model on the configured endpoint, which may be remote. Model names and tags can change over time, so a name alone does not tell you what you will get or whether it supports tool calling.</value>
+  </data>
+  <data name="Settings_Ai_Ollama_Pull.Header" xml:space="preserve">
+    <value>Pull a model</value>
+  </data>
+  <data name="Settings_Ai_Ollama_Pull.PlaceholderText" xml:space="preserve">
+    <value>Audited model reference</value>
+  </data>
+  <data name="Settings_Ai_Ollama_Pull.Content" xml:space="preserve">
+    <value>Pull</value>
+  </data>
+  <data name="Settings_Ai_Azure_Endpoint_Header.Header" xml:space="preserve">
+    <value>Azure OpenAI endpoint</value>
+  </data>
+  <data name="Settings_Ai_Azure_Deployment_Header.Header" xml:space="preserve">
+    <value>Azure OpenAI deployment</value>
+  </data>
+  <data name="Settings_Ai_OpenAI_Endpoint_Header.Header" xml:space="preserve">
+    <value>OpenAI-compatible endpoint (base URL)</value>
+  </data>
+  <data name="Settings_Ai_OpenAI_Endpoint_Help.Text" xml:space="preserve">
+    <value>Point this at any server that speaks the OpenAI chat-completions API. Examples: https://api.openai.com/v1 (OpenAI), http://localhost:11434/v1 (Ollama), http://localhost:1234/v1 (LM Studio), http://localhost:8000/v1 (vLLM / llama.cpp). Include the version segment your server uses; /chat/completions is appended automatically.</value>
+  </data>
+  <data name="Settings_Ai_OpenAI_Model_Header.Header" xml:space="preserve">
+    <value>OpenAI-compatible model</value>
+  </data>
+  <data name="Settings_Ai_ApiKey.Header" xml:space="preserve">
+    <value>API key</value>
+  </data>
+  <data name="Settings_Ai_ApiKey.PlaceholderText" xml:space="preserve">
+    <value>Stored in Windows Credential Manager (optional for local OpenAI-compatible servers)</value>
+  </data>
+  <data name="Settings_Ai_SaveKey.Content" xml:space="preserve">
+    <value>Save key</value>
+  </data>
+  <data name="Settings_Ai_Capabilities_Help.Text" xml:space="preserve">
+    <value>Verify capabilities separately. Tests use synthetic prompts, never container data or app actions.</value>
+  </data>
+  <data name="Settings_Ai_TestCapabilities.Content" xml:space="preserve">
+    <value>Test capabilities</value>
+  </data>
+  <data name="Settings_Ai_CancelTest.Content" xml:space="preserve">
+    <value>Cancel test</value>
+  </data>
+  <data name="Settings_Ai_Permissions_Header.Header" xml:space="preserve">
+    <value>Container AI Assistant permissions</value>
+  </data>
+  <data name="Settings_Ai_Permissions_Help.Text" xml:space="preserve">
+    <value>Read-only tools always run automatically. For every other tool, turn its switch on to let the assistant run it without asking. Anything left off will prompt you for approval each time.</value>
+  </data>
+  <data name="Settings_Ai_AllowDelete.Header" xml:space="preserve">
+    <value>Allow the assistant to delete things</value>
+  </data>
+  <data name="Settings_Ai_AllowDelete.OffContent" xml:space="preserve">
+    <value>Off — it cannot delete</value>
+  </data>
+  <data name="Settings_Ai_AllowDelete.OnContent" xml:space="preserve">
+    <value>On — it can delete</value>
+  </data>
+  <data name="Settings_Ai_AllowDelete_Help.Text" xml:space="preserve">
+    <value>Off by default. Until you turn this on, the assistant cannot remove containers, volumes or networks, or delete Kubernetes resources — it will say the action is turned off instead of asking. Removing a volume destroys the data in it.</value>
+  </data>
+  <data name="Settings_Ai_AutoApprove.Header" xml:space="preserve">
+    <value>Let the assistant act without asking</value>
+  </data>
+  <data name="Settings_Ai_AutoApprove.OffContent" xml:space="preserve">
+    <value>Ask me first (recommended)</value>
+  </data>
+  <data name="Settings_Ai_AutoApprove.OnContent" xml:space="preserve">
+    <value>Never ask</value>
+  </data>
+  <data name="Settings_Ai_AutoApprove_Help.Text" xml:space="preserve">
+    <value>Skips every prompt, including the Compose review that the switches below cannot turn off. It only waives asking — it does not grant deleting, and plans the app cannot apply safely are still refused. Everything still appears in Activity.</value>
+  </data>
+  <data name="Settings_Ai_Perm.OffContent" xml:space="preserve">
+    <value>Require approval</value>
+  </data>
+  <data name="Settings_Ai_Perm.OnContent" xml:space="preserve">
+    <value>Run automatically</value>
+  </data>
+  <data name="Settings_Diag_Header.Text" xml:space="preserve">
+    <value>Diagnostics</value>
+  </data>
+  <data name="Settings_Diag_Logs_Label.Text" xml:space="preserve">
+    <value>Application logs</value>
+  </data>
+  <data name="Settings_Diag_Logs_Help.Text" xml:space="preserve">
+    <value>Rolling diagnostic logs for troubleshooting. Share these when reporting an issue.</value>
+  </data>
+  <data name="Settings_Diag_OpenLogs.Content" xml:space="preserve">
+    <value>Open logs folder</value>
+  </data>
+  <data name="Settings_Updates_OnLaunch_Label.Text" xml:space="preserve">
+    <value>Check for updates when the app starts</value>
+  </data>
+  <data name="Settings_Updates_OnLaunch_Help.Text" xml:space="preserve">
+    <value>Look for a newer release on GitHub at launch and offer to install it. Nothing is installed until you choose Update now.</value>
+  </data>
+  <data name="Settings_Updates_Check.Content" xml:space="preserve">
+    <value>Check for updates</value>
+  </data>
+  <data name="Settings_About_Header.Text" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Settings_About_Title.Text" xml:space="preserve">
+    <value>WSL Container Desktop</value>
+  </data>
+  <data name="Settings_About_Tagline.Text" xml:space="preserve">
+    <value>A native WinUI 3 manager for WSL containers (wslc).</value>
+  </data>
+  <data name="Settings_About_Learn.Content" xml:space="preserve">
+    <value>Learn about WSL containers</value>
+  </data>
+  <data name="Settings_About_GitHub.Content" xml:space="preserve">
+    <value>View on GitHub</value>
+  </data>
+  <data name="Settings_About_Report.Content" xml:space="preserve">
+    <value>Report an issue</value>
   </data>
 </root>
