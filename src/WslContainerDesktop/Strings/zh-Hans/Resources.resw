@@ -9433,4 +9433,1296 @@ License: {2} — {3}
   <data name="Root_Audit_Enum_NotRequired" xml:space="preserve">
     <value>不需要</value>
   </data>
+  <data name="Common_Complete0000" xml:space="preserve">
+    <value>助手会立即执行每项操作，包括移除容器和数据卷，以及部署它自己编写的 Compose 应用。
+
+在你关闭此设置前，助手不会再次询问。操作仍会显示在活动页面中，应用无法安全执行的计划仍会被拒绝。</value>
+  </data>
+  <data name="Common_Complete0001" xml:space="preserve">
+    <value>助手会立即执行每项操作，包括移除容器和数据卷，以及部署它自己编写的 Compose 应用。</value>
+  </data>
+  <data name="Common_Complete0002" xml:space="preserve">
+    <value>在你关闭此设置前，助手不会再次询问。操作仍会显示在活动页面中，应用无法安全执行的计划仍会被拒绝。</value>
+  </data>
+  <data name="Common_Complete0003" xml:space="preserve">
+    <value>助手将能够移除容器、数据卷和网络，以及删除 Kubernetes 资源。移除数据卷会销毁其中的数据，应用无法撤销这些操作。
+
+除非你还在下方设置了该操作自动批准，否则助手仍会逐项询问。</value>
+  </data>
+  <data name="Common_Complete0004" xml:space="preserve">
+    <value>助手将能够移除容器、数据卷和网络，以及删除 Kubernetes 资源。移除数据卷会销毁其中的数据，应用无法撤销这些操作。</value>
+  </data>
+  <data name="Common_Complete0005" xml:space="preserve">
+    <value>此应用的启动项已在 Windows 任务管理器（启动应用）中关闭。请在那里重新启用，以允许登录时启动。</value>
+  </data>
+  <data name="Common_Complete0006" xml:space="preserve">
+    <value>此应用的启动项由“任务管理器 → 启动应用”控制。请在那里启用。</value>
+  </data>
+  <data name="Common_Complete0007" xml:space="preserve">
+    <value>此应用的启动项已在 Windows 任务管理器（启动应用）中关闭。请在那里启用，以允许登录时启动。</value>
+  </data>
+  <data name="Common_Complete0008" xml:space="preserve">
+    <value>将“{0}”下载到 {1}？
+
+模型可能有数 GB，由 Ollama 运行时下载。</value>
+  </data>
+  <data name="Common_Complete0009" xml:space="preserve">
+    <value>将“{0}”下载到 {1}？</value>
+  </data>
+  <data name="Common_Complete0010" xml:space="preserve">
+    <value>运行时已就绪，但尚无模型，因此无法回答问题。
+
+下载 {0}？这是支持工具调用的小型对话模型，可供 AI 助手使用。
+
+• 大约 5 GB，由 Ollama 运行时下载
+• 稍后可在“提供方”中选择其他模型</value>
+  </data>
+  <data name="Common_Complete0011" xml:space="preserve">
+    <value>运行时已就绪，但尚无模型，因此无法回答问题。</value>
+  </data>
+  <data name="Common_Complete0012" xml:space="preserve">
+    <value>下载 {0}？这是支持工具调用的小型对话模型，可供 AI 助手使用。</value>
+  </data>
+  <data name="Common_Complete0013" xml:space="preserve">
+    <value>• 大约 5 GB，由 Ollama 运行时下载</value>
+  </data>
+  <data name="Common_Complete0014" xml:space="preserve">
+    <value>正在使用模型“{0}”，但尚未确认工具调用能力，因此助手保持隐藏。请尝试 qwen2.5:7b 等支持工具的模型，或使用“测试能力”查看详情。</value>
+  </data>
+  <data name="Common_Complete0015" xml:space="preserve">
+    <value>这将移除应用管理的“{0}”容器。
+
+不会影响应用外安装的 Ollama、其他容器或远程端点。</value>
+  </data>
+  <data name="Common_Complete0016" xml:space="preserve">
+    <value>这将移除应用管理的“{0}”容器。</value>
+  </data>
+  <data name="Common_Complete0017" xml:space="preserve">
+    <value>已下载的模型可能占用数 GB。
+
+删除模型可释放空间，保留模型则可在下次配置时快速复用。</value>
+  </data>
+  <data name="Common_Complete0018" xml:space="preserve">
+    <value>已下载的模型可能占用数 GB。</value>
+  </data>
+  <data name="Common_Complete0019" xml:space="preserve">
+    <value>{0} | 已缓存：{1} | 已加载：{2}
+  版本：{3}；大小 MB：{4}；许可证：{5}
+  许可证信息：{6}；任务：{7}；格式：{8}
+  硬件目标：{9}；执行提供方：{10}（已声明，未验证）；已声明的工具能力：{11}</value>
+  </data>
+  <data name="Common_Complete0020" xml:space="preserve">
+    <value>{0} | 已缓存：{1} | 已加载：{2}</value>
+  </data>
+  <data name="Common_Complete0021" xml:space="preserve">
+    <value>  版本：{0}；大小 MB：{1}；许可证：{2}</value>
+  </data>
+  <data name="Common_Complete0022" xml:space="preserve">
+    <value>  许可证信息：{0}；任务：{1}；格式：{2}</value>
+  </data>
+  <data name="Common_Complete0023" xml:space="preserve">
+    <value>目录：{0}；已缓存：{1}；已加载：{2}。
+已缓存 ID：{3}
+已加载 ID：{4}
+最多显示 100 个目录条目。已注册的外部条目不能用于本地推理。
+</value>
+  </data>
+  <data name="Common_Complete0024" xml:space="preserve">
+    <value>目录：{0}；已缓存：{1}；已加载：{2}。</value>
+  </data>
+  <data name="Common_Complete0025" xml:space="preserve">
+    <value>已缓存 ID：{0}</value>
+  </data>
+  <data name="Common_Complete0026" xml:space="preserve">
+    <value>已加载 ID：{0}</value>
+  </data>
+  <data name="Common_Complete0027" xml:space="preserve">
+    <value>最多显示 100 个目录条目。已注册的外部条目不能用于本地推理。</value>
+  </data>
+  <data name="Common_Complete0028" xml:space="preserve">
+    <value> 已完成的工具调用仍然有效，并已记录；重试前请审阅这些结果，并尝试将请求缩小为单一步骤。</value>
+  </data>
+  <data name="Common_Complete0029" xml:space="preserve">
+    <value>这将从此计算机移除 Foundry Local 运行时。
+
+• 保留磁盘上已下载的模型
+• 保留已安装的 Windows 共享组件
+• 不更改其他 AI 提供方
+
+你可以通过“快速开始”重新配置。</value>
+  </data>
+  <data name="Common_Complete0030" xml:space="preserve">
+    <value>这将从此计算机移除 Foundry Local 运行时。</value>
+  </data>
+  <data name="Common_Complete0031" xml:space="preserve">
+    <value>• 保留磁盘上已下载的模型</value>
+  </data>
+  <data name="Common_Complete0032" xml:space="preserve">
+    <value>• 保留已安装的 Windows 共享组件</value>
+  </data>
+  <data name="Common_Complete0033" xml:space="preserve">
+    <value>• 不更改其他 AI 提供方</value>
+  </data>
+  <data name="Common_Complete0034" xml:space="preserve">
+    <value>这将在此计算机配置 Foundry Local 并准备一个小型 CPU 对话模型，然后将其选为 AI 提供方。
+
+• 下载约 878 MB 模型文件（Apache-2.0 许可证）
+• 准备完成后约占用 1.76 GB 磁盘空间
+• 保留已有的 Foundry 安装、模型和设置
+• 运行一次简短的本地测试提示，不会发送你的项目数据
+
+配置需要网络。中途取消不会撤销已完成的操作。</value>
+  </data>
+  <data name="Common_Complete0035" xml:space="preserve">
+    <value>这将在此计算机配置 Foundry Local 并准备一个小型 CPU 对话模型，然后将其选为 AI 提供方。</value>
+  </data>
+  <data name="Common_Complete0036" xml:space="preserve">
+    <value>• 下载约 878 MB 模型文件（Apache-2.0 许可证）</value>
+  </data>
+  <data name="Common_Complete0037" xml:space="preserve">
+    <value>• 准备完成后约占用 1.76 GB 磁盘空间</value>
+  </data>
+  <data name="Common_Complete0038" xml:space="preserve">
+    <value>• 保留已有的 Foundry 安装、模型和设置</value>
+  </data>
+  <data name="Common_Complete0039" xml:space="preserve">
+    <value>• 运行一次简短的本地测试提示，不会发送你的项目数据</value>
+  </data>
+  <data name="Common_Complete0040" xml:space="preserve">
+    <value>数据卷，以及部署它自己编写的 Compose 应用。</value>
+  </data>
+  <data name="Common_Complete0041" xml:space="preserve">
+    <value>这些操作。</value>
+  </data>
+  <data name="Common_Complete0042" xml:space="preserve">
+    <value>已连接到 WSL 容器引擎。</value>
+  </data>
+  <data name="Common_Complete0043" xml:space="preserve">
+    <value>无法通过以下路径连接到 WSL 容器引擎：</value>
+  </data>
+  <data name="Common_Complete0044" xml:space="preserve">
+    <value>请审阅并确认端点设置的更改。</value>
+  </data>
+  <data name="Common_Complete0045" xml:space="preserve">
+    <value>请输入此服务器公布的准确模型 ID，然后重新发现。未自动选择模型。</value>
+  </data>
+  <data name="Common_Complete0046" xml:space="preserve">
+    <value>未更改设置或运行时。请手动输入实际端点，或检查独立安装。</value>
+  </data>
+  <data name="Common_Complete0047" xml:space="preserve">
+    <value>未尝试回退或获取运行时。请刷新状态后重试。</value>
+  </data>
+  <data name="Common_Complete0048" xml:space="preserve">
+    <value>AI 功能已关闭。</value>
+  </data>
+  <data name="Common_Complete0049" xml:space="preserve">
+    <value>请在“设置 &gt; AI”中启用。</value>
+  </data>
+  <data name="Common_Complete0050" xml:space="preserve">
+    <value>尚未配置 AI 提供方。</value>
+  </data>
+  <data name="Common_Complete0051" xml:space="preserve">
+    <value>请在“设置 &gt; AI”中选择。</value>
+  </data>
+  <data name="Common_Complete0052" xml:space="preserve">
+    <value>尚未检查提供方。</value>
+  </data>
+  <data name="Common_Complete0053" xml:space="preserve">
+    <value>请在“设置 &gt; AI 诊断”中使用“测试能力”。</value>
+  </data>
+  <data name="Common_Complete0054" xml:space="preserve">
+    <value>Foundry Local 返回了无法识别的 CLI 版本。</value>
+  </data>
+  <data name="Common_Complete0055" xml:space="preserve">
+    <value>初始模型配置未确认就绪：Foundry Local 返回了无法识别的 CLI 版本。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0056" xml:space="preserve">
+    <value>Foundry Local 返回了无法识别的 CLI 版本。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0057" xml:space="preserve">
+    <value>此 CLI 未声明支持已知的服务器或服务状态命令，未尝试回退。</value>
+  </data>
+  <data name="Common_Complete0058" xml:space="preserve">
+    <value>初始模型配置未确认就绪：此 CLI 未声明支持已知的服务器或服务状态命令，未尝试回退。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0059" xml:space="preserve">
+    <value>此 CLI 未声明支持已知的服务器或服务状态命令，未尝试回退。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0060" xml:space="preserve">
+    <value>已安装 CLI 的服务器或服务帮助未声明支持状态查询。请手动输入实际端点，未根据版本推断状态命令语法。</value>
+  </data>
+  <data name="Common_Complete0061" xml:space="preserve">
+    <value>初始模型配置未确认就绪：已安装 CLI 的服务器或服务帮助未声明支持状态查询。请手动输入实际端点，未根据版本推断状态命令语法。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0062" xml:space="preserve">
+    <value>已安装 CLI 的服务器或服务帮助未声明支持状态查询。请手动输入实际端点，未根据版本推断状态命令语法。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0063" xml:space="preserve">
+    <value>Foundry Local 已停止。不能使用过期的已存 URL 或 PID，请明确启动运行时后再连接。</value>
+  </data>
+  <data name="Common_Complete0064" xml:space="preserve">
+    <value>初始模型配置未确认就绪：Foundry Local 已停止。不能使用过期的已存 URL 或 PID，请明确启动运行时后再连接。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0065" xml:space="preserve">
+    <value>Foundry Local 已停止。不能使用过期的已存 URL 或 PID，请明确启动运行时后再连接。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0066" xml:space="preserve">
+    <value>Foundry Local 报告了多个服务 URL，请明确选择实际端点。</value>
+  </data>
+  <data name="Common_Complete0067" xml:space="preserve">
+    <value>初始模型配置未确认就绪：Foundry Local 报告了多个服务 URL，请明确选择实际端点。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0068" xml:space="preserve">
+    <value>Foundry Local 报告了多个服务 URL，请明确选择实际端点。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0069" xml:space="preserve">
+    <value>仅观测到的 CLI 0.10.3 支持独立服务器状态查询。</value>
+  </data>
+  <data name="Common_Complete0070" xml:space="preserve">
+    <value>初始模型配置未确认就绪：仅观测到的 CLI 0.10.3 支持独立服务器状态查询。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0071" xml:space="preserve">
+    <value>仅观测到的 CLI 0.10.3 支持独立服务器状态查询。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0072" xml:space="preserve">
+    <value>启动确认无法识别。守护进程可能正在运行，请检查状态。不会自动重试或停止。</value>
+  </data>
+  <data name="Common_Complete0073" xml:space="preserve">
+    <value>初始模型配置未确认就绪：启动确认无法识别。守护进程可能正在运行，请检查状态。不会自动重试或停止。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0074" xml:space="preserve">
+    <value>启动确认无法识别。守护进程可能正在运行，请检查状态。不会自动重试或停止。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0075" xml:space="preserve">
+    <value>启动 URL 无效。</value>
+  </data>
+  <data name="Common_Complete0076" xml:space="preserve">
+    <value>初始模型配置未确认就绪：启动 URL 无效。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0077" xml:space="preserve">
+    <value>启动 URL 无效。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0078" xml:space="preserve">
+    <value>仅可管理已审核的确切 CPU 模型版本，不允许别名或目录选择的其他变体。</value>
+  </data>
+  <data name="Common_Complete0079" xml:space="preserve">
+    <value>初始模型配置未确认就绪：仅可管理已审核的确切 CPU 模型版本，不允许别名或目录选择的其他变体。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0080" xml:space="preserve">
+    <value>仅可管理已审核的确切 CPU 模型版本，不允许别名或目录选择的其他变体。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0081" xml:space="preserve">
+    <value>生命周期操作要求已验证的独立 CLI 0.10.3 契约。</value>
+  </data>
+  <data name="Common_Complete0082" xml:space="preserve">
+    <value>初始模型配置未确认就绪：生命周期操作要求已验证的独立 CLI 0.10.3 契约。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0083" xml:space="preserve">
+    <value>生命周期操作要求已验证的独立 CLI 0.10.3 契约。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0084" xml:space="preserve">
+    <value>Foundry 未确认请求的更改。结果不确定，请检查状态，不会自动重试。</value>
+  </data>
+  <data name="Common_Complete0085" xml:space="preserve">
+    <value>初始模型配置未确认就绪：Foundry 未确认请求的更改。结果不确定，请检查状态，不会自动重试。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0086" xml:space="preserve">
+    <value>Foundry 未确认请求的更改。结果不确定，请检查状态，不会自动重试。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0087" xml:space="preserve">
+    <value>Foundry 服务器状态结构未知。</value>
+  </data>
+  <data name="Common_Complete0088" xml:space="preserve">
+    <value>初始模型配置未确认就绪：Foundry 服务器状态结构未知。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0089" xml:space="preserve">
+    <value>Foundry 服务器状态结构未知。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0090" xml:space="preserve">
+    <value>运行中的 Foundry 状态缺少进程启动标识或服务 URL。</value>
+  </data>
+  <data name="Common_Complete0091" xml:space="preserve">
+    <value>初始模型配置未确认就绪：运行中的 Foundry 状态缺少进程启动标识或服务 URL。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0092" xml:space="preserve">
+    <value>运行中的 Foundry 状态缺少进程启动标识或服务 URL。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0093" xml:space="preserve">
+    <value>Foundry URL 元数据未知。</value>
+  </data>
+  <data name="Common_Complete0094" xml:space="preserve">
+    <value>初始模型配置未确认就绪：Foundry URL 元数据未知。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0095" xml:space="preserve">
+    <value>Foundry URL 元数据未知。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0096" xml:space="preserve">
+    <value>Foundry 状态中的服务 URL 缺失或重复。</value>
+  </data>
+  <data name="Common_Complete0097" xml:space="preserve">
+    <value>初始模型配置未确认就绪：Foundry 状态中的服务 URL 缺失或重复。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0098" xml:space="preserve">
+    <value>Foundry 状态中的服务 URL 缺失或重复。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0099" xml:space="preserve">
+    <value>缓存位置结构仅在 CLI 0.10.3 上验证过。未尝试更改缓存或模型。</value>
+  </data>
+  <data name="Common_Complete0100" xml:space="preserve">
+    <value>初始模型配置未确认就绪：缓存位置结构仅在 CLI 0.10.3 上验证过。未尝试更改缓存或模型。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0101" xml:space="preserve">
+    <value>缓存位置结构仅在 CLI 0.10.3 上验证过。未尝试更改缓存或模型。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0102" xml:space="preserve">
+    <value>此 CLI 未声明支持缓存命令，未尝试回退。</value>
+  </data>
+  <data name="Common_Complete0103" xml:space="preserve">
+    <value>初始模型配置未确认就绪：此 CLI 未声明支持缓存命令，未尝试回退。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0104" xml:space="preserve">
+    <value>此 CLI 未声明支持缓存命令，未尝试回退。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0105" xml:space="preserve">
+    <value>此 CLI 未声明支持缓存位置，未尝试回退。</value>
+  </data>
+  <data name="Common_Complete0106" xml:space="preserve">
+    <value>初始模型配置未确认就绪：此 CLI 未声明支持缓存位置，未尝试回退。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0107" xml:space="preserve">
+    <value>此 CLI 未声明支持缓存位置，未尝试回退。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0108" xml:space="preserve">
+    <value>Foundry 缓存位置结构未知。缓存和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0109" xml:space="preserve">
+    <value>初始模型配置未确认就绪：Foundry 缓存位置结构未知。缓存和设置均未改变。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0110" xml:space="preserve">
+    <value>Foundry 缓存位置结构未知。缓存和设置均未改变。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0111" xml:space="preserve">
+    <value>Foundry 报告了不安全的缓存位置。未写入文件。</value>
+  </data>
+  <data name="Common_Complete0112" xml:space="preserve">
+    <value>初始模型配置未确认就绪：Foundry 报告了不安全的缓存位置。未写入文件。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0113" xml:space="preserve">
+    <value>Foundry 报告了不安全的缓存位置。未写入文件。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0114" xml:space="preserve">
+    <value>在 Windows 绝对 PATH 中未找到 Foundry Local CLI。未尝试安装或启动运行时。即使手动输入运行时 URL，独立版元数据仍要求 CLI 进程标识。</value>
+  </data>
+  <data name="Common_Complete0115" xml:space="preserve">
+    <value>初始模型配置未确认就绪：在 Windows 绝对 PATH 中未找到 Foundry Local CLI。未尝试安装或启动运行时。即使手动输入运行时 URL，独立版元数据仍要求 CLI 进程标识。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0116" xml:space="preserve">
+    <value>在 Windows 绝对 PATH 中未找到 Foundry Local CLI。未尝试安装或启动运行时。即使手动输入运行时 URL，独立版元数据仍要求 CLI 进程标识。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0117" xml:space="preserve">
+    <value>Foundry Local CLI 发现失败。请检查独立版安装和运行中的服务器，未尝试自动重试、安装或启动。</value>
+  </data>
+  <data name="Common_Complete0118" xml:space="preserve">
+    <value>初始模型配置未确认就绪：Foundry Local CLI 发现失败。请检查独立版安装和运行中的服务器，未尝试自动重试、安装或启动。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0119" xml:space="preserve">
+    <value>Foundry Local CLI 发现失败。请检查独立版安装和运行中的服务器，未尝试自动重试、安装或启动。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0120" xml:space="preserve">
+    <value>Foundry Local CLI 发现输出超出了元数据限制。</value>
+  </data>
+  <data name="Common_Complete0121" xml:space="preserve">
+    <value>初始模型配置未确认就绪：Foundry Local CLI 发现输出超出了元数据限制。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0122" xml:space="preserve">
+    <value>Foundry Local CLI 发现输出超出了元数据限制。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0123" xml:space="preserve">
+    <value>服务器状态未报告唯一且明确的端点。请手动输入实际本机回环 URL，未推断默认端口。</value>
+  </data>
+  <data name="Common_Complete0124" xml:space="preserve">
+    <value>初始模型配置未确认就绪：服务器状态未报告唯一且明确的端点。请手动输入实际本机回环 URL，未推断默认端口。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0125" xml:space="preserve">
+    <value>服务器状态未报告唯一且明确的端点。请手动输入实际本机回环 URL，未推断默认端口。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0126" xml:space="preserve">
+    <value>配置缓存必须使用本地绝对路径。</value>
+  </data>
+  <data name="Common_Complete0127" xml:space="preserve">
+    <value>初始模型配置未确认就绪：配置缓存必须使用本地绝对路径。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0128" xml:space="preserve">
+    <value>配置缓存必须使用本地绝对路径。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0129" xml:space="preserve">
+    <value>没有已批准的下载清单。</value>
+  </data>
+  <data name="Common_Complete0130" xml:space="preserve">
+    <value>初始模型配置未确认就绪：没有已批准的下载清单。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0131" xml:space="preserve">
+    <value>没有已批准的下载清单。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0132" xml:space="preserve">
+    <value>配置缓存没有已存在的本地父目录。</value>
+  </data>
+  <data name="Common_Complete0133" xml:space="preserve">
+    <value>初始模型配置未确认就绪：配置缓存没有已存在的本地父目录。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0134" xml:space="preserve">
+    <value>配置缓存没有已存在的本地父目录。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0135" xml:space="preserve">
+    <value>已批准的前置依赖条目缺失、重复或大小不符。</value>
+  </data>
+  <data name="Common_Complete0136" xml:space="preserve">
+    <value>初始模型配置未确认就绪：已批准的前置依赖条目缺失、重复或大小不符。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0137" xml:space="preserve">
+    <value>已批准的前置依赖条目缺失、重复或大小不符。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0138" xml:space="preserve">
+    <value>下载的 Content-Length 与已批准的确切大小不符。</value>
+  </data>
+  <data name="Common_Complete0139" xml:space="preserve">
+    <value>初始模型配置未确认就绪：下载的 Content-Length 与已批准的确切大小不符。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0140" xml:space="preserve">
+    <value>下载的 Content-Length 与已批准的确切大小不符。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0141" xml:space="preserve">
+    <value>下载重定向超出了已批准的 HTTPS 发布制品主机范围。</value>
+  </data>
+  <data name="Common_Complete0142" xml:space="preserve">
+    <value>初始模型配置未确认就绪：下载重定向超出了已批准的 HTTPS 发布制品主机范围。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0143" xml:space="preserve">
+    <value>下载重定向超出了已批准的 HTTPS 发布制品主机范围。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0144" xml:space="preserve">
+    <value>无法在限制内解析下载重定向。</value>
+  </data>
+  <data name="Common_Complete0145" xml:space="preserve">
+    <value>初始模型配置未确认就绪：无法在限制内解析下载重定向。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0146" xml:space="preserve">
+    <value>无法在限制内解析下载重定向。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0147" xml:space="preserve">
+    <value>已批准的制品下载失败，HTTP 状态为 {0}。未尝试重试。</value>
+  </data>
+  <data name="Common_Complete0148" xml:space="preserve">
+    <value>初始模型配置未确认就绪：已批准的制品下载失败，HTTP 状态为 {0}。未尝试重试。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0149" xml:space="preserve">
+    <value>已批准的制品下载失败，HTTP 状态为 {0}。未尝试重试。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0150" xml:space="preserve">
+    <value>下载重定向次数超限。</value>
+  </data>
+  <data name="Common_Complete0151" xml:space="preserve">
+    <value>初始模型配置未确认就绪：下载重定向次数超限。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0152" xml:space="preserve">
+    <value>下载重定向次数超限。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0153" xml:space="preserve">
+    <value>制品超出已批准的大小，已停止下载或解压。</value>
+  </data>
+  <data name="Common_Complete0154" xml:space="preserve">
+    <value>初始模型配置未确认就绪：制品超出已批准的大小，已停止下载或解压。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0155" xml:space="preserve">
+    <value>制品超出已批准的大小，已停止下载或解压。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0156" xml:space="preserve">
+    <value>制品大小或 SHA256 与已批准清单不符，部分文件已保留且绝不安装。</value>
+  </data>
+  <data name="Common_Complete0157" xml:space="preserve">
+    <value>初始模型配置未确认就绪：制品大小或 SHA256 与已批准清单不符，部分文件已保留且绝不安装。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0158" xml:space="preserve">
+    <value>制品大小或 SHA256 与已批准清单不符，部分文件已保留且绝不安装。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0159" xml:space="preserve">
+    <value>现有配置缓存验证失败并已保留。请手动移除损坏的缓存制品后再重试。</value>
+  </data>
+  <data name="Common_Complete0160" xml:space="preserve">
+    <value>初始模型配置未确认就绪：现有配置缓存验证失败并已保留。请手动移除损坏的缓存制品后再重试。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0161" xml:space="preserve">
+    <value>现有配置缓存验证失败并已保留。请手动移除损坏的缓存制品后再重试。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0162" xml:space="preserve">
+    <value>配置缓存不允许重解析点。</value>
+  </data>
+  <data name="Common_Complete0163" xml:space="preserve">
+    <value>初始模型配置未确认就绪：配置缓存不允许重解析点。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0164" xml:space="preserve">
+    <value>配置缓存不允许重解析点。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0165" xml:space="preserve">
+    <value>Foundry Local 要求明确的本机回环 HTTP(S) URL 和端口，可选择以 /v1 结尾。不允许远程主机、凭据、查询字符串或片段。</value>
+  </data>
+  <data name="Common_Complete0166" xml:space="preserve">
+    <value>初始模型配置未确认就绪：Foundry Local 要求明确的本机回环 HTTP(S) URL 和端口，可选择以 /v1 结尾。不允许远程主机、凭据、查询字符串或片段。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0167" xml:space="preserve">
+    <value>Foundry Local 要求明确的本机回环 HTTP(S) URL 和端口，可选择以 /v1 结尾。不允许远程主机、凭据、查询字符串或片段。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0168" xml:space="preserve">
+    <value>Foundry Local 的套接字目标必须是本机回环地址。</value>
+  </data>
+  <data name="Common_Complete0169" xml:space="preserve">
+    <value>初始模型配置未确认就绪：Foundry Local 的套接字目标必须是本机回环地址。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0170" xml:space="preserve">
+    <value>Foundry Local 的套接字目标必须是本机回环地址。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0171" xml:space="preserve">
+    <value>必须明确指定 Foundry Local 套接字端口。</value>
+  </data>
+  <data name="Common_Complete0172" xml:space="preserve">
+    <value>初始模型配置未确认就绪：必须明确指定 Foundry Local 套接字端口。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0173" xml:space="preserve">
+    <value>必须明确指定 Foundry Local 套接字端口。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0174" xml:space="preserve">
+    <value>原配置批准或设置已改变，未请求进一步更改。</value>
+  </data>
+  <data name="Common_Complete0175" xml:space="preserve">
+    <value>初始模型配置未确认就绪：原配置批准或设置已改变，未请求进一步更改。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0176" xml:space="preserve">
+    <value>原配置批准或设置已改变，未请求进一步更改。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0177" xml:space="preserve">
+    <value>准备期间已有服务器已改变。文件已保留，请检查新服务器后再加载。</value>
+  </data>
+  <data name="Common_Complete0178" xml:space="preserve">
+    <value>初始模型配置未确认就绪：准备期间已有服务器已改变。文件已保留，请检查新服务器后再加载。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0179" xml:space="preserve">
+    <value>准备期间已有服务器已改变。文件已保留，请检查新服务器后再加载。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0180" xml:space="preserve">
+    <value>未观测到明确的运行中端点。已准备的文件已保留，未猜测端点。</value>
+  </data>
+  <data name="Common_Complete0181" xml:space="preserve">
+    <value>初始模型配置未确认就绪：未观测到明确的运行中端点。已准备的文件已保留，未猜测端点。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0182" xml:space="preserve">
+    <value>未观测到明确的运行中端点。已准备的文件已保留，未猜测端点。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0183" xml:space="preserve">
+    <value>检查目录期间已准备的服务器被替换，不会加载替代服务器。</value>
+  </data>
+  <data name="Common_Complete0184" xml:space="preserve">
+    <value>初始模型配置未确认就绪：检查目录期间已准备的服务器被替换，不会加载替代服务器。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0185" xml:space="preserve">
+    <value>检查目录期间已准备的服务器被替换，不会加载替代服务器。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0186" xml:space="preserve">
+    <value>运行时未发现已注册模型，不会加载目录别名或其他变体。</value>
+  </data>
+  <data name="Common_Complete0187" xml:space="preserve">
+    <value>初始模型配置未确认就绪：运行时未发现已注册模型，不会加载目录别名或其他变体。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0188" xml:space="preserve">
+    <value>运行时未发现已注册模型，不会加载目录别名或其他变体。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0189" xml:space="preserve">
+    <value>必须提供已准备的本地软件包路径。</value>
+  </data>
+  <data name="Common_Complete0190" xml:space="preserve">
+    <value>初始模型配置未确认就绪：必须提供已准备的本地软件包路径。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0191" xml:space="preserve">
+    <value>必须提供已准备的本地软件包路径。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0192" xml:space="preserve">
+    <value>已准备的软件包不允许重解析点。</value>
+  </data>
+  <data name="Common_Complete0193" xml:space="preserve">
+    <value>初始模型配置未确认就绪：已准备的软件包不允许重解析点。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0194" xml:space="preserve">
+    <value>已准备的软件包不允许重解析点。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0195" xml:space="preserve">
+    <value>已准备的软件包字节与已批准的制品不符。</value>
+  </data>
+  <data name="Common_Complete0196" xml:space="preserve">
+    <value>初始模型配置未确认就绪：已准备的软件包字节与已批准的制品不符。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0197" xml:space="preserve">
+    <value>已准备的软件包字节与已批准的制品不符。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0198" xml:space="preserve">
+    <value>模型缓存必须使用本地绝对路径。</value>
+  </data>
+  <data name="Common_Complete0199" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型缓存必须使用本地绝对路径。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0200" xml:space="preserve">
+    <value>模型缓存必须使用本地绝对路径。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0201" xml:space="preserve">
+    <value>必须提供确切的九文件模型清单。</value>
+  </data>
+  <data name="Common_Complete0202" xml:space="preserve">
+    <value>初始模型配置未确认就绪：必须提供确切的九文件模型清单。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0203" xml:space="preserve">
+    <value>必须提供确切的九文件模型清单。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0204" xml:space="preserve">
+    <value>模型暂存已取消，部分文件已保留。</value>
+  </data>
+  <data name="Common_Complete0205" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型暂存已取消，部分文件已保留。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0206" xml:space="preserve">
+    <value>模型暂存已取消，部分文件已保留。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0207" xml:space="preserve">
+    <value>模型暂存已超时，部分文件已保留，不会自动重试。</value>
+  </data>
+  <data name="Common_Complete0208" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型暂存已超时，部分文件已保留，不会自动重试。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0209" xml:space="preserve">
+    <value>模型暂存已超时，部分文件已保留，不会自动重试。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0210" xml:space="preserve">
+    <value>模型暂存失败。请检查缓存访问权限和网络连接，手动移除损坏的缓存文件及其凭证后再重试。部分文件已保留，不会自动重试。</value>
+  </data>
+  <data name="Common_Complete0211" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型暂存失败。请检查缓存访问权限和网络连接，手动移除损坏的缓存文件及其凭证后再重试。部分文件已保留，不会自动重试。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0212" xml:space="preserve">
+    <value>模型暂存失败。请检查缓存访问权限和网络连接，手动移除损坏的缓存文件及其凭证后再重试。部分文件已保留，不会自动重试。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0213" xml:space="preserve">
+    <value>固定的模型发布日期不符合依赖发布满七天的策略。</value>
+  </data>
+  <data name="Common_Complete0214" xml:space="preserve">
+    <value>初始模型配置未确认就绪：固定的模型发布日期不符合依赖发布满七天的策略。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0215" xml:space="preserve">
+    <value>固定的模型发布日期不符合依赖发布满七天的策略。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0216" xml:space="preserve">
+    <value>模型载荷含有意外条目。请手动移除意外的缓存条目后再重试。</value>
+  </data>
+  <data name="Common_Complete0217" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型载荷含有意外条目。请手动移除意外的缓存条目后再重试。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0218" xml:space="preserve">
+    <value>模型载荷含有意外条目。请手动移除意外的缓存条目后再重试。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0219" xml:space="preserve">
+    <value>模型缓存文件与凭证不完整。请手动移除受影响文件及凭证后再重试，绝不复用无凭证的字节。</value>
+  </data>
+  <data name="Common_Complete0220" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型缓存文件与凭证不完整。请手动移除受影响文件及凭证后再重试，绝不复用无凭证的字节。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0221" xml:space="preserve">
+    <value>模型缓存文件与凭证不完整。请手动移除受影响文件及凭证后再重试，绝不复用无凭证的字节。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0222" xml:space="preserve">
+    <value>模型响应的 ETag、Last-Modified 或 Content-Length 缺失或与固定清单不符，不会重试。</value>
+  </data>
+  <data name="Common_Complete0223" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型响应的 ETag、Last-Modified 或 Content-Length 缺失或与固定清单不符，不会重试。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0224" xml:space="preserve">
+    <value>模型响应的 ETag、Last-Modified 或 Content-Length 缺失或与固定清单不符，不会重试。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0225" xml:space="preserve">
+    <value>不接受编码或部分模型响应。</value>
+  </data>
+  <data name="Common_Complete0226" xml:space="preserve">
+    <value>初始模型配置未确认就绪：不接受编码或部分模型响应。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0227" xml:space="preserve">
+    <value>不接受编码或部分模型响应。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0228" xml:space="preserve">
+    <value>模型缓存凭证过大，需要手动恢复缓存。</value>
+  </data>
+  <data name="Common_Complete0229" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型缓存凭证过大，需要手动恢复缓存。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0230" xml:space="preserve">
+    <value>模型缓存凭证过大，需要手动恢复缓存。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0231" xml:space="preserve">
+    <value>模型缓存凭证格式错误，需要手动恢复缓存。</value>
+  </data>
+  <data name="Common_Complete0232" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型缓存凭证格式错误，需要手动恢复缓存。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0233" xml:space="preserve">
+    <value>模型缓存凭证格式错误，需要手动恢复缓存。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0234" xml:space="preserve">
+    <value>模型缓存凭证字段重复，需要手动恢复缓存。</value>
+  </data>
+  <data name="Common_Complete0235" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型缓存凭证字段重复，需要手动恢复缓存。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0236" xml:space="preserve">
+    <value>模型缓存凭证字段重复，需要手动恢复缓存。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0237" xml:space="preserve">
+    <value>模型缓存凭证与固定清单不符，请手动移除受影响文件及凭证后再重试。</value>
+  </data>
+  <data name="Common_Complete0238" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型缓存凭证与固定清单不符，请手动移除受影响文件及凭证后再重试。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0239" xml:space="preserve">
+    <value>模型缓存凭证与固定清单不符，请手动移除受影响文件及凭证后再重试。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0240" xml:space="preserve">
+    <value>模型缓存完整性验证失败，请手动移除受影响文件及凭证后再重试。</value>
+  </data>
+  <data name="Common_Complete0241" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型缓存完整性验证失败，请手动移除受影响文件及凭证后再重试。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0242" xml:space="preserve">
+    <value>模型缓存完整性验证失败，请手动移除受影响文件及凭证后再重试。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0243" xml:space="preserve">
+    <value>模型仓库元数据超过 64 KiB 限制。</value>
+  </data>
+  <data name="Common_Complete0244" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型仓库元数据超过 64 KiB 限制。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0245" xml:space="preserve">
+    <value>模型仓库元数据超过 64 KiB 限制。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0246" xml:space="preserve">
+    <value>模型仓库元数据结构未知。</value>
+  </data>
+  <data name="Common_Complete0247" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型仓库元数据结构未知。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0248" xml:space="preserve">
+    <value>模型仓库元数据结构未知。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0249" xml:space="preserve">
+    <value>模型仓库的 blobSasUri 缺失、含义不明确，或超出确切批准的 HTTPS 来源和容器范围。</value>
+  </data>
+  <data name="Common_Complete0250" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型仓库的 blobSasUri 缺失、含义不明确，或超出确切批准的 HTTPS 来源和容器范围。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0251" xml:space="preserve">
+    <value>模型仓库的 blobSasUri 缺失、含义不明确，或超出确切批准的 HTTPS 来源和容器范围。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0252" xml:space="preserve">
+    <value>模型暂存要求 HTTP 200，实际收到 HTTP {0}。重定向、凭据刷新和自动重试已禁用。</value>
+  </data>
+  <data name="Common_Complete0253" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型暂存要求 HTTP 200，实际收到 HTTP {0}。重定向、凭据刷新和自动重试已禁用。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0254" xml:space="preserve">
+    <value>模型暂存要求 HTTP 200，实际收到 HTTP {0}。重定向、凭据刷新和自动重试已禁用。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0255" xml:space="preserve">
+    <value>模型元数据或凭证超出大小上限。</value>
+  </data>
+  <data name="Common_Complete0256" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型元数据或凭证超出大小上限。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0257" xml:space="preserve">
+    <value>模型元数据或凭证超出大小上限。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0258" xml:space="preserve">
+    <value>模型流超出固定大小，部分文件已保留且绝不视为完成。</value>
+  </data>
+  <data name="Common_Complete0259" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型流超出固定大小，部分文件已保留且绝不视为完成。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0260" xml:space="preserve">
+    <value>模型流超出固定大小，部分文件已保留且绝不视为完成。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0261" xml:space="preserve">
+    <value>模型流小于固定大小，部分文件已保留且绝不视为完成。</value>
+  </data>
+  <data name="Common_Complete0262" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型流小于固定大小，部分文件已保留且绝不视为完成。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0263" xml:space="preserve">
+    <value>模型流小于固定大小，部分文件已保留且绝不视为完成。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0264" xml:space="preserve">
+    <value>模型缓存要求已存在的本地父目录。</value>
+  </data>
+  <data name="Common_Complete0265" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型缓存要求已存在的本地父目录。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0266" xml:space="preserve">
+    <value>模型缓存要求已存在的本地父目录。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0267" xml:space="preserve">
+    <value>必须提供确切的固定九文件清单。</value>
+  </data>
+  <data name="Common_Complete0268" xml:space="preserve">
+    <value>初始模型配置未确认就绪：必须提供确切的固定九文件清单。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0269" xml:space="preserve">
+    <value>必须提供确切的固定九文件清单。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0270" xml:space="preserve">
+    <value>Foundry 缓存注册要求 Windows。</value>
+  </data>
+  <data name="Common_Complete0271" xml:space="preserve">
+    <value>初始模型配置未确认就绪：Foundry 缓存注册要求 Windows。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0272" xml:space="preserve">
+    <value>Foundry 缓存注册要求 Windows。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0273" xml:space="preserve">
+    <value>暂存模型的标识或字节数与固定清单不符。</value>
+  </data>
+  <data name="Common_Complete0274" xml:space="preserve">
+    <value>初始模型配置未确认就绪：暂存模型的标识或字节数与固定清单不符。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0275" xml:space="preserve">
+    <value>暂存模型的标识或字节数与固定清单不符。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0276" xml:space="preserve">
+    <value>暂存模型必须符合暂存器固定的 v4 布局。</value>
+  </data>
+  <data name="Common_Complete0277" xml:space="preserve">
+    <value>初始模型配置未确认就绪：暂存模型必须符合暂存器固定的 v4 布局。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0278" xml:space="preserve">
+    <value>暂存模型必须符合暂存器固定的 v4 布局。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0279" xml:space="preserve">
+    <value>外部缓存不能位于暂存模型目录内。</value>
+  </data>
+  <data name="Common_Complete0280" xml:space="preserve">
+    <value>初始模型配置未确认就绪：外部缓存不能位于暂存模型目录内。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0281" xml:space="preserve">
+    <value>外部缓存不能位于暂存模型目录内。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0282" xml:space="preserve">
+    <value>来源凭证与固定模型清单不符。</value>
+  </data>
+  <data name="Common_Complete0283" xml:space="preserve">
+    <value>初始模型配置未确认就绪：来源凭证与固定模型清单不符。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0284" xml:space="preserve">
+    <value>来源凭证与固定模型清单不符。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0285" xml:space="preserve">
+    <value>暂存模型内容已与完整性凭证不符。</value>
+  </data>
+  <data name="Common_Complete0286" xml:space="preserve">
+    <value>初始模型配置未确认就绪：暂存模型内容已与完整性凭证不符。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0287" xml:space="preserve">
+    <value>暂存模型内容已与完整性凭证不符。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0288" xml:space="preserve">
+    <value>现有注册不是兼容的应用所有预留项。</value>
+  </data>
+  <data name="Common_Complete0289" xml:space="preserve">
+    <value>初始模型配置未确认就绪：现有注册不是兼容的应用所有预留项。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0290" xml:space="preserve">
+    <value>现有注册不是兼容的应用所有预留项。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0291" xml:space="preserve">
+    <value>应用所有的临时存储含有意外条目。</value>
+  </data>
+  <data name="Common_Complete0292" xml:space="preserve">
+    <value>初始模型配置未确认就绪：应用所有的临时存储含有意外条目。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0293" xml:space="preserve">
+    <value>应用所有的临时存储含有意外条目。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0294" xml:space="preserve">
+    <value>此预留项不拥有注册哨兵文件。</value>
+  </data>
+  <data name="Common_Complete0295" xml:space="preserve">
+    <value>初始模型配置未确认就绪：此预留项不拥有注册哨兵文件。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0296" xml:space="preserve">
+    <value>此预留项不拥有注册哨兵文件。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0297" xml:space="preserve">
+    <value>已注册模型内容与已验证的暂存内容不符，需要手动恢复。</value>
+  </data>
+  <data name="Common_Complete0298" xml:space="preserve">
+    <value>初始模型配置未确认就绪：已注册模型内容与已验证的暂存内容不符，需要手动恢复。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0299" xml:space="preserve">
+    <value>已注册模型内容与已验证的暂存内容不符，需要手动恢复。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0300" xml:space="preserve">
+    <value>已注册的推理元数据与固定的扫描器元数据不符。</value>
+  </data>
+  <data name="Common_Complete0301" xml:space="preserve">
+    <value>初始模型配置未确认就绪：已注册的推理元数据与固定的扫描器元数据不符。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0302" xml:space="preserve">
+    <value>已注册的推理元数据与固定的扫描器元数据不符。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0303" xml:space="preserve">
+    <value>模型文件大小与固定清单不符。</value>
+  </data>
+  <data name="Common_Complete0304" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型文件大小与固定清单不符。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0305" xml:space="preserve">
+    <value>模型文件大小与固定清单不符。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0306" xml:space="preserve">
+    <value>注册凭证缺失。</value>
+  </data>
+  <data name="Common_Complete0307" xml:space="preserve">
+    <value>初始模型配置未确认就绪：注册凭证缺失。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0308" xml:space="preserve">
+    <value>注册凭证缺失。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0309" xml:space="preserve">
+    <value>凭证属性重复。</value>
+  </data>
+  <data name="Common_Complete0310" xml:space="preserve">
+    <value>初始模型配置未确认就绪：凭证属性重复。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0311" xml:space="preserve">
+    <value>凭证属性重复。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0312" xml:space="preserve">
+    <value>注册元数据过大。</value>
+  </data>
+  <data name="Common_Complete0313" xml:space="preserve">
+    <value>初始模型配置未确认就绪：注册元数据过大。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0314" xml:space="preserve">
+    <value>注册元数据过大。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0315" xml:space="preserve">
+    <value>要求本地绝对路径，且不能含路径跳转或设备语法。</value>
+  </data>
+  <data name="Common_Complete0316" xml:space="preserve">
+    <value>初始模型配置未确认就绪：要求本地绝对路径，且不能含路径跳转或设备语法。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0317" xml:space="preserve">
+    <value>要求本地绝对路径，且不能含路径跳转或设备语法。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0318" xml:space="preserve">
+    <value>无法检查注册条目。</value>
+  </data>
+  <data name="Common_Complete0319" xml:space="preserve">
+    <value>初始模型配置未确认就绪：无法检查注册条目。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0320" xml:space="preserve">
+    <value>无法检查注册条目。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0321" xml:space="preserve">
+    <value>模型目录含有意外条目，未覆盖任何内容。</value>
+  </data>
+  <data name="Common_Complete0322" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型目录含有意外条目，未覆盖任何内容。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0323" xml:space="preserve">
+    <value>模型目录含有意外条目，未覆盖任何内容。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0324" xml:space="preserve">
+    <value>无法独占访问普通的本地注册条目。</value>
+  </data>
+  <data name="Common_Complete0325" xml:space="preserve">
+    <value>初始模型配置未确认就绪：无法独占访问普通的本地注册条目。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0326" xml:space="preserve">
+    <value>无法独占访问普通的本地注册条目。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0327" xml:space="preserve">
+    <value>模型注册不允许重解析点或意外的条目类型。</value>
+  </data>
+  <data name="Common_Complete0328" xml:space="preserve">
+    <value>初始模型配置未确认就绪：模型注册不允许重解析点或意外的条目类型。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0329" xml:space="preserve">
+    <value>模型注册不允许重解析点或意外的条目类型。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0330" xml:space="preserve">
+    <value>Foundry Local 推理</value>
+  </data>
+  <data name="Common_Complete0331" xml:space="preserve">
+    <value>AI 已禁用或 Foundry Local 配置已改变，无法发送本轮请求。</value>
+  </data>
+  <data name="Common_Complete0332" xml:space="preserve">
+    <value>初始模型配置未确认就绪：AI 已禁用或 Foundry Local 配置已改变，无法发送本轮请求。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0333" xml:space="preserve">
+    <value>AI 已禁用或 Foundry Local 配置已改变，无法发送本轮请求。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0334" xml:space="preserve">
+    <value>Foundry Local 配置已改变，请刷新后再请求模型更改。</value>
+  </data>
+  <data name="Common_Complete0335" xml:space="preserve">
+    <value>初始模型配置未确认就绪：Foundry Local 配置已改变，请刷新后再请求模型更改。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0336" xml:space="preserve">
+    <value>Foundry Local 配置已改变，请刷新后再请求模型更改。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0337" xml:space="preserve">
+    <value>必须提供 Foundry Local 配置。</value>
+  </data>
+  <data name="Common_Complete0338" xml:space="preserve">
+    <value>初始模型配置未确认就绪：必须提供 Foundry Local 配置。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0339" xml:space="preserve">
+    <value>必须提供 Foundry Local 配置。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0340" xml:space="preserve">
+    <value>请选择实际的 Foundry Local 模型 ID，不会推断默认模型或别名。</value>
+  </data>
+  <data name="Common_Complete0341" xml:space="preserve">
+    <value>初始模型配置未确认就绪：请选择实际的 Foundry Local 模型 ID，不会推断默认模型或别名。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0342" xml:space="preserve">
+    <value>请选择实际的 Foundry Local 模型 ID，不会推断默认模型或别名。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0343" xml:space="preserve">
+    <value>完整批准详情超出显示限制，不能批准下载或安装。</value>
+  </data>
+  <data name="Common_Complete0344" xml:space="preserve">
+    <value>初始模型配置未确认就绪：完整批准详情超出显示限制，不能批准下载或安装。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0345" xml:space="preserve">
+    <value>完整批准详情超出显示限制，不能批准下载或安装。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0346" xml:space="preserve">
+    <value>元数据观测期间 Foundry Local 已重启，请刷新后再推理。</value>
+  </data>
+  <data name="Common_Complete0347" xml:space="preserve">
+    <value>初始模型配置未确认就绪：元数据观测期间 Foundry Local 已重启，请刷新后再推理。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0348" xml:space="preserve">
+    <value>元数据观测期间 Foundry Local 已重启，请刷新后再推理。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0349" xml:space="preserve">
+    <value>Foundry v1 模型列表结构未知。</value>
+  </data>
+  <data name="Common_Complete0350" xml:space="preserve">
+    <value>初始模型配置未确认就绪：Foundry v1 模型列表结构未知。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0351" xml:space="preserve">
+    <value>Foundry v1 模型列表结构未知。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0352" xml:space="preserve">
+    <value>Foundry v1 模型标识未知。</value>
+  </data>
+  <data name="Common_Complete0353" xml:space="preserve">
+    <value>初始模型配置未确认就绪：Foundry v1 模型标识未知。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0354" xml:space="preserve">
+    <value>Foundry v1 模型标识未知。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0355" xml:space="preserve">
+    <value>Foundry v1 模型标识重复。</value>
+  </data>
+  <data name="Common_Complete0356" xml:space="preserve">
+    <value>初始模型配置未确认就绪：Foundry v1 模型标识重复。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0357" xml:space="preserve">
+    <value>Foundry v1 模型标识重复。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0358" xml:space="preserve">
+    <value>Foundry Local 已停止，过期的已存 URL 不能授权连接。</value>
+  </data>
+  <data name="Common_Complete0359" xml:space="preserve">
+    <value>初始模型配置未确认就绪：Foundry Local 已停止，过期的已存 URL 不能授权连接。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0360" xml:space="preserve">
+    <value>Foundry Local 已停止，过期的已存 URL 不能授权连接。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0361" xml:space="preserve">
+    <value>已配置的 Foundry 端点与观测到的独立进程不符，未尝试回退。</value>
+  </data>
+  <data name="Common_Complete0362" xml:space="preserve">
+    <value>初始模型配置未确认就绪：已配置的 Foundry 端点与观测到的独立进程不符，未尝试回退。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0363" xml:space="preserve">
+    <value>已配置的 Foundry 端点与观测到的独立进程不符，未尝试回退。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0364" xml:space="preserve">
+    <value>配置批准已失效，未请求进一步加载或推理。</value>
+  </data>
+  <data name="Common_Complete0365" xml:space="preserve">
+    <value>初始模型配置未确认就绪：配置批准已失效，未请求进一步加载或推理。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0366" xml:space="preserve">
+    <value>配置批准已失效，未请求进一步加载或推理。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0367" xml:space="preserve">
+    <value>加载要求确切的已注册 CPU 模型版本。</value>
+  </data>
+  <data name="Common_Complete0368" xml:space="preserve">
+    <value>初始模型配置未确认就绪：加载要求确切的已注册 CPU 模型版本。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0369" xml:space="preserve">
+    <value>加载要求确切的已注册 CPU 模型版本。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0370" xml:space="preserve">
+    <value>加载模型前已准备的服务器被替换，未接管替代服务器。</value>
+  </data>
+  <data name="Common_Complete0371" xml:space="preserve">
+    <value>初始模型配置未确认就绪：加载模型前已准备的服务器被替换，未接管替代服务器。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0372" xml:space="preserve">
+    <value>加载模型前已准备的服务器被替换，未接管替代服务器。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0373" xml:space="preserve">
+    <value>加载模型期间 Foundry 已重启，未接受就绪状态。</value>
+  </data>
+  <data name="Common_Complete0374" xml:space="preserve">
+    <value>初始模型配置未确认就绪：加载模型期间 Foundry 已重启，未接受就绪状态。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0375" xml:space="preserve">
+    <value>加载模型期间 Foundry 已重启，未接受就绪状态。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0376" xml:space="preserve">
+    <value>已加载模型未返回预期的模拟就绪响应。</value>
+  </data>
+  <data name="Common_Complete0377" xml:space="preserve">
+    <value>初始模型配置未确认就绪：已加载模型未返回预期的模拟就绪响应。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0378" xml:space="preserve">
+    <value>已加载模型未返回预期的模拟就绪响应。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0379" xml:space="preserve">
+    <value>就绪验证期间 Foundry 已重启。</value>
+  </data>
+  <data name="Common_Complete0380" xml:space="preserve">
+    <value>初始模型配置未确认就绪：就绪验证期间 Foundry 已重启。 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Complete0381" xml:space="preserve">
+    <value>就绪验证期间 Foundry 已重启。 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0382" xml:space="preserve">
+    <value>批准已失效，未请求注册。 已验证的配置缓存会保留以便离线复用。任何中断的 .partial 文件都会保留，绝不复用或安装；可在配置缓存中手动移除。</value>
+  </data>
+  <data name="Common_Complete0383" xml:space="preserve">
+    <value>已取消或超时，Windows 注册可能仍会完成。未尝试回滚或卸载。 已验证的配置缓存会保留以便离线复用。任何中断的 .partial 文件都会保留，绝不复用或安装；可在配置缓存中手动移除。</value>
+  </data>
+  <data name="Common_Complete0384" xml:space="preserve">
+    <value>注册前配置已取消或超时，未请求安装软件包。 已验证的配置缓存会保留以便离线复用。任何中断的 .partial 文件都会保留，绝不复用或安装；可在配置缓存中手动移除。</value>
+  </data>
+  <data name="Common_Complete0385" xml:space="preserve">
+    <value>运行时配置失败（{0}），不会自动重试或清理。 已验证的配置缓存会保留以便离线复用。任何中断的 .partial 文件都会保留，绝不复用或安装；可在配置缓存中手动移除。</value>
+  </data>
+  <data name="Common_Complete0386" xml:space="preserve">
+    <value>原配置已改变，未安装任何内容。 已验证的配置缓存会保留以便离线复用。任何中断的 .partial 文件都会保留，绝不复用或安装；可在配置缓存中手动移除。</value>
+  </data>
+  <data name="Common_Complete0387" xml:space="preserve">
+    <value>正在检查明确的仅运行时安装许可… 已验证的配置缓存会保留以便离线复用。任何中断的 .partial 文件都会保留，绝不复用或安装；可在配置缓存中手动移除。</value>
+  </data>
+  <data name="Common_Complete0388" xml:space="preserve">
+    <value>已拒绝仅运行时安装，未安装任何内容。 已验证的配置缓存会保留以便离线复用。任何中断的 .partial 文件都会保留，绝不复用或安装；可在配置缓存中手动移除。</value>
+  </data>
+  <data name="Common_Complete0389" xml:space="preserve">
+    <value>配置改变使批准失效，未安装任何内容。 已验证的配置缓存会保留以便离线复用。任何中断的 .partial 文件都会保留，绝不复用或安装；可在配置缓存中手动移除。</value>
+  </data>
+  <data name="Common_Complete0390" xml:space="preserve">
+    <value>正在安装已准备的确切用户范围 MSIX 和依赖，不启动服务器或配置模型… 已验证的配置缓存会保留以便离线复用。任何中断的 .partial 文件都会保留，绝不复用或安装；可在配置缓存中手动移除。</value>
+  </data>
+  <data name="Common_Complete0391" xml:space="preserve">
+    <value>Windows 部署期间配置已改变，运行时可能已安装。设置未改变，重试前请检查软件包。 已验证的配置缓存会保留以便离线复用。任何中断的 .partial 文件都会保留，绝不复用或安装；可在配置缓存中手动移除。</value>
+  </data>
+  <data name="Common_Complete0392" xml:space="preserve">
+    <value>Windows 部署未确认确切的运行时版本。未尝试重试或卸载，请检查软件包。 已验证的配置缓存会保留以便离线复用。任何中断的 .partial 文件都会保留，绝不复用或安装；可在配置缓存中手动移除。</value>
+  </data>
+  <data name="Common_Complete0393" xml:space="preserve">
+    <value>安装已取消，Windows 部署可能仍会完成。未尝试回滚或卸载，重试前请检查软件包。 已验证的配置缓存会保留以便离线复用。任何中断的 .partial 文件都会保留，绝不复用或安装；可在配置缓存中手动移除。</value>
+  </data>
+  <data name="Common_Complete0394" xml:space="preserve">
+    <value>准备已取消，未请求安装。 已验证的配置缓存会保留以便离线复用。任何中断的 .partial 文件都会保留，绝不复用或安装；可在配置缓存中手动移除。</value>
+  </data>
+  <data name="Common_Complete0395" xml:space="preserve">
+    <value>已准备的安装失败（{0}）。未尝试自动重试、下载或清理。 已验证的配置缓存会保留以便离线复用。任何中断的 .partial 文件都会保留，绝不复用或安装；可在配置缓存中手动移除。</value>
+  </data>
+  <data name="Common_Complete0396" xml:space="preserve">
+    <value>已为此用户注册确切的运行时软件包，并观测到 Microsoft x64 VCLibs 前置依赖（保留现有较新版本）。此仅运行时步骤未启动服务器或改变设置，仅注册不能证明模型已就绪。 独立版 0.10.3 的 CPU 初始化已单独验证，但这不能证明此应用的签名软件包部署或所有硬件配置均兼容。 配置仅注册软件包，不启动 Foundry，也不获取缺失的 DLL、执行提供方或模型。</value>
+  </data>
+  <data name="Common_Complete0397" xml:space="preserve">
+    <value>已为此用户注册确切的运行时软件包，并观测到 Microsoft x64 VCLibs 前置依赖（保留现有较新版本）。此仅运行时步骤未启动服务器或改变设置，仅注册不能证明模型已就绪。 独立版 0.10.3 的 CPU 初始化已单独验证，但这不能证明此应用的签名软件包部署或所有硬件配置均兼容。 配置仅注册软件包，不启动 Foundry，也不获取缺失的 DLL、执行提供方或模型。 已验证的配置缓存会保留以便离线复用。任何中断的 .partial 文件都会保留，绝不复用或安装；可在配置缓存中手动移除。</value>
+  </data>
+  <data name="Common_Complete0398" xml:space="preserve">
+    <value>九个固定版本的 CPU 模型文件已暂存，可离线复用。 它们尚未在 Foundry 中注册或加载，端点和模型设置保持不变。 使用固定的官方来源 ETag、日期和大小暂存。本地 SHA256 凭证用于后续缓存完整性验证，不代表独立的发布者验证。尚未注册或加载。</value>
+  </data>
+  <data name="Common_Complete0399" xml:space="preserve">
+    <value>模型文件准备已取消。运行时和设置均未改变。 中断的 .partial 文件会保留且绝不续传。重复暂存会重新计算完整文件的哈希；损坏或无凭证的缓存需手动恢复后再重试。</value>
+  </data>
+  <data name="Common_Complete0400" xml:space="preserve">
+    <value>正在使用模型“{0}”。正在检查此模型支持的能力…</value>
+  </data>
+  <data name="Common_Complete0401" xml:space="preserve">
+    <value>{0} 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Complete0402" xml:space="preserve">
+    <value>配置缓存：{0}</value>
+  </data>
+  <data name="Common_Complete0403" xml:space="preserve">
+    <value>模型文件暂存位置（非 Foundry 运行时缓存）：{0}</value>
+  </data>
+  <data name="Common_Complete0404" xml:space="preserve">
+    <value>准备失败：{0}</value>
+  </data>
+  <data name="Common_Complete0405" xml:space="preserve">
+    <value>发现的目录 ID（最多 100 个）：{0}</value>
+  </data>
+  <data name="Common_Complete0406" xml:space="preserve">
+    <value>发现失败：{0}</value>
+  </data>
+  <data name="Common_Complete0407" xml:space="preserve">
+    <value>近期引擎事件不可用：{0}</value>
+  </data>
+  <data name="Common_Complete0408" xml:space="preserve">
+    <value>初始模型配置未确认就绪：{0}</value>
+  </data>
+  <data name="Common_Complete0409" xml:space="preserve">
+    <value>；引擎健康状态：{0}</value>
+  </data>
+  <data name="Common_SetupUnavailable" xml:space="preserve">
+    <value>不可用</value>
+  </data>
+  <data name="Common_LocalAiSetupRecovery" xml:space="preserve">
+    <value>{0} {1} 未删除模型数据（{2}）。{3}{4}</value>
+  </data>
+  <data name="Common_LocalAiFailedOperation_155" xml:space="preserve">
+    <value>运行时启动 失败或中断，不会自动以 CPU 模式重试。</value>
+  </data>
+  <data name="Common_LocalAiFailedOperation_158" xml:space="preserve">
+    <value>模型卷创建 失败或中断，不会自动以 CPU 模式重试。</value>
+  </data>
+  <data name="Common_LocalAiFailedOperation_163" xml:space="preserve">
+    <value>运行时创建 失败或中断，不会自动以 CPU 模式重试。</value>
+  </data>
+  <data name="Common_LocalAiFailedOperation_174" xml:space="preserve">
+    <value>运行时移除 失败或中断，不会自动以 CPU 模式重试。</value>
+  </data>
+  <data name="Common_LocalAiFailedOperation_191" xml:space="preserve">
+    <value>运行时归属检查 失败或中断，不会自动以 CPU 模式重试。</value>
+  </data>
+  <data name="Common_LocalAiFailedOperation_199" xml:space="preserve">
+    <value>模型卷归属检查 失败或中断，不会自动以 CPU 模式重试。</value>
+  </data>
+  <data name="Common_LocalAiFailedOperation_211" xml:space="preserve">
+    <value>部分运行时清理 失败或中断，不会自动以 CPU 模式重试。</value>
+  </data>
 </root>

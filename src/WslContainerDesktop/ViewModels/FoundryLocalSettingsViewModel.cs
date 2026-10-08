@@ -89,9 +89,9 @@ public partial class FoundryLocalSettingsViewModel : ObservableObject
     /// <summary>Whether the user can prepare initial model from the view.</summary>
     public bool CanPrepareInitialModel => _initialSetup is not null && !IsPreparingAnything;
     /// <summary>Bindable state for setup cache location used by the view.</summary>
-    public string SetupCacheLocation => UiText.Get("Common_Text0153", "Setup cache: ") + _setup.CacheLocation;
+    public string SetupCacheLocation => UiText.Get("Common_Text0153", "Setup cache: ") + (_setup.CacheLocation == "Unavailable" ? UiText.Get("Common_SetupUnavailable", "Unavailable") : _setup.CacheLocation);
     /// <summary>Bindable state for model staging location used by the view.</summary>
-    public string ModelStagingLocation => UiText.Get("Common_Text0154", "Model-file staging (not the Foundry runtime cache): ") + _setup.ModelCacheLocation;
+    public string ModelStagingLocation => UiText.Get("Common_Text0154", "Model-file staging (not the Foundry runtime cache): ") + (_setup.ModelCacheLocation == "Unavailable" ? UiText.Get("Common_SetupUnavailable", "Unavailable") : _setup.ModelCacheLocation);
 
     /// <summary>Whether the standalone runtime is installed on this PC, for setup-versus-remove affordances.</summary>
     public bool IsRuntimeInstalled => _setup.IsRuntimeInstalled;

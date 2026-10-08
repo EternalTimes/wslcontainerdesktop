@@ -1552,8 +1552,8 @@ public partial class SettingsViewModel : ObservableObject
             {
                 // Failure/cancellation messages include the service's recovery outcome.
                 LocalAiFeedback = result.State == LocalAiContainerState.Cancelled
-                    ? AiFeedback.Warning(UiText.Get("Common_Text0111", "Local AI setup cancelled"), result.Message)
-                    : AiFeedback.Error(UiText.Get("Common_Text0112", "Local AI setup failed"), result.Message);
+                    ? AiFeedback.Warning(UiText.Get("Common_Text0111", "Local AI setup cancelled"), LocalizeLocalAiSetupMessage(result))
+                    : AiFeedback.Error(UiText.Get("Common_Text0112", "Local AI setup failed"), LocalizeLocalAiSetupMessage(result));
                 return;
             }
 
@@ -1888,6 +1888,39 @@ public partial class SettingsViewModel : ObservableObject
 
     /// <summary>Refreshes load ai secret state state for the view model.</summary>
     public void LoadAiSecretState() => LoadStoredAiSecretIndicator();
+
+    /// <summary>Projects the setup service's structured recovery message without rewriting raw evidence.</summary>
+    private static string LocalizeLocalAiSetupMessage(LocalAiSetupResult result)
+    {
+        // These delimiters and cleanup outcomes are emitted by LocalAiSetupService itself.
+        // Requiring the complete wrapper keeps unrelated diagnostics and user text untouched.
+        const string marker = " Model data was not deleted (";
+        const string recovery = "Recovery: inspect wslcd-ollama labels and immutable container ID; retry setup only after resolving conflicts.";
+        var message = result.Message;
+        var markerIndex = message.IndexOf(marker, StringComparison.Ordinal);
+        var recoveryIndex = message.IndexOf("). " + recovery, StringComparison.Ordinal);
+        if (markerIndex < 0 || recoveryIndex <= markerIndex)
+            return UiText.TranslateLines(message);
+
+        string[] cleanupOutcomes =
+        [
+            "No automatic runtime cleanup was attempted.",
+            "No partial runtime was observed; an interrupted creation may still finish. Inspect before retrying.",
+            "A different runtime was retained; this operation does not own it.",
+            "Only this operation's verified partial runtime was removed.",
+            "Partial runtime cleanup could not be confirmed; inspect before retrying.",
+        ];
+        var prefix = message[..markerIndex];
+        var cleanup = cleanupOutcomes.FirstOrDefault(outcome => prefix.EndsWith(" " + outcome, StringComparison.Ordinal));
+        if (cleanup is null)
+            return UiText.TranslateLines(message);
+
+        var reason = prefix[..(prefix.Length - cleanup.Length - 1)];
+        var suffix = message[(recoveryIndex + 3 + recovery.Length)..];
+        return UiText.Get("Common_LocalAiSetupRecovery", "{0} {1} Model data was not deleted ({2}). {3}{4}",
+            UiText.TranslateLines(reason), UiText.Translate(cleanup),
+            UiText.Translate(result.ModelData.ToString()), UiText.Translate(recovery), UiText.Translate(suffix));
+    }
 
     /// <summary>Refreshes public display text while keeping user input and active operations intact.</summary>
     private void RefreshCommonLocalizedText()
