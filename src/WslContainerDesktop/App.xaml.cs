@@ -516,7 +516,7 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
         });
 
         services.AddSingleton<ISettingsService, SettingsService>();
-    services.AddSingleton<ITextLocalizer, TextLocalizer>();
+        services.AddSingleton<ITextLocalizer, TextLocalizer>();
         services.AddSingleton<ProcessRunner>();
         services.AddSingleton<IWslPolicyRegistryReader, RegistryWslPolicyRegistryReader>();
         services.AddSingleton<IWslPolicyService, WslPolicyService>();

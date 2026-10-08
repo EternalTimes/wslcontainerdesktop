@@ -58,7 +58,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Settings_Appearance_Header.Header" xml:space="preserve">
+  <data name="Settings_Appearance_Header.Text" xml:space="preserve">
     <value>外观</value>
   </data>
   <data name="Settings_Theme_Label.Text" xml:space="preserve">
@@ -67,13 +67,13 @@
   <data name="Settings_Theme_Help.Text" xml:space="preserve">
     <value>立即生效。</value>
   </data>
-  <data name="Settings_Theme_Option_System.Content" xml:space="preserve">
+  <data name="Settings_Theme_Option_System" xml:space="preserve">
     <value>跟随系统</value>
   </data>
-  <data name="Settings_Theme_Option_Light.Content" xml:space="preserve">
+  <data name="Settings_Theme_Option_Light" xml:space="preserve">
     <value>浅色</value>
   </data>
-  <data name="Settings_Theme_Option_Dark.Content" xml:space="preserve">
+  <data name="Settings_Theme_Option_Dark" xml:space="preserve">
     <value>深色</value>
   </data>
   <data name="Settings_Language_Label.Text" xml:space="preserve">
