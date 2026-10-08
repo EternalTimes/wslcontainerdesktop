@@ -45,6 +45,24 @@ in its own right, independent of how reputable the publisher is or how badly a f
   from the repository root; use focused filters for changed behavior. Build to **0 warnings**.
   Coordinate packaged smoke runs: deployment affects the registered app, even from another worktree.
 
+## Localization work shared between assistants
+
+- Work in separate branches or worktrees and claim non-overlapping view/page groups before editing.
+  Each completed group gets one focused commit containing its XAML or C# changes and both locale
+  resources. Leave the other assistant's in-progress files alone; exchange commit hashes instead of
+  copying a partly edited working tree.
+- Keep `Strings/en-US/Resources.resw` and `Strings/zh-Hans/Resources.resw` key sets identical. A
+  `x:Uid` applies every matching property to every element with that Uid. Share one Uid only among
+  the same control type with compatible properties; a TextBox cannot consume a Button's `.Content`.
+  Run `I18nResourceTests` as a quick check, then open the affected page in a packaged test build:
+  the XAML compiler does not catch every resource property error.
+- `x:Uid` strings are resolved when XAML is constructed. Set the app language override before the
+  shell is constructed, then create a fresh page after a runtime switch and refresh shell labels.
+  Detaching and reattaching the same root does not reapply its `x:Uid` strings.
+- Before a handoff, state the commit hash, page group, new resource key count, build and UI checks,
+  known gaps, and which group the next assistant may edit. Recount remaining hard-coded display text
+  from the current tree; old estimates become stale after every batch.
+
 ## Releasing
 
 `CHANGELOG.md` is the user-facing record of each release, and the generated release notes link to
