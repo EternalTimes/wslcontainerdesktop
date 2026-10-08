@@ -779,12 +779,12 @@
                                         <StackPanel Margin="0,4,0,0" Spacing="4">
                                             <TextBlock
                                                 Style="{StaticResource BodyStrongTextBlockStyle}"
-                                                Text="{x:Bind Header}" />
+                                                Text="{x:Bind Header, Mode=OneWay}" />
                                             <ItemsControl ItemsSource="{x:Bind Tools}">
                                                 <ItemsControl.ItemTemplate>
                                                     <DataTemplate x:DataType="vm:AssistantToolPermission">
                                                         <ToggleSwitch
-                                                            Header="{x:Bind DisplayName}"
+                                                            Header="{x:Bind DisplayName, Mode=OneWay}"
                                                             IsEnabled="{x:Bind IsEnabled, Mode=OneWay}"
                                                             IsOn="{x:Bind AutoApprove, Mode=TwoWay}"
                                                             x:Uid="Settings_Ai_Perm" i18n:Localization.Uid="Settings_Ai_Perm" />

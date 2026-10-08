@@ -6020,4 +6020,3074 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_WslEngine_Extra2.Title" xml:space="preserve">
     <value>无法检查更新</value>
   </data>
+  <data name="Common_Text0000" xml:space="preserve">
+    <value>登录 Windows 时自动启动 WSL Container Desktop。</value>
+  </data>
+  <data name="Common_Text0001" xml:space="preserve">
+    <value>AI 功能已关闭</value>
+  </data>
+  <data name="Common_Text0002" xml:space="preserve">
+    <value>AI 功能默认关闭。启用后，请先审阅发送内容的预览，再提交诊断。</value>
+  </data>
+  <data name="Common_Text0003" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="Common_Text0004" xml:space="preserve">
+    <value>Ollama 已配置，并已选为你的提供方。</value>
+  </data>
+  <data name="Common_Text0005" xml:space="preserve">
+    <value>在本机运行模型，或在下方“提供方”中自行配置服务。</value>
+  </data>
+  <data name="Common_Text0007" xml:space="preserve">
+    <value>Ollama（本地容器）</value>
+  </data>
+  <data name="Common_Text0009" xml:space="preserve">
+    <value>Foundry Local（在 Windows 上运行）</value>
+  </data>
+  <data name="Common_Text0010" xml:space="preserve">
+    <value>未选择</value>
+  </data>
+  <data name="Common_Text0011" xml:space="preserve">
+    <value>AI 功能已关闭。启用后才能使用提供方。</value>
+  </data>
+  <data name="Common_Text0012" xml:space="preserve">
+    <value>在下方选择提供方，或通过“快速开始”在本机运行模型。</value>
+  </data>
+  <data name="Common_Text0013" xml:space="preserve">
+    <value>模型</value>
+  </data>
+  <data name="Common_Text0014" xml:space="preserve">
+    <value>版本 {0}.{1}.{2}</value>
+  </data>
+  <data name="Common_Text0015" xml:space="preserve">
+    <value>版本 1.0.0</value>
+  </data>
+  <data name="Common_Text0016" xml:space="preserve">
+    <value>允许助手无需询问即可执行操作？</value>
+  </data>
+  <data name="Common_Text0017" xml:space="preserve">
+    <value>助手会立即执行每项操作，包括移除容器和</value>
+  </data>
+  <data name="Common_Text0018" xml:space="preserve">
+    <value>数据卷，以及部署它自己编写的 Compose 应用。
+
+</value>
+  </data>
+  <data name="Common_Text0019" xml:space="preserve">
+    <value>在你关闭此设置前，助手不会再次询问。操作仍会显示在</value>
+  </data>
+  <data name="Common_Text0020" xml:space="preserve">
+    <value>活动页面中，应用无法安全执行的计划仍会被拒绝。</value>
+  </data>
+  <data name="Common_Text0021" xml:space="preserve">
+    <value>不再询问</value>
+  </data>
+  <data name="Common_Text0022" xml:space="preserve">
+    <value>继续询问</value>
+  </data>
+  <data name="Common_Text0023" xml:space="preserve">
+    <value>允许助手删除资源？</value>
+  </data>
+  <data name="Common_Text0024" xml:space="preserve">
+    <value>助手将能够移除容器、数据卷和网络，以及删除 Kubernetes </value>
+  </data>
+  <data name="Common_Text0025" xml:space="preserve">
+    <value>资源。移除数据卷会销毁其中的数据，应用无法撤销</value>
+  </data>
+  <data name="Common_Text0026" xml:space="preserve">
+    <value>这些操作。
+
+</value>
+  </data>
+  <data name="Common_Text0027" xml:space="preserve">
+    <value>除非你还在下方设置了该操作自动批准，否则助手仍会逐项询问。</value>
+  </data>
+  <data name="Common_Text0028" xml:space="preserve">
+    <value>允许删除</value>
+  </data>
+  <data name="Common_Text0029" xml:space="preserve">
+    <value>保持关闭</value>
+  </data>
+  <data name="Common_Text0030" xml:space="preserve">
+    <value>凭据已保存</value>
+  </data>
+  <data name="Common_Text0031" xml:space="preserve">
+    <value>已将 {0} 凭据保存到 Windows 凭据管理器。</value>
+  </data>
+  <data name="Common_Text0033" xml:space="preserve">
+    <value>仅使用你明确指定的回环地址 URL 和实际模型 ID。推理不使用 API 密钥、云端回退、WSLC 引擎或 Ollama 容器。</value>
+  </data>
+  <data name="Common_Text0034" xml:space="preserve">
+    <value>使用已登录的 Copilot CLI 账户，无需 API 密钥。</value>
+  </data>
+  <data name="Common_Text0035" xml:space="preserve">
+    <value>使用配置的本地端点和模型。</value>
+  </data>
+  <data name="Common_Text0036" xml:space="preserve">
+    <value>未选择提供方</value>
+  </data>
+  <data name="Common_Text0037" xml:space="preserve">
+    <value>请选择 AI 提供方以配置诊断。</value>
+  </data>
+  <data name="Common_Text0038" xml:space="preserve">
+    <value>使用 {0} 和已保存的 API 密钥。</value>
+  </data>
+  <data name="Common_Text0039" xml:space="preserve">
+    <value>使用 {0}，未配置 API 密钥。本地服务可以这样使用，OpenAI 等托管服务则需要密钥。</value>
+  </data>
+  <data name="Common_Text0040" xml:space="preserve">
+    <value>{0} 的凭据已保存。</value>
+  </data>
+  <data name="Common_Text0041" xml:space="preserve">
+    <value>所选提供方尚未保存凭据。</value>
+  </data>
+  <data name="Common_Text0042" xml:space="preserve">
+    <value>登录 Windows 时将启动 WSL Container Desktop。</value>
+  </data>
+  <data name="Common_Text0043" xml:space="preserve">
+    <value>此应用的启动项已在 Windows 任务管理器（启动应用）中关闭。</value>
+  </data>
+  <data name="Common_Text0044" xml:space="preserve">
+    <value>请在那里重新启用，以允许登录时启动。</value>
+  </data>
+  <data name="Common_Text0045" xml:space="preserve">
+    <value>由 Windows 管理</value>
+  </data>
+  <data name="Common_Text0046" xml:space="preserve">
+    <value>此应用的启动项由“任务管理器 → 启动应用”控制。</value>
+  </data>
+  <data name="Common_Text0047" xml:space="preserve">
+    <value>请在那里启用。</value>
+  </data>
+  <data name="Common_Text0048" xml:space="preserve">
+    <value>此设置由组织策略管理。</value>
+  </data>
+  <data name="Common_Text0049" xml:space="preserve">
+    <value>当前安装方式不支持登录时启动。</value>
+  </data>
+  <data name="Common_Text0050" xml:space="preserve">
+    <value>此应用的启动项已在 Windows 任务管理器（启动应用）中关闭。</value>
+  </data>
+  <data name="Common_Text0051" xml:space="preserve">
+    <value>请在那里启用，以允许登录时启动。</value>
+  </data>
+  <data name="Common_Text0052" xml:space="preserve">
+    <value>连接成功</value>
+  </data>
+  <data name="Common_Text0053" xml:space="preserve">
+    <value>已连接到 WSL 容器引擎。
+
+{0}</value>
+  </data>
+  <data name="Common_Text0054" xml:space="preserve">
+    <value>连接失败</value>
+  </data>
+  <data name="Common_Text0055" xml:space="preserve">
+    <value>无法通过以下路径连接到 WSL 容器引擎：
+{0}
+
+{1}</value>
+  </data>
+  <data name="Common_Text0056" xml:space="preserve">
+    <value>请启用 AI 并选择提供方。检查前，模型能力仍为未知。</value>
+  </data>
+  <data name="Common_Text0057" xml:space="preserve">
+    <value>AI 能力：尚未检查</value>
+  </data>
+  <data name="Common_Text0058" xml:space="preserve">
+    <value>AI 能力：对话和工具已就绪</value>
+  </data>
+  <data name="Common_Text0059" xml:space="preserve">
+    <value>AI 能力：对话已就绪，工具尚未确认</value>
+  </data>
+  <data name="Common_Text0060" xml:space="preserve">
+    <value>AI 能力：提供方不可用，请查看详情</value>
+  </data>
+  <data name="Common_Text0061" xml:space="preserve">
+    <value>AI 能力：尚未确认，请查看详情</value>
+  </data>
+  <data name="Common_Text0062" xml:space="preserve">
+    <value>正在测试能力</value>
+  </data>
+  <data name="Common_Text0063" xml:space="preserve">
+    <value>正在检查元数据，并通过有限的模拟对话、工具和 JSON 请求进行验证。冷启动最多可能需要 90 秒。不执行应用操作或下载，可随时取消。</value>
+  </data>
+  <data name="Common_Text0064" xml:space="preserve">
+    <value>能力检查结果</value>
+  </data>
+  <data name="Common_Text0065" xml:space="preserve">
+    <value>测试已取消</value>
+  </data>
+  <data name="Common_Text0066" xml:space="preserve">
+    <value>测试已停止，仅已完成的检查可能保留缓存。未启动模型下载或应用操作。</value>
+  </data>
+  <data name="Common_Text0067" xml:space="preserve">
+    <value>提供方测试</value>
+  </data>
+  <data name="Common_Text0068" xml:space="preserve">
+    <value>登录 GitHub Copilot</value>
+  </data>
+  <data name="Common_Text0069" xml:space="preserve">
+    <value>GitHub Copilot 使用已登录的 Copilot CLI 账户。如需登录，请在应用外运行 `copilot login`。</value>
+  </data>
+  <data name="Common_Text0070" xml:space="preserve">
+    <value>正在加载模型</value>
+  </data>
+  <data name="Common_Text0071" xml:space="preserve">
+    <value>正在加载 GitHub Copilot 模型…</value>
+  </data>
+  <data name="Common_Text0072" xml:space="preserve">
+    <value> · 推理</value>
+  </data>
+  <data name="Common_Text0073" xml:space="preserve">
+    <value>{0}（已配置）</value>
+  </data>
+  <data name="Common_Text0074" xml:space="preserve">
+    <value>已配置的模型不可用</value>
+  </data>
+  <data name="Common_Text0075" xml:space="preserve">
+    <value>已配置的模型“{0}”不可用，请从列表中选择模型。</value>
+  </data>
+  <data name="Common_Text0076" xml:space="preserve">
+    <value>模型已加载</value>
+  </data>
+  <data name="Common_Text0077" xml:space="preserve">
+    <value>已加载 {0} 个 GitHub Copilot 模型。</value>
+  </data>
+  <data name="Common_Text0078" xml:space="preserve">
+    <value>刷新 GitHub Copilot 模型</value>
+  </data>
+  <data name="Common_Text0079" xml:space="preserve">
+    <value>正在加载已安装的 Ollama 模型…</value>
+  </data>
+  <data name="Common_Text0080" xml:space="preserve">
+    <value>未安装模型</value>
+  </data>
+  <data name="Common_Text0081" xml:space="preserve">
+    <value>尚未安装 Ollama 模型。请在下方下载模型以使用此提供方。</value>
+  </data>
+  <data name="Common_Text0082" xml:space="preserve">
+    <value>已加载 {0} 个已安装的 Ollama 模型。</value>
+  </data>
+  <data name="Common_Text0083" xml:space="preserve">
+    <value>刷新 Ollama 模型</value>
+  </data>
+  <data name="Common_Text0084" xml:space="preserve">
+    <value>正在从兼容 OpenAI 的端点加载模型…</value>
+  </data>
+  <data name="Common_Text0085" xml:space="preserve">
+    <value>刷新兼容 OpenAI 的模型</value>
+  </data>
+  <data name="Common_Text0086" xml:space="preserve">
+    <value>未列出模型</value>
+  </data>
+  <data name="Common_Text0087" xml:space="preserve">
+    <value>端点已响应，但未列出模型。请输入服务器要求的模型 ID。</value>
+  </data>
+  <data name="Common_Text0088" xml:space="preserve">
+    <value>已从兼容 OpenAI 的端点加载 {0} 个模型。</value>
+  </data>
+  <data name="Common_Text0089" xml:space="preserve">
+    <value>需要模型名称</value>
+  </data>
+  <data name="Common_Text0090" xml:space="preserve">
+    <value>请输入要拉取的模型名称，例如 qwen2.5:7b。</value>
+  </data>
+  <data name="Common_Text0091" xml:space="preserve">
+    <value>下载模型</value>
+  </data>
+  <data name="Common_Text0092" xml:space="preserve">
+    <value>将“{0}”下载到 {1}？
+
+</value>
+  </data>
+  <data name="Common_Text0093" xml:space="preserve">
+    <value>模型可能有数 GB，由 Ollama 运行时下载。</value>
+  </data>
+  <data name="Common_Text0094" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Common_Text0095" xml:space="preserve">
+    <value>下载已取消</value>
+  </data>
+  <data name="Common_Text0096" xml:space="preserve">
+    <value>未下载模型。</value>
+  </data>
+  <data name="Common_Text0097" xml:space="preserve">
+    <value>模型已拉取</value>
+  </data>
+  <data name="Common_Text0098" xml:space="preserve">
+    <value>已拉取并选择“{0}”。</value>
+  </data>
+  <data name="Common_Text0099" xml:space="preserve">
+    <value>拉取 Ollama 模型</value>
+  </data>
+  <data name="Common_Text0100" xml:space="preserve">
+    <value>正在拉取模型</value>
+  </data>
+  <data name="Common_Text0101" xml:space="preserve">
+    <value>正在拉取“{0}”…</value>
+  </data>
+  <data name="Common_Text0102" xml:space="preserve">
+    <value>拉取模型</value>
+  </data>
+  <data name="Common_Text0103" xml:space="preserve">
+    <value>拉取失败</value>
+  </data>
+  <data name="Common_Text0104" xml:space="preserve">
+    <value>未知错误。</value>
+  </data>
+  <data name="Common_Text0105" xml:space="preserve">
+    <value>正在拉取 {0}：{1} {2:0}%（{3} / {4}）</value>
+  </data>
+  <data name="Common_Text0106" xml:space="preserve">
+    <value>正在拉取 {0}：{1}</value>
+  </data>
+  <data name="Common_Text0107" xml:space="preserve">
+    <value>拉取未完成</value>
+  </data>
+  <data name="Common_Text0108" xml:space="preserve">
+    <value>服务器关闭了进度流，但未确认成功。请先刷新已安装模型，再重试。</value>
+  </data>
+  <data name="Common_Text0109" xml:space="preserve">
+    <value>正在配置本地 AI</value>
+  </data>
+  <data name="Common_Text0110" xml:space="preserve">
+    <value>正在验证应用管理的 Ollama 容器…</value>
+  </data>
+  <data name="Common_Text0111" xml:space="preserve">
+    <value>本地 AI 配置已取消</value>
+  </data>
+  <data name="Common_Text0112" xml:space="preserve">
+    <value>本地 AI 配置失败</value>
+  </data>
+  <data name="Common_Text0113" xml:space="preserve">
+    <value>正在等待应用管理的 Ollama 运行时 API…</value>
+  </data>
+  <data name="Common_Text0114" xml:space="preserve">
+    <value>应用管理的容器已启动，但 API 未及时就绪。容器可能仍在运行。请先检查日志，再重试或移除。</value>
+  </data>
+  <data name="Common_Text0115" xml:space="preserve">
+    <value>正在读取已安装模型的元数据…</value>
+  </data>
+  <data name="Common_Text0116" xml:space="preserve">
+    <value>下载模型？</value>
+  </data>
+  <data name="Common_Text0117" xml:space="preserve">
+    <value>运行时已就绪，但尚无模型，因此无法回答问题。
+
+</value>
+  </data>
+  <data name="Common_Text0118" xml:space="preserve">
+    <value>下载 {0}？这是支持工具调用的小型对话模型，可供 AI 助手使用。
+
+</value>
+  </data>
+  <data name="Common_Text0119" xml:space="preserve">
+    <value>• 大约 5 GB，由 Ollama 运行时下载
+</value>
+  </data>
+  <data name="Common_Text0120" xml:space="preserve">
+    <value>• 稍后可在“提供方”中选择其他模型</value>
+  </data>
+  <data name="Common_Text0121" xml:space="preserve">
+    <value>下载 {0}</value>
+  </data>
+  <data name="Common_Text0122" xml:space="preserve">
+    <value>暂时跳过</value>
+  </data>
+  <data name="Common_Text0123" xml:space="preserve">
+    <value>尚未安装模型，因此助手保持隐藏。请在下方“提供方”中下载模型以完成配置。</value>
+  </data>
+  <data name="Common_Text0124" xml:space="preserve">
+    <value>正在使用模型“{0}”。</value>
+  </data>
+  <data name="Common_Text0125" xml:space="preserve">
+    <value>Ollama 已就绪</value>
+  </data>
+  <data name="Common_Text0126" xml:space="preserve">
+    <value>{0} 正在检查此模型支持的能力…</value>
+  </data>
+  <data name="Common_Text0127" xml:space="preserve">
+    <value>正在使用模型“{0}”。模型支持工具调用，可从工具栏打开 AI 助手。</value>
+  </data>
+  <data name="Common_Text0128" xml:space="preserve">
+    <value>Ollama 已就绪，助手不可用</value>
+  </data>
+  <data name="Common_Text0129" xml:space="preserve">
+    <value>正在使用模型“{0}”，但尚未确认工具调用能力，因此助手保持隐藏。</value>
+  </data>
+  <data name="Common_Text0130" xml:space="preserve">
+    <value>请尝试 qwen2.5:7b 等支持工具的模型，或使用“测试能力”查看详情。</value>
+  </data>
+  <data name="Common_Text0131" xml:space="preserve">
+    <value>正在使用模型“{0}”。尚未检查能力，请使用下方“测试能力”。</value>
+  </data>
+  <data name="Common_Text0132" xml:space="preserve">
+    <value>配置已取消。应用管理的容器可能仍在运行，模型数据也可能已保留。请先检查运行时，再重试或移除本地 AI。未请求模型下载或预热。</value>
+  </data>
+  <data name="Common_Text0133" xml:space="preserve">
+    <value>配置本地 AI</value>
+  </data>
+  <data name="Common_Text0134" xml:space="preserve">
+    <value>移除 Ollama</value>
+  </data>
+  <data name="Common_Text0135" xml:space="preserve">
+    <value>这将移除应用管理的“{0}”容器。
+
+</value>
+  </data>
+  <data name="Common_Text0136" xml:space="preserve">
+    <value>不会影响应用外安装的 Ollama、其他容器或远程端点。</value>
+  </data>
+  <data name="Common_Text0137" xml:space="preserve">
+    <value>同时删除已下载的模型？</value>
+  </data>
+  <data name="Common_Text0138" xml:space="preserve">
+    <value>已下载的模型可能占用数 GB。
+
+</value>
+  </data>
+  <data name="Common_Text0139" xml:space="preserve">
+    <value>删除模型可释放空间，保留模型则可在下次配置时快速复用。</value>
+  </data>
+  <data name="Common_Text0140" xml:space="preserve">
+    <value>删除模型</value>
+  </data>
+  <data name="Common_Text0141" xml:space="preserve">
+    <value>保留模型</value>
+  </data>
+  <data name="Common_Text0142" xml:space="preserve">
+    <value>正在移除本地 AI</value>
+  </data>
+  <data name="Common_Text0143" xml:space="preserve">
+    <value>正在移除本地 AI 容器…</value>
+  </data>
+  <data name="Common_Text0144" xml:space="preserve">
+    <value>Ollama 已移除</value>
+  </data>
+  <data name="Common_Text0145" xml:space="preserve">
+    <value>Ollama 已移除，模型已保留</value>
+  </data>
+  <data name="Common_Text0146" xml:space="preserve">
+    <value>无法移除 Ollama</value>
+  </data>
+  <data name="Common_Text0147" xml:space="preserve">
+    <value>移除本地 AI</value>
+  </data>
+  <data name="Common_Text0148" xml:space="preserve">
+    <value>读取已安装的 Ollama 模型</value>
+  </data>
+  <data name="Common_Text0149" xml:space="preserve">
+    <value>{0}（未安装）</value>
+  </data>
+  <data name="Common_Text0150" xml:space="preserve">
+    <value>尚未刷新。请输入实际运行时 URL 和模型 ID，不预设端口或模型。</value>
+  </data>
+  <data name="Common_Text0151" xml:space="preserve">
+    <value>尚未请求运行时操作。</value>
+  </data>
+  <data name="Common_Text0152" xml:space="preserve">
+    <value>发现操作为只读，仅在请求时运行。</value>
+  </data>
+  <data name="Common_Text0153" xml:space="preserve">
+    <value>配置缓存：</value>
+  </data>
+  <data name="Common_Text0154" xml:space="preserve">
+    <value>模型文件暂存位置（非 Foundry 运行时缓存）：</value>
+  </data>
+  <data name="Common_Text0155" xml:space="preserve">
+    <value>配置已更改。请刷新元数据，缓存的检查结果已清除。</value>
+  </data>
+  <data name="Common_Text0156" xml:space="preserve">
+    <value>尚未对此配置请求操作。</value>
+  </data>
+  <data name="Common_Text0157" xml:space="preserve">
+    <value>提供方已更改。选择 Foundry Local 后请刷新元数据。</value>
+  </data>
+  <data name="Common_Text0158" xml:space="preserve">
+    <value>待处理请求已取消。请刷新检查状态；已完成的操作不会回滚。</value>
+  </data>
+  <data name="Common_Text0159" xml:space="preserve">
+    <value>配置已更改，模型文件准备已取消。已完成及部分暂存的数据均已保留。</value>
+  </data>
+  <data name="Common_Text0160" xml:space="preserve">
+    <value>配置已更改，运行时配置已取消。Windows 部署可能仍会完成，重试前请检查已安装的软件包。</value>
+  </data>
+  <data name="Common_Text0161" xml:space="preserve">
+    <value>配置已更改。连接前请重新发现；尚未对此配置请求运行时操作。</value>
+  </data>
+  <data name="Common_Text0162" xml:space="preserve">
+    <value>初始 CPU 模型已加载。使用助手前请独立检查模型能力。</value>
+  </data>
+  <data name="Common_Text0163" xml:space="preserve">
+    <value>已取消。运行时或模型状态可能已改变，文件和软件包已保留。</value>
+  </data>
+  <data name="Common_Text0164" xml:space="preserve">
+    <value>准备失败：</value>
+  </data>
+  <data name="Common_Text0165" xml:space="preserve">
+    <value> 不会自动回滚或重试。</value>
+  </data>
+  <data name="Common_Text0166" xml:space="preserve">
+    <value>正在准备固定版本的模型文件下载，确认前不会连接网络…</value>
+  </data>
+  <data name="Common_Text0167" xml:space="preserve">
+    <value>正在准备仅安装运行时，确认前不会下载或注册…</value>
+  </data>
+  <data name="Common_Text0168" xml:space="preserve">
+    <value>准备时发生意外错误。不会自动重试或清理，重试前请检查保留的配置缓存和已请求的 Windows 注册。</value>
+  </data>
+  <data name="Common_Text0169" xml:space="preserve">
+    <value>正在发现已有的独立 CLI 或服务器，未请求安装或启动…</value>
+  </data>
+  <data name="Common_Text0170" xml:space="preserve">
+    <value>
+请审阅并确认端点设置的更改。</value>
+  </data>
+  <data name="Common_Text0171" xml:space="preserve">
+    <value>
+请输入此服务器公布的准确模型 ID，然后重新发现。未自动选择模型。</value>
+  </data>
+  <data name="Common_Text0172" xml:space="preserve">
+    <value>发现的目录 ID（最多 100 个）：</value>
+  </data>
+  <data name="Common_Text0173" xml:space="preserve">
+    <value>发现操作已取消或超时。未更改设置或外部运行时。</value>
+  </data>
+  <data name="Common_Text0174" xml:space="preserve">
+    <value>发现失败：</value>
+  </data>
+  <data name="Common_Text0175" xml:space="preserve">
+    <value>
+未更改设置或运行时。请手动输入实际端点，或检查独立安装。</value>
+  </data>
+  <data name="Common_Text0176" xml:space="preserve">
+    <value>已保存确认的端点。模型选择已保留，未更改运行时或模型。推理前请刷新元数据并测试能力。</value>
+  </data>
+  <data name="Common_Text0177" xml:space="preserve">
+    <value>连接尚未确认。请检查设置并重新发现。</value>
+  </data>
+  <data name="Common_Text0178" xml:space="preserve">
+    <value>仅正在读取元数据…</value>
+  </data>
+  <data name="Common_Text0179" xml:space="preserve">
+    <value>正在请求更改模型内存状态…</value>
+  </data>
+  <data name="Common_Text0180" xml:space="preserve">
+    <value>{0} | 已缓存：{1} | 已加载：{2}
+</value>
+  </data>
+  <data name="Common_Text0181" xml:space="preserve">
+    <value>  版本：{0}；大小 MB：{1}；许可证：{2}
+</value>
+  </data>
+  <data name="Common_Text0182" xml:space="preserve">
+    <value>  许可证信息：{0}；任务：{1}；格式：{2}
+</value>
+  </data>
+  <data name="Common_Text0183" xml:space="preserve">
+    <value>  硬件目标：{0}；执行提供方：{1}（已声明，未验证）；已声明的工具能力：{2}</value>
+  </data>
+  <data name="Common_Text0184" xml:space="preserve">
+    <value>目录：{0}；已缓存：{1}；已加载：{2}。
+</value>
+  </data>
+  <data name="Common_Text0185" xml:space="preserve">
+    <value>已缓存 ID：{0}
+已加载 ID：{1}
+</value>
+  </data>
+  <data name="Common_Text0186" xml:space="preserve">
+    <value>最多显示 100 个目录条目。已注册的外部条目不能用于本地推理。
+</value>
+  </data>
+  <data name="Common_Text0187" xml:space="preserve">
+    <value>元数据已刷新。未请求加载、下载或推理。</value>
+  </data>
+  <data name="Common_Text0188" xml:space="preserve">
+    <value>请求已取消或超时。刷新前，内存或模型状态未知；已完成的操作不会回滚。</value>
+  </data>
+  <data name="Common_Text0189" xml:space="preserve">
+    <value>Foundry Local 发生意外错误。</value>
+  </data>
+  <data name="Common_Text0190" xml:space="preserve">
+    <value>
+未尝试回退或获取运行时。请刷新状态后重试。</value>
+  </data>
+  <data name="Common_Text0191" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="Common_Text0192" xml:space="preserve">
+    <value>我可以通过获准的工具管理 WSL 容器、镜像、数据卷、网络、Compose 模板，以及限定范围内的 k3s 操作。你想做什么？</value>
+  </data>
+  <data name="Common_Text0193" xml:space="preserve">
+    <value>助手</value>
+  </data>
+  <data name="Common_Text0194" xml:space="preserve">
+    <value>就绪</value>
+  </data>
+  <data name="Common_Text0195" xml:space="preserve">
+    <value>未配置 AI 提供方</value>
+  </data>
+  <data name="Common_Text0196" xml:space="preserve">
+    <value>AI 功能已关闭。
+
+请在“设置 &gt; AI”中启用。</value>
+  </data>
+  <data name="Common_Text0197" xml:space="preserve">
+    <value>尚未配置 AI 提供方。
+
+请在“设置 &gt; AI”中选择。</value>
+  </data>
+  <data name="Common_Text0198" xml:space="preserve">
+    <value>尚未检查提供方。
+
+请在“设置 &gt; AI 诊断”中使用“测试能力”。</value>
+  </data>
+  <data name="Common_Text0199" xml:space="preserve">
+    <value>已确认工具支持。每项操作仍须通过批准检查。</value>
+  </data>
+  <data name="Common_Text0200" xml:space="preserve">
+    <value>已请求取消。正在等待结果，已完成的操作不会回滚。</value>
+  </data>
+  <data name="Common_Text0201" xml:space="preserve">
+    <value>批准已发送，正在等待工具执行。</value>
+  </data>
+  <data name="Common_Text0202" xml:space="preserve">
+    <value>拒绝已发送，正在等待助手响应。</value>
+  </data>
+  <data name="Common_Text0203" xml:space="preserve">
+    <value>已开始新对话。此前已完成的操作不会回滚。</value>
+  </data>
+  <data name="Common_Text0204" xml:space="preserve">
+    <value>助手对话</value>
+  </data>
+  <data name="Common_Text0205" xml:space="preserve">
+    <value>正在准备助手请求…</value>
+  </data>
+  <data name="Common_Text0206" xml:space="preserve">
+    <value>助手错误</value>
+  </data>
+  <data name="Common_Text0207" xml:space="preserve">
+    <value>助手本轮对话失败。</value>
+  </data>
+  <data name="Common_Text0208" xml:space="preserve">
+    <value>请求取消后，本轮对话已完成。请审阅记录的结果；操作未回滚。</value>
+  </data>
+  <data name="Common_Text0209" xml:space="preserve">
+    <value>本轮对话已完成。模型叙述不能证明操作已执行，请审阅记录的工具结果。</value>
+  </data>
+  <data name="Common_Text0210" xml:space="preserve">
+    <value>本轮对话已取消。已完成的操作不会回滚，重试前请检查部分完成或状态未知的结果。</value>
+  </data>
+  <data name="Common_Text0211" xml:space="preserve">
+    <value>本轮对话已中断或超时。已完成的操作不会回滚，重试前请检查记录的结果。</value>
+  </data>
+  <data name="Common_Text0212" xml:space="preserve">
+    <value>本轮对话失败。已完成的操作不会回滚，重试前请检查记录的结果。</value>
+  </data>
+  <data name="Common_Text0214" xml:space="preserve">
+    <value>工具未运行，展开查看原因</value>
+  </data>
+  <data name="Common_Text0216" xml:space="preserve">
+    <value>工具失败，展开查看详情</value>
+  </data>
+  <data name="Common_Text0217" xml:space="preserve">
+    <value>工具已完成，展开查看返回内容</value>
+  </data>
+  <data name="Common_Text0218" xml:space="preserve">
+    <value>正在加载提供方并检查能力…</value>
+  </data>
+  <data name="Common_Text0219" xml:space="preserve">
+    <value>正在生成响应，等待提供方返回文本…</value>
+  </data>
+  <data name="Common_Text0220" xml:space="preserve">
+    <value>正在接收模型叙述，工具结果会单独记录。</value>
+  </data>
+  <data name="Common_Text0221" xml:space="preserve">
+    <value>正在检查工具请求</value>
+  </data>
+  <data name="Common_Text0222" xml:space="preserve">
+    <value>等待你的批准</value>
+  </data>
+  <data name="Common_Text0223" xml:space="preserve">
+    <value>正在运行工具…</value>
+  </data>
+  <data name="Common_Text0224" xml:space="preserve">
+    <value>助手 · 模型叙述</value>
+  </data>
+  <data name="Common_Text0225" xml:space="preserve">
+    <value>需要 WSL 3.0.1 或更高版本</value>
+  </data>
+  <data name="Common_Text0226" xml:space="preserve">
+    <value>组织已通过计算机策略禁用 WSL 容器。应用仍可显示设置、WSL 引擎和 Kubernetes 页面，但策略更改前无法使用容器引擎页面。</value>
+  </data>
+  <data name="Common_Text0227" xml:space="preserve">
+    <value>配置的 wslc.exe 路径不存在。请使用 'wsl --install' / 'wsl --update' 安装或更新 WSL，或在设置中修正容器引擎路径。</value>
+  </data>
+  <data name="Common_Text0228" xml:space="preserve">
+    <value>请将 WSL 更新到 {0} 或更高版本，以在此应用中使用 WSL 容器。</value>
+  </data>
+  <data name="Common_Text0229" xml:space="preserve">
+    <value>无法验证配置的 WSL 容器引擎。请查看诊断，修复后重新检查。</value>
+  </data>
+  <data name="Common_Text0230" xml:space="preserve">
+    <value>发现 wslc {0}</value>
+  </data>
+  <data name="Common_Text0231" xml:space="preserve">
+    <value>正在检查 WSL 容器要求…</value>
+  </data>
+  <data name="Common_Text0232" xml:space="preserve">
+    <value>正在更新 WSL…</value>
+  </data>
+  <data name="Common_Text0233" xml:space="preserve">
+    <value>wsl --update 未成功。请在终端中运行以查看原因。</value>
+  </data>
+  <data name="Common_Text0234" xml:space="preserve">
+    <value>更新已完成，正在重新检查…</value>
+  </data>
+  <data name="Common_Text0235" xml:space="preserve">
+    <value>正在重新检查…</value>
+  </data>
+  <data name="Common_Text0236" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="Common_Text0237" xml:space="preserve">
+    <value>引擎</value>
+  </data>
+  <data name="Common_Text0238" xml:space="preserve">
+    <value>容器</value>
+  </data>
+  <data name="Common_Text0239" xml:space="preserve">
+    <value>网络</value>
+  </data>
+  <data name="Common_Text0240" xml:space="preserve">
+    <value>镜像</value>
+  </data>
+  <data name="Common_Text0241" xml:space="preserve">
+    <value>已暂停</value>
+  </data>
+  <data name="Common_Text0242" xml:space="preserve">
+    <value>已连接到引擎实时事件</value>
+  </data>
+  <data name="Common_Text0243" xml:space="preserve">
+    <value>事件流已断开，轮询仍会继续</value>
+  </data>
+  <data name="Common_Text0244" xml:space="preserve">
+    <value>正在加载近期引擎事件…</value>
+  </data>
+  <data name="Common_Text0245" xml:space="preserve">
+    <value>近期事件已加载，实时事件流已断开</value>
+  </data>
+  <data name="Common_Text0246" xml:space="preserve">
+    <value>近期引擎事件不可用：</value>
+  </data>
+  <data name="Common_Text0247" xml:space="preserve">
+    <value>正在连接…</value>
+  </data>
+  <data name="Common_Text0248" xml:space="preserve">
+    <value>Kubernetes：…</value>
+  </data>
+  <data name="Common_Text0249" xml:space="preserve">
+    <value>镜像已拉取</value>
+  </data>
+  <data name="Common_Text0250" xml:space="preserve">
+    <value>已完成拉取 {0}。</value>
+  </data>
+  <data name="Common_Text0251" xml:space="preserve">
+    <value>无法拉取 {0}。{1}</value>
+  </data>
+  <data name="Common_Text0252" xml:space="preserve">
+    <value>构建完成</value>
+  </data>
+  <data name="Common_Text0253" xml:space="preserve">
+    <value>已完成构建 {0}。</value>
+  </data>
+  <data name="Common_Text0254" xml:space="preserve">
+    <value>构建失败</value>
+  </data>
+  <data name="Common_Text0255" xml:space="preserve">
+    <value>无法构建 {0}。{1}</value>
+  </data>
+  <data name="Common_Text0256" xml:space="preserve">
+    <value>容器已停止</value>
+  </data>
+  <data name="Common_Text0257" xml:space="preserve">
+    <value>“{0}”已停止运行。</value>
+  </data>
+  <data name="Common_Text0258" xml:space="preserve">
+    <value>查看日志</value>
+  </data>
+  <data name="Common_Text0259" xml:space="preserve">
+    <value>引擎不可用</value>
+  </data>
+  <data name="Common_Text0260" xml:space="preserve">
+    <value>WSL 容器引擎已无法访问。</value>
+  </data>
+  <data name="Common_Text0261" xml:space="preserve">
+    <value>引擎已恢复</value>
+  </data>
+  <data name="Common_Text0262" xml:space="preserve">
+    <value>WSL 容器引擎已恢复访问。</value>
+  </data>
+  <data name="Common_Text0263" xml:space="preserve">
+    <value>有可用更新</value>
+  </data>
+  <data name="Common_Text0264" xml:space="preserve">
+    <value>WSL Container Desktop {0} 已可安装。应用将关闭、更新并重新打开。</value>
+  </data>
+  <data name="Common_Text0265" xml:space="preserve">
+    <value>GitHub 上有可用的 WSL Container Desktop {0}。</value>
+  </data>
+  <data name="Common_Text0266" xml:space="preserve">
+    <value>立即更新</value>
+  </data>
+  <data name="Common_Text0267" xml:space="preserve">
+    <value>查看发行说明</value>
+  </data>
+  <data name="Common_Text0269" xml:space="preserve">
+    <value>状态：未知</value>
+  </data>
+  <data name="Common_Text0270" xml:space="preserve">
+    <value>打开 WSL Container Desktop</value>
+  </data>
+  <data name="Common_Text0271" xml:space="preserve">
+    <value>静音通知</value>
+  </data>
+  <data name="Common_Text0272" xml:space="preserve">
+    <value>运行中的容器：{0}</value>
+  </data>
+  <data name="Common_Text0273" xml:space="preserve">
+    <value>所有标签</value>
+  </data>
+  <data name="Common_Text0274" xml:space="preserve">
+    <value>wslc pull --all-tags 下载仓库中的所有带标签镜像。wslc 不能同时使用指定标签和 --all-tags，因此应用会在拉取前去掉你输入的标签。公共仓库可能有数百个标签，并占用大量磁盘空间。</value>
+  </data>
+  <data name="Common_Text0275" xml:space="preserve">
+    <value>wslc push --all-tags 推送所选仓库的所有本地标签。wslc 不能同时使用指定标签和 --all-tags，因此应用会在推送前去掉你输入的标签。</value>
+  </data>
+  <data name="Common_Text0276" xml:space="preserve">
+    <value>在后台运行</value>
+  </data>
+  <data name="Common_Text0278" xml:space="preserve">
+    <value>wslc run -d 启动容器后立即返回，让容器继续在后台运行。关闭此选项后，会一直等待容器的主进程退出。数据库和 Web 服务器等服务建议开启。</value>
+  </data>
+  <data name="Common_Text0279" xml:space="preserve">
+    <value>退出时移除</value>
+  </data>
+  <data name="Common_Text0280" xml:space="preserve">
+    <value>wslc run --rm 在主进程停止后删除容器。适合一次性运行；容器可写层的更改会丢失，除非已写入数据卷或绑定挂载。</value>
+  </data>
+  <data name="Common_Text0281" xml:space="preserve">
+    <value>保持 STDIN 开启</value>
+  </data>
+  <data name="Common_Text0283" xml:space="preserve">
+    <value>wslc run -i 为容器进程保持标准输入开启。在此应用中只能与 -d 一起使用，因为前台交互运行会等待对话框无法提供的终端输入。</value>
+  </data>
+  <data name="Common_Text0284" xml:space="preserve">
+    <value>传递所有 GPU</value>
+  </data>
+  <data name="Common_Text0286" xml:space="preserve">
+    <value>wslc run --gpus all 请求为容器提供所有可用 GPU。引擎会在支持时传递设备，但这并不能证明镜像或工作负载正在使用硬件加速。</value>
+  </data>
+  <data name="Common_Text0287" xml:space="preserve">
+    <value>wslc run --network 将容器连接到指定网络，而非引擎的默认桥接网络。自定义 IP 地址和别名仅适用于用户创建的网络。</value>
+  </data>
+  <data name="Common_Text0288" xml:space="preserve">
+    <value>停止超时</value>
+  </data>
+  <data name="Common_Text0289" xml:space="preserve">
+    <value>wslc run --stop-timeout 设置发送停止信号后，等待容器退出的秒数，超时后强制结束。-1 表示无限等待，留空使用引擎默认值。</value>
+  </data>
+  <data name="Common_Text0290" xml:space="preserve">
+    <value>内部网络</value>
+  </data>
+  <data name="Common_Text0291" xml:space="preserve">
+    <value>wslc network create --internal 限制网络的外部和出站访问。连接到此网络的容器仍可相互通信。</value>
+  </data>
+  <data name="Common_Text0292" xml:space="preserve">
+    <value>驱动选项</value>
+  </data>
+  <data name="Common_Text0294" xml:space="preserve">
+    <value>wslc network create --opt 向网络驱动传递专用的 key=value 选项。请仅使用所选驱动支持的选项。</value>
+  </data>
+  <data name="Common_Text0295" xml:space="preserve">
+    <value>wslc network connect --network-alias 为容器在该网络中添加额外的 DNS 名称。同一网络中的其他容器可以通过这些名称访问它。</value>
+  </data>
+  <data name="Common_Text0297" xml:space="preserve">
+    <value>将镜像及其名称、标签、层和启动命令写入 .tar 文件，可用于复制到其他计算机或备份。要恢复镜像，请在镜像页面选择“导入 → 恢复已保存的镜像…”。</value>
+  </data>
+  <data name="Common_Text0299" xml:space="preserve">
+    <value>wslc list --size 返回两种大小：可写大小是容器自身写入的数据，虚拟大小还包括只读镜像层。多个容器可以共享镜像层，因此虚拟大小不能直接相加计算磁盘占用。将鼠标停留在列表大小上可查看两者。</value>
+  </data>
+  <data name="Common_Text0300" xml:space="preserve">
+    <value>显示全部</value>
+  </data>
+  <data name="Common_Text0302" xml:space="preserve">
+    <value>wslc list --all 同时显示已停止和运行中的容器。关闭时，引擎仅列出运行中的容器。</value>
+  </data>
+  <data name="Common_Text0303" xml:space="preserve">
+    <value>wslc attach 将终端连接到容器主进程。Ctrl+C 等输入会发送给该进程，并可能停止容器。</value>
+  </data>
+  <data name="Common_Text0304" xml:space="preserve">
+    <value>导出文件系统</value>
+  </data>
+  <data name="Common_Text0306" xml:space="preserve">
+    <value>将容器的所有文件复制到 .tar 文件。不包含已挂载的数据卷、启动命令、环境变量或端口。要将文件转换为镜像，请在镜像页面选择“导入 → 从导出的文件创建镜像…”。</value>
+  </data>
+  <data name="Common_Text0307" xml:space="preserve">
+    <value>wslc restart 停止并重新启动容器；如果容器已停止，则启动它。除非选项覆盖，否则使用容器配置的停止信号和超时。</value>
+  </data>
+  <data name="Common_Text0308" xml:space="preserve">
+    <value>wslc kill 默认发送 SIGKILL 强制停止运行中的容器。停止操作无法正常完成时可使用，但进程将无法正常清理并退出。</value>
+  </data>
+  <data name="Common_Text0309" xml:space="preserve">
+    <value>包含预发布版本</value>
+  </data>
+  <data name="Common_Text0311" xml:space="preserve">
+    <value>wsl --update --pre-release 检查 WSL 预发布更新通道。这些版本可能包含较新的修复，但稳定性可能低于常规通道。</value>
+  </data>
+  <data name="Common_Text0312" xml:space="preserve">
+    <value>更改位置</value>
+  </data>
+  <data name="Common_Text0313" xml:space="preserve">
+    <value>session.storagePath 更改后续 WSL 容器会话存储的创建位置。目标文件夹必须为空，不会迁移现有数据，且须重启 WSL 容器会话后才会生效。</value>
+  </data>
+  <data name="Common_Text0314" xml:space="preserve">
+    <value>重启 WSL 会话</value>
+  </data>
+  <data name="Common_Text0316" xml:space="preserve">
+    <value>wslc system session terminate 结束 WSL 容器会话，其中所有运行中的容器都会停止。下次执行容器命令时会话会自动启动，但容器仍需重新启动。</value>
+  </data>
+  <data name="Common_Text0317" xml:space="preserve">
+    <value>关闭 WSL</value>
+  </data>
+  <data name="Common_Text0318" xml:space="preserve">
+    <value>wsl --shutdown 停止所有 WSL 分发版和容器会话，其中运行的容器也会停止。下次使用时 WSL 会再次启动。</value>
+  </data>
+  <data name="Common_Text0319" xml:space="preserve">
+    <value>应用时重新构建镜像</value>
+  </data>
+  <data name="Common_Text0320" xml:space="preserve">
+    <value>应用所选 Compose 服务前重新构建服务镜像。修改 Dockerfile 或构建上下文后应使用此选项，耗时可能比复用现有镜像更长。</value>
+  </data>
+  <data name="Common_Text0321" xml:space="preserve">
+    <value>k3s 何时运行</value>
+  </data>
+  <data name="Common_Text0322" xml:space="preserve">
+    <value>只有 WSL 保持分发版运行时，k3s 才会运行。应用打开期间会保持该分发版运行，除非你点击停止。退出应用后，WSL 会在分发版空闲时停止它（默认 15 秒），k3s 及其 Pod 也随之停止，与自行安装的 k3s 相同。要在应用退出后保持 k3s 运行，可在 %UserProfile%\.wslconfig 的 [general] 中设置 instanceIdleTimeout=-1。此设置影响所有分发版。</value>
+  </data>
+  <data name="Common_Text0323" xml:space="preserve">
+    <value>数据库</value>
+  </data>
+  <data name="Common_Text0324" xml:space="preserve">
+    <value>Postgres 16 关系数据库，使用端口 5432。</value>
+  </data>
+  <data name="Common_Text0325" xml:space="preserve">
+    <value>默认凭据：用户名“postgres”，密码“postgres”。</value>
+  </data>
+  <data name="Common_Text0327" xml:space="preserve">
+    <value>MySQL 8 关系数据库，使用端口 3306。</value>
+  </data>
+  <data name="Common_Text0328" xml:space="preserve">
+    <value>默认凭据：用户名“root”，密码“mysql”。</value>
+  </data>
+  <data name="Common_Text0330" xml:space="preserve">
+    <value>MongoDB 7 文档数据库，使用端口 27017。</value>
+  </data>
+  <data name="Common_Text0331" xml:space="preserve">
+    <value>Redis 7 内存键值存储，使用端口 6379。</value>
+  </data>
+  <data name="Common_Text0332" xml:space="preserve">
+    <value>Web 与工具</value>
+  </data>
+  <data name="Common_Text0333" xml:space="preserve">
+    <value>Nginx Web 服务器，发布地址为 http://localhost:8080。</value>
+  </data>
+  <data name="Common_Text0334" xml:space="preserve">
+    <value>轻量数据库管理界面，地址为 http://localhost:8081。</value>
+  </data>
+  <data name="Common_Text0335" xml:space="preserve">
+    <value>兼容 S3 的对象存储。API 端口为 9000，控制台地址为 http://localhost:9001。</value>
+  </data>
+  <data name="Common_Text0336" xml:space="preserve">
+    <value>默认凭据：用户名“minioadmin”，密码“minioadmin”。</value>
+  </data>
+  <data name="Common_Text0340" xml:space="preserve">
+    <value>消息代理，管理界面地址为 http://localhost:15672。</value>
+  </data>
+  <data name="Common_Text0341" xml:space="preserve">
+    <value>默认凭据：用户名“guest”，密码“guest”。</value>
+  </data>
+  <data name="Common_Text0342" xml:space="preserve">
+    <value>开发工具</value>
+  </data>
+  <data name="Common_Text0343" xml:space="preserve">
+    <value>Python 3.14 沙箱。打开终端运行 python/pip。</value>
+  </data>
+  <data name="Common_Text0344" xml:space="preserve">
+    <value>持续运行的沙箱，打开容器终端即可使用 shell。</value>
+  </data>
+  <data name="Common_Text0345" xml:space="preserve">
+    <value>文件持久保存在 /workspace 的“python-workspace”数据卷中。</value>
+  </data>
+  <data name="Common_Text0346" xml:space="preserve">
+    <value>发布端口 8000 供开发服务器使用，例如 python -m http.server 8000。</value>
+  </data>
+  <data name="Common_Text0348" xml:space="preserve">
+    <value>Node.js 24 LTS 沙箱。打开终端运行 node/npm。</value>
+  </data>
+  <data name="Common_Text0349" xml:space="preserve">
+    <value>文件持久保存在 /workspace 的“node-workspace”数据卷中。</value>
+  </data>
+  <data name="Common_Text0350" xml:space="preserve">
+    <value>发布端口 3000 供开发服务器使用。</value>
+  </data>
+  <data name="Common_Text0352" xml:space="preserve">
+    <value>.NET 10 SDK 沙箱。打开终端运行 dotnet。</value>
+  </data>
+  <data name="Common_Text0353" xml:space="preserve">
+    <value>持续运行的沙箱，打开容器终端即可使用 shell，</value>
+  </data>
+  <data name="Common_Text0354" xml:space="preserve">
+    <value>可尝试“dotnet new web”。文件持久保存在“dotnet-workspace”数据卷的</value>
+  </data>
+  <data name="Common_Text0355" xml:space="preserve">
+    <value>/workspace 中。主机端口 5080 映射到 ASP.NET Core 默认端口 8080。</value>
+  </data>
+  <data name="Common_Text0356" xml:space="preserve">
+    <value>Temurin 25 LTS JDK 沙箱。打开终端运行 java/javac。</value>
+  </data>
+  <data name="Common_Text0357" xml:space="preserve">
+    <value>文件持久保存在 /workspace 的“java-workspace”数据卷中。</value>
+  </data>
+  <data name="Common_Text0358" xml:space="preserve">
+    <value>主机端口 8095 转发到容器内的开发服务器端口 8080，</value>
+  </data>
+  <data name="Common_Text0359" xml:space="preserve">
+    <value>例如 Spring Boot，从而避免与 Nginx 模板冲突。</value>
+  </data>
+  <data name="Common_Text0360" xml:space="preserve">
+    <value>Go 1.26 沙箱。打开终端运行 go build/run。</value>
+  </data>
+  <data name="Common_Text0361" xml:space="preserve">
+    <value>文件持久保存在 /workspace 的“go-workspace”数据卷中。</value>
+  </data>
+  <data name="Common_Text0362" xml:space="preserve">
+    <value>主机端口 8090 映射到容器开发服务器端口 8080。</value>
+  </data>
+  <data name="Common_Text0363" xml:space="preserve">
+    <value>Rust 最新稳定版沙箱。打开终端运行 cargo/rustc。</value>
+  </data>
+  <data name="Common_Text0364" xml:space="preserve">
+    <value>可尝试“cargo new app”。文件持久保存在“rust-workspace”数据卷的</value>
+  </data>
+  <data name="Common_Text0365" xml:space="preserve">
+    <value>/workspace 中。主机端口 8091 映射到容器开发服务器端口 8080。</value>
+  </data>
+  <data name="Common_Text0367" xml:space="preserve">
+    <value>SQL Server 2025 开发版，使用端口 1433。</value>
+  </data>
+  <data name="Common_Text0368" xml:space="preserve">
+    <value>使用用户名“sa”和密码“Str0ng!Passw0rd”登录。在本地开发以外使用时，</value>
+  </data>
+  <data name="Common_Text0369" xml:space="preserve">
+    <value>请更改密码。启动时将代表你接受 Microsoft 最终用户许可协议。</value>
+  </data>
+  <data name="Common_Text0374" xml:space="preserve">
+    <value>Azure Storage 模拟器：Blob 端口 10000、队列端口 10001、表端口 10002。</value>
+  </data>
+  <data name="Common_Text0375" xml:space="preserve">
+    <value>使用标准开发连接字符串“UseDevelopmentStorage=true”，</value>
+  </data>
+  <data name="Common_Text0376" xml:space="preserve">
+    <value>或将 Azure Storage Explorer 连接到本地模拟器端口。</value>
+  </data>
+  <data name="Common_Text0378" xml:space="preserve">
+    <value>Cosmos DB 模拟器</value>
+  </data>
+  <data name="Common_Text0379" xml:space="preserve">
+    <value>Azure Cosmos DB（NoSQL）模拟器，Data Explorer 地址为 http://localhost:1234。</value>
+  </data>
+  <data name="Common_Text0380" xml:space="preserve">
+    <value>Data Explorer：http://localhost:1234。连接时使用端点 http://localhost:8085 和</value>
+  </data>
+  <data name="Common_Text0381" xml:space="preserve">
+    <value>公开的模拟器密钥 </value>
+  </data>
+  <data name="Common_Text0383" xml:space="preserve">
+    <value>此 vNext 模拟器使用明文 HTTP，并支持网关模式的 NoSQL API。</value>
+  </data>
+  <data name="Common_Text0385" xml:space="preserve">
+    <value>应用组合</value>
+  </data>
+  <data name="Common_Text0386" xml:space="preserve">
+    <value>WordPress 地址为 http://localhost:8082，使用 MySQL 数据库。</value>
+  </data>
+  <data name="Common_Text0387" xml:space="preserve">
+    <value>WordPress：http://localhost:8082。首次运行时请在浏览器中完成配置。</value>
+  </data>
+  <data name="Common_Text0389" xml:space="preserve">
+    <value>Postgres 16，配有 pgAdmin 4 Web 控制台，地址为 http://localhost:8083。</value>
+  </data>
+  <data name="Common_Text0390" xml:space="preserve">
+    <value>pgAdmin：http://localhost:8083，登录凭据为 admin@example.com / admin。</value>
+  </data>
+  <data name="Common_Text0391" xml:space="preserve">
+    <value>添加服务器，主机为“db”，用户名和密码均为 postgres。</value>
+  </data>
+  <data name="Common_Text0393" xml:space="preserve">
+    <value>本地模型对话界面，地址为 http://localhost:8084。</value>
+  </data>
+  <data name="Common_Text0394" xml:space="preserve">
+    <value>Open WebUI：http://localhost:8084，首次运行时创建管理员账户。</value>
+  </data>
+  <data name="Common_Text0395" xml:space="preserve">
+    <value>如已有 Ollama 运行时，将复用它并仅部署 Web 界面；</value>
+  </data>
+  <data name="Common_Text0396" xml:space="preserve">
+    <value>否则会一并部署运行时。请通过界面或设置页面下载模型。</value>
+  </data>
+  <data name="Common_Text0397" xml:space="preserve">
+    <value>Service Bus 模拟器</value>
+  </data>
+  <data name="Common_Text0398" xml:space="preserve">
+    <value>Azure Service Bus 模拟器及其必需的 SQL 后端。</value>
+  </data>
+  <data name="Common_Text0399" xml:space="preserve">
+    <value>连接字符串：“Endpoint=sb://localhost:5673;SharedAccessKeyName=RootManageSharedAccessKey;</value>
+  </data>
+  <data name="Common_Text0401" xml:space="preserve">
+    <value>启动后包含命名空间“sbemulatorns”、queue.1 和 topic.1 </value>
+  </data>
+  <data name="Common_Text0403" xml:space="preserve">
+    <value>模拟器会等待 SQL Server 通过健康检查，因此首次启动需要约一分钟。</value>
+  </data>
+  <data name="Common_Text0404" xml:space="preserve">
+    <value>Event Hubs 模拟器</value>
+  </data>
+  <data name="Common_Text0405" xml:space="preserve">
+    <value>Azure Event Hubs 模拟器及其必需的 Azurite 和 SQL 后端。</value>
+  </data>
+  <data name="Common_Text0406" xml:space="preserve">
+    <value>连接字符串：“Endpoint=sb://localhost:5674;SharedAccessKeyName=RootManageSharedAccessKey;</value>
+  </data>
+  <data name="Common_Text0407" xml:space="preserve">
+    <value>启动后包含命名空间“emulatorns1”及事件中心“eh1”（2 个分区，</value>
+  </data>
+  <data name="Common_Text0408" xml:space="preserve">
+    <value>使用者组为“cg1”和“$default”）。Kafka 端点：localhost:9092。</value>
+  </data>
+  <data name="Common_Text0423" xml:space="preserve">
+    <value>自定义</value>
+  </data>
+  <data name="Common_Text0424" xml:space="preserve">
+    <value>已导入</value>
+  </data>
+  <data name="Common_Text0425" xml:space="preserve">
+    <value>内置</value>
+  </data>
+  <data name="Common_Text0426" xml:space="preserve">
+    <value>Compose 应用</value>
+  </data>
+  <data name="Common_Text0427" xml:space="preserve">
+    <value>{0} 个部署</value>
+  </data>
+  <data name="Common_Text0428" xml:space="preserve">
+    <value>AI 助手</value>
+  </data>
+  <data name="Common_Text0429" xml:space="preserve">
+    <value>事件</value>
+  </data>
+  <data name="Common_Text0431" xml:space="preserve">
+    <value>已拉取 {0}</value>
+  </data>
+  <data name="Common_Text0432" xml:space="preserve">
+    <value>拉取失败：{0}</value>
+  </data>
+  <data name="Common_Text0433" xml:space="preserve">
+    <value>已构建 {0}</value>
+  </data>
+  <data name="Common_Text0434" xml:space="preserve">
+    <value>构建失败：{0}</value>
+  </data>
+  <data name="Common_Text0435" xml:space="preserve">
+    <value>引擎已无法访问</value>
+  </data>
+  <data name="Common_Text0436" xml:space="preserve">
+    <value>引擎正在运行</value>
+  </data>
+  <data name="Common_Text0437" xml:space="preserve">
+    <value>{0} 已启动</value>
+  </data>
+  <data name="Common_Text0438" xml:space="preserve">
+    <value>{0} 已停止</value>
+  </data>
+  <data name="Common_Text0439" xml:space="preserve">
+    <value>{0} 已移除</value>
+  </data>
+  <data name="Common_Text0440" xml:space="preserve">
+    <value>响应异常</value>
+  </data>
+  <data name="Common_Text0441" xml:space="preserve">
+    <value>{0} 未返回符合预期 OpenAI、Azure OpenAI 或 Ollama 格式的响应。</value>
+  </data>
+  <data name="Common_Text0442" xml:space="preserve">
+    <value>助手发送了无效请求</value>
+  </data>
+  <data name="Common_Text0443" xml:space="preserve">
+    <value> 未执行任何操作。请让助手重试，系统会告知工具接受的字段。</value>
+  </data>
+  <data name="Common_Text0444" xml:space="preserve">
+    <value>助手未完成操作</value>
+  </data>
+  <data name="Common_Text0445" xml:space="preserve">
+    <value> 已完成的工具调用仍然有效，并已记录；重试前请审阅</value>
+  </data>
+  <data name="Common_Text0446" xml:space="preserve">
+    <value>这些结果，并尝试将请求缩小为单一步骤。</value>
+  </data>
+  <data name="Common_Text0447" xml:space="preserve">
+    <value>需要配置</value>
+  </data>
+  <data name="Common_Text0448" xml:space="preserve">
+    <value>{0} 失败</value>
+  </data>
+  <data name="Common_Text0449" xml:space="preserve">
+    <value>发生意外错误。</value>
+  </data>
+  <data name="Common_Text0450" xml:space="preserve">
+    <value>{0} 已取消</value>
+  </data>
+  <data name="Common_Text0451" xml:space="preserve">
+    <value>{0} 已超时</value>
+  </data>
+  <data name="Common_Text0452" xml:space="preserve">
+    <value>请求耗时过长。请检查端点能否访问，然后重试。</value>
+  </data>
+  <data name="Common_Text0453" xml:space="preserve">
+    <value>未找到端点</value>
+  </data>
+  <data name="Common_Text0454" xml:space="preserve">
+    <value>请求受限</value>
+  </data>
+  <data name="Common_Text0455" xml:space="preserve">
+    <value>{0} 正在限制请求。请稍候，检查套餐或配额，或稍后重试。</value>
+  </data>
+  <data name="Common_Text0456" xml:space="preserve">
+    <value>提供方服务器错误</value>
+  </data>
+  <data name="Common_Text0457" xml:space="preserve">
+    <value>{0} 返回了服务器错误，请稍后重试。</value>
+  </data>
+  <data name="Common_Text0458" xml:space="preserve">
+    <value>身份验证失败</value>
+  </data>
+  <data name="Common_Text0459" xml:space="preserve">
+    <value>需要身份验证</value>
+  </data>
+  <data name="Common_Text0460" xml:space="preserve">
+    <value>请登录 GitHub Copilot CLI（`copilot login`），确认账户有权使用 Copilot 后重试。</value>
+  </data>
+  <data name="Common_Text0461" xml:space="preserve">
+    <value>请在设置中保存有效的 Azure OpenAI API 密钥，然后重试。</value>
+  </data>
+  <data name="Common_Text0462" xml:space="preserve">
+    <value>请在设置中保存有效的 API 密钥；api.openai.com 等托管端点需要密钥，然后重试。</value>
+  </data>
+  <data name="Common_Text0463" xml:space="preserve">
+    <value>Ollama 不使用 API 密钥。如果端点位于需要身份验证的代理后，请调整代理，或直接连接 Ollama 端点。</value>
+  </data>
+  <data name="Common_Text0464" xml:space="preserve">
+    <value>请在设置中检查所选提供方保存的凭据。</value>
+  </data>
+  <data name="Common_Text0465" xml:space="preserve">
+    <value>端点无法识别此路由。请检查基础 URL 和版本路径，例如 /v1。</value>
+  </data>
+  <data name="Common_Text0466" xml:space="preserve">
+    <value>请在设置中检查 Azure OpenAI 端点和部署名称，部署可能不存在或拼写有误。</value>
+  </data>
+  <data name="Common_Text0467" xml:space="preserve">
+    <value>请在设置中检查 Ollama 基础 URL。</value>
+  </data>
+  <data name="Common_Text0468" xml:space="preserve">
+    <value>未找到请求的模型。请在设置中选择可用模型。</value>
+  </data>
+  <data name="Common_Text0469" xml:space="preserve">
+    <value>请检查设置中配置的端点。</value>
+  </data>
+  <data name="Common_Text0470" xml:space="preserve">
+    <value>配置的端点</value>
+  </data>
+  <data name="Common_Text0471" xml:space="preserve">
+    <value>无法解析 {0} 的主机名，请检查基础 URL。</value>
+  </data>
+  <data name="Common_Text0472" xml:space="preserve">
+    <value>无法连接到 {0}，请确认服务器正在运行且可以访问。</value>
+  </data>
+  <data name="Common_Text0473" xml:space="preserve">
+    <value>连接不安全</value>
+  </data>
+  <data name="Common_Text0474" xml:space="preserve">
+    <value>TLS 或证书验证失败。请检查端点证书；本地服务器可使用 http 而非 https。</value>
+  </data>
+  <data name="Common_Text0475" xml:space="preserve">
+    <value>连接已断开</value>
+  </data>
+  <data name="Common_Text0476" xml:space="preserve">
+    <value>收到有效响应前连接已关闭，请重试。</value>
+  </data>
+  <data name="Common_Text0477" xml:space="preserve">
+    <value>无法访问 {0}，请检查端点并确认服务器正在运行。</value>
+  </data>
+  <data name="Common_Text0478" xml:space="preserve">
+    <value>提供方：{0}</value>
+  </data>
+  <data name="Common_Text0479" xml:space="preserve">
+    <value>操作：{0}</value>
+  </data>
+  <data name="Common_Text0480" xml:space="preserve">
+    <value>端点：{0}</value>
+  </data>
+  <data name="Common_Text0481" xml:space="preserve">
+    <value>模型或部署：{0}</value>
+  </data>
+  <data name="Common_Text0482" xml:space="preserve">
+    <value>HTTP 状态：{0}</value>
+  </data>
+  <data name="Common_Text0483" xml:space="preserve">
+    <value>响应：{0}</value>
+  </data>
+  <data name="Common_Text0484" xml:space="preserve">
+    <value>异常：{0}：{1}</value>
+  </data>
+  <data name="Common_Text0485" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="Common_Text0487" xml:space="preserve">
+    <value>拉取镜像</value>
+  </data>
+  <data name="Common_Text0488" xml:space="preserve">
+    <value>容器：创建与运行</value>
+  </data>
+  <data name="Common_Text0489" xml:space="preserve">
+    <value>运行容器</value>
+  </data>
+  <data name="Common_Text0490" xml:space="preserve">
+    <value>容器：生命周期</value>
+  </data>
+  <data name="Common_Text0491" xml:space="preserve">
+    <value>启动容器</value>
+  </data>
+  <data name="Common_Text0492" xml:space="preserve">
+    <value>停止容器</value>
+  </data>
+  <data name="Common_Text0493" xml:space="preserve">
+    <value>重启容器</value>
+  </data>
+  <data name="Common_Text0494" xml:space="preserve">
+    <value>停止所有或多个容器</value>
+  </data>
+  <data name="Common_Text0495" xml:space="preserve">
+    <value>容器：移除（破坏性操作）</value>
+  </data>
+  <data name="Common_Text0496" xml:space="preserve">
+    <value>移除容器</value>
+  </data>
+  <data name="Common_Text0497" xml:space="preserve">
+    <value>移除所有或多个容器</value>
+  </data>
+  <data name="Common_Text0498" xml:space="preserve">
+    <value>创建数据卷</value>
+  </data>
+  <data name="Common_Text0499" xml:space="preserve">
+    <value>移除数据卷，并删除其中的数据</value>
+  </data>
+  <data name="Common_Text0500" xml:space="preserve">
+    <value>创建网络</value>
+  </data>
+  <data name="Common_Text0501" xml:space="preserve">
+    <value>移除网络</value>
+  </data>
+  <data name="Common_Text0502" xml:space="preserve">
+    <value>部署单容器模板（Compose 始终需要审阅）</value>
+  </data>
+  <data name="Common_Text0504" xml:space="preserve">
+    <value>应用清单</value>
+  </data>
+  <data name="Common_Text0505" xml:space="preserve">
+    <value>调整部署副本数</value>
+  </data>
+  <data name="Common_Text0506" xml:space="preserve">
+    <value>重启部署</value>
+  </data>
+  <data name="Common_Text0507" xml:space="preserve">
+    <value>删除资源</value>
+  </data>
+  <data name="Common_Text0508" xml:space="preserve">
+    <value>启动集群</value>
+  </data>
+  <data name="Common_Text0509" xml:space="preserve">
+    <value>停止集群</value>
+  </data>
+  <data name="Common_Text0510" xml:space="preserve">
+    <value>连接已有的 Foundry Local</value>
+  </data>
+  <data name="Common_Text0511" xml:space="preserve">
+    <value>使用此端点</value>
+  </data>
+  <data name="Common_Text0512" xml:space="preserve">
+    <value>仅安装运行时</value>
+  </data>
+  <data name="Common_Text0513" xml:space="preserve">
+    <value>接受条款并安装运行时</value>
+  </data>
+  <data name="Common_Text0514" xml:space="preserve">
+    <value>配置 Foundry Local 和 CPU 模型</value>
+  </data>
+  <data name="Common_Text0515" xml:space="preserve">
+    <value>接受条款并准备</value>
+  </data>
+  <data name="Common_Text0516" xml:space="preserve">
+    <value>配置 Foundry Local</value>
+  </data>
+  <data name="Common_Text0517" xml:space="preserve">
+    <value>接受条款并配置</value>
+  </data>
+  <data name="Common_Text0518" xml:space="preserve">
+    <value>移除 Foundry Local</value>
+  </data>
+  <data name="Common_Text0519" xml:space="preserve">
+    <value>这将从此计算机移除 Foundry Local 运行时。
+
+</value>
+  </data>
+  <data name="Common_Text0520" xml:space="preserve">
+    <value>• 保留磁盘上已下载的模型
+</value>
+  </data>
+  <data name="Common_Text0521" xml:space="preserve">
+    <value>• 保留已安装的 Windows 共享组件
+</value>
+  </data>
+  <data name="Common_Text0522" xml:space="preserve">
+    <value>• 不更改其他 AI 提供方
+
+</value>
+  </data>
+  <data name="Common_Text0523" xml:space="preserve">
+    <value>你可以通过“快速开始”重新配置。</value>
+  </data>
+  <data name="Common_Text0524" xml:space="preserve">
+    <value>停止共享的 Foundry 服务器</value>
+  </data>
+  <data name="Common_Text0525" xml:space="preserve">
+    <value>停止此服务器</value>
+  </data>
+  <data name="Common_Text0526" xml:space="preserve">
+    <value>仅下载模型文件，不导入或加载</value>
+  </data>
+  <data name="Common_Text0527" xml:space="preserve">
+    <value>接受许可证并下载文件</value>
+  </data>
+  <data name="Common_Text0528" xml:space="preserve">
+    <value>完整详情和条款</value>
+  </data>
+  <data name="Common_Text0529" xml:space="preserve">
+    <value>这将在此计算机配置 Foundry Local 并准备一个小型 CPU 对话模型，然后将其选为 AI 提供方。
+
+</value>
+  </data>
+  <data name="Common_Text0530" xml:space="preserve">
+    <value>• 下载约 878 MB 模型文件（Apache-2.0 许可证）
+</value>
+  </data>
+  <data name="Common_Text0531" xml:space="preserve">
+    <value>• 准备完成后约占用 1.76 GB 磁盘空间
+</value>
+  </data>
+  <data name="Common_Text0532" xml:space="preserve">
+    <value>• 保留已有的 Foundry 安装、模型和设置
+</value>
+  </data>
+  <data name="Common_Text0533" xml:space="preserve">
+    <value>• 运行一次简短的本地测试提示，不会发送你的项目数据
+
+</value>
+  </data>
+  <data name="Common_Text0534" xml:space="preserve">
+    <value>配置需要网络。中途取消不会撤销已完成的操作。</value>
+  </data>
+  <data name="Common_Text0535" xml:space="preserve">
+    <value>这将更改此计算机上的本地 AI 运行时。继续前请审阅下方详情。</value>
+  </data>
+  <data name="Common_Extra0484" xml:space="preserve">
+    <value>容器 AI 助手</value>
+  </data>
+  <data name="Common_Extra0485" xml:space="preserve">
+    <value>仅用于 WSL 容器、Compose 和已安装的 k3s 工具。</value>
+  </data>
+  <data name="Common_Extra0486" xml:space="preserve">
+    <value>AI 提供方状态</value>
+  </data>
+  <data name="Common_Extra0487" xml:space="preserve">
+    <value>当前 AI 提供方和模型</value>
+  </data>
+  <data name="Common_Extra0488" xml:space="preserve">
+    <value>开始新对话</value>
+  </data>
+  <data name="Common_Extra0489" xml:space="preserve">
+    <value>新对话</value>
+  </data>
+  <data name="Common_Extra0490" xml:space="preserve">
+    <value>关闭助手</value>
+  </data>
+  <data name="Common_Extra0491" xml:space="preserve">
+    <value>技术详情</value>
+  </data>
+  <data name="Common_Extra0492" xml:space="preserve">
+    <value>复制详情</value>
+  </data>
+  <data name="Common_Extra0493" xml:space="preserve">
+    <value>已省略较早的活动，仅显示最近 100 条记录；单条记录可能被截断。</value>
+  </data>
+  <data name="Common_Extra0494" xml:space="preserve">
+    <value>对话和工具活动</value>
+  </data>
+  <data name="Common_Extra0495" xml:space="preserve">
+    <value>工具活动，展开可查看执行内容和返回结果</value>
+  </data>
+  <data name="Common_Extra0496" xml:space="preserve">
+    <value>此工具正在等待你的批准</value>
+  </data>
+  <data name="Common_Extra0497" xml:space="preserve">
+    <value>批准</value>
+  </data>
+  <data name="Common_Extra0498" xml:space="preserve">
+    <value>拒绝</value>
+  </data>
+  <data name="Common_Extra0499" xml:space="preserve">
+    <value>助手请求正在进行</value>
+  </data>
+  <data name="Common_Extra0500" xml:space="preserve">
+    <value>发送给容器助手的消息</value>
+  </data>
+  <data name="Common_Extra0501" xml:space="preserve">
+    <value>可以让助手列出容器、部署 WordPress、停止所有运行中的容器…</value>
+  </data>
+  <data name="Common_Extra0502" xml:space="preserve">
+    <value>发送</value>
+  </data>
+  <data name="Common_Extra0503" xml:space="preserve">
+    <value>取消助手本轮对话</value>
+  </data>
+  <data name="Common_Extra0504" xml:space="preserve">
+    <value>请求取消。已完成的操作不会回滚。</value>
+  </data>
+  <data name="Common_Extra0505" xml:space="preserve">
+    <value>更新 WSL</value>
+  </data>
+  <data name="Common_Extra0506" xml:space="preserve">
+    <value>重新检查</value>
+  </data>
+  <data name="Common_Extra0507" xml:space="preserve">
+    <value>打开设置</value>
+  </data>
+  <data name="Common_Extra0508" xml:space="preserve">
+    <value>阅读 WSL 容器正式发布公告</value>
+  </data>
+  <data name="Common_Extra0509" xml:space="preserve">
+    <value>WSL 更新失败</value>
+  </data>
+  <data name="Common_Extra0510" xml:space="preserve">
+    <value>活动</value>
+  </data>
+  <data name="Common_Extra0511" xml:space="preserve">
+    <value>持续记录引擎、容器、网络和镜像事件。</value>
+  </data>
+  <data name="Common_Extra0512" xml:space="preserve">
+    <value>筛选</value>
+  </data>
+  <data name="Common_Extra0513" xml:space="preserve">
+    <value>搜索事件</value>
+  </data>
+  <data name="Common_Extra0514" xml:space="preserve">
+    <value>阅读时暂停列表更新。新事件仍会被收集，恢复后显示。</value>
+  </data>
+  <data name="Common_Extra0515" xml:space="preserve">
+    <value>暂停</value>
+  </data>
+  <data name="Common_Extra0516" xml:space="preserve">
+    <value>清空</value>
+  </data>
+  <data name="Common_Extra0517" xml:space="preserve">
+    <value>暂无活动。启动、停止资源或拉取镜像后，记录将显示在这里。</value>
+  </data>
+  <data name="Common_Extra0518" xml:space="preserve">
+    <value>别名</value>
+  </data>
+  <data name="Common_Extra0519" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Common_Extra0520" xml:space="preserve">
+    <value>大小</value>
+  </data>
+  <data name="Common_Extra0521" xml:space="preserve">
+    <value>连接终端</value>
+  </data>
+  <data name="Common_Extra0522" xml:space="preserve">
+    <value>重启</value>
+  </data>
+  <data name="Common_Extra0523" xml:space="preserve">
+    <value>强制停止</value>
+  </data>
+  <data name="Common_Extra0524" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="Common_Extra0525" xml:space="preserve">
+    <value>停止</value>
+  </data>
+  <data name="Common_Extra0526" xml:space="preserve">
+    <value>启动</value>
+  </data>
+  <data name="Common_Extra0527" xml:space="preserve">
+    <value>你</value>
+  </data>
+  <data name="Common_Extra0528" xml:space="preserve">
+    <value>工具</value>
+  </data>
+  <data name="Common_Extra0529" xml:space="preserve">
+    <value>是</value>
+  </data>
+  <data name="Common_Extra0530" xml:space="preserve">
+    <value>否</value>
+  </data>
+  <data name="Common_Extra0531" xml:space="preserve">
+    <value>未运行</value>
+  </data>
+  <data name="Common_Extra0532" xml:space="preserve">
+    <value>调用失败</value>
+  </data>
+  <data name="Common_Extra0533" xml:space="preserve">
+    <value>Windows 将请求管理员权限以安装更新。</value>
+  </data>
+  <data name="Common_Extra0534" xml:space="preserve">
+    <value>需要管理员权限</value>
+  </data>
+  <data name="Common_Extra0535" xml:space="preserve">
+    <value>Windows 正在等待你的授权</value>
+  </data>
+  <data name="Common_Extra0536" xml:space="preserve">
+    <value>安装 WSL 更新需要管理员权限。若屏幕上未出现提示，请选择任务栏上闪烁的盾牌图标。确认提示中的已验证发布者为 Microsoft Corporation，然后选择“是”。授权后更新会继续。</value>
+  </data>
+  <data name="Common_Extra0537" xml:space="preserve">
+    <value>正在等待你批准管理员权限提示…</value>
+  </data>
+  <data name="Common_Extra0538" xml:space="preserve">
+    <value>正在安装 WSL 更新…</value>
+  </data>
+  <data name="Common_Extra0539" xml:space="preserve">
+    <value>若你拒绝或关闭了管理员权限提示，请再次选择更新，并在提示中选择“是”。</value>
+  </data>
+  <data name="Common_Extra0540" xml:space="preserve">
+    <value>外部守护进程负责内存和空闲策略。配置仅加载固定版本的 CPU 模型，绝不会自动卸载其他模型或停止已有服务器。加载证明须结合已验证的 CLI 加载、模拟生成和进程启动标识，不能仅依据模型列表。外部生命周期改变后请刷新，取消不会回滚。</value>
+  </data>
+  <data name="Common_Extra0541" xml:space="preserve">
+    <value>配置会审核并固定下载的运行时和模型文件版本。启动 Microsoft Foundry Local 时，Windows 可能通过网络安装由 Microsoft 选择的执行提供方软件包。应用不选择、固定或审核这些由供应商管理的版本。即使已有模型文件缓存，0.10.3 的模型列表端点仍需访问在线目录；推理在本地运行。</value>
+  </data>
+  <data name="Common_Extra0542" xml:space="preserve">
+    <value>引擎：已被策略禁用</value>
+  </data>
+  <data name="Common_Extra0543" xml:space="preserve">
+    <value>引擎：未找到 wslc</value>
+  </data>
+  <data name="Common_Extra0544" xml:space="preserve">
+    <value>引擎：需要 WSL {0} 或更高版本</value>
+  </data>
+  <data name="Common_Extra0545" xml:space="preserve">
+    <value>引擎：运行中 · {0} 个容器</value>
+  </data>
+  <data name="Common_Extra0546" xml:space="preserve">
+    <value>引擎：不可用</value>
+  </data>
+  <data name="Common_Extra0547" xml:space="preserve">
+    <value>引擎：未知</value>
+  </data>
+  <data name="Common_Extra0548" xml:space="preserve">
+    <value>Kubernetes：运行中 · {0}/{1} 个 Pod 已启动</value>
+  </data>
+  <data name="Common_Extra0549" xml:space="preserve">
+    <value>Kubernetes：未知</value>
+  </data>
+  <data name="Common_Extra0550" xml:space="preserve">
+    <value>Kubernetes：已停止</value>
+  </data>
+  <data name="Common_Extra0551" xml:space="preserve">
+    <value>Kubernetes：正在启动</value>
+  </data>
+  <data name="Common_Extra0552" xml:space="preserve">
+    <value>Kubernetes：未安装</value>
+  </data>
+  <data name="Common_AssistantPanel_001.Text" xml:space="preserve">
+    <value>容器 AI 助手</value>
+  </data>
+  <data name="Common_AssistantPanel_002.Text" xml:space="preserve">
+    <value>仅用于 WSL 容器、Compose 和已安装的 k3s 工具。</value>
+  </data>
+  <data name="Common_AssistantPanel_003.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>AI 提供方状态</value>
+  </data>
+  <data name="Common_AssistantPanel_004.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>当前 AI 提供方和模型</value>
+  </data>
+  <data name="Common_AssistantPanel_005.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>开始新对话</value>
+  </data>
+  <data name="Common_AssistantPanel_005.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>开始新对话</value>
+  </data>
+  <data name="Common_AssistantPanel_006.Text" xml:space="preserve">
+    <value>新对话</value>
+  </data>
+  <data name="Common_AssistantPanel_007.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>关闭助手</value>
+  </data>
+  <data name="Common_AssistantPanel_008.Header" xml:space="preserve">
+    <value>技术详情</value>
+  </data>
+  <data name="Common_AssistantPanel_009.Content" xml:space="preserve">
+    <value>复制详情</value>
+  </data>
+  <data name="Common_AssistantPanel_010.Text" xml:space="preserve">
+    <value>已省略较早的活动，仅显示最近 100 条记录；单条记录可能被截断。</value>
+  </data>
+  <data name="Common_AssistantPanel_011.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>对话和工具活动</value>
+  </data>
+  <data name="Common_AssistantPanel_012.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>工具活动，展开可查看执行内容和返回结果</value>
+  </data>
+  <data name="Common_AssistantPanel_013.Text" xml:space="preserve">
+    <value>此工具正在等待你的批准</value>
+  </data>
+  <data name="Common_AssistantPanel_014.Content" xml:space="preserve">
+    <value>批准</value>
+  </data>
+  <data name="Common_AssistantPanel_015.Content" xml:space="preserve">
+    <value>拒绝</value>
+  </data>
+  <data name="Common_AssistantPanel_016.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>助手请求正在进行</value>
+  </data>
+  <data name="Common_AssistantPanel_017.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>发送给容器助手的消息</value>
+  </data>
+  <data name="Common_AssistantPanel_017.PlaceholderText" xml:space="preserve">
+    <value>可以让助手列出容器、部署 WordPress、停止所有运行中的容器…</value>
+  </data>
+  <data name="Common_AssistantPanel_018.Content" xml:space="preserve">
+    <value>发送</value>
+  </data>
+  <data name="Common_AssistantPanel_019.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>取消助手本轮对话</value>
+  </data>
+  <data name="Common_AssistantPanel_019.Content" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Common_AssistantPanel_019.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>请求取消。已完成的操作不会回滚。</value>
+  </data>
+  <data name="Common_RequirementGateView_001.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>更新 WSL</value>
+  </data>
+  <data name="Common_RequirementGateView_002.Text" xml:space="preserve">
+    <value>更新 WSL</value>
+  </data>
+  <data name="Common_RequirementGateView_003.Content" xml:space="preserve">
+    <value>重新检查</value>
+  </data>
+  <data name="Common_RequirementGateView_004.Content" xml:space="preserve">
+    <value>打开设置</value>
+  </data>
+  <data name="Common_RequirementGateView_005.Content" xml:space="preserve">
+    <value>阅读 WSL 容器正式发布公告</value>
+  </data>
+  <data name="Common_RequirementGateView_006.Title" xml:space="preserve">
+    <value>WSL 更新失败</value>
+  </data>
+  <data name="Common_ActivityPage_001.Text" xml:space="preserve">
+    <value>活动</value>
+  </data>
+  <data name="Common_ActivityPage_002.Text" xml:space="preserve">
+    <value>持续记录引擎、容器、网络和镜像事件。</value>
+  </data>
+  <data name="Common_ActivityPage_003.Text" xml:space="preserve">
+    <value>筛选</value>
+  </data>
+  <data name="Common_ActivityPage_004.PlaceholderText" xml:space="preserve">
+    <value>搜索事件</value>
+  </data>
+  <data name="Common_ActivityPage_005.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>阅读时暂停列表更新。新事件仍会被收集，恢复后显示。</value>
+  </data>
+  <data name="Common_ActivityPage_006.Text" xml:space="preserve">
+    <value>暂停</value>
+  </data>
+  <data name="Common_ActivityPage_007.Text" xml:space="preserve">
+    <value>清空</value>
+  </data>
+  <data name="Common_ActivityPage_008.Text" xml:space="preserve">
+    <value>暂无活动。启动、停止资源或拉取镜像后，记录将显示在这里。</value>
+  </data>
+  <data name="Common_EngineUnreachable" xml:space="preserve">
+    <value>无法访问</value>
+  </data>
+  <data name="Common_Remove" xml:space="preserve">
+    <value>移除</value>
+  </data>
+  <data name="Common_Template_Note_8598" xml:space="preserve">
+    <value>持续运行的沙箱，打开容器终端即可使用 shell。文件持久保存在 /workspace 的“python-workspace”数据卷中。发布端口 8000 供开发服务器使用，例如 python -m http.server 8000。</value>
+  </data>
+  <data name="Common_Template_Note_9540" xml:space="preserve">
+    <value>持续运行的沙箱，打开容器终端即可使用 shell。文件持久保存在 /workspace 的“node-workspace”数据卷中。发布端口 3000 供开发服务器使用。</value>
+  </data>
+  <data name="Common_Template_Note_10436" xml:space="preserve">
+    <value>持续运行的沙箱，打开容器终端即可使用 shell，可尝试“dotnet new web”。文件持久保存在“dotnet-workspace”数据卷的/workspace 中。主机端口 5080 映射到 ASP.NET Core 默认端口 8080。</value>
+  </data>
+  <data name="Common_Template_Note_11415" xml:space="preserve">
+    <value>持续运行的沙箱，打开容器终端即可使用 shell。文件持久保存在 /workspace 的“java-workspace”数据卷中。主机端口 8095 转发到容器内的开发服务器端口 8080，例如 Spring Boot，从而避免与 Nginx 模板冲突。</value>
+  </data>
+  <data name="Common_Template_Note_12439" xml:space="preserve">
+    <value>持续运行的沙箱，打开容器终端即可使用 shell。文件持久保存在 /workspace 的“go-workspace”数据卷中。主机端口 8090 映射到容器开发服务器端口 8080。</value>
+  </data>
+  <data name="Common_Template_Note_13364" xml:space="preserve">
+    <value>持续运行的沙箱，打开容器终端即可使用 shell，可尝试“cargo new app”。文件持久保存在“rust-workspace”数据卷的/workspace 中。主机端口 8091 映射到容器开发服务器端口 8080。</value>
+  </data>
+  <data name="Common_Template_Note_14307" xml:space="preserve">
+    <value>使用用户名“sa”和密码“Str0ng!Passw0rd”登录。在本地开发以外使用时，请更改密码。启动时将代表你接受 Microsoft 最终用户许可协议。</value>
+  </data>
+  <data name="Common_Template_Note_15371" xml:space="preserve">
+    <value>使用标准开发连接字符串“UseDevelopmentStorage=true”，或将 Azure Storage Explorer 连接到本地模拟器端口。</value>
+  </data>
+  <data name="Common_Template_Note_16615" xml:space="preserve">
+    <value>Data Explorer：http://localhost:1234。连接时使用端点 http://localhost:8085 和公开的模拟器密钥 C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==. 此 vNext 模拟器使用明文 HTTP，并支持网关模式的 NoSQL API。</value>
+  </data>
+  <data name="Common_Template_Note_18310" xml:space="preserve">
+    <value>pgAdmin：http://localhost:8083，登录凭据为 admin@example.com / admin。添加服务器，主机为“db”，用户名和密码均为 postgres。</value>
+  </data>
+  <data name="Common_Template_Note_18930" xml:space="preserve">
+    <value>Open WebUI：http://localhost:8084，首次运行时创建管理员账户。如已有 Ollama 运行时，将复用它并仅部署 Web 界面；否则会一并部署运行时。请通过界面或设置页面下载模型。</value>
+  </data>
+  <data name="Common_Template_Note_19795" xml:space="preserve">
+    <value>连接字符串：“Endpoint=sb://localhost:5673;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;". 启动后包含命名空间“sbemulatorns”、queue.1 和 topic.1 (subscription.1, subscription.2, subscription.3). 模拟器会等待 SQL Server 通过健康检查，因此首次启动需要约一分钟。</value>
+  </data>
+  <data name="Common_Template_Note_20736" xml:space="preserve">
+    <value>连接字符串：“Endpoint=sb://localhost:5674;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;". 启动后包含命名空间“emulatorns1”及事件中心“eh1”（2 个分区，使用者组为“cg1”和“$default”）。Kafka 端点：localhost:9092。模拟器会等待 SQL Server 通过健康检查，因此首次启动需要约一分钟。</value>
+  </data>
+  <data name="Common_Service0000" xml:space="preserve">
+    <value>仅运行时配置会为当前 Windows 用户下载并注册固定版本的独立软件包，不会进行全系统安装。 </value>
+  </data>
+  <data name="Common_Service0001" xml:space="preserve">
+    <value>下载或注册前会先检查已有安装，并征求一次确认。 </value>
+  </data>
+  <data name="Common_Service0002" xml:space="preserve">
+    <value>制品仅依据编译时的发布时间、大小、哈希值和许可审核结果选择，不接受用户输入的审核声明。 </value>
+  </data>
+  <data name="Common_Service0003" xml:space="preserve">
+    <value>不使用进程内 SDK、不固定版本的 winget 操作、自动升级、服务器启动或模型选择。 </value>
+  </data>
+  <data name="Common_Service0004" xml:space="preserve">
+    <value>软件包注册不代表初始模型配置成功，也不能证明初始化或推理兼容性。 </value>
+  </data>
+  <data name="Common_Service0005" xml:space="preserve">
+    <value>请使用初始模型配置，完成单独确认的注册和加载流程。仅暂存文件不会运行 Foundry。 </value>
+  </data>
+  <data name="Common_Service0006" xml:space="preserve">
+    <value>可发现并连接外部已准备的服务器，无需安装、启动、停止或接管它。</value>
+  </data>
+  <data name="Common_Service0007" xml:space="preserve">
+    <value>仅运行时配置不可用：没有符合要求的完整下载清单或适配器。 </value>
+  </data>
+  <data name="Common_Service0008" xml:space="preserve">
+    <value>当前配置无法移除运行时。</value>
+  </data>
+  <data name="Common_Service0009" xml:space="preserve">
+    <value>模型文件暂存不可用。未请求网络访问。</value>
+  </data>
+  <data name="Common_Service0010" xml:space="preserve">
+    <value>配置已改变。未请求模型文件。</value>
+  </data>
+  <data name="Common_Service0011" xml:space="preserve">
+    <value>
+已配置的端点和模型保持不变。这不代表初始模型配置成功。</value>
+  </data>
+  <data name="Common_Service0012" xml:space="preserve">
+    <value>已配置的端点和模型保持不变。这不代表初始模型配置成功。</value>
+  </data>
+  <data name="Common_Service0013" xml:space="preserve">
+    <value>已拒绝下载模型文件。未请求网络访问。</value>
+  </data>
+  <data name="Common_Service0014" xml:space="preserve">
+    <value>批准已失效。未请求模型文件。</value>
+  </data>
+  <data name="Common_Service0015" xml:space="preserve">
+    <value>配置已改变。暂存文件已保留，设置和运行时均未改变。</value>
+  </data>
+  <data name="Common_Service0016" xml:space="preserve">
+    <value>九个固定版本的 CPU 模型文件已暂存，可离线复用。 </value>
+  </data>
+  <data name="Common_Service0017" xml:space="preserve">
+    <value>它们尚未在 Foundry 中注册或加载，端点和模型设置保持不变。 </value>
+  </data>
+  <data name="Common_Service0018" xml:space="preserve">
+    <value>模型文件准备已取消。运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Service0019" xml:space="preserve">
+    <value> 运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Service0020" xml:space="preserve">
+    <value>没有符合要求的完整运行时下载清单或适配器。未尝试网络访问或安装。</value>
+  </data>
+  <data name="Common_Service0021" xml:space="preserve">
+    <value>原 Foundry 配置已改变，未请求任何操作。</value>
+  </data>
+  <data name="Common_Service0022" xml:space="preserve">
+    <value>配置前请清空或修正模型选择：批准要求最多 512 个字符，且不能含控制字符或格式字符。未请求网络访问或安装。</value>
+  </data>
+  <data name="Common_Service0023" xml:space="preserve">
+    <value>正在只读检查已安装的软件包，不下载或运行运行时…</value>
+  </data>
+  <data name="Common_Service0024" xml:space="preserve">
+    <value>配置已改变，未请求下载或安装。</value>
+  </data>
+  <data name="Common_Service0025" xml:space="preserve">
+    <value>已拒绝仅运行时配置，未下载或安装任何内容。</value>
+  </data>
+  <data name="Common_Service0026" xml:space="preserve">
+    <value>批准已失效，未下载或安装任何内容。</value>
+  </data>
+  <data name="Common_Service0027" xml:space="preserve">
+    <value>批准已失效，未请求注册。 </value>
+  </data>
+  <data name="Common_Service0028" xml:space="preserve">
+    <value>已取消或超时，Windows 注册可能仍会完成。未尝试回滚或卸载。</value>
+  </data>
+  <data name="Common_Service0029" xml:space="preserve">
+    <value>注册前配置已取消或超时，未请求安装软件包。</value>
+  </data>
+  <data name="Common_Service0030" xml:space="preserve">
+    <value>运行时配置失败（{0}），不会自动重试或清理。</value>
+  </data>
+  <data name="Common_Service0031" xml:space="preserve">
+    <value>仅为此 Windows 用户下载并安装 Foundry Local {0}？
+</value>
+  </data>
+  <data name="Common_Service0032" xml:space="preserve">
+    <value>仅为此 Windows 用户下载并安装 Foundry Local {0}？</value>
+  </data>
+  <data name="Common_Service0033" xml:space="preserve">
+    <value>最大下载量：{0} 字节（已验证的缓存可能减少下载量）；额外解压空间：{1} 字节。Windows 注册也会占用磁盘空间。
+</value>
+  </data>
+  <data name="Common_Service0034" xml:space="preserve">
+    <value>最大下载量：{0} 字节（已验证的缓存可能减少下载量）；额外解压空间：{1} 字节。Windows 注册也会占用磁盘空间。</value>
+  </data>
+  <data name="Common_Service0035" xml:space="preserve">
+    <value>运行时：{0} 字节；SHA256：{1}；发布时间：{2}。
+</value>
+  </data>
+  <data name="Common_Service0036" xml:space="preserve">
+    <value>运行时：{0} 字节；SHA256：{1}；发布时间：{2}。</value>
+  </data>
+  <data name="Common_Service0037" xml:space="preserve">
+    <value>来源：{0}
+运行时条款：{1}
+{2}
+</value>
+  </data>
+  <data name="Common_Service0038" xml:space="preserve">
+    <value>来源：{0}</value>
+  </data>
+  <data name="Common_Service0039" xml:space="preserve">
+    <value>运行时条款：{0}</value>
+  </data>
+  <data name="Common_Service0040" xml:space="preserve">
+    <value>前置依赖 ZIP：{0} 字节；SHA256：{1}；发布时间：{2}。
+来源：{3}
+</value>
+  </data>
+  <data name="Common_Service0041" xml:space="preserve">
+    <value>前置依赖 ZIP：{0} 字节；SHA256：{1}；发布时间：{2}。</value>
+  </data>
+  <data name="Common_Service0042" xml:space="preserve">
+    <value>仅解压条目 {0}：{1} 字节；SHA256：{2}。
+</value>
+  </data>
+  <data name="Common_Service0043" xml:space="preserve">
+    <value>仅解压条目 {0}：{1} 字节；SHA256：{2}。</value>
+  </data>
+  <data name="Common_Service0044" xml:space="preserve">
+    <value>保留现有 Microsoft x64 VCLibs {0}，不下载、替换或降级前置依赖。现有安装不代表制品已通过审核或推理兼容性测试。
+</value>
+  </data>
+  <data name="Common_Service0045" xml:space="preserve">
+    <value>保留现有 Microsoft x64 VCLibs {0}，不下载、替换或降级前置依赖。现有安装不代表制品已通过审核或推理兼容性测试。</value>
+  </data>
+  <data name="Common_Service0046" xml:space="preserve">
+    <value>前置依赖目标：{0}；条款：{1}
+{2}
+</value>
+  </data>
+  <data name="Common_Service0047" xml:space="preserve">
+    <value>前置依赖目标：{0}；条款：{1}</value>
+  </data>
+  <data name="Common_Service0048" xml:space="preserve">
+    <value>发布时间证明：{0}
+{1}
+</value>
+  </data>
+  <data name="Common_Service0049" xml:space="preserve">
+    <value>发布时间证明：{0}</value>
+  </data>
+  <data name="Common_Service0050" xml:space="preserve">
+    <value>初始模型配置将在下方单独说明。 </value>
+  </data>
+  <data name="Common_Service0051" xml:space="preserve">
+    <value>所选模型（保持不变）：{0}。此仅运行时操作不会获取或加载任何模型。
+</value>
+  </data>
+  <data name="Common_Service0052" xml:space="preserve">
+    <value>所选模型（保持不变）：{0}。此仅运行时操作不会获取或加载任何模型。</value>
+  </data>
+  <data name="Common_Service0053" xml:space="preserve">
+    <value>你将批准这些运行时和前置依赖条款，以及下方说明的初始模型准备。 </value>
+  </data>
+  <data name="Common_Service0054" xml:space="preserve">
+    <value>你将批准这些运行时和前置依赖条款及仅运行时下载和注册，不包括初始模型配置。 </value>
+  </data>
+  <data name="Common_Service0055" xml:space="preserve">
+    <value>网络：已批准的 Microsoft GitHub 发布页面及其 HTTPS 发布制品主机；不会使用凭据或接受来源协议。Windows 可能通过网络检查签名信任。 </value>
+  </data>
+  <data name="Common_Service0056" xml:space="preserve">
+    <value>不会升级、接管或卸载已有运行时。 </value>
+  </data>
+  <data name="Common_Service0057" xml:space="preserve">
+    <value>不会启动、停止、升级、接管或卸载 Foundry 运行时。不会请求推理、模型或 EP 下载。 </value>
+  </data>
+  <data name="Common_Service0058" xml:space="preserve">
+    <value>可能注册缺失或较旧的前置依赖，较新的依赖会保留。注册不能证明初始化或推理兼容性。 </value>
+  </data>
+  <data name="Common_Service0059" xml:space="preserve">
+    <value>取消不会回滚，Windows 部署可能在取消后完成。 </value>
+  </data>
+  <data name="Common_Service0060" xml:space="preserve">
+    <value>正在仅从发现的本机回环端点读取目录、缓存和内存元数据…</value>
+  </data>
+  <data name="Common_Service0061" xml:space="preserve">
+    <value>使用现有外部 Foundry Local 端点 {0}？
+</value>
+  </data>
+  <data name="Common_Service0062" xml:space="preserve">
+    <value>使用现有外部 Foundry Local 端点 {0}？</value>
+  </data>
+  <data name="Common_Service0063" xml:space="preserve">
+    <value>观测到的 CLI 版本：{0}
+确切所选模型：{1}
+</value>
+  </data>
+  <data name="Common_Service0064" xml:space="preserve">
+    <value>观测到的 CLI 版本：{0}</value>
+  </data>
+  <data name="Common_Service0065" xml:space="preserve">
+    <value>确切所选模型：{0}</value>
+  </data>
+  <data name="Common_Service0066" xml:space="preserve">
+    <value>声明的模型版本：{0}
+</value>
+  </data>
+  <data name="Common_Service0067" xml:space="preserve">
+    <value>声明的模型版本：{0}</value>
+  </data>
+  <data name="Common_Service0068" xml:space="preserve">
+    <value>声明的大小（MB）：{0}
+</value>
+  </data>
+  <data name="Common_Service0069" xml:space="preserve">
+    <value>声明的大小（MB）：{0}</value>
+  </data>
+  <data name="Common_Service0070" xml:space="preserve">
+    <value>声明的许可：{0}
+</value>
+  </data>
+  <data name="Common_Service0071" xml:space="preserve">
+    <value>声明的许可：{0}</value>
+  </data>
+  <data name="Common_Service0072" xml:space="preserve">
+    <value>许可信息：{0}</value>
+  </data>
+  <data name="Common_Service0073" xml:space="preserve">
+    <value>
+已缓存：{0}；已加载：{1}。
+</value>
+  </data>
+  <data name="Common_Service0074" xml:space="preserve">
+    <value>已缓存：{0}；已加载：{1}。</value>
+  </data>
+  <data name="Common_Service0075" xml:space="preserve">
+    <value>仅更改此应用的端点设置，保留模型选择。不安装或下载任何软件、模型或 EP，</value>
+  </data>
+  <data name="Common_Service0076" xml:space="preserve">
+    <value>也不接受任何许可。网络：后续明确请求的元数据读取和推理</value>
+  </data>
+  <data name="Common_Service0077" xml:space="preserve">
+    <value>将使用此本机回环端点。不启动、停止、卸载或接管运行时。 </value>
+  </data>
+  <data name="Common_Service0078" xml:space="preserve">
+    <value>声明的元数据不代表制品已通过审核，也不能证明硬件或推理已就绪。</value>
+  </data>
+  <data name="Common_Service0079" xml:space="preserve">
+    <value>使用固定版本的 Qwen2.5-0.5B CPU 模型准备 Foundry Local？
+</value>
+  </data>
+  <data name="Common_Service0080" xml:space="preserve">
+    <value>使用固定版本的 Qwen2.5-0.5B CPU 模型准备 Foundry Local？</value>
+  </data>
+  <data name="Common_Service0081" xml:space="preserve">
+    <value>成功后，此应用将选择检测到的本机回环端点和 qwen2.5-0.5b-instruct-generic-cpu:4，其他提供方保持不变。
+</value>
+  </data>
+  <data name="Common_Service0082" xml:space="preserve">
+    <value>成功后，此应用将选择检测到的本机回环端点和 qwen2.5-0.5b-instruct-generic-cpu:4，其他提供方保持不变。</value>
+  </data>
+  <data name="Common_Service0083" xml:space="preserve">
+    <value>保留已有运行时，绝不升级或卸载。已停止的运行时可能以系统分配的端口启动，守护进程空闲超时为五分钟。 </value>
+  </data>
+  <data name="Common_Service0084" xml:space="preserve">
+    <value>仅填充应用新建的缓存目录，不覆盖或删除现有缓存条目。 </value>
+  </data>
+  <data name="Common_Service0085" xml:space="preserve">
+    <value>除运行时和元数据外，暂存与注册还需约 1.76 GB 的模型磁盘空间。 </value>
+  </data>
+  <data name="Common_Service0086" xml:space="preserve">
+    <value>配置会加载此模型，并在本地发送一次模拟的“Reply OK only”提示。不发送项目数据，不卸载其他模型。
+</value>
+  </data>
+  <data name="Common_Service0087" xml:space="preserve">
+    <value>配置会加载此模型，并在本地发送一次模拟的“Reply OK only”提示。不发送项目数据，不卸载其他模型。</value>
+  </data>
+  <data name="Common_Service0088" xml:space="preserve">
+    <value>取消不会回滚：已注册软件包、完整或部分文件，以及已启动的守护进程或已加载的模型可能保留。不会自动卸载、停止或删除。
+</value>
+  </data>
+  <data name="Common_Service0089" xml:space="preserve">
+    <value>取消不会回滚：已注册软件包、完整或部分文件，以及已启动的守护进程或已加载的模型可能保留。不会自动卸载、停止或删除。</value>
+  </data>
+  <data name="Common_Service0090" xml:space="preserve">
+    <value>正在检查现有独立版的版本和进程，保留此安装…</value>
+  </data>
+  <data name="Common_Service0091" xml:space="preserve">
+    <value>已拒绝初始模型配置。未请求获取、启动或加载。</value>
+  </data>
+  <data name="Common_Service0092" xml:space="preserve">
+    <value>正在启动 Foundry，Windows 可能安装 Microsoft 选择的执行提供方软件包…</value>
+  </data>
+  <data name="Common_Service0093" xml:space="preserve">
+    <value>正在检查实时模型目录（独立版 0.10.3 需要网络访问）…</value>
+  </data>
+  <data name="Common_Service0094" xml:space="preserve">
+    <value>配置已取消。文件和软件包已保留，请求的启动或加载可能已经完成。不会自动回滚、停止或卸载。</value>
+  </data>
+  <data name="Common_Service0095" xml:space="preserve">
+    <value>初始模型配置未确认就绪：</value>
+  </data>
+  <data name="Common_Service0096" xml:space="preserve">
+    <value> 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Service0097" xml:space="preserve">
+    <value>配置已改变，未请求停止。</value>
+  </data>
+  <data name="Common_Service0098" xml:space="preserve">
+    <value>停止共享 Foundry 服务器进程 {0}（启动于 {1}，端点为 {2}）？
+</value>
+  </data>
+  <data name="Common_Service0099" xml:space="preserve">
+    <value>停止共享 Foundry 服务器进程 {0}（启动于 {1}，端点为 {2}）？</value>
+  </data>
+  <data name="Common_Service0100" xml:space="preserve">
+    <value>这会停止所有客户端的推理并卸载其模型，包括在此应用之外打开的模型。软件包和模型文件会保留，此应用不会声明拥有该服务器。</value>
+  </data>
+  <data name="Common_Service0101" xml:space="preserve">
+    <value>已拒绝停止，服务器已保留。</value>
+  </data>
+  <data name="Common_Service0102" xml:space="preserve">
+    <value>确认期间服务器或配置已改变。未请求停止。</value>
+  </data>
+  <data name="Common_Service0103" xml:space="preserve">
+    <value>服务器仍在运行，停止结果不确定，不会重试。</value>
+  </data>
+  <data name="Common_Service0104" xml:space="preserve">
+    <value>Foundry 已停止。运行时软件包和模型文件已保留。</value>
+  </data>
+  <data name="Common_Service0105" xml:space="preserve">
+    <value>Foundry Local v1 元数据（0.10.3 目录需要网络访问）</value>
+  </data>
+  <data name="Common_Service0106" xml:space="preserve">
+    <value>加载前请使用初始模型配置来验证并注册固定版本的文件，不会隐式下载模型。</value>
+  </data>
+  <data name="Common_Service0107" xml:space="preserve">
+    <value>正在加载已注册的 CPU 模型，不使用 CLI 模型下载命令…</value>
+  </data>
+  <data name="Common_Service0108" xml:space="preserve">
+    <value>正在通过一次模拟的“Reply OK only”生成验证本地就绪状态…</value>
+  </data>
+  <data name="Common_Service0109" xml:space="preserve">
+    <value>固定版本的 CPU 模型已加载，模拟的本地响应已验证。助手工具、JSON 和流式输出支持仍需单独检查能力。</value>
+  </data>
+  <data name="Common_Service0110" xml:space="preserve">
+    <value>此进程没有此模型的当前应用验证加载记录。未卸载其他用户的模型。</value>
+  </data>
+  <data name="Common_Service0111" xml:space="preserve">
+    <value>Foundry 已确认卸载所选模型，文件已保留；这不能衡量 GPU 或 RAM 是否已释放。</value>
+  </data>
+  <data name="Common_Service0112" xml:space="preserve">
+    <value>独立版 0.10.3 的 CPU 初始化已单独验证，但这不能证明此应用的签名软件包部署或所有硬件配置均兼容。 </value>
+  </data>
+  <data name="Common_Service0113" xml:space="preserve">
+    <value>配置仅注册软件包，不启动 Foundry，也不获取缺失的 DLL、执行提供方或模型。</value>
+  </data>
+  <data name="Common_Service0114" xml:space="preserve">
+    <value>无法启动 Windows 软件包部署。</value>
+  </data>
+  <data name="Common_Service0115" xml:space="preserve">
+    <value>软件包批准已改变，未尝试准备。</value>
+  </data>
+  <data name="Common_Service0116" xml:space="preserve">
+    <value>Windows 软件包预检查失败，未请求下载或安装。</value>
+  </data>
+  <data name="Common_Service0117" xml:space="preserve">
+    <value>发现已有 Foundry 软件包或独立 CLI。未尝试升级、接管或下载，请使用发现或手动连接。</value>
+  </data>
+  <data name="Common_Service0118" xml:space="preserve">
+    <value>无法识别软件包预检查输出。请手动检查安装状态，未下载任何内容。</value>
+  </data>
+  <data name="Common_Service0119" xml:space="preserve">
+    <value>固定版本的前置依赖需要注册。</value>
+  </data>
+  <data name="Common_Service0120" xml:space="preserve">
+    <value>将保留现有 Microsoft x64 VCLibs；其存在不能证明 Foundry 推理兼容性。</value>
+  </data>
+  <data name="Common_Service0121" xml:space="preserve">
+    <value>无法识别前置依赖状态，未下载任何内容。</value>
+  </data>
+  <data name="Common_Service0122" xml:space="preserve">
+    <value>Foundry Local 原本就未安装，未移除任何内容。</value>
+  </data>
+  <data name="Common_Service0123" xml:space="preserve">
+    <value>Windows 未确认移除，其他内容均未改变。重试前请检查已安装的软件包。</value>
+  </data>
+  <data name="Common_Service0124" xml:space="preserve">
+    <value>已为此用户移除 Foundry Local。下载的模型和共享 Microsoft VCLibs 前置依赖已保留，</value>
+  </data>
+  <data name="Common_Service0125" xml:space="preserve">
+    <value>由 Windows 安装的执行提供方软件包也不会移除。</value>
+  </data>
+  <data name="Common_Service0126" xml:space="preserve">
+    <value>移除已取消，Windows 可能仍会完成操作。请检查已安装的软件包。</value>
+  </data>
+  <data name="Common_Service0127" xml:space="preserve">
+    <value>移除已取消，未改变任何内容。</value>
+  </data>
+  <data name="Common_Service0128" xml:space="preserve">
+    <value>移除失败（{0}）。其他内容均未改变。</value>
+  </data>
+  <data name="Common_Service0129" xml:space="preserve">
+    <value>没有符合要求且通过独立审核的软件包集合。未请求文件、确认或安装。</value>
+  </data>
+  <data name="Common_Service0130" xml:space="preserve">
+    <value>原 Foundry Local 配置已改变。</value>
+  </data>
+  <data name="Common_Service0131" xml:space="preserve">
+    <value>配置前请清空或修正模型选择：批准要求最多 512 个字符，且不能含控制字符或格式字符。未请求安装。</value>
+  </data>
+  <data name="Common_Service0132" xml:space="preserve">
+    <value>正在根据已批准的审核结果验证已准备的运行时和依赖字节…</value>
+  </data>
+  <data name="Common_Service0133" xml:space="preserve">
+    <value>原配置已改变，未安装任何内容。</value>
+  </data>
+  <data name="Common_Service0134" xml:space="preserve">
+    <value>正在检查明确的仅运行时安装许可…</value>
+  </data>
+  <data name="Common_Service0135" xml:space="preserve">
+    <value>已拒绝仅运行时安装，未安装任何内容。</value>
+  </data>
+  <data name="Common_Service0136" xml:space="preserve">
+    <value>配置改变使批准失效，未安装任何内容。</value>
+  </data>
+  <data name="Common_Service0137" xml:space="preserve">
+    <value>正在安装已准备的确切用户范围 MSIX 和依赖，不启动服务器或配置模型…</value>
+  </data>
+  <data name="Common_Service0138" xml:space="preserve">
+    <value>Windows 部署期间配置已改变，运行时可能已安装。设置未改变，重试前请检查软件包。</value>
+  </data>
+  <data name="Common_Service0139" xml:space="preserve">
+    <value>Windows 部署未确认确切的运行时版本。未尝试重试或卸载，请检查软件包。</value>
+  </data>
+  <data name="Common_Service0140" xml:space="preserve">
+    <value>已为此用户注册确切的运行时软件包，并观测到 Microsoft x64 VCLibs 前置依赖（保留现有较新版本）。此仅运行时步骤未启动服务器或改变设置，仅注册不能证明模型已就绪。 </value>
+  </data>
+  <data name="Common_Service0141" xml:space="preserve">
+    <value>安装已取消，Windows 部署可能仍会完成。未尝试回滚或卸载，重试前请检查软件包。</value>
+  </data>
+  <data name="Common_Service0142" xml:space="preserve">
+    <value>准备已取消，未请求安装。</value>
+  </data>
+  <data name="Common_Service0143" xml:space="preserve">
+    <value>已准备的安装失败（{0}）。未尝试自动重试、下载或清理。</value>
+  </data>
+  <data name="Common_Service0144" xml:space="preserve">
+    <value>已验证的配置缓存会保留以便离线复用。任何中断的 .partial 文件都会保留，绝不复用或安装；可在配置缓存中手动移除。</value>
+  </data>
+  <data name="Common_Service0145" xml:space="preserve">
+    <value>运行时 MSIX</value>
+  </data>
+  <data name="Common_Service0146" xml:space="preserve">
+    <value>正在复用已验证的前置依赖 APPX，无需下载归档。</value>
+  </data>
+  <data name="Common_Service0147" xml:space="preserve">
+    <value>前置依赖归档</value>
+  </data>
+  <data name="Common_Service0148" xml:space="preserve">
+    <value>前置依赖解压</value>
+  </data>
+  <data name="Common_Service0149" xml:space="preserve">
+    <value>确切的前置依赖 APPX 已解压并验证，其他归档条目未解压。</value>
+  </data>
+  <data name="Common_Service0150" xml:space="preserve">
+    <value>正在复用已验证的 {0}，不请求网络访问。</value>
+  </data>
+  <data name="Common_Service0151" xml:space="preserve">
+    <value>{0}：{1}%（完成前尚未验证）。</value>
+  </data>
+  <data name="Common_Service0152" xml:space="preserve">
+    <value>Qwen2.5-0.5B-Instruct（通用 CPU），版本 4</value>
+  </data>
+  <data name="Common_Service0153" xml:space="preserve">
+    <value>使用固定的官方来源 ETag、日期和大小暂存。本地 SHA256 凭证用于后续缓存完整性验证，不代表独立的发布者验证。尚未注册或加载。</value>
+  </data>
+  <data name="Common_Service0154" xml:space="preserve">
+    <value>中断的 .partial 文件会保留且绝不续传。重复暂存会重新计算完整文件的哈希；损坏或无凭证的缓存需手动恢复后再重试。</value>
+  </data>
+  <data name="Common_Service0155" xml:space="preserve">
+    <value>仅下载模型文件：{0}
+</value>
+  </data>
+  <data name="Common_Service0156" xml:space="preserve">
+    <value>仅下载模型文件：{0}</value>
+  </data>
+  <data name="Common_Service0157" xml:space="preserve">
+    <value>此操作不导入 Foundry 缓存，不注册、加载或运行模型，也不获取执行提供方。
+</value>
+  </data>
+  <data name="Common_Service0158" xml:space="preserve">
+    <value>此操作不导入 Foundry 缓存，不注册、加载或运行模型，也不获取执行提供方。</value>
+  </data>
+  <data name="Common_Service0159" xml:space="preserve">
+    <value>确切下载量：九个文件，共 {0} 字节。
+</value>
+  </data>
+  <data name="Common_Service0160" xml:space="preserve">
+    <value>确切下载量：九个文件，共 {0} 字节。</value>
+  </data>
+  <data name="Common_Service0161" xml:space="preserve">
+    <value>固定模型及全部九个文件发布于 2025 年 11 月 14 日；获取前会执行发布满七天的策略。
+</value>
+  </data>
+  <data name="Common_Service0162" xml:space="preserve">
+    <value>固定模型及全部九个文件发布于 2025 年 11 月 14 日；获取前会执行发布满七天的策略。</value>
+  </data>
+  <data name="Common_Service0163" xml:space="preserve">
+    <value>仅在缺少完整文件时，模型暂存才会连接官方 Azure 模型注册表和固定的 Azure Blob 容器。官方来源的 ETag、日期和大小均已固定。本地 SHA256 凭证用于后续缓存完整性验证，不代表独立的发布者验证。
+</value>
+  </data>
+  <data name="Common_Service0164" xml:space="preserve">
+    <value>仅在缺少完整文件时，模型暂存才会连接官方 Azure 模型注册表和固定的 Azure Blob 容器。官方来源的 ETag、日期和大小均已固定。本地 SHA256 凭证用于后续缓存完整性验证，不代表独立的发布者验证。</value>
+  </data>
+  <data name="Common_Service0165" xml:space="preserve">
+    <value>已重新计算缓存 {0} 的哈希，凭证与固定清单一致。</value>
+  </data>
+  <data name="Common_Service0166" xml:space="preserve">
+    <value>已按来源条件获取并暂存 {0}，保存了本地完整性凭证。</value>
+  </data>
+  <data name="Common_Service0167" xml:space="preserve">
+    <value>{0}：{1}%（尚未完成）。</value>
+  </data>
+  <data name="Common_Service0168" xml:space="preserve">
+    <value>无法预留模型缓存目录。</value>
+  </data>
+  <data name="Common_Service0169" xml:space="preserve">
+    <value>无法创建应用拥有的模型载荷。</value>
+  </data>
+  <data name="Common_Service0170" xml:space="preserve">
+    <value>无法创建应用拥有的临时存储。</value>
+  </data>
+  <data name="Common_Service0171" xml:space="preserve">
+    <value>正在注册本地模型文件，验证完成前保留 download.tmp。</value>
+  </data>
+  <data name="Common_Service0172" xml:space="preserve">
+    <value>已验证注册的 {0}。</value>
+  </data>
+  <data name="Common_Service0173" xml:space="preserve">
+    <value>无法完成模型注册，download.tmp 已保留。</value>
+  </data>
+  <data name="Common_Service0174" xml:space="preserve">
+    <value>无法创建明确批准的模型缓存目录。</value>
+  </data>
+  <data name="Common_Service0175" xml:space="preserve">
+    <value>无法启动 Foundry Local CLI。</value>
+  </data>
+  <data name="Common_Service0176" xml:space="preserve">
+    <value>正在读取独立 CLI 的版本和帮助，未请求模型或 EP 下载…</value>
+  </data>
+  <data name="Common_Service0177" xml:space="preserve">
+    <value>正在读取外部服务器的实际端点，不启动或接管它…</value>
+  </data>
+  <data name="Common_Service0178" xml:space="preserve">
+    <value>运行时的模型卷缺失，未启动已有运行时。</value>
+  </data>
+  <data name="Common_Service0179" xml:space="preserve">
+    <value>运行时状态未知或无法启动。重试前请检查。</value>
+  </data>
+  <data name="Common_Service0180" xml:space="preserve">
+    <value>正在启动已验证归属的 Ollama 容器…</value>
+  </data>
+  <data name="Common_Service0181" xml:space="preserve">
+    <value>运行时启动</value>
+  </data>
+  <data name="Common_Service0182" xml:space="preserve">
+    <value>未确认启动。已有运行时和模型已保留，重试前请检查。</value>
+  </data>
+  <data name="Common_Service0183" xml:space="preserve">
+    <value>应用拥有的 Ollama 容器正在运行。API 就绪状态和模型能力仍需单独观测。</value>
+  </data>
+  <data name="Common_Service0184" xml:space="preserve">
+    <value>模型卷创建</value>
+  </data>
+  <data name="Common_Service0185" xml:space="preserve">
+    <value>无法确认模型卷由此操作创建。未删除数据。</value>
+  </data>
+  <data name="Common_Service0186" xml:space="preserve">
+    <value>准备期间出现了运行时，未接管或移除它。检查后再重试。</value>
+  </data>
+  <data name="Common_Service0187" xml:space="preserve">
+    <value>准备期间模型卷已改变。</value>
+  </data>
+  <data name="Common_Service0188" xml:space="preserve">
+    <value>正在创建请求 GPU 访问的 Ollama…</value>
+  </data>
+  <data name="Common_Service0189" xml:space="preserve">
+    <value>运行时创建</value>
+  </data>
+  <data name="Common_Service0190" xml:space="preserve">
+    <value>创建标识不确定，不会启动或移除替代运行时。</value>
+  </data>
+  <data name="Common_Service0191" xml:space="preserve">
+    <value>未确认运行时启动。</value>
+  </data>
+  <data name="Common_Service0192" xml:space="preserve">
+    <value>应用拥有的 Ollama 容器正在运行。GPU 访问不代表已启用加速，API 和模型就绪状态将单独检查。</value>
+  </data>
+  <data name="Common_Service0193" xml:space="preserve">
+    <value>未尝试自动清理运行时。</value>
+  </data>
+  <data name="Common_Service0194" xml:space="preserve">
+    <value>配置已取消，中断的引擎操作可能已部分完成。</value>
+  </data>
+  <data name="Common_Service0195" xml:space="preserve">
+    <value>无法确认运行时配置。重试前请检查引擎状态。</value>
+  </data>
+  <data name="Common_Service0196" xml:space="preserve">
+    <value>{0} {1} 未删除模型数据（{2}）。 </value>
+  </data>
+  <data name="Common_Service0197" xml:space="preserve">
+    <value>恢复：检查 wslcd-ollama 标签和不可变的容器 ID，解决冲突后再重试配置。</value>
+  </data>
+  <data name="Common_Service0198" xml:space="preserve">
+    <value> 创建操作：{0}；观测到的容器 ID：{1}。</value>
+  </data>
+  <data name="Common_Service0199" xml:space="preserve">
+    <value>运行时标识已改变，未移除任何内容。</value>
+  </data>
+  <data name="Common_Service0200" xml:space="preserve">
+    <value>运行时移除</value>
+  </data>
+  <data name="Common_Service0201" xml:space="preserve">
+    <value>未确认运行时移除。</value>
+  </data>
+  <data name="Common_Service0202" xml:space="preserve">
+    <value>运行时：{0}。移除期间模型卷已改变，因此无法删除。 </value>
+  </data>
+  <data name="Common_Service0203" xml:space="preserve">
+    <value>删除前请在“卷”页面检查 wslcd-ollama。</value>
+  </data>
+  <data name="Common_Service0204" xml:space="preserve">
+    <value>运行时：{0}。无法删除模型数据</value>
+  </data>
+  <data name="Common_Service0205" xml:space="preserve">
+    <value>，数据仍然存在。</value>
+  </data>
+  <data name="Common_Service0206" xml:space="preserve">
+    <value> 如需回收该空间，请在“卷”页面移除 wslcd-ollama 卷。</value>
+  </data>
+  <data name="Common_Service0207" xml:space="preserve">
+    <value>已移除 Ollama 容器及其下载的模型。</value>
+  </data>
+  <data name="Common_Service0208" xml:space="preserve">
+    <value>已移除 Ollama 容器。下载的模型已保留，再次配置时会复用。</value>
+  </data>
+  <data name="Common_Service0209" xml:space="preserve">
+    <value>运行时：{0}；模型数据：{1}，未删除。 </value>
+  </data>
+  <data name="Common_Service0210" xml:space="preserve">
+    <value>移除已中断或无法确认。重试前请检查引擎状态。</value>
+  </data>
+  <data name="Common_Service0211" xml:space="preserve">
+    <value>正在下载 Ollama 镜像（{0}，数 GB），可能需要几分钟…</value>
+  </data>
+  <data name="Common_Service0212" xml:space="preserve">
+    <value>Ollama 镜像</value>
+  </data>
+  <data name="Common_Service0213" xml:space="preserve">
+    <value>无法下载 Ollama 镜像（{0}）。请检查网络连接后重试。</value>
+  </data>
+  <data name="Common_Service0214" xml:space="preserve">
+    <value> 引擎报告：{0}</value>
+  </data>
+  <data name="Common_Service0215" xml:space="preserve">
+    <value>Ollama 镜像已下载，但引擎未列出 {0}。请检查“镜像”页面后重试。</value>
+  </data>
+  <data name="Common_Service0216" xml:space="preserve">
+    <value>多个同名运行时存在冲突，未接管任何运行时。</value>
+  </data>
+  <data name="Common_Service0217" xml:space="preserve">
+    <value>运行时归属检查</value>
+  </data>
+  <data name="Common_Service0218" xml:space="preserve">
+    <value>运行时不可变标识缺失或改变，禁止接管或删除。</value>
+  </data>
+  <data name="Common_Service0219" xml:space="preserve">
+    <value>运行时名称已改变，请检查后再重试。</value>
+  </data>
+  <data name="Common_Service0220" xml:space="preserve">
+    <value>已有名为 {0} 的容器，但它并非由此应用创建，因此未接管、启动或删除。 </value>
+  </data>
+  <data name="Common_Service0221" xml:space="preserve">
+    <value>请移除或重命名该容器后重试。</value>
+  </data>
+  <data name="Common_Service0222" xml:space="preserve">
+    <value>运行时归属操作标签格式错误，未接管、启动或删除。</value>
+  </data>
+  <data name="Common_Service0223" xml:space="preserve">
+    <value>运行时状态元数据相互矛盾，请检查后再重试。</value>
+  </data>
+  <data name="Common_Service0224" xml:space="preserve">
+    <value>多个模型卷存在冲突。</value>
+  </data>
+  <data name="Common_Service0225" xml:space="preserve">
+    <value>模型卷归属检查</value>
+  </data>
+  <data name="Common_Service0226" xml:space="preserve">
+    <value>名为 {0} 的卷归属于其他来源，未接管或删除数据。</value>
+  </data>
+  <data name="Common_Service0227" xml:space="preserve">
+    <value>模型卷归属操作标签格式错误，未接管或删除数据。</value>
+  </data>
+  <data name="Common_Service0228" xml:space="preserve">
+    <value>同名模型卷缺少已验证的创建标识，未接管或删除数据。</value>
+  </data>
+  <data name="Common_Service0229" xml:space="preserve">
+    <value>运行时标识已改变。</value>
+  </data>
+  <data name="Common_Service0230" xml:space="preserve">
+    <value>运行时与模型卷的归属标识不一致。</value>
+  </data>
+  <data name="Common_Service0231" xml:space="preserve">
+    <value>运行时端点并非已验证的仅本机回环 Ollama 端口，请单独配置外部运行时。</value>
+  </data>
+  <data name="Common_Service0232" xml:space="preserve">
+    <value>运行时模型挂载标识缺失或与预期不符，未启动或接管。</value>
+  </data>
+  <data name="Common_Service0233" xml:space="preserve">
+    <value>操作期间模型卷被替换，不会启动任何工作负载。</value>
+  </data>
+  <data name="Common_Service0234" xml:space="preserve">
+    <value>未观测到部分运行时，中断的创建可能仍会完成。重试前请检查。</value>
+  </data>
+  <data name="Common_Service0235" xml:space="preserve">
+    <value>已保留其他运行时，此操作不拥有它。</value>
+  </data>
+  <data name="Common_Service0236" xml:space="preserve">
+    <value>清理标识已改变。</value>
+  </data>
+  <data name="Common_Service0237" xml:space="preserve">
+    <value>部分运行时清理</value>
+  </data>
+  <data name="Common_Service0238" xml:space="preserve">
+    <value>未确认部分运行时清理。</value>
+  </data>
+  <data name="Common_Service0239" xml:space="preserve">
+    <value>仅移除了此操作已验证的部分运行时。</value>
+  </data>
+  <data name="Common_Service0240" xml:space="preserve">
+    <value>无法确认部分运行时清理，重试前请检查。</value>
+  </data>
+  <data name="Common_Service0241" xml:space="preserve">
+    <value>归属检查结果不止一个资源。</value>
+  </data>
+  <data name="Common_Service0242" xml:space="preserve">
+    <value>归属检查含有含义不明确的重复属性。</value>
+  </data>
+  <data name="Common_Service0243" xml:space="preserve">
+    <value>{0} 失败或中断，不会自动以 CPU 模式重试。</value>
+  </data>
+  <data name="Common_Service0244" xml:space="preserve">
+    <value>不可用，尝试重启 {0} 次后仍未运行</value>
+  </data>
+  <data name="Common_Service0245" xml:space="preserve">
+    <value>容器在尝试重启 {0} 次后仍未运行。</value>
+  </data>
+  <data name="Common_Service0246" xml:space="preserve">
+    <value>引擎健康观测已过期，正在等待新的状态轮询。</value>
+  </data>
+  <data name="Common_Service0247" xml:space="preserve">
+    <value>引擎健康状态：正在启动</value>
+  </data>
+  <data name="Common_Service0248" xml:space="preserve">
+    <value>引擎健康状态：未知</value>
+  </data>
+  <data name="Common_Service0249" xml:space="preserve">
+    <value>引擎健康状态：{0}；现有引擎检查与请求的检查不同。应用探测和自动恢复已暂停，以避免重复检查。请明确重新创建以应用所需设置。</value>
+  </data>
+  <data name="Common_Service0250" xml:space="preserve">
+    <value>健康检查已禁用</value>
+  </data>
+  <data name="Common_Service0251" xml:space="preserve">
+    <value>健康检查期间容器已改变，正在等待新的健康状态。</value>
+  </data>
+  <data name="Common_Service0252" xml:space="preserve">
+    <value>引擎健康状态：健康</value>
+  </data>
+  <data name="Common_Service0253" xml:space="preserve">
+    <value>应用健康状态：健康（应用需保持打开）</value>
+  </data>
+  <data name="Common_Service0254" xml:space="preserve">
+    <value>；无法遵守小于一秒的间隔（调度分辨率为一秒）</value>
+  </data>
+  <data name="Common_Service0255" xml:space="preserve">
+    <value>健康检查：正在启动（启动宽限期）</value>
+  </data>
+  <data name="Common_Service0256" xml:space="preserve">
+    <value>健康检查失败（连续 {0} 次），正在等待重试阈值。</value>
+  </data>
+  <data name="Common_Service0257" xml:space="preserve">
+    <value>不健康，正在自动重启（{0}/{1}）</value>
+  </data>
+  <data name="Common_Service0258" xml:space="preserve">
+    <value>健康检查失败，正在自动重启（第 {0} 次，共 {1} 次）。</value>
+  </data>
+  <data name="Common_Service0259" xml:space="preserve">
+    <value>因停止操作或策略改变，自动恢复已取消。</value>
+  </data>
+  <data name="Common_Service0260" xml:space="preserve">
+    <value>自动恢复失败：</value>
+  </data>
+  <data name="Common_Service0261" xml:space="preserve">
+    <value>健康检查不可用：{0}</value>
+  </data>
+  <data name="Common_Service0262" xml:space="preserve">
+    <value>不可用，重启失败 {0} 次后已停止</value>
+  </data>
+  <data name="Common_Service0263" xml:space="preserve">
+    <value>不可用，健康检查失败</value>
+  </data>
+  <data name="Common_Service0264" xml:space="preserve">
+    <value>尝试重启 {0} 次后仍不健康，正在停止容器。</value>
+  </data>
+  <data name="Common_Service0265" xml:space="preserve">
+    <value>不健康，停止失败：</value>
+  </data>
+  <data name="Common_Service0266" xml:space="preserve">
+    <value>健康检查失败。</value>
+  </data>
+  <data name="Common_Service0267" xml:space="preserve">
+    <value>；引擎健康状态：不健康（独立于 TCP 重启策略报告）</value>
+  </data>
+  <data name="Common_Service0268" xml:space="preserve">
+    <value>；引擎健康状态：</value>
+  </data>
+  <data name="Common_Service0269" xml:space="preserve">
+    <value>未重启 {0}</value>
+  </data>
+  <data name="Common_Service0270" xml:space="preserve">
+    <value>容器在尝试重启 {0} 次后仍未运行，已放弃。</value>
+  </data>
+  <data name="Common_Service0271" xml:space="preserve">
+    <value>容器已退出，正在重启（第 {0} 次，共 {1} 次）。</value>
+  </data>
+  <data name="Common_Service0272" xml:space="preserve">
+    <value>Kubernetes：操作进行中</value>
+  </data>
+  <data name="Common_Service0273" xml:space="preserve">
+    <value>Kubernetes：未运行（{0} 已停止）</value>
+  </data>
+  <data name="Common_Service0274" xml:space="preserve">
+    <value>Kubernetes：未保持运行</value>
+  </data>
+  <data name="Common_Service0275" xml:space="preserve">
+    <value>Kubernetes：没有可用的 WSL 发行版</value>
+  </data>
+  <data name="Common_Service0276" xml:space="preserve">
+    <value>使用固定版本的 Qwen2.5-0.5B CPU 模型准备 Foundry Local？
+成功后，此应用将选择检测到的本机回环端点和 qwen2.5-0.5b-instruct-generic-cpu:4，其他提供方保持不变。
+保留已有运行时，绝不升级或卸载。已停止的运行时可能以系统分配的端口启动，守护进程空闲超时为五分钟。 仅填充应用新建的缓存目录，不覆盖或删除现有缓存条目。 除运行时和元数据外，暂存与注册还需约 1.76 GB 的模型磁盘空间。 配置会加载此模型，并在本地发送一次模拟的“Reply OK only”提示。不发送项目数据，不卸载其他模型。
+配置会审核并固定下载的运行时和模型文件版本。启动 Microsoft Foundry Local 时，Windows 可能通过网络安装由 Microsoft 选择的执行提供方软件包。应用不选择、固定或审核这些由供应商管理的版本。即使已有模型文件缓存，0.10.3 的模型列表端点仍需访问在线目录；推理在本地运行。
+取消不会回滚：已注册软件包、完整或部分文件，以及已启动的守护进程或已加载的模型可能保留。不会自动卸载、停止或删除。
+</value>
+  </data>
+  <data name="Common_Service0277" xml:space="preserve">
+    <value>保留已有运行时，绝不升级或卸载。已停止的运行时可能以系统分配的端口启动，守护进程空闲超时为五分钟。 仅填充应用新建的缓存目录，不覆盖或删除现有缓存条目。 除运行时和元数据外，暂存与注册还需约 1.76 GB 的模型磁盘空间。 配置会加载此模型，并在本地发送一次模拟的“Reply OK only”提示。不发送项目数据，不卸载其他模型。</value>
+  </data>
+  <data name="Common_Service0278" xml:space="preserve">
+    <value>独立版 0.10.3 的 CPU 初始化已单独验证，但这不能证明此应用的签名软件包部署或所有硬件配置均兼容。 配置仅注册软件包，不启动 Foundry，也不获取缺失的 DLL、执行提供方或模型。</value>
+  </data>
+  <data name="Common_Service0279" xml:space="preserve">
+    <value>仅运行时配置会为当前 Windows 用户下载并注册固定版本的独立软件包，不会进行全系统安装。 下载或注册前会先检查已有安装，并征求一次确认。 制品仅依据编译时的发布时间、大小、哈希值和许可审核结果选择，不接受用户输入的审核声明。 不使用进程内 SDK、不固定版本的 winget 操作、自动升级、服务器启动或模型选择。 软件包注册不代表初始模型配置成功，也不能证明初始化或推理兼容性。 独立版 0.10.3 的 CPU 初始化已单独验证，但这不能证明此应用的签名软件包部署或所有硬件配置均兼容。 配置仅注册软件包，不启动 Foundry，也不获取缺失的 DLL、执行提供方或模型。 请使用初始模型配置，完成单独确认的注册和加载流程。仅暂存文件不会运行 Foundry。 可发现并连接外部已准备的服务器，无需安装、启动、停止或接管它。</value>
+  </data>
+  <data name="Common_Service0280" xml:space="preserve">
+    <value>仅运行时配置不可用：没有符合要求的完整下载清单或适配器。 仅运行时配置会为当前 Windows 用户下载并注册固定版本的独立软件包，不会进行全系统安装。 下载或注册前会先检查已有安装，并征求一次确认。 制品仅依据编译时的发布时间、大小、哈希值和许可审核结果选择，不接受用户输入的审核声明。 不使用进程内 SDK、不固定版本的 winget 操作、自动升级、服务器启动或模型选择。 软件包注册不代表初始模型配置成功，也不能证明初始化或推理兼容性。 独立版 0.10.3 的 CPU 初始化已单独验证，但这不能证明此应用的签名软件包部署或所有硬件配置均兼容。 配置仅注册软件包，不启动 Foundry，也不获取缺失的 DLL、执行提供方或模型。 请使用初始模型配置，完成单独确认的注册和加载流程。仅暂存文件不会运行 Foundry。 可发现并连接外部已准备的服务器，无需安装、启动、停止或接管它。</value>
+  </data>
+  <data name="Common_Service0281" xml:space="preserve">
+    <value>仅运行时配置会为当前 Windows 用户下载并注册固定版本的独立软件包，不会进行全系统安装。 下载或注册前会先检查已有安装，并征求一次确认。 制品仅依据编译时的发布时间、大小、哈希值和许可审核结果选择，不接受用户输入的审核声明。 不使用进程内 SDK、不固定版本的 winget 操作、自动升级、服务器启动或模型选择。 软件包注册不代表初始模型配置成功，也不能证明初始化或推理兼容性。 </value>
+  </data>
+  <data name="Common_Service0282" xml:space="preserve">
+    <value> 请使用初始模型配置，完成单独确认的注册和加载流程。仅暂存文件不会运行 Foundry。 可发现并连接外部已准备的服务器，无需安装、启动、停止或接管它。</value>
+  </data>
+  <data name="Common_Service0283" xml:space="preserve">
+    <value>九个固定版本的 CPU 模型文件已暂存，可离线复用。 它们尚未在 Foundry 中注册或加载，端点和模型设置保持不变。 </value>
+  </data>
+  <data name="Common_Service0284" xml:space="preserve">
+    <value>仅为此 Windows 用户下载并安装 Foundry Local {0}？
+最大下载量：{1} 字节（已验证的缓存可能减少下载量）；额外解压空间：{2} 字节。Windows 注册也会占用磁盘空间。
+运行时：{3} 字节；SHA256：{4}；发布时间：{5}。
+来源：{6}
+运行时条款：{7}
+{8}
+</value>
+  </data>
+  <data name="Common_Service0285" xml:space="preserve">
+    <value>前置依赖 ZIP：{0} 字节；SHA256：{1}；发布时间：{2}。
+来源：{3}
+仅解压条目 {4}：{5} 字节；SHA256：{6}。
+</value>
+  </data>
+  <data name="Common_Service0286" xml:space="preserve">
+    <value>前置依赖目标：{0}；条款：{1}
+{2}
+发布时间证明：{3}
+{4}
+</value>
+  </data>
+  <data name="Common_Service0287" xml:space="preserve">
+    <value>使用现有外部 Foundry Local 端点 {0}？
+观测到的 CLI 版本：{1}
+确切所选模型：{2}
+声明的模型版本：{3}
+声明的大小（MB）：{4}
+声明的许可：{5}
+许可信息：{6}
+已缓存：{7}；已加载：{8}。
+仅更改此应用的端点设置，保留模型选择。不安装或下载任何软件、模型或 EP，也不接受任何许可。网络：后续明确请求的元数据读取和推理将使用此本机回环端点。不启动、停止、卸载或接管运行时。 声明的元数据不代表制品已通过审核，也不能证明硬件或推理已就绪。</value>
+  </data>
+  <data name="Common_Service0288" xml:space="preserve">
+    <value>仅更改此应用的端点设置，保留模型选择。不安装或下载任何软件、模型或 EP，也不接受任何许可。网络：后续明确请求的元数据读取和推理将使用此本机回环端点。不启动、停止、卸载或接管运行时。 声明的元数据不代表制品已通过审核，也不能证明硬件或推理已就绪。</value>
+  </data>
+  <data name="Common_Service0289" xml:space="preserve">
+    <value>使用固定版本的 Qwen2.5-0.5B CPU 模型准备 Foundry Local？
+成功后，此应用将选择检测到的本机回环端点和 qwen2.5-0.5b-instruct-generic-cpu:4，其他提供方保持不变。
+保留已有运行时，绝不升级或卸载。已停止的运行时可能以系统分配的端口启动，守护进程空闲超时为五分钟。 仅填充应用新建的缓存目录，不覆盖或删除现有缓存条目。 除运行时和元数据外，暂存与注册还需约 1.76 GB 的模型磁盘空间。 配置会加载此模型，并在本地发送一次模拟的“Reply OK only”提示。不发送项目数据，不卸载其他模型。
+</value>
+  </data>
+  <data name="Common_Service0290" xml:space="preserve">
+    <value>
+取消不会回滚：已注册软件包、完整或部分文件，以及已启动的守护进程或已加载的模型可能保留。不会自动卸载、停止或删除。
+</value>
+  </data>
+  <data name="Common_Service0291" xml:space="preserve">
+    <value>停止共享 Foundry 服务器进程 {0}（启动于 {1}，端点为 {2}）？
+这会停止所有客户端的推理并卸载其模型，包括在此应用之外打开的模型。软件包和模型文件会保留，此应用不会声明拥有该服务器。</value>
+  </data>
+  <data name="Common_Service0292" xml:space="preserve">
+    <value>已为此用户移除 Foundry Local。下载的模型和共享 Microsoft VCLibs 前置依赖已保留，由 Windows 安装的执行提供方软件包也不会移除。</value>
+  </data>
+  <data name="Common_Service0293" xml:space="preserve">
+    <value>Identity: {0}
+确切下载量：九个文件，共 {1} 字节。
+License: {2} — {3}
+固定模型及全部九个文件发布于 2025 年 11 月 14 日；获取前会执行发布满七天的策略。
+仅在缺少完整文件时，模型暂存才会连接官方 Azure 模型注册表和固定的 Azure Blob 容器。官方来源的 ETag、日期和大小均已固定。本地 SHA256 凭证用于后续缓存完整性验证，不代表独立的发布者验证。
+</value>
+  </data>
+  <data name="Common_Service0294" xml:space="preserve">
+    <value>{0} {1} 未删除模型数据（{2}）。 恢复：检查 wslcd-ollama 标签和不可变的容器 ID，解决冲突后再重试配置。</value>
+  </data>
+  <data name="Common_Service0295" xml:space="preserve">
+    <value>运行时：{0}。移除期间模型卷已改变，因此无法删除。 删除前请在“卷”页面检查 wslcd-ollama。</value>
+  </data>
+  <data name="Common_Service0296" xml:space="preserve">
+    <value>已有名为 {0} 的容器，但它并非由此应用创建，因此未接管、启动或删除。 请移除或重命名该容器后重试。</value>
+  </data>
+  <data name="Common_Service0297" xml:space="preserve">
+    <value>你将批准这些运行时和前置依赖条款及仅运行时下载和注册，不包括初始模型配置。 网络：已批准的 Microsoft GitHub 发布页面及其 HTTPS 发布制品主机；不会使用凭据或接受来源协议。Windows 可能通过网络检查签名信任。 不会启动、停止、升级、接管或卸载 Foundry 运行时。不会请求推理、模型或 EP 下载。 可能注册缺失或较旧的前置依赖，较新的依赖会保留。注册不能证明初始化或推理兼容性。 独立版 0.10.3 的 CPU 初始化已单独验证，但这不能证明此应用的签名软件包部署或所有硬件配置均兼容。 配置仅注册软件包，不启动 Foundry，也不获取缺失的 DLL、执行提供方或模型。 取消不会回滚，Windows 部署可能在取消后完成。 已验证的配置缓存会保留以便离线复用。任何中断的 .partial 文件都会保留，绝不复用或安装；可在配置缓存中手动移除。</value>
+  </data>
+  <data name="Common_Service0298" xml:space="preserve">
+    <value>初始模型配置将在下方单独说明。 你将批准这些运行时和前置依赖条款，以及下方说明的初始模型准备。 网络：已批准的 Microsoft GitHub 发布页面及其 HTTPS 发布制品主机；不会使用凭据或接受来源协议。Windows 可能通过网络检查签名信任。 不会升级、接管或卸载已有运行时。 可能注册缺失或较旧的前置依赖，较新的依赖会保留。注册不能证明初始化或推理兼容性。 取消不会回滚，Windows 部署可能在取消后完成。 已验证的配置缓存会保留以便离线复用。任何中断的 .partial 文件都会保留，绝不复用或安装；可在配置缓存中手动移除。</value>
+  </data>
+  <data name="Common_Service0299" xml:space="preserve">
+    <value>自动恢复失败：{0}</value>
+  </data>
+  <data name="Common_Service0300" xml:space="preserve">
+    <value>不健康，停止失败：{0}</value>
+  </data>
+  <data name="Common_Service0301" xml:space="preserve">
+    <value>{0} 不可用</value>
+  </data>
+  <data name="Common_Service0302" xml:space="preserve">
+    <value>{0} 不健康</value>
+  </data>
+  <data name="Common_Service0303" xml:space="preserve">
+    <value>正在重启 {0}</value>
+  </data>
+  <data name="Common_Service0304" xml:space="preserve">
+    <value>初始模型配置未确认就绪：{0} 已准备的文件和软件包已保留。不会回退、自动重试或清理。</value>
+  </data>
+  <data name="Common_Service0305" xml:space="preserve">
+    <value>运行时：{0}。无法删除模型数据，数据仍然存在。如需回收该空间，请在“卷”页面移除 wslcd-ollama 卷。</value>
+  </data>
+  <data name="Common_Service0306" xml:space="preserve">
+    <value>运行时：{0}；模型数据：{1}，未删除。移除已中断或无法确认。重试前请检查引擎状态。</value>
+  </data>
+  <data name="Common_Service0307" xml:space="preserve">
+    <value>外部服务器端点为 {0}。运行时和设置均未改变。</value>
+  </data>
+  <data name="Common_Service0308" xml:space="preserve">
+    <value>未设置</value>
+  </data>
+  <data name="Common_Service0309" xml:space="preserve">
+    <value>端点</value>
+  </data>
+  <data name="Common_Service0310" xml:space="preserve">
+    <value>部署</value>
+  </data>
+  <data name="Common_Service0311" xml:space="preserve">
+    <value>下载</value>
+  </data>
+  <data name="Common_Service0312" xml:space="preserve">
+    <value>不存在</value>
+  </data>
+  <data name="Common_Service0313" xml:space="preserve">
+    <value>已保留</value>
+  </data>
+  <data name="Common_Service0314" xml:space="preserve">
+    <value>已移除</value>
+  </data>
+  <data name="Common_Service0315" xml:space="preserve">
+    <value>不可用，尝试重启 {0} 次后仍未运行；无法遵守小于一秒的间隔（调度分辨率为一秒）</value>
+  </data>
+  <data name="Common_Service0316" xml:space="preserve">
+    <value>不可用，尝试重启 {0} 次后仍未运行；引擎健康状态：不健康（独立于 TCP 重启策略报告）</value>
+  </data>
+  <data name="Common_Service0317" xml:space="preserve">
+    <value>不可用，尝试重启 {0} 次后仍未运行；引擎健康状态：正在启动</value>
+  </data>
+  <data name="Common_Service0318" xml:space="preserve">
+    <value>不可用，尝试重启 {0} 次后仍未运行；引擎健康状态：未知</value>
+  </data>
+  <data name="Common_Service0319" xml:space="preserve">
+    <value>引擎健康观测已过期，正在等待新的状态轮询。；无法遵守小于一秒的间隔（调度分辨率为一秒）</value>
+  </data>
+  <data name="Common_Service0320" xml:space="preserve">
+    <value>引擎健康观测已过期，正在等待新的状态轮询。；引擎健康状态：不健康（独立于 TCP 重启策略报告）</value>
+  </data>
+  <data name="Common_Service0321" xml:space="preserve">
+    <value>引擎健康观测已过期，正在等待新的状态轮询。；引擎健康状态：正在启动</value>
+  </data>
+  <data name="Common_Service0322" xml:space="preserve">
+    <value>引擎健康观测已过期，正在等待新的状态轮询。；引擎健康状态：未知</value>
+  </data>
+  <data name="Common_Service0323" xml:space="preserve">
+    <value>引擎健康状态：正在启动；无法遵守小于一秒的间隔（调度分辨率为一秒）</value>
+  </data>
+  <data name="Common_Service0324" xml:space="preserve">
+    <value>引擎健康状态：正在启动；引擎健康状态：不健康（独立于 TCP 重启策略报告）</value>
+  </data>
+  <data name="Common_Service0325" xml:space="preserve">
+    <value>引擎健康状态：正在启动；引擎健康状态：正在启动</value>
+  </data>
+  <data name="Common_Service0326" xml:space="preserve">
+    <value>引擎健康状态：正在启动；引擎健康状态：未知</value>
+  </data>
+  <data name="Common_Service0327" xml:space="preserve">
+    <value>引擎健康状态：未知；无法遵守小于一秒的间隔（调度分辨率为一秒）</value>
+  </data>
+  <data name="Common_Service0328" xml:space="preserve">
+    <value>引擎健康状态：未知；引擎健康状态：不健康（独立于 TCP 重启策略报告）</value>
+  </data>
+  <data name="Common_Service0329" xml:space="preserve">
+    <value>引擎健康状态：未知；引擎健康状态：正在启动</value>
+  </data>
+  <data name="Common_Service0330" xml:space="preserve">
+    <value>引擎健康状态：未知；引擎健康状态：未知</value>
+  </data>
+  <data name="Common_Service0331" xml:space="preserve">
+    <value>引擎健康状态：{0}；现有引擎检查与请求的检查不同。应用探测和自动恢复已暂停，以避免重复检查。请明确重新创建以应用所需设置。；无法遵守小于一秒的间隔（调度分辨率为一秒）</value>
+  </data>
+  <data name="Common_Service0332" xml:space="preserve">
+    <value>引擎健康状态：{0}；现有引擎检查与请求的检查不同。应用探测和自动恢复已暂停，以避免重复检查。请明确重新创建以应用所需设置。；引擎健康状态：不健康（独立于 TCP 重启策略报告）</value>
+  </data>
+  <data name="Common_Service0333" xml:space="preserve">
+    <value>引擎健康状态：{0}；现有引擎检查与请求的检查不同。应用探测和自动恢复已暂停，以避免重复检查。请明确重新创建以应用所需设置。；引擎健康状态：正在启动</value>
+  </data>
+  <data name="Common_Service0334" xml:space="preserve">
+    <value>引擎健康状态：{0}；现有引擎检查与请求的检查不同。应用探测和自动恢复已暂停，以避免重复检查。请明确重新创建以应用所需设置。；引擎健康状态：未知</value>
+  </data>
+  <data name="Common_Service0335" xml:space="preserve">
+    <value>健康检查已禁用；无法遵守小于一秒的间隔（调度分辨率为一秒）</value>
+  </data>
+  <data name="Common_Service0336" xml:space="preserve">
+    <value>健康检查已禁用；引擎健康状态：不健康（独立于 TCP 重启策略报告）</value>
+  </data>
+  <data name="Common_Service0337" xml:space="preserve">
+    <value>健康检查已禁用；引擎健康状态：正在启动</value>
+  </data>
+  <data name="Common_Service0338" xml:space="preserve">
+    <value>健康检查已禁用；引擎健康状态：未知</value>
+  </data>
+  <data name="Common_Service0339" xml:space="preserve">
+    <value>健康检查期间容器已改变，正在等待新的健康状态。；无法遵守小于一秒的间隔（调度分辨率为一秒）</value>
+  </data>
+  <data name="Common_Service0340" xml:space="preserve">
+    <value>健康检查期间容器已改变，正在等待新的健康状态。；引擎健康状态：不健康（独立于 TCP 重启策略报告）</value>
+  </data>
+  <data name="Common_Service0341" xml:space="preserve">
+    <value>健康检查期间容器已改变，正在等待新的健康状态。；引擎健康状态：正在启动</value>
+  </data>
+  <data name="Common_Service0342" xml:space="preserve">
+    <value>健康检查期间容器已改变，正在等待新的健康状态。；引擎健康状态：未知</value>
+  </data>
+  <data name="Common_Service0343" xml:space="preserve">
+    <value>引擎健康状态：健康；无法遵守小于一秒的间隔（调度分辨率为一秒）</value>
+  </data>
+  <data name="Common_Service0344" xml:space="preserve">
+    <value>引擎健康状态：健康；引擎健康状态：不健康（独立于 TCP 重启策略报告）</value>
+  </data>
+  <data name="Common_Service0345" xml:space="preserve">
+    <value>引擎健康状态：健康；引擎健康状态：正在启动</value>
+  </data>
+  <data name="Common_Service0346" xml:space="preserve">
+    <value>引擎健康状态：健康；引擎健康状态：未知</value>
+  </data>
+  <data name="Common_Service0347" xml:space="preserve">
+    <value>应用健康状态：健康（应用需保持打开）；无法遵守小于一秒的间隔（调度分辨率为一秒）</value>
+  </data>
+  <data name="Common_Service0348" xml:space="preserve">
+    <value>应用健康状态：健康（应用需保持打开）；引擎健康状态：不健康（独立于 TCP 重启策略报告）</value>
+  </data>
+  <data name="Common_Service0349" xml:space="preserve">
+    <value>应用健康状态：健康（应用需保持打开）；引擎健康状态：正在启动</value>
+  </data>
+  <data name="Common_Service0350" xml:space="preserve">
+    <value>应用健康状态：健康（应用需保持打开）；引擎健康状态：未知</value>
+  </data>
+  <data name="Common_Service0351" xml:space="preserve">
+    <value>健康检查：正在启动（启动宽限期）；无法遵守小于一秒的间隔（调度分辨率为一秒）</value>
+  </data>
+  <data name="Common_Service0352" xml:space="preserve">
+    <value>健康检查：正在启动（启动宽限期）；引擎健康状态：不健康（独立于 TCP 重启策略报告）</value>
+  </data>
+  <data name="Common_Service0353" xml:space="preserve">
+    <value>健康检查：正在启动（启动宽限期）；引擎健康状态：正在启动</value>
+  </data>
+  <data name="Common_Service0354" xml:space="preserve">
+    <value>健康检查：正在启动（启动宽限期）；引擎健康状态：未知</value>
+  </data>
+  <data name="Common_Service0355" xml:space="preserve">
+    <value>健康检查失败（连续 {0} 次），正在等待重试阈值。；无法遵守小于一秒的间隔（调度分辨率为一秒）</value>
+  </data>
+  <data name="Common_Service0356" xml:space="preserve">
+    <value>健康检查失败（连续 {0} 次），正在等待重试阈值。；引擎健康状态：不健康（独立于 TCP 重启策略报告）</value>
+  </data>
+  <data name="Common_Service0357" xml:space="preserve">
+    <value>健康检查失败（连续 {0} 次），正在等待重试阈值。；引擎健康状态：正在启动</value>
+  </data>
+  <data name="Common_Service0358" xml:space="preserve">
+    <value>健康检查失败（连续 {0} 次），正在等待重试阈值。；引擎健康状态：未知</value>
+  </data>
+  <data name="Common_Service0359" xml:space="preserve">
+    <value>不健康，正在自动重启（{0}/{1}）；无法遵守小于一秒的间隔（调度分辨率为一秒）</value>
+  </data>
+  <data name="Common_Service0360" xml:space="preserve">
+    <value>不健康，正在自动重启（{0}/{1}）；引擎健康状态：不健康（独立于 TCP 重启策略报告）</value>
+  </data>
+  <data name="Common_Service0361" xml:space="preserve">
+    <value>不健康，正在自动重启（{0}/{1}）；引擎健康状态：正在启动</value>
+  </data>
+  <data name="Common_Service0362" xml:space="preserve">
+    <value>不健康，正在自动重启（{0}/{1}）；引擎健康状态：未知</value>
+  </data>
+  <data name="Common_Service0363" xml:space="preserve">
+    <value>健康检查不可用：{0}；无法遵守小于一秒的间隔（调度分辨率为一秒）</value>
+  </data>
+  <data name="Common_Service0364" xml:space="preserve">
+    <value>健康检查不可用：{0}；引擎健康状态：不健康（独立于 TCP 重启策略报告）</value>
+  </data>
+  <data name="Common_Service0365" xml:space="preserve">
+    <value>健康检查不可用：{0}；引擎健康状态：正在启动</value>
+  </data>
+  <data name="Common_Service0366" xml:space="preserve">
+    <value>健康检查不可用：{0}；引擎健康状态：未知</value>
+  </data>
+  <data name="Common_Service0367" xml:space="preserve">
+    <value>不可用，重启失败 {0} 次后已停止；无法遵守小于一秒的间隔（调度分辨率为一秒）</value>
+  </data>
+  <data name="Common_Service0368" xml:space="preserve">
+    <value>不可用，重启失败 {0} 次后已停止；引擎健康状态：不健康（独立于 TCP 重启策略报告）</value>
+  </data>
+  <data name="Common_Service0369" xml:space="preserve">
+    <value>不可用，重启失败 {0} 次后已停止；引擎健康状态：正在启动</value>
+  </data>
+  <data name="Common_Service0370" xml:space="preserve">
+    <value>不可用，重启失败 {0} 次后已停止；引擎健康状态：未知</value>
+  </data>
+  <data name="Common_Service0371" xml:space="preserve">
+    <value>不可用，健康检查失败；无法遵守小于一秒的间隔（调度分辨率为一秒）</value>
+  </data>
+  <data name="Common_Service0372" xml:space="preserve">
+    <value>不可用，健康检查失败；引擎健康状态：不健康（独立于 TCP 重启策略报告）</value>
+  </data>
+  <data name="Common_Service0373" xml:space="preserve">
+    <value>不可用，健康检查失败；引擎健康状态：正在启动</value>
+  </data>
+  <data name="Common_Service0374" xml:space="preserve">
+    <value>不可用，健康检查失败；引擎健康状态：未知</value>
+  </data>
+  <data name="Common_NotSet" xml:space="preserve">
+    <value>未设置</value>
+  </data>
+  <data name="Common_OpenAiCompatible" xml:space="preserve">
+    <value>OpenAI 兼容</value>
+  </data>
+  <data name="Common_Canceled" xml:space="preserve">
+    <value>已取消。</value>
+  </data>
 </root>
