@@ -170,10 +170,10 @@
     <value>开发容器</value>
   </data>
   <data name="Settings_DevContainers_Registry_Header.Header" xml:space="preserve">
-    <value>用于构建 feature 的 npm registry</value>
+    <value>用于构建功能扩展的 npm 镜像源</value>
   </data>
   <data name="Settings_DevContainers_Registry_Help.Text" xml:space="preserve">
-    <value>基于 Node/npm 的开发容器 feature 会从公共 npm registry 拉取包，而部分企业网络会拦截这些请求。在此填写 registry 或代理 URL，它会作为 NPM_CONFIG_REGISTRY 注入到 feature 构建中。留空则使用各 feature 的默认设置。</value>
+    <value>基于 Node/npm 的 Dev Container 功能扩展会从公共 npm 镜像源拉取软件包，而部分企业网络会拦截这些请求。在此填写镜像源或代理 URL，它会作为 NPM_CONFIG_REGISTRY 注入到功能扩展构建中。留空则使用各功能扩展的默认设置。</value>
   </data>
   <data name="Settings_Behavior_Header.Text" xml:space="preserve">
     <value>行为</value>
