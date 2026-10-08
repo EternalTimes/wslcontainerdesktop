@@ -3899,20 +3899,269 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Dashboard_020.Text" xml:space="preserve">
     <value>没有正在运行的容器可显示统计信息。</value>
   </data>
+  <data name="Resource_Endpoints_001.Text" xml:space="preserve">
+    <value>端点</value>
+  </data>
   <data name="Resource_Endpoints_002.Text" xml:space="preserve">
     <value>刷新</value>
+  </data>
+  <data name="Resource_Endpoints_003.Text" xml:space="preserve">
+    <value>容器</value>
+  </data>
+  <data name="Resource_Endpoints_004.Text" xml:space="preserve">
+    <value>主机端口</value>
+  </data>
+  <data name="Resource_Endpoints_005.Text" xml:space="preserve">
+    <value>容器端口</value>
+  </data>
+  <data name="Resource_Endpoints_006.Text" xml:space="preserve">
+    <value>地址</value>
+  </data>
+  <data name="Resource_Endpoints_007.Text" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Resource_Endpoints_008.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>在浏览器中打开</value>
+  </data>
+  <data name="Resource_Endpoints_008.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>在浏览器中打开</value>
+  </data>
+  <data name="Resource_Endpoints_009.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>在浏览器中打开</value>
+  </data>
+  <data name="Resource_Endpoints_009.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>在浏览器中打开</value>
+  </data>
+  <data name="Resource_Endpoints_010.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>复制地址</value>
+  </data>
+  <data name="Resource_Endpoints_010.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>复制地址</value>
+  </data>
+  <data name="Resource_Endpoints_011.Text" xml:space="preserve">
+    <value>主机端口</value>
+  </data>
+  <data name="Resource_Endpoints_012.Text" xml:space="preserve">
+    <value>容器</value>
+  </data>
+  <data name="Resource_Endpoints_013.Text" xml:space="preserve">
+    <value>地址</value>
+  </data>
+  <data name="Resource_Endpoints_014.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>在浏览器中打开</value>
+  </data>
+  <data name="Resource_Endpoints_014.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>在浏览器中打开</value>
+  </data>
+  <data name="Resource_Endpoints_015.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>在浏览器中打开</value>
+  </data>
+  <data name="Resource_Endpoints_015.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>在浏览器中打开</value>
+  </data>
+  <data name="Resource_Endpoints_016.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>复制地址</value>
+  </data>
+  <data name="Resource_Endpoints_016.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>复制地址</value>
+  </data>
+  <data name="Resource_Images_001.Text" xml:space="preserve">
+    <value>镜像</value>
+  </data>
+  <data name="Resource_Images_002.Text" xml:space="preserve">
+    <value>拉取镜像</value>
+  </data>
+  <data name="Resource_Images_003.Text" xml:space="preserve">
+    <value>构建</value>
+  </data>
+  <data name="Resource_Images_004.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>导入镜像</value>
+  </data>
+  <data name="Resource_Images_004.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>从 .tar 文件导入镜像</value>
+  </data>
+  <data name="Resource_Images_005.Text" xml:space="preserve">
+    <value>导入</value>
+  </data>
+  <data name="Resource_Images_006.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>恢复已保存的镜像</value>
+  </data>
+  <data name="Resource_Images_007.Text" xml:space="preserve">
+    <value>恢复已保存的镜像…</value>
+  </data>
+  <data name="Resource_Images_008.Text" xml:space="preserve">
+    <value>完整恢复镜像的名称、标签和启动命令，可用于将镜像迁移到另一台电脑或恢复备份。</value>
+  </data>
+  <data name="Resource_Images_009.Text" xml:space="preserve">
+    <value>生成此文件的方法：</value>
+  </data>
+  <data name="Resource_Images_010.Text" xml:space="preserve">
+    <value>在此页面对镜像选择 ⋯ → 保存到文件…，或选择多个镜像 → 保存选中项。</value>
+  </data>
+  <data name="Resource_Images_011.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>从导出的文件创建镜像</value>
+  </data>
+  <data name="Resource_Images_012.Text" xml:space="preserve">
+    <value>从导出的文件创建镜像…</value>
+  </data>
+  <data name="Resource_Images_013.Text" xml:space="preserve">
+    <value>使用容器文件的副本创建新镜像。仅保留文件，不保留启动命令、环境变量或端口，因此运行时需要指定命令。</value>
+  </data>
+  <data name="Resource_Images_014.Text" xml:space="preserve">
+    <value>生成此文件的方法：</value>
+  </data>
+  <data name="Resource_Images_015.Text" xml:space="preserve">
+    <value>在容器页面对容器选择 ⋯ → 导出文件系统…。</value>
   </data>
   <data name="Resource_Images_016.Text" xml:space="preserve">
     <value>刷新</value>
   </data>
+  <data name="Resource_Images_017.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>检查镜像更新</value>
+  </data>
+  <data name="Resource_Images_017.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>检查镜像仓库是否有本地镜像的新版本</value>
+  </data>
+  <data name="Resource_Images_018.Text" xml:space="preserve">
+    <value>检查更新</value>
+  </data>
   <data name="Resource_Images_019.Text" xml:space="preserve">
     <value>清理</value>
+  </data>
+  <data name="Resource_Images_020.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>选择多个镜像</value>
+  </data>
+  <data name="Resource_Images_020.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>选择多个镜像</value>
+  </data>
+  <data name="Resource_Images_021.Text" xml:space="preserve">
+    <value>选择</value>
+  </data>
+  <data name="Resource_Images_022.Text" xml:space="preserve">
+    <value>删除选中项</value>
+  </data>
+  <data name="Resource_Images_023.Text" xml:space="preserve">
+    <value>保存选中项</value>
+  </data>
+  <data name="Resource_Images_024.Text" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Resource_Images_025.Text" xml:space="preserve">
+    <value>仓库</value>
+  </data>
+  <data name="Resource_Images_026.Text" xml:space="preserve">
+    <value>标签</value>
+  </data>
+  <data name="Resource_Images_027.Text" xml:space="preserve">
+    <value>镜像 ID</value>
+  </data>
+  <data name="Resource_Images_028.Text" xml:space="preserve">
+    <value>大小</value>
+  </data>
+  <data name="Resource_Images_029.Text" xml:space="preserve">
+    <value>创建时间</value>
+  </data>
+  <data name="Resource_Images_030.Text" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Resource_Images_031.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>拉取更新</value>
+  </data>
+  <data name="Resource_Images_032.Text" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="Resource_Images_033.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>运行</value>
+  </data>
+  <data name="Resource_Images_033.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>运行</value>
+  </data>
+  <data name="Resource_Images_034.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>更多操作</value>
+  </data>
+  <data name="Resource_Images_034.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>更多</value>
+  </data>
+  <data name="Resource_Images_035.Text" xml:space="preserve">
+    <value>拉取更新</value>
+  </data>
+  <data name="Resource_Images_036.Text" xml:space="preserve">
+    <value>运行配置</value>
+  </data>
+  <data name="Resource_Images_037.Text" xml:space="preserve">
+    <value>添加标签</value>
+  </data>
+  <data name="Resource_Images_038.Text" xml:space="preserve">
+    <value>推送</value>
+  </data>
+  <data name="Resource_Images_039.Text" xml:space="preserve">
+    <value>保存到文件…</value>
+  </data>
+  <data name="Resource_Images_040.Text" xml:space="preserve">
+    <value>复制摘要</value>
+  </data>
+  <data name="Resource_Images_041.Text" xml:space="preserve">
+    <value>查看详情</value>
   </data>
   <data name="Resource_Images_042.Text" xml:space="preserve">
     <value>删除</value>
   </data>
+  <data name="Resource_Images_043.Text" xml:space="preserve">
+    <value>标签</value>
+  </data>
+  <data name="Resource_Images_044.Text" xml:space="preserve">
+    <value>镜像 ID</value>
+  </data>
+  <data name="Resource_Images_045.Text" xml:space="preserve">
+    <value>大小</value>
+  </data>
+  <data name="Resource_Images_046.Text" xml:space="preserve">
+    <value>创建时间</value>
+  </data>
+  <data name="Resource_Images_047.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>运行</value>
+  </data>
+  <data name="Resource_Images_047.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>运行</value>
+  </data>
+  <data name="Resource_Images_048.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>更多操作</value>
+  </data>
+  <data name="Resource_Images_048.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>更多</value>
+  </data>
+  <data name="Resource_Images_049.Text" xml:space="preserve">
+    <value>拉取更新</value>
+  </data>
+  <data name="Resource_Images_050.Text" xml:space="preserve">
+    <value>运行配置</value>
+  </data>
+  <data name="Resource_Images_051.Text" xml:space="preserve">
+    <value>添加标签</value>
+  </data>
+  <data name="Resource_Images_052.Text" xml:space="preserve">
+    <value>推送</value>
+  </data>
+  <data name="Resource_Images_053.Text" xml:space="preserve">
+    <value>保存到文件…</value>
+  </data>
+  <data name="Resource_Images_054.Text" xml:space="preserve">
+    <value>复制摘要</value>
+  </data>
+  <data name="Resource_Images_055.Text" xml:space="preserve">
+    <value>查看详情</value>
+  </data>
   <data name="Resource_Images_056.Text" xml:space="preserve">
     <value>删除</value>
+  </data>
+  <data name="Resource_Images_057.Text" xml:space="preserve">
+    <value>暂无镜像。拉取镜像以开始使用。</value>
+  </data>
+  <data name="Resource_Networks_001.Text" xml:space="preserve">
+    <value>网络</value>
+  </data>
+  <data name="Resource_Networks_002.Text" xml:space="preserve">
+    <value>创建网络</value>
   </data>
   <data name="Resource_Networks_003.Text" xml:space="preserve">
     <value>刷新</value>
@@ -3920,11 +4169,68 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Networks_004.Text" xml:space="preserve">
     <value>清理</value>
   </data>
+  <data name="Resource_Networks_005.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>选择多个网络</value>
+  </data>
+  <data name="Resource_Networks_005.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>选择多个网络</value>
+  </data>
+  <data name="Resource_Networks_006.Text" xml:space="preserve">
+    <value>选择</value>
+  </data>
+  <data name="Resource_Networks_007.Text" xml:space="preserve">
+    <value>删除选中项</value>
+  </data>
+  <data name="Resource_Networks_008.Text" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Resource_Networks_009.Text" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Resource_Networks_010.Text" xml:space="preserve">
+    <value>驱动</value>
+  </data>
+  <data name="Resource_Networks_011.Text" xml:space="preserve">
+    <value>使用者</value>
+  </data>
+  <data name="Resource_Networks_012.Text" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Resource_Networks_013.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>由 WSLC 管理的内置网络，无法编辑或删除。</value>
+  </data>
+  <data name="Resource_Networks_014.Text" xml:space="preserve">
+    <value>内置</value>
+  </data>
+  <data name="Resource_Networks_015.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>查看详情</value>
+  </data>
+  <data name="Resource_Networks_015.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>查看详情</value>
+  </data>
   <data name="Resource_Networks_016.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>删除</value>
   </data>
   <data name="Resource_Networks_016.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>删除</value>
+  </data>
+  <data name="Resource_Networks_017.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>由 WSLC 管理的内置网络，无法编辑或删除。</value>
+  </data>
+  <data name="Resource_Networks_018.Text" xml:space="preserve">
+    <value>内置</value>
+  </data>
+  <data name="Resource_Networks_019.Text" xml:space="preserve">
+    <value>驱动</value>
+  </data>
+  <data name="Resource_Networks_020.Text" xml:space="preserve">
+    <value>使用者</value>
+  </data>
+  <data name="Resource_Networks_021.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>查看详情</value>
+  </data>
+  <data name="Resource_Networks_021.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>查看详情</value>
   </data>
   <data name="Resource_Networks_022.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>删除</value>
@@ -3932,8 +4238,62 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Networks_022.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>删除</value>
   </data>
+  <data name="Resource_Networks_023.Text" xml:space="preserve">
+    <value>暂无用户定义的网络。</value>
+  </data>
   <data name="Resource_ReclaimSpace_003.Text" xml:space="preserve">
     <value>刷新</value>
+  </data>
+  <data name="Resource_ReclaimSpace_010.Text" xml:space="preserve">
+    <value>个镜像</value>
+  </data>
+  <data name="Resource_Registries_001.Text" xml:space="preserve">
+    <value>镜像仓库</value>
+  </data>
+  <data name="Resource_Registries_002.Text" xml:space="preserve">
+    <value>添加镜像仓库</value>
+  </data>
+  <data name="Resource_Registries_003.Text" xml:space="preserve">
+    <value>从 Azure 添加</value>
+  </data>
+  <data name="Resource_Registries_004.Text" xml:space="preserve">
+    <value>刷新状态</value>
+  </data>
+  <data name="Resource_Registries_005.Text" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Resource_Registries_006.Text" xml:space="preserve">
+    <value>主机</value>
+  </data>
+  <data name="Resource_Registries_007.Text" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="Resource_Registries_008.Text" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="Resource_Registries_009.Text" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Resource_Registries_010.Text" xml:space="preserve">
+    <value>默认</value>
+  </data>
+  <data name="Resource_Registries_011.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="Resource_Registries_011.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>登录 / 重新认证</value>
+  </data>
+  <data name="Resource_Registries_012.Text" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="Resource_Registries_013.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>退出登录</value>
+  </data>
+  <data name="Resource_Registries_013.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>退出登录</value>
+  </data>
+  <data name="Resource_Registries_014.Text" xml:space="preserve">
+    <value>退出登录</value>
   </data>
   <data name="Resource_Registries_015.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>删除</value>
@@ -3941,19 +4301,75 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Registries_015.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>删除</value>
   </data>
+  <data name="Resource_Registries_016.Text" xml:space="preserve">
+    <value>默认</value>
+  </data>
+  <data name="Resource_Registries_017.Text" xml:space="preserve">
+    <value>主机</value>
+  </data>
+  <data name="Resource_Registries_018.Text" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="Resource_Registries_019.Text" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="Resource_Registries_020.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="Resource_Registries_020.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>登录 / 重新认证</value>
+  </data>
+  <data name="Resource_Registries_021.Text" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="Resource_Registries_022.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>退出登录</value>
+  </data>
+  <data name="Resource_Registries_022.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>退出登录</value>
+  </data>
+  <data name="Resource_Registries_023.Text" xml:space="preserve">
+    <value>退出登录</value>
+  </data>
   <data name="Resource_Registries_024.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>删除</value>
   </data>
   <data name="Resource_Registries_024.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>删除</value>
   </data>
+  <data name="Resource_Registries_Extra1.Title" xml:space="preserve">
+    <value>镜像仓库策略</value>
+  </data>
+  <data name="Resource_Text_00a302fb4bec" xml:space="preserve">
+    <value>无法检查更新（私有镜像仓库或网络错误）。</value>
+  </data>
+  <data name="Resource_Text_01d84a089f65" xml:space="preserve">
+    <value>{0} 仍与容器连接，因此无法删除。
+
+</value>
+  </data>
   <data name="Resource_Text_01e8e3e9272d" xml:space="preserve">
     <value>所选路径不是普通文件。</value>
+  </data>
+  <data name="Resource_Text_043660976a99" xml:space="preserve">
+    <value>从导出的文件创建镜像</value>
+  </data>
+  <data name="Resource_Text_054e0e987ae5" xml:space="preserve">
+    <value>已推送 {0} 的所有标签</value>
   </data>
   <data name="Resource_Text_06cf19039cfe" xml:space="preserve">
     <value>
 
 ⚠ 部分卷已被其他容器挂载，其数据也会丢失。</value>
+  </data>
+  <data name="Resource_Text_075341e9d7a5" xml:space="preserve">
+    <value>删除所有未使用的卷？</value>
+  </data>
+  <data name="Resource_Text_0a4444676244" xml:space="preserve">
+    <value>保存失败</value>
+  </data>
+  <data name="Resource_Text_0a6181aadd01" xml:space="preserve">
+    <value>新标签</value>
   </data>
   <data name="Resource_Text_0a855f042e1d" xml:space="preserve">
     <value>删除所有已停止的容器？</value>
@@ -3964,6 +4380,17 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_0cac0038a833" xml:space="preserve">
     <value>复制后未找到文件。</value>
   </data>
+  <data name="Resource_Text_0d553567c19c" xml:space="preserve">
+    <value>请先停止并删除使用此卷的容器，然后重试。
+
+</value>
+  </data>
+  <data name="Resource_Text_0e7629279488" xml:space="preserve">
+    <value>镜像</value>
+  </data>
+  <data name="Resource_Text_0ef1f1bf6b99" xml:space="preserve">
+    <value>推送失败</value>
+  </data>
   <data name="Resource_Text_0f620c7a4975" xml:space="preserve">
     <value>按路径下载…</value>
   </data>
@@ -3973,17 +4400,32 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_124ff13ed4b4" xml:space="preserve">
     <value>按路径下载</value>
   </data>
+  <data name="Resource_Text_13ebc1f3d6b6" xml:space="preserve">
+    <value>删除网络</value>
+  </data>
   <data name="Resource_Text_146781e43eff" xml:space="preserve">
     <value>上传未完成</value>
+  </data>
+  <data name="Resource_Text_148f26a65911" xml:space="preserve">
+    <value>未知或不完整的使用情况不能证明卷未被使用。</value>
   </data>
   <data name="Resource_Text_15404127f80d" xml:space="preserve">
     <value>删除容器</value>
   </data>
+  <data name="Resource_Text_15ffeb6bd8fd" xml:space="preserve">
+    <value>退出 {0} 的登录失败。</value>
+  </data>
   <data name="Resource_Text_175cc793d8cd" xml:space="preserve">
     <value>正在比较容器与镜像…</value>
   </data>
+  <data name="Resource_Text_178b6d858ce7" xml:space="preserve">
+    <value>未知或不完整的使用情况不能证明卷未被使用。是否可删除由引擎决定。</value>
+  </data>
   <data name="Resource_Text_18ff715ccce4" xml:space="preserve">
     <value>删除容器</value>
+  </data>
+  <data name="Resource_Text_19f49d852660" xml:space="preserve">
+    <value>个镜像</value>
   </data>
   <data name="Resource_Text_1afff0157ce3" xml:space="preserve">
     <value>连接</value>
@@ -3991,17 +4433,35 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_1bc58937f376" xml:space="preserve">
     <value>正在将 {0} 复制到 {1}…</value>
   </data>
+  <data name="Resource_Text_1c2351331a73" xml:space="preserve">
+    <value>创建卷</value>
+  </data>
   <data name="Resource_Text_1d10323c27ec" xml:space="preserve">
     <value>独立容器</value>
   </data>
   <data name="Resource_Text_1d6a489471ee" xml:space="preserve">
     <value>生成诊断预览</value>
   </data>
+  <data name="Resource_Text_1dc601643c46" xml:space="preserve">
+    <value>加载失败</value>
+  </data>
+  <data name="Resource_Text_1e057f25f7a8" xml:space="preserve">
+    <value>所有镜像均为最新版本。</value>
+  </data>
   <data name="Resource_Text_20c7c5522fc2" xml:space="preserve">
     <value>就绪</value>
   </data>
+  <data name="Resource_Text_2129bd311ebc" xml:space="preserve">
+    <value>正在拉取 {0}…（可能需要较长时间）</value>
+  </data>
+  <data name="Resource_Text_215d03e9ca3f" xml:space="preserve">
+    <value>已存在主机为“{0}”的镜像仓库。</value>
+  </data>
   <data name="Resource_Text_2177fed070db" xml:space="preserve">
     <value>正在创建文件夹 {0}…</value>
+  </data>
+  <data name="Resource_Text_21c4293e05f3" xml:space="preserve">
+    <value>正在构建 {0}…</value>
   </data>
   <data name="Resource_Text_2250bc0a0fff" xml:space="preserve">
     <value>正在收集证据并脱敏…</value>
@@ -4015,13 +4475,22 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_25cef6554cad" xml:space="preserve">
     <value>上传文件…</value>
   </data>
+  <data name="Resource_Text_2683787a3644" xml:space="preserve">
+    <value>已添加</value>
+  </data>
   <data name="Resource_Text_26bcd52e50cf" xml:space="preserve">
     <value>从 {2} 删除{0}“{1}”？此操作无法撤销。</value>
+  </data>
+  <data name="Resource_Text_2817459eb07e" xml:space="preserve">
+    <value>正在检查更新…</value>
   </data>
   <data name="Resource_Text_281eabe4676a" xml:space="preserve">
     <value>
 
 注意：无法完全确定卷的使用情况，因此此列表可能不完整。</value>
+  </data>
+  <data name="Resource_Text_28ae52107c73" xml:space="preserve">
+    <value>正在推送 {0}…（可能需要较长时间）</value>
   </data>
   <data name="Resource_Text_291562a2b23c" xml:space="preserve">
     <value>从容器中删除</value>
@@ -4035,11 +4504,33 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_2bc3f06a3680" xml:space="preserve">
     <value>已打开 {0}</value>
   </data>
+  <data name="Resource_Text_2c030e0770e8" xml:space="preserve">
+    <value>正在加载镜像…</value>
+  </data>
   <data name="Resource_Text_2c3cafa4db3f" xml:space="preserve">
     <value>文件</value>
   </data>
+  <data name="Resource_Text_2c7e82a6c879" xml:space="preserve">
+    <value>{1} 项中有 {0} 项无法删除（可能仍与容器连接）：
+
+{2}</value>
+  </data>
+  <data name="Resource_Text_2d357820e622" xml:space="preserve">
+    <value>已拉取 {0} 的所有标签</value>
+  </data>
+  <data name="Resource_Text_2f1332b9df3c" xml:space="preserve">
+    <value>{1} 项中有 {0} 项无法删除（可能仍有连接的容器）：
+
+{2}</value>
+  </data>
+  <data name="Resource_Text_2f1b853115c5" xml:space="preserve">
+    <value>已与镜像仓库同步至最新版本。</value>
+  </data>
   <data name="Resource_Text_2f24ebaee0aa" xml:space="preserve">
     <value>清理</value>
+  </data>
+  <data name="Resource_Text_2f8e461f4b9f" xml:space="preserve">
+    <value>构建失败</value>
   </data>
   <data name="Resource_Text_2fde889dcf36" xml:space="preserve">
     <value>正在导出 {0} 的文件系统…</value>
@@ -4050,8 +4541,14 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_3121cab8f91c" xml:space="preserve">
     <value>删除这些卷</value>
   </data>
+  <data name="Resource_Text_31e11fbaef14" xml:space="preserve">
+    <value>删除所有未使用的网络？</value>
+  </data>
   <data name="Resource_Text_32663265855e" xml:space="preserve">
     <value>正在将 {0} 连接到 {1}…</value>
+  </data>
+  <data name="Resource_Text_3411657c13ba" xml:space="preserve">
+    <value>正在刷新 {0} 的 Azure 登录…</value>
   </data>
   <data name="Resource_Text_361423979de2" xml:space="preserve">
     <value>日志 · {0}</value>
@@ -4062,8 +4559,14 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_36d578179e3d" xml:space="preserve">
     <value>所选路径不是目录。</value>
   </data>
+  <data name="Resource_Text_377a4368adbd" xml:space="preserve">
+    <value>正在运行 {0}…</value>
+  </data>
   <data name="Resource_Text_385fef159470" xml:space="preserve">
     <value>预览仅支持不超过 {0} KiB 的文件。</value>
+  </data>
+  <data name="Resource_Text_389e0c4950f6" xml:space="preserve">
+    <value>例如 my-data</value>
   </data>
   <data name="Resource_Text_399694e59ed3" xml:space="preserve">
     <value>{0} 文件</value>
@@ -4073,8 +4576,23 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
 
 {2}</value>
   </data>
+  <data name="Resource_Text_3aab4f9f1a96" xml:space="preserve">
+    <value>正在从导出的文件创建镜像…</value>
+  </data>
+  <data name="Resource_Text_3ad374153994" xml:space="preserve">
+    <value>例如 myrepo/myimage:v1</value>
+  </data>
+  <data name="Resource_Text_3c60d06bc185" xml:space="preserve">
+    <value>推送完成</value>
+  </data>
   <data name="Resource_Text_3c784acc314d" xml:space="preserve">
     <value>{0} 个月前</value>
+  </data>
+  <data name="Resource_Text_400c9fca3752" xml:space="preserve">
+    <value>有 {0} 个运行中容器的已发布端口仍未知，列表可能不完整。</value>
+  </data>
+  <data name="Resource_Text_4133934aa616" xml:space="preserve">
+    <value>清理失败</value>
   </data>
   <data name="Resource_Text_41904cc8b86a" xml:space="preserve">
     <value>{0} 分钟前</value>
@@ -4085,8 +4603,20 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_44fa701be401" xml:space="preserve">
     <value>无法打开此文件。</value>
   </data>
+  <data name="Resource_Text_456d7bf9ed42" xml:space="preserve">
+    <value>正在检查镜像更新…</value>
+  </data>
+  <data name="Resource_Text_47e73c701cb3" xml:space="preserve">
+    <value>新镜像名称（可选；未指定时显示为 &lt;none&gt;）</value>
+  </data>
+  <data name="Resource_Text_4805b7e0585a" xml:space="preserve">
+    <value>容器已启动</value>
+  </data>
   <data name="Resource_Text_4d11e46048eb" xml:space="preserve">
     <value>将“{0}”从唯一的网络“{1}”断开？容器将没有网络连接。</value>
+  </data>
+  <data name="Resource_Text_4dc0b033c68a" xml:space="preserve">
+    <value>正在删除 {0} 个镜像…</value>
   </data>
   <data name="Resource_Text_4ea61ec0985e" xml:space="preserve">
     <value>已为 {0} 配置健康检查</value>
@@ -4103,11 +4633,26 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_526dc383e386" xml:space="preserve">
     <value>容器内文件或文件夹的完整路径</value>
   </data>
+  <data name="Resource_Text_52c47ecd72ac" xml:space="preserve">
+    <value>正在推送 {0} 的所有标签…（可能需要较长时间）</value>
+  </data>
+  <data name="Resource_Text_53802e672d6d" xml:space="preserve">
+    <value>未登录</value>
+  </data>
   <data name="Resource_Text_558c85c42670" xml:space="preserve">
     <value>正在停止 {0} 个容器…</value>
   </data>
+  <data name="Resource_Text_5641e0c6613e" xml:space="preserve">
+    <value>删除“{0}”（{1}）？这也会退出其登录。</value>
+  </data>
   <data name="Resource_Text_56e3badc4e6c" xml:space="preserve">
     <value>刷新</value>
+  </data>
+  <data name="Resource_Text_587588037564" xml:space="preserve">
+    <value>加载卷失败</value>
+  </data>
+  <data name="Resource_Text_58d3b07833b2" xml:space="preserve">
+    <value>清理镜像</value>
   </data>
   <data name="Resource_Text_592c06f9dff1" xml:space="preserve">
     <value>容器未运行，无法列出其文件，但仍可上传文件。</value>
@@ -4116,11 +4661,26 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>{0}
 …另有 {1} 项</value>
   </data>
+  <data name="Resource_Text_5c477ce5a8d3" xml:space="preserve">
+    <value>已拉取 {0}</value>
+  </data>
   <data name="Resource_Text_5dfeef082bb5" xml:space="preserve">
     <value>{0} 年前</value>
   </data>
+  <data name="Resource_Text_5e34cda5a434" xml:space="preserve">
+    <value>已删除 {0}。</value>
+  </data>
+  <data name="Resource_Text_5e8760f506fb" xml:space="preserve">
+    <value>没有保存的配置</value>
+  </data>
   <data name="Resource_Text_5e90eeae3d81" xml:space="preserve">
     <value>正在删除 {0} 个容器…</value>
+  </data>
+  <data name="Resource_Text_5f94b03c2e6a" xml:space="preserve">
+    <value>删除镜像</value>
+  </data>
+  <data name="Resource_Text_5fd2e5751c47" xml:space="preserve">
+    <value>（其他使用者未知）</value>
   </data>
   <data name="Resource_Text_606d1a1317c3" xml:space="preserve">
     <value>已保留部分卷</value>
@@ -4131,20 +4691,50 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_60c1e625e1e8" xml:space="preserve">
     <value>日志文件</value>
   </data>
+  <data name="Resource_Text_6577b0e94cf2" xml:space="preserve">
+    <value>正在创建 {0}…</value>
+  </data>
   <data name="Resource_Text_658d1f8b6e57" xml:space="preserve">
     <value>清理容器</value>
   </data>
   <data name="Resource_Text_666f53f2d084" xml:space="preserve">
     <value>wslc 帮助未说明断开连接的按键组合；按 Ctrl+C 可能停止容器的主进程。</value>
   </data>
+  <data name="Resource_Text_6674b1cfe7e6" xml:space="preserve">
+    <value>已删除 {0} 个镜像</value>
+  </data>
+  <data name="Resource_Text_680e9fe1f01f" xml:space="preserve">
+    <value>删除网络</value>
+  </data>
+  <data name="Resource_Text_68d7791c0474" xml:space="preserve">
+    <value>已推送 {0}</value>
+  </data>
+  <data name="Resource_Text_68d903613f94" xml:space="preserve">
+    <value>加载镜像失败</value>
+  </data>
+  <data name="Resource_Text_69047d7b411a" xml:space="preserve">
+    <value>无法删除卷</value>
+  </data>
   <data name="Resource_Text_694a9eea485e" xml:space="preserve">
     <value>上传到容器</value>
+  </data>
+  <data name="Resource_Text_6b11865fce3e" xml:space="preserve">
+    <value>清理网络</value>
+  </data>
+  <data name="Resource_Text_6bbef811d085" xml:space="preserve">
+    <value>已推送 {0}。</value>
   </data>
   <data name="Resource_Text_6caa7c7f6403" xml:space="preserve">
     <value>已为 {0} 移除健康检查</value>
   </data>
+  <data name="Resource_Text_6d490981d8f3" xml:space="preserve">
+    <value>无法创建镜像</value>
+  </data>
   <data name="Resource_Text_6d6cc85f99eb" xml:space="preserve">
     <value>{0} 个月前</value>
+  </data>
+  <data name="Resource_Text_6ea189897ddb" xml:space="preserve">
+    <value>已恢复保存的镜像</value>
   </data>
   <data name="Resource_Text_713907849045" xml:space="preserve">
     <value>发送诊断</value>
@@ -4152,36 +4742,71 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_73989d9c5926" xml:space="preserve">
     <value>运行中</value>
   </data>
+  <data name="Resource_Text_73b3566a1003" xml:space="preserve">
+    <value>例如 my-snapshot:latest</value>
+  </data>
+  <data name="Resource_Text_7505d64a54e0" xml:space="preserve">
+    <value>默认</value>
+  </data>
+  <data name="Resource_Text_75d39bfaedaf" xml:space="preserve">
+    <value>已登录</value>
+  </data>
   <data name="Resource_Text_75e2d31e3fc3" xml:space="preserve">
     <value>正在打开 {0}…</value>
   </data>
   <data name="Resource_Text_770d22e09b5d" xml:space="preserve">
     <value>连接操作会打开与容器主进程相连的交互式终端。</value>
   </data>
+  <data name="Resource_Text_7800478a75f7" xml:space="preserve">
+    <value>部分镜像未删除</value>
+  </data>
   <data name="Resource_Text_7a0320794cdb" xml:space="preserve">
     <value>{0} 天前</value>
   </data>
+  <data name="Resource_Text_7c7a8c1ac2c8" xml:space="preserve">
+    <value>无法恢复镜像</value>
+  </data>
   <data name="Resource_Text_7de825040e20" xml:space="preserve">
     <value>正在删除 {0}…</value>
+  </data>
+  <data name="Resource_Text_7e216826243b" xml:space="preserve">
+    <value>部分卷未删除</value>
   </data>
   <data name="Resource_Text_7e892fbf5dd3" xml:space="preserve">
     <value>
 
 如不确定，请保留卷，之后可在卷页面删除。</value>
   </data>
+  <data name="Resource_Text_7f2f6a15cf8d" xml:space="preserve">
+    <value>错误</value>
+  </data>
   <data name="Resource_Text_7f43dc519669" xml:space="preserve">
     <value>
 
 保留（仍被其他容器使用）：</value>
   </data>
+  <data name="Resource_Text_7fa7f416b8c2" xml:space="preserve">
+    <value>删除卷</value>
+  </data>
   <data name="Resource_Text_800c9b197e97" xml:space="preserve">
     <value>（无输出）</value>
+  </data>
+  <data name="Resource_Text_815f075b8069" xml:space="preserve">
+    <value>此卷</value>
   </data>
   <data name="Resource_Text_820d6004b037" xml:space="preserve">
     <value>检查中…</value>
   </data>
   <data name="Resource_Text_851ccf3326fb" xml:space="preserve">
     <value>已复制路径：{0}</value>
+  </data>
+  <data name="Resource_Text_85af00327c89" xml:space="preserve">
+    <value>已登录 {0}。</value>
+  </data>
+  <data name="Resource_Text_895d5f585893" xml:space="preserve">
+    <value>删除 {0} 个卷？这些卷中的数据将丢失。
+
+{1}</value>
   </data>
   <data name="Resource_Text_8a0295266057" xml:space="preserve">
     <value>预览已就绪</value>
@@ -4194,8 +4819,23 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
 
 </value>
   </data>
+  <data name="Resource_Text_8d1bde4c53c0" xml:space="preserve">
+    <value>正在拉取 {0} 的所有标签…（可能需要较长时间）</value>
+  </data>
   <data name="Resource_Text_8e3e84404b4c" xml:space="preserve">
     <value>健康检查：健康</value>
+  </data>
+  <data name="Resource_Text_8ee0e62563d4" xml:space="preserve">
+    <value>拉取失败</value>
+  </data>
+  <data name="Resource_Text_8f329751da39" xml:space="preserve">
+    <value>正在拉取 {0}…</value>
+  </data>
+  <data name="Resource_Text_913e469a6bb6" xml:space="preserve">
+    <value>没有已发布端口。启动发布端口的容器后将在此显示。</value>
+  </data>
+  <data name="Resource_Text_92bffa1208b8" xml:space="preserve">
+    <value>删除镜像“{0}”（{1}）？</value>
   </data>
   <data name="Resource_Text_9344533c4118" xml:space="preserve">
     <value>{0} 天前</value>
@@ -4203,8 +4843,17 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_93c23d7b9d3d" xml:space="preserve">
     <value>无法检查 {0}：{1}</value>
   </data>
+  <data name="Resource_Text_95562ee52bdb" xml:space="preserve">
+    <value>给镜像添加标签</value>
+  </data>
+  <data name="Resource_Text_9665af7c3b74" xml:space="preserve">
+    <value>卷名称</value>
+  </data>
   <data name="Resource_Text_971c419dd609" xml:space="preserve">
     <value>文件</value>
+  </data>
+  <data name="Resource_Text_97e7c38762f2" xml:space="preserve">
+    <value>删除卷</value>
   </data>
   <data name="Resource_Text_9804556fd4b8" xml:space="preserve">
     <value>复制路径</value>
@@ -4212,14 +4861,26 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_9838561fcd74" xml:space="preserve">
     <value>已将建议的修复方案复制到剪贴板。</value>
   </data>
+  <data name="Resource_Text_9865aa8a5117" xml:space="preserve">
+    <value>组织允许使用的 WSL 容器镜像仓库：</value>
+  </data>
   <data name="Resource_Text_9869e506c38f" xml:space="preserve">
     <value>展开</value>
   </data>
   <data name="Resource_Text_986f9ecd3fff" xml:space="preserve">
     <value>。现有引擎健康检查未更改；要更改原生健康检查，必须明确重新创建容器。</value>
   </data>
+  <data name="Resource_Text_99ce9af38e30" xml:space="preserve">
+    <value>未使用</value>
+  </data>
   <data name="Resource_Text_9a3274443563" xml:space="preserve">
     <value>{0} 年前</value>
+  </data>
+  <data name="Resource_Text_9a365d432483" xml:space="preserve">
+    <value>已退出 {0} 的登录。</value>
+  </data>
+  <data name="Resource_Text_9a731f3d6dec" xml:space="preserve">
+    <value>运行失败</value>
   </data>
   <data name="Resource_Text_9ac3790ec276" xml:space="preserve">
     <value>正在发送诊断</value>
@@ -4227,11 +4888,20 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_9be9953c1125" xml:space="preserve">
     <value>相对镜像有 {0} 项更改。</value>
   </data>
+  <data name="Resource_Text_9bed5104004c" xml:space="preserve">
+    <value>匿名</value>
+  </data>
+  <data name="Resource_Text_9cd3f346fe82" xml:space="preserve">
+    <value>删除卷“{0}”？卷中的数据将丢失。</value>
+  </data>
   <data name="Resource_Text_9cf188d3a677" xml:space="preserve">
     <value>折叠</value>
   </data>
   <data name="Resource_Text_9d2c38b4b694" xml:space="preserve">
     <value>正在将 {0} 从 {1} 断开…</value>
+  </data>
+  <data name="Resource_Text_9e1ba089f927" xml:space="preserve">
+    <value>构建完成</value>
   </data>
   <data name="Resource_Text_9e627c7b1aec" xml:space="preserve">
     <value>新名称</value>
@@ -4239,11 +4909,25 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_a0ffbf99439d" xml:space="preserve">
     <value>正在启动 {0}…</value>
   </data>
+  <data name="Resource_Text_a1270477a181" xml:space="preserve">
+    <value>正在退出 {0} 的登录…</value>
+  </data>
   <data name="Resource_Text_a28caef66f74" xml:space="preserve">
     <value>可在卷页面重试。</value>
   </data>
+  <data name="Resource_Text_a31fed794752" xml:space="preserve">
+    <value>未使用（检查快照）</value>
+  </data>
   <data name="Resource_Text_a357d651d722" xml:space="preserve">
     <value>正在从 {0} 复制…</value>
+  </data>
+  <data name="Resource_Text_a5d663720ca0" xml:space="preserve">
+    <value>删除镜像仓库</value>
+  </data>
+  <data name="Resource_Text_a6418012e17d" xml:space="preserve">
+    <value>{0}
+
+检查得到的使用者包含已停止的容器。估算使用者仅依据创建时间推断。</value>
   </data>
   <data name="Resource_Text_a711999b72aa" xml:space="preserve">
     <value>新建文件夹</value>
@@ -4260,14 +4944,23 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_aa7b49519d41" xml:space="preserve">
     <value>健康检查：尝试重启 {0} 次后仍不可用</value>
   </data>
+  <data name="Resource_Text_ac10bc95d7dc" xml:space="preserve">
+    <value> - 使用情况不完整；未知不代表未使用</value>
+  </data>
   <data name="Resource_Text_ad507942e77c" xml:space="preserve">
     <value>容器必须运行才能与镜像进行比较。</value>
   </data>
   <data name="Resource_Text_ad9df8088c63" xml:space="preserve">
     <value>正在将 {0} 复制到主机…</value>
   </data>
+  <data name="Resource_Text_aea8cc2d34a5" xml:space="preserve">
+    <value>删除镜像</value>
+  </data>
   <data name="Resource_Text_afffdd08d81d" xml:space="preserve">
     <value>文件夹</value>
+  </data>
+  <data name="Resource_Text_b0b05c5ac5a9" xml:space="preserve">
+    <value>无法读取引擎清单，因此端点清单不可用。</value>
   </data>
   <data name="Resource_Text_b1a7b2ac9b99" xml:space="preserve">
     <value>健康检查：不可用</value>
@@ -4278,17 +4971,46 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_b41211bd2b39" xml:space="preserve">
     <value>文件尚未准备好拖动，请选中后重试。</value>
   </data>
+  <data name="Resource_Text_b412ef531663" xml:space="preserve">
+    <value>正在加载卷…</value>
+  </data>
+  <data name="Resource_Text_b52ef0d49360" xml:space="preserve">
+    <value>更新状态未知。</value>
+  </data>
+  <data name="Resource_Text_b5d06eb9a6ed" xml:space="preserve">
+    <value>添加标签失败</value>
+  </data>
   <data name="Resource_Text_b89fa9b868b3" xml:space="preserve">
     <value>删除容器“{0}”（{1}）？此操作无法撤销。</value>
   </data>
   <data name="Resource_Text_b993b0c53719" xml:space="preserve">
     <value>无结果</value>
   </data>
+  <data name="Resource_Text_b9f7af9f92c3" xml:space="preserve">
+    <value>无法将镜像标记为 {0}。
+
+{1}</value>
+  </data>
   <data name="Resource_Text_ba9007f2e1ff" xml:space="preserve">
     <value>正在强制停止 {0}…</value>
   </data>
+  <data name="Resource_Text_baf8b3e388d5" xml:space="preserve">
+    <value>从 Dockerfile 构建镜像</value>
+  </data>
+  <data name="Resource_Text_bbc90b86ba92" xml:space="preserve">
+    <value>镜像仓库中有此标签的新版本。点击更新以拉取；已使用旧版本运行的容器会继续使用旧版本，直到重新创建。</value>
+  </data>
+  <data name="Resource_Text_bbd27860bdd0" xml:space="preserve">
+    <value>已更新 {0}</value>
+  </data>
   <data name="Resource_Text_bc7819b34ff8" xml:space="preserve">
     <value>未知</value>
+  </data>
+  <data name="Resource_Text_bdd2820865ec" xml:space="preserve">
+    <value>组织的 WSLContainerRegistryAllowlist 策略无效，在修复之前将禁用镜像仓库操作。</value>
+  </data>
+  <data name="Resource_Text_be5db383a1cb" xml:space="preserve">
+    <value>策略禁止构建</value>
   </data>
   <data name="Resource_Text_bef915666604" xml:space="preserve">
     <value>已从 {1} 保存运行配置“{0}”</value>
@@ -4299,8 +5021,16 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_bf877971d0a8" xml:space="preserve">
     <value>建议的修复方案仅供审阅。</value>
   </data>
+  <data name="Resource_Text_c00f6627f603" xml:space="preserve">
+    <value>登录失败</value>
+  </data>
   <data name="Resource_Text_c05fe6c2ab87" xml:space="preserve">
     <value>…（未命名）</value>
+  </data>
+  <data name="Resource_Text_c090d6cb9136" xml:space="preserve">
+    <value>{0}
+
+包含已停止的容器，这些容器启动时将重新加入此网络。</value>
   </data>
   <data name="Resource_Text_c0f95512437f" xml:space="preserve">
     <value>部分容器操作失败</value>
@@ -4308,8 +5038,14 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_c128d9da3bc5" xml:space="preserve">
     <value>已为 {0} 禁用健康检查</value>
   </data>
+  <data name="Resource_Text_c2370bb291a5" xml:space="preserve">
+    <value>删除所有悬空（未使用）的镜像？</value>
+  </data>
   <data name="Resource_Text_c4e6ed956953" xml:space="preserve">
     <value>操作失败</value>
+  </data>
+  <data name="Resource_Text_c673cfe7a7a2" xml:space="preserve">
+    <value>正在恢复已保存的镜像…</value>
   </data>
   <data name="Resource_Text_c68e758ba4ac" xml:space="preserve">
     <value>正在重启 {0}…</value>
@@ -4318,11 +5054,27 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>文件修改：
 </value>
   </data>
+  <data name="Resource_Text_ca3ab35903c6" xml:space="preserve">
+    <value>{1} 项中有 {0} 项无法删除（可能正在被容器使用）：
+
+{2}</value>
+  </data>
+  <data name="Resource_Text_ca4eff772dac" xml:space="preserve">
+    <value>卷刷新已取消或超时，显示的数据可能已过期</value>
+  </data>
+  <data name="Resource_Text_cb5d30ca0eaa" xml:space="preserve">
+    <value>清理卷</value>
+  </data>
   <data name="Resource_Text_cc4941571be3" xml:space="preserve">
     <value>已启用 GPU 直通</value>
   </data>
   <data name="Resource_Text_cc4eac830ba9" xml:space="preserve">
     <value>{0} 小时前</value>
+  </data>
+  <data name="Resource_Text_cd105da7078d" xml:space="preserve">
+    <value>删除 {0} 个网络？（跳过内置网络。）
+
+{1}</value>
   </data>
   <data name="Resource_Text_cd3422258efb" xml:space="preserve">
     <value>下载到…</value>
@@ -4333,11 +5085,20 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_cf9b77061f7b" xml:space="preserve">
     <value>打开</value>
   </data>
+  <data name="Resource_Text_d068c4665803" xml:space="preserve">
+    <value>集中显示所有运行中容器的已发布端口。</value>
+  </data>
   <data name="Resource_Text_d17c7bc1ab98" xml:space="preserve">
     <value>正在删除 {0}…</value>
   </data>
   <data name="Resource_Text_d2078b7339a5" xml:space="preserve">
     <value>保存为运行配置</value>
+  </data>
+  <data name="Resource_Text_d2313d7e8a46" xml:space="preserve">
+    <value>退出登录失败</value>
+  </data>
+  <data name="Resource_Text_d241b398580b" xml:space="preserve">
+    <value>正在加载网络…</value>
   </data>
   <data name="Resource_Text_d2865cc8490e" xml:space="preserve">
     <value>命令：
@@ -4346,8 +5107,14 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_d361a643faee" xml:space="preserve">
     <value>健康检查：异常，正在自动重启（{0}/{1}）</value>
   </data>
+  <data name="Resource_Text_d3be85b2d66b" xml:space="preserve">
+    <value>已使用 Azure 登录 {0}。</value>
+  </data>
   <data name="Resource_Text_d3f4cb898fbe" xml:space="preserve">
     <value>重命名</value>
+  </data>
+  <data name="Resource_Text_d443bd63ddee" xml:space="preserve">
+    <value>已推送 {0} 的所有标签。</value>
   </data>
   <data name="Resource_Text_d45ea5bcae67" xml:space="preserve">
     <value>正在重命名 {0}…</value>
@@ -4373,8 +5140,14 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_dcd75e915e17" xml:space="preserve">
     <value>{0} 分钟前</value>
   </data>
+  <data name="Resource_Text_debe01de259b" xml:space="preserve">
+    <value>删除失败</value>
+  </data>
   <data name="Resource_Text_dfb7ec51e410" xml:space="preserve">
     <value>无法从 {0} 读取可用配置。</value>
+  </data>
+  <data name="Resource_Text_dfd89cd8c84d" xml:space="preserve">
+    <value>删除网络“{0}”？</value>
   </data>
   <data name="Resource_Text_e1f86240b2dd" xml:space="preserve">
     <value>正在获取 {0} 的日志…</value>
@@ -4391,17 +5164,37 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_e5084bffcc17" xml:space="preserve">
     <value>已选择 {0} 项</value>
   </data>
+  <data name="Resource_Text_e51845cb1141" xml:space="preserve">
+    <value>命名卷</value>
+  </data>
+  <data name="Resource_Text_e596a4450bb9" xml:space="preserve">
+    <value>部分网络未删除</value>
+  </data>
   <data name="Resource_Text_e601f2ca7586" xml:space="preserve">
     <value>正在向所选提供商发送已脱敏的证据…</value>
   </data>
   <data name="Resource_Text_e78ea730d17b" xml:space="preserve">
     <value>已打开 {0} 的终端</value>
   </data>
+  <data name="Resource_Text_e791b8dd3622" xml:space="preserve">
+    <value>已添加 {0}。</value>
+  </data>
+  <data name="Resource_Text_e7d59c9b7409" xml:space="preserve">
+    <value>管理运行或拉取镜像时可用的镜像仓库。</value>
+  </data>
   <data name="Resource_Text_e963907dac5c" xml:space="preserve">
     <value>删除</value>
   </data>
   <data name="Resource_Text_e9b450d14bc2" xml:space="preserve">
     <value>完成</value>
+  </data>
+  <data name="Resource_Text_ea8c28b99ef3" xml:space="preserve">
+    <value>检查元数据可用时，使用者列包含已停止的容器。</value>
+  </data>
+  <data name="Resource_Text_eb37f372523b" xml:space="preserve">
+    <value>删除 {0} 个镜像？
+
+{1}</value>
   </data>
   <data name="Resource_Text_eb8b73e789bb" xml:space="preserve">
     <value>删除 {0} 个容器？此操作无法撤销。
@@ -4410,6 +5203,9 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   </data>
   <data name="Resource_Text_ed28e0686e12" xml:space="preserve">
     <value>断开</value>
+  </data>
+  <data name="Resource_Text_ed7c33b27513" xml:space="preserve">
+    <value>由 {0} 使用</value>
   </data>
   <data name="Resource_Text_ee05172db8a8" xml:space="preserve">
     <value>检查已脱敏的内容后，点击发送诊断。</value>
@@ -4426,6 +5222,9 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_f306c4f01fc3" xml:space="preserve">
     <value>详情 · {0}</value>
   </data>
+  <data name="Resource_Text_f40bfff90b76" xml:space="preserve">
+    <value>正在登录 {0}…</value>
+  </data>
   <data name="Resource_Text_f64e32064699" xml:space="preserve">
     <value>以下项目无法复制：
 {0}</value>
@@ -4433,8 +5232,14 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_f6fdbe48dc54" xml:space="preserve">
     <value>删除</value>
   </data>
+  <data name="Resource_Text_f71509aebfe8" xml:space="preserve">
+    <value>{0}（估算；使用情况未知）</value>
+  </data>
   <data name="Resource_Text_f82ef289fb04" xml:space="preserve">
     <value>保留卷</value>
+  </data>
+  <data name="Resource_Text_f9b108d77fc3" xml:space="preserve">
+    <value>{0}（其他使用者未知）</value>
   </data>
   <data name="Resource_Text_fa5fed7c3e6d" xml:space="preserve">
     <value>文件系统相对镜像没有更改。</value>
@@ -4442,11 +5247,26 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_fa69acb015a2" xml:space="preserve">
     <value>诊断完成</value>
   </data>
+  <data name="Resource_Text_fa785e63f6da" xml:space="preserve">
+    <value>登录 {0} 失败。</value>
+  </data>
+  <data name="Resource_Text_fbae892997d9" xml:space="preserve">
+    <value>导入失败</value>
+  </data>
   <data name="Resource_Text_fce244da09aa" xml:space="preserve">
     <value>加载网络失败</value>
   </data>
   <data name="Resource_Text_fe4d9482d48f" xml:space="preserve">
     <value>正在准备诊断</value>
+  </data>
+  <data name="Resource_Text_ffb39c8e24c1" xml:space="preserve">
+    <value>已从导出的文件创建镜像</value>
+  </data>
+  <data name="Resource_Volumes_001.Text" xml:space="preserve">
+    <value>卷</value>
+  </data>
+  <data name="Resource_Volumes_002.Text" xml:space="preserve">
+    <value>创建卷</value>
   </data>
   <data name="Resource_Volumes_003.Text" xml:space="preserve">
     <value>刷新</value>
@@ -4454,17 +5274,71 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Volumes_004.Text" xml:space="preserve">
     <value>清理</value>
   </data>
+  <data name="Resource_Volumes_005.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>选择多个卷</value>
+  </data>
+  <data name="Resource_Volumes_005.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>选择多个卷</value>
+  </data>
+  <data name="Resource_Volumes_006.Text" xml:space="preserve">
+    <value>选择</value>
+  </data>
+  <data name="Resource_Volumes_007.Text" xml:space="preserve">
+    <value>删除选中项</value>
+  </data>
+  <data name="Resource_Volumes_008.Text" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Resource_Volumes_009.Text" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Resource_Volumes_010.Text" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="Resource_Volumes_011.Text" xml:space="preserve">
+    <value>使用者</value>
+  </data>
+  <data name="Resource_Volumes_012.Text" xml:space="preserve">
+    <value>创建时间</value>
+  </data>
+  <data name="Resource_Volumes_013.Text" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Resource_Volumes_014.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>查看详情</value>
+  </data>
+  <data name="Resource_Volumes_014.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>查看详情</value>
+  </data>
   <data name="Resource_Volumes_015.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>删除</value>
   </data>
   <data name="Resource_Volumes_015.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>删除</value>
   </data>
+  <data name="Resource_Volumes_016.Text" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="Resource_Volumes_017.Text" xml:space="preserve">
+    <value>使用者</value>
+  </data>
+  <data name="Resource_Volumes_018.Text" xml:space="preserve">
+    <value>创建时间</value>
+  </data>
+  <data name="Resource_Volumes_019.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>查看详情</value>
+  </data>
+  <data name="Resource_Volumes_019.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>查看详情</value>
+  </data>
   <data name="Resource_Volumes_020.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>删除</value>
   </data>
   <data name="Resource_Volumes_020.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
     <value>删除</value>
+  </data>
+  <data name="Resource_Volumes_021.Text" xml:space="preserve">
+    <value>暂无卷。</value>
   </data>
   <data name="Resource_WslEngine_004.Text" xml:space="preserve">
     <value>刷新</value>
