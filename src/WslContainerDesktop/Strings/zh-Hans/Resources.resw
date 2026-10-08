@@ -1426,7 +1426,7 @@
     <value>添加 Azure Container Registry</value>
   </data>
   <data name="Workload_Text_Add_registry_503bed" xml:space="preserve">
-    <value>添加注册表</value>
+    <value>添加镜像仓库</value>
   </data>
   <data name="Workload_Text_Add_them_after_loading_the_profile_e0266e" xml:space="preserve">
     <value>。如有需要，请在加载配置后添加。</value>
@@ -1465,7 +1465,7 @@
     <value>将更改应用到集群</value>
   </data>
   <data name="Workload_Text_Apply_configuration_to_the_selected_services_c06fac" xml:space="preserve">
-    <value>将配置应用到选中的服务及其必需的依赖服务。未更改且运行中的容器将保留；已停止的容器将启动，更改过的容器可能重新创建。副本是本地实例，并非 Swarm 部署。设为零会移除选中的所有实例。命名卷和绑定挂载共享使用；匿名卷属于各实例，重新创建时将保留。缩容不会删除卷。单次本地操作最多规划 {0} 个实例。</value>
+    <value>将配置应用到选中的服务及其必需的依赖服务。未更改且运行中的容器将保留；已停止的容器将启动，更改过的容器可能重新创建。副本是本地实例，并非 Swarm 部署。设为零会移除选中的所有实例。命名数据卷和绑定挂载共享使用；匿名数据卷属于各实例，重新创建时将保留。缩容不会删除数据卷。单次本地操作最多规划 {0} 个实例。</value>
   </data>
   <data name="Workload_Text_Apply_failed_cae4cf" xml:space="preserve">
     <value>应用失败</value>
@@ -1480,7 +1480,7 @@
     <value>批准并继续</value>
   </data>
   <data name="Workload_Text_Attach_an_existing_volume_5d60f4" xml:space="preserve">
-    <value>挂载现有卷</value>
+    <value>挂载现有数据卷</value>
   </data>
   <data name="Workload_Text_Auto_restarts_before_alerting_0_alert_171ebb" xml:space="preserve">
     <value>发出警报前自动重启次数（0 表示仅警报）</value>
@@ -1519,7 +1519,7 @@
     <value>浏览 .yaml 文件…</value>
   </data>
   <data name="Workload_Text_Browsing_isn_t_available_for_this_14704e" xml:space="preserve">
-    <value>此注册表不支持浏览，请手动输入镜像引用</value>
+    <value>此镜像仓库不支持浏览，请手动输入镜像引用</value>
   </data>
   <data name="Workload_Text_Build_0_413948" xml:space="preserve">
     <value>构建：{0}</value>
@@ -1587,7 +1587,7 @@
     <value>选择 Compose 文件…</value>
   </data>
   <data name="Workload_Text_Choose_a_container_registry_to_add_01c399" xml:space="preserve">
-    <value>请选择要添加的容器注册表。</value>
+    <value>请选择要添加的容器镜像仓库。</value>
   </data>
   <data name="Workload_Text_Choose_a_model_78a7ab" xml:space="preserve">
     <value>选择模型</value>
@@ -1659,7 +1659,7 @@
     <value>容器名称（可选）</value>
   </data>
   <data name="Workload_Text_Container_registry_a1673a" xml:space="preserve">
-    <value>容器注册表</value>
+    <value>容器镜像仓库</value>
   </data>
   <data name="Workload_Text_Container_status_unavailable_0_f892d1" xml:space="preserve">
     <value> - 容器状态不可用：{0}</value>
@@ -1668,7 +1668,7 @@
     <value>继续</value>
   </data>
   <data name="Workload_Text_Could_not_get_an_access_token_401d09" xml:space="preserve">
-    <value>无法获取此注册表的访问令牌。可能没有拉取权限，或令牌已过期。</value>
+    <value>无法获取此镜像仓库的访问令牌。可能没有拉取权限，或令牌已过期。</value>
   </data>
   <data name="Workload_Text_Could_not_import_devcontainer_json_492691" xml:space="preserve">
     <value>无法导入 devcontainer.json。</value>
@@ -1722,7 +1722,7 @@
     <value>定时任务</value>
   </data>
   <data name="Workload_Text_Dashboard_67b696" xml:space="preserve">
-    <value>仪表盘</value>
+    <value>仪表板</value>
   </data>
   <data name="Workload_Text_Default_bridge_83f3d5" xml:space="preserve">
     <value>默认（bridge）</value>
@@ -1908,7 +1908,7 @@
     <value>正在从 Azure 获取访问令牌…</value>
   </data>
   <data name="Workload_Text_Go_to_Registries_to_sign_in_06b3b9" xml:space="preserve">
-    <value>前往“注册表”页面登录</value>
+    <value>前往“镜像仓库”页面登录</value>
   </data>
   <data name="Workload_Text_HOSTS_c44fdb" xml:space="preserve">
     <value>主机</value>
@@ -2139,13 +2139,13 @@
     <value>生命周期日志</value>
   </data>
   <data name="Workload_Text_List_the_images_available_in_this_b363bc" xml:space="preserve">
-    <value>列出此注册表中可用的镜像</value>
+    <value>列出此镜像仓库中可用的镜像</value>
   </data>
   <data name="Workload_Text_Loading_compose_projects_33a0b7" xml:space="preserve">
     <value>正在加载 Compose 项目…</value>
   </data>
   <data name="Workload_Text_Loading_container_registries_92b291" xml:space="preserve">
-    <value>正在加载容器注册表…</value>
+    <value>正在加载容器镜像仓库…</value>
   </data>
   <data name="Workload_Text_Loading_dev_containers_c83356" xml:space="preserve">
     <value>正在加载开发容器…</value>
@@ -2169,7 +2169,7 @@
     <value>登录 {0}</value>
   </data>
   <data name="Workload_Text_Log_in_to_this_registry_now_510d38" xml:space="preserve">
-    <value>立即登录此注册表</value>
+    <value>立即登录此镜像仓库</value>
   </data>
   <data name="Workload_Text_Logs_ea2100" xml:space="preserve">
     <value>日志</value>
@@ -2208,7 +2208,7 @@
     <value>名称</value>
   </data>
   <data name="Workload_Text_Name_in_the_registry_c5e56f" xml:space="preserve">
-    <value>注册表中的名称</value>
+    <value>镜像仓库中的名称</value>
   </data>
   <data name="Workload_Text_Name_optional_e09b37" xml:space="preserve">
     <value>名称（可选）</value>
@@ -2247,7 +2247,7 @@
     <value>无需更改容器。</value>
   </data>
   <data name="Workload_Text_No_container_registries_were_found_in_c14e91" xml:space="preserve">
-    <value>此订阅中未找到容器注册表。</value>
+    <value>此订阅中未找到容器镜像仓库。</value>
   </data>
   <data name="Workload_Text_No_cronjobs_51b199" xml:space="preserve">
     <value>没有定时任务。</value>
@@ -2274,7 +2274,7 @@
     <value>没有持久卷声明。</value>
   </data>
   <data name="Workload_Text_No_repositories_were_found_in_this_945b7b" xml:space="preserve">
-    <value>此注册表中未找到仓库。</value>
+    <value>此镜像仓库中未找到仓库。</value>
   </data>
   <data name="Workload_Text_No_service_actions_were_performed_c99eee" xml:space="preserve">
     <value>未执行任何服务操作。</value>
@@ -2415,7 +2415,7 @@
     <value>端口（每行一个 host:container）</value>
   </data>
   <data name="Workload_Text_Prepare_for_pushing_to_a_registry_69afc1" xml:space="preserve">
-    <value>准备推送到注册表（可选）</value>
+    <value>准备推送到镜像仓库（可选）</value>
   </data>
   <data name="Workload_Text_Probe_type_0ee53b" xml:space="preserve">
     <value>探针类型</value>
@@ -2479,7 +2479,7 @@
     <value>正在重新构建（不使用缓存）</value>
   </data>
   <data name="Workload_Text_Recognized_flags_ports_env_volumes_name_371bc3" xml:space="preserve">
-    <value>可识别的参数（端口、环境变量、卷、--name、--network、-w、-u、--entrypoint、--gpus 等）将预填到运行对话框中。支持使用反斜杠续行。无法表示的内容会报告并跳过。</value>
+    <value>可识别的参数（端口、环境变量、数据卷、--name、--network、-w、-u、--entrypoint、--gpus 等）将预填到运行对话框中。支持使用反斜杠续行。无法表示的内容会报告并跳过。</value>
   </data>
   <data name="Workload_Text_Refresh_0e9161" xml:space="preserve">
     <value>刷新</value>
@@ -2488,13 +2488,13 @@
     <value>刷新日志</value>
   </data>
   <data name="Workload_Text_Registry_05c2e3" xml:space="preserve">
-    <value>注册表</value>
+    <value>镜像仓库</value>
   </data>
   <data name="Workload_Text_Registry_host_743f8e" xml:space="preserve">
-    <value>注册表主机</value>
+    <value>镜像仓库主机</value>
   </data>
   <data name="Workload_Text_Registry_qualifies_a_bare_image_name_dd2377" xml:space="preserve">
-    <value>注册表（为不带主机名的镜像添加前缀）</value>
+    <value>镜像仓库（为不带主机名的镜像添加前缀）</value>
   </data>
   <data name="Workload_Text_Reload_bdc090" xml:space="preserve">
     <value>重新加载</value>
@@ -2521,7 +2521,7 @@
     <value>移除项目</value>
   </data>
   <data name="Workload_Text_Remove_the_project_definition_for_0_158ca8" xml:space="preserve">
-    <value>移除“{0}”的项目定义吗？这也会停止并删除其容器，以及它创建的卷。外部卷将保留。</value>
+    <value>移除“{0}”的项目定义吗？这也会停止并删除其容器，以及它创建的数据卷。外部数据卷将保留。</value>
   </data>
   <data name="Workload_Text_Remove_when_it_exits_rm_695a93" xml:space="preserve">
     <value>退出时移除（--rm）</value>
@@ -2666,7 +2666,7 @@
     <value>请选择要删除的运行配置。</value>
   </data>
   <data name="Workload_Text_Select_a_volume_1e833c" xml:space="preserve">
-    <value>选择卷…</value>
+    <value>选择数据卷…</value>
   </data>
   <data name="Workload_Text_Select_at_least_one_service_No_2358e8" xml:space="preserve">
     <value>请至少选择一个服务。未执行任何操作。</value>
@@ -2708,7 +2708,7 @@
     <value>登录 Azure</value>
   </data>
   <data name="Workload_Text_Signed_in_as_0_Choose_a_6391e5" xml:space="preserve">
-    <value>已以 {0} 登录。请选择订阅和注册表。</value>
+    <value>已以 {0} 登录。请选择订阅和镜像仓库。</value>
   </data>
   <data name="Workload_Text_Signed_in_as_0_Loading_subscriptions_0b62b2" xml:space="preserve">
     <value>已以 {0} 登录。正在加载订阅…</value>
@@ -2756,7 +2756,7 @@
     <value>停止并删除“{0}”的所有容器吗？项目定义将保留。</value>
   </data>
   <data name="Workload_Text_Stop_and_remove_only_the_selected_e2c247" xml:space="preserve">
-    <value>仅停止并删除选中服务的容器。共享网络、卷和项目定义将保留。其他服务不会删除，但可能无法访问这些服务。</value>
+    <value>仅停止并删除选中服务的容器。共享网络、数据卷和项目定义将保留。其他服务不会删除，但可能无法访问这些服务。</value>
   </data>
   <data name="Workload_Text_Stop_and_start_existing_containers_without_43f5a0" xml:space="preserve">
     <value>停止并启动现有容器，不应用配置或重新构建</value>
@@ -2776,7 +2776,7 @@
     <value>停止失败</value>
   </data>
   <data name="Workload_Text_Stop_only_the_selected_services_Containers_f80159" xml:space="preserve">
-    <value>仅停止选中的服务。容器、共享网络和卷将保留。其他服务不会停止，但可能无法访问这些服务。</value>
+    <value>仅停止选中的服务。容器、共享网络和数据卷将保留。其他服务不会停止，但可能无法访问这些服务。</value>
   </data>
   <data name="Workload_Text_Stop_remove_and_forget_0_6723d8" xml:space="preserve">
     <value>停止、删除并移除“{0}”的记录吗？</value>
@@ -2845,7 +2845,7 @@
     <value>模板</value>
   </data>
   <data name="Workload_Text_The_Azure_CLI_az_is_not_6ae5e4" xml:space="preserve">
-    <value>Azure CLI（az）尚未安装或不在 PATH 中。请安装后重新打开此对话框。也可以通过“添加注册表”按钮手动添加注册表。</value>
+    <value>Azure CLI（az）尚未安装或不在 PATH 中。请安装后重新打开此对话框。也可以通过“添加镜像仓库”按钮手动添加镜像仓库。</value>
   </data>
   <data name="Workload_Text_The_image_is_built_and_kept_ee8e62" xml:space="preserve">
     <value>镜像将在此计算机上构建并保留，不会上传。</value>
@@ -3005,10 +3005,10 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>查看服务</value>
   </data>
   <data name="Workload_Text_Volumes_binds_one_per_line_source_e95df3" xml:space="preserve">
-    <value>卷 / 绑定挂载（每行一个：source:destination）</value>
+    <value>数据卷 / 绑定挂载（每行一个：source:destination）</value>
   </data>
   <data name="Workload_Text_Volumes_one_per_line_source_destination_4707bc" xml:space="preserve">
-    <value>卷（每行一个 source:destination）</value>
+    <value>数据卷（每行一个 source:destination）</value>
   </data>
   <data name="Workload_Text_WSL_session_restarted_mount_slots_released_c52c57" xml:space="preserve">
     <value>WSL 会话已重启，挂载位置已释放。请重新启动项目。</value>
@@ -3048,13 +3048,13 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>尚无自定义或导入的模板。请先创建或导入模板，也可使用卡片的“导出…”分享内置模板。</value>
   </data>
   <data name="Workload_Text_You_ll_be_added_using_your_49ca44" xml:space="preserve">
-    <value>将使用 Azure 登录状态添加注册表，自动获取短期令牌，无需注册表用户名或密码。</value>
+    <value>将使用 Azure 登录状态添加镜像仓库，自动获取短期令牌，无需镜像仓库用户名或密码。</value>
   </data>
   <data name="Workload_Text_You_re_not_signed_in_to_3581f2" xml:space="preserve">
     <value>尚未登录 Azure。</value>
   </data>
   <data name="Workload_Text_You_re_not_signed_in_to_8756be" xml:space="preserve">
-    <value>尚未登录 {0}。推送需要该注册表的账户，请在“注册表”页面登录后重新推送。</value>
+    <value>尚未登录 {0}。推送需要该镜像仓库的账户，请在“镜像仓库”页面登录后重新推送。</value>
   </data>
   <data name="Workload_Text_You_re_on_0_Upgrading_straight_9b7945" xml:space="preserve">
     <value>当前版本为 {0}。直接升级到 {1} 会跳过中间的次版本（v{2}.{3} … v{4}.{5}），Kubernetes 版本兼容策略不允许这样做。
@@ -3840,7 +3840,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>尚无容器。点击“运行容器”开始使用。</value>
   </data>
   <data name="Resource_Dashboard_001.Text" xml:space="preserve">
-    <value>概览</value>
+    <value>仪表板</value>
   </data>
   <data name="Resource_Dashboard_002.Text" xml:space="preserve">
     <value>WSL 容器概况与实时性能</value>
@@ -3861,7 +3861,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>镜像</value>
   </data>
   <data name="Resource_Dashboard_008.Text" xml:space="preserve">
-    <value>卷</value>
+    <value>数据卷</value>
   </data>
   <data name="Resource_Dashboard_009.Text" xml:space="preserve">
     <value>引擎</value>
@@ -4363,7 +4363,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
 ⚠ 部分卷已被其他容器挂载，其数据也会丢失。</value>
   </data>
   <data name="Resource_Text_075341e9d7a5" xml:space="preserve">
-    <value>删除所有未使用的卷？</value>
+    <value>删除所有未使用的数据卷？</value>
   </data>
   <data name="Resource_Text_0a4444676244" xml:space="preserve">
     <value>保存失败</value>
@@ -4407,7 +4407,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>上传未完成</value>
   </data>
   <data name="Resource_Text_148f26a65911" xml:space="preserve">
-    <value>未知或不完整的使用情况不能证明卷未被使用。</value>
+    <value>未知或不完整的使用情况不能证明数据卷未被使用。</value>
   </data>
   <data name="Resource_Text_15404127f80d" xml:space="preserve">
     <value>删除容器</value>
@@ -4419,7 +4419,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>正在比较容器与镜像…</value>
   </data>
   <data name="Resource_Text_178b6d858ce7" xml:space="preserve">
-    <value>未知或不完整的使用情况不能证明卷未被使用。是否可删除由引擎决定。</value>
+    <value>未知或不完整的使用情况不能证明数据卷未被使用。是否可删除由引擎决定。</value>
   </data>
   <data name="Resource_Text_18ff715ccce4" xml:space="preserve">
     <value>删除容器</value>
@@ -4434,7 +4434,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>正在将 {0} 复制到 {1}…</value>
   </data>
   <data name="Resource_Text_1c2351331a73" xml:space="preserve">
-    <value>创建卷</value>
+    <value>创建数据卷</value>
   </data>
   <data name="Resource_Text_1d10323c27ec" xml:space="preserve">
     <value>独立容器</value>
@@ -4487,7 +4487,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_281eabe4676a" xml:space="preserve">
     <value>
 
-注意：无法完全确定卷的使用情况，因此此列表可能不完整。</value>
+注意：无法完全确定数据卷的使用情况，因此此列表可能不完整。</value>
   </data>
   <data name="Resource_Text_28ae52107c73" xml:space="preserve">
     <value>正在推送 {0}…（可能需要较长时间）</value>
@@ -4539,7 +4539,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>文件夹</value>
   </data>
   <data name="Resource_Text_3121cab8f91c" xml:space="preserve">
-    <value>删除这些卷</value>
+    <value>删除这些数据卷</value>
   </data>
   <data name="Resource_Text_31e11fbaef14" xml:space="preserve">
     <value>删除所有未使用的网络？</value>
@@ -4649,7 +4649,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>刷新</value>
   </data>
   <data name="Resource_Text_587588037564" xml:space="preserve">
-    <value>加载卷失败</value>
+    <value>加载数据卷失败</value>
   </data>
   <data name="Resource_Text_58d3b07833b2" xml:space="preserve">
     <value>清理镜像</value>
@@ -4683,7 +4683,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>（其他使用者未知）</value>
   </data>
   <data name="Resource_Text_606d1a1317c3" xml:space="preserve">
-    <value>已保留部分卷</value>
+    <value>已保留部分数据卷</value>
   </data>
   <data name="Resource_Text_606fbf1cfca3" xml:space="preserve">
     <value>打开更改选项卡以比较容器与镜像。</value>
@@ -4713,7 +4713,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>加载镜像失败</value>
   </data>
   <data name="Resource_Text_69047d7b411a" xml:space="preserve">
-    <value>无法删除卷</value>
+    <value>无法删除数据卷</value>
   </data>
   <data name="Resource_Text_694a9eea485e" xml:space="preserve">
     <value>上传到容器</value>
@@ -4770,12 +4770,12 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>正在删除 {0}…</value>
   </data>
   <data name="Resource_Text_7e216826243b" xml:space="preserve">
-    <value>部分卷未删除</value>
+    <value>部分数据卷未删除</value>
   </data>
   <data name="Resource_Text_7e892fbf5dd3" xml:space="preserve">
     <value>
 
-如不确定，请保留卷，之后可在卷页面删除。</value>
+如不确定，请保留数据卷，之后可在数据卷页面删除。</value>
   </data>
   <data name="Resource_Text_7f2f6a15cf8d" xml:space="preserve">
     <value>错误</value>
@@ -4786,13 +4786,13 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
 保留（仍被其他容器使用）：</value>
   </data>
   <data name="Resource_Text_7fa7f416b8c2" xml:space="preserve">
-    <value>删除卷</value>
+    <value>删除数据卷</value>
   </data>
   <data name="Resource_Text_800c9b197e97" xml:space="preserve">
     <value>（无输出）</value>
   </data>
   <data name="Resource_Text_815f075b8069" xml:space="preserve">
-    <value>此卷</value>
+    <value>此数据卷</value>
   </data>
   <data name="Resource_Text_820d6004b037" xml:space="preserve">
     <value>检查中…</value>
@@ -4804,7 +4804,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>已登录 {0}。</value>
   </data>
   <data name="Resource_Text_895d5f585893" xml:space="preserve">
-    <value>删除 {0} 个卷？这些卷中的数据将丢失。
+    <value>删除 {0} 个数据卷？这些数据卷中的数据将丢失。
 
 {1}</value>
   </data>
@@ -4847,13 +4847,13 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>给镜像添加标签</value>
   </data>
   <data name="Resource_Text_9665af7c3b74" xml:space="preserve">
-    <value>卷名称</value>
+    <value>数据卷名称</value>
   </data>
   <data name="Resource_Text_971c419dd609" xml:space="preserve">
     <value>文件</value>
   </data>
   <data name="Resource_Text_97e7c38762f2" xml:space="preserve">
-    <value>删除卷</value>
+    <value>删除数据卷</value>
   </data>
   <data name="Resource_Text_9804556fd4b8" xml:space="preserve">
     <value>复制路径</value>
@@ -4892,7 +4892,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>匿名</value>
   </data>
   <data name="Resource_Text_9cd3f346fe82" xml:space="preserve">
-    <value>删除卷“{0}”？卷中的数据将丢失。</value>
+    <value>删除数据卷“{0}”？数据卷中的数据将丢失。</value>
   </data>
   <data name="Resource_Text_9cf188d3a677" xml:space="preserve">
     <value>折叠</value>
@@ -4913,7 +4913,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>正在退出 {0} 的登录…</value>
   </data>
   <data name="Resource_Text_a28caef66f74" xml:space="preserve">
-    <value>可在卷页面重试。</value>
+    <value>可在数据卷页面重试。</value>
   </data>
   <data name="Resource_Text_a31fed794752" xml:space="preserve">
     <value>未使用（检查快照）</value>
@@ -4933,7 +4933,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>新建文件夹</value>
   </data>
   <data name="Resource_Text_a7652bb6962c" xml:space="preserve">
-    <value>容器已删除，但无法删除以下卷：{0}。</value>
+    <value>容器已删除，但无法删除以下数据卷：{0}。</value>
   </data>
   <data name="Resource_Text_a7f8e7cc0d43" xml:space="preserve">
     <value>刚刚</value>
@@ -4972,7 +4972,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>文件尚未准备好拖动，请选中后重试。</value>
   </data>
   <data name="Resource_Text_b412ef531663" xml:space="preserve">
-    <value>正在加载卷…</value>
+    <value>正在加载数据卷…</value>
   </data>
   <data name="Resource_Text_b52ef0d49360" xml:space="preserve">
     <value>更新状态未知。</value>
@@ -5060,10 +5060,10 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
 {2}</value>
   </data>
   <data name="Resource_Text_ca4eff772dac" xml:space="preserve">
-    <value>卷刷新已取消或超时，显示的数据可能已过期</value>
+    <value>数据卷刷新已取消或超时，显示的数据可能已过期</value>
   </data>
   <data name="Resource_Text_cb5d30ca0eaa" xml:space="preserve">
-    <value>清理卷</value>
+    <value>清理数据卷</value>
   </data>
   <data name="Resource_Text_cc4941571be3" xml:space="preserve">
     <value>已启用 GPU 直通</value>
@@ -5123,7 +5123,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>正在加载 {0}…</value>
   </data>
   <data name="Resource_Text_d73c0bb0fa10" xml:space="preserve">
-    <value>是否同时删除此容器的卷？</value>
+    <value>是否同时删除此容器的数据卷？</value>
   </data>
   <data name="Resource_Text_d863ee4cc811" xml:space="preserve">
     <value>打开文件选项卡以浏览容器文件系统。</value>
@@ -5236,7 +5236,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>{0}（估算；使用情况未知）</value>
   </data>
   <data name="Resource_Text_f82ef289fb04" xml:space="preserve">
-    <value>保留卷</value>
+    <value>保留数据卷</value>
   </data>
   <data name="Resource_Text_f9b108d77fc3" xml:space="preserve">
     <value>{0}（其他使用者未知）</value>
@@ -5263,10 +5263,10 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>已从导出的文件创建镜像</value>
   </data>
   <data name="Resource_Volumes_001.Text" xml:space="preserve">
-    <value>卷</value>
+    <value>数据卷</value>
   </data>
   <data name="Resource_Volumes_002.Text" xml:space="preserve">
-    <value>创建卷</value>
+    <value>创建数据卷</value>
   </data>
   <data name="Resource_Volumes_003.Text" xml:space="preserve">
     <value>刷新</value>
@@ -5275,10 +5275,10 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>清理</value>
   </data>
   <data name="Resource_Volumes_005.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
-    <value>选择多个卷</value>
+    <value>选择多个数据卷</value>
   </data>
   <data name="Resource_Volumes_005.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
-    <value>选择多个卷</value>
+    <value>选择多个数据卷</value>
   </data>
   <data name="Resource_Volumes_006.Text" xml:space="preserve">
     <value>选择</value>
@@ -5338,7 +5338,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>删除</value>
   </data>
   <data name="Resource_Volumes_021.Text" xml:space="preserve">
-    <value>暂无卷。</value>
+    <value>暂无数据卷。</value>
   </data>
   <data name="Resource_WslEngine_004.Text" xml:space="preserve">
     <value>刷新</value>
@@ -5359,7 +5359,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>打开 WSL 引擎存储设置</value>
   </data>
   <data name="Resource_ReclaimSpace_007.Text" xml:space="preserve">
-    <value>wslc 不报告卷大小，因此仅显示卷数量。容器大小仅包括可写层；镜像层计入镜像大小。</value>
+    <value>wslc 不报告数据卷大小，因此仅显示数据卷数量。容器大小仅包括可写层；镜像层计入镜像大小。</value>
   </data>
   <data name="Resource_ReclaimSpace_008.Text" xml:space="preserve">
     <value>镜像</value>
@@ -5395,7 +5395,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>删除已停止的容器</value>
   </data>
   <data name="Resource_ReclaimSpace_020.Text" xml:space="preserve">
-    <value>卷</value>
+    <value>数据卷</value>
   </data>
   <data name="Resource_ReclaimSpace_021.Text" xml:space="preserve">
     <value>总计：</value>
@@ -5407,7 +5407,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>（检查快照）</value>
   </data>
   <data name="Resource_ReclaimSpace_024.Content" xml:space="preserve">
-    <value>删除未使用的卷</value>
+    <value>删除未使用的数据卷</value>
   </data>
   <data name="Resource_ReclaimSpace_025.Text" xml:space="preserve">
     <value>最大的镜像</value>
@@ -5422,10 +5422,10 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>暂无悬空镜像。</value>
   </data>
   <data name="Resource_ReclaimSpace_029.Text" xml:space="preserve">
-    <value>未使用的卷</value>
+    <value>未使用的数据卷</value>
   </data>
   <data name="Resource_ReclaimSpace_030.Text" xml:space="preserve">
-    <value>没有确认未使用的卷，不计入使用情况未知的卷。</value>
+    <value>没有确认未使用的数据卷，不计入使用情况未知的数据卷。</value>
   </data>
   <data name="Resource_Text_0166d7b870bb" xml:space="preserve">
     <value>重启 wslc 会话？这会停止所有运行中的容器并释放</value>
@@ -5478,7 +5478,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>{0} 个镜像有可用更新。</value>
   </data>
   <data name="Resource_Text_1a709936ef89" xml:space="preserve">
-    <value>相关卷中的数据将丢失。</value>
+    <value>相关数据卷中的数据将丢失。</value>
   </data>
   <data name="Resource_Text_1b671ba390e8" xml:space="preserve">
     <value>正在保存 {0} 个镜像…</value>
@@ -5487,13 +5487,13 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>不可用，重启失败 {0} 次后已停止</value>
   </data>
   <data name="Resource_Text_1b82a339cce8" xml:space="preserve">
-    <value>删除未使用的卷</value>
+    <value>删除未使用的数据卷</value>
   </data>
   <data name="Resource_Text_1bdc17c5e2f9" xml:space="preserve">
-    <value>卷已清理</value>
+    <value>数据卷已清理</value>
   </data>
   <data name="Resource_Text_1bdd56ae0fa8" xml:space="preserve">
-    <value>不会迁移现有镜像、容器或卷，它们将保留在原位置直到被删除。</value>
+    <value>不会迁移现有镜像、容器或数据卷，它们将保留在原位置直到被删除。</value>
   </data>
   <data name="Resource_Text_21208bca20bf" xml:space="preserve">
     <value>
@@ -5539,7 +5539,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
 </value>
   </data>
   <data name="Resource_Text_2eccf3bfe77f" xml:space="preserve">
-    <value>使用情况未知不能证明可以清理，由引擎决定哪些卷可以清理。</value>
+    <value>使用情况未知不能证明可以清理，由引擎决定哪些数据卷可以清理。</value>
   </data>
   <data name="Resource_Text_30f822a886d2" xml:space="preserve">
     <value>不可用，健康检查失败</value>
@@ -5560,7 +5560,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>读取 WSL 状态失败</value>
   </data>
   <data name="Resource_Text_37feecdf46e6" xml:space="preserve">
-    <value>{0} 个卷 - 使用情况不完整；未知不代表未使用</value>
+    <value>{0} 个数据卷 - 使用情况不完整；未知不代表未使用</value>
   </data>
   <data name="Resource_Text_384a147ad9e2" xml:space="preserve">
     <value>无法更新容器存储</value>
@@ -5569,7 +5569,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>健康检查：启动中（启动宽限期）</value>
   </data>
   <data name="Resource_Text_3c286a27f602" xml:space="preserve">
-    <value> - 卷使用情况不完整；不将未知卷计为未使用</value>
+    <value> - 数据卷使用情况不完整；不将未知数据卷计为未使用</value>
   </data>
   <data name="Resource_Text_3d0a8265cd96" xml:space="preserve">
     <value>正在等待您批准管理员提示…</value>
@@ -5608,7 +5608,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>引擎健康状态：未知</value>
   </data>
   <data name="Resource_Text_4c92f0c7ac07" xml:space="preserve">
-    <value>{0} 个卷 - 使用情况不完整；未知不代表未使用</value>
+    <value>{0} 个数据卷 - 使用情况不完整；未知不代表未使用</value>
   </data>
   <data name="Resource_Text_4de04cd91a3d" xml:space="preserve">
     <value>更新失败</value>
@@ -5625,7 +5625,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
 </value>
   </data>
   <data name="Resource_Text_51f0128d112d" xml:space="preserve">
-    <value>删除所有悬空镜像、已停止的容器和未使用的卷？
+    <value>删除所有悬空镜像、已停止的容器和未使用的数据卷？
 
 </value>
   </data>
@@ -5678,13 +5678,13 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>引擎的会话绑定挂载槽位，之后可以重新启动容器。</value>
   </data>
   <data name="Resource_Text_765e0ff4d3a2" xml:space="preserve">
-    <value>{0} 个卷</value>
+    <value>{0} 个数据卷</value>
   </data>
   <data name="Resource_Text_7a387cfd8187" xml:space="preserve">
     <value>正在更新 WSL…</value>
   </data>
   <data name="Resource_Text_7a4d99920018" xml:space="preserve">
-    <value>删除所有未使用的卷？其中的数据将丢失。
+    <value>删除所有未使用的数据卷？其中的数据将丢失。
 
 </value>
   </data>
@@ -5698,7 +5698,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>容器已清理</value>
   </data>
   <data name="Resource_Text_7e34d9a960e3" xml:space="preserve">
-    <value>{0} 个卷</value>
+    <value>{0} 个数据卷</value>
   </data>
   <data name="Resource_Text_7f306af804b7" xml:space="preserve">
     <value>引擎健康状态：异常；现有引擎检查与请求的检查不同。已暂停应用探测和自动修复以避免重复检查，请明确重新创建容器以应用所需设置。</value>
@@ -5790,7 +5790,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>重置容器存储</value>
   </data>
   <data name="Resource_Text_cc989e9f84dc" xml:space="preserve">
-    <value>悬空镜像和已停止的容器最多可回收 {0} - 卷使用情况不完整；不将未知卷计为未使用</value>
+    <value>悬空镜像和已停止的容器最多可回收 {0} - 数据卷使用情况不完整；不将未知数据卷计为未使用</value>
   </data>
   <data name="Resource_Text_d0961f4abdcf" xml:space="preserve">
     <value>未找到 .wslconfig，WSL 正在使用内置默认值。</value>
@@ -5829,7 +5829,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>默认（{0}）</value>
   </data>
   <data name="Resource_Text_e44dfa6f6650" xml:space="preserve">
-    <value>卷</value>
+    <value>数据卷</value>
   </data>
   <data name="Resource_Text_e4a8dff56b8c" xml:space="preserve">
     <value>引擎：环境要求检查失败</value>
@@ -5949,7 +5949,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>会话磁盘大小：</value>
   </data>
   <data name="Resource_WslEngine_017.Text" xml:space="preserve">
-    <value>更改位置仅影响后续会话的存储，不会迁移现有镜像、容器或卷。</value>
+    <value>更改位置仅影响后续会话的存储，不会迁移现有镜像、容器或数据卷。</value>
   </data>
   <data name="Resource_WslEngine_018.Content" xml:space="preserve">
     <value>更改位置…</value>
