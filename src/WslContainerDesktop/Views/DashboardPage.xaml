@@ -3,6 +3,7 @@
     x:Class="WslContainerDesktop.Views.DashboardPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:i18n="using:WslContainerDesktop.Helpers"
     xmlns:converters="using:WslContainerDesktop.Helpers"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -29,8 +30,8 @@
 
             <!-- Header  -->
             <StackPanel Spacing="2">
-                <TextBlock x:Uid="Resource_Dashboard_001" Style="{ThemeResource TitleTextBlockStyle}" />
-                <TextBlock x:Uid="Resource_Dashboard_002"
+                <TextBlock x:Uid="Resource_Dashboard_001" i18n:Localization.Uid="Resource_Dashboard_001" Style="{ThemeResource TitleTextBlockStyle}" />
+                <TextBlock x:Uid="Resource_Dashboard_002" i18n:Localization.Uid="Resource_Dashboard_002"
                     Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                     Style="{ThemeResource CaptionTextBlockStyle}" />
             </StackPanel>
@@ -45,22 +46,22 @@
                                 FontSize="16"
                                 Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
                                 Glyph="&#xE7F4;" />
-                            <TextBlock x:Uid="Resource_Dashboard_003" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                            <TextBlock x:Uid="Resource_Dashboard_003" i18n:Localization.Uid="Resource_Dashboard_003" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Spacing="6">
                             <TextBlock
                                 FontSize="30"
                                 FontWeight="SemiBold"
                                 Text="{x:Bind ViewModel.RunningContainers, Mode=OneWay}" />
-                            <TextBlock x:Uid="Resource_Dashboard_004"
+                            <TextBlock x:Uid="Resource_Dashboard_004" i18n:Localization.Uid="Resource_Dashboard_004"
                                 Margin="0,0,0,4"
                                 VerticalAlignment="Bottom"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
                         </StackPanel>
                         <TextBlock FontSize="12" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
-                            <Run x:Uid="Resource_Dashboard_005" />
+                            <Run x:Uid="Resource_Dashboard_005" i18n:Localization.Uid="Resource_Dashboard_005" />
                             <Run Text="{x:Bind ViewModel.TotalContainers, Mode=OneWay}" />
-                            <Run x:Uid="Resource_Dashboard_006" />
+                            <Run x:Uid="Resource_Dashboard_006" i18n:Localization.Uid="Resource_Dashboard_006" />
                         </TextBlock>
                     </StackPanel>
                 </Border>
@@ -72,7 +73,7 @@
                                 FontSize="16"
                                 Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
                                 Glyph="&#xEB9F;" />
-                            <TextBlock x:Uid="Resource_Dashboard_007" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                            <TextBlock x:Uid="Resource_Dashboard_007" i18n:Localization.Uid="Resource_Dashboard_007" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
                         </StackPanel>
                         <TextBlock
                             FontSize="30"
@@ -88,7 +89,7 @@
                                 FontSize="16"
                                 Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
                                 Glyph="&#xE8B7;" />
-                            <TextBlock x:Uid="Resource_Dashboard_008" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                            <TextBlock x:Uid="Resource_Dashboard_008" i18n:Localization.Uid="Resource_Dashboard_008" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
                         </StackPanel>
                         <TextBlock
                             FontSize="30"
@@ -105,7 +106,7 @@
                                 Height="12"
                                 VerticalAlignment="Center"
                                 Fill="{x:Bind ViewModel.EngineHealthy, Mode=OneWay, Converter={StaticResource BoolToStatusBrush}}" />
-                            <TextBlock x:Uid="Resource_Dashboard_009" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                            <TextBlock x:Uid="Resource_Dashboard_009" i18n:Localization.Uid="Resource_Dashboard_009" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
                         </StackPanel>
                         <TextBlock
                             FontSize="24"
@@ -129,7 +130,7 @@
                                 FontSize="16"
                                 Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
                                 Glyph="&#xE950;" />
-                            <TextBlock x:Uid="Resource_Dashboard_010" FontWeight="SemiBold" />
+                            <TextBlock x:Uid="Resource_Dashboard_010" i18n:Localization.Uid="Resource_Dashboard_010" FontWeight="SemiBold" />
                         </StackPanel>
                         <TextBlock
                             HorizontalAlignment="Right"
@@ -141,7 +142,7 @@
             </Border>
 
             <!-- Live per-container stats  -->
-            <TextBlock x:Uid="Resource_Dashboard_011"
+            <TextBlock x:Uid="Resource_Dashboard_011" i18n:Localization.Uid="Resource_Dashboard_011"
                 Margin="2,4,0,0"
                 Style="{ThemeResource BodyStrongTextBlockStyle}" />
 
@@ -179,15 +180,15 @@
                             <ColumnDefinition Width="1.4*" MinWidth="110" />
                             <ColumnDefinition Width="1.4*" MinWidth="110" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock x:Uid="Resource_Dashboard_012" Grid.Column="0" Style="{ThemeResource CaptionTextBlockStyle}" />
+                        <TextBlock x:Uid="Resource_Dashboard_012" i18n:Localization.Uid="Resource_Dashboard_012" Grid.Column="0" Style="{ThemeResource CaptionTextBlockStyle}" />
                         <TextBlock Grid.Column="1" Style="{ThemeResource CaptionTextBlockStyle}" Text="CPU" />
-                        <TextBlock x:Uid="Resource_Dashboard_013" Grid.Column="2" Style="{ThemeResource CaptionTextBlockStyle}" />
-                        <TextBlock x:Uid="Resource_Dashboard_014" Grid.Column="3" Style="{ThemeResource CaptionTextBlockStyle}" />
-                        <TextBlock x:Uid="Resource_Dashboard_015" Grid.Column="4" Style="{ThemeResource CaptionTextBlockStyle}" />
+                        <TextBlock x:Uid="Resource_Dashboard_013" i18n:Localization.Uid="Resource_Dashboard_013" Grid.Column="2" Style="{ThemeResource CaptionTextBlockStyle}" />
+                        <TextBlock x:Uid="Resource_Dashboard_014" i18n:Localization.Uid="Resource_Dashboard_014" Grid.Column="3" Style="{ThemeResource CaptionTextBlockStyle}" />
+                        <TextBlock x:Uid="Resource_Dashboard_015" i18n:Localization.Uid="Resource_Dashboard_015" Grid.Column="4" Style="{ThemeResource CaptionTextBlockStyle}" />
                     </Grid>
 
                     <!-- Clicking a row opens that container's detail page, like the Containers list.  -->
-                    <ListView x:Uid="Resource_Dashboard_016"
+                    <ListView x:Uid="Resource_Dashboard_016" i18n:Localization.Uid="Resource_Dashboard_016"
                         x:Name="PerfList"
                         Margin="0,40,0,6"
 
@@ -342,7 +343,7 @@
                                             <ColumnDefinition Width="64" />
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
-                                        <TextBlock x:Uid="Resource_Dashboard_017" Grid.Column="0" VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}" />
+                                        <TextBlock x:Uid="Resource_Dashboard_017" i18n:Localization.Uid="Resource_Dashboard_017" Grid.Column="0" VerticalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}" />
                                         <StackPanel Grid.Column="1" Spacing="3">
                                             <TextBlock
                                                 FontSize="12"
@@ -362,7 +363,7 @@
                                             <RowDefinition Height="Auto" />
                                             <RowDefinition Height="Auto" />
                                         </Grid.RowDefinitions>
-                                        <TextBlock x:Uid="Resource_Dashboard_018" Grid.Row="0" Grid.Column="0" Style="{ThemeResource CaptionTextBlockStyle}" />
+                                        <TextBlock x:Uid="Resource_Dashboard_018" i18n:Localization.Uid="Resource_Dashboard_018" Grid.Row="0" Grid.Column="0" Style="{ThemeResource CaptionTextBlockStyle}" />
                                         <TextBlock
                                             Grid.Row="0"
                                             Grid.Column="1"
@@ -370,7 +371,7 @@
                                             FontSize="12"
                                             Text="{x:Bind NetIO, Mode=OneWay}"
                                             TextTrimming="CharacterEllipsis" />
-                                        <TextBlock x:Uid="Resource_Dashboard_019" Grid.Row="1" Grid.Column="0" Style="{ThemeResource CaptionTextBlockStyle}" />
+                                        <TextBlock x:Uid="Resource_Dashboard_019" i18n:Localization.Uid="Resource_Dashboard_019" Grid.Row="1" Grid.Column="0" Style="{ThemeResource CaptionTextBlockStyle}" />
                                         <TextBlock
                                             Grid.Row="1"
                                             Grid.Column="1"
@@ -396,7 +397,7 @@
                             FontSize="36"
                             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                             Glyph="&#xE9D9;" />
-                        <TextBlock x:Uid="Resource_Dashboard_020"
+                        <TextBlock x:Uid="Resource_Dashboard_020" i18n:Localization.Uid="Resource_Dashboard_020"
                             HorizontalAlignment="Center"
                             Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
                     </StackPanel>

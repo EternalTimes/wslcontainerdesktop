@@ -3,6 +3,7 @@
     x:Class="WslContainerDesktop.Views.ContainerDetailPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:i18n="using:WslContainerDesktop.Helpers"
     xmlns:converters="using:WslContainerDesktop.Helpers"
     xmlns:controls="using:WslContainerDesktop.Views.Controls"
     xmlns:helpers="using:WslContainerDesktop.Helpers"
@@ -37,7 +38,7 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <Button x:Uid="Resource_ContainerDetail_001"
+            <Button x:Uid="Resource_ContainerDetail_001" i18n:Localization.Uid="Resource_ContainerDetail_001"
                 Grid.Column="0"
                 Width="40"
                 Height="40"
@@ -130,7 +131,7 @@
                 VerticalAlignment="Center"
                 Orientation="Horizontal"
                 Spacing="6">
-                <Button x:Uid="Resource_ContainerDetail_002"
+                <Button x:Uid="Resource_ContainerDetail_002" i18n:Localization.Uid="Resource_ContainerDetail_002"
 
                     Command="{x:Bind ViewModel.StartCommand}"
                     CommandParameter="{x:Bind ViewModel.Selected, Mode=OneWay}"
@@ -139,7 +140,7 @@
                     Visibility="{x:Bind ViewModel.Selected.IsStopped, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                     <FontIcon FontSize="14" Glyph="&#xE768;" />
                 </Button>
-                <Button x:Uid="Resource_ContainerDetail_003"
+                <Button x:Uid="Resource_ContainerDetail_003" i18n:Localization.Uid="Resource_ContainerDetail_003"
 
                     Command="{x:Bind ViewModel.StopCommand}"
                     CommandParameter="{x:Bind ViewModel.Selected, Mode=OneWay}"
@@ -147,7 +148,7 @@
                     Visibility="{x:Bind ViewModel.Selected.IsRunning, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                     <FontIcon FontSize="14" Glyph="&#xE71A;" />
                 </Button>
-                <Button x:Uid="Resource_ContainerDetail_004"
+                <Button x:Uid="Resource_ContainerDetail_004" i18n:Localization.Uid="Resource_ContainerDetail_004"
 
                     Command="{x:Bind ViewModel.RestartCommand}"
                     CommandParameter="{x:Bind ViewModel.Selected, Mode=OneWay}"
@@ -155,7 +156,7 @@
                     <ToolTipService.ToolTip>
                         <ToolTip>
                             <StackPanel MaxWidth="360" Spacing="4">
-                                <TextBlock x:Uid="Resource_ContainerDetail_005" FontWeight="SemiBold" />
+                                <TextBlock x:Uid="Resource_ContainerDetail_005" i18n:Localization.Uid="Resource_ContainerDetail_005" FontWeight="SemiBold" />
                                 <TextBlock FontFamily="Consolas" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Text="{x:Bind helpers:FlagHelp.ContainerRestart.Flag}" />
                                 <TextBlock Text="{x:Bind helpers:FlagHelp.ContainerRestart.Text}" TextWrapping="Wrap" />
                             </StackPanel>
@@ -163,7 +164,7 @@
                     </ToolTipService.ToolTip>
                     <FontIcon FontSize="14" Glyph="&#xE72C;" />
                 </Button>
-                <Button x:Uid="Resource_ContainerDetail_006"
+                <Button x:Uid="Resource_ContainerDetail_006" i18n:Localization.Uid="Resource_ContainerDetail_006"
 
                     Command="{x:Bind ViewModel.KillCommand}"
                     CommandParameter="{x:Bind ViewModel.Selected, Mode=OneWay}"
@@ -171,7 +172,7 @@
                     <ToolTipService.ToolTip>
                         <ToolTip>
                             <StackPanel MaxWidth="360" Spacing="4">
-                                <TextBlock x:Uid="Resource_ContainerDetail_007" FontWeight="SemiBold" />
+                                <TextBlock x:Uid="Resource_ContainerDetail_007" i18n:Localization.Uid="Resource_ContainerDetail_007" FontWeight="SemiBold" />
                                 <TextBlock FontFamily="Consolas" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Text="{x:Bind helpers:FlagHelp.ContainerKill.Flag}" />
                                 <TextBlock Text="{x:Bind helpers:FlagHelp.ContainerKill.Text}" TextWrapping="Wrap" />
                             </StackPanel>
@@ -179,7 +180,7 @@
                     </ToolTipService.ToolTip>
                     <FontIcon FontSize="14" Glyph="&#xE8BB;" />
                 </Button>
-                <Button x:Uid="Resource_ContainerDetail_008"
+                <Button x:Uid="Resource_ContainerDetail_008" i18n:Localization.Uid="Resource_ContainerDetail_008"
 
                     Command="{x:Bind ViewModel.TerminalCommand}"
                     CommandParameter="{x:Bind ViewModel.Selected, Mode=OneWay}"
@@ -187,7 +188,7 @@
                     Visibility="{x:Bind ViewModel.Selected.IsRunning, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                     <FontIcon FontSize="14" Glyph="&#xE756;" />
                 </Button>
-                <Button x:Uid="Resource_ContainerDetail_009"
+                <Button x:Uid="Resource_ContainerDetail_009" i18n:Localization.Uid="Resource_ContainerDetail_009"
 
                     Command="{x:Bind ViewModel.OpenPortCommand}"
                     CommandParameter="{x:Bind ViewModel.Selected, Mode=OneWay}"
@@ -195,26 +196,26 @@
                     Visibility="{x:Bind ViewModel.Selected.CanOpenInBrowser, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                     <FontIcon FontSize="14" Glyph="&#xE774;" />
                 </Button>
-                <Button x:Uid="Resource_ContainerDetail_010"
+                <Button x:Uid="Resource_ContainerDetail_010" i18n:Localization.Uid="Resource_ContainerDetail_010"
 
                     Command="{x:Bind ViewModel.PrepareAiDiagnosisCommand}"
                     Visibility="{x:Bind local:ContainerDetailPage.BoolToVisibility(ViewModel.IsAiAvailable), Mode=OneWay}">
                     <StackPanel Orientation="Horizontal" Spacing="6">
                         <FontIcon FontSize="14" Glyph="&#xE945;" />
-                        <TextBlock x:Uid="Resource_ContainerDetail_011" />
+                        <TextBlock x:Uid="Resource_ContainerDetail_011" i18n:Localization.Uid="Resource_ContainerDetail_011" />
                     </StackPanel>
                 </Button>
                 <!-- Occasional actions live here so the toolbar keeps the everyday ones.  -->
-                <Button x:Uid="Resource_ContainerDetail_012" >
+                <Button x:Uid="Resource_ContainerDetail_012" i18n:Localization.Uid="Resource_ContainerDetail_012" >
                     <FontIcon FontSize="14" Glyph="&#xE712;" />
                     <Button.Flyout>
                         <MenuFlyout Placement="BottomEdgeAlignedRight">
-                            <MenuFlyoutItem x:Uid="Resource_ContainerDetail_013" Click="ExportContainer_Click" ToolTipService.ToolTip="{x:Bind helpers:FlagHelp.ContainerExport.Text}">
+                            <MenuFlyoutItem x:Uid="Resource_ContainerDetail_013" i18n:Localization.Uid="Resource_ContainerDetail_013" Click="ExportContainer_Click" ToolTipService.ToolTip="{x:Bind helpers:FlagHelp.ContainerExport.Text}">
                                 <MenuFlyoutItem.Icon>
                                     <FontIcon Glyph="&#xE74E;" />
                                 </MenuFlyoutItem.Icon>
                             </MenuFlyoutItem>
-                            <MenuFlyoutItem x:Uid="Resource_ContainerDetail_014"
+                            <MenuFlyoutItem x:Uid="Resource_ContainerDetail_014" i18n:Localization.Uid="Resource_ContainerDetail_014"
                                 Command="{x:Bind ViewModel.AttachCommand}"
                                 CommandParameter="{x:Bind ViewModel.Selected, Mode=OneWay}"
 
@@ -227,7 +228,7 @@
                         </MenuFlyout>
                     </Button.Flyout>
                 </Button>
-                <Button x:Uid="Resource_ContainerDetail_015" Click="Remove_Click">
+                <Button x:Uid="Resource_ContainerDetail_015" i18n:Localization.Uid="Resource_ContainerDetail_015" Click="Remove_Click">
                     <FontIcon FontSize="14" Glyph="&#xE74D;" />
                 </Button>
             </StackPanel>
@@ -243,34 +244,34 @@
             x:Name="DetailTabs"
             Grid.Row="2"
             SelectionChanged="DetailTabs_SelectionChanged">
-            <SelectorBarItem x:Uid="Resource_ContainerDetail_016"
+            <SelectorBarItem x:Uid="Resource_ContainerDetail_016" i18n:Localization.Uid="Resource_ContainerDetail_016"
                 x:Name="TabLogs"
                 IsSelected="True">
                 <SelectorBarItem.Icon>
                     <FontIcon Glyph="&#xE9D9;" />
                 </SelectorBarItem.Icon>
             </SelectorBarItem>
-            <SelectorBarItem x:Uid="Resource_ContainerDetail_017" x:Name="TabSummary" >
+            <SelectorBarItem x:Uid="Resource_ContainerDetail_017" i18n:Localization.Uid="Resource_ContainerDetail_017" x:Name="TabSummary" >
                 <SelectorBarItem.Icon>
                     <FontIcon Glyph="&#xE946;" />
                 </SelectorBarItem.Icon>
             </SelectorBarItem>
-            <SelectorBarItem x:Uid="Resource_ContainerDetail_018" x:Name="TabStats" >
+            <SelectorBarItem x:Uid="Resource_ContainerDetail_018" i18n:Localization.Uid="Resource_ContainerDetail_018" x:Name="TabStats" >
                 <SelectorBarItem.Icon>
                     <FontIcon Glyph="&#xE9D9;" />
                 </SelectorBarItem.Icon>
             </SelectorBarItem>
-            <SelectorBarItem x:Uid="Resource_ContainerDetail_019" x:Name="TabInspect" >
+            <SelectorBarItem x:Uid="Resource_ContainerDetail_019" i18n:Localization.Uid="Resource_ContainerDetail_019" x:Name="TabInspect" >
                 <SelectorBarItem.Icon>
                     <FontIcon Glyph="&#xE943;" />
                 </SelectorBarItem.Icon>
             </SelectorBarItem>
-            <SelectorBarItem x:Uid="Resource_ContainerDetail_020" x:Name="TabFiles" >
+            <SelectorBarItem x:Uid="Resource_ContainerDetail_020" i18n:Localization.Uid="Resource_ContainerDetail_020" x:Name="TabFiles" >
                 <SelectorBarItem.Icon>
                     <FontIcon Glyph="&#xE838;" />
                 </SelectorBarItem.Icon>
             </SelectorBarItem>
-            <SelectorBarItem x:Uid="Resource_ContainerDetail_021" x:Name="TabChanges" >
+            <SelectorBarItem x:Uid="Resource_ContainerDetail_021" i18n:Localization.Uid="Resource_ContainerDetail_021" x:Name="TabChanges" >
                 <SelectorBarItem.Icon>
                     <FontIcon Glyph="&#xE1CB;" />
                 </SelectorBarItem.Icon>
@@ -300,7 +301,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock x:Uid="Resource_ContainerDetail_022"
+                    <TextBlock x:Uid="Resource_ContainerDetail_022" i18n:Localization.Uid="Resource_ContainerDetail_022"
                         Grid.Column="0"
                         VerticalAlignment="Center"
                         FontWeight="SemiBold" />
@@ -316,7 +317,7 @@
                             Style="{ThemeResource AccentButtonStyle}">
                             <StackPanel Orientation="Horizontal" Spacing="6">
                                 <FontIcon FontSize="13" Glyph="&#xE724;" />
-                                <TextBlock x:Uid="Resource_ContainerDetail_023" />
+                                <TextBlock x:Uid="Resource_ContainerDetail_023" i18n:Localization.Uid="Resource_ContainerDetail_023" />
                             </StackPanel>
                         </Button>
                         <Button
@@ -325,7 +326,7 @@
                             ToolTipService.ToolTip="{x:Bind local:ContainerDetailPage.CollapseTooltip(ViewModel.AiPanelCollapsed), Mode=OneWay}">
                             <FontIcon FontSize="13" Glyph="{x:Bind local:ContainerDetailPage.CollapseGlyph(ViewModel.AiPanelCollapsed), Mode=OneWay}" />
                         </Button>
-                        <Button x:Uid="Resource_ContainerDetail_024"
+                        <Button x:Uid="Resource_ContainerDetail_024" i18n:Localization.Uid="Resource_ContainerDetail_024"
 
                             Command="{x:Bind ViewModel.DismissAiDiagnosisCommand}">
                             <FontIcon FontSize="13" Glyph="&#xE711;" />
@@ -343,7 +344,7 @@
                         Message="{x:Bind ViewModel.DiagnosisFeedback.Message, Mode=OneWay, Converter={StaticResource UiTextConverter}}"
                         Severity="{x:Bind converters:AiFeedbackDisplay.ToInfoBarSeverity(ViewModel.DiagnosisFeedback.Severity), Mode=OneWay}"
                         Title="{x:Bind ViewModel.DiagnosisFeedback.Title, Mode=OneWay, Converter={StaticResource UiTextConverter}}" />
-                    <Expander x:Uid="Resource_ContainerDetail_025"
+                    <Expander x:Uid="Resource_ContainerDetail_025" i18n:Localization.Uid="Resource_ContainerDetail_025"
                         HorizontalAlignment="Stretch"
                         HorizontalContentAlignment="Stretch"
 
@@ -356,7 +357,7 @@
                                 IsTextSelectionEnabled="True"
                                 Text="{x:Bind ViewModel.DiagnosisFeedback.TechnicalDetails, Mode=OneWay}"
                                 TextWrapping="Wrap" />
-                            <Button x:Uid="Resource_ContainerDetail_026"
+                            <Button x:Uid="Resource_ContainerDetail_026" i18n:Localization.Uid="Resource_ContainerDetail_026"
                                 AutomationProperties.AutomationId="CopyDiagnosisFeedbackDetailsButton"
                                 Command="{x:Bind ViewModel.CopyDiagnosisFeedbackDetailsCommand}" />
                         </StackPanel>
@@ -374,7 +375,7 @@
                     VerticalScrollMode="Auto"
                     Visibility="{x:Bind local:ContainerDetailPage.InvertBoolToVisibility(ViewModel.AiPanelCollapsed), Mode=OneWay}">
                     <StackPanel Spacing="10">
-                        <Expander x:Uid="Resource_ContainerDetail_027"
+                        <Expander x:Uid="Resource_ContainerDetail_027" i18n:Localization.Uid="Resource_ContainerDetail_027"
                             HorizontalAlignment="Stretch"
                             HorizontalContentAlignment="Stretch">
                             <ScrollViewer MaxHeight="220">
@@ -393,19 +394,19 @@
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <StackPanel Grid.Column="0" Spacing="6">
-                                    <TextBlock x:Uid="Resource_ContainerDetail_028" Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                                    <TextBlock x:Uid="Resource_ContainerDetail_028" i18n:Localization.Uid="Resource_ContainerDetail_028" Style="{ThemeResource BodyStrongTextBlockStyle}" />
                                     <TextBlock Text="{x:Bind ViewModel.AiSummary, Mode=OneWay}" TextWrapping="Wrap" />
-                                    <TextBlock x:Uid="Resource_ContainerDetail_029" Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                                    <TextBlock x:Uid="Resource_ContainerDetail_029" i18n:Localization.Uid="Resource_ContainerDetail_029" Style="{ThemeResource BodyStrongTextBlockStyle}" />
                                     <TextBlock Text="{x:Bind ViewModel.AiLikelyCause, Mode=OneWay}" TextWrapping="Wrap" />
                                     <TextBlock
                                         Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                         Text="{x:Bind ViewModel.AiConfidenceDisplay, Mode=OneWay}" />
                                 </StackPanel>
-                                <Button x:Uid="Resource_ContainerDetail_030"
+                                <Button x:Uid="Resource_ContainerDetail_030" i18n:Localization.Uid="Resource_ContainerDetail_030"
                                     Grid.Column="1"
                                     Command="{x:Bind ViewModel.CopyAiSuggestedFixCommand}" />
                             </Grid>
-                    <Expander x:Uid="Resource_ContainerDetail_031"
+                    <Expander x:Uid="Resource_ContainerDetail_031" i18n:Localization.Uid="Resource_ContainerDetail_031"
                         HorizontalAlignment="Stretch"
                         HorizontalContentAlignment="Stretch">
                         <ItemsControl ItemsSource="{x:Bind ViewModel.AiEvidenceCitations, Mode=OneWay}">
@@ -421,7 +422,7 @@
                         Background="{ThemeResource CardBackgroundFillColorSecondaryBrush}"
                         CornerRadius="6">
                         <StackPanel Spacing="6">
-                            <TextBlock x:Uid="Resource_ContainerDetail_032" FontWeight="SemiBold" />
+                            <TextBlock x:Uid="Resource_ContainerDetail_032" i18n:Localization.Uid="Resource_ContainerDetail_032" FontWeight="SemiBold" />
                             <TextBlock Text="{x:Bind ViewModel.AiSuggestedFixDescription, Mode=OneWay}" TextWrapping="Wrap" />
                             <ItemsControl ItemsSource="{x:Bind ViewModel.AiSuggestedCommands, Mode=OneWay}">
                                 <ItemsControl.ItemTemplate>
@@ -474,7 +475,7 @@
                         Grid.Column="0"
                         Orientation="Horizontal"
                         Spacing="6">
-                        <TextBox x:Uid="Resource_ContainerDetail_033"
+                        <TextBox x:Uid="Resource_ContainerDetail_033" i18n:Localization.Uid="Resource_ContainerDetail_033"
                             x:Name="SearchBox"
                             Width="240"
                             MinWidth="120"
@@ -486,7 +487,7 @@
                             VerticalAlignment="Center"
                             Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                             Style="{ThemeResource CaptionTextBlockStyle}" />
-                        <Button x:Uid="Resource_ContainerDetail_034"
+                        <Button x:Uid="Resource_ContainerDetail_034" i18n:Localization.Uid="Resource_ContainerDetail_034"
                             x:Name="PrevMatchButton"
                             Padding="7,5"
 
@@ -494,7 +495,7 @@
                             IsEnabled="False">
                             <FontIcon FontSize="12" Glyph="&#xE70E;" />
                         </Button>
-                        <Button x:Uid="Resource_ContainerDetail_035"
+                        <Button x:Uid="Resource_ContainerDetail_035" i18n:Localization.Uid="Resource_ContainerDetail_035"
                             x:Name="NextMatchButton"
                             Padding="7,5"
 
@@ -502,13 +503,13 @@
                             IsEnabled="False">
                             <FontIcon FontSize="12" Glyph="&#xE70D;" />
                         </Button>
-                        <ToggleButton x:Uid="Resource_ContainerDetail_036"
+                        <ToggleButton x:Uid="Resource_ContainerDetail_036" i18n:Localization.Uid="Resource_ContainerDetail_036"
                             x:Name="CaseToggle"
                             Padding="9,5"
 
                             Click="SearchOption_Click"
                             Content="Aa" />
-                        <ToggleButton x:Uid="Resource_ContainerDetail_037"
+                        <ToggleButton x:Uid="Resource_ContainerDetail_037" i18n:Localization.Uid="Resource_ContainerDetail_037"
                             x:Name="FilterToggle"
                             Padding="8,5"
 
@@ -521,20 +522,20 @@
                         Grid.Column="1"
                         Orientation="Horizontal"
                         Spacing="8">
-                        <ToggleButton x:Uid="Resource_ContainerDetail_038"
+                        <ToggleButton x:Uid="Resource_ContainerDetail_038" i18n:Localization.Uid="Resource_ContainerDetail_038"
                             x:Name="HighlightErrorsToggle"
                             Padding="8,5"
 
                             Click="HighlightErrors_Click">
                             <FontIcon FontSize="14" Glyph="&#xE7BA;" />
                         </ToggleButton>
-                        <ToggleButton x:Uid="Resource_ContainerDetail_039"
+                        <ToggleButton x:Uid="Resource_ContainerDetail_039" i18n:Localization.Uid="Resource_ContainerDetail_039"
                             Padding="8,5"
 
                             IsChecked="{x:Bind ViewModel.LogTimestamps, Mode=TwoWay}">
                             <FontIcon FontSize="14" Glyph="&#xE823;" />
                         </ToggleButton>
-                        <ToggleButton x:Uid="Resource_ContainerDetail_040"
+                        <ToggleButton x:Uid="Resource_ContainerDetail_040" i18n:Localization.Uid="Resource_ContainerDetail_040"
                             x:Name="WrapToggle"
                             Padding="8,5"
 
@@ -542,20 +543,20 @@
                             <FontIcon FontSize="14" Glyph="&#xE751;" />
                         </ToggleButton>
                         <AppBarSeparator Margin="0" Padding="0" />
-                        <Button x:Uid="Resource_ContainerDetail_041"
+                        <Button x:Uid="Resource_ContainerDetail_041" i18n:Localization.Uid="Resource_ContainerDetail_041"
 
                             Click="ExportLogs_Click">
                             <StackPanel Orientation="Horizontal" Spacing="6">
                                 <FontIcon FontSize="13" Glyph="&#xE74E;" />
-                                <TextBlock x:Uid="Resource_ContainerDetail_042" />
+                                <TextBlock x:Uid="Resource_ContainerDetail_042" i18n:Localization.Uid="Resource_ContainerDetail_042" />
                             </StackPanel>
                         </Button>
-                        <Button x:Uid="Resource_ContainerDetail_043"
+                        <Button x:Uid="Resource_ContainerDetail_043" i18n:Localization.Uid="Resource_ContainerDetail_043"
 
                             Click="ClearLogs_Click">
                             <StackPanel Orientation="Horizontal" Spacing="6">
                                 <FontIcon FontSize="13" Glyph="&#xE74D;" />
-                                <TextBlock x:Uid="Resource_ContainerDetail_044" />
+                                <TextBlock x:Uid="Resource_ContainerDetail_044" i18n:Localization.Uid="Resource_ContainerDetail_044" />
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -612,7 +613,7 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
 
-                            <TextBlock x:Uid="Resource_ContainerDetail_045"
+                            <TextBlock x:Uid="Resource_ContainerDetail_045" i18n:Localization.Uid="Resource_ContainerDetail_045"
                                 Grid.Row="0"
                                 Grid.Column="0"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
@@ -623,7 +624,7 @@
                                 IsTextSelectionEnabled="True"
                                 Text="{x:Bind ViewModel.Selected.ShortId, Mode=OneWay}" />
 
-                            <TextBlock x:Uid="Resource_ContainerDetail_046"
+                            <TextBlock x:Uid="Resource_ContainerDetail_046" i18n:Localization.Uid="Resource_ContainerDetail_046"
                                 Grid.Row="1"
                                 Grid.Column="0"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
@@ -632,7 +633,7 @@
                                 Grid.Column="1"
                                 Text="{x:Bind ViewModel.Selected.State, Mode=OneWay, Converter={StaticResource StateToString}}" />
 
-                            <TextBlock x:Uid="Resource_ContainerDetail_047"
+                            <TextBlock x:Uid="Resource_ContainerDetail_047" i18n:Localization.Uid="Resource_ContainerDetail_047"
                                 Grid.Row="2"
                                 Grid.Column="0"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
@@ -643,7 +644,7 @@
                                 Text="{x:Bind ViewModel.Selected.Image, Mode=OneWay}"
                                 TextWrapping="Wrap" />
 
-                            <TextBlock x:Uid="Resource_ContainerDetail_048"
+                            <TextBlock x:Uid="Resource_ContainerDetail_048" i18n:Localization.Uid="Resource_ContainerDetail_048"
                                 Grid.Row="3"
                                 Grid.Column="0"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
@@ -654,7 +655,7 @@
                                 Text="{x:Bind ViewModel.Selected.PortsDisplayText, Mode=OneWay}"
                                 TextWrapping="Wrap" />
 
-                            <TextBlock x:Uid="Resource_ContainerDetail_049"
+                            <TextBlock x:Uid="Resource_ContainerDetail_049" i18n:Localization.Uid="Resource_ContainerDetail_049"
                                 Grid.Row="4"
                                 Grid.Column="0"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
@@ -665,7 +666,7 @@
                                 IsTextSelectionEnabled="True"
                                 Text="{x:Bind ViewModel.DetailIp, Mode=OneWay}" />
 
-                            <TextBlock x:Uid="Resource_ContainerDetail_050"
+                            <TextBlock x:Uid="Resource_ContainerDetail_050" i18n:Localization.Uid="Resource_ContainerDetail_050"
                                 Grid.Row="5"
                                 Grid.Column="0"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
@@ -674,7 +675,7 @@
                                 Grid.Column="1"
                                 Text="{x:Bind ViewModel.DetailNetwork, Mode=OneWay}" />
 
-                            <TextBlock x:Uid="Resource_ContainerDetail_051"
+                            <TextBlock x:Uid="Resource_ContainerDetail_051" i18n:Localization.Uid="Resource_ContainerDetail_051"
                                 Grid.Row="6"
                                 Grid.Column="0"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
@@ -683,7 +684,7 @@
                                 Grid.Column="1"
                                 Text="{x:Bind ViewModel.DetailStarted, Mode=OneWay}" />
 
-                            <TextBlock x:Uid="Resource_ContainerDetail_052"
+                            <TextBlock x:Uid="Resource_ContainerDetail_052" i18n:Localization.Uid="Resource_ContainerDetail_052"
                                 Grid.Row="7"
                                 Grid.Column="0"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
@@ -700,7 +701,7 @@
                                 Grid.Column="0"
                                 Orientation="Horizontal"
                                 Spacing="4">
-                                <TextBlock x:Uid="Resource_ContainerDetail_053"
+                                <TextBlock x:Uid="Resource_ContainerDetail_053" i18n:Localization.Uid="Resource_ContainerDetail_053"
                                     Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
                                 <controls:InfoTip
                                     Title="{x:Bind helpers:FlagHelp.ContainersSize.Title}"
@@ -712,7 +713,7 @@
                                 Grid.Column="1"
                                 FontFamily="Consolas"
                                 Text="{x:Bind ViewModel.DetailSizeRw, Mode=OneWay}" />
-                            <TextBlock x:Uid="Resource_ContainerDetail_054"
+                            <TextBlock x:Uid="Resource_ContainerDetail_054" i18n:Localization.Uid="Resource_ContainerDetail_054"
                                 Grid.Row="9"
                                 Grid.Column="0"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
@@ -724,7 +725,7 @@
                         </Grid>
                     </Border>
 
-                    <Expander x:Uid="Resource_ContainerDetail_055"
+                    <Expander x:Uid="Resource_ContainerDetail_055" i18n:Localization.Uid="Resource_ContainerDetail_055"
                         HorizontalAlignment="Stretch"
                         HorizontalContentAlignment="Stretch">
                         <ItemsControl ItemsSource="{x:Bind ViewModel.DetailEnvironment, Mode=OneWay}">
@@ -741,7 +742,7 @@
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
                     </Expander>
-                    <Expander x:Uid="Resource_ContainerDetail_056"
+                    <Expander x:Uid="Resource_ContainerDetail_056" i18n:Localization.Uid="Resource_ContainerDetail_056"
                         HorizontalAlignment="Stretch"
                         HorizontalContentAlignment="Stretch">
                         <ItemsControl ItemsSource="{x:Bind ViewModel.DetailMounts, Mode=OneWay}">
@@ -762,7 +763,7 @@
                         HorizontalAlignment="Stretch"
                         HorizontalContentAlignment="Stretch">
                         <Expander.Header>
-                            <TextBlock x:Uid="Resource_ContainerDetail_057" VerticalAlignment="Center" />
+                            <TextBlock x:Uid="Resource_ContainerDetail_057" i18n:Localization.Uid="Resource_ContainerDetail_057" VerticalAlignment="Center" />
                         </Expander.Header>
                         <StackPanel Spacing="8">
                             <Button
@@ -770,7 +771,7 @@
                                 Style="{ThemeResource AccentButtonStyle}">
                                 <StackPanel Orientation="Horizontal" Spacing="6">
                                     <FontIcon FontSize="13" Glyph="&#xE710;" />
-                                    <TextBlock x:Uid="Resource_ContainerDetail_058" />
+                                    <TextBlock x:Uid="Resource_ContainerDetail_058" i18n:Localization.Uid="Resource_ContainerDetail_058" />
                                 </StackPanel>
                             </Button>
                             <ListView
@@ -786,7 +787,7 @@
                                                 <ColumnDefinition Width="Auto" />
                                             </Grid.ColumnDefinitions>
                                             <StackPanel Grid.Column="0">
-                                                <TextBlock x:Uid="Resource_ContainerDetail_059" Style="{ThemeResource CaptionTextBlockStyle}" />
+                                                <TextBlock x:Uid="Resource_ContainerDetail_059" i18n:Localization.Uid="Resource_ContainerDetail_059" Style="{ThemeResource CaptionTextBlockStyle}" />
                                                 <TextBlock FontWeight="SemiBold" Text="{x:Bind Network}" TextTrimming="CharacterEllipsis" />
                                             </StackPanel>
                                             <StackPanel Grid.Column="1">
@@ -794,10 +795,10 @@
                                                 <TextBlock FontFamily="Consolas" Text="{x:Bind Ipv4Display}" TextTrimming="CharacterEllipsis" />
                                             </StackPanel>
                                             <StackPanel Grid.Column="2">
-                                                <TextBlock x:Uid="Resource_ContainerDetail_060" Style="{ThemeResource CaptionTextBlockStyle}" />
+                                                <TextBlock x:Uid="Resource_ContainerDetail_060" i18n:Localization.Uid="Resource_ContainerDetail_060" Style="{ThemeResource CaptionTextBlockStyle}" />
                                                 <TextBlock Text="{x:Bind AliasesDisplay}" TextTrimming="CharacterEllipsis" />
                                             </StackPanel>
-                                            <Button x:Uid="Resource_ContainerDetail_061"
+                                            <Button x:Uid="Resource_ContainerDetail_061" i18n:Localization.Uid="Resource_ContainerDetail_061"
                                                 Grid.Column="3"
                                                 Click="DisconnectNetwork_Click"
 
@@ -854,7 +855,7 @@
                                         FontSize="16"
                                         Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
                                         Glyph="&#xEEA0;" />
-                                    <TextBlock x:Uid="Resource_ContainerDetail_062" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                    <TextBlock x:Uid="Resource_ContainerDetail_062" i18n:Localization.Uid="Resource_ContainerDetail_062" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
                                 </StackPanel>
                                 <TextBlock FontSize="30" FontWeight="SemiBold" Text="{x:Bind ViewModel.StatMem, Mode=OneWay}" />
                                 <ProgressBar Maximum="100" Value="{x:Bind ViewModel.StatMemValue, Mode=OneWay}" />
@@ -884,7 +885,7 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
 
-                            <TextBlock x:Uid="Resource_ContainerDetail_063"
+                            <TextBlock x:Uid="Resource_ContainerDetail_063" i18n:Localization.Uid="Resource_ContainerDetail_063"
                                 Grid.Row="0"
                                 Grid.Column="0"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
@@ -894,7 +895,7 @@
                                 FontFamily="Consolas"
                                 Text="{x:Bind ViewModel.StatNetIO, Mode=OneWay}" />
 
-                            <TextBlock x:Uid="Resource_ContainerDetail_064"
+                            <TextBlock x:Uid="Resource_ContainerDetail_064" i18n:Localization.Uid="Resource_ContainerDetail_064"
                                 Grid.Row="1"
                                 Grid.Column="0"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
@@ -904,7 +905,7 @@
                                 FontFamily="Consolas"
                                 Text="{x:Bind ViewModel.StatBlockIO, Mode=OneWay}" />
 
-                            <TextBlock x:Uid="Resource_ContainerDetail_065"
+                            <TextBlock x:Uid="Resource_ContainerDetail_065" i18n:Localization.Uid="Resource_ContainerDetail_065"
                                 Grid.Row="2"
                                 Grid.Column="0"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
@@ -916,7 +917,7 @@
                         </Grid>
                     </Border>
 
-                    <TextBlock x:Uid="Resource_ContainerDetail_066"
+                    <TextBlock x:Uid="Resource_ContainerDetail_066" i18n:Localization.Uid="Resource_ContainerDetail_066"
                         FontSize="12"
                         Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
@@ -946,7 +947,7 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
 
-                    <Button x:Uid="Resource_ContainerDetail_067"
+                    <Button x:Uid="Resource_ContainerDetail_067" i18n:Localization.Uid="Resource_ContainerDetail_067"
                         Grid.Column="0"
                         Height="32"
                         Padding="10,0"
@@ -955,7 +956,7 @@
                         IsEnabled="{x:Bind ViewModel.CanNavigateUp, Mode=OneWay}">
                         <FontIcon FontSize="13" Glyph="&#xE74A;" />
                     </Button>
-                    <Button x:Uid="Resource_ContainerDetail_068"
+                    <Button x:Uid="Resource_ContainerDetail_068" i18n:Localization.Uid="Resource_ContainerDetail_068"
                         Grid.Column="1"
                         Height="32"
                         Padding="10,0"
@@ -979,7 +980,7 @@
                             TextTrimming="CharacterEllipsis"
                             VerticalAlignment="Center" />
                     </Border>
-                    <Button x:Uid="Resource_ContainerDetail_069"
+                    <Button x:Uid="Resource_ContainerDetail_069" i18n:Localization.Uid="Resource_ContainerDetail_069"
                         Grid.Column="3"
                         Height="32"
                         Padding="10,0"
@@ -989,13 +990,13 @@
                         Visibility="{x:Bind ViewModel.FilesBrowseAvailable, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                         <StackPanel Orientation="Horizontal" Spacing="4">
                             <FontIcon FontSize="13" Glyph="&#xE8F4;" />
-                            <TextBlock x:Uid="Resource_ContainerDetail_070"
+                            <TextBlock x:Uid="Resource_ContainerDetail_070" i18n:Localization.Uid="Resource_ContainerDetail_070"
                                 FontSize="12"
 
                                 VerticalAlignment="Center" />
                         </StackPanel>
                     </Button>
-                    <Button x:Uid="Resource_ContainerDetail_071"
+                    <Button x:Uid="Resource_ContainerDetail_071" i18n:Localization.Uid="Resource_ContainerDetail_071"
                         Grid.Column="4"
                         Height="32"
                         Padding="10,0"
@@ -1003,13 +1004,13 @@
                         Click="CopyInFile_Click">
                         <StackPanel Orientation="Horizontal" Spacing="4">
                             <FontIcon FontSize="13" Glyph="&#xE898;" />
-                            <TextBlock x:Uid="Resource_ContainerDetail_072"
+                            <TextBlock x:Uid="Resource_ContainerDetail_072" i18n:Localization.Uid="Resource_ContainerDetail_072"
                                 FontSize="12"
 
                                 VerticalAlignment="Center" />
                         </StackPanel>
                     </Button>
-                    <Button x:Uid="Resource_ContainerDetail_073"
+                    <Button x:Uid="Resource_ContainerDetail_073" i18n:Localization.Uid="Resource_ContainerDetail_073"
                         Grid.Column="5"
                         Height="32"
                         Padding="10,0"
@@ -1055,23 +1056,23 @@
                                     <ColumnDefinition Width="128" />
                                     <ColumnDefinition Width="100" />
                                 </Grid.ColumnDefinitions>
-                                <TextBlock x:Uid="Resource_ContainerDetail_074"
+                                <TextBlock x:Uid="Resource_ContainerDetail_074" i18n:Localization.Uid="Resource_ContainerDetail_074"
                                     Grid.Column="1"
                                     FontSize="12"
                                     FontWeight="SemiBold" />
-                                <TextBlock x:Uid="Resource_ContainerDetail_075"
+                                <TextBlock x:Uid="Resource_ContainerDetail_075" i18n:Localization.Uid="Resource_ContainerDetail_075"
                                     Grid.Column="2"
                                     FontSize="12"
                                     FontWeight="SemiBold" />
-                                <TextBlock x:Uid="Resource_ContainerDetail_076"
+                                <TextBlock x:Uid="Resource_ContainerDetail_076" i18n:Localization.Uid="Resource_ContainerDetail_076"
                                     Grid.Column="3"
                                     FontSize="12"
                                     FontWeight="SemiBold" />
-                                <TextBlock x:Uid="Resource_ContainerDetail_077"
+                                <TextBlock x:Uid="Resource_ContainerDetail_077" i18n:Localization.Uid="Resource_ContainerDetail_077"
                                     Grid.Column="4"
                                     FontSize="12"
                                     FontWeight="SemiBold" />
-                                <TextBlock x:Uid="Resource_ContainerDetail_078"
+                                <TextBlock x:Uid="Resource_ContainerDetail_078" i18n:Localization.Uid="Resource_ContainerDetail_078"
                                     Grid.Column="5"
                                     FontSize="12"
                                     FontWeight="SemiBold" />
@@ -1166,13 +1167,13 @@
                                     Text="{x:Bind ViewModel.FilesUnavailableReasonDisplay, Mode=OneWay}"
                                     TextAlignment="Center"
                                     TextWrapping="Wrap" />
-                                <TextBlock x:Uid="Resource_ContainerDetail_079"
+                                <TextBlock x:Uid="Resource_ContainerDetail_079" i18n:Localization.Uid="Resource_ContainerDetail_079"
                                     HorizontalAlignment="Center"
                                     Foreground="{ThemeResource TextFillColorSecondaryBrush}"
 
                                     TextAlignment="Center"
                                     TextWrapping="Wrap" />
-                                <Button x:Uid="Resource_ContainerDetail_080"
+                                <Button x:Uid="Resource_ContainerDetail_080" i18n:Localization.Uid="Resource_ContainerDetail_080"
                                     HorizontalAlignment="Center"
                                     AutomationProperties.AutomationId="DownloadContainerPath"
                                     Click="DownloadPath_Click" />
@@ -1196,12 +1197,12 @@
                                     FontSize="40"
                                     Foreground="#0078D4"
                                     Glyph="&#xE898;" />
-                                <TextBlock x:Uid="Resource_ContainerDetail_081"
+                                <TextBlock x:Uid="Resource_ContainerDetail_081" i18n:Localization.Uid="Resource_ContainerDetail_081"
                                     FontSize="16"
                                     FontWeight="SemiBold"
                                     Foreground="#0078D4"
                                     HorizontalAlignment="Center" />
-                                <TextBlock x:Uid="Resource_ContainerDetail_082"
+                                <TextBlock x:Uid="Resource_ContainerDetail_082" i18n:Localization.Uid="Resource_ContainerDetail_082"
                                     FontSize="12"
                                     Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                     HorizontalAlignment="Center" />
@@ -1260,7 +1261,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <Button x:Uid="Resource_ContainerDetail_083"
+                    <Button x:Uid="Resource_ContainerDetail_083" i18n:Localization.Uid="Resource_ContainerDetail_083"
                         Grid.Column="0"
                         Height="32"
                         Padding="10,0"
@@ -1268,13 +1269,13 @@
                         Click="ChangesRefresh_Click">
                         <StackPanel Orientation="Horizontal" Spacing="6">
                             <FontIcon FontSize="13" Glyph="&#xE72C;" />
-                            <TextBlock x:Uid="Resource_ContainerDetail_084"
+                            <TextBlock x:Uid="Resource_ContainerDetail_084" i18n:Localization.Uid="Resource_ContainerDetail_084"
                                 FontSize="12"
 
                                 VerticalAlignment="Center" />
                         </StackPanel>
                     </Button>
-                    <TextBlock x:Uid="Resource_ContainerDetail_085"
+                    <TextBlock x:Uid="Resource_ContainerDetail_085" i18n:Localization.Uid="Resource_ContainerDetail_085"
                         Grid.Column="1"
                         FontSize="12"
                         Foreground="{ThemeResource TextFillColorSecondaryBrush}"

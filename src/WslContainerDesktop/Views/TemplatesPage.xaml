@@ -3,6 +3,7 @@
     x:Class="WslContainerDesktop.Views.TemplatesPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:i18n="using:WslContainerDesktop.Helpers"
     xmlns:converters="using:WslContainerDesktop.Helpers"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -28,8 +29,8 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0" Spacing="2">
-                    <TextBlock x:Uid="Workload_TemplatesPage_001" Style="{ThemeResource TitleTextBlockStyle}"  />
-                    <TextBlock x:Uid="Workload_TemplatesPage_002"
+                    <TextBlock x:Uid="Workload_TemplatesPage_001" i18n:Localization.Uid="Workload_TemplatesPage_001" Style="{ThemeResource TitleTextBlockStyle}"  />
+                    <TextBlock x:Uid="Workload_TemplatesPage_002" i18n:Localization.Uid="Workload_TemplatesPage_002"
                         Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                         Style="{ThemeResource CaptionTextBlockStyle}"
                          />
@@ -39,32 +40,32 @@
                     VerticalAlignment="Top"
                     Orientation="Horizontal"
                     Spacing="8">
-                    <Button x:Uid="Workload_TemplatesPage_003"
+                    <Button x:Uid="Workload_TemplatesPage_003" i18n:Localization.Uid="Workload_TemplatesPage_003"
                         Click="NewTemplateButton_Click"
                         Style="{StaticResource AccentButtonStyle}"
                         >
                         <StackPanel Orientation="Horizontal" Spacing="6">
                             <FontIcon FontSize="14" Glyph="&#xE710;" />
-                            <TextBlock x:Uid="Workload_TemplatesPage_004"  />
+                            <TextBlock x:Uid="Workload_TemplatesPage_004" i18n:Localization.Uid="Workload_TemplatesPage_004"  />
                         </StackPanel>
                     </Button>
-                    <Button x:Uid="Workload_TemplatesPage_005"
+                    <Button x:Uid="Workload_TemplatesPage_005" i18n:Localization.Uid="Workload_TemplatesPage_005"
                         Click="ImportButton_Click"
                         >
                         <StackPanel Orientation="Horizontal" Spacing="6">
                             <FontIcon FontSize="14" Glyph="&#xE896;" />
-                            <TextBlock x:Uid="Workload_TemplatesPage_006"  />
+                            <TextBlock x:Uid="Workload_TemplatesPage_006" i18n:Localization.Uid="Workload_TemplatesPage_006"  />
                         </StackPanel>
                     </Button>
-                    <Button x:Uid="Workload_TemplatesPage_007"
+                    <Button x:Uid="Workload_TemplatesPage_007" i18n:Localization.Uid="Workload_TemplatesPage_007"
                         Click="ExportAllButton_Click"
                         >
                         <StackPanel Orientation="Horizontal" Spacing="6">
                             <FontIcon FontSize="14" Glyph="&#xE898;" />
-                            <TextBlock x:Uid="Workload_TemplatesPage_008"  />
+                            <TextBlock x:Uid="Workload_TemplatesPage_008" i18n:Localization.Uid="Workload_TemplatesPage_008"  />
                         </StackPanel>
                     </Button>
-                    <ToggleSwitch x:Uid="Workload_TemplatesPage_009"
+                    <ToggleSwitch x:Uid="Workload_TemplatesPage_009" i18n:Localization.Uid="Workload_TemplatesPage_009"
                         MinWidth="0"
                         VerticalAlignment="Center"
                         IsOn="{x:Bind ViewModel.ShowHidden, Mode=TwoWay}"
@@ -209,7 +210,7 @@
                                                 FontSize="10"
                                                 Foreground="{ThemeResource SystemFillColorSuccessBrush}"
                                                 Glyph="&#xE73E;" />
-                                            <TextBlock x:Uid="Workload_TemplatesPage_010"
+                                            <TextBlock x:Uid="Workload_TemplatesPage_010" i18n:Localization.Uid="Workload_TemplatesPage_010"
                                                 FontSize="11"
                                                 Foreground="{ThemeResource SystemFillColorSuccessBrush}"
                                                  />
@@ -238,7 +239,7 @@
                                                 Spacing="6"
                                                 Visibility="{x:Bind IsLaunching, Mode=OneWay, Converter={StaticResource BoolToVis}, ConverterParameter=invert}">
                                                 <FontIcon FontSize="13" Glyph="&#xE768;" />
-                                                <TextBlock x:Uid="Workload_TemplatesPage_011"  />
+                                                <TextBlock x:Uid="Workload_TemplatesPage_011" i18n:Localization.Uid="Workload_TemplatesPage_011"  />
                                             </StackPanel>
                                             <StackPanel
                                                 Orientation="Horizontal"
@@ -250,20 +251,20 @@
                                                     VerticalAlignment="Center"
                                                     Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"
                                                     IsActive="{x:Bind IsLaunching, Mode=OneWay}" />
-                                                <TextBlock x:Uid="Workload_TemplatesPage_012"  />
+                                                <TextBlock x:Uid="Workload_TemplatesPage_012" i18n:Localization.Uid="Workload_TemplatesPage_012"  />
                                             </StackPanel>
                                         </Grid>
                                     </Button>
 
                                     <!--  Secondary actions: text-labelled so nothing is ambiguous  -->
-                                    <Button x:Uid="Workload_TemplatesPage_013"
+                                    <Button x:Uid="Workload_TemplatesPage_013" i18n:Localization.Uid="Workload_TemplatesPage_013"
                                         Padding="8"
 
                                         >
                                         <FontIcon FontSize="14" Glyph="&#xE712;" />
                                         <Button.Flyout>
                                             <MenuFlyout>
-                                                <MenuFlyoutItem x:Uid="Workload_TemplatesPage_014"
+                                                <MenuFlyoutItem x:Uid="Workload_TemplatesPage_014" i18n:Localization.Uid="Workload_TemplatesPage_014"
                                                     Click="ConfigureMenuItem_Click"
                                                     IsEnabled="{x:Bind IsBusyCard, Mode=OneWay, Converter={StaticResource InverseBool}}"
                                                     Tag="{x:Bind}"
@@ -272,7 +273,7 @@
                                                         <FontIcon Glyph="&#xE713;" />
                                                     </MenuFlyoutItem.Icon>
                                                 </MenuFlyoutItem>
-                                                <MenuFlyoutItem x:Uid="Workload_TemplatesPage_015"
+                                                <MenuFlyoutItem x:Uid="Workload_TemplatesPage_015" i18n:Localization.Uid="Workload_TemplatesPage_015"
                                                     Click="DuplicateMenuItem_Click"
                                                     Tag="{x:Bind}"
                                                     >
@@ -280,7 +281,7 @@
                                                         <FontIcon Glyph="&#xE8C8;" />
                                                     </MenuFlyoutItem.Icon>
                                                 </MenuFlyoutItem>
-                                                <MenuFlyoutItem x:Uid="Workload_TemplatesPage_016"
+                                                <MenuFlyoutItem x:Uid="Workload_TemplatesPage_016" i18n:Localization.Uid="Workload_TemplatesPage_016"
                                                     Click="EditMenuItem_Click"
                                                     Tag="{x:Bind}"
                                                     Visibility="{x:Bind IsUserManaged, Converter={StaticResource BoolToVis}}">
@@ -288,7 +289,7 @@
                                                         <FontIcon Glyph="&#xE70F;" />
                                                     </MenuFlyoutItem.Icon>
                                                 </MenuFlyoutItem>
-                                                <MenuFlyoutItem x:Uid="Workload_TemplatesPage_017"
+                                                <MenuFlyoutItem x:Uid="Workload_TemplatesPage_017" i18n:Localization.Uid="Workload_TemplatesPage_017"
                                                     Click="ExportMenuItem_Click"
                                                     Tag="{x:Bind}"
                                                     >
@@ -296,7 +297,7 @@
                                                         <FontIcon Glyph="&#xE898;" />
                                                     </MenuFlyoutItem.Icon>
                                                 </MenuFlyoutItem>
-                                                <MenuFlyoutItem x:Uid="Workload_TemplatesPage_018"
+                                                <MenuFlyoutItem x:Uid="Workload_TemplatesPage_018" i18n:Localization.Uid="Workload_TemplatesPage_018"
                                                     Click="RemoveDeploymentMenuItem_Click"
                                                     IsEnabled="{x:Bind IsBusyCard, Mode=OneWay, Converter={StaticResource InverseBool}}"
                                                     Tag="{x:Bind}"
@@ -306,7 +307,7 @@
                                                     </MenuFlyoutItem.Icon>
                                                 </MenuFlyoutItem>
                                                 <MenuFlyoutSeparator />
-                                                <MenuFlyoutItem x:Uid="Workload_TemplatesPage_019"
+                                                <MenuFlyoutItem x:Uid="Workload_TemplatesPage_019" i18n:Localization.Uid="Workload_TemplatesPage_019"
                                                     Click="HideMenuItem_Click"
                                                     Tag="{x:Bind}"
                                                     Visibility="{x:Bind IsHidden, Mode=OneWay, Converter={StaticResource BoolToVis}, ConverterParameter=invert}">
@@ -314,7 +315,7 @@
                                                         <FontIcon Glyph="&#xED1A;" />
                                                     </MenuFlyoutItem.Icon>
                                                 </MenuFlyoutItem>
-                                                <MenuFlyoutItem x:Uid="Workload_TemplatesPage_020"
+                                                <MenuFlyoutItem x:Uid="Workload_TemplatesPage_020" i18n:Localization.Uid="Workload_TemplatesPage_020"
                                                     Click="HideMenuItem_Click"
                                                     Tag="{x:Bind}"
                                                     Visibility="{x:Bind IsHidden, Mode=OneWay, Converter={StaticResource BoolToVis}}">
@@ -322,7 +323,7 @@
                                                         <FontIcon Glyph="&#xE7B3;" />
                                                     </MenuFlyoutItem.Icon>
                                                 </MenuFlyoutItem>
-                                                <MenuFlyoutItem x:Uid="Workload_TemplatesPage_021"
+                                                <MenuFlyoutItem x:Uid="Workload_TemplatesPage_021" i18n:Localization.Uid="Workload_TemplatesPage_021"
                                                     Click="DeleteTemplateMenuItem_Click"
                                                     Tag="{x:Bind}"
                                                     Visibility="{x:Bind IsUserManaged, Converter={StaticResource BoolToVis}}">
