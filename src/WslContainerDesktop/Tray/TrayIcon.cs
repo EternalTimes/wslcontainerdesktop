@@ -95,6 +95,7 @@ public sealed class TrayIcon : IDisposable
     {
         _wndProcDelegate = WndProc;
         _taskbarCreatedMessage = NativeMethods.RegisterWindowMessageW("TaskbarCreated");
+        UiText.LanguageChanged += OnLanguageChanged;
     }
 
     /// <summary>Creates the hidden Win32 window and adds the notification-area icon.</summary>
@@ -182,12 +183,20 @@ public sealed class TrayIcon : IDisposable
             uID = TrayIconId,
             uFlags = NativeMethods.NIF_INFO,
             szTip = _tooltip,
-            szInfo = Truncate(message, 255),
-            szInfoTitle = Truncate(title, 63),
+            szInfo = Truncate(UiText.TranslateLines(message), 255),
+            szInfoTitle = Truncate(UiText.Translate(title), 63),
             dwInfoFlags = NativeMethods.NIIF_WARNING,
         };
 
         NativeMethods.Shell_NotifyIconW(NativeMethods.NIM_MODIFY, ref data);
+    }
+
+    private void OnLanguageChanged(object? sender, EventArgs e)
+    {
+        if (_disposed) return;
+        _tooltip = UiText.TranslateLines(_tooltip);
+        _statusText = UiText.Translate(_statusText);
+        if (_iconAdded) AddOrUpdateIcon(NativeMethods.NIM_MODIFY);
     }
 
     private void AddOrUpdateIcon(int message)
@@ -416,5 +425,6 @@ public sealed class TrayIcon : IDisposable
 
         _iconFactory.Dispose();
         _disposed = true;
+        UiText.LanguageChanged -= OnLanguageChanged;
     }
 }
