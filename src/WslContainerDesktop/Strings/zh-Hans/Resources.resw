@@ -1,51 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?>
-<root>
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
+<?xml version='1.0' encoding='utf-8'?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:schema id="root">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xs:element name="root" ns1:IsDataSet="true">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="metadata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" />
+              </xs:sequence>
+              <xs:attribute name="name" use="required" type="xsd:string" />
+              <xs:attribute name="type" type="xsd:string" />
+              <xs:attribute name="mimetype" type="xsd:string" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="assembly">
+            <xs:complexType>
+              <xs:attribute name="alias" type="xsd:string" />
+              <xs:attribute name="name" type="xsd:string" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="data">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
+              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
+              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="resheader">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>
@@ -58,12 +58,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <!--
-    Source-language string resources (English). Keys are stable identifiers: never rename one once it
-    has been translated, or translators must redo the string. Only <value> is translated.
-    Keys ending in a property name (".Text", ".Header", ".Content") bind to that XAML property via
-    x:Uid; keys with no suffix are read from code through ITextLocalizer.Get.
-  -->  <data name="Settings_Title.Text" xml:space="preserve">
+  <data name="Settings_Title.Text" xml:space="preserve">
     <value>设置</value>
   </data>
   <data name="Settings_Language_Header.Text" xml:space="preserve">
@@ -447,48 +442,2879 @@
   <data name="Settings_About_Report.Content" xml:space="preserve">
     <value>反馈问题</value>
   </data>
-  <data name="Root_AssistantButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>容器 AI 助手</value></data>
-  <data name="Root_EngineUnreachable" xml:space="preserve"><value>WSL Container Desktop — 无法连接引擎</value></data>
-  <data name="Root_ContainerUnhealthy" xml:space="preserve"><value> · 有容器健康检查异常</value></data>
-  <data name="Root_ContainerDown" xml:space="preserve"><value> · 有容器已停止</value></data>
-  <data name="Root_StatusUnknown" xml:space="preserve"><value>状态：未知</value></data>
-  <data name="Root_Update_001" xml:space="preserve"><value>立即更新</value></data>
-  <data name="Root_Update_002" xml:space="preserve"><value>仅安装后的应用支持更新。</value></data>
-  <data name="Root_Update_003" xml:space="preserve"><value>尚未检查。</value></data>
-  <data name="Root_Update_004" xml:space="preserve"><value>更新已安装</value></data>
-  <data name="Root_Update_005" xml:space="preserve"><value>WSL Container Desktop 已更新至 {0}。</value></data>
-  <data name="Root_Update_006" xml:space="preserve"><value>已更新至 {0}。</value></data>
-  <data name="Root_Update_007" xml:space="preserve"><value>更新未完成</value></data>
-  <data name="Root_Update_008" xml:space="preserve"><value>未安装 {0}，当前仍为 {1}。可以在设置中重试。</value></data>
-  <data name="Root_Update_009" xml:space="preserve"><value>更新至 {0} 的操作未完成。</value></data>
-  <data name="Root_Update_010" xml:space="preserve"><value>正在下载 {0}</value></data>
-  <data name="Root_Update_011" xml:space="preserve"><value>正在开始下载…</value></data>
-  <data name="Root_Update_012" xml:space="preserve"><value>重新启动 WSL Container Desktop 以使用 {0}。</value></data>
-  <data name="Root_Update_013" xml:space="preserve"><value>已安装 {0}，重新启动应用后生效。</value></data>
-  <data name="Root_Update_014" xml:space="preserve"><value>更新失败</value></data>
-  <data name="Root_Update_015" xml:space="preserve"><value>重试</value></data>
-  <data name="Root_Update_016" xml:space="preserve"><value>更新至 {0} 失败。</value></data>
-  <data name="Root_Update_017" xml:space="preserve"><value>发生意外错误，详情见应用日志。</value></data>
-  <data name="Root_Update_018" xml:space="preserve"><value>正在检查更新…</value></data>
-  <data name="Root_Update_019" xml:space="preserve"><value>已是最新版本（{0}）。</value></data>
-  <data name="Root_Update_020" xml:space="preserve"><value>发现新版本 {0}。</value></data>
-  <data name="Root_Update_021" xml:space="preserve"><value>发现新版本 {0}</value></data>
-  <data name="Root_Update_022" xml:space="preserve"><value>当前为 {0}。更新会下载新版本、关闭应用、完成安装后重新打开。运行中的容器会继续运行。</value></data>
-  <data name="Root_Update_023" xml:space="preserve"><value>当前为 {0}。此副本不是已安装的签名发布版，无法自动更新，请从 GitHub 获取发布版。</value></data>
-  <data name="Root_Update_024" xml:space="preserve"><value>已下载 {0}%。</value></data>
-  <data name="Root_Update_025" xml:space="preserve"><value>正在准备安装</value></data>
-  <data name="Root_Update_026" xml:space="preserve"><value>下载已完成，更新将在一分钟内开始安装。</value></data>
-  <data name="Root_Update_027" xml:space="preserve"><value>正在检查下载内容</value></data>
-  <data name="Root_Update_028" xml:space="preserve"><value>正在确认安装包是同一发布者提供的新版 WSL Container Desktop。</value></data>
-  <data name="Root_Update_029" xml:space="preserve"><value>正在安装更新</value></data>
-  <data name="Root_Update_030" xml:space="preserve"><value>WSL Container Desktop 将关闭、安装更新，随后重新打开。</value></data>
-  <data name="Root_Update_031" xml:space="preserve"><value>GitHub 暂时限制了此网络的请求，请稍后重试。</value></data>
-  <data name="Root_Update_032" xml:space="preserve"><value>检查更新时 GitHub 返回 {0} {1}。</value></data>
-  <data name="Root_Update_033" xml:space="preserve"><value>GitHub 未及时响应更新检查。</value></data>
-  <data name="Root_Update_034" xml:space="preserve"><value>无法连接 GitHub 检查更新。</value></data>
-  <data name="Root_Update_035" xml:space="preserve"><value>GitHub 的更新检查响应无法读取。</value></data>
-  <data name="Root_Update_036" xml:space="preserve"><value>仅安装后的应用支持更新。</value></data>
-  <data name="Root_Update_037" xml:space="preserve"><value>此副本不是已安装的签名发布版，无法自动更新。请从 GitHub 安装发布版。</value></data>
-  <data name="Root_Update_038" xml:space="preserve"><value>更新下载超时，已停止。</value></data>
-  <data name="Root_Update_039" xml:space="preserve"><value>下载的文件不是可读取的应用安装包。</value></data>
+  <data name="Root_AssistantButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>容器 AI 助手</value>
+  </data>
+  <data name="Root_EngineUnreachable" xml:space="preserve">
+    <value>WSL Container Desktop — 无法连接引擎</value>
+  </data>
+  <data name="Root_ContainerUnhealthy" xml:space="preserve">
+    <value> · 有容器健康检查异常</value>
+  </data>
+  <data name="Root_ContainerDown" xml:space="preserve">
+    <value> · 有容器已停止</value>
+  </data>
+  <data name="Root_StatusUnknown" xml:space="preserve">
+    <value>状态：未知</value>
+  </data>
+  <data name="Root_Update_001" xml:space="preserve">
+    <value>立即更新</value>
+  </data>
+  <data name="Root_Update_002" xml:space="preserve">
+    <value>仅安装后的应用支持更新。</value>
+  </data>
+  <data name="Root_Update_003" xml:space="preserve">
+    <value>尚未检查。</value>
+  </data>
+  <data name="Root_Update_004" xml:space="preserve">
+    <value>更新已安装</value>
+  </data>
+  <data name="Root_Update_005" xml:space="preserve">
+    <value>WSL Container Desktop 已更新至 {0}。</value>
+  </data>
+  <data name="Root_Update_006" xml:space="preserve">
+    <value>已更新至 {0}。</value>
+  </data>
+  <data name="Root_Update_007" xml:space="preserve">
+    <value>更新未完成</value>
+  </data>
+  <data name="Root_Update_008" xml:space="preserve">
+    <value>未安装 {0}，当前仍为 {1}。可以在设置中重试。</value>
+  </data>
+  <data name="Root_Update_009" xml:space="preserve">
+    <value>更新至 {0} 的操作未完成。</value>
+  </data>
+  <data name="Root_Update_010" xml:space="preserve">
+    <value>正在下载 {0}</value>
+  </data>
+  <data name="Root_Update_011" xml:space="preserve">
+    <value>正在开始下载…</value>
+  </data>
+  <data name="Root_Update_012" xml:space="preserve">
+    <value>重新启动 WSL Container Desktop 以使用 {0}。</value>
+  </data>
+  <data name="Root_Update_013" xml:space="preserve">
+    <value>已安装 {0}，重新启动应用后生效。</value>
+  </data>
+  <data name="Root_Update_014" xml:space="preserve">
+    <value>更新失败</value>
+  </data>
+  <data name="Root_Update_015" xml:space="preserve">
+    <value>重试</value>
+  </data>
+  <data name="Root_Update_016" xml:space="preserve">
+    <value>更新至 {0} 失败。</value>
+  </data>
+  <data name="Root_Update_017" xml:space="preserve">
+    <value>发生意外错误，详情见应用日志。</value>
+  </data>
+  <data name="Root_Update_018" xml:space="preserve">
+    <value>正在检查更新…</value>
+  </data>
+  <data name="Root_Update_019" xml:space="preserve">
+    <value>已是最新版本（{0}）。</value>
+  </data>
+  <data name="Root_Update_020" xml:space="preserve">
+    <value>发现新版本 {0}。</value>
+  </data>
+  <data name="Root_Update_021" xml:space="preserve">
+    <value>发现新版本 {0}</value>
+  </data>
+  <data name="Root_Update_022" xml:space="preserve">
+    <value>当前为 {0}。更新会下载新版本、关闭应用、完成安装后重新打开。运行中的容器会继续运行。</value>
+  </data>
+  <data name="Root_Update_023" xml:space="preserve">
+    <value>当前为 {0}。此副本不是已安装的签名发布版，无法自动更新，请从 GitHub 获取发布版。</value>
+  </data>
+  <data name="Root_Update_024" xml:space="preserve">
+    <value>已下载 {0}%。</value>
+  </data>
+  <data name="Root_Update_025" xml:space="preserve">
+    <value>正在准备安装</value>
+  </data>
+  <data name="Root_Update_026" xml:space="preserve">
+    <value>下载已完成，更新将在一分钟内开始安装。</value>
+  </data>
+  <data name="Root_Update_027" xml:space="preserve">
+    <value>正在检查下载内容</value>
+  </data>
+  <data name="Root_Update_028" xml:space="preserve">
+    <value>正在确认安装包是同一发布者提供的新版 WSL Container Desktop。</value>
+  </data>
+  <data name="Root_Update_029" xml:space="preserve">
+    <value>正在安装更新</value>
+  </data>
+  <data name="Root_Update_030" xml:space="preserve">
+    <value>WSL Container Desktop 将关闭、安装更新，随后重新打开。</value>
+  </data>
+  <data name="Root_Update_031" xml:space="preserve">
+    <value>GitHub 暂时限制了此网络的请求，请稍后重试。</value>
+  </data>
+  <data name="Root_Update_032" xml:space="preserve">
+    <value>检查更新时 GitHub 返回 {0} {1}。</value>
+  </data>
+  <data name="Root_Update_033" xml:space="preserve">
+    <value>GitHub 未及时响应更新检查。</value>
+  </data>
+  <data name="Root_Update_034" xml:space="preserve">
+    <value>无法连接 GitHub 检查更新。</value>
+  </data>
+  <data name="Root_Update_035" xml:space="preserve">
+    <value>GitHub 的更新检查响应无法读取。</value>
+  </data>
+  <data name="Root_Update_036" xml:space="preserve">
+    <value>仅安装后的应用支持更新。</value>
+  </data>
+  <data name="Root_Update_037" xml:space="preserve">
+    <value>此副本不是已安装的签名发布版，无法自动更新。请从 GitHub 安装发布版。</value>
+  </data>
+  <data name="Root_Update_038" xml:space="preserve">
+    <value>更新下载超时，已停止。</value>
+  </data>
+  <data name="Root_Update_039" xml:space="preserve">
+    <value>下载的文件不是可读取的应用安装包。</value>
+  </data>
+  <data name="Workload_ComposePage_001.Text" xml:space="preserve">
+    <value>Compose</value>
+  </data>
+  <data name="Workload_ComposePage_002.Text" xml:space="preserve">
+    <value>导入 Compose 文件</value>
+  </data>
+  <data name="Workload_ComposePage_003.Text" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="Workload_ComposePage_004.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>重启 WSL 会话</value>
+  </data>
+  <data name="Workload_ComposePage_005.Text" xml:space="preserve">
+    <value>重启 WSL 会话</value>
+  </data>
+  <data name="Workload_ComposePage_006.Text" xml:space="preserve">
+    <value>项目</value>
+  </data>
+  <data name="Workload_ComposePage_007.Text" xml:space="preserve">
+    <value>服务</value>
+  </data>
+  <data name="Workload_ComposePage_008.Text" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="Workload_ComposePage_009.Text" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Workload_ComposePage_010.Content" xml:space="preserve">
+    <value>管理服务</value>
+  </data>
+  <data name="Workload_ComposePage_011.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>启动</value>
+  </data>
+  <data name="Workload_ComposePage_011.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>启动（应用）：应用配置，保留未更改且运行中的容器</value>
+  </data>
+  <data name="Workload_ComposePage_012.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>重启</value>
+  </data>
+  <data name="Workload_ComposePage_012.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>停止并启动现有容器，不应用配置或重新构建</value>
+  </data>
+  <data name="Workload_ComposePage_013.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>停止并删除容器</value>
+  </data>
+  <data name="Workload_ComposePage_013.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>停止并删除容器</value>
+  </data>
+  <data name="Workload_ComposePage_014.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>移除项目</value>
+  </data>
+  <data name="Workload_ComposePage_014.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>移除项目</value>
+  </data>
+  <data name="Workload_ComposePage_015.Text" xml:space="preserve">
+    <value>服务</value>
+  </data>
+  <data name="Workload_ComposePage_016.Text" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="Workload_ComposePage_017.Content" xml:space="preserve">
+    <value>管理服务</value>
+  </data>
+  <data name="Workload_ComposePage_018.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>启动</value>
+  </data>
+  <data name="Workload_ComposePage_018.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>启动（应用）：应用配置，保留未更改且运行中的容器</value>
+  </data>
+  <data name="Workload_ComposePage_019.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>重启</value>
+  </data>
+  <data name="Workload_ComposePage_019.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>停止并启动现有容器，不应用配置或重新构建</value>
+  </data>
+  <data name="Workload_ComposePage_020.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>停止并删除容器</value>
+  </data>
+  <data name="Workload_ComposePage_020.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>停止并删除容器</value>
+  </data>
+  <data name="Workload_ComposePage_021.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>移除项目</value>
+  </data>
+  <data name="Workload_ComposePage_021.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>移除项目</value>
+  </data>
+  <data name="Workload_ComposePage_022.Text" xml:space="preserve">
+    <value>没有 Compose 项目。导入 docker-compose.yml 以开始使用。</value>
+  </data>
+  <data name="Workload_ComposePreviewDialog_001.CloseButtonText" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Workload_ComposePreviewDialog_002.Text" xml:space="preserve">
+    <value>将执行的操作</value>
+  </data>
+  <data name="Workload_ComposePreviewDialog_003.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>解析后的 Compose 设置及兼容性</value>
+  </data>
+  <data name="Workload_DevContainersPage_001.Text" xml:space="preserve">
+    <value>开发容器</value>
+  </data>
+  <data name="Workload_DevContainersPage_002.Text" xml:space="preserve">
+    <value>打开工作区文件夹</value>
+  </data>
+  <data name="Workload_DevContainersPage_003.Text" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="Workload_DevContainersPage_004.Header" xml:space="preserve">
+    <value>生命周期日志</value>
+  </data>
+  <data name="Workload_DevContainersPage_005.Content" xml:space="preserve">
+    <value>启动</value>
+  </data>
+  <data name="Workload_DevContainersPage_006.Content" xml:space="preserve">
+    <value>重新构建</value>
+  </data>
+  <data name="Workload_DevContainersPage_007.Content" xml:space="preserve">
+    <value>重新构建（不使用缓存）</value>
+  </data>
+  <data name="Workload_DevContainersPage_008.Content" xml:space="preserve">
+    <value>打开终端</value>
+  </data>
+  <data name="Workload_DevContainersPage_009.Content" xml:space="preserve">
+    <value>停止</value>
+  </data>
+  <data name="Workload_DevContainersPage_010.Content" xml:space="preserve">
+    <value>移除</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_001.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>查看节点</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_001.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>查看节点</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_002.Text" xml:space="preserve">
+    <value>节点</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_003.Text" xml:space="preserve">
+    <value>就绪</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_004.Text" xml:space="preserve">
+    <value>总数</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_005.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>查看部署</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_005.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>查看部署</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_006.Text" xml:space="preserve">
+    <value>部署</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_007.Text" xml:space="preserve">
+    <value>健康</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_008.Text" xml:space="preserve">
+    <value>总数</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_009.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>查看 Pod</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_009.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>查看 Pod</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_010.Text" xml:space="preserve">
+    <value>Pod</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_011.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>查看服务</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_011.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>查看服务</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_012.Text" xml:space="preserve">
+    <value>服务</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_013.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>查看入口</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_013.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>查看入口</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_014.Text" xml:space="preserve">
+    <value>入口</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_015.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>查看持久卷声明</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_015.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>查看持久卷声明</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_016.Text" xml:space="preserve">
+    <value>持久卷声明</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_017.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>查看配置映射</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_017.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>查看配置映射</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_018.Text" xml:space="preserve">
+    <value>配置映射</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_019.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>查看机密</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_019.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>查看机密</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_020.Text" xml:space="preserve">
+    <value>机密</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_021.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>查看任务</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_021.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>查看任务</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_022.Text" xml:space="preserve">
+    <value>任务</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_023.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>查看定时任务</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_023.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>查看定时任务</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_024.Text" xml:space="preserve">
+    <value>定时任务</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_025.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>查看端口转发</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_025.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>查看端口转发</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_026.Text" xml:space="preserve">
+    <value>端口转发</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_027.Text" xml:space="preserve">
+    <value>活动</value>
+  </data>
+  <data name="Workload_K8sDetailPage_001.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>返回 Kubernetes</value>
+  </data>
+  <data name="Workload_K8sDetailPage_001.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>返回 Kubernetes</value>
+  </data>
+  <data name="Workload_K8sDetailPage_002.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>缩放</value>
+  </data>
+  <data name="Workload_K8sDetailPage_002.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>缩放</value>
+  </data>
+  <data name="Workload_K8sDetailPage_003.Text" xml:space="preserve">
+    <value>缩放</value>
+  </data>
+  <data name="Workload_K8sDetailPage_004.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>滚动重启</value>
+  </data>
+  <data name="Workload_K8sDetailPage_004.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>滚动重启</value>
+  </data>
+  <data name="Workload_K8sDetailPage_005.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>立即运行</value>
+  </data>
+  <data name="Workload_K8sDetailPage_005.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>立即运行</value>
+  </data>
+  <data name="Workload_K8sDetailPage_006.Text" xml:space="preserve">
+    <value>立即运行</value>
+  </data>
+  <data name="Workload_K8sDetailPage_007.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>暂停或恢复</value>
+  </data>
+  <data name="Workload_K8sDetailPage_007.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>暂停 / 恢复</value>
+  </data>
+  <data name="Workload_K8sDetailPage_008.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="Workload_K8sDetailPage_008.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="Workload_K8sDetailPage_009.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Workload_K8sDetailPage_009.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Workload_K8sDetailPage_010.Text" xml:space="preserve">
+    <value>摘要</value>
+  </data>
+  <data name="Workload_K8sDetailPage_011.Text" xml:space="preserve">
+    <value>清单</value>
+  </data>
+  <data name="Workload_K8sDetailPage_012.Text" xml:space="preserve">
+    <value>详细状态</value>
+  </data>
+  <data name="Workload_K8sDetailPage_013.Text" xml:space="preserve">
+    <value>日志</value>
+  </data>
+  <data name="Workload_K8sDetailPage_014.Text" xml:space="preserve">
+    <value>资源类型</value>
+  </data>
+  <data name="Workload_K8sDetailPage_015.Text" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Workload_K8sDetailPage_016.Text" xml:space="preserve">
+    <value>作用域</value>
+  </data>
+  <data name="Workload_K8sDetailPage_017.Text" xml:space="preserve">
+    <value>使用“清单”选项卡查看和编辑完整清单，使用“详细状态”查看具体状态。</value>
+  </data>
+  <data name="Workload_K8sDetailPage_018.Text" xml:space="preserve">
+    <value>将更改应用到集群</value>
+  </data>
+  <data name="Workload_K8sDetailPage_019.Text" xml:space="preserve">
+    <value>重新加载</value>
+  </data>
+  <data name="Workload_K8sDetailPage_020.Text" xml:space="preserve">
+    <value>刷新日志</value>
+  </data>
+  <data name="Workload_KubernetesPage_001.Text" xml:space="preserve">
+    <value>Kubernetes</value>
+  </data>
+  <data name="Workload_KubernetesPage_002.Text" xml:space="preserve">
+    <value>k3s 单节点集群</value>
+  </data>
+  <data name="Workload_KubernetesPage_003.Text" xml:space="preserve">
+    <value>运行中</value>
+  </data>
+  <data name="Workload_KubernetesPage_004.Text" xml:space="preserve">
+    <value>正在启动</value>
+  </data>
+  <data name="Workload_KubernetesPage_005.Text" xml:space="preserve">
+    <value>已停止</value>
+  </data>
+  <data name="Workload_KubernetesPage_006.Text" xml:space="preserve">
+    <value>未安装</value>
+  </data>
+  <data name="Workload_KubernetesPage_007.Text" xml:space="preserve">
+    <value>不可用</value>
+  </data>
+  <data name="Workload_KubernetesPage_008.Text" xml:space="preserve">
+    <value>节点：</value>
+  </data>
+  <data name="Workload_KubernetesPage_009.Text" xml:space="preserve">
+    <value>版本：</value>
+  </data>
+  <data name="Workload_KubernetesPage_010.Text" xml:space="preserve">
+    <value>发行版：</value>
+  </data>
+  <data name="Workload_KubernetesPage_011.Text" xml:space="preserve">
+    <value>安装 Kubernetes</value>
+  </data>
+  <data name="Workload_KubernetesPage_012.Text" xml:space="preserve">
+    <value>启动</value>
+  </data>
+  <data name="Workload_KubernetesPage_013.Text" xml:space="preserve">
+    <value>停止</value>
+  </data>
+  <data name="Workload_KubernetesPage_014.Text" xml:space="preserve">
+    <value>升级</value>
+  </data>
+  <data name="Workload_KubernetesPage_015.Text" xml:space="preserve">
+    <value>卸载</value>
+  </data>
+  <data name="Workload_KubernetesPage_016.Text" xml:space="preserve">
+    <value>尚无 Kubernetes 集群</value>
+  </data>
+  <data name="Workload_KubernetesPage_017.Text" xml:space="preserve">
+    <value>安装在 WSL 发行版中运行的轻量级单节点 Kubernetes 集群（k3s）。它使用独立的容器运行时，以服务形式安装，随时可以完整卸载。</value>
+  </data>
+  <data name="Workload_KubernetesPage_018.Text" xml:space="preserve">
+    <value>安装 Kubernetes（k3s）</value>
+  </data>
+  <data name="Workload_KubernetesPage_019.Content" xml:space="preserve">
+    <value>如何安装发行版</value>
+  </data>
+  <data name="Workload_KubernetesPage_020.Content" xml:space="preserve">
+    <value>使用默认发行版</value>
+  </data>
+  <data name="Workload_KubernetesPage_020.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>停用为 Kubernetes 配置的发行版，改用 WSL 默认发行版。</value>
+  </data>
+  <data name="Workload_KubernetesPage_021.Text" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="Workload_KubernetesPage_022.Content" xml:space="preserve">
+    <value>隐藏日志</value>
+  </data>
+  <data name="Workload_KubernetesPage_023.Text" xml:space="preserve">
+    <value>集群已停止。点击“启动”以启动集群。</value>
+  </data>
+  <data name="Workload_KubernetesPage_024.Text" xml:space="preserve">
+    <value>k3s 正在启动，通常需要几秒钟。</value>
+  </data>
+  <data name="Workload_KubernetesPage_025.Text" xml:space="preserve">
+    <value>命名空间：</value>
+  </data>
+  <data name="Workload_KubernetesPage_026.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>部署 Kubernetes YAML 清单</value>
+  </data>
+  <data name="Workload_KubernetesPage_026.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>部署 Kubernetes YAML 清单</value>
+  </data>
+  <data name="Workload_KubernetesPage_027.Text" xml:space="preserve">
+    <value>应用 YAML</value>
+  </data>
+  <data name="Workload_KubernetesPage_028.Text" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Workload_KubernetesPage_029.Text" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="Workload_KubernetesPage_030.Text" xml:space="preserve">
+    <value>角色</value>
+  </data>
+  <data name="Workload_KubernetesPage_031.Text" xml:space="preserve">
+    <value>版本</value>
+  </data>
+  <data name="Workload_KubernetesPage_032.Text" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Workload_KubernetesPage_033.Text" xml:space="preserve">
+    <value>命名空间</value>
+  </data>
+  <data name="Workload_KubernetesPage_034.Text" xml:space="preserve">
+    <value>就绪</value>
+  </data>
+  <data name="Workload_KubernetesPage_035.Text" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Workload_KubernetesPage_036.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>缩放</value>
+  </data>
+  <data name="Workload_KubernetesPage_036.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>缩放</value>
+  </data>
+  <data name="Workload_KubernetesPage_037.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>滚动重启</value>
+  </data>
+  <data name="Workload_KubernetesPage_037.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>滚动重启</value>
+  </data>
+  <data name="Workload_KubernetesPage_038.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Workload_KubernetesPage_038.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Workload_KubernetesPage_039.Text" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Workload_KubernetesPage_040.Text" xml:space="preserve">
+    <value>命名空间</value>
+  </data>
+  <data name="Workload_KubernetesPage_041.Text" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="Workload_KubernetesPage_042.Text" xml:space="preserve">
+    <value>就绪</value>
+  </data>
+  <data name="Workload_KubernetesPage_043.Text" xml:space="preserve">
+    <value>重启次数</value>
+  </data>
+  <data name="Workload_KubernetesPage_044.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Workload_KubernetesPage_044.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Workload_KubernetesPage_045.Text" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Workload_KubernetesPage_046.Text" xml:space="preserve">
+    <value>命名空间</value>
+  </data>
+  <data name="Workload_KubernetesPage_047.Text" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="Workload_KubernetesPage_048.Text" xml:space="preserve">
+    <value>集群 IP</value>
+  </data>
+  <data name="Workload_KubernetesPage_049.Text" xml:space="preserve">
+    <value>端口</value>
+  </data>
+  <data name="Workload_KubernetesPage_050.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Workload_KubernetesPage_050.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Workload_KubernetesPage_051.Text" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Workload_KubernetesPage_052.Text" xml:space="preserve">
+    <value>命名空间</value>
+  </data>
+  <data name="Workload_KubernetesPage_053.Text" xml:space="preserve">
+    <value>类别</value>
+  </data>
+  <data name="Workload_KubernetesPage_054.Text" xml:space="preserve">
+    <value>主机</value>
+  </data>
+  <data name="Workload_KubernetesPage_055.Text" xml:space="preserve">
+    <value>没有入口。</value>
+  </data>
+  <data name="Workload_KubernetesPage_056.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Workload_KubernetesPage_056.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Workload_KubernetesPage_057.Text" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Workload_KubernetesPage_058.Text" xml:space="preserve">
+    <value>命名空间</value>
+  </data>
+  <data name="Workload_KubernetesPage_059.Text" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="Workload_KubernetesPage_060.Text" xml:space="preserve">
+    <value>容量</value>
+  </data>
+  <data name="Workload_KubernetesPage_061.Text" xml:space="preserve">
+    <value>存储类</value>
+  </data>
+  <data name="Workload_KubernetesPage_062.Text" xml:space="preserve">
+    <value>没有持久卷声明。</value>
+  </data>
+  <data name="Workload_KubernetesPage_063.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Workload_KubernetesPage_063.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Workload_KubernetesPage_064.Text" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Workload_KubernetesPage_065.Text" xml:space="preserve">
+    <value>命名空间</value>
+  </data>
+  <data name="Workload_KubernetesPage_066.Text" xml:space="preserve">
+    <value>键数</value>
+  </data>
+  <data name="Workload_KubernetesPage_067.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Workload_KubernetesPage_067.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Workload_KubernetesPage_068.Text" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Workload_KubernetesPage_069.Text" xml:space="preserve">
+    <value>命名空间</value>
+  </data>
+  <data name="Workload_KubernetesPage_070.Text" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="Workload_KubernetesPage_071.Text" xml:space="preserve">
+    <value>键数</value>
+  </data>
+  <data name="Workload_KubernetesPage_072.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Workload_KubernetesPage_072.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Workload_KubernetesPage_073.Text" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Workload_KubernetesPage_074.Text" xml:space="preserve">
+    <value>命名空间</value>
+  </data>
+  <data name="Workload_KubernetesPage_075.Text" xml:space="preserve">
+    <value>完成数</value>
+  </data>
+  <data name="Workload_KubernetesPage_076.Text" xml:space="preserve">
+    <value>没有任务。</value>
+  </data>
+  <data name="Workload_KubernetesPage_077.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Workload_KubernetesPage_077.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Workload_KubernetesPage_078.Text" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Workload_KubernetesPage_079.Text" xml:space="preserve">
+    <value>命名空间</value>
+  </data>
+  <data name="Workload_KubernetesPage_080.Text" xml:space="preserve">
+    <value>计划</value>
+  </data>
+  <data name="Workload_KubernetesPage_081.Text" xml:space="preserve">
+    <value>活动</value>
+  </data>
+  <data name="Workload_KubernetesPage_082.Text" xml:space="preserve">
+    <value>没有定时任务。</value>
+  </data>
+  <data name="Workload_KubernetesPage_083.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>立即运行</value>
+  </data>
+  <data name="Workload_KubernetesPage_083.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>立即运行</value>
+  </data>
+  <data name="Workload_KubernetesPage_084.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>暂停 / 恢复</value>
+  </data>
+  <data name="Workload_KubernetesPage_084.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>暂停 / 恢复</value>
+  </data>
+  <data name="Workload_KubernetesPage_085.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Workload_KubernetesPage_085.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Workload_KubernetesPage_086.Text" xml:space="preserve">
+    <value>转发端口</value>
+  </data>
+  <data name="Workload_KubernetesPage_087.Text" xml:space="preserve">
+    <value>没有活动的端口转发。点击“转发端口”可将 Pod 或服务开放到 localhost。</value>
+  </data>
+  <data name="Workload_KubernetesPage_088.Text" xml:space="preserve">
+    <value>localhost：</value>
+  </data>
+  <data name="Workload_KubernetesPage_089.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>在浏览器中打开</value>
+  </data>
+  <data name="Workload_KubernetesPage_089.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>在浏览器中打开</value>
+  </data>
+  <data name="Workload_KubernetesPage_090.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>停止</value>
+  </data>
+  <data name="Workload_KubernetesPage_090.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>停止</value>
+  </data>
+  <data name="Workload_TemplatesPage_001.Text" xml:space="preserve">
+    <value>模板</value>
+  </data>
+  <data name="Workload_TemplatesPage_002.Text" xml:space="preserve">
+    <value>一键启动常用镜像或多服务项目。</value>
+  </data>
+  <data name="Workload_TemplatesPage_003.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>新建模板</value>
+  </data>
+  <data name="Workload_TemplatesPage_003.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>创建自定义模板</value>
+  </data>
+  <data name="Workload_TemplatesPage_004.Text" xml:space="preserve">
+    <value>新建模板</value>
+  </data>
+  <data name="Workload_TemplatesPage_005.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>导入模板</value>
+  </data>
+  <data name="Workload_TemplatesPage_005.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>从文件导入模板</value>
+  </data>
+  <data name="Workload_TemplatesPage_006.Text" xml:space="preserve">
+    <value>导入</value>
+  </data>
+  <data name="Workload_TemplatesPage_007.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>导出所有自定义模板</value>
+  </data>
+  <data name="Workload_TemplatesPage_007.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>将自定义和导入的模板导出到文件</value>
+  </data>
+  <data name="Workload_TemplatesPage_008.Text" xml:space="preserve">
+    <value>全部导出</value>
+  </data>
+  <data name="Workload_TemplatesPage_009.OffContent" xml:space="preserve">
+    <value>显示已隐藏的内容</value>
+  </data>
+  <data name="Workload_TemplatesPage_009.OnContent" xml:space="preserve">
+    <value>显示已隐藏的内容</value>
+  </data>
+  <data name="Workload_TemplatesPage_010.Text" xml:space="preserve">
+    <value>已部署</value>
+  </data>
+  <data name="Workload_TemplatesPage_011.Text" xml:space="preserve">
+    <value>启动</value>
+  </data>
+  <data name="Workload_TemplatesPage_012.Text" xml:space="preserve">
+    <value>正在启动…</value>
+  </data>
+  <data name="Workload_TemplatesPage_013.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>更多操作</value>
+  </data>
+  <data name="Workload_TemplatesPage_013.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>更多操作</value>
+  </data>
+  <data name="Workload_TemplatesPage_014.Text" xml:space="preserve">
+    <value>配置…</value>
+  </data>
+  <data name="Workload_TemplatesPage_015.Text" xml:space="preserve">
+    <value>复制…</value>
+  </data>
+  <data name="Workload_TemplatesPage_016.Text" xml:space="preserve">
+    <value>编辑…</value>
+  </data>
+  <data name="Workload_TemplatesPage_017.Text" xml:space="preserve">
+    <value>导出…</value>
+  </data>
+  <data name="Workload_TemplatesPage_018.Text" xml:space="preserve">
+    <value>移除部署</value>
+  </data>
+  <data name="Workload_TemplatesPage_019.Text" xml:space="preserve">
+    <value>隐藏</value>
+  </data>
+  <data name="Workload_TemplatesPage_020.Text" xml:space="preserve">
+    <value>取消隐藏</value>
+  </data>
+  <data name="Workload_TemplatesPage_021.Text" xml:space="preserve">
+    <value>删除模板</value>
+  </data>
+  <data name="Workload_Text_0_1_See_it_in_the_60c2ff" xml:space="preserve">
+    <value>{0}{1}。可在“容器”页面查看。</value>
+  </data>
+  <data name="Workload_Text_0_1_cancelled_969bd2" xml:space="preserve">
+    <value>已取消{0}“{1}”。</value>
+  </data>
+  <data name="Workload_Text_0_1_needing_attention_0540b9" xml:space="preserve">
+    <value>{0} 项{1}需要注意</value>
+  </data>
+  <data name="Workload_Text_0_1_removed_ae80f8" xml:space="preserve">
+    <value>已移除 {0}{1}。</value>
+  </data>
+  <data name="Workload_Text_0_applied_1_instance_s_started_b61588" xml:space="preserve">
+    <value>已应用“{0}” — 已启动 {1} 个实例</value>
+  </data>
+  <data name="Workload_Text_0_apply_incomplete_1_instance_s_c1d8d4" xml:space="preserve">
+    <value>“{0}”未完全应用 — 已启动 {1} 个实例</value>
+  </data>
+  <data name="Workload_Text_0_blocking_1_8133a5" xml:space="preserve">
+    <value>{0} 个阻止操作的{1}</value>
+  </data>
+  <data name="Workload_Text_0_blocking_1_and_2_3_e38847" xml:space="preserve">
+    <value>{0} 个阻止操作的{1}，{2} 项{3}需要注意</value>
+  </data>
+  <data name="Workload_Text_0_completed_for_1_b46404" xml:space="preserve">
+    <value>已完成“{1}”的{0}</value>
+  </data>
+  <data name="Workload_Text_0_copy_c24257" xml:space="preserve">
+    <value>{0}（副本）</value>
+  </data>
+  <data name="Workload_Text_0_desired_replicas_95c372" xml:space="preserve">
+    <value>{0} — 目标副本数</value>
+  </data>
+  <data name="Workload_Text_0_dev_container_s_88a6a2" xml:space="preserve">
+    <value>{0} 个开发容器</value>
+  </data>
+  <data name="Workload_Text_0_failed_47953d" xml:space="preserve">
+    <value>{0}：失败</value>
+  </data>
+  <data name="Workload_Text_0_for_1_some_services_failed_553312" xml:space="preserve">
+    <value>“{1}”的{0}操作中有部分服务失败</value>
+  </data>
+  <data name="Workload_Text_0_has_1_service_s_Review_6f59f1" xml:space="preserve">
+    <value>“{0}”包含 {1} 个服务。请先检查兼容性再应用，也可以仅保存导入而不启动。
+
+应用管理的重启和健康监控需要保持本应用运行。</value>
+  </data>
+  <data name="Workload_Text_0_imported_1_a03a98" xml:space="preserve">
+    <value>{0}（已导入 {1}）</value>
+  </data>
+  <data name="Workload_Text_0_imported_d226e7" xml:space="preserve">
+    <value>{0}（已导入）</value>
+  </data>
+  <data name="Workload_Text_0_instance_s_started_83484d" xml:space="preserve">
+    <value> — 已启动 {0} 个实例</value>
+  </data>
+  <data name="Workload_Text_0_is_already_deployed_314a85" xml:space="preserve">
+    <value>{0} 已部署</value>
+  </data>
+  <data name="Workload_Text_0_is_down_5a240a" xml:space="preserve">
+    <value>“{0}”已停止</value>
+  </data>
+  <data name="Workload_Text_0_is_ready_with_1_2_12e6ac" xml:space="preserve">
+    <value>{0} 已就绪，模型为 {1}{2}{3}。</value>
+  </data>
+  <data name="Workload_Text_0_launched_1_See_it_in_2da307" xml:space="preserve">
+    <value>{0} 已启动{1}。可在“容器”页面查看。</value>
+  </data>
+  <data name="Workload_Text_0_launched_680a32" xml:space="preserve">
+    <value>{0} 已启动</value>
+  </data>
+  <data name="Workload_Text_0_launched_using_the_existing_1_ee72be" xml:space="preserve">
+    <value>{0} 已使用现有“{1}”运行时启动{2}。</value>
+  </data>
+  <data name="Workload_Text_0_launched_without_a_model_1_c556f5" xml:space="preserve">
+    <value>{0} 已启动，尚无模型{1}{2}。开始对话前请在网页界面中添加模型。</value>
+  </data>
+  <data name="Workload_Text_0_namespace_1_f105f4" xml:space="preserve">
+    <value>{0}  ·  命名空间 {1}</value>
+  </data>
+  <data name="Workload_Text_0_project_s_53276f" xml:space="preserve">
+    <value>{0} 个项目</value>
+  </data>
+  <data name="Workload_Text_0_repositories_select_one_to_see_99bbab" xml:space="preserve">
+    <value>{0} 个仓库 — 请选择仓库以查看标签。</value>
+  </data>
+  <data name="Workload_Text_0_restart_incomplete_1_instance_s_5a55f5" xml:space="preserve">
+    <value>“{0}”未完全重启 — 已启动 {1} 个实例</value>
+  </data>
+  <data name="Workload_Text_0_restarted_1_instance_s_started_d1b2df" xml:space="preserve">
+    <value>已重启“{0}” — 已启动 {1} 个实例</value>
+  </data>
+  <data name="Workload_Text_0_select_a_tag_to_fill_2892ab" xml:space="preserve">
+    <value>{0}：选择标签以填写镜像引用。</value>
+  </data>
+  <data name="Workload_Text_0_started_43003e" xml:space="preserve">
+    <value>{0} 已启动</value>
+  </data>
+  <data name="Workload_Text_0_started_as_1_d8356c" xml:space="preserve">
+    <value>{0} 已以“{1}”启动</value>
+  </data>
+  <data name="Workload_Text_0_started_but_1_could_not_6165d9" xml:space="preserve">
+    <value>{0} 已启动，但“{1}”无法加入 {2} 网络，因此不会显示模型。请在“网络”页面连接它。</value>
+  </data>
+  <data name="Workload_Text_0_started_but_1_could_not_c04bc8" xml:space="preserve">
+    <value>{0} 已启动，但无法下载 {1}。请在网页界面中拉取模型，或从容器终端重试。</value>
+  </data>
+  <data name="Workload_Text_0_warning_s_d02ebe" xml:space="preserve">
+    <value>{0} 条警告</value>
+  </data>
+  <data name="Workload_Text_ACTIONS_1ba13a" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Workload_Text_ACTIVE_630c2f" xml:space="preserve">
+    <value>活动</value>
+  </data>
+  <data name="Workload_Text_A_browser_will_open_for_Azure_2f9f14" xml:space="preserve">
+    <value>即将打开浏览器以登录 Azure…</value>
+  </data>
+  <data name="Workload_Text_A_one_off_job_was_created_8a1a9c" xml:space="preserve">
+    <value>已从此定时任务创建一次性任务。</value>
+  </data>
+  <data name="Workload_Text_Add_9fd728" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="Workload_Text_Add_Azure_Container_Registry_d0b1c7" xml:space="preserve">
+    <value>添加 Azure Container Registry</value>
+  </data>
+  <data name="Workload_Text_Add_registry_503bed" xml:space="preserve">
+    <value>添加注册表</value>
+  </data>
+  <data name="Workload_Text_Add_them_after_loading_the_profile_e0266e" xml:space="preserve">
+    <value>。如有需要，请在加载配置后添加。</value>
+  </data>
+  <data name="Workload_Text_Advanced_options_9443ff" xml:space="preserve">
+    <value>高级选项</value>
+  </data>
+  <data name="Workload_Text_Aliases_optional_comma_or_line_separated_73fe58" xml:space="preserve">
+    <value>别名（可选，以逗号或换行分隔）</value>
+  </data>
+  <data name="Workload_Text_All_namespaces_50c3cb" xml:space="preserve">
+    <value>所有命名空间</value>
+  </data>
+  <data name="Workload_Text_All_resolved_settings_0_442b43" xml:space="preserve">
+    <value>所有解析后的设置（{0}）</value>
+  </data>
+  <data name="Workload_Text_All_tags_7c39c1" xml:space="preserve">
+    <value>所有标签</value>
+  </data>
+  <data name="Workload_Text_Also_delete_data_volumes_permanently_deletes_c126ec" xml:space="preserve">
+    <value>同时删除数据卷（永久删除已保存的数据）</value>
+  </data>
+  <data name="Workload_Text_Apply_0_9d7f20" xml:space="preserve">
+    <value>应用：{0}</value>
+  </data>
+  <data name="Workload_Text_Apply_31e392" xml:space="preserve">
+    <value>应用</value>
+  </data>
+  <data name="Workload_Text_Apply_YAML_a1e57e" xml:space="preserve">
+    <value>应用 YAML</value>
+  </data>
+  <data name="Workload_Text_Apply_YAML_manifest_72cc14" xml:space="preserve">
+    <value>应用 YAML 清单</value>
+  </data>
+  <data name="Workload_Text_Apply_changes_to_cluster_bf94e3" xml:space="preserve">
+    <value>将更改应用到集群</value>
+  </data>
+  <data name="Workload_Text_Apply_configuration_to_the_selected_services_c06fac" xml:space="preserve">
+    <value>将配置应用到选中的服务及其必需的依赖服务。未更改且运行中的容器将保留；已停止的容器将启动，更改过的容器可能重新创建。副本是本地实例，并非 Swarm 部署。设为零会移除选中的所有实例。命名卷和绑定挂载共享使用；匿名卷属于各实例，重新创建时将保留。缩容不会删除卷。单次本地操作最多规划 {0} 个实例。</value>
+  </data>
+  <data name="Workload_Text_Apply_failed_cae4cf" xml:space="preserve">
+    <value>应用失败</value>
+  </data>
+  <data name="Workload_Text_Apply_reviewed_plan_844b63" xml:space="preserve">
+    <value>应用已检查的计划</value>
+  </data>
+  <data name="Workload_Text_Apply_up_e6346a" xml:space="preserve">
+    <value>应用（启动）</value>
+  </data>
+  <data name="Workload_Text_Approve_and_continue_e94a79" xml:space="preserve">
+    <value>批准并继续</value>
+  </data>
+  <data name="Workload_Text_Attach_an_existing_volume_5d60f4" xml:space="preserve">
+    <value>挂载现有卷</value>
+  </data>
+  <data name="Workload_Text_Auto_restarts_before_alerting_0_alert_171ebb" xml:space="preserve">
+    <value>发出警报前自动重启次数（0 表示仅警报）</value>
+  </data>
+  <data name="Workload_Text_Azure_sign_in_did_not_complete_76688f" xml:space="preserve">
+    <value>Azure 登录未完成。请重试。</value>
+  </data>
+  <data name="Workload_Text_Back_to_Kubernetes_4d2ef9" xml:space="preserve">
+    <value>返回 Kubernetes</value>
+  </data>
+  <data name="Workload_Text_Bring_down_151b4b" xml:space="preserve">
+    <value>停止并删除容器</value>
+  </data>
+  <data name="Workload_Text_Bring_down_failed_da796d" xml:space="preserve">
+    <value>停止失败</value>
+  </data>
+  <data name="Workload_Text_Bring_project_down_1ebeb2" xml:space="preserve">
+    <value>停止项目</value>
+  </data>
+  <data name="Workload_Text_Bring_up_050a84" xml:space="preserve">
+    <value>启动</value>
+  </data>
+  <data name="Workload_Text_Bring_up_failed_1f4ce8" xml:space="preserve">
+    <value>启动失败</value>
+  </data>
+  <data name="Workload_Text_Bringing_down_0_952aea" xml:space="preserve">
+    <value>正在停止“{0}”…</value>
+  </data>
+  <data name="Workload_Text_Bringing_up_0_fc2ceb" xml:space="preserve">
+    <value>正在启动“{0}”…</value>
+  </data>
+  <data name="Workload_Text_Browse_93c6b6" xml:space="preserve">
+    <value>浏览…</value>
+  </data>
+  <data name="Workload_Text_Browse_for_a_yaml_file_e5c7af" xml:space="preserve">
+    <value>浏览 .yaml 文件…</value>
+  </data>
+  <data name="Workload_Text_Browsing_isn_t_available_for_this_14704e" xml:space="preserve">
+    <value>此注册表不支持浏览，请手动输入镜像引用</value>
+  </data>
+  <data name="Workload_Text_Build_0_413948" xml:space="preserve">
+    <value>构建：{0}</value>
+  </data>
+  <data name="Workload_Text_Build_bdd254" xml:space="preserve">
+    <value>构建</value>
+  </data>
+  <data name="Workload_Text_Build_image_327d5c" xml:space="preserve">
+    <value>构建镜像</value>
+  </data>
+  <data name="Workload_Text_Builds_0_on_this_PC_Nothing_c00a00" xml:space="preserve">
+    <value>在此计算机上构建 {0}，不会上传。如需分享，可稍后使用“推送”。</value>
+  </data>
+  <data name="Workload_Text_Builds_0_on_this_PC_named_748512" xml:space="preserve">
+    <value>在此计算机上构建 {0}，并命名为可直接推送的格式。使用“推送”前不会上传。</value>
+  </data>
+  <data name="Workload_Text_CAPACITY_f9c3ed" xml:space="preserve">
+    <value>容量</value>
+  </data>
+  <data name="Workload_Text_CLASS_bb6a38" xml:space="preserve">
+    <value>类别</value>
+  </data>
+  <data name="Workload_Text_CLUSTER_IP_9027ea" xml:space="preserve">
+    <value>集群 IP</value>
+  </data>
+  <data name="Workload_Text_COMPLETIONS_d127b0" xml:space="preserve">
+    <value>完成数</value>
+  </data>
+  <data name="Workload_Text_Cancel_19766e" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Workload_Text_Cancel_to_keep_profiles_unchanged_or_64ca1c" xml:space="preserve">
+    <value>
+
+取消可保留现有配置；也可以保存，并在加载配置后检查存储。</value>
+  </data>
+  <data name="Workload_Text_Cancelled_the_changed_installer_script_was_a25d67" xml:space="preserve">
+    <value>已取消：未批准更改后的安装脚本。</value>
+  </data>
+  <data name="Workload_Text_Cannot_determine_next_version_4cd9a9" xml:space="preserve">
+    <value>无法确定下一个版本</value>
+  </data>
+  <data name="Workload_Text_Captured_settings_0eb697" xml:space="preserve">
+    <value>已获取的设置</value>
+  </data>
+  <data name="Workload_Text_Category_292c06" xml:space="preserve">
+    <value>类别</value>
+  </data>
+  <data name="Workload_Text_Changes_applied_9cf6db" xml:space="preserve">
+    <value>已应用更改</value>
+  </data>
+  <data name="Workload_Text_Check_interval_seconds_c75f0b" xml:space="preserve">
+    <value>检查间隔（秒）</value>
+  </data>
+  <data name="Workload_Text_Checking_cluster_status_8c6339" xml:space="preserve">
+    <value>正在检查集群状态…</value>
+  </data>
+  <data name="Workload_Text_Checking_for_the_Azure_CLI_244c64" xml:space="preserve">
+    <value>正在检查 Azure CLI…</value>
+  </data>
+  <data name="Workload_Text_Checking_your_sign_in_to_0_5577aa" xml:space="preserve">
+    <value>正在检查 {0} 的登录状态…</value>
+  </data>
+  <data name="Workload_Text_Choose_a_compose_file_51e9a3" xml:space="preserve">
+    <value>选择 Compose 文件…</value>
+  </data>
+  <data name="Workload_Text_Choose_a_container_registry_to_add_01c399" xml:space="preserve">
+    <value>请选择要添加的容器注册表。</value>
+  </data>
+  <data name="Workload_Text_Choose_a_model_78a7ab" xml:space="preserve">
+    <value>选择模型</value>
+  </data>
+  <data name="Workload_Text_Cluster_is_installed_but_stopped_4527a7" xml:space="preserve">
+    <value>集群已安装但已停止。</value>
+  </data>
+  <data name="Workload_Text_Cluster_is_stopped_Click_Start_to_8df0dd" xml:space="preserve">
+    <value>集群已停止。点击“启动”以启动集群。</value>
+  </data>
+  <data name="Workload_Text_Cluster_running_node_0_1_4c9575" xml:space="preserve">
+    <value>集群运行中 · 节点 {0} · {1}</value>
+  </data>
+  <data name="Workload_Text_Command_arguments_optional_410b03" xml:space="preserve">
+    <value>请输入容器内的路径</value>
+  </data>
+  <data name="Workload_Text_Command_run_inside_the_container_2e8017" xml:space="preserve">
+    <value>在容器内执行的命令</value>
+  </data>
+  <data name="Workload_Text_Command_wslc_exec_exit_0_healthy_02b96a" xml:space="preserve">
+    <value>命令（wslc exec，退出码 0 表示健康）</value>
+  </data>
+  <data name="Workload_Text_Compose_0_30434f" xml:space="preserve">
+    <value>Compose：{0}</value>
+  </data>
+  <data name="Workload_Text_Compose_98652a" xml:space="preserve">
+    <value>Compose</value>
+  </data>
+  <data name="Workload_Text_Compose_YAML_bed00b" xml:space="preserve">
+    <value>Compose YAML</value>
+  </data>
+  <data name="Workload_Text_Compose_compatibility_notes_7d8a36" xml:space="preserve">
+    <value>Compose 兼容性说明</value>
+  </data>
+  <data name="Workload_Text_Compose_launch_was_cancelled_blocked_or_41a796" xml:space="preserve">
+    <value>Compose 启动已取消、被阻止或未完成。请检查 Compose 详情并刷新实际状态后重试。</value>
+  </data>
+  <data name="Workload_Text_Compose_launch_was_cancelled_blocked_or_e9222d" xml:space="preserve">
+    <value>Compose 启动已取消、被阻止或未完成。已保存的模板默认值未更改；请查看 Compose 详情。</value>
+  </data>
+  <data name="Workload_Text_Compose_stack_2c23f1" xml:space="preserve">
+    <value>Compose 堆栈</value>
+  </data>
+  <data name="Workload_Text_ConfigMap_0fbccf" xml:space="preserve">
+    <value>配置映射</value>
+  </data>
+  <data name="Workload_Text_ConfigMaps_54b4dd" xml:space="preserve">
+    <value>配置映射</value>
+  </data>
+  <data name="Workload_Text_Configuration_applied_to_the_cluster_270136" xml:space="preserve">
+    <value>配置已应用到集群。</value>
+  </data>
+  <data name="Workload_Text_Configure_0_76d41c" xml:space="preserve">
+    <value>配置 {0}</value>
+  </data>
+  <data name="Workload_Text_Configure_37d782" xml:space="preserve">
+    <value>配置…</value>
+  </data>
+  <data name="Workload_Text_Confirm_operation_382ccb" xml:space="preserve">
+    <value>确认操作</value>
+  </data>
+  <data name="Workload_Text_Connect_1a2303" xml:space="preserve">
+    <value>连接</value>
+  </data>
+  <data name="Workload_Text_Connect_to_network_13927e" xml:space="preserve">
+    <value>连接到网络</value>
+  </data>
+  <data name="Workload_Text_Container_name_optional_f0ba06" xml:space="preserve">
+    <value>容器名称（可选）</value>
+  </data>
+  <data name="Workload_Text_Container_registry_a1673a" xml:space="preserve">
+    <value>容器注册表</value>
+  </data>
+  <data name="Workload_Text_Container_status_unavailable_0_f892d1" xml:space="preserve">
+    <value> - 容器状态不可用：{0}</value>
+  </data>
+  <data name="Workload_Text_Continue_31fbef" xml:space="preserve">
+    <value>继续</value>
+  </data>
+  <data name="Workload_Text_Could_not_get_an_access_token_401d09" xml:space="preserve">
+    <value>无法获取此注册表的访问令牌。可能没有拉取权限，或令牌已过期。</value>
+  </data>
+  <data name="Workload_Text_Could_not_import_devcontainer_json_492691" xml:space="preserve">
+    <value>无法导入 devcontainer.json。</value>
+  </data>
+  <data name="Workload_Text_Could_not_list_repositories_50d18d" xml:space="preserve">
+    <value>无法列出仓库。</value>
+  </data>
+  <data name="Workload_Text_Could_not_list_tags_fe3b7c" xml:space="preserve">
+    <value>无法列出标签。</value>
+  </data>
+  <data name="Workload_Text_Could_not_read_the_selected_Compose_548673" xml:space="preserve">
+    <value>无法读取所选 Compose 文件。请检查文件权限。</value>
+  </data>
+  <data name="Workload_Text_Could_not_read_the_selected_file_50b46f" xml:space="preserve">
+    <value>无法读取所选文件。</value>
+  </data>
+  <data name="Workload_Text_Could_not_start_the_port_forward_84c580" xml:space="preserve">
+    <value>无法启动端口转发。请检查目标和端口是否有效。</value>
+  </data>
+  <data name="Workload_Text_Couldn_t_confirm_your_sign_in_1c8432" xml:space="preserve">
+    <value>无法确认 {0} 的登录状态。仍可尝试推送。</value>
+  </data>
+  <data name="Workload_Text_Couldn_t_find_an_image_reference_3b55b5" xml:space="preserve">
+    <value>此命令中未找到镜像引用。请粘贴完整的“docker run … &lt;image&gt;”命令。</value>
+  </data>
+  <data name="Workload_Text_Couldn_t_reach_0_to_check_a88a1d" xml:space="preserve">
+    <value>无法连接 {0} 以检查登录状态。仍可尝试推送。</value>
+  </data>
+  <data name="Workload_Text_Create_475949" xml:space="preserve">
+    <value>创建</value>
+  </data>
+  <data name="Workload_Text_Create_a_new_custom_template_963031" xml:space="preserve">
+    <value>创建自定义模板</value>
+  </data>
+  <data name="Workload_Text_Create_network_dbf4e6" xml:space="preserve">
+    <value>创建网络</value>
+  </data>
+  <data name="Workload_Text_Created_a_copy_e721ce" xml:space="preserve">
+    <value>已创建副本</value>
+  </data>
+  <data name="Workload_Text_Created_d70b9e" xml:space="preserve">
+    <value>已创建</value>
+  </data>
+  <data name="Workload_Text_Credentials_are_handed_to_the_container_c9f29e" xml:space="preserve">
+    <value>凭据将交给容器引擎（wslc login）并保存到其凭据存储中；本应用不会保存您的密码。</value>
+  </data>
+  <data name="Workload_Text_CronJob_30db41" xml:space="preserve">
+    <value>定时任务</value>
+  </data>
+  <data name="Workload_Text_CronJobs_a27995" xml:space="preserve">
+    <value>定时任务</value>
+  </data>
+  <data name="Workload_Text_Dashboard_67b696" xml:space="preserve">
+    <value>仪表盘</value>
+  </data>
+  <data name="Workload_Text_Default_bridge_83f3d5" xml:space="preserve">
+    <value>默认（bridge）</value>
+  </data>
+  <data name="Workload_Text_Delete_0_1_This_cannot_be_0b19ba" xml:space="preserve">
+    <value>删除 {0}“{1}”吗？此操作无法撤销。</value>
+  </data>
+  <data name="Workload_Text_Delete_0_7eab12" xml:space="preserve">
+    <value>删除 {0}</value>
+  </data>
+  <data name="Workload_Text_Delete_e2d0a5" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Workload_Text_Delete_failed_8727e2" xml:space="preserve">
+    <value>删除失败</value>
+  </data>
+  <data name="Workload_Text_Delete_template_da9a9b" xml:space="preserve">
+    <value>删除模板</value>
+  </data>
+  <data name="Workload_Text_Delete_the_0_template_fb09f8" xml:space="preserve">
+    <value>删除“{0}”模板吗？</value>
+  </data>
+  <data name="Workload_Text_Deleted_profile_0_c56639" xml:space="preserve">
+    <value>已删除运行配置“{0}”。</value>
+  </data>
+  <data name="Workload_Text_Deleted_the_0_template_cdabb5" xml:space="preserve">
+    <value>已删除“{0}”模板。</value>
+  </data>
+  <data name="Workload_Text_Deploy_a_Kubernetes_YAML_manifest_5794a3" xml:space="preserve">
+    <value>部署 Kubernetes YAML 清单</value>
+  </data>
+  <data name="Workload_Text_Deployed_a5dc3f" xml:space="preserve">
+    <value>已部署</value>
+  </data>
+  <data name="Workload_Text_Deployment_870a8f" xml:space="preserve">
+    <value>部署</value>
+  </data>
+  <data name="Workload_Text_Deployments_842a46" xml:space="preserve">
+    <value>部署</value>
+  </data>
+  <data name="Workload_Text_Describe_00f7e8" xml:space="preserve">
+    <value>详细状态</value>
+  </data>
+  <data name="Workload_Text_Description_526e00" xml:space="preserve">
+    <value>描述</value>
+  </data>
+  <data name="Workload_Text_Desired_replicas_598a02" xml:space="preserve">
+    <value>目标副本数</value>
+  </data>
+  <data name="Workload_Text_Desired_replicas_for_0_306ce6" xml:space="preserve">
+    <value>{0} 的目标副本数</value>
+  </data>
+  <data name="Workload_Text_Dev_Containers_5d7690" xml:space="preserve">
+    <value>开发容器</value>
+  </data>
+  <data name="Workload_Text_Display_name_2b7f6a" xml:space="preserve">
+    <value>显示名称</value>
+  </data>
+  <data name="Workload_Text_Distro_fcad2a" xml:space="preserve">
+    <value>发行版：</value>
+  </data>
+  <data name="Workload_Text_Docker_Hub_names_start_with_your_18221c" xml:space="preserve">
+    <value>Docker Hub 名称以您的 Docker Hub 用户名开头，例如 yourname/</value>
+  </data>
+  <data name="Workload_Text_Dockerfile_optional_relative_to_the_folder_6c47c0" xml:space="preserve">
+    <value>Dockerfile（可选，相对于文件夹）</value>
+  </data>
+  <data name="Workload_Text_Downgrade_not_supported_0748a2" xml:space="preserve">
+    <value>不支持降级</value>
+  </data>
+  <data name="Workload_Text_Download_model_9979be" xml:space="preserve">
+    <value>下载模型</value>
+  </data>
+  <data name="Workload_Text_Downloading_0_this_can_take_several_8294ec" xml:space="preserve">
+    <value>正在下载 {0}…可能需要几分钟。</value>
+  </data>
+  <data name="Workload_Text_Driver_options_one_key_value_per_0d7e76" xml:space="preserve">
+    <value>驱动选项（每行一个 key=value）</value>
+  </data>
+  <data name="Workload_Text_Duplicate_0_3afa7b" xml:space="preserve">
+    <value>复制 {0}</value>
+  </data>
+  <data name="Workload_Text_Duplicate_5d2022" xml:space="preserve">
+    <value>复制…</value>
+  </data>
+  <data name="Workload_Text_Edit_0_fdd9d5" xml:space="preserve">
+    <value>编辑 {0}</value>
+  </data>
+  <data name="Workload_Text_Edit_2b8a1a" xml:space="preserve">
+    <value>编辑…</value>
+  </data>
+  <data name="Workload_Text_Edit_ports_images_environment_or_credentials_4d6b62" xml:space="preserve">
+    <value>可按需编辑端口、镜像、环境变量或凭据。保存会记录这些变更，以便模板的“启动”按钮重复使用，然后导入并启动项目。</value>
+  </data>
+  <data name="Workload_Text_Enable_health_monitoring_817f4e" xml:space="preserve">
+    <value>启用健康监控</value>
+  </data>
+  <data name="Workload_Text_Engine_default_1_never_kills_035f40" xml:space="preserve">
+    <value>引擎默认值；-1 表示永不强制终止</value>
+  </data>
+  <data name="Workload_Text_Enter_a_model_name_like_llama3_283218" xml:space="preserve">
+    <value>请输入模型名称，例如 llama3.2:3b 或 qwen2.5:7b。</value>
+  </data>
+  <data name="Workload_Text_Enter_a_name_for_the_image_cd0692" xml:space="preserve">
+    <value>请输入镜像名称，例如 myapp:latest。</value>
+  </data>
+  <data name="Workload_Text_Enter_a_network_name_d93a83" xml:space="preserve">
+    <value>请输入网络名称。</value>
+  </data>
+  <data name="Workload_Text_Enter_a_profile_name_before_saving_3c1897" xml:space="preserve">
+    <value>保存前请先输入配置名称。</value>
+  </data>
+  <data name="Workload_Text_Enter_an_image_before_saving_a_74526e" xml:space="preserve">
+    <value>保存运行配置前请先输入镜像。</value>
+  </data>
+  <data name="Workload_Text_Enter_the_folder_that_contains_your_0376dd" xml:space="preserve">
+    <value>请输入包含 Dockerfile 的文件夹。</value>
+  </data>
+  <data name="Workload_Text_Enter_the_path_inside_the_container_a6f12a" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="Workload_Text_Environment_one_per_line_KEY_VALUE_bfc3bb" xml:space="preserve">
+    <value>环境变量（每行一个 KEY=VALUE）</value>
+  </data>
+  <data name="Workload_Text_Environment_variables_0_6d6b79" xml:space="preserve">
+    <value>环境变量：{0}</value>
+  </data>
+  <data name="Workload_Text_Environment_variables_one_KEY_VALUE_per_73ca3b" xml:space="preserve">
+    <value>环境变量（每行一个 KEY=VALUE）</value>
+  </data>
+  <data name="Workload_Text_Error_54a0e8" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="Workload_Text_Every_replica_count_must_be_a_b03ed1" xml:space="preserve">
+    <value>每个副本数都必须为非负整数。</value>
+  </data>
+  <data name="Workload_Text_Export_4a4c59" xml:space="preserve">
+    <value>导出…</value>
+  </data>
+  <data name="Workload_Text_Export_all_514276" xml:space="preserve">
+    <value>全部导出</value>
+  </data>
+  <data name="Workload_Text_Export_all_custom_templates_b20b13" xml:space="preserve">
+    <value>导出所有自定义模板</value>
+  </data>
+  <data name="Workload_Text_Export_your_custom_and_imported_templates_523a5d" xml:space="preserve">
+    <value>将自定义和导入的模板导出到文件</value>
+  </data>
+  <data name="Workload_Text_Exported_0_to_1_4d3931" xml:space="preserve">
+    <value>已将“{0}”导出到 {1}。</value>
+  </data>
+  <data name="Workload_Text_Exported_your_custom_templates_to_0_d8175b" xml:space="preserve">
+    <value>已将自定义模板导出到 {0}。</value>
+  </data>
+  <data name="Workload_Text_Failed_031a8f" xml:space="preserve">
+    <value>失败</value>
+  </data>
+  <data name="Workload_Text_Failed_to_start_99ef15" xml:space="preserve">
+    <value>启动失败</value>
+  </data>
+  <data name="Workload_Text_Failed_to_stop_6408b3" xml:space="preserve">
+    <value>停止失败</value>
+  </data>
+  <data name="Workload_Text_Features_0_c0d50f" xml:space="preserve">
+    <value>功能：{0}</value>
+  </data>
+  <data name="Workload_Text_Filter_repositories_ca86ca" xml:space="preserve">
+    <value>筛选仓库…</value>
+  </data>
+  <data name="Workload_Text_Folder_to_build_contains_your_Dockerfile_06d592" xml:space="preserve">
+    <value>构建文件夹（包含 Dockerfile）</value>
+  </data>
+  <data name="Workload_Text_Forward_a_port_c39bd3" xml:space="preserve">
+    <value>转发端口</value>
+  </data>
+  <data name="Workload_Text_Forward_f1c65e" xml:space="preserve">
+    <value>转发</value>
+  </data>
+  <data name="Workload_Text_Gateway_optional_9a3176" xml:space="preserve">
+    <value>网关（可选）</value>
+  </data>
+  <data name="Workload_Text_Getting_an_access_token_from_Azure_59ed81" xml:space="preserve">
+    <value>正在从 Azure 获取访问令牌…</value>
+  </data>
+  <data name="Workload_Text_Go_to_Registries_to_sign_in_06b3b9" xml:space="preserve">
+    <value>前往“注册表”页面登录</value>
+  </data>
+  <data name="Workload_Text_HOSTS_c44fdb" xml:space="preserve">
+    <value>主机</value>
+  </data>
+  <data name="Workload_Text_Health_check_0_5d0e6d" xml:space="preserve">
+    <value>健康检查 · {0}</value>
+  </data>
+  <data name="Workload_Text_Healthy_7f1e32" xml:space="preserve">
+    <value>健康</value>
+  </data>
+  <data name="Workload_Text_Hide_ac20a5" xml:space="preserve">
+    <value>隐藏</value>
+  </data>
+  <data name="Workload_Text_Hide_log_163de9" xml:space="preserve">
+    <value>隐藏日志</value>
+  </data>
+  <data name="Workload_Text_Host_initializeCommand_scripts_are_blocked_for_466c5e" xml:space="preserve">
+    <value>Compose 开发容器禁用主机 initializeCommand 脚本。</value>
+  </data>
+  <data name="Workload_Text_Host_initializeCommand_scripts_require_separate_Windows_fa813f" xml:space="preserve">
+    <value>每次启动或重新构建时，主机 initializeCommand 脚本都需要单独批准在 Windows 主机上执行。导入并不会批准这些脚本。</value>
+  </data>
+  <data name="Workload_Text_Host_port_to_connect_to_3a2955" xml:space="preserve">
+    <value>要连接的主机端口</value>
+  </data>
+  <data name="Workload_Text_How_to_install_a_distribution_219fc7" xml:space="preserve">
+    <value>如何安装发行版</value>
+  </data>
+  <data name="Workload_Text_IP_range_optional_CIDR_within_the_205cbd" xml:space="preserve">
+    <value>IP 范围（可选，子网内的 CIDR）</value>
+  </data>
+  <data name="Workload_Text_IPv4_address_must_be_a_valid_6ae20f" xml:space="preserve">
+    <value>IPv4 地址必须为有效的 IPv4 地址。</value>
+  </data>
+  <data name="Workload_Text_IPv4_address_optional_540519" xml:space="preserve">
+    <value>IPv4 地址（可选）</value>
+  </data>
+  <data name="Workload_Text_Icon_glyph_5a4a54" xml:space="preserve">
+    <value>图标字符</value>
+  </data>
+  <data name="Workload_Text_Image_0_839493" xml:space="preserve">
+    <value>镜像：{0}</value>
+  </data>
+  <data name="Workload_Text_Image_name_52493e" xml:space="preserve">
+    <value>镜像名称</value>
+  </data>
+  <data name="Workload_Text_Image_reference_24f4a4" xml:space="preserve">
+    <value>镜像引用</value>
+  </data>
+  <data name="Workload_Text_Import_0_template_s_into_your_67ba38" xml:space="preserve">
+    <value>将 {0} 个模板导入模板库吗？与现有模板冲突的内容会作为独立副本导入，不会覆盖现有模板。</value>
+  </data>
+  <data name="Workload_Text_Import_2cff9b" xml:space="preserve">
+    <value>导入</value>
+  </data>
+  <data name="Workload_Text_Import_Compose_project_d389da" xml:space="preserve">
+    <value>导入 Compose 项目</value>
+  </data>
+  <data name="Workload_Text_Import_Dev_Container_1af7e9" xml:space="preserve">
+    <value>导入开发容器</value>
+  </data>
+  <data name="Workload_Text_Import_anyway_e06eac" xml:space="preserve">
+    <value>仍然导入</value>
+  </data>
+  <data name="Workload_Text_Import_compose_file_7279fc" xml:space="preserve">
+    <value>导入 Compose 文件</value>
+  </data>
+  <data name="Workload_Text_Import_failed_0a26f4" xml:space="preserve">
+    <value>导入失败</value>
+  </data>
+  <data name="Workload_Text_Import_from_docker_run_8ad3ed" xml:space="preserve">
+    <value>从 docker run 导入</value>
+  </data>
+  <data name="Workload_Text_Import_only_c9bd79" xml:space="preserve">
+    <value>仅导入</value>
+  </data>
+  <data name="Workload_Text_Import_templates_243230" xml:space="preserve">
+    <value>导入模板</value>
+  </data>
+  <data name="Workload_Text_Import_templates_91deef" xml:space="preserve">
+    <value>导入模板吗？</value>
+  </data>
+  <data name="Workload_Text_Import_templates_from_a_file_9fc55e" xml:space="preserve">
+    <value>从文件导入模板</value>
+  </data>
+  <data name="Workload_Text_Import_the_project_anyway_83f426" xml:space="preserve">
+    <value>
+
+仍要导入项目吗？</value>
+  </data>
+  <data name="Workload_Text_Imported_0_94041e" xml:space="preserve">
+    <value>已导入“{0}”</value>
+  </data>
+  <data name="Workload_Text_Imported_0_template_s_6e2106" xml:space="preserve">
+    <value>已导入 {0} 个模板。</value>
+  </data>
+  <data name="Workload_Text_Imported_from_docker_run_Notes_7e3213" xml:space="preserve">
+    <value>已从 docker run 导入。说明：</value>
+  </data>
+  <data name="Workload_Text_Imported_project_0_1dff8a" xml:space="preserve">
+    <value>已导入项目“{0}”</value>
+  </data>
+  <data name="Workload_Text_Ingress_d830dd" xml:space="preserve">
+    <value>入口</value>
+  </data>
+  <data name="Workload_Text_Ingresses_26d715" xml:space="preserve">
+    <value>入口</value>
+  </data>
+  <data name="Workload_Text_Install_569ca4" xml:space="preserve">
+    <value>安装</value>
+  </data>
+  <data name="Workload_Text_Install_Kubernetes_0f8576" xml:space="preserve">
+    <value>安装 Kubernetes</value>
+  </data>
+  <data name="Workload_Text_Install_Kubernetes_k3s_dc0765" xml:space="preserve">
+    <value>安装 Kubernetes（k3s）</value>
+  </data>
+  <data name="Workload_Text_Install_a_lightweight_single_node_Kubernetes_9daae2" xml:space="preserve">
+    <value>安装在 WSL 发行版中运行的轻量级单节点 Kubernetes 集群（k3s）。它使用独立的容器运行时，以服务形式安装，随时可以完整卸载。</value>
+  </data>
+  <data name="Workload_Text_Install_failed_33b471" xml:space="preserve">
+    <value>安装失败</value>
+  </data>
+  <data name="Workload_Text_Install_the_Azure_CLI_ea3717" xml:space="preserve">
+    <value>安装 Azure CLI</value>
+  </data>
+  <data name="Workload_Text_Installed_version_0_15ee25" xml:space="preserve">
+    <value>已安装版本：{0}</value>
+  </data>
+  <data name="Workload_Text_Installing_k3s_0_9cb7e1" xml:space="preserve">
+    <value>正在安装 k3s {0}…</value>
+  </data>
+  <data name="Workload_Text_Installing_k3s_this_can_take_a_63291c" xml:space="preserve">
+    <value>正在安装 k3s…可能需要几分钟。</value>
+  </data>
+  <data name="Workload_Text_Internal_network_internal_7c7e70" xml:space="preserve">
+    <value>内部网络（--internal）</value>
+  </data>
+  <data name="Workload_Text_Invalid_key_0_Keys_cannot_be_062b6d" xml:space="preserve">
+    <value>无效的键“{0}”。键不能为空，不能包含“=”或控制字符。</value>
+  </data>
+  <data name="Workload_Text_Invalid_key_value_entry_16c85f" xml:space="preserve">
+    <value>无效的键值项。</value>
+  </data>
+  <data name="Workload_Text_Invalid_value_for_0_Use_key_981fe2" xml:space="preserve">
+    <value>“{0}”的值无效。请使用 key=value 格式，不要包含控制字符。</value>
+  </data>
+  <data name="Workload_Text_It_runs_as_a_systemd_service_07d477" xml:space="preserve">
+    <value>它将作为 systemd 服务运行，以后可卸载。继续吗？</value>
+  </data>
+  <data name="Workload_Text_Job_ad617a" xml:space="preserve">
+    <value>任务</value>
+  </data>
+  <data name="Workload_Text_Job_started_514ca6" xml:space="preserve">
+    <value>任务已启动</value>
+  </data>
+  <data name="Workload_Text_Jobs_2f17a0" xml:space="preserve">
+    <value>任务</value>
+  </data>
+  <data name="Workload_Text_KEYS_3fca50" xml:space="preserve">
+    <value>键数</value>
+  </data>
+  <data name="Workload_Text_KIND_ae97bc" xml:space="preserve">
+    <value>资源类型</value>
+  </data>
+  <data name="Workload_Text_Keep_STDIN_open_i_780e70" xml:space="preserve">
+    <value>保持 STDIN 开启（-i）</value>
+  </data>
+  <data name="Workload_Text_Kube_417c6a" xml:space="preserve">
+    <value>清单</value>
+  </data>
+  <data name="Workload_Text_Kubernetes_a37d07" xml:space="preserve">
+    <value>Kubernetes</value>
+  </data>
+  <data name="Workload_Text_Kubernetes_k3s_is_not_installed_7dc35f" xml:space="preserve">
+    <value>尚未安装 Kubernetes（k3s）。</value>
+  </data>
+  <data name="Workload_Text_Kubernetes_needs_systemd_dbce45" xml:space="preserve">
+    <value>Kubernetes 需要 systemd</value>
+  </data>
+  <data name="Workload_Text_Labels_one_key_value_per_line_f7aa78" xml:space="preserve">
+    <value>标签（每行一个 key=value）</value>
+  </data>
+  <data name="Workload_Text_Latest_stable_0_19df99" xml:space="preserve">
+    <value>最新稳定版（{0}）</value>
+  </data>
+  <data name="Workload_Text_Latest_stable_0_an_upgrade_is_b786cd" xml:space="preserve">
+    <value>最新稳定版：{0} — 有可用升级。</value>
+  </data>
+  <data name="Workload_Text_Latest_stable_0_you_re_up_5dbd92" xml:space="preserve">
+    <value>最新稳定版：{0} — 已是最新。重新执行将重新安装相同版本。</value>
+  </data>
+  <data name="Workload_Text_Latest_stable_ad00d5" xml:space="preserve">
+    <value>最新稳定版</value>
+  </data>
+  <data name="Workload_Text_Latest_stable_could_not_be_determined_2b934d" xml:space="preserve">
+    <value>无法确定最新稳定版（可能没有网络）。仍可指定具体版本。</value>
+  </data>
+  <data name="Workload_Text_Launch_another_c189f3" xml:space="preserve">
+    <value>再启动一个</value>
+  </data>
+  <data name="Workload_Text_Launch_another_one_It_runs_alongside_a9e08c" xml:space="preserve">
+    <value>再启动一个部署吗？它将以“{0}”与现有部署同时运行，使用独立的端口和数据卷，因此彼此不会影响数据。
+
+{1}
+
+如需替换现有部署，请先移除它。</value>
+  </data>
+  <data name="Workload_Text_Launch_cancelled_c36806" xml:space="preserve">
+    <value>启动已取消。</value>
+  </data>
+  <data name="Workload_Text_Launch_ccf56e" xml:space="preserve">
+    <value>启动</value>
+  </data>
+  <data name="Workload_Text_Launch_failed_1755d5" xml:space="preserve">
+    <value>启动失败</value>
+  </data>
+  <data name="Workload_Text_Launching_0_3dad1d" xml:space="preserve">
+    <value>正在启动 {0}…</value>
+  </data>
+  <data name="Workload_Text_Launching_a6f90e" xml:space="preserve">
+    <value>正在启动…</value>
+  </data>
+  <data name="Workload_Text_Lifecycle_ffd469" xml:space="preserve">
+    <value>生命周期：</value>
+  </data>
+  <data name="Workload_Text_Lifecycle_log_186b74" xml:space="preserve">
+    <value>生命周期日志</value>
+  </data>
+  <data name="Workload_Text_List_the_images_available_in_this_b363bc" xml:space="preserve">
+    <value>列出此注册表中可用的镜像</value>
+  </data>
+  <data name="Workload_Text_Loading_compose_projects_33a0b7" xml:space="preserve">
+    <value>正在加载 Compose 项目…</value>
+  </data>
+  <data name="Workload_Text_Loading_container_registries_92b291" xml:space="preserve">
+    <value>正在加载容器注册表…</value>
+  </data>
+  <data name="Workload_Text_Loading_dev_containers_c83356" xml:space="preserve">
+    <value>正在加载开发容器…</value>
+  </data>
+  <data name="Workload_Text_Loading_repositories_460ca9" xml:space="preserve">
+    <value>正在加载仓库…</value>
+  </data>
+  <data name="Workload_Text_Loading_tags_for_0_2934a8" xml:space="preserve">
+    <value>正在加载 {0} 的标签…</value>
+  </data>
+  <data name="Workload_Text_Local_port_0_is_already_being_ee8135" xml:space="preserve">
+    <value>本地端口 {0} 已在转发中。</value>
+  </data>
+  <data name="Workload_Text_Local_port_9bc348" xml:space="preserve">
+    <value>本地端口</value>
+  </data>
+  <data name="Workload_Text_Log_in_c18984" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="Workload_Text_Log_in_to_0_78a87c" xml:space="preserve">
+    <value>登录 {0}</value>
+  </data>
+  <data name="Workload_Text_Log_in_to_this_registry_now_510d38" xml:space="preserve">
+    <value>立即登录此注册表</value>
+  </data>
+  <data name="Workload_Text_Logs_ea2100" xml:space="preserve">
+    <value>日志</value>
+  </data>
+  <data name="Workload_Text_Manage_services_0_cdca2c" xml:space="preserve">
+    <value>管理服务：{0}</value>
+  </data>
+  <data name="Workload_Text_Manage_services_8542ea" xml:space="preserve">
+    <value>管理服务</value>
+  </data>
+  <data name="Workload_Text_Manifest_applied_716a5c" xml:space="preserve">
+    <value>已应用清单</value>
+  </data>
+  <data name="Workload_Text_Manifest_applied_c4a4ae" xml:space="preserve">
+    <value>已应用清单。</value>
+  </data>
+  <data name="Workload_Text_Model_5e2c61" xml:space="preserve">
+    <value>模型</value>
+  </data>
+  <data name="Workload_Text_More_actions_f8d46c" xml:space="preserve">
+    <value>更多操作</value>
+  </data>
+  <data name="Workload_Text_Mount_at_18caee" xml:space="preserve">
+    <value>挂载位置</value>
+  </data>
+  <data name="Workload_Text_NAMESPACE_b6b685" xml:space="preserve">
+    <value>命名空间</value>
+  </data>
+  <data name="Workload_Text_NAME_eaa589" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Workload_Text_Name_0_c45829" xml:space="preserve">
+    <value>名称：{0}</value>
+  </data>
+  <data name="Workload_Text_Name_dcd1d5" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Workload_Text_Name_in_the_registry_c5e56f" xml:space="preserve">
+    <value>注册表中的名称</value>
+  </data>
+  <data name="Workload_Text_Name_optional_e09b37" xml:space="preserve">
+    <value>名称（可选）</value>
+  </data>
+  <data name="Workload_Text_Name_this_project_8a5ddc" xml:space="preserve">
+    <value>为项目命名</value>
+  </data>
+  <data name="Workload_Text_Namespace_b22b06" xml:space="preserve">
+    <value>命名空间：</value>
+  </data>
+  <data name="Workload_Text_Network_1744b9" xml:space="preserve">
+    <value>网络</value>
+  </data>
+  <data name="Workload_Text_Network_attention_f45fdf" xml:space="preserve">
+    <value> - 网络需要注意：</value>
+  </data>
+  <data name="Workload_Text_Network_name_b97af0" xml:space="preserve">
+    <value>网络名称</value>
+  </data>
+  <data name="Workload_Text_New_template_30d87e" xml:space="preserve">
+    <value>新建模板</value>
+  </data>
+  <data name="Workload_Text_No_Kubernetes_cluster_yet_371050" xml:space="preserve">
+    <value>尚无 Kubernetes 集群</value>
+  </data>
+  <data name="Workload_Text_No_active_port_forwards_Click_Forward_e127b9" xml:space="preserve">
+    <value>没有活动的端口转发。点击“转发端口”可将 Pod 或服务开放到 localhost。</value>
+  </data>
+  <data name="Workload_Text_No_compose_projects_Import_a_docker_ebe1aa" xml:space="preserve">
+    <value>没有 Compose 项目。导入 docker-compose.yml 以开始使用。</value>
+  </data>
+  <data name="Workload_Text_No_compose_projects_Import_one_to_5185a1" xml:space="preserve">
+    <value>没有 Compose 项目。请先导入项目。</value>
+  </data>
+  <data name="Workload_Text_No_container_changes_are_required_979b3a" xml:space="preserve">
+    <value>无需更改容器。</value>
+  </data>
+  <data name="Workload_Text_No_container_registries_were_found_in_c14e91" xml:space="preserve">
+    <value>此订阅中未找到容器注册表。</value>
+  </data>
+  <data name="Workload_Text_No_cronjobs_51b199" xml:space="preserve">
+    <value>没有定时任务。</value>
+  </data>
+  <data name="Workload_Text_No_dev_containers_Open_a_workspace_3fac89" xml:space="preserve">
+    <value>没有开发容器。打开工作区文件夹以导入容器。</value>
+  </data>
+  <data name="Workload_Text_No_file_selected_26bfbd" xml:space="preserve">
+    <value>尚未选择文件</value>
+  </data>
+  <data name="Workload_Text_No_forwarded_ports_b75594" xml:space="preserve">
+    <value>没有转发端口</value>
+  </data>
+  <data name="Workload_Text_No_ingresses_d3ff45" xml:space="preserve">
+    <value>没有入口。</value>
+  </data>
+  <data name="Workload_Text_No_jobs_66f528" xml:space="preserve">
+    <value>没有任务。</value>
+  </data>
+  <data name="Workload_Text_No_lifecycle_output_yet_4043c0" xml:space="preserve">
+    <value>尚无生命周期输出。</value>
+  </data>
+  <data name="Workload_Text_No_persistent_volume_claims_e21f1c" xml:space="preserve">
+    <value>没有持久卷声明。</value>
+  </data>
+  <data name="Workload_Text_No_repositories_were_found_in_this_945b7b" xml:space="preserve">
+    <value>此注册表中未找到仓库。</value>
+  </data>
+  <data name="Workload_Text_No_service_actions_were_performed_c99eee" xml:space="preserve">
+    <value>未执行任何服务操作。</value>
+  </data>
+  <data name="Workload_Text_No_services_76de88" xml:space="preserve">
+    <value>没有服务</value>
+  </data>
+  <data name="Workload_Text_No_services_with_an_image_were_ffb50a" xml:space="preserve">
+    <value>Compose 文件中没有包含镜像的服务。</value>
+  </data>
+  <data name="Workload_Text_No_tags_were_found_for_0_eb50fa" xml:space="preserve">
+    <value>未找到 {0} 的标签。</value>
+  </data>
+  <data name="Workload_Text_No_warnings_3a1134" xml:space="preserve">
+    <value>没有警告</value>
+  </data>
+  <data name="Workload_Text_Node_af0374" xml:space="preserve">
+    <value>节点：</value>
+  </data>
+  <data name="Workload_Text_Node_e93372" xml:space="preserve">
+    <value>节点</value>
+  </data>
+  <data name="Workload_Text_Nodes_7ac362" xml:space="preserve">
+    <value>节点</value>
+  </data>
+  <data name="Workload_Text_None_dc937b" xml:space="preserve">
+    <value>无</value>
+  </data>
+  <data name="Workload_Text_None_keep_it_on_this_PC_3f35de" xml:space="preserve">
+    <value>不推送，仅保留在此计算机上</value>
+  </data>
+  <data name="Workload_Text_Not_captured_a_running_container_doesn_868de2" xml:space="preserve">
+    <value>未获取（运行中的容器不提供这些内容）：</value>
+  </data>
+  <data name="Workload_Text_Not_installed_d177cd" xml:space="preserve">
+    <value>未安装</value>
+  </data>
+  <data name="Workload_Text_Not_running_0_0_instances_e67878" xml:space="preserve">
+    <value>未运行（0/{0} 个实例）</value>
+  </data>
+  <data name="Workload_Text_Not_running_9e3856" xml:space="preserve">
+    <value>未运行</value>
+  </data>
+  <data name="Workload_Text_Note_optional_f9b73e" xml:space="preserve">
+    <value>备注（可选）</value>
+  </data>
+  <data name="Workload_Text_Nothing_to_export_fd3032" xml:space="preserve">
+    <value>没有可导出的内容</value>
+  </data>
+  <data name="Workload_Text_Nothing_to_import_c4497f" xml:space="preserve">
+    <value>没有可导入的内容</value>
+  </data>
+  <data name="Workload_Text_Nothing_to_launch_e88455" xml:space="preserve">
+    <value>没有可启动的内容</value>
+  </data>
+  <data name="Workload_Text_OK_565339" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="Workload_Text_Objects_are_created_in_the_namespace_a0a1e5" xml:space="preserve">
+    <value>对象会创建在清单指定的命名空间中；未指定时使用“default”。</value>
+  </data>
+  <data name="Workload_Text_One_click_stacks_launch_a_common_13d658" xml:space="preserve">
+    <value>一键启动常用镜像或多服务项目。</value>
+  </data>
+  <data name="Workload_Text_Open_Terminal_ae088e" xml:space="preserve">
+    <value>打开终端</value>
+  </data>
+  <data name="Workload_Text_Open_WebUI_needs_a_model_to_121755" xml:space="preserve">
+    <value>Open WebUI 需要模型才能对话。{0} 体积小、下载快，适合开始使用。也可输入任意 Ollama 模型名称，或稍后通过网页界面添加模型。</value>
+  </data>
+  <data name="Workload_Text_Open_in_browser_62a2dc" xml:space="preserve">
+    <value>在浏览器中打开</value>
+  </data>
+  <data name="Workload_Text_Open_workspace_folder_546afd" xml:space="preserve">
+    <value>打开工作区文件夹</value>
+  </data>
+  <data name="Workload_Text_Operation_0f044f" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Workload_Text_PORTS_815390" xml:space="preserve">
+    <value>端口</value>
+  </data>
+  <data name="Workload_Text_PROJECT_d1fb40" xml:space="preserve">
+    <value>项目</value>
+  </data>
+  <data name="Workload_Text_Partial_0_1_instances_ce3931" xml:space="preserve">
+    <value>部分运行（{0}/{1} 个实例）</value>
+  </data>
+  <data name="Workload_Text_Pass_all_GPUs_gpus_all_9b7a66" xml:space="preserve">
+    <value>传递所有 GPU（--gpus all）</value>
+  </data>
+  <data name="Workload_Text_Password_token_051a24" xml:space="preserve">
+    <value>密码 / 令牌</value>
+  </data>
+  <data name="Workload_Text_Password_token_optional_5caf4d" xml:space="preserve">
+    <value>密码 / 令牌（可选）</value>
+  </data>
+  <data name="Workload_Text_Paste_a_Kubernetes_manifest_here_or_1bbcea" xml:space="preserve">
+    <value>在此粘贴 Kubernetes 清单，或浏览 .yaml 文件。</value>
+  </data>
+  <data name="Workload_Text_Paste_a_docker_run_command_777185" xml:space="preserve">
+    <value>粘贴 docker run 命令</value>
+  </data>
+  <data name="Workload_Text_PersistentVolumeClaim_2209d7" xml:space="preserve">
+    <value>持久卷声明</value>
+  </data>
+  <data name="Workload_Text_Persistent_Volume_Claims_fc9d77" xml:space="preserve">
+    <value>持久卷声明</value>
+  </data>
+  <data name="Workload_Text_Pick_a_docker_compose_yml_or_b779be" xml:space="preserve">
+    <value>从磁盘选择 docker-compose.yml（或 .yaml）。同目录的 .env 文件和相对 env_file 路径也将读取。从“Compose”页面导入时，项目会保留 depends_on 顺序、重启和健康检查策略（由本应用运行期间执行）、环境变量插值和资源限制。从“镜像”或“容器”页面导入时，各服务将保存为独立的运行配置。</value>
+  </data>
+  <data name="Workload_Text_Pick_a_template_to_get_started_e1abfd" xml:space="preserve">
+    <value>选择一个模板以开始。</value>
+  </data>
+  <data name="Workload_Text_Pod_0a6bb8" xml:space="preserve">
+    <value>Pod</value>
+  </data>
+  <data name="Workload_Text_Pods_9836b5" xml:space="preserve">
+    <value>Pod</value>
+  </data>
+  <data name="Workload_Text_Port_Forwarding_2f9a49" xml:space="preserve">
+    <value>端口转发</value>
+  </data>
+  <data name="Workload_Text_Port_forward_failed_8e0e0e" xml:space="preserve">
+    <value>端口转发失败</value>
+  </data>
+  <data name="Workload_Text_Port_in_use_3bb735" xml:space="preserve">
+    <value>端口已占用</value>
+  </data>
+  <data name="Workload_Text_Port_mappings_one_per_line_host_a15d8a" xml:space="preserve">
+    <value>端口映射（每行一个：host:container[/proto]）</value>
+  </data>
+  <data name="Workload_Text_Ports_0_f9a220" xml:space="preserve">
+    <value>端口：{0}</value>
+  </data>
+  <data name="Workload_Text_Ports_one_per_line_host_container_c09caa" xml:space="preserve">
+    <value>端口（每行一个 host:container）</value>
+  </data>
+  <data name="Workload_Text_Prepare_for_pushing_to_a_registry_69afc1" xml:space="preserve">
+    <value>准备推送到注册表（可选）</value>
+  </data>
+  <data name="Workload_Text_Probe_type_0ee53b" xml:space="preserve">
+    <value>探针类型</value>
+  </data>
+  <data name="Workload_Text_Profile_name_d36632" xml:space="preserve">
+    <value>配置名称</value>
+  </data>
+  <data name="Workload_Text_Project_name_254981" xml:space="preserve">
+    <value>项目名称</value>
+  </data>
+  <data name="Workload_Text_Project_name_optional_16ad4a" xml:space="preserve">
+    <value>项目名称（可选）</value>
+  </data>
+  <data name="Workload_Text_Pull_b66d04" xml:space="preserve">
+    <value>拉取</value>
+  </data>
+  <data name="Workload_Text_Pull_image_77733e" xml:space="preserve">
+    <value>拉取镜像</value>
+  </data>
+  <data name="Workload_Text_Push_731ce7" xml:space="preserve">
+    <value>推送</value>
+  </data>
+  <data name="Workload_Text_Push_image_7d7dad" xml:space="preserve">
+    <value>推送镜像</value>
+  </data>
+  <data name="Workload_Text_Push_to_a503aa" xml:space="preserve">
+    <value>推送到</value>
+  </data>
+  <data name="Workload_Text_READY_c2e3ac" xml:space="preserve">
+    <value>就绪</value>
+  </data>
+  <data name="Workload_Text_RESTARTS_5818db" xml:space="preserve">
+    <value>重启次数</value>
+  </data>
+  <data name="Workload_Text_ROLES_d4af87" xml:space="preserve">
+    <value>角色</value>
+  </data>
+  <data name="Workload_Text_Ready_5fa7aa" xml:space="preserve">
+    <value>就绪</value>
+  </data>
+  <data name="Workload_Text_Reason_0_2fa689" xml:space="preserve">
+    <value>
+  原因：{0}</value>
+  </data>
+  <data name="Workload_Text_Rebuild_95aefb" xml:space="preserve">
+    <value>重新构建</value>
+  </data>
+  <data name="Workload_Text_Rebuild_failed_8da927" xml:space="preserve">
+    <value>重新构建失败</value>
+  </data>
+  <data name="Workload_Text_Rebuild_images_when_applying_6434fd" xml:space="preserve">
+    <value>应用时重新构建镜像</value>
+  </data>
+  <data name="Workload_Text_Rebuild_no_cache_b182f5" xml:space="preserve">
+    <value>重新构建（不使用缓存）</value>
+  </data>
+  <data name="Workload_Text_Rebuilding_c3a834" xml:space="preserve">
+    <value>正在重新构建</value>
+  </data>
+  <data name="Workload_Text_Rebuilding_without_cache_1f1e26" xml:space="preserve">
+    <value>正在重新构建（不使用缓存）</value>
+  </data>
+  <data name="Workload_Text_Recognized_flags_ports_env_volumes_name_371bc3" xml:space="preserve">
+    <value>可识别的参数（端口、环境变量、卷、--name、--network、-w、-u、--entrypoint、--gpus 等）将预填到运行对话框中。支持使用反斜杠续行。无法表示的内容会报告并跳过。</value>
+  </data>
+  <data name="Workload_Text_Refresh_0e9161" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="Workload_Text_Refresh_logs_8095aa" xml:space="preserve">
+    <value>刷新日志</value>
+  </data>
+  <data name="Workload_Text_Registry_05c2e3" xml:space="preserve">
+    <value>注册表</value>
+  </data>
+  <data name="Workload_Text_Registry_host_743f8e" xml:space="preserve">
+    <value>注册表主机</value>
+  </data>
+  <data name="Workload_Text_Registry_qualifies_a_bare_image_name_dd2377" xml:space="preserve">
+    <value>注册表（为不带主机名的镜像添加前缀）</value>
+  </data>
+  <data name="Workload_Text_Reload_bdc090" xml:space="preserve">
+    <value>重新加载</value>
+  </data>
+  <data name="Workload_Text_Remove_0_9d64ce" xml:space="preserve">
+    <value>移除 {0}？</value>
+  </data>
+  <data name="Workload_Text_Remove_a_0_deployment_01fe9f" xml:space="preserve">
+    <value>移除一个 {0} 部署</value>
+  </data>
+  <data name="Workload_Text_Remove_c3812f" xml:space="preserve">
+    <value>移除</value>
+  </data>
+  <data name="Workload_Text_Remove_containers_f0e82a" xml:space="preserve">
+    <value>删除容器</value>
+  </data>
+  <data name="Workload_Text_Remove_deployment_20b1db" xml:space="preserve">
+    <value>移除部署</value>
+  </data>
+  <data name="Workload_Text_Remove_dev_container_89dc8e" xml:space="preserve">
+    <value>移除开发容器</value>
+  </data>
+  <data name="Workload_Text_Remove_project_704e73" xml:space="preserve">
+    <value>移除项目</value>
+  </data>
+  <data name="Workload_Text_Remove_the_project_definition_for_0_158ca8" xml:space="preserve">
+    <value>移除“{0}”的项目定义吗？这也会停止并删除其容器，以及它创建的卷。外部卷将保留。</value>
+  </data>
+  <data name="Workload_Text_Remove_when_it_exits_rm_695a93" xml:space="preserve">
+    <value>退出时移除（--rm）</value>
+  </data>
+  <data name="Workload_Text_Removed_0_7285c3" xml:space="preserve">
+    <value>已移除“{0}”</value>
+  </data>
+  <data name="Workload_Text_Removing_0_4bf34d" xml:space="preserve">
+    <value>正在移除“{0}”…</value>
+  </data>
+  <data name="Workload_Text_Removing_0_8e3a5e" xml:space="preserve">
+    <value>正在移除 {0}…</value>
+  </data>
+  <data name="Workload_Text_Repositories_1e32af" xml:space="preserve">
+    <value>仓库</value>
+  </data>
+  <data name="Workload_Text_Resolved_Compose_settings_and_compatibility_2ae794" xml:space="preserve">
+    <value>解析后的 Compose 设置及兼容性</value>
+  </data>
+  <data name="Workload_Text_Restart_0_950992" xml:space="preserve">
+    <value>重启：{0}</value>
+  </data>
+  <data name="Workload_Text_Restart_6b983a" xml:space="preserve">
+    <value>重启</value>
+  </data>
+  <data name="Workload_Text_Restart_WSL_session_574951" xml:space="preserve">
+    <value>重启 WSL 会话</value>
+  </data>
+  <data name="Workload_Text_Restart_failed_b8864c" xml:space="preserve">
+    <value>重启失败</value>
+  </data>
+  <data name="Workload_Text_Restart_project_101a59" xml:space="preserve">
+    <value>重启项目</value>
+  </data>
+  <data name="Workload_Text_Restarting_0_aba7d5" xml:space="preserve">
+    <value>正在重启“{0}”…</value>
+  </data>
+  <data name="Workload_Text_Restarting_WSL_session_ab25ce" xml:space="preserve">
+    <value>正在重启 WSL 会话…</value>
+  </data>
+  <data name="Workload_Text_Review_Compose_0_1_857679" xml:space="preserve">
+    <value>检查 Compose {0}：{1}</value>
+  </data>
+  <data name="Workload_Text_Review_and_apply_4954f1" xml:space="preserve">
+    <value>检查并应用</value>
+  </data>
+  <data name="Workload_Text_Review_storage_before_saving_4c4ee4" xml:space="preserve">
+    <value>保存前请检查存储：
+
+</value>
+  </data>
+  <data name="Workload_Text_Review_these_unsupported_or_engine_dependent_dfe63d" xml:space="preserve">
+    <value>导入前请查看以下不受支持或取决于引擎的设置：
+
+</value>
+  </data>
+  <data name="Workload_Text_Reviewing_0_no_images_or_services_2159fa" xml:space="preserve">
+    <value>正在检查 {0}…确认前不会更改镜像或服务。</value>
+  </data>
+  <data name="Workload_Text_Rolling_restart_9dc791" xml:space="preserve">
+    <value>滚动重启</value>
+  </data>
+  <data name="Workload_Text_Run_00d60e" xml:space="preserve">
+    <value>运行</value>
+  </data>
+  <data name="Workload_Text_Run_a_container_946d60" xml:space="preserve">
+    <value>运行容器</value>
+  </data>
+  <data name="Workload_Text_Run_in_background_d_6edd7f" xml:space="preserve">
+    <value>在后台运行（-d）</value>
+  </data>
+  <data name="Workload_Text_Run_now_099139" xml:space="preserve">
+    <value>立即运行</value>
+  </data>
+  <data name="Workload_Text_Running_0_1_instances_684b8f" xml:space="preserve">
+    <value>运行中（{0}/{1} 个实例）</value>
+  </data>
+  <data name="Workload_Text_Running_f4ccae" xml:space="preserve">
+    <value>运行中</value>
+  </data>
+  <data name="Workload_Text_SCHEDULE_5a40b6" xml:space="preserve">
+    <value>计划</value>
+  </data>
+  <data name="Workload_Text_SCOPE_f03506" xml:space="preserve">
+    <value>作用域</value>
+  </data>
+  <data name="Workload_Text_SERVICES_019c52" xml:space="preserve">
+    <value>服务</value>
+  </data>
+  <data name="Workload_Text_STATUS_8c2e4a" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="Workload_Text_STORAGE_CLASS_8b0f67" xml:space="preserve">
+    <value>存储类</value>
+  </data>
+  <data name="Workload_Text_Save_1509f5" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Workload_Text_Save_as_profile_69abb4" xml:space="preserve">
+    <value>另存为运行配置</value>
+  </data>
+  <data name="Workload_Text_Save_as_run_profile_e6193b" xml:space="preserve">
+    <value>另存为运行配置</value>
+  </data>
+  <data name="Workload_Text_Save_launch_77d7c3" xml:space="preserve">
+    <value>保存并启动</value>
+  </data>
+  <data name="Workload_Text_Save_these_replica_counts_for_future_f66fa8" xml:space="preserve">
+    <value>保存这些副本数，供以后应用时使用</value>
+  </data>
+  <data name="Workload_Text_Saved_b5c120" xml:space="preserve">
+    <value>已保存</value>
+  </data>
+  <data name="Workload_Text_Saved_profile_0_4f05ac" xml:space="preserve">
+    <value>已保存运行配置“{0}”。</value>
+  </data>
+  <data name="Workload_Text_Saved_profile_52c48e" xml:space="preserve">
+    <value>已保存的运行配置</value>
+  </data>
+  <data name="Workload_Text_Scale_0_c8b401" xml:space="preserve">
+    <value>缩放 {0}</value>
+  </data>
+  <data name="Workload_Text_Scale_f10298" xml:space="preserve">
+    <value>缩放</value>
+  </data>
+  <data name="Workload_Text_Scale_failed_d6a24c" xml:space="preserve">
+    <value>缩放失败</value>
+  </data>
+  <data name="Workload_Text_Scaled_to_zero_edb205" xml:space="preserve">
+    <value>已缩容至零</value>
+  </data>
+  <data name="Workload_Text_Secret_7e32a7" xml:space="preserve">
+    <value>机密</value>
+  </data>
+  <data name="Workload_Text_Secrets_d8707d" xml:space="preserve">
+    <value>机密</value>
+  </data>
+  <data name="Workload_Text_Select_a_network_4257f6" xml:space="preserve">
+    <value>选择网络…</value>
+  </data>
+  <data name="Workload_Text_Select_a_saved_profile_to_delete_0e9283" xml:space="preserve">
+    <value>请选择要删除的运行配置。</value>
+  </data>
+  <data name="Workload_Text_Select_a_volume_1e833c" xml:space="preserve">
+    <value>选择卷…</value>
+  </data>
+  <data name="Workload_Text_Select_at_least_one_service_No_2358e8" xml:space="preserve">
+    <value>请至少选择一个服务。未执行任何操作。</value>
+  </data>
+  <data name="Workload_Text_Select_at_least_one_service_before_f4ea1a" xml:space="preserve">
+    <value>请至少选择一个服务后再继续。</value>
+  </data>
+  <data name="Workload_Text_Select_one_or_more_services_15d5fd" xml:space="preserve">
+    <value>选择一个或多个服务。</value>
+  </data>
+  <data name="Workload_Text_Select_or_enter_a_network_name_6b4aae" xml:space="preserve">
+    <value>请选择或输入网络名称。</value>
+  </data>
+  <data name="Workload_Text_Select_services_aeef2c" xml:space="preserve">
+    <value>选择服务</value>
+  </data>
+  <data name="Workload_Text_Selected_0_1_96ae7f" xml:space="preserve">
+    <value>已选择 {0}:{1}。</value>
+  </data>
+  <data name="Workload_Text_Service_d67719" xml:space="preserve">
+    <value>服务</value>
+  </data>
+  <data name="Workload_Text_Service_operation_failed_d4aeef" xml:space="preserve">
+    <value>服务操作失败</value>
+  </data>
+  <data name="Workload_Text_Services_604dce" xml:space="preserve">
+    <value>服务</value>
+  </data>
+  <data name="Workload_Text_Services_to_manage_4e428f" xml:space="preserve">
+    <value>要管理的服务</value>
+  </data>
+  <data name="Workload_Text_Short_one_line_summary_shown_on_a55f71" xml:space="preserve">
+    <value>卡片上显示的简短摘要</value>
+  </data>
+  <data name="Workload_Text_Show_hidden_88ee90" xml:space="preserve">
+    <value>显示已隐藏的内容</value>
+  </data>
+  <data name="Workload_Text_Sign_in_to_Azure_111dcf" xml:space="preserve">
+    <value>登录 Azure</value>
+  </data>
+  <data name="Workload_Text_Signed_in_as_0_Choose_a_6391e5" xml:space="preserve">
+    <value>已以 {0} 登录。请选择订阅和注册表。</value>
+  </data>
+  <data name="Workload_Text_Signed_in_as_0_Loading_subscriptions_0b62b2" xml:space="preserve">
+    <value>已以 {0} 登录。正在加载订阅…</value>
+  </data>
+  <data name="Workload_Text_Signed_in_as_0_but_no_1ab02d" xml:space="preserve">
+    <value>已以 {0} 登录，但未找到订阅。</value>
+  </data>
+  <data name="Workload_Text_Signed_in_but_could_not_read_303e96" xml:space="preserve">
+    <value>已登录，但无法读取账户。请重试。</value>
+  </data>
+  <data name="Workload_Text_Signed_in_to_0_as_1_43bf73" xml:space="preserve">
+    <value>✓ 已以 {1} 登录 {0}。</value>
+  </data>
+  <data name="Workload_Text_Signed_in_to_0_dc397c" xml:space="preserve">
+    <value>✓ 已登录 {0}。</value>
+  </data>
+  <data name="Workload_Text_Single_container_faa72c" xml:space="preserve">
+    <value>单个容器</value>
+  </data>
+  <data name="Workload_Text_Skip_for_now_b58eb5" xml:space="preserve">
+    <value>暂时跳过</value>
+  </data>
+  <data name="Workload_Text_Some_services_couldn_t_mount_their_679633" xml:space="preserve">
+    <value>部分服务无法挂载配置或机密，因为 wslc 已达到会话绑定挂载限制（15 个不同的主机路径）。重启 WSL 会话可释放挂载位置，然后重新启动项目。重启会停止所有运行中的容器。现在重启吗？</value>
+  </data>
+  <data name="Workload_Text_Specific_version_c36f2c" xml:space="preserve">
+    <value>指定版本</value>
+  </data>
+  <data name="Workload_Text_Start_e4bb9f" xml:space="preserve">
+    <value>启动</value>
+  </data>
+  <data name="Workload_Text_Starting_0_downloading_the_image_if_1a0af8" xml:space="preserve">
+    <value>正在启动 {0}…如需下载镜像，可能需要一些时间。</value>
+  </data>
+  <data name="Workload_Text_Starting_aeed4d" xml:space="preserve">
+    <value>正在启动</value>
+  </data>
+  <data name="Workload_Text_Starting_cluster_1c3f3a" xml:space="preserve">
+    <value>正在启动集群…</value>
+  </data>
+  <data name="Workload_Text_Status_unavailable_7eb5af" xml:space="preserve">
+    <value>状态不可用</value>
+  </data>
+  <data name="Workload_Text_Stop_and_remove_all_containers_for_e1a7c1" xml:space="preserve">
+    <value>停止并删除“{0}”的所有容器吗？项目定义将保留。</value>
+  </data>
+  <data name="Workload_Text_Stop_and_remove_only_the_selected_e2c247" xml:space="preserve">
+    <value>仅停止并删除选中服务的容器。共享网络、卷和项目定义将保留。其他服务不会删除，但可能无法访问这些服务。</value>
+  </data>
+  <data name="Workload_Text_Stop_and_start_existing_containers_without_43f5a0" xml:space="preserve">
+    <value>停止并启动现有容器，不应用配置或重新构建</value>
+  </data>
+  <data name="Workload_Text_Stop_and_start_only_existing_selected_3b48b2" xml:space="preserve">
+    <value>仅停止并启动选中的现有容器，以及设置了 restart: true 的依赖服务。不会创建或重新创建容器、构建镜像或应用配置变更。</value>
+  </data>
+  <data name="Workload_Text_Stop_and_start_the_existing_containers_536030" xml:space="preserve">
+    <value>按依赖顺序停止并启动“{0}”的现有容器吗？
+
+重启不会创建或重新创建容器、构建镜像或应用配置变更。请使用“启动（应用）”应用变更。</value>
+  </data>
+  <data name="Workload_Text_Stop_cae7d5" xml:space="preserve">
+    <value>停止</value>
+  </data>
+  <data name="Workload_Text_Stop_failed_68349a" xml:space="preserve">
+    <value>停止失败</value>
+  </data>
+  <data name="Workload_Text_Stop_only_the_selected_services_Containers_f80159" xml:space="preserve">
+    <value>仅停止选中的服务。容器、共享网络和卷将保留。其他服务不会停止，但可能无法访问这些服务。</value>
+  </data>
+  <data name="Workload_Text_Stop_remove_and_forget_0_6723d8" xml:space="preserve">
+    <value>停止、删除并移除“{0}”的记录吗？</value>
+  </data>
+  <data name="Workload_Text_Stop_timeout_must_be_blank_1_0c4dc3" xml:space="preserve">
+    <value>停止超时必须为空、-1 或非负整数秒数。</value>
+  </data>
+  <data name="Workload_Text_Stop_timeout_seconds_706777" xml:space="preserve">
+    <value>停止超时（秒）</value>
+  </data>
+  <data name="Workload_Text_Stop_using_the_distribution_configured_for_98e754" xml:space="preserve">
+    <value>停用为 Kubernetes 配置的发行版，改用 WSL 默认发行版。</value>
+  </data>
+  <data name="Workload_Text_Stopped_0_9ae09a" xml:space="preserve">
+    <value>已停止“{0}”</value>
+  </data>
+  <data name="Workload_Text_Stopped_1a4f63" xml:space="preserve">
+    <value>已停止</value>
+  </data>
+  <data name="Workload_Text_Stopping_0_a7625f" xml:space="preserve">
+    <value>正在停止“{0}”…</value>
+  </data>
+  <data name="Workload_Text_Stopping_cluster_ba0634" xml:space="preserve">
+    <value>正在停止集群…</value>
+  </data>
+  <data name="Workload_Text_Stops_and_removes_the_0_container_f4fce7" xml:space="preserve">
+    <value>停止并删除“{0}”容器。</value>
+  </data>
+  <data name="Workload_Text_Stops_and_removes_the_0_stack_9276d2" xml:space="preserve">
+    <value>停止并删除“{0}”堆栈的容器及其网络。</value>
+  </data>
+  <data name="Workload_Text_Subnet_optional_CIDR_786318" xml:space="preserve">
+    <value>子网（可选，CIDR）</value>
+  </data>
+  <data name="Workload_Text_Subscription_4999c6" xml:space="preserve">
+    <value>订阅</value>
+  </data>
+  <data name="Workload_Text_Summary_8e76a9" xml:space="preserve">
+    <value>摘要</value>
+  </data>
+  <data name="Workload_Text_Suspend_or_resume_715f3e" xml:space="preserve">
+    <value>暂停或恢复</value>
+  </data>
+  <data name="Workload_Text_Suspend_resume_7bd076" xml:space="preserve">
+    <value>暂停 / 恢复</value>
+  </data>
+  <data name="Workload_Text_TCP_port_host_side_connect_51de6b" xml:space="preserve">
+    <value>TCP 端口（从主机连接）</value>
+  </data>
+  <data name="Workload_Text_TYPE_a90bab" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="Workload_Text_Tags_133127" xml:space="preserve">
+    <value>标签</value>
+  </data>
+  <data name="Workload_Text_Target_978354" xml:space="preserve">
+    <value>目标</value>
+  </data>
+  <data name="Workload_Text_Target_port_cab875" xml:space="preserve">
+    <value>目标端口</value>
+  </data>
+  <data name="Workload_Text_Target_type_8a1c2f" xml:space="preserve">
+    <value>目标类型</value>
+  </data>
+  <data name="Workload_Text_Templates_56b564" xml:space="preserve">
+    <value>模板</value>
+  </data>
+  <data name="Workload_Text_The_Azure_CLI_az_is_not_6ae5e4" xml:space="preserve">
+    <value>Azure CLI（az）尚未安装或不在 PATH 中。请安装后重新打开此对话框。也可以通过“添加注册表”按钮手动添加注册表。</value>
+  </data>
+  <data name="Workload_Text_The_image_is_built_and_kept_ee8e62" xml:space="preserve">
+    <value>镜像将在此计算机上构建并保留，不会上传。</value>
+  </data>
+  <data name="Workload_Text_The_installer_downloaded_from_https_get_5dbca2" xml:space="preserve">
+    <value>从 https://get.k3s.io 下载的安装脚本与此前在此计算机上批准的脚本不一致。
+
+此前批准的 SHA-256：
+{0}
+
+新下载的 SHA-256：
+{1}
+
+k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时继续。批准新脚本并继续吗？</value>
+  </data>
+  <data name="Workload_Text_The_launch_could_not_complete_Check_6eee79" xml:space="preserve">
+    <value>启动未完成。请检查容器引擎后重试。
+
+{0}</value>
+  </data>
+  <data name="Workload_Text_The_selected_version_0_is_older_a76984" xml:space="preserve">
+    <value>所选版本 {0} 早于已安装版本 {1}。k3s 不支持降级；请选择相同或更新的版本。</value>
+  </data>
+  <data name="Workload_Text_The_upgrade_re_runs_the_k3s_f22876" xml:space="preserve">
+    <value>升级会重新执行 k3s 安装脚本。集群数据和工作负载将保留，服务会短暂重启。</value>
+  </data>
+  <data name="Workload_Text_There_are_0_separate_1_deployments_1f4289" xml:space="preserve">
+    <value>有 {0} 个独立的 {1} 部署。请选择要移除的部署，其余部署将继续运行。</value>
+  </data>
+  <data name="Workload_Text_This_installs_k3s_a_lightweight_single_06d10a" xml:space="preserve">
+    <value>这会将 k3s（轻量级单节点 Kubernetes）安装到</value>
+  </data>
+  <data name="Workload_Text_This_releases_wslc_s_leaked_bind_ddc612" xml:space="preserve">
+    <value>这会释放 wslc 泄漏的绑定挂载位置（配置或机密在约 15 个不同路径挂载后开始失败时需要）。也会停止所有运行中的容器。继续吗？</value>
+  </data>
+  <data name="Workload_Text_This_removes_the_template_from_your_44188d" xml:space="preserve">
+    <value>这会从模板库中移除模板。它已启动的容器不受影响；如果也要删除这些容器，请先使用“移除部署”。</value>
+  </data>
+  <data name="Workload_Text_This_stops_and_completely_removes_k3s_0dc606" xml:space="preserve">
+    <value>这会停止并从 WSL 发行版中彻底移除 k3s 及所有集群数据。运行中的工作负载将被删除。此操作无法撤销。继续吗？</value>
+  </data>
+  <data name="Workload_Text_Total_c9b3c3" xml:space="preserve">
+    <value>总数</value>
+  </data>
+  <data name="Workload_Text_Trigger_failed_78bed2" xml:space="preserve">
+    <value>触发失败</value>
+  </data>
+  <data name="Workload_Text_Type_baaddf" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="Workload_Text_Unable_to_determine_status_c9aef1" xml:space="preserve">
+    <value>无法确定状态。</value>
+  </data>
+  <data name="Workload_Text_Unavailable_ca1844" xml:space="preserve">
+    <value>不可用</value>
+  </data>
+  <data name="Workload_Text_Unhide_eb2780" xml:space="preserve">
+    <value>取消隐藏</value>
+  </data>
+  <data name="Workload_Text_Uninstall_Kubernetes_70f934" xml:space="preserve">
+    <value>卸载 Kubernetes</value>
+  </data>
+  <data name="Workload_Text_Uninstall_failed_ecbcb5" xml:space="preserve">
+    <value>卸载失败</value>
+  </data>
+  <data name="Workload_Text_Uninstall_fe1995" xml:space="preserve">
+    <value>卸载</value>
+  </data>
+  <data name="Workload_Text_Uninstalling_k3s_and_cleaning_up_187610" xml:space="preserve">
+    <value>正在卸载 k3s 并清理…</value>
+  </data>
+  <data name="Workload_Text_Up_55490a" xml:space="preserve">
+    <value>启动</value>
+  </data>
+  <data name="Workload_Text_Up_Apply_apply_configuration_keep_unchanged_071bc2" xml:space="preserve">
+    <value>启动（应用）：应用配置，保留未更改且运行中的容器</value>
+  </data>
+  <data name="Workload_Text_Upgrade_7ec026" xml:space="preserve">
+    <value>升级</value>
+  </data>
+  <data name="Workload_Text_Upgrade_Kubernetes_k3s_18fbae" xml:space="preserve">
+    <value>升级 Kubernetes（k3s）</value>
+  </data>
+  <data name="Workload_Text_Upgrade_complete_b68ef9" xml:space="preserve">
+    <value>升级完成。</value>
+  </data>
+  <data name="Workload_Text_Upgrade_failed_9b8d54" xml:space="preserve">
+    <value>升级失败</value>
+  </data>
+  <data name="Workload_Text_Upgrade_one_minor_version_at_a_3f0567" xml:space="preserve">
+    <value>每次只升级一个次版本</value>
+  </data>
+  <data name="Workload_Text_Upgrade_to_next_minor_8477ce" xml:space="preserve">
+    <value>升级至下一个次版本</value>
+  </data>
+  <data name="Workload_Text_Upgrading_from_0_to_1_would_b0814e" xml:space="preserve">
+    <value>从 {0} 升级到 {1} 会跳过中间的次版本，这是不受支持的操作。无法解析 {2} 通道以逐步升级。请检查网络后重试。</value>
+  </data>
+  <data name="Workload_Text_Upgrading_k3s_to_the_latest_stable_473d09" xml:space="preserve">
+    <value>正在将 k3s 升级至最新稳定版…</value>
+  </data>
+  <data name="Workload_Text_Uploads_every_tag_of_0_Your_1b265e" xml:space="preserve">
+    <value>上传 {0} 的每个标签。此计算机上的镜像不会更改。</value>
+  </data>
+  <data name="Workload_Text_Uploads_it_as_0_Your_image_7c6d7a" xml:space="preserve">
+    <value>以 {0} 上传。此计算机上的镜像不会更改。</value>
+  </data>
+  <data name="Workload_Text_Use_the_Kube_tab_to_view_2d1a36" xml:space="preserve">
+    <value>使用“清单”选项卡查看和编辑完整清单，使用“详细状态”查看具体状态。</value>
+  </data>
+  <data name="Workload_Text_Use_the_default_distribution_acde81" xml:space="preserve">
+    <value>使用默认发行版</value>
+  </data>
+  <data name="Workload_Text_Username_e3b89e" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="Workload_Text_Username_optional_e946bd" xml:space="preserve">
+    <value>用户名（可选）</value>
+  </data>
+  <data name="Workload_Text_VERSION_7b60b8" xml:space="preserve">
+    <value>版本</value>
+  </data>
+  <data name="Workload_Text_Version_4c5726" xml:space="preserve">
+    <value>版本：</value>
+  </data>
+  <data name="Workload_Text_View_config_maps_10b7d7" xml:space="preserve">
+    <value>查看配置映射</value>
+  </data>
+  <data name="Workload_Text_View_cronjobs_48b192" xml:space="preserve">
+    <value>查看定时任务</value>
+  </data>
+  <data name="Workload_Text_View_deployments_493d62" xml:space="preserve">
+    <value>查看部署</value>
+  </data>
+  <data name="Workload_Text_View_ingresses_7e863c" xml:space="preserve">
+    <value>查看入口</value>
+  </data>
+  <data name="Workload_Text_View_jobs_700ab4" xml:space="preserve">
+    <value>查看任务</value>
+  </data>
+  <data name="Workload_Text_View_nodes_b3f9e1" xml:space="preserve">
+    <value>查看节点</value>
+  </data>
+  <data name="Workload_Text_View_persistent_volume_claims_d8409f" xml:space="preserve">
+    <value>查看持久卷声明</value>
+  </data>
+  <data name="Workload_Text_View_pods_ca4b26" xml:space="preserve">
+    <value>查看 Pod</value>
+  </data>
+  <data name="Workload_Text_View_port_forwarding_475977" xml:space="preserve">
+    <value>查看端口转发</value>
+  </data>
+  <data name="Workload_Text_View_secrets_02923f" xml:space="preserve">
+    <value>查看机密</value>
+  </data>
+  <data name="Workload_Text_View_services_85affc" xml:space="preserve">
+    <value>查看服务</value>
+  </data>
+  <data name="Workload_Text_Volumes_binds_one_per_line_source_e95df3" xml:space="preserve">
+    <value>卷 / 绑定挂载（每行一个：source:destination）</value>
+  </data>
+  <data name="Workload_Text_Volumes_one_per_line_source_destination_4707bc" xml:space="preserve">
+    <value>卷（每行一个 source:destination）</value>
+  </data>
+  <data name="Workload_Text_WSL_session_restarted_mount_slots_released_c52c57" xml:space="preserve">
+    <value>WSL 会话已重启，挂载位置已释放。请重新启动项目。</value>
+  </data>
+  <data name="Workload_Text_WSL_template_a8eeed" xml:space="preserve">
+    <value>WSL 模板</value>
+  </data>
+  <data name="Workload_Text_Warning_0_bebde3" xml:space="preserve">
+    <value>
+  警告：{0}</value>
+  </data>
+  <data name="Workload_Text_Warnings_f11208" xml:space="preserve">
+    <value>警告：</value>
+  </data>
+  <data name="Workload_Text_What_this_does_03f458" xml:space="preserve">
+    <value>将执行的操作</value>
+  </data>
+  <data name="Workload_Text_Which_deployment_44c49c" xml:space="preserve">
+    <value>选择哪个部署？</value>
+  </data>
+  <data name="Workload_Text_Will_pull_0_8e5c64" xml:space="preserve">
+    <value>将拉取：{0}</value>
+  </data>
+  <data name="Workload_Text_Will_pull_1cbdae" xml:space="preserve">
+    <value>将拉取：—</value>
+  </data>
+  <data name="Workload_Text_Will_pull_all_tags_in_0_c1c7d0" xml:space="preserve">
+    <value>将拉取所有标签：{0}</value>
+  </data>
+  <data name="Workload_Text_Workspace_0_738edb" xml:space="preserve">
+    <value>工作区：{0}</value>
+  </data>
+  <data name="Workload_Text_Workspace_folder_0_c8349c" xml:space="preserve">
+    <value>工作区文件夹：{0}</value>
+  </data>
+  <data name="Workload_Text_You_don_t_have_any_custom_1b1898" xml:space="preserve">
+    <value>尚无自定义或导入的模板。请先创建或导入模板，也可使用卡片的“导出…”分享内置模板。</value>
+  </data>
+  <data name="Workload_Text_You_ll_be_added_using_your_49ca44" xml:space="preserve">
+    <value>将使用 Azure 登录状态添加注册表，自动获取短期令牌，无需注册表用户名或密码。</value>
+  </data>
+  <data name="Workload_Text_You_re_not_signed_in_to_3581f2" xml:space="preserve">
+    <value>尚未登录 Azure。</value>
+  </data>
+  <data name="Workload_Text_You_re_not_signed_in_to_8756be" xml:space="preserve">
+    <value>尚未登录 {0}。推送需要该注册表的账户，请在“注册表”页面登录后重新推送。</value>
+  </data>
+  <data name="Workload_Text_You_re_on_0_Upgrading_straight_9b7945" xml:space="preserve">
+    <value>当前版本为 {0}。直接升级到 {1} 会跳过中间的次版本（v{2}.{3} … v{4}.{5}），Kubernetes 版本兼容策略不允许这样做。
+
+先升级到 {6} 吗？之后可以继续升级至 {7}。</value>
+  </data>
+  <data name="Workload_Text_active_968796" xml:space="preserve">
+    <value>活动</value>
+  </data>
+  <data name="Workload_Text_and_0_more_7bbbe9" xml:space="preserve">
+    <value>• …还有 {0} 项。</value>
+  </data>
+  <data name="Workload_Text_and_0_more_a38682" xml:space="preserve">
+    <value>
+• …还有 {0} 项。</value>
+  </data>
+  <data name="Workload_Text_and_its_data_volumes_fee57a" xml:space="preserve">
+    <value>及其数据卷</value>
+  </data>
+  <data name="Workload_Text_command_0_d5f841" xml:space="preserve">
+    <value>命令：{0}</value>
+  </data>
+  <data name="Workload_Text_downloads_0_1_2_6a06ac" xml:space="preserve">
+    <value>下载 {0} 个{1}（{2}）</value>
+  </data>
+  <data name="Workload_Text_e_g_172_28_0_0_c3ba25" xml:space="preserve">
+    <value>例如：172.28.0.0/16</value>
+  </data>
+  <data name="Workload_Text_e_g_172_28_0_1_af839f" xml:space="preserve">
+    <value>例如：172.28.0.1</value>
+  </data>
+  <data name="Workload_Text_e_g_172_28_5_0_dba741" xml:space="preserve">
+    <value>例如：172.28.5.0/24</value>
+  </data>
+  <data name="Workload_Text_e_g_3_8c2fb7" xml:space="preserve">
+    <value>例如：3</value>
+  </data>
+  <data name="Workload_Text_e_g_8080_452a03" xml:space="preserve">
+    <value>例如：8080</value>
+  </data>
+  <data name="Workload_Text_e_g_80_d3a954" xml:space="preserve">
+    <value>例如：80</value>
+  </data>
+  <data name="Workload_Text_e_g_Company_ACR_68810c" xml:space="preserve">
+    <value>例如：公司 ACR</value>
+  </data>
+  <data name="Workload_Text_e_g_Databases_da64e7" xml:space="preserve">
+    <value>例如：数据库</value>
+  </data>
+  <data name="Workload_Text_e_g_My_PostgreSQL_bb660a" xml:space="preserve">
+    <value>例如：我的 PostgreSQL</value>
+  </data>
+  <data name="Workload_Text_e_g_app_net_8fe647" xml:space="preserve">
+    <value>例如：app-net</value>
+  </data>
+  <data name="Workload_Text_e_g_curl_fsS_http_localhost_bd1c87" xml:space="preserve">
+    <value>例如：curl -fsS http://localhost:8080/health</value>
+  </data>
+  <data name="Workload_Text_e_g_default_credentials_shown_after_ecb42d" xml:space="preserve">
+    <value>例如：启动后显示的默认凭据</value>
+  </data>
+  <data name="Workload_Text_e_g_my_postgres_8c1cd3" xml:space="preserve">
+    <value>例如：my-postgres</value>
+  </data>
+  <data name="Workload_Text_e_g_my_stack_defd5e" xml:space="preserve">
+    <value>例如：my-stack</value>
+  </data>
+  <data name="Workload_Text_e_g_myregistry_azurecr_io_ghcr_6930ef" xml:space="preserve">
+    <value>例如：myregistry.azurecr.io、ghcr.io</value>
+  </data>
+  <data name="Workload_Text_e_g_postgres_16_0a25a7" xml:space="preserve">
+    <value>例如：postgres:16</value>
+  </data>
+  <data name="Workload_Text_e_g_team_myapp_1_0_201728" xml:space="preserve">
+    <value>例如：team/myapp:1.0</value>
+  </data>
+  <data name="Workload_Text_e_g_ubuntu_latest_d7980e" xml:space="preserve">
+    <value>例如：ubuntu:latest</value>
+  </data>
+  <data name="Workload_Text_e_g_ubuntu_latest_or_myapp_78466f" xml:space="preserve">
+    <value>例如：ubuntu:latest 或 myapp:1.0</value>
+  </data>
+  <data name="Workload_Text_e_g_v1_36_2_k3s1_f05394" xml:space="preserve">
+    <value>例如：v1.36.2+k3s1</value>
+  </data>
+  <data name="Workload_Text_entrypoint_0_a89ece" xml:space="preserve">
+    <value>入口点：{0}</value>
+  </data>
+  <data name="Workload_Text_env_0_48f549" xml:space="preserve">
+    <value>环境变量：{0}</value>
+  </data>
+  <data name="Workload_Text_image_0_13f3da" xml:space="preserve">
+    <value>镜像：{0}</value>
+  </data>
+  <data name="Workload_Text_image_6105d6" xml:space="preserve">
+    <value>镜像</value>
+  </data>
+  <data name="Workload_Text_images_21b2ee" xml:space="preserve">
+    <value>镜像</value>
+  </data>
+  <data name="Workload_Text_issue_4a5028" xml:space="preserve">
+    <value>问题</value>
+  </data>
+  <data name="Workload_Text_issues_02e3fe" xml:space="preserve">
+    <value>问题</value>
+  </data>
+  <data name="Workload_Text_k3s_installer_script_changed_31ef79" xml:space="preserve">
+    <value>k3s 安装脚本已更改</value>
+  </data>
+  <data name="Workload_Text_k3s_is_starting_This_usually_takes_142d0c" xml:space="preserve">
+    <value>k3s 正在启动，通常需要几秒钟。</value>
+  </data>
+  <data name="Workload_Text_k3s_is_starting_WSL_just_started_497de6" xml:space="preserve">
+    <value>k3s 正在启动…WSL 刚启动其发行版。</value>
+  </data>
+  <data name="Workload_Text_k3s_single_node_cluster_00d0f8" xml:space="preserve">
+    <value>k3s 单节点集群</value>
+  </data>
+  <data name="Workload_Text_localhost_919010" xml:space="preserve">
+    <value>localhost：</value>
+  </data>
+  <data name="Workload_Text_mount_0_0f247a" xml:space="preserve">
+    <value>挂载：{0}</value>
+  </data>
+  <data name="Workload_Text_name_0_f86121" xml:space="preserve">
+    <value>名称：{0}</value>
+  </data>
+  <data name="Workload_Text_network_0_4deab9" xml:space="preserve">
+    <value>网络：{0}</value>
+  </data>
+  <data name="Workload_Text_no_image_dc74e6" xml:space="preserve">
+    <value>（无镜像）</value>
+  </data>
+  <data name="Workload_Text_no_logs_b52742" xml:space="preserve">
+    <value>（无日志）</value>
+  </data>
+  <data name="Workload_Text_port_0_f21231" xml:space="preserve">
+    <value>端口：{0}</value>
+  </data>
+  <data name="Workload_Text_publishes_0_e65451" xml:space="preserve">
+    <value>开放 {0}</value>
+  </data>
+  <data name="Workload_Text_service_9df6b0" xml:space="preserve">
+    <value>服务</value>
+  </data>
+  <data name="Workload_Text_services_ef1c4b" xml:space="preserve">
+    <value>服务</value>
+  </data>
+  <data name="Workload_Text_setting_ec72b9" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Workload_Text_settings_cde0fb" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Workload_Text_stop_timeout_0_5571f3" xml:space="preserve">
+    <value>停止超时：{0}</value>
+  </data>
+  <data name="Workload_Text_the_WSL_distribution_0_55fe8a" xml:space="preserve">
+    <value>WSL 发行版“{0}”</value>
+  </data>
+  <data name="Workload_Text_unknown_b23a6a" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="Workload_Text_used_only_to_log_in_now_fe26ce" xml:space="preserve">
+    <value>仅用于立即登录</value>
+  </data>
+  <data name="Workload_Text_user_0_b84b5c" xml:space="preserve">
+    <value>用户：{0}</value>
+  </data>
+  <data name="Workload_Text_username_or_token_name_39f3c5" xml:space="preserve">
+    <value>用户名或令牌名称</value>
+  </data>
+  <data name="Workload_Text_using_your_GPU_4b145b" xml:space="preserve">
+    <value>，使用 GPU</value>
+  </data>
+  <data name="Workload_Text_workdir_0_95c98f" xml:space="preserve">
+    <value>工作目录：{0}</value>
+  </data>
+  <data name="Workload_Text_wslc_mount_limit_reached_c1cb82" xml:space="preserve">
+    <value>已达到 wslc 挂载限制</value>
+  </data>
+  <data name="Workload_Text_your_WSL_distribution_f67676" xml:space="preserve">
+    <value>您的 WSL 发行版</value>
+  </data>
+  <data name="Workload_Additional_031a8f0f65" xml:space="preserve">
+    <value>失败</value>
+  </data>
+  <data name="Workload_Additional_0c7823e8c7" xml:space="preserve">
+    <value>容器</value>
+  </data>
+  <data name="Workload_Additional_1f43948106" xml:space="preserve">
+    <value>内置</value>
+  </data>
+  <data name="Workload_Additional_284fe05548" xml:space="preserve">
+    <value>{0} 个{1}（{2}）</value>
+  </data>
+  <data name="Workload_Additional_321f179c80" xml:space="preserve">
+    <value>已导入</value>
+  </data>
+  <data name="Workload_Additional_331551b0de" xml:space="preserve">
+    <value>等待中</value>
+  </data>
+  <data name="Workload_Additional_40f68cf75f" xml:space="preserve">
+    <value>正在重启</value>
+  </data>
+  <data name="Workload_Additional_494ca78f73" xml:space="preserve">
+    <value>自定义</value>
+  </data>
+  <data name="Workload_Additional_51e1357de8" xml:space="preserve">
+    <value>已丢失</value>
+  </data>
+  <data name="Workload_Additional_5fa7aac537" xml:space="preserve">
+    <value>就绪</value>
+  </data>
+  <data name="Workload_Additional_6d9a6f97a5" xml:space="preserve">
+    <value>已成功</value>
+  </data>
+  <data name="Workload_Additional_85fc46c17c" xml:space="preserve">
+    <value>已退出</value>
+  </data>
+  <data name="Workload_Additional_9d6ee0d551" xml:space="preserve">
+    <value>未就绪</value>
+  </data>
+  <data name="Workload_Additional_b86d11af79" xml:space="preserve">
+    <value>停止并删除容器</value>
+  </data>
+  <data name="Workload_Additional_d06cc9afdf" xml:space="preserve">
+    <value>已绑定</value>
+  </data>
+  <data name="Workload_Additional_d70b9e24bc" xml:space="preserve">
+    <value>已创建</value>
+  </data>
+  <data name="Workload_Additional_e159b06187" xml:space="preserve">
+    <value>已暂停</value>
+  </data>
+  <data name="Workload_Additional_e674447337" xml:space="preserve">
+    <value>可用</value>
+  </data>
+  <data name="Workload_Additional_ec9b10a4a7" xml:space="preserve">
+    <value>已终止</value>
+  </data>
+  <data name="Workload_Additional_f33deea9b1" xml:space="preserve">
+    <value>已释放</value>
+  </data>
+  <data name="Workload_Additional_f4ccae29e1" xml:space="preserve">
+    <value>运行中</value>
+  </data>
+  <data name="Workload_Final_140bedbf9c" xml:space="preserve">
+    <value>无</value>
+  </data>
+  <data name="Workload_Final_1aa4cb0bcc" xml:space="preserve">
+    <value>镜像</value>
+  </data>
+  <data name="Workload_Final_7a91db72b7" xml:space="preserve">
+    <value>移除失败</value>
+  </data>
+  <data name="Workload_Final_9cd854d29b" xml:space="preserve">
+    <value>启动失败</value>
+  </data>
+  <data name="Workload_Final_c695ffc1a0" xml:space="preserve">
+    <value>（失败）</value>
+  </data>
 </root>

@@ -1,51 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?>
-<root>
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
+<?xml version='1.0' encoding='utf-8'?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:schema id="root">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xs:element name="root" ns1:IsDataSet="true">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="metadata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" />
+              </xs:sequence>
+              <xs:attribute name="name" use="required" type="xsd:string" />
+              <xs:attribute name="type" type="xsd:string" />
+              <xs:attribute name="mimetype" type="xsd:string" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="assembly">
+            <xs:complexType>
+              <xs:attribute name="alias" type="xsd:string" />
+              <xs:attribute name="name" type="xsd:string" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="data">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
+              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
+              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="resheader">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>
@@ -58,12 +58,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <!--
-    Source-language string resources (English). Keys are stable identifiers: never rename one once it
-    has been translated, or translators must redo the string. Only <value> is translated.
-    Keys ending in a property name (".Text", ".Header", ".Content") bind to that XAML property via
-    x:Uid; keys with no suffix are read from code through ITextLocalizer.Get.
-  -->  <data name="Settings_Title.Text" xml:space="preserve">
+  <data name="Settings_Title.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
   <data name="Settings_Language_Header.Text" xml:space="preserve">
@@ -447,48 +442,2879 @@
   <data name="Settings_About_Report.Content" xml:space="preserve">
     <value>Report an issue</value>
   </data>
-  <data name="Root_AssistantButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Container AI Assistant</value></data>
-  <data name="Root_EngineUnreachable" xml:space="preserve"><value>WSL Container Desktop — engine unreachable</value></data>
-  <data name="Root_ContainerUnhealthy" xml:space="preserve"><value> · a container is unhealthy</value></data>
-  <data name="Root_ContainerDown" xml:space="preserve"><value> · a container is down</value></data>
-  <data name="Root_StatusUnknown" xml:space="preserve"><value>Status: unknown</value></data>
-  <data name="Root_Update_001" xml:space="preserve"><value>Update now</value></data>
-  <data name="Root_Update_002" xml:space="preserve"><value>Updates are available only for the installed app.</value></data>
-  <data name="Root_Update_003" xml:space="preserve"><value>Not checked yet.</value></data>
-  <data name="Root_Update_004" xml:space="preserve"><value>Update installed</value></data>
-  <data name="Root_Update_005" xml:space="preserve"><value>WSL Container Desktop is now version {0}.</value></data>
-  <data name="Root_Update_006" xml:space="preserve"><value>Updated to version {0}.</value></data>
-  <data name="Root_Update_007" xml:space="preserve"><value>The update did not finish</value></data>
-  <data name="Root_Update_008" xml:space="preserve"><value>Version {0} was not installed; you are still on {1}. You can try again from Settings.</value></data>
-  <data name="Root_Update_009" xml:space="preserve"><value>The update to {0} did not finish.</value></data>
-  <data name="Root_Update_010" xml:space="preserve"><value>Downloading version {0}</value></data>
-  <data name="Root_Update_011" xml:space="preserve"><value>Starting download…</value></data>
-  <data name="Root_Update_012" xml:space="preserve"><value>Restart WSL Container Desktop to start using version {0}.</value></data>
-  <data name="Root_Update_013" xml:space="preserve"><value>Version {0} is installed; restart the app to use it.</value></data>
-  <data name="Root_Update_014" xml:space="preserve"><value>Update failed</value></data>
-  <data name="Root_Update_015" xml:space="preserve"><value>Try again</value></data>
-  <data name="Root_Update_016" xml:space="preserve"><value>The update to {0} failed.</value></data>
-  <data name="Root_Update_017" xml:space="preserve"><value>Something unexpected went wrong. The app log has the details.</value></data>
-  <data name="Root_Update_018" xml:space="preserve"><value>Checking for updates…</value></data>
-  <data name="Root_Update_019" xml:space="preserve"><value>You're up to date (version {0}).</value></data>
-  <data name="Root_Update_020" xml:space="preserve"><value>Version {0} is available.</value></data>
-  <data name="Root_Update_021" xml:space="preserve"><value>Version {0} is available</value></data>
-  <data name="Root_Update_022" xml:space="preserve"><value>You have {0}. Updating downloads the new version, closes the app, installs it and reopens it. Running containers keep running.</value></data>
-  <data name="Root_Update_023" xml:space="preserve"><value>You have {0}. This copy is not a signed release install, so it can't update itself; get the release from GitHub.</value></data>
-  <data name="Root_Update_024" xml:space="preserve"><value>{0}% downloaded.</value></data>
-  <data name="Root_Update_025" xml:space="preserve"><value>Getting ready to install</value></data>
-  <data name="Root_Update_026" xml:space="preserve"><value>The download is complete. The update will install in less than a minute.</value></data>
-  <data name="Root_Update_027" xml:space="preserve"><value>Checking the download</value></data>
-  <data name="Root_Update_028" xml:space="preserve"><value>Making sure the package is a newer WSL Container Desktop from the same publisher.</value></data>
-  <data name="Root_Update_029" xml:space="preserve"><value>Installing the update</value></data>
-  <data name="Root_Update_030" xml:space="preserve"><value>WSL Container Desktop will close, install the update and reopen in a moment.</value></data>
-  <data name="Root_Update_031" xml:space="preserve"><value>GitHub is limiting requests from this network right now. Try again later.</value></data>
-  <data name="Root_Update_032" xml:space="preserve"><value>GitHub returned {0} {1} when checking for updates.</value></data>
-  <data name="Root_Update_033" xml:space="preserve"><value>GitHub did not answer the update check in time.</value></data>
-  <data name="Root_Update_034" xml:space="preserve"><value>Could not reach GitHub to check for updates.</value></data>
-  <data name="Root_Update_035" xml:space="preserve"><value>GitHub returned an unreadable answer to the update check.</value></data>
-  <data name="Root_Update_036" xml:space="preserve"><value>Updates are only available for the installed app.</value></data>
-  <data name="Root_Update_037" xml:space="preserve"><value>This copy is not a signed release install, so it cannot update itself. Install the release from GitHub instead.</value></data>
-  <data name="Root_Update_038" xml:space="preserve"><value>The update download took too long and was stopped.</value></data>
-  <data name="Root_Update_039" xml:space="preserve"><value>The downloaded file is not a readable app package.</value></data>
+  <data name="Root_AssistantButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Container AI Assistant</value>
+  </data>
+  <data name="Root_EngineUnreachable" xml:space="preserve">
+    <value>WSL Container Desktop — engine unreachable</value>
+  </data>
+  <data name="Root_ContainerUnhealthy" xml:space="preserve">
+    <value> · a container is unhealthy</value>
+  </data>
+  <data name="Root_ContainerDown" xml:space="preserve">
+    <value> · a container is down</value>
+  </data>
+  <data name="Root_StatusUnknown" xml:space="preserve">
+    <value>Status: unknown</value>
+  </data>
+  <data name="Root_Update_001" xml:space="preserve">
+    <value>Update now</value>
+  </data>
+  <data name="Root_Update_002" xml:space="preserve">
+    <value>Updates are available only for the installed app.</value>
+  </data>
+  <data name="Root_Update_003" xml:space="preserve">
+    <value>Not checked yet.</value>
+  </data>
+  <data name="Root_Update_004" xml:space="preserve">
+    <value>Update installed</value>
+  </data>
+  <data name="Root_Update_005" xml:space="preserve">
+    <value>WSL Container Desktop is now version {0}.</value>
+  </data>
+  <data name="Root_Update_006" xml:space="preserve">
+    <value>Updated to version {0}.</value>
+  </data>
+  <data name="Root_Update_007" xml:space="preserve">
+    <value>The update did not finish</value>
+  </data>
+  <data name="Root_Update_008" xml:space="preserve">
+    <value>Version {0} was not installed; you are still on {1}. You can try again from Settings.</value>
+  </data>
+  <data name="Root_Update_009" xml:space="preserve">
+    <value>The update to {0} did not finish.</value>
+  </data>
+  <data name="Root_Update_010" xml:space="preserve">
+    <value>Downloading version {0}</value>
+  </data>
+  <data name="Root_Update_011" xml:space="preserve">
+    <value>Starting download…</value>
+  </data>
+  <data name="Root_Update_012" xml:space="preserve">
+    <value>Restart WSL Container Desktop to start using version {0}.</value>
+  </data>
+  <data name="Root_Update_013" xml:space="preserve">
+    <value>Version {0} is installed; restart the app to use it.</value>
+  </data>
+  <data name="Root_Update_014" xml:space="preserve">
+    <value>Update failed</value>
+  </data>
+  <data name="Root_Update_015" xml:space="preserve">
+    <value>Try again</value>
+  </data>
+  <data name="Root_Update_016" xml:space="preserve">
+    <value>The update to {0} failed.</value>
+  </data>
+  <data name="Root_Update_017" xml:space="preserve">
+    <value>Something unexpected went wrong. The app log has the details.</value>
+  </data>
+  <data name="Root_Update_018" xml:space="preserve">
+    <value>Checking for updates…</value>
+  </data>
+  <data name="Root_Update_019" xml:space="preserve">
+    <value>You're up to date (version {0}).</value>
+  </data>
+  <data name="Root_Update_020" xml:space="preserve">
+    <value>Version {0} is available.</value>
+  </data>
+  <data name="Root_Update_021" xml:space="preserve">
+    <value>Version {0} is available</value>
+  </data>
+  <data name="Root_Update_022" xml:space="preserve">
+    <value>You have {0}. Updating downloads the new version, closes the app, installs it and reopens it. Running containers keep running.</value>
+  </data>
+  <data name="Root_Update_023" xml:space="preserve">
+    <value>You have {0}. This copy is not a signed release install, so it can't update itself; get the release from GitHub.</value>
+  </data>
+  <data name="Root_Update_024" xml:space="preserve">
+    <value>{0}% downloaded.</value>
+  </data>
+  <data name="Root_Update_025" xml:space="preserve">
+    <value>Getting ready to install</value>
+  </data>
+  <data name="Root_Update_026" xml:space="preserve">
+    <value>The download is complete. The update will install in less than a minute.</value>
+  </data>
+  <data name="Root_Update_027" xml:space="preserve">
+    <value>Checking the download</value>
+  </data>
+  <data name="Root_Update_028" xml:space="preserve">
+    <value>Making sure the package is a newer WSL Container Desktop from the same publisher.</value>
+  </data>
+  <data name="Root_Update_029" xml:space="preserve">
+    <value>Installing the update</value>
+  </data>
+  <data name="Root_Update_030" xml:space="preserve">
+    <value>WSL Container Desktop will close, install the update and reopen in a moment.</value>
+  </data>
+  <data name="Root_Update_031" xml:space="preserve">
+    <value>GitHub is limiting requests from this network right now. Try again later.</value>
+  </data>
+  <data name="Root_Update_032" xml:space="preserve">
+    <value>GitHub returned {0} {1} when checking for updates.</value>
+  </data>
+  <data name="Root_Update_033" xml:space="preserve">
+    <value>GitHub did not answer the update check in time.</value>
+  </data>
+  <data name="Root_Update_034" xml:space="preserve">
+    <value>Could not reach GitHub to check for updates.</value>
+  </data>
+  <data name="Root_Update_035" xml:space="preserve">
+    <value>GitHub returned an unreadable answer to the update check.</value>
+  </data>
+  <data name="Root_Update_036" xml:space="preserve">
+    <value>Updates are only available for the installed app.</value>
+  </data>
+  <data name="Root_Update_037" xml:space="preserve">
+    <value>This copy is not a signed release install, so it cannot update itself. Install the release from GitHub instead.</value>
+  </data>
+  <data name="Root_Update_038" xml:space="preserve">
+    <value>The update download took too long and was stopped.</value>
+  </data>
+  <data name="Root_Update_039" xml:space="preserve">
+    <value>The downloaded file is not a readable app package.</value>
+  </data>
+  <data name="Workload_ComposePage_001.Text" xml:space="preserve">
+    <value>Compose</value>
+  </data>
+  <data name="Workload_ComposePage_002.Text" xml:space="preserve">
+    <value>Import compose file</value>
+  </data>
+  <data name="Workload_ComposePage_003.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Workload_ComposePage_004.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Restart WSL session</value>
+  </data>
+  <data name="Workload_ComposePage_005.Text" xml:space="preserve">
+    <value>Restart WSL session</value>
+  </data>
+  <data name="Workload_ComposePage_006.Text" xml:space="preserve">
+    <value>PROJECT</value>
+  </data>
+  <data name="Workload_ComposePage_007.Text" xml:space="preserve">
+    <value>SERVICES</value>
+  </data>
+  <data name="Workload_ComposePage_008.Text" xml:space="preserve">
+    <value>STATUS</value>
+  </data>
+  <data name="Workload_ComposePage_009.Text" xml:space="preserve">
+    <value>ACTIONS</value>
+  </data>
+  <data name="Workload_ComposePage_010.Content" xml:space="preserve">
+    <value>Manage services</value>
+  </data>
+  <data name="Workload_ComposePage_011.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Bring up</value>
+  </data>
+  <data name="Workload_ComposePage_011.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Up (Apply): apply configuration; keep unchanged running containers</value>
+  </data>
+  <data name="Workload_ComposePage_012.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="Workload_ComposePage_012.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Stop and start existing containers without applying configuration or rebuilding</value>
+  </data>
+  <data name="Workload_ComposePage_013.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Bring down</value>
+  </data>
+  <data name="Workload_ComposePage_013.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Bring down</value>
+  </data>
+  <data name="Workload_ComposePage_014.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Remove project</value>
+  </data>
+  <data name="Workload_ComposePage_014.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Remove project</value>
+  </data>
+  <data name="Workload_ComposePage_015.Text" xml:space="preserve">
+    <value>SERVICES</value>
+  </data>
+  <data name="Workload_ComposePage_016.Text" xml:space="preserve">
+    <value>STATUS</value>
+  </data>
+  <data name="Workload_ComposePage_017.Content" xml:space="preserve">
+    <value>Manage services</value>
+  </data>
+  <data name="Workload_ComposePage_018.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Bring up</value>
+  </data>
+  <data name="Workload_ComposePage_018.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Up (Apply): apply configuration; keep unchanged running containers</value>
+  </data>
+  <data name="Workload_ComposePage_019.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="Workload_ComposePage_019.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Stop and start existing containers without applying configuration or rebuilding</value>
+  </data>
+  <data name="Workload_ComposePage_020.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Bring down</value>
+  </data>
+  <data name="Workload_ComposePage_020.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Bring down</value>
+  </data>
+  <data name="Workload_ComposePage_021.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Remove project</value>
+  </data>
+  <data name="Workload_ComposePage_021.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Remove project</value>
+  </data>
+  <data name="Workload_ComposePage_022.Text" xml:space="preserve">
+    <value>No compose projects. Import a docker-compose.yml to get started.</value>
+  </data>
+  <data name="Workload_ComposePreviewDialog_001.CloseButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Workload_ComposePreviewDialog_002.Text" xml:space="preserve">
+    <value>What this does</value>
+  </data>
+  <data name="Workload_ComposePreviewDialog_003.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Resolved Compose settings and compatibility</value>
+  </data>
+  <data name="Workload_DevContainersPage_001.Text" xml:space="preserve">
+    <value>Dev Containers</value>
+  </data>
+  <data name="Workload_DevContainersPage_002.Text" xml:space="preserve">
+    <value>Open workspace folder</value>
+  </data>
+  <data name="Workload_DevContainersPage_003.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Workload_DevContainersPage_004.Header" xml:space="preserve">
+    <value>Lifecycle log</value>
+  </data>
+  <data name="Workload_DevContainersPage_005.Content" xml:space="preserve">
+    <value>Up</value>
+  </data>
+  <data name="Workload_DevContainersPage_006.Content" xml:space="preserve">
+    <value>Rebuild</value>
+  </data>
+  <data name="Workload_DevContainersPage_007.Content" xml:space="preserve">
+    <value>Rebuild (no cache)</value>
+  </data>
+  <data name="Workload_DevContainersPage_008.Content" xml:space="preserve">
+    <value>Open Terminal</value>
+  </data>
+  <data name="Workload_DevContainersPage_009.Content" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="Workload_DevContainersPage_010.Content" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_001.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>View nodes</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_001.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>View nodes</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_002.Text" xml:space="preserve">
+    <value>Nodes</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_003.Text" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_004.Text" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_005.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>View deployments</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_005.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>View deployments</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_006.Text" xml:space="preserve">
+    <value>Deployments</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_007.Text" xml:space="preserve">
+    <value>Healthy</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_008.Text" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_009.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>View pods</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_009.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>View pods</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_010.Text" xml:space="preserve">
+    <value>Pods</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_011.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>View services</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_011.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>View services</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_012.Text" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_013.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>View ingresses</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_013.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>View ingresses</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_014.Text" xml:space="preserve">
+    <value>Ingresses</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_015.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>View persistent volume claims</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_015.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>View persistent volume claims</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_016.Text" xml:space="preserve">
+    <value>Persistent Volume Claims</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_017.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>View config maps</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_017.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>View config maps</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_018.Text" xml:space="preserve">
+    <value>ConfigMaps</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_019.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>View secrets</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_019.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>View secrets</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_020.Text" xml:space="preserve">
+    <value>Secrets</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_021.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>View jobs</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_021.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>View jobs</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_022.Text" xml:space="preserve">
+    <value>Jobs</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_023.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>View cronjobs</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_023.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>View cronjobs</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_024.Text" xml:space="preserve">
+    <value>CronJobs</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_025.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>View port forwarding</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_025.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>View port forwarding</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_026.Text" xml:space="preserve">
+    <value>Port Forwarding</value>
+  </data>
+  <data name="Workload_K8sDashboardSection_027.Text" xml:space="preserve">
+    <value>active</value>
+  </data>
+  <data name="Workload_K8sDetailPage_001.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Back to Kubernetes</value>
+  </data>
+  <data name="Workload_K8sDetailPage_001.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Back to Kubernetes</value>
+  </data>
+  <data name="Workload_K8sDetailPage_002.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Scale</value>
+  </data>
+  <data name="Workload_K8sDetailPage_002.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Scale</value>
+  </data>
+  <data name="Workload_K8sDetailPage_003.Text" xml:space="preserve">
+    <value>Scale</value>
+  </data>
+  <data name="Workload_K8sDetailPage_004.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Rolling restart</value>
+  </data>
+  <data name="Workload_K8sDetailPage_004.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Rolling restart</value>
+  </data>
+  <data name="Workload_K8sDetailPage_005.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Run now</value>
+  </data>
+  <data name="Workload_K8sDetailPage_005.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Run now</value>
+  </data>
+  <data name="Workload_K8sDetailPage_006.Text" xml:space="preserve">
+    <value>Run now</value>
+  </data>
+  <data name="Workload_K8sDetailPage_007.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Suspend or resume</value>
+  </data>
+  <data name="Workload_K8sDetailPage_007.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Suspend / resume</value>
+  </data>
+  <data name="Workload_K8sDetailPage_008.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Workload_K8sDetailPage_008.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Workload_K8sDetailPage_009.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Workload_K8sDetailPage_009.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Workload_K8sDetailPage_010.Text" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="Workload_K8sDetailPage_011.Text" xml:space="preserve">
+    <value>Kube</value>
+  </data>
+  <data name="Workload_K8sDetailPage_012.Text" xml:space="preserve">
+    <value>Describe</value>
+  </data>
+  <data name="Workload_K8sDetailPage_013.Text" xml:space="preserve">
+    <value>Logs</value>
+  </data>
+  <data name="Workload_K8sDetailPage_014.Text" xml:space="preserve">
+    <value>KIND</value>
+  </data>
+  <data name="Workload_K8sDetailPage_015.Text" xml:space="preserve">
+    <value>NAME</value>
+  </data>
+  <data name="Workload_K8sDetailPage_016.Text" xml:space="preserve">
+    <value>SCOPE</value>
+  </data>
+  <data name="Workload_K8sDetailPage_017.Text" xml:space="preserve">
+    <value>Use the Kube tab to view and edit the full manifest, or Describe for a detailed status view.</value>
+  </data>
+  <data name="Workload_K8sDetailPage_018.Text" xml:space="preserve">
+    <value>Apply changes to cluster</value>
+  </data>
+  <data name="Workload_K8sDetailPage_019.Text" xml:space="preserve">
+    <value>Reload</value>
+  </data>
+  <data name="Workload_K8sDetailPage_020.Text" xml:space="preserve">
+    <value>Refresh logs</value>
+  </data>
+  <data name="Workload_KubernetesPage_001.Text" xml:space="preserve">
+    <value>Kubernetes</value>
+  </data>
+  <data name="Workload_KubernetesPage_002.Text" xml:space="preserve">
+    <value>k3s single-node cluster</value>
+  </data>
+  <data name="Workload_KubernetesPage_003.Text" xml:space="preserve">
+    <value>Running</value>
+  </data>
+  <data name="Workload_KubernetesPage_004.Text" xml:space="preserve">
+    <value>Starting</value>
+  </data>
+  <data name="Workload_KubernetesPage_005.Text" xml:space="preserve">
+    <value>Stopped</value>
+  </data>
+  <data name="Workload_KubernetesPage_006.Text" xml:space="preserve">
+    <value>Not installed</value>
+  </data>
+  <data name="Workload_KubernetesPage_007.Text" xml:space="preserve">
+    <value>Unavailable</value>
+  </data>
+  <data name="Workload_KubernetesPage_008.Text" xml:space="preserve">
+    <value>Node:</value>
+  </data>
+  <data name="Workload_KubernetesPage_009.Text" xml:space="preserve">
+    <value>Version:</value>
+  </data>
+  <data name="Workload_KubernetesPage_010.Text" xml:space="preserve">
+    <value>Distro:</value>
+  </data>
+  <data name="Workload_KubernetesPage_011.Text" xml:space="preserve">
+    <value>Install Kubernetes</value>
+  </data>
+  <data name="Workload_KubernetesPage_012.Text" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Workload_KubernetesPage_013.Text" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="Workload_KubernetesPage_014.Text" xml:space="preserve">
+    <value>Upgrade</value>
+  </data>
+  <data name="Workload_KubernetesPage_015.Text" xml:space="preserve">
+    <value>Uninstall</value>
+  </data>
+  <data name="Workload_KubernetesPage_016.Text" xml:space="preserve">
+    <value>No Kubernetes cluster yet</value>
+  </data>
+  <data name="Workload_KubernetesPage_017.Text" xml:space="preserve">
+    <value>Install a lightweight single-node Kubernetes cluster (k3s) that runs inside your WSL distro. It uses its own container runtime, installs as a service, and can be fully uninstalled at any time.</value>
+  </data>
+  <data name="Workload_KubernetesPage_018.Text" xml:space="preserve">
+    <value>Install Kubernetes (k3s)</value>
+  </data>
+  <data name="Workload_KubernetesPage_019.Content" xml:space="preserve">
+    <value>How to install a distribution</value>
+  </data>
+  <data name="Workload_KubernetesPage_020.Content" xml:space="preserve">
+    <value>Use the default distribution</value>
+  </data>
+  <data name="Workload_KubernetesPage_020.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Stop using the distribution configured for Kubernetes and use WSL's default distribution instead.</value>
+  </data>
+  <data name="Workload_KubernetesPage_021.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Workload_KubernetesPage_022.Content" xml:space="preserve">
+    <value>Hide log</value>
+  </data>
+  <data name="Workload_KubernetesPage_023.Text" xml:space="preserve">
+    <value>Cluster is stopped. Click Start to bring it up.</value>
+  </data>
+  <data name="Workload_KubernetesPage_024.Text" xml:space="preserve">
+    <value>k3s is starting. This usually takes a few seconds.</value>
+  </data>
+  <data name="Workload_KubernetesPage_025.Text" xml:space="preserve">
+    <value>Namespace:</value>
+  </data>
+  <data name="Workload_KubernetesPage_026.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Deploy a Kubernetes YAML manifest</value>
+  </data>
+  <data name="Workload_KubernetesPage_026.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Deploy a Kubernetes YAML manifest</value>
+  </data>
+  <data name="Workload_KubernetesPage_027.Text" xml:space="preserve">
+    <value>Apply YAML</value>
+  </data>
+  <data name="Workload_KubernetesPage_028.Text" xml:space="preserve">
+    <value>NAME</value>
+  </data>
+  <data name="Workload_KubernetesPage_029.Text" xml:space="preserve">
+    <value>STATUS</value>
+  </data>
+  <data name="Workload_KubernetesPage_030.Text" xml:space="preserve">
+    <value>ROLES</value>
+  </data>
+  <data name="Workload_KubernetesPage_031.Text" xml:space="preserve">
+    <value>VERSION</value>
+  </data>
+  <data name="Workload_KubernetesPage_032.Text" xml:space="preserve">
+    <value>NAME</value>
+  </data>
+  <data name="Workload_KubernetesPage_033.Text" xml:space="preserve">
+    <value>NAMESPACE</value>
+  </data>
+  <data name="Workload_KubernetesPage_034.Text" xml:space="preserve">
+    <value>READY</value>
+  </data>
+  <data name="Workload_KubernetesPage_035.Text" xml:space="preserve">
+    <value>ACTIONS</value>
+  </data>
+  <data name="Workload_KubernetesPage_036.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Scale</value>
+  </data>
+  <data name="Workload_KubernetesPage_036.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Scale</value>
+  </data>
+  <data name="Workload_KubernetesPage_037.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Rolling restart</value>
+  </data>
+  <data name="Workload_KubernetesPage_037.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Rolling restart</value>
+  </data>
+  <data name="Workload_KubernetesPage_038.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Workload_KubernetesPage_038.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Workload_KubernetesPage_039.Text" xml:space="preserve">
+    <value>NAME</value>
+  </data>
+  <data name="Workload_KubernetesPage_040.Text" xml:space="preserve">
+    <value>NAMESPACE</value>
+  </data>
+  <data name="Workload_KubernetesPage_041.Text" xml:space="preserve">
+    <value>STATUS</value>
+  </data>
+  <data name="Workload_KubernetesPage_042.Text" xml:space="preserve">
+    <value>READY</value>
+  </data>
+  <data name="Workload_KubernetesPage_043.Text" xml:space="preserve">
+    <value>RESTARTS</value>
+  </data>
+  <data name="Workload_KubernetesPage_044.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Workload_KubernetesPage_044.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Workload_KubernetesPage_045.Text" xml:space="preserve">
+    <value>NAME</value>
+  </data>
+  <data name="Workload_KubernetesPage_046.Text" xml:space="preserve">
+    <value>NAMESPACE</value>
+  </data>
+  <data name="Workload_KubernetesPage_047.Text" xml:space="preserve">
+    <value>TYPE</value>
+  </data>
+  <data name="Workload_KubernetesPage_048.Text" xml:space="preserve">
+    <value>CLUSTER IP</value>
+  </data>
+  <data name="Workload_KubernetesPage_049.Text" xml:space="preserve">
+    <value>PORTS</value>
+  </data>
+  <data name="Workload_KubernetesPage_050.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Workload_KubernetesPage_050.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Workload_KubernetesPage_051.Text" xml:space="preserve">
+    <value>NAME</value>
+  </data>
+  <data name="Workload_KubernetesPage_052.Text" xml:space="preserve">
+    <value>NAMESPACE</value>
+  </data>
+  <data name="Workload_KubernetesPage_053.Text" xml:space="preserve">
+    <value>CLASS</value>
+  </data>
+  <data name="Workload_KubernetesPage_054.Text" xml:space="preserve">
+    <value>HOSTS</value>
+  </data>
+  <data name="Workload_KubernetesPage_055.Text" xml:space="preserve">
+    <value>No ingresses.</value>
+  </data>
+  <data name="Workload_KubernetesPage_056.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Workload_KubernetesPage_056.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Workload_KubernetesPage_057.Text" xml:space="preserve">
+    <value>NAME</value>
+  </data>
+  <data name="Workload_KubernetesPage_058.Text" xml:space="preserve">
+    <value>NAMESPACE</value>
+  </data>
+  <data name="Workload_KubernetesPage_059.Text" xml:space="preserve">
+    <value>STATUS</value>
+  </data>
+  <data name="Workload_KubernetesPage_060.Text" xml:space="preserve">
+    <value>CAPACITY</value>
+  </data>
+  <data name="Workload_KubernetesPage_061.Text" xml:space="preserve">
+    <value>STORAGE CLASS</value>
+  </data>
+  <data name="Workload_KubernetesPage_062.Text" xml:space="preserve">
+    <value>No persistent volume claims.</value>
+  </data>
+  <data name="Workload_KubernetesPage_063.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Workload_KubernetesPage_063.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Workload_KubernetesPage_064.Text" xml:space="preserve">
+    <value>NAME</value>
+  </data>
+  <data name="Workload_KubernetesPage_065.Text" xml:space="preserve">
+    <value>NAMESPACE</value>
+  </data>
+  <data name="Workload_KubernetesPage_066.Text" xml:space="preserve">
+    <value>KEYS</value>
+  </data>
+  <data name="Workload_KubernetesPage_067.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Workload_KubernetesPage_067.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Workload_KubernetesPage_068.Text" xml:space="preserve">
+    <value>NAME</value>
+  </data>
+  <data name="Workload_KubernetesPage_069.Text" xml:space="preserve">
+    <value>NAMESPACE</value>
+  </data>
+  <data name="Workload_KubernetesPage_070.Text" xml:space="preserve">
+    <value>TYPE</value>
+  </data>
+  <data name="Workload_KubernetesPage_071.Text" xml:space="preserve">
+    <value>KEYS</value>
+  </data>
+  <data name="Workload_KubernetesPage_072.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Workload_KubernetesPage_072.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Workload_KubernetesPage_073.Text" xml:space="preserve">
+    <value>NAME</value>
+  </data>
+  <data name="Workload_KubernetesPage_074.Text" xml:space="preserve">
+    <value>NAMESPACE</value>
+  </data>
+  <data name="Workload_KubernetesPage_075.Text" xml:space="preserve">
+    <value>COMPLETIONS</value>
+  </data>
+  <data name="Workload_KubernetesPage_076.Text" xml:space="preserve">
+    <value>No jobs.</value>
+  </data>
+  <data name="Workload_KubernetesPage_077.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Workload_KubernetesPage_077.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Workload_KubernetesPage_078.Text" xml:space="preserve">
+    <value>NAME</value>
+  </data>
+  <data name="Workload_KubernetesPage_079.Text" xml:space="preserve">
+    <value>NAMESPACE</value>
+  </data>
+  <data name="Workload_KubernetesPage_080.Text" xml:space="preserve">
+    <value>SCHEDULE</value>
+  </data>
+  <data name="Workload_KubernetesPage_081.Text" xml:space="preserve">
+    <value>ACTIVE</value>
+  </data>
+  <data name="Workload_KubernetesPage_082.Text" xml:space="preserve">
+    <value>No cronjobs.</value>
+  </data>
+  <data name="Workload_KubernetesPage_083.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Run now</value>
+  </data>
+  <data name="Workload_KubernetesPage_083.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Run now</value>
+  </data>
+  <data name="Workload_KubernetesPage_084.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Suspend / resume</value>
+  </data>
+  <data name="Workload_KubernetesPage_084.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Suspend / resume</value>
+  </data>
+  <data name="Workload_KubernetesPage_085.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Workload_KubernetesPage_085.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Workload_KubernetesPage_086.Text" xml:space="preserve">
+    <value>Forward a port</value>
+  </data>
+  <data name="Workload_KubernetesPage_087.Text" xml:space="preserve">
+    <value>No active port forwards. Click "Forward a port" to expose a pod or service on localhost.</value>
+  </data>
+  <data name="Workload_KubernetesPage_088.Text" xml:space="preserve">
+    <value>localhost:</value>
+  </data>
+  <data name="Workload_KubernetesPage_089.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Open in browser</value>
+  </data>
+  <data name="Workload_KubernetesPage_089.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Open in browser</value>
+  </data>
+  <data name="Workload_KubernetesPage_090.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="Workload_KubernetesPage_090.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="Workload_TemplatesPage_001.Text" xml:space="preserve">
+    <value>Templates</value>
+  </data>
+  <data name="Workload_TemplatesPage_002.Text" xml:space="preserve">
+    <value>One-click stacks — launch a common image or multi-service project in seconds.</value>
+  </data>
+  <data name="Workload_TemplatesPage_003.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>New template</value>
+  </data>
+  <data name="Workload_TemplatesPage_003.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Create a new custom template</value>
+  </data>
+  <data name="Workload_TemplatesPage_004.Text" xml:space="preserve">
+    <value>New template</value>
+  </data>
+  <data name="Workload_TemplatesPage_005.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Import templates</value>
+  </data>
+  <data name="Workload_TemplatesPage_005.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Import templates from a file</value>
+  </data>
+  <data name="Workload_TemplatesPage_006.Text" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="Workload_TemplatesPage_007.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Export all custom templates</value>
+  </data>
+  <data name="Workload_TemplatesPage_007.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Export your custom and imported templates to a file</value>
+  </data>
+  <data name="Workload_TemplatesPage_008.Text" xml:space="preserve">
+    <value>Export all</value>
+  </data>
+  <data name="Workload_TemplatesPage_009.OffContent" xml:space="preserve">
+    <value>Show hidden</value>
+  </data>
+  <data name="Workload_TemplatesPage_009.OnContent" xml:space="preserve">
+    <value>Show hidden</value>
+  </data>
+  <data name="Workload_TemplatesPage_010.Text" xml:space="preserve">
+    <value>Deployed</value>
+  </data>
+  <data name="Workload_TemplatesPage_011.Text" xml:space="preserve">
+    <value>Launch</value>
+  </data>
+  <data name="Workload_TemplatesPage_012.Text" xml:space="preserve">
+    <value>Launching…</value>
+  </data>
+  <data name="Workload_TemplatesPage_013.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>More actions</value>
+  </data>
+  <data name="Workload_TemplatesPage_013.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>More actions</value>
+  </data>
+  <data name="Workload_TemplatesPage_014.Text" xml:space="preserve">
+    <value>Configure…</value>
+  </data>
+  <data name="Workload_TemplatesPage_015.Text" xml:space="preserve">
+    <value>Duplicate…</value>
+  </data>
+  <data name="Workload_TemplatesPage_016.Text" xml:space="preserve">
+    <value>Edit…</value>
+  </data>
+  <data name="Workload_TemplatesPage_017.Text" xml:space="preserve">
+    <value>Export…</value>
+  </data>
+  <data name="Workload_TemplatesPage_018.Text" xml:space="preserve">
+    <value>Remove deployment</value>
+  </data>
+  <data name="Workload_TemplatesPage_019.Text" xml:space="preserve">
+    <value>Hide</value>
+  </data>
+  <data name="Workload_TemplatesPage_020.Text" xml:space="preserve">
+    <value>Unhide</value>
+  </data>
+  <data name="Workload_TemplatesPage_021.Text" xml:space="preserve">
+    <value>Delete template</value>
+  </data>
+  <data name="Workload_Text_0_1_See_it_in_the_60c2ff" xml:space="preserve">
+    <value>{0}{1}. See it in the Containers view.</value>
+  </data>
+  <data name="Workload_Text_0_1_cancelled_969bd2" xml:space="preserve">
+    <value>{0} "{1}" cancelled.</value>
+  </data>
+  <data name="Workload_Text_0_1_needing_attention_0540b9" xml:space="preserve">
+    <value>{0} {1} needing attention</value>
+  </data>
+  <data name="Workload_Text_0_1_removed_ae80f8" xml:space="preserve">
+    <value>{0}{1} removed.</value>
+  </data>
+  <data name="Workload_Text_0_applied_1_instance_s_started_b61588" xml:space="preserve">
+    <value>"{0}" applied — {1} instance(s) started</value>
+  </data>
+  <data name="Workload_Text_0_apply_incomplete_1_instance_s_c1d8d4" xml:space="preserve">
+    <value>"{0}" apply incomplete — {1} instance(s) started</value>
+  </data>
+  <data name="Workload_Text_0_blocking_1_8133a5" xml:space="preserve">
+    <value>{0} blocking {1}</value>
+  </data>
+  <data name="Workload_Text_0_blocking_1_and_2_3_e38847" xml:space="preserve">
+    <value>{0} blocking {1} and {2} {3} needing attention</value>
+  </data>
+  <data name="Workload_Text_0_completed_for_1_b46404" xml:space="preserve">
+    <value>{0} completed for "{1}"</value>
+  </data>
+  <data name="Workload_Text_0_copy_c24257" xml:space="preserve">
+    <value>{0} (copy)</value>
+  </data>
+  <data name="Workload_Text_0_desired_replicas_95c372" xml:space="preserve">
+    <value>{0} — desired replicas</value>
+  </data>
+  <data name="Workload_Text_0_dev_container_s_88a6a2" xml:space="preserve">
+    <value>{0} dev container(s)</value>
+  </data>
+  <data name="Workload_Text_0_failed_47953d" xml:space="preserve">
+    <value>{0}: failed</value>
+  </data>
+  <data name="Workload_Text_0_for_1_some_services_failed_553312" xml:space="preserve">
+    <value>{0} for "{1}" — some services failed</value>
+  </data>
+  <data name="Workload_Text_0_has_1_service_s_Review_6f59f1" xml:space="preserve">
+    <value>"{0}" has {1} service(s). Review compatibility before applying, or save an import without starting it.
+
+App-owned restart and health supervision require this app to remain open.</value>
+  </data>
+  <data name="Workload_Text_0_imported_1_a03a98" xml:space="preserve">
+    <value>{0} (imported {1})</value>
+  </data>
+  <data name="Workload_Text_0_imported_d226e7" xml:space="preserve">
+    <value>{0} (imported)</value>
+  </data>
+  <data name="Workload_Text_0_instance_s_started_83484d" xml:space="preserve">
+    <value> — {0} instance(s) started</value>
+  </data>
+  <data name="Workload_Text_0_is_already_deployed_314a85" xml:space="preserve">
+    <value>{0} is already deployed</value>
+  </data>
+  <data name="Workload_Text_0_is_down_5a240a" xml:space="preserve">
+    <value>"{0}" is down</value>
+  </data>
+  <data name="Workload_Text_0_is_ready_with_1_2_12e6ac" xml:space="preserve">
+    <value>{0} is ready with {1}{2}{3}.</value>
+  </data>
+  <data name="Workload_Text_0_launched_1_See_it_in_2da307" xml:space="preserve">
+    <value>{0} launched{1}. See it in the Containers view.</value>
+  </data>
+  <data name="Workload_Text_0_launched_680a32" xml:space="preserve">
+    <value>{0} launched</value>
+  </data>
+  <data name="Workload_Text_0_launched_using_the_existing_1_ee72be" xml:space="preserve">
+    <value>{0} launched using the existing "{1}" runtime{2}.</value>
+  </data>
+  <data name="Workload_Text_0_launched_without_a_model_1_c556f5" xml:space="preserve">
+    <value>{0} launched without a model{1}{2}. Add one from the web UI before chatting.</value>
+  </data>
+  <data name="Workload_Text_0_namespace_1_f105f4" xml:space="preserve">
+    <value>{0}  ·  namespace {1}</value>
+  </data>
+  <data name="Workload_Text_0_project_s_53276f" xml:space="preserve">
+    <value>{0} project(s)</value>
+  </data>
+  <data name="Workload_Text_0_repositories_select_one_to_see_99bbab" xml:space="preserve">
+    <value>{0} repositories — select one to see its tags.</value>
+  </data>
+  <data name="Workload_Text_0_restart_incomplete_1_instance_s_5a55f5" xml:space="preserve">
+    <value>"{0}" restart incomplete — {1} instance(s) started</value>
+  </data>
+  <data name="Workload_Text_0_restarted_1_instance_s_started_d1b2df" xml:space="preserve">
+    <value>"{0}" restarted — {1} instance(s) started</value>
+  </data>
+  <data name="Workload_Text_0_select_a_tag_to_fill_2892ab" xml:space="preserve">
+    <value>{0}: select a tag to fill the image reference.</value>
+  </data>
+  <data name="Workload_Text_0_started_43003e" xml:space="preserve">
+    <value>{0} started</value>
+  </data>
+  <data name="Workload_Text_0_started_as_1_d8356c" xml:space="preserve">
+    <value>{0} started as "{1}"</value>
+  </data>
+  <data name="Workload_Text_0_started_but_1_could_not_6165d9" xml:space="preserve">
+    <value>{0} started, but "{1}" could not join the {2} network, so no models will appear. Connect it from the Networks page.</value>
+  </data>
+  <data name="Workload_Text_0_started_but_1_could_not_c04bc8" xml:space="preserve">
+    <value>{0} started, but {1} could not be downloaded. Open the web UI and pull a model there, or retry from the container's terminal.</value>
+  </data>
+  <data name="Workload_Text_0_warning_s_d02ebe" xml:space="preserve">
+    <value>{0} warning(s)</value>
+  </data>
+  <data name="Workload_Text_ACTIONS_1ba13a" xml:space="preserve">
+    <value>ACTIONS</value>
+  </data>
+  <data name="Workload_Text_ACTIVE_630c2f" xml:space="preserve">
+    <value>ACTIVE</value>
+  </data>
+  <data name="Workload_Text_A_browser_will_open_for_Azure_2f9f14" xml:space="preserve">
+    <value>A browser will open for Azure sign-in…</value>
+  </data>
+  <data name="Workload_Text_A_one_off_job_was_created_8a1a9c" xml:space="preserve">
+    <value>A one-off job was created from this cronjob.</value>
+  </data>
+  <data name="Workload_Text_Add_9fd728" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Workload_Text_Add_Azure_Container_Registry_d0b1c7" xml:space="preserve">
+    <value>Add Azure Container Registry</value>
+  </data>
+  <data name="Workload_Text_Add_registry_503bed" xml:space="preserve">
+    <value>Add registry</value>
+  </data>
+  <data name="Workload_Text_Add_them_after_loading_the_profile_e0266e" xml:space="preserve">
+    <value>. Add them after loading the profile if needed.</value>
+  </data>
+  <data name="Workload_Text_Advanced_options_9443ff" xml:space="preserve">
+    <value>Advanced options</value>
+  </data>
+  <data name="Workload_Text_Aliases_optional_comma_or_line_separated_73fe58" xml:space="preserve">
+    <value>Aliases (optional, comma or line separated)</value>
+  </data>
+  <data name="Workload_Text_All_namespaces_50c3cb" xml:space="preserve">
+    <value>All namespaces</value>
+  </data>
+  <data name="Workload_Text_All_resolved_settings_0_442b43" xml:space="preserve">
+    <value>All resolved settings ({0})</value>
+  </data>
+  <data name="Workload_Text_All_tags_7c39c1" xml:space="preserve">
+    <value>All tags</value>
+  </data>
+  <data name="Workload_Text_Also_delete_data_volumes_permanently_deletes_c126ec" xml:space="preserve">
+    <value>Also delete data volumes (permanently deletes stored data)</value>
+  </data>
+  <data name="Workload_Text_Apply_0_9d7f20" xml:space="preserve">
+    <value>Apply: {0}</value>
+  </data>
+  <data name="Workload_Text_Apply_31e392" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="Workload_Text_Apply_YAML_a1e57e" xml:space="preserve">
+    <value>Apply YAML</value>
+  </data>
+  <data name="Workload_Text_Apply_YAML_manifest_72cc14" xml:space="preserve">
+    <value>Apply YAML manifest</value>
+  </data>
+  <data name="Workload_Text_Apply_changes_to_cluster_bf94e3" xml:space="preserve">
+    <value>Apply changes to cluster</value>
+  </data>
+  <data name="Workload_Text_Apply_configuration_to_the_selected_services_c06fac" xml:space="preserve">
+    <value>Apply configuration to the selected services and their required dependency closure. Unchanged running containers are kept; stopped containers are started and changed containers may be recreated. Replicas are local instances, not a Swarm deployment. Zero removes all selected instances. Named volumes and bind mounts are shared; anonymous volumes belong to each instance and are preserved on recreation. Scaling down does not delete volumes. A local operation plans at most {0} total instances.</value>
+  </data>
+  <data name="Workload_Text_Apply_failed_cae4cf" xml:space="preserve">
+    <value>Apply failed</value>
+  </data>
+  <data name="Workload_Text_Apply_reviewed_plan_844b63" xml:space="preserve">
+    <value>Apply reviewed plan</value>
+  </data>
+  <data name="Workload_Text_Apply_up_e6346a" xml:space="preserve">
+    <value>Apply (up)</value>
+  </data>
+  <data name="Workload_Text_Approve_and_continue_e94a79" xml:space="preserve">
+    <value>Approve and continue</value>
+  </data>
+  <data name="Workload_Text_Attach_an_existing_volume_5d60f4" xml:space="preserve">
+    <value>Attach an existing volume</value>
+  </data>
+  <data name="Workload_Text_Auto_restarts_before_alerting_0_alert_171ebb" xml:space="preserve">
+    <value>Auto-restarts before alerting (0 = alert only)</value>
+  </data>
+  <data name="Workload_Text_Azure_sign_in_did_not_complete_76688f" xml:space="preserve">
+    <value>Azure sign-in did not complete. Try again.</value>
+  </data>
+  <data name="Workload_Text_Back_to_Kubernetes_4d2ef9" xml:space="preserve">
+    <value>Back to Kubernetes</value>
+  </data>
+  <data name="Workload_Text_Bring_down_151b4b" xml:space="preserve">
+    <value>Bring down</value>
+  </data>
+  <data name="Workload_Text_Bring_down_failed_da796d" xml:space="preserve">
+    <value>Bring down failed</value>
+  </data>
+  <data name="Workload_Text_Bring_project_down_1ebeb2" xml:space="preserve">
+    <value>Bring project down</value>
+  </data>
+  <data name="Workload_Text_Bring_up_050a84" xml:space="preserve">
+    <value>Bring up</value>
+  </data>
+  <data name="Workload_Text_Bring_up_failed_1f4ce8" xml:space="preserve">
+    <value>Bring up failed</value>
+  </data>
+  <data name="Workload_Text_Bringing_down_0_952aea" xml:space="preserve">
+    <value>Bringing down "{0}"…</value>
+  </data>
+  <data name="Workload_Text_Bringing_up_0_fc2ceb" xml:space="preserve">
+    <value>Bringing up "{0}"…</value>
+  </data>
+  <data name="Workload_Text_Browse_93c6b6" xml:space="preserve">
+    <value>Browse…</value>
+  </data>
+  <data name="Workload_Text_Browse_for_a_yaml_file_e5c7af" xml:space="preserve">
+    <value>Browse for a .yaml file…</value>
+  </data>
+  <data name="Workload_Text_Browsing_isn_t_available_for_this_14704e" xml:space="preserve">
+    <value>Browsing isn't available for this registry — enter a reference manually</value>
+  </data>
+  <data name="Workload_Text_Build_0_413948" xml:space="preserve">
+    <value>Build: {0}</value>
+  </data>
+  <data name="Workload_Text_Build_bdd254" xml:space="preserve">
+    <value>Build</value>
+  </data>
+  <data name="Workload_Text_Build_image_327d5c" xml:space="preserve">
+    <value>Build image</value>
+  </data>
+  <data name="Workload_Text_Builds_0_on_this_PC_Nothing_c00a00" xml:space="preserve">
+    <value>Builds {0} on this PC. Nothing is uploaded; use Push later if you want to share it.</value>
+  </data>
+  <data name="Workload_Text_Builds_0_on_this_PC_named_748512" xml:space="preserve">
+    <value>Builds {0} on this PC, named so it is ready to push. Nothing is uploaded until you use Push.</value>
+  </data>
+  <data name="Workload_Text_CAPACITY_f9c3ed" xml:space="preserve">
+    <value>CAPACITY</value>
+  </data>
+  <data name="Workload_Text_CLASS_bb6a38" xml:space="preserve">
+    <value>CLASS</value>
+  </data>
+  <data name="Workload_Text_CLUSTER_IP_9027ea" xml:space="preserve">
+    <value>CLUSTER IP</value>
+  </data>
+  <data name="Workload_Text_COMPLETIONS_d127b0" xml:space="preserve">
+    <value>COMPLETIONS</value>
+  </data>
+  <data name="Workload_Text_Cancel_19766e" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Workload_Text_Cancel_to_keep_profiles_unchanged_or_64ca1c" xml:space="preserve">
+    <value>
+
+Cancel to keep profiles unchanged, or save and review storage after loading the profile.</value>
+  </data>
+  <data name="Workload_Text_Cancelled_the_changed_installer_script_was_a25d67" xml:space="preserve">
+    <value>Cancelled: the changed installer script was not approved.</value>
+  </data>
+  <data name="Workload_Text_Cannot_determine_next_version_4cd9a9" xml:space="preserve">
+    <value>Cannot determine next version</value>
+  </data>
+  <data name="Workload_Text_Captured_settings_0eb697" xml:space="preserve">
+    <value>Captured settings</value>
+  </data>
+  <data name="Workload_Text_Category_292c06" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Workload_Text_Changes_applied_9cf6db" xml:space="preserve">
+    <value>Changes applied</value>
+  </data>
+  <data name="Workload_Text_Check_interval_seconds_c75f0b" xml:space="preserve">
+    <value>Check interval (seconds)</value>
+  </data>
+  <data name="Workload_Text_Checking_cluster_status_8c6339" xml:space="preserve">
+    <value>Checking cluster status…</value>
+  </data>
+  <data name="Workload_Text_Checking_for_the_Azure_CLI_244c64" xml:space="preserve">
+    <value>Checking for the Azure CLI…</value>
+  </data>
+  <data name="Workload_Text_Checking_your_sign_in_to_0_5577aa" xml:space="preserve">
+    <value>Checking your sign-in to {0}…</value>
+  </data>
+  <data name="Workload_Text_Choose_a_compose_file_51e9a3" xml:space="preserve">
+    <value>Choose a compose file…</value>
+  </data>
+  <data name="Workload_Text_Choose_a_container_registry_to_add_01c399" xml:space="preserve">
+    <value>Choose a container registry to add.</value>
+  </data>
+  <data name="Workload_Text_Choose_a_model_78a7ab" xml:space="preserve">
+    <value>Choose a model</value>
+  </data>
+  <data name="Workload_Text_Cluster_is_installed_but_stopped_4527a7" xml:space="preserve">
+    <value>Cluster is installed but stopped.</value>
+  </data>
+  <data name="Workload_Text_Cluster_is_stopped_Click_Start_to_8df0dd" xml:space="preserve">
+    <value>Cluster is stopped. Click Start to bring it up.</value>
+  </data>
+  <data name="Workload_Text_Cluster_running_node_0_1_4c9575" xml:space="preserve">
+    <value>Cluster running · node {0} · {1}</value>
+  </data>
+  <data name="Workload_Text_Command_arguments_optional_410b03" xml:space="preserve">
+    <value>Command / arguments (optional)</value>
+  </data>
+  <data name="Workload_Text_Command_run_inside_the_container_2e8017" xml:space="preserve">
+    <value>Command run inside the container</value>
+  </data>
+  <data name="Workload_Text_Command_wslc_exec_exit_0_healthy_02b96a" xml:space="preserve">
+    <value>Command (wslc exec, exit 0 = healthy)</value>
+  </data>
+  <data name="Workload_Text_Compose_0_30434f" xml:space="preserve">
+    <value>Compose: {0}</value>
+  </data>
+  <data name="Workload_Text_Compose_98652a" xml:space="preserve">
+    <value>Compose</value>
+  </data>
+  <data name="Workload_Text_Compose_YAML_bed00b" xml:space="preserve">
+    <value>Compose YAML</value>
+  </data>
+  <data name="Workload_Text_Compose_compatibility_notes_7d8a36" xml:space="preserve">
+    <value>Compose compatibility notes</value>
+  </data>
+  <data name="Workload_Text_Compose_launch_was_cancelled_blocked_or_41a796" xml:space="preserve">
+    <value>Compose launch was cancelled, blocked, or incomplete. Check Compose details and refresh actual state before retrying.</value>
+  </data>
+  <data name="Workload_Text_Compose_launch_was_cancelled_blocked_or_e9222d" xml:space="preserve">
+    <value>Compose launch was cancelled, blocked, or incomplete. Saved template defaults were not changed; check Compose details.</value>
+  </data>
+  <data name="Workload_Text_Compose_stack_2c23f1" xml:space="preserve">
+    <value>Compose stack</value>
+  </data>
+  <data name="Workload_Text_ConfigMap_0fbccf" xml:space="preserve">
+    <value>ConfigMap</value>
+  </data>
+  <data name="Workload_Text_ConfigMaps_54b4dd" xml:space="preserve">
+    <value>ConfigMaps</value>
+  </data>
+  <data name="Workload_Text_Configuration_applied_to_the_cluster_270136" xml:space="preserve">
+    <value>Configuration applied to the cluster.</value>
+  </data>
+  <data name="Workload_Text_Configure_0_76d41c" xml:space="preserve">
+    <value>Configure {0}</value>
+  </data>
+  <data name="Workload_Text_Configure_37d782" xml:space="preserve">
+    <value>Configure…</value>
+  </data>
+  <data name="Workload_Text_Confirm_operation_382ccb" xml:space="preserve">
+    <value>Confirm operation</value>
+  </data>
+  <data name="Workload_Text_Connect_1a2303" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="Workload_Text_Connect_to_network_13927e" xml:space="preserve">
+    <value>Connect to network</value>
+  </data>
+  <data name="Workload_Text_Container_name_optional_f0ba06" xml:space="preserve">
+    <value>Container name (optional)</value>
+  </data>
+  <data name="Workload_Text_Container_registry_a1673a" xml:space="preserve">
+    <value>Container registry</value>
+  </data>
+  <data name="Workload_Text_Container_status_unavailable_0_f892d1" xml:space="preserve">
+    <value> - Container status unavailable: {0}</value>
+  </data>
+  <data name="Workload_Text_Continue_31fbef" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="Workload_Text_Could_not_get_an_access_token_401d09" xml:space="preserve">
+    <value>Could not get an access token for this registry. You may lack pull access, or the token expired.</value>
+  </data>
+  <data name="Workload_Text_Could_not_import_devcontainer_json_492691" xml:space="preserve">
+    <value>Could not import devcontainer.json.</value>
+  </data>
+  <data name="Workload_Text_Could_not_list_repositories_50d18d" xml:space="preserve">
+    <value>Could not list repositories.</value>
+  </data>
+  <data name="Workload_Text_Could_not_list_tags_fe3b7c" xml:space="preserve">
+    <value>Could not list tags.</value>
+  </data>
+  <data name="Workload_Text_Could_not_read_the_selected_Compose_548673" xml:space="preserve">
+    <value>Could not read the selected Compose file. Check its permissions.</value>
+  </data>
+  <data name="Workload_Text_Could_not_read_the_selected_file_50b46f" xml:space="preserve">
+    <value>Could not read the selected file.</value>
+  </data>
+  <data name="Workload_Text_Could_not_start_the_port_forward_84c580" xml:space="preserve">
+    <value>Could not start the port-forward. Check that the target and ports are valid.</value>
+  </data>
+  <data name="Workload_Text_Couldn_t_confirm_your_sign_in_1c8432" xml:space="preserve">
+    <value>Couldn't confirm your sign-in to {0}. You can still try the push.</value>
+  </data>
+  <data name="Workload_Text_Couldn_t_find_an_image_reference_3b55b5" xml:space="preserve">
+    <value>Couldn't find an image reference in that command. Paste a full 'docker run … &lt;image&gt;' line.</value>
+  </data>
+  <data name="Workload_Text_Couldn_t_reach_0_to_check_a88a1d" xml:space="preserve">
+    <value>Couldn't reach {0} to check your sign-in. You can still try the push.</value>
+  </data>
+  <data name="Workload_Text_Create_475949" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Workload_Text_Create_a_new_custom_template_963031" xml:space="preserve">
+    <value>Create a new custom template</value>
+  </data>
+  <data name="Workload_Text_Create_network_dbf4e6" xml:space="preserve">
+    <value>Create network</value>
+  </data>
+  <data name="Workload_Text_Created_a_copy_e721ce" xml:space="preserve">
+    <value>Created a copy</value>
+  </data>
+  <data name="Workload_Text_Created_d70b9e" xml:space="preserve">
+    <value>Created</value>
+  </data>
+  <data name="Workload_Text_Credentials_are_handed_to_the_container_c9f29e" xml:space="preserve">
+    <value>Credentials are handed to the container engine (wslc login) and stored in its credential store — the app never saves your password.</value>
+  </data>
+  <data name="Workload_Text_CronJob_30db41" xml:space="preserve">
+    <value>CronJob</value>
+  </data>
+  <data name="Workload_Text_CronJobs_a27995" xml:space="preserve">
+    <value>CronJobs</value>
+  </data>
+  <data name="Workload_Text_Dashboard_67b696" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="Workload_Text_Default_bridge_83f3d5" xml:space="preserve">
+    <value>Default (bridge)</value>
+  </data>
+  <data name="Workload_Text_Delete_0_1_This_cannot_be_0b19ba" xml:space="preserve">
+    <value>Delete {0} "{1}"? This cannot be undone.</value>
+  </data>
+  <data name="Workload_Text_Delete_0_7eab12" xml:space="preserve">
+    <value>Delete {0}</value>
+  </data>
+  <data name="Workload_Text_Delete_e2d0a5" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Workload_Text_Delete_failed_8727e2" xml:space="preserve">
+    <value>Delete failed</value>
+  </data>
+  <data name="Workload_Text_Delete_template_da9a9b" xml:space="preserve">
+    <value>Delete template</value>
+  </data>
+  <data name="Workload_Text_Delete_the_0_template_fb09f8" xml:space="preserve">
+    <value>Delete the "{0}" template?</value>
+  </data>
+  <data name="Workload_Text_Deleted_profile_0_c56639" xml:space="preserve">
+    <value>Deleted profile "{0}".</value>
+  </data>
+  <data name="Workload_Text_Deleted_the_0_template_cdabb5" xml:space="preserve">
+    <value>Deleted the "{0}" template.</value>
+  </data>
+  <data name="Workload_Text_Deploy_a_Kubernetes_YAML_manifest_5794a3" xml:space="preserve">
+    <value>Deploy a Kubernetes YAML manifest</value>
+  </data>
+  <data name="Workload_Text_Deployed_a5dc3f" xml:space="preserve">
+    <value>Deployed</value>
+  </data>
+  <data name="Workload_Text_Deployment_870a8f" xml:space="preserve">
+    <value>Deployment</value>
+  </data>
+  <data name="Workload_Text_Deployments_842a46" xml:space="preserve">
+    <value>Deployments</value>
+  </data>
+  <data name="Workload_Text_Describe_00f7e8" xml:space="preserve">
+    <value>Describe</value>
+  </data>
+  <data name="Workload_Text_Description_526e00" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Workload_Text_Desired_replicas_598a02" xml:space="preserve">
+    <value>Desired replicas</value>
+  </data>
+  <data name="Workload_Text_Desired_replicas_for_0_306ce6" xml:space="preserve">
+    <value>Desired replicas for {0}</value>
+  </data>
+  <data name="Workload_Text_Dev_Containers_5d7690" xml:space="preserve">
+    <value>Dev Containers</value>
+  </data>
+  <data name="Workload_Text_Display_name_2b7f6a" xml:space="preserve">
+    <value>Display name</value>
+  </data>
+  <data name="Workload_Text_Distro_fcad2a" xml:space="preserve">
+    <value>Distro:</value>
+  </data>
+  <data name="Workload_Text_Docker_Hub_names_start_with_your_18221c" xml:space="preserve">
+    <value>Docker Hub names start with your Docker Hub username, for example yourname/</value>
+  </data>
+  <data name="Workload_Text_Dockerfile_optional_relative_to_the_folder_6c47c0" xml:space="preserve">
+    <value>Dockerfile (optional, relative to the folder)</value>
+  </data>
+  <data name="Workload_Text_Downgrade_not_supported_0748a2" xml:space="preserve">
+    <value>Downgrade not supported</value>
+  </data>
+  <data name="Workload_Text_Download_model_9979be" xml:space="preserve">
+    <value>Download model</value>
+  </data>
+  <data name="Workload_Text_Downloading_0_this_can_take_several_8294ec" xml:space="preserve">
+    <value>Downloading {0}… this can take several minutes.</value>
+  </data>
+  <data name="Workload_Text_Driver_options_one_key_value_per_0d7e76" xml:space="preserve">
+    <value>Driver options (one key=value per line)</value>
+  </data>
+  <data name="Workload_Text_Duplicate_0_3afa7b" xml:space="preserve">
+    <value>Duplicate {0}</value>
+  </data>
+  <data name="Workload_Text_Duplicate_5d2022" xml:space="preserve">
+    <value>Duplicate…</value>
+  </data>
+  <data name="Workload_Text_Edit_0_fdd9d5" xml:space="preserve">
+    <value>Edit {0}</value>
+  </data>
+  <data name="Workload_Text_Edit_2b8a1a" xml:space="preserve">
+    <value>Edit…</value>
+  </data>
+  <data name="Workload_Text_Edit_ports_images_environment_or_credentials_4d6b62" xml:space="preserve">
+    <value>Edit ports, images, environment, or credentials as needed. Saving stores these changes so the template's Launch button reuses them, then imports and brings the project up.</value>
+  </data>
+  <data name="Workload_Text_Enable_health_monitoring_817f4e" xml:space="preserve">
+    <value>Enable health monitoring</value>
+  </data>
+  <data name="Workload_Text_Engine_default_1_never_kills_035f40" xml:space="preserve">
+    <value>Engine default; -1 never kills</value>
+  </data>
+  <data name="Workload_Text_Enter_a_model_name_like_llama3_283218" xml:space="preserve">
+    <value>Enter a model name like llama3.2:3b or qwen2.5:7b.</value>
+  </data>
+  <data name="Workload_Text_Enter_a_name_for_the_image_cd0692" xml:space="preserve">
+    <value>Enter a name for the image, for example myapp:latest.</value>
+  </data>
+  <data name="Workload_Text_Enter_a_network_name_d93a83" xml:space="preserve">
+    <value>Enter a network name.</value>
+  </data>
+  <data name="Workload_Text_Enter_a_profile_name_before_saving_3c1897" xml:space="preserve">
+    <value>Enter a profile name before saving.</value>
+  </data>
+  <data name="Workload_Text_Enter_an_image_before_saving_a_74526e" xml:space="preserve">
+    <value>Enter an image before saving a profile.</value>
+  </data>
+  <data name="Workload_Text_Enter_the_folder_that_contains_your_0376dd" xml:space="preserve">
+    <value>Enter the folder that contains your Dockerfile.</value>
+  </data>
+  <data name="Workload_Text_Enter_the_path_inside_the_container_a6f12a" xml:space="preserve">
+    <value>Enter the path inside the container</value>
+  </data>
+  <data name="Workload_Text_Environment_one_per_line_KEY_VALUE_bfc3bb" xml:space="preserve">
+    <value>Environment (one per line, KEY=VALUE)</value>
+  </data>
+  <data name="Workload_Text_Environment_variables_0_6d6b79" xml:space="preserve">
+    <value>Environment variables: {0}</value>
+  </data>
+  <data name="Workload_Text_Environment_variables_one_KEY_VALUE_per_73ca3b" xml:space="preserve">
+    <value>Environment variables (one KEY=VALUE per line)</value>
+  </data>
+  <data name="Workload_Text_Error_54a0e8" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Workload_Text_Every_replica_count_must_be_a_b03ed1" xml:space="preserve">
+    <value>Every replica count must be a nonnegative whole number.</value>
+  </data>
+  <data name="Workload_Text_Export_4a4c59" xml:space="preserve">
+    <value>Export…</value>
+  </data>
+  <data name="Workload_Text_Export_all_514276" xml:space="preserve">
+    <value>Export all</value>
+  </data>
+  <data name="Workload_Text_Export_all_custom_templates_b20b13" xml:space="preserve">
+    <value>Export all custom templates</value>
+  </data>
+  <data name="Workload_Text_Export_your_custom_and_imported_templates_523a5d" xml:space="preserve">
+    <value>Export your custom and imported templates to a file</value>
+  </data>
+  <data name="Workload_Text_Exported_0_to_1_4d3931" xml:space="preserve">
+    <value>Exported "{0}" to {1}.</value>
+  </data>
+  <data name="Workload_Text_Exported_your_custom_templates_to_0_d8175b" xml:space="preserve">
+    <value>Exported your custom templates to {0}.</value>
+  </data>
+  <data name="Workload_Text_Failed_031a8f" xml:space="preserve">
+    <value>Failed</value>
+  </data>
+  <data name="Workload_Text_Failed_to_start_99ef15" xml:space="preserve">
+    <value>Failed to start</value>
+  </data>
+  <data name="Workload_Text_Failed_to_stop_6408b3" xml:space="preserve">
+    <value>Failed to stop</value>
+  </data>
+  <data name="Workload_Text_Features_0_c0d50f" xml:space="preserve">
+    <value>Features: {0}</value>
+  </data>
+  <data name="Workload_Text_Filter_repositories_ca86ca" xml:space="preserve">
+    <value>Filter repositories…</value>
+  </data>
+  <data name="Workload_Text_Folder_to_build_contains_your_Dockerfile_06d592" xml:space="preserve">
+    <value>Folder to build (contains your Dockerfile)</value>
+  </data>
+  <data name="Workload_Text_Forward_a_port_c39bd3" xml:space="preserve">
+    <value>Forward a port</value>
+  </data>
+  <data name="Workload_Text_Forward_f1c65e" xml:space="preserve">
+    <value>Forward</value>
+  </data>
+  <data name="Workload_Text_Gateway_optional_9a3176" xml:space="preserve">
+    <value>Gateway (optional)</value>
+  </data>
+  <data name="Workload_Text_Getting_an_access_token_from_Azure_59ed81" xml:space="preserve">
+    <value>Getting an access token from Azure…</value>
+  </data>
+  <data name="Workload_Text_Go_to_Registries_to_sign_in_06b3b9" xml:space="preserve">
+    <value>Go to Registries to sign in</value>
+  </data>
+  <data name="Workload_Text_HOSTS_c44fdb" xml:space="preserve">
+    <value>HOSTS</value>
+  </data>
+  <data name="Workload_Text_Health_check_0_5d0e6d" xml:space="preserve">
+    <value>Health check · {0}</value>
+  </data>
+  <data name="Workload_Text_Healthy_7f1e32" xml:space="preserve">
+    <value>Healthy</value>
+  </data>
+  <data name="Workload_Text_Hide_ac20a5" xml:space="preserve">
+    <value>Hide</value>
+  </data>
+  <data name="Workload_Text_Hide_log_163de9" xml:space="preserve">
+    <value>Hide log</value>
+  </data>
+  <data name="Workload_Text_Host_initializeCommand_scripts_are_blocked_for_466c5e" xml:space="preserve">
+    <value>Host initializeCommand scripts are blocked for Compose dev containers.</value>
+  </data>
+  <data name="Workload_Text_Host_initializeCommand_scripts_require_separate_Windows_fa813f" xml:space="preserve">
+    <value>Host initializeCommand scripts require separate Windows host execution approval on every start or rebuild. Importing does not approve them.</value>
+  </data>
+  <data name="Workload_Text_Host_port_to_connect_to_3a2955" xml:space="preserve">
+    <value>Host port to connect to</value>
+  </data>
+  <data name="Workload_Text_How_to_install_a_distribution_219fc7" xml:space="preserve">
+    <value>How to install a distribution</value>
+  </data>
+  <data name="Workload_Text_IP_range_optional_CIDR_within_the_205cbd" xml:space="preserve">
+    <value>IP range (optional, CIDR within the subnet)</value>
+  </data>
+  <data name="Workload_Text_IPv4_address_must_be_a_valid_6ae20f" xml:space="preserve">
+    <value>IPv4 address must be a valid IPv4 literal.</value>
+  </data>
+  <data name="Workload_Text_IPv4_address_optional_540519" xml:space="preserve">
+    <value>IPv4 address (optional)</value>
+  </data>
+  <data name="Workload_Text_Icon_glyph_5a4a54" xml:space="preserve">
+    <value>Icon glyph</value>
+  </data>
+  <data name="Workload_Text_Image_0_839493" xml:space="preserve">
+    <value>Image: {0}</value>
+  </data>
+  <data name="Workload_Text_Image_name_52493e" xml:space="preserve">
+    <value>Image name</value>
+  </data>
+  <data name="Workload_Text_Image_reference_24f4a4" xml:space="preserve">
+    <value>Image reference</value>
+  </data>
+  <data name="Workload_Text_Import_0_template_s_into_your_67ba38" xml:space="preserve">
+    <value>Import {0} template(s) into your gallery? Anything that clashes with an existing template is imported as a separate copy — nothing is overwritten.</value>
+  </data>
+  <data name="Workload_Text_Import_2cff9b" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="Workload_Text_Import_Compose_project_d389da" xml:space="preserve">
+    <value>Import Compose project</value>
+  </data>
+  <data name="Workload_Text_Import_Dev_Container_1af7e9" xml:space="preserve">
+    <value>Import Dev Container</value>
+  </data>
+  <data name="Workload_Text_Import_anyway_e06eac" xml:space="preserve">
+    <value>Import anyway</value>
+  </data>
+  <data name="Workload_Text_Import_compose_file_7279fc" xml:space="preserve">
+    <value>Import compose file</value>
+  </data>
+  <data name="Workload_Text_Import_failed_0a26f4" xml:space="preserve">
+    <value>Import failed</value>
+  </data>
+  <data name="Workload_Text_Import_from_docker_run_8ad3ed" xml:space="preserve">
+    <value>Import from docker run</value>
+  </data>
+  <data name="Workload_Text_Import_only_c9bd79" xml:space="preserve">
+    <value>Import only</value>
+  </data>
+  <data name="Workload_Text_Import_templates_243230" xml:space="preserve">
+    <value>Import templates</value>
+  </data>
+  <data name="Workload_Text_Import_templates_91deef" xml:space="preserve">
+    <value>Import templates?</value>
+  </data>
+  <data name="Workload_Text_Import_templates_from_a_file_9fc55e" xml:space="preserve">
+    <value>Import templates from a file</value>
+  </data>
+  <data name="Workload_Text_Import_the_project_anyway_83f426" xml:space="preserve">
+    <value>
+
+Import the project anyway?</value>
+  </data>
+  <data name="Workload_Text_Imported_0_94041e" xml:space="preserve">
+    <value>Imported "{0}"</value>
+  </data>
+  <data name="Workload_Text_Imported_0_template_s_6e2106" xml:space="preserve">
+    <value>Imported {0} template(s).</value>
+  </data>
+  <data name="Workload_Text_Imported_from_docker_run_Notes_7e3213" xml:space="preserve">
+    <value>Imported from docker run. Notes: </value>
+  </data>
+  <data name="Workload_Text_Imported_project_0_1dff8a" xml:space="preserve">
+    <value>Imported project "{0}"</value>
+  </data>
+  <data name="Workload_Text_Ingress_d830dd" xml:space="preserve">
+    <value>Ingress</value>
+  </data>
+  <data name="Workload_Text_Ingresses_26d715" xml:space="preserve">
+    <value>Ingresses</value>
+  </data>
+  <data name="Workload_Text_Install_569ca4" xml:space="preserve">
+    <value>Install</value>
+  </data>
+  <data name="Workload_Text_Install_Kubernetes_0f8576" xml:space="preserve">
+    <value>Install Kubernetes</value>
+  </data>
+  <data name="Workload_Text_Install_Kubernetes_k3s_dc0765" xml:space="preserve">
+    <value>Install Kubernetes (k3s)</value>
+  </data>
+  <data name="Workload_Text_Install_a_lightweight_single_node_Kubernetes_9daae2" xml:space="preserve">
+    <value>Install a lightweight single-node Kubernetes cluster (k3s) that runs inside your WSL distro. It uses its own container runtime, installs as a service, and can be fully uninstalled at any time.</value>
+  </data>
+  <data name="Workload_Text_Install_failed_33b471" xml:space="preserve">
+    <value>Install failed</value>
+  </data>
+  <data name="Workload_Text_Install_the_Azure_CLI_ea3717" xml:space="preserve">
+    <value>Install the Azure CLI</value>
+  </data>
+  <data name="Workload_Text_Installed_version_0_15ee25" xml:space="preserve">
+    <value>Installed version: {0}</value>
+  </data>
+  <data name="Workload_Text_Installing_k3s_0_9cb7e1" xml:space="preserve">
+    <value>Installing k3s {0}…</value>
+  </data>
+  <data name="Workload_Text_Installing_k3s_this_can_take_a_63291c" xml:space="preserve">
+    <value>Installing k3s… this can take a few minutes.</value>
+  </data>
+  <data name="Workload_Text_Internal_network_internal_7c7e70" xml:space="preserve">
+    <value>Internal network (--internal)</value>
+  </data>
+  <data name="Workload_Text_Invalid_key_0_Keys_cannot_be_062b6d" xml:space="preserve">
+    <value>Invalid key '{0}'. Keys cannot be blank, contain '=', or contain control characters.</value>
+  </data>
+  <data name="Workload_Text_Invalid_key_value_entry_16c85f" xml:space="preserve">
+    <value>Invalid key/value entry.</value>
+  </data>
+  <data name="Workload_Text_Invalid_value_for_0_Use_key_981fe2" xml:space="preserve">
+    <value>Invalid value for '{0}'. Use key=value and avoid control characters.</value>
+  </data>
+  <data name="Workload_Text_It_runs_as_a_systemd_service_07d477" xml:space="preserve">
+    <value>It runs as a systemd service and can be uninstalled later. Continue?</value>
+  </data>
+  <data name="Workload_Text_Job_ad617a" xml:space="preserve">
+    <value>Job</value>
+  </data>
+  <data name="Workload_Text_Job_started_514ca6" xml:space="preserve">
+    <value>Job started</value>
+  </data>
+  <data name="Workload_Text_Jobs_2f17a0" xml:space="preserve">
+    <value>Jobs</value>
+  </data>
+  <data name="Workload_Text_KEYS_3fca50" xml:space="preserve">
+    <value>KEYS</value>
+  </data>
+  <data name="Workload_Text_KIND_ae97bc" xml:space="preserve">
+    <value>KIND</value>
+  </data>
+  <data name="Workload_Text_Keep_STDIN_open_i_780e70" xml:space="preserve">
+    <value>Keep STDIN open (-i)</value>
+  </data>
+  <data name="Workload_Text_Kube_417c6a" xml:space="preserve">
+    <value>Kube</value>
+  </data>
+  <data name="Workload_Text_Kubernetes_a37d07" xml:space="preserve">
+    <value>Kubernetes</value>
+  </data>
+  <data name="Workload_Text_Kubernetes_k3s_is_not_installed_7dc35f" xml:space="preserve">
+    <value>Kubernetes (k3s) is not installed.</value>
+  </data>
+  <data name="Workload_Text_Kubernetes_needs_systemd_dbce45" xml:space="preserve">
+    <value>Kubernetes needs systemd</value>
+  </data>
+  <data name="Workload_Text_Labels_one_key_value_per_line_f7aa78" xml:space="preserve">
+    <value>Labels (one key=value per line)</value>
+  </data>
+  <data name="Workload_Text_Latest_stable_0_19df99" xml:space="preserve">
+    <value>Latest stable ({0})</value>
+  </data>
+  <data name="Workload_Text_Latest_stable_0_an_upgrade_is_b786cd" xml:space="preserve">
+    <value>Latest stable: {0} — an upgrade is available.</value>
+  </data>
+  <data name="Workload_Text_Latest_stable_0_you_re_up_5dbd92" xml:space="preserve">
+    <value>Latest stable: {0} — you're up to date. Re-running will reinstall the same version.</value>
+  </data>
+  <data name="Workload_Text_Latest_stable_ad00d5" xml:space="preserve">
+    <value>Latest stable</value>
+  </data>
+  <data name="Workload_Text_Latest_stable_could_not_be_determined_2b934d" xml:space="preserve">
+    <value>Latest stable: could not be determined (no network?). You can still pin a specific version.</value>
+  </data>
+  <data name="Workload_Text_Launch_another_c189f3" xml:space="preserve">
+    <value>Launch another</value>
+  </data>
+  <data name="Workload_Text_Launch_another_one_It_runs_alongside_a9e08c" xml:space="preserve">
+    <value>Launch another one? It runs alongside the existing deployment as "{0}", with its own ports and its own data volumes, so neither can affect the other's data.
+
+{1}
+
+To replace the existing deployment instead, remove it first.</value>
+  </data>
+  <data name="Workload_Text_Launch_cancelled_c36806" xml:space="preserve">
+    <value>Launch cancelled.</value>
+  </data>
+  <data name="Workload_Text_Launch_ccf56e" xml:space="preserve">
+    <value>Launch</value>
+  </data>
+  <data name="Workload_Text_Launch_failed_1755d5" xml:space="preserve">
+    <value>Launch failed</value>
+  </data>
+  <data name="Workload_Text_Launching_0_3dad1d" xml:space="preserve">
+    <value>Launching {0}…</value>
+  </data>
+  <data name="Workload_Text_Launching_a6f90e" xml:space="preserve">
+    <value>Launching…</value>
+  </data>
+  <data name="Workload_Text_Lifecycle_ffd469" xml:space="preserve">
+    <value>Lifecycle: </value>
+  </data>
+  <data name="Workload_Text_Lifecycle_log_186b74" xml:space="preserve">
+    <value>Lifecycle log</value>
+  </data>
+  <data name="Workload_Text_List_the_images_available_in_this_b363bc" xml:space="preserve">
+    <value>List the images available in this registry</value>
+  </data>
+  <data name="Workload_Text_Loading_compose_projects_33a0b7" xml:space="preserve">
+    <value>Loading compose projects…</value>
+  </data>
+  <data name="Workload_Text_Loading_container_registries_92b291" xml:space="preserve">
+    <value>Loading container registries…</value>
+  </data>
+  <data name="Workload_Text_Loading_dev_containers_c83356" xml:space="preserve">
+    <value>Loading dev containers…</value>
+  </data>
+  <data name="Workload_Text_Loading_repositories_460ca9" xml:space="preserve">
+    <value>Loading repositories…</value>
+  </data>
+  <data name="Workload_Text_Loading_tags_for_0_2934a8" xml:space="preserve">
+    <value>Loading tags for {0}…</value>
+  </data>
+  <data name="Workload_Text_Local_port_0_is_already_being_ee8135" xml:space="preserve">
+    <value>Local port {0} is already being forwarded.</value>
+  </data>
+  <data name="Workload_Text_Local_port_9bc348" xml:space="preserve">
+    <value>Local port</value>
+  </data>
+  <data name="Workload_Text_Log_in_c18984" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="Workload_Text_Log_in_to_0_78a87c" xml:space="preserve">
+    <value>Log in to {0}</value>
+  </data>
+  <data name="Workload_Text_Log_in_to_this_registry_now_510d38" xml:space="preserve">
+    <value>Log in to this registry now</value>
+  </data>
+  <data name="Workload_Text_Logs_ea2100" xml:space="preserve">
+    <value>Logs</value>
+  </data>
+  <data name="Workload_Text_Manage_services_0_cdca2c" xml:space="preserve">
+    <value>Manage services: {0}</value>
+  </data>
+  <data name="Workload_Text_Manage_services_8542ea" xml:space="preserve">
+    <value>Manage services</value>
+  </data>
+  <data name="Workload_Text_Manifest_applied_716a5c" xml:space="preserve">
+    <value>Manifest applied</value>
+  </data>
+  <data name="Workload_Text_Manifest_applied_c4a4ae" xml:space="preserve">
+    <value>Manifest applied.</value>
+  </data>
+  <data name="Workload_Text_Model_5e2c61" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="Workload_Text_More_actions_f8d46c" xml:space="preserve">
+    <value>More actions</value>
+  </data>
+  <data name="Workload_Text_Mount_at_18caee" xml:space="preserve">
+    <value>Mount at</value>
+  </data>
+  <data name="Workload_Text_NAMESPACE_b6b685" xml:space="preserve">
+    <value>NAMESPACE</value>
+  </data>
+  <data name="Workload_Text_NAME_eaa589" xml:space="preserve">
+    <value>NAME</value>
+  </data>
+  <data name="Workload_Text_Name_0_c45829" xml:space="preserve">
+    <value>Name: {0}</value>
+  </data>
+  <data name="Workload_Text_Name_dcd1d5" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Workload_Text_Name_in_the_registry_c5e56f" xml:space="preserve">
+    <value>Name in the registry</value>
+  </data>
+  <data name="Workload_Text_Name_optional_e09b37" xml:space="preserve">
+    <value>Name (optional)</value>
+  </data>
+  <data name="Workload_Text_Name_this_project_8a5ddc" xml:space="preserve">
+    <value>Name this project</value>
+  </data>
+  <data name="Workload_Text_Namespace_b22b06" xml:space="preserve">
+    <value>Namespace:</value>
+  </data>
+  <data name="Workload_Text_Network_1744b9" xml:space="preserve">
+    <value>Network</value>
+  </data>
+  <data name="Workload_Text_Network_attention_f45fdf" xml:space="preserve">
+    <value> - Network attention: </value>
+  </data>
+  <data name="Workload_Text_Network_name_b97af0" xml:space="preserve">
+    <value>Network name</value>
+  </data>
+  <data name="Workload_Text_New_template_30d87e" xml:space="preserve">
+    <value>New template</value>
+  </data>
+  <data name="Workload_Text_No_Kubernetes_cluster_yet_371050" xml:space="preserve">
+    <value>No Kubernetes cluster yet</value>
+  </data>
+  <data name="Workload_Text_No_active_port_forwards_Click_Forward_e127b9" xml:space="preserve">
+    <value>No active port forwards. Click "Forward a port" to expose a pod or service on localhost.</value>
+  </data>
+  <data name="Workload_Text_No_compose_projects_Import_a_docker_ebe1aa" xml:space="preserve">
+    <value>No compose projects. Import a docker-compose.yml to get started.</value>
+  </data>
+  <data name="Workload_Text_No_compose_projects_Import_one_to_5185a1" xml:space="preserve">
+    <value>No compose projects. Import one to get started.</value>
+  </data>
+  <data name="Workload_Text_No_container_changes_are_required_979b3a" xml:space="preserve">
+    <value>No container changes are required.</value>
+  </data>
+  <data name="Workload_Text_No_container_registries_were_found_in_c14e91" xml:space="preserve">
+    <value>No container registries were found in this subscription.</value>
+  </data>
+  <data name="Workload_Text_No_cronjobs_51b199" xml:space="preserve">
+    <value>No cronjobs.</value>
+  </data>
+  <data name="Workload_Text_No_dev_containers_Open_a_workspace_3fac89" xml:space="preserve">
+    <value>No dev containers. Open a workspace folder to import one.</value>
+  </data>
+  <data name="Workload_Text_No_file_selected_26bfbd" xml:space="preserve">
+    <value>No file selected</value>
+  </data>
+  <data name="Workload_Text_No_forwarded_ports_b75594" xml:space="preserve">
+    <value>No forwarded ports</value>
+  </data>
+  <data name="Workload_Text_No_ingresses_d3ff45" xml:space="preserve">
+    <value>No ingresses.</value>
+  </data>
+  <data name="Workload_Text_No_jobs_66f528" xml:space="preserve">
+    <value>No jobs.</value>
+  </data>
+  <data name="Workload_Text_No_lifecycle_output_yet_4043c0" xml:space="preserve">
+    <value>No lifecycle output yet.</value>
+  </data>
+  <data name="Workload_Text_No_persistent_volume_claims_e21f1c" xml:space="preserve">
+    <value>No persistent volume claims.</value>
+  </data>
+  <data name="Workload_Text_No_repositories_were_found_in_this_945b7b" xml:space="preserve">
+    <value>No repositories were found in this registry.</value>
+  </data>
+  <data name="Workload_Text_No_service_actions_were_performed_c99eee" xml:space="preserve">
+    <value>No service actions were performed.</value>
+  </data>
+  <data name="Workload_Text_No_services_76de88" xml:space="preserve">
+    <value>No services</value>
+  </data>
+  <data name="Workload_Text_No_services_with_an_image_were_ffb50a" xml:space="preserve">
+    <value>No services with an image were found in the compose file.</value>
+  </data>
+  <data name="Workload_Text_No_tags_were_found_for_0_eb50fa" xml:space="preserve">
+    <value>No tags were found for {0}.</value>
+  </data>
+  <data name="Workload_Text_No_warnings_3a1134" xml:space="preserve">
+    <value>No warnings</value>
+  </data>
+  <data name="Workload_Text_Node_af0374" xml:space="preserve">
+    <value>Node:</value>
+  </data>
+  <data name="Workload_Text_Node_e93372" xml:space="preserve">
+    <value>Node</value>
+  </data>
+  <data name="Workload_Text_Nodes_7ac362" xml:space="preserve">
+    <value>Nodes</value>
+  </data>
+  <data name="Workload_Text_None_dc937b" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Workload_Text_None_keep_it_on_this_PC_3f35de" xml:space="preserve">
+    <value>None — keep it on this PC</value>
+  </data>
+  <data name="Workload_Text_Not_captured_a_running_container_doesn_868de2" xml:space="preserve">
+    <value>Not captured (a running container doesn't expose these): </value>
+  </data>
+  <data name="Workload_Text_Not_installed_d177cd" xml:space="preserve">
+    <value>Not installed</value>
+  </data>
+  <data name="Workload_Text_Not_running_0_0_instances_e67878" xml:space="preserve">
+    <value>Not running (0/{0} instances)</value>
+  </data>
+  <data name="Workload_Text_Not_running_9e3856" xml:space="preserve">
+    <value>Not running</value>
+  </data>
+  <data name="Workload_Text_Note_optional_f9b73e" xml:space="preserve">
+    <value>Note (optional)</value>
+  </data>
+  <data name="Workload_Text_Nothing_to_export_fd3032" xml:space="preserve">
+    <value>Nothing to export</value>
+  </data>
+  <data name="Workload_Text_Nothing_to_import_c4497f" xml:space="preserve">
+    <value>Nothing to import</value>
+  </data>
+  <data name="Workload_Text_Nothing_to_launch_e88455" xml:space="preserve">
+    <value>Nothing to launch</value>
+  </data>
+  <data name="Workload_Text_OK_565339" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Workload_Text_Objects_are_created_in_the_namespace_a0a1e5" xml:space="preserve">
+    <value>Objects are created in the namespace defined in the manifest, or "default" if none is specified.</value>
+  </data>
+  <data name="Workload_Text_One_click_stacks_launch_a_common_13d658" xml:space="preserve">
+    <value>One-click stacks — launch a common image or multi-service project in seconds.</value>
+  </data>
+  <data name="Workload_Text_Open_Terminal_ae088e" xml:space="preserve">
+    <value>Open Terminal</value>
+  </data>
+  <data name="Workload_Text_Open_WebUI_needs_a_model_to_121755" xml:space="preserve">
+    <value>Open WebUI needs a model to chat with. {0} is a good starting point — small and quick to download. You can type any Ollama model name instead, or add more later from the web UI.</value>
+  </data>
+  <data name="Workload_Text_Open_in_browser_62a2dc" xml:space="preserve">
+    <value>Open in browser</value>
+  </data>
+  <data name="Workload_Text_Open_workspace_folder_546afd" xml:space="preserve">
+    <value>Open workspace folder</value>
+  </data>
+  <data name="Workload_Text_Operation_0f044f" xml:space="preserve">
+    <value>Operation</value>
+  </data>
+  <data name="Workload_Text_PORTS_815390" xml:space="preserve">
+    <value>PORTS</value>
+  </data>
+  <data name="Workload_Text_PROJECT_d1fb40" xml:space="preserve">
+    <value>PROJECT</value>
+  </data>
+  <data name="Workload_Text_Partial_0_1_instances_ce3931" xml:space="preserve">
+    <value>Partial ({0}/{1} instances)</value>
+  </data>
+  <data name="Workload_Text_Pass_all_GPUs_gpus_all_9b7a66" xml:space="preserve">
+    <value>Pass all GPUs (--gpus all)</value>
+  </data>
+  <data name="Workload_Text_Password_token_051a24" xml:space="preserve">
+    <value>Password / token</value>
+  </data>
+  <data name="Workload_Text_Password_token_optional_5caf4d" xml:space="preserve">
+    <value>Password / token (optional)</value>
+  </data>
+  <data name="Workload_Text_Paste_a_Kubernetes_manifest_here_or_1bbcea" xml:space="preserve">
+    <value>Paste a Kubernetes manifest here, or browse for a .yaml file.</value>
+  </data>
+  <data name="Workload_Text_Paste_a_docker_run_command_777185" xml:space="preserve">
+    <value>Paste a docker run command</value>
+  </data>
+  <data name="Workload_Text_PersistentVolumeClaim_2209d7" xml:space="preserve">
+    <value>PersistentVolumeClaim</value>
+  </data>
+  <data name="Workload_Text_Persistent_Volume_Claims_fc9d77" xml:space="preserve">
+    <value>Persistent Volume Claims</value>
+  </data>
+  <data name="Workload_Text_Pick_a_docker_compose_yml_or_b779be" xml:space="preserve">
+    <value>Pick a docker-compose.yml (or .yaml) from disk. A sibling .env file and relative env_file paths are read from the same folder. Imported from the Compose page, the project keeps its depends_on order, restart and healthcheck policies (enforced by this app while it runs), environment interpolation, and resource limits. Imported from the Images/Containers page, each service is saved as a standalone run profile instead.</value>
+  </data>
+  <data name="Workload_Text_Pick_a_template_to_get_started_e1abfd" xml:space="preserve">
+    <value>Pick a template to get started.</value>
+  </data>
+  <data name="Workload_Text_Pod_0a6bb8" xml:space="preserve">
+    <value>Pod</value>
+  </data>
+  <data name="Workload_Text_Pods_9836b5" xml:space="preserve">
+    <value>Pods</value>
+  </data>
+  <data name="Workload_Text_Port_Forwarding_2f9a49" xml:space="preserve">
+    <value>Port Forwarding</value>
+  </data>
+  <data name="Workload_Text_Port_forward_failed_8e0e0e" xml:space="preserve">
+    <value>Port forward failed</value>
+  </data>
+  <data name="Workload_Text_Port_in_use_3bb735" xml:space="preserve">
+    <value>Port in use</value>
+  </data>
+  <data name="Workload_Text_Port_mappings_one_per_line_host_a15d8a" xml:space="preserve">
+    <value>Port mappings (one per line: host:container[/proto])</value>
+  </data>
+  <data name="Workload_Text_Ports_0_f9a220" xml:space="preserve">
+    <value>Ports: {0}</value>
+  </data>
+  <data name="Workload_Text_Ports_one_per_line_host_container_c09caa" xml:space="preserve">
+    <value>Ports (one per line, host:container)</value>
+  </data>
+  <data name="Workload_Text_Prepare_for_pushing_to_a_registry_69afc1" xml:space="preserve">
+    <value>Prepare for pushing to a registry (optional)</value>
+  </data>
+  <data name="Workload_Text_Probe_type_0ee53b" xml:space="preserve">
+    <value>Probe type</value>
+  </data>
+  <data name="Workload_Text_Profile_name_d36632" xml:space="preserve">
+    <value>Profile name</value>
+  </data>
+  <data name="Workload_Text_Project_name_254981" xml:space="preserve">
+    <value>Project name</value>
+  </data>
+  <data name="Workload_Text_Project_name_optional_16ad4a" xml:space="preserve">
+    <value>Project name (optional)</value>
+  </data>
+  <data name="Workload_Text_Pull_b66d04" xml:space="preserve">
+    <value>Pull</value>
+  </data>
+  <data name="Workload_Text_Pull_image_77733e" xml:space="preserve">
+    <value>Pull image</value>
+  </data>
+  <data name="Workload_Text_Push_731ce7" xml:space="preserve">
+    <value>Push</value>
+  </data>
+  <data name="Workload_Text_Push_image_7d7dad" xml:space="preserve">
+    <value>Push image</value>
+  </data>
+  <data name="Workload_Text_Push_to_a503aa" xml:space="preserve">
+    <value>Push to</value>
+  </data>
+  <data name="Workload_Text_READY_c2e3ac" xml:space="preserve">
+    <value>READY</value>
+  </data>
+  <data name="Workload_Text_RESTARTS_5818db" xml:space="preserve">
+    <value>RESTARTS</value>
+  </data>
+  <data name="Workload_Text_ROLES_d4af87" xml:space="preserve">
+    <value>ROLES</value>
+  </data>
+  <data name="Workload_Text_Ready_5fa7aa" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="Workload_Text_Reason_0_2fa689" xml:space="preserve">
+    <value>
+  Reason: {0}</value>
+  </data>
+  <data name="Workload_Text_Rebuild_95aefb" xml:space="preserve">
+    <value>Rebuild</value>
+  </data>
+  <data name="Workload_Text_Rebuild_failed_8da927" xml:space="preserve">
+    <value>Rebuild failed</value>
+  </data>
+  <data name="Workload_Text_Rebuild_images_when_applying_6434fd" xml:space="preserve">
+    <value>Rebuild images when applying</value>
+  </data>
+  <data name="Workload_Text_Rebuild_no_cache_b182f5" xml:space="preserve">
+    <value>Rebuild (no cache)</value>
+  </data>
+  <data name="Workload_Text_Rebuilding_c3a834" xml:space="preserve">
+    <value>Rebuilding</value>
+  </data>
+  <data name="Workload_Text_Rebuilding_without_cache_1f1e26" xml:space="preserve">
+    <value>Rebuilding without cache</value>
+  </data>
+  <data name="Workload_Text_Recognized_flags_ports_env_volumes_name_371bc3" xml:space="preserve">
+    <value>Recognized flags (ports, env, volumes, --name, --network, -w, -u, --entrypoint, --gpus, and more) prefill the Run dialog. Line-continuation backslashes are fine. Anything that can't be represented is reported and skipped.</value>
+  </data>
+  <data name="Workload_Text_Refresh_0e9161" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Workload_Text_Refresh_logs_8095aa" xml:space="preserve">
+    <value>Refresh logs</value>
+  </data>
+  <data name="Workload_Text_Registry_05c2e3" xml:space="preserve">
+    <value>Registry</value>
+  </data>
+  <data name="Workload_Text_Registry_host_743f8e" xml:space="preserve">
+    <value>Registry host</value>
+  </data>
+  <data name="Workload_Text_Registry_qualifies_a_bare_image_name_dd2377" xml:space="preserve">
+    <value>Registry (qualifies a bare image name)</value>
+  </data>
+  <data name="Workload_Text_Reload_bdc090" xml:space="preserve">
+    <value>Reload</value>
+  </data>
+  <data name="Workload_Text_Remove_0_9d64ce" xml:space="preserve">
+    <value>Remove {0}?</value>
+  </data>
+  <data name="Workload_Text_Remove_a_0_deployment_01fe9f" xml:space="preserve">
+    <value>Remove a {0} deployment</value>
+  </data>
+  <data name="Workload_Text_Remove_c3812f" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Workload_Text_Remove_containers_f0e82a" xml:space="preserve">
+    <value>Remove containers</value>
+  </data>
+  <data name="Workload_Text_Remove_deployment_20b1db" xml:space="preserve">
+    <value>Remove deployment</value>
+  </data>
+  <data name="Workload_Text_Remove_dev_container_89dc8e" xml:space="preserve">
+    <value>Remove dev container</value>
+  </data>
+  <data name="Workload_Text_Remove_project_704e73" xml:space="preserve">
+    <value>Remove project</value>
+  </data>
+  <data name="Workload_Text_Remove_the_project_definition_for_0_158ca8" xml:space="preserve">
+    <value>Remove the project definition for "{0}"? This also brings it down (stops and removes its containers) and deletes the volumes it created. External volumes are preserved.</value>
+  </data>
+  <data name="Workload_Text_Remove_when_it_exits_rm_695a93" xml:space="preserve">
+    <value>Remove when it exits (--rm)</value>
+  </data>
+  <data name="Workload_Text_Removed_0_7285c3" xml:space="preserve">
+    <value>Removed "{0}"</value>
+  </data>
+  <data name="Workload_Text_Removing_0_4bf34d" xml:space="preserve">
+    <value>Removing "{0}"…</value>
+  </data>
+  <data name="Workload_Text_Removing_0_8e3a5e" xml:space="preserve">
+    <value>Removing {0}…</value>
+  </data>
+  <data name="Workload_Text_Repositories_1e32af" xml:space="preserve">
+    <value>Repositories</value>
+  </data>
+  <data name="Workload_Text_Resolved_Compose_settings_and_compatibility_2ae794" xml:space="preserve">
+    <value>Resolved Compose settings and compatibility</value>
+  </data>
+  <data name="Workload_Text_Restart_0_950992" xml:space="preserve">
+    <value>Restart: {0}</value>
+  </data>
+  <data name="Workload_Text_Restart_6b983a" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="Workload_Text_Restart_WSL_session_574951" xml:space="preserve">
+    <value>Restart WSL session</value>
+  </data>
+  <data name="Workload_Text_Restart_failed_b8864c" xml:space="preserve">
+    <value>Restart failed</value>
+  </data>
+  <data name="Workload_Text_Restart_project_101a59" xml:space="preserve">
+    <value>Restart project</value>
+  </data>
+  <data name="Workload_Text_Restarting_0_aba7d5" xml:space="preserve">
+    <value>Restarting "{0}"…</value>
+  </data>
+  <data name="Workload_Text_Restarting_WSL_session_ab25ce" xml:space="preserve">
+    <value>Restarting WSL session…</value>
+  </data>
+  <data name="Workload_Text_Review_Compose_0_1_857679" xml:space="preserve">
+    <value>Review Compose {0}: {1}</value>
+  </data>
+  <data name="Workload_Text_Review_and_apply_4954f1" xml:space="preserve">
+    <value>Review and apply</value>
+  </data>
+  <data name="Workload_Text_Review_storage_before_saving_4c4ee4" xml:space="preserve">
+    <value>Review storage before saving:
+
+</value>
+  </data>
+  <data name="Workload_Text_Review_these_unsupported_or_engine_dependent_dfe63d" xml:space="preserve">
+    <value>Review these unsupported or engine-dependent settings before importing:
+
+</value>
+  </data>
+  <data name="Workload_Text_Reviewing_0_no_images_or_services_2159fa" xml:space="preserve">
+    <value>Reviewing {0}… no images or services are changed before confirmation.</value>
+  </data>
+  <data name="Workload_Text_Rolling_restart_9dc791" xml:space="preserve">
+    <value>Rolling restart</value>
+  </data>
+  <data name="Workload_Text_Run_00d60e" xml:space="preserve">
+    <value>Run</value>
+  </data>
+  <data name="Workload_Text_Run_a_container_946d60" xml:space="preserve">
+    <value>Run a container</value>
+  </data>
+  <data name="Workload_Text_Run_in_background_d_6edd7f" xml:space="preserve">
+    <value>Run in background (-d)</value>
+  </data>
+  <data name="Workload_Text_Run_now_099139" xml:space="preserve">
+    <value>Run now</value>
+  </data>
+  <data name="Workload_Text_Running_0_1_instances_684b8f" xml:space="preserve">
+    <value>Running ({0}/{1} instances)</value>
+  </data>
+  <data name="Workload_Text_Running_f4ccae" xml:space="preserve">
+    <value>Running</value>
+  </data>
+  <data name="Workload_Text_SCHEDULE_5a40b6" xml:space="preserve">
+    <value>SCHEDULE</value>
+  </data>
+  <data name="Workload_Text_SCOPE_f03506" xml:space="preserve">
+    <value>SCOPE</value>
+  </data>
+  <data name="Workload_Text_SERVICES_019c52" xml:space="preserve">
+    <value>SERVICES</value>
+  </data>
+  <data name="Workload_Text_STATUS_8c2e4a" xml:space="preserve">
+    <value>STATUS</value>
+  </data>
+  <data name="Workload_Text_STORAGE_CLASS_8b0f67" xml:space="preserve">
+    <value>STORAGE CLASS</value>
+  </data>
+  <data name="Workload_Text_Save_1509f5" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Workload_Text_Save_as_profile_69abb4" xml:space="preserve">
+    <value>Save as profile</value>
+  </data>
+  <data name="Workload_Text_Save_as_run_profile_e6193b" xml:space="preserve">
+    <value>Save as run profile</value>
+  </data>
+  <data name="Workload_Text_Save_launch_77d7c3" xml:space="preserve">
+    <value>Save &amp; launch</value>
+  </data>
+  <data name="Workload_Text_Save_these_replica_counts_for_future_f66fa8" xml:space="preserve">
+    <value>Save these replica counts for future applies</value>
+  </data>
+  <data name="Workload_Text_Saved_b5c120" xml:space="preserve">
+    <value>Saved</value>
+  </data>
+  <data name="Workload_Text_Saved_profile_0_4f05ac" xml:space="preserve">
+    <value>Saved profile "{0}".</value>
+  </data>
+  <data name="Workload_Text_Saved_profile_52c48e" xml:space="preserve">
+    <value>Saved profile</value>
+  </data>
+  <data name="Workload_Text_Scale_0_c8b401" xml:space="preserve">
+    <value>Scale {0}</value>
+  </data>
+  <data name="Workload_Text_Scale_f10298" xml:space="preserve">
+    <value>Scale</value>
+  </data>
+  <data name="Workload_Text_Scale_failed_d6a24c" xml:space="preserve">
+    <value>Scale failed</value>
+  </data>
+  <data name="Workload_Text_Scaled_to_zero_edb205" xml:space="preserve">
+    <value>Scaled to zero</value>
+  </data>
+  <data name="Workload_Text_Secret_7e32a7" xml:space="preserve">
+    <value>Secret</value>
+  </data>
+  <data name="Workload_Text_Secrets_d8707d" xml:space="preserve">
+    <value>Secrets</value>
+  </data>
+  <data name="Workload_Text_Select_a_network_4257f6" xml:space="preserve">
+    <value>Select a network…</value>
+  </data>
+  <data name="Workload_Text_Select_a_saved_profile_to_delete_0e9283" xml:space="preserve">
+    <value>Select a saved profile to delete.</value>
+  </data>
+  <data name="Workload_Text_Select_a_volume_1e833c" xml:space="preserve">
+    <value>Select a volume…</value>
+  </data>
+  <data name="Workload_Text_Select_at_least_one_service_No_2358e8" xml:space="preserve">
+    <value>Select at least one service. No operation was performed.</value>
+  </data>
+  <data name="Workload_Text_Select_at_least_one_service_before_f4ea1a" xml:space="preserve">
+    <value>Select at least one service before continuing.</value>
+  </data>
+  <data name="Workload_Text_Select_one_or_more_services_15d5fd" xml:space="preserve">
+    <value>Select one or more services.</value>
+  </data>
+  <data name="Workload_Text_Select_or_enter_a_network_name_6b4aae" xml:space="preserve">
+    <value>Select or enter a network name.</value>
+  </data>
+  <data name="Workload_Text_Select_services_aeef2c" xml:space="preserve">
+    <value>Select services</value>
+  </data>
+  <data name="Workload_Text_Selected_0_1_96ae7f" xml:space="preserve">
+    <value>Selected {0}:{1}.</value>
+  </data>
+  <data name="Workload_Text_Service_d67719" xml:space="preserve">
+    <value>Service</value>
+  </data>
+  <data name="Workload_Text_Service_operation_failed_d4aeef" xml:space="preserve">
+    <value>Service operation failed</value>
+  </data>
+  <data name="Workload_Text_Services_604dce" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="Workload_Text_Services_to_manage_4e428f" xml:space="preserve">
+    <value>Services to manage</value>
+  </data>
+  <data name="Workload_Text_Short_one_line_summary_shown_on_a55f71" xml:space="preserve">
+    <value>Short one-line summary shown on the card</value>
+  </data>
+  <data name="Workload_Text_Show_hidden_88ee90" xml:space="preserve">
+    <value>Show hidden</value>
+  </data>
+  <data name="Workload_Text_Sign_in_to_Azure_111dcf" xml:space="preserve">
+    <value>Sign in to Azure</value>
+  </data>
+  <data name="Workload_Text_Signed_in_as_0_Choose_a_6391e5" xml:space="preserve">
+    <value>Signed in as {0}. Choose a subscription and registry.</value>
+  </data>
+  <data name="Workload_Text_Signed_in_as_0_Loading_subscriptions_0b62b2" xml:space="preserve">
+    <value>Signed in as {0}. Loading subscriptions…</value>
+  </data>
+  <data name="Workload_Text_Signed_in_as_0_but_no_1ab02d" xml:space="preserve">
+    <value>Signed in as {0}, but no subscriptions were found.</value>
+  </data>
+  <data name="Workload_Text_Signed_in_but_could_not_read_303e96" xml:space="preserve">
+    <value>Signed in, but could not read the account. Try again.</value>
+  </data>
+  <data name="Workload_Text_Signed_in_to_0_as_1_43bf73" xml:space="preserve">
+    <value>✓ Signed in to {0} as {1}.</value>
+  </data>
+  <data name="Workload_Text_Signed_in_to_0_dc397c" xml:space="preserve">
+    <value>✓ Signed in to {0}.</value>
+  </data>
+  <data name="Workload_Text_Single_container_faa72c" xml:space="preserve">
+    <value>Single container</value>
+  </data>
+  <data name="Workload_Text_Skip_for_now_b58eb5" xml:space="preserve">
+    <value>Skip for now</value>
+  </data>
+  <data name="Workload_Text_Some_services_couldn_t_mount_their_679633" xml:space="preserve">
+    <value>Some services couldn't mount their configs/secrets because wslc hit its session bind-mount limit (15 distinct host paths). Restart the WSL session to release the slots, then bring the project up again. Restarting stops all running containers. Restart now?</value>
+  </data>
+  <data name="Workload_Text_Specific_version_c36f2c" xml:space="preserve">
+    <value>Specific version</value>
+  </data>
+  <data name="Workload_Text_Start_e4bb9f" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Workload_Text_Starting_0_downloading_the_image_if_1a0af8" xml:space="preserve">
+    <value>Starting {0}… downloading the image if needed, this can take a moment.</value>
+  </data>
+  <data name="Workload_Text_Starting_aeed4d" xml:space="preserve">
+    <value>Starting</value>
+  </data>
+  <data name="Workload_Text_Starting_cluster_1c3f3a" xml:space="preserve">
+    <value>Starting cluster…</value>
+  </data>
+  <data name="Workload_Text_Status_unavailable_7eb5af" xml:space="preserve">
+    <value>Status unavailable</value>
+  </data>
+  <data name="Workload_Text_Stop_and_remove_all_containers_for_e1a7c1" xml:space="preserve">
+    <value>Stop and remove all containers for "{0}"? The project definition is kept.</value>
+  </data>
+  <data name="Workload_Text_Stop_and_remove_only_the_selected_e2c247" xml:space="preserve">
+    <value>Stop and remove only the selected services' containers. Shared networks, volumes, and the project definition are preserved. Other services are not removed and may lose access to these services.</value>
+  </data>
+  <data name="Workload_Text_Stop_and_start_existing_containers_without_43f5a0" xml:space="preserve">
+    <value>Stop and start existing containers without applying configuration or rebuilding</value>
+  </data>
+  <data name="Workload_Text_Stop_and_start_only_existing_selected_3b48b2" xml:space="preserve">
+    <value>Stop and start only existing selected containers, plus dependents with restart: true. Does not create or recreate containers, build images, or apply configuration changes.</value>
+  </data>
+  <data name="Workload_Text_Stop_and_start_the_existing_containers_536030" xml:space="preserve">
+    <value>Stop and start the existing containers for "{0}" in dependency order?
+
+Restart does not create or recreate containers, build images, or apply configuration changes. Use Up (Apply) to apply changes.</value>
+  </data>
+  <data name="Workload_Text_Stop_cae7d5" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="Workload_Text_Stop_failed_68349a" xml:space="preserve">
+    <value>Stop failed</value>
+  </data>
+  <data name="Workload_Text_Stop_only_the_selected_services_Containers_f80159" xml:space="preserve">
+    <value>Stop only the selected services. Containers, shared networks, and volumes are preserved. Other services are not stopped and may lose access to these services.</value>
+  </data>
+  <data name="Workload_Text_Stop_remove_and_forget_0_6723d8" xml:space="preserve">
+    <value>Stop, remove, and forget "{0}"?</value>
+  </data>
+  <data name="Workload_Text_Stop_timeout_must_be_blank_1_0c4dc3" xml:space="preserve">
+    <value>Stop timeout must be blank, -1, or a nonnegative whole number of seconds.</value>
+  </data>
+  <data name="Workload_Text_Stop_timeout_seconds_706777" xml:space="preserve">
+    <value>Stop timeout (seconds)</value>
+  </data>
+  <data name="Workload_Text_Stop_using_the_distribution_configured_for_98e754" xml:space="preserve">
+    <value>Stop using the distribution configured for Kubernetes and use WSL's default distribution instead.</value>
+  </data>
+  <data name="Workload_Text_Stopped_0_9ae09a" xml:space="preserve">
+    <value>Stopped "{0}"</value>
+  </data>
+  <data name="Workload_Text_Stopped_1a4f63" xml:space="preserve">
+    <value>Stopped</value>
+  </data>
+  <data name="Workload_Text_Stopping_0_a7625f" xml:space="preserve">
+    <value>Stopping "{0}"…</value>
+  </data>
+  <data name="Workload_Text_Stopping_cluster_ba0634" xml:space="preserve">
+    <value>Stopping cluster…</value>
+  </data>
+  <data name="Workload_Text_Stops_and_removes_the_0_container_f4fce7" xml:space="preserve">
+    <value>Stops and removes the "{0}" container.</value>
+  </data>
+  <data name="Workload_Text_Stops_and_removes_the_0_stack_9276d2" xml:space="preserve">
+    <value>Stops and removes the "{0}" stack's containers and its network.</value>
+  </data>
+  <data name="Workload_Text_Subnet_optional_CIDR_786318" xml:space="preserve">
+    <value>Subnet (optional, CIDR)</value>
+  </data>
+  <data name="Workload_Text_Subscription_4999c6" xml:space="preserve">
+    <value>Subscription</value>
+  </data>
+  <data name="Workload_Text_Summary_8e76a9" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="Workload_Text_Suspend_or_resume_715f3e" xml:space="preserve">
+    <value>Suspend or resume</value>
+  </data>
+  <data name="Workload_Text_Suspend_resume_7bd076" xml:space="preserve">
+    <value>Suspend / resume</value>
+  </data>
+  <data name="Workload_Text_TCP_port_host_side_connect_51de6b" xml:space="preserve">
+    <value>TCP port (host-side connect)</value>
+  </data>
+  <data name="Workload_Text_TYPE_a90bab" xml:space="preserve">
+    <value>TYPE</value>
+  </data>
+  <data name="Workload_Text_Tags_133127" xml:space="preserve">
+    <value>Tags</value>
+  </data>
+  <data name="Workload_Text_Target_978354" xml:space="preserve">
+    <value>Target</value>
+  </data>
+  <data name="Workload_Text_Target_port_cab875" xml:space="preserve">
+    <value>Target port</value>
+  </data>
+  <data name="Workload_Text_Target_type_8a1c2f" xml:space="preserve">
+    <value>Target type</value>
+  </data>
+  <data name="Workload_Text_Templates_56b564" xml:space="preserve">
+    <value>Templates</value>
+  </data>
+  <data name="Workload_Text_The_Azure_CLI_az_is_not_6ae5e4" xml:space="preserve">
+    <value>The Azure CLI (az) is not installed or not on your PATH. Install it, then reopen this dialog. You can still add a registry manually with the "Add registry" button.</value>
+  </data>
+  <data name="Workload_Text_The_image_is_built_and_kept_ee8e62" xml:space="preserve">
+    <value>The image is built and kept on this PC. Nothing is uploaded.</value>
+  </data>
+  <data name="Workload_Text_The_installer_downloaded_from_https_get_5dbca2" xml:space="preserve">
+    <value>The installer downloaded from https://get.k3s.io no longer matches the script you previously approved on this machine.
+
+Previously approved SHA-256:
+{0}
+
+Newly downloaded SHA-256:
+{1}
+
+This is normal when the k3s project updates its installer, but only continue if you trust the source. Approve the new script and continue?</value>
+  </data>
+  <data name="Workload_Text_The_launch_could_not_complete_Check_6eee79" xml:space="preserve">
+    <value>The launch could not complete. Check the container engine and retry.
+
+{0}</value>
+  </data>
+  <data name="Workload_Text_The_selected_version_0_is_older_a76984" xml:space="preserve">
+    <value>The selected version {0} is older than the installed version {1}. k3s does not support downgrades; pick the same or a newer version.</value>
+  </data>
+  <data name="Workload_Text_The_upgrade_re_runs_the_k3s_f22876" xml:space="preserve">
+    <value>The upgrade re-runs the k3s install script in place. Your cluster data and workloads are preserved; the service restarts briefly.</value>
+  </data>
+  <data name="Workload_Text_There_are_0_separate_1_deployments_1f4289" xml:space="preserve">
+    <value>There are {0} separate {1} deployments. Choose the one to remove; the others are left running.</value>
+  </data>
+  <data name="Workload_Text_This_installs_k3s_a_lightweight_single_06d10a" xml:space="preserve">
+    <value>This installs k3s (a lightweight single-node Kubernetes) into </value>
+  </data>
+  <data name="Workload_Text_This_releases_wslc_s_leaked_bind_ddc612" xml:space="preserve">
+    <value>This releases wslc's leaked bind-mount slots (needed when config/secret mounts start failing after ~15 distinct mounts). It also STOPS ALL running containers. Continue?</value>
+  </data>
+  <data name="Workload_Text_This_removes_the_template_from_your_44188d" xml:space="preserve">
+    <value>This removes the template from your gallery. Any containers it already launched are not affected — use "Remove deployment" first if you also want to tear those down.</value>
+  </data>
+  <data name="Workload_Text_This_stops_and_completely_removes_k3s_0dc606" xml:space="preserve">
+    <value>This stops and completely removes k3s and all cluster data from your WSL distro. Running workloads will be destroyed. This cannot be undone. Continue?</value>
+  </data>
+  <data name="Workload_Text_Total_c9b3c3" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Workload_Text_Trigger_failed_78bed2" xml:space="preserve">
+    <value>Trigger failed</value>
+  </data>
+  <data name="Workload_Text_Type_baaddf" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Workload_Text_Unable_to_determine_status_c9aef1" xml:space="preserve">
+    <value>Unable to determine status.</value>
+  </data>
+  <data name="Workload_Text_Unavailable_ca1844" xml:space="preserve">
+    <value>Unavailable</value>
+  </data>
+  <data name="Workload_Text_Unhide_eb2780" xml:space="preserve">
+    <value>Unhide</value>
+  </data>
+  <data name="Workload_Text_Uninstall_Kubernetes_70f934" xml:space="preserve">
+    <value>Uninstall Kubernetes</value>
+  </data>
+  <data name="Workload_Text_Uninstall_failed_ecbcb5" xml:space="preserve">
+    <value>Uninstall failed</value>
+  </data>
+  <data name="Workload_Text_Uninstall_fe1995" xml:space="preserve">
+    <value>Uninstall</value>
+  </data>
+  <data name="Workload_Text_Uninstalling_k3s_and_cleaning_up_187610" xml:space="preserve">
+    <value>Uninstalling k3s and cleaning up…</value>
+  </data>
+  <data name="Workload_Text_Up_55490a" xml:space="preserve">
+    <value>Up</value>
+  </data>
+  <data name="Workload_Text_Up_Apply_apply_configuration_keep_unchanged_071bc2" xml:space="preserve">
+    <value>Up (Apply): apply configuration; keep unchanged running containers</value>
+  </data>
+  <data name="Workload_Text_Upgrade_7ec026" xml:space="preserve">
+    <value>Upgrade</value>
+  </data>
+  <data name="Workload_Text_Upgrade_Kubernetes_k3s_18fbae" xml:space="preserve">
+    <value>Upgrade Kubernetes (k3s)</value>
+  </data>
+  <data name="Workload_Text_Upgrade_complete_b68ef9" xml:space="preserve">
+    <value>Upgrade complete.</value>
+  </data>
+  <data name="Workload_Text_Upgrade_failed_9b8d54" xml:space="preserve">
+    <value>Upgrade failed</value>
+  </data>
+  <data name="Workload_Text_Upgrade_one_minor_version_at_a_3f0567" xml:space="preserve">
+    <value>Upgrade one minor version at a time</value>
+  </data>
+  <data name="Workload_Text_Upgrade_to_next_minor_8477ce" xml:space="preserve">
+    <value>Upgrade to next minor</value>
+  </data>
+  <data name="Workload_Text_Upgrading_from_0_to_1_would_b0814e" xml:space="preserve">
+    <value>Upgrading from {0} to {1} would skip intermediate minor versions, which is not supported. Could not resolve the {2} channel to step through. Check your network and try again.</value>
+  </data>
+  <data name="Workload_Text_Upgrading_k3s_to_the_latest_stable_473d09" xml:space="preserve">
+    <value>Upgrading k3s to the latest stable release…</value>
+  </data>
+  <data name="Workload_Text_Uploads_every_tag_of_0_Your_1b265e" xml:space="preserve">
+    <value>Uploads every tag of {0}. Your image on this PC is not changed.</value>
+  </data>
+  <data name="Workload_Text_Uploads_it_as_0_Your_image_7c6d7a" xml:space="preserve">
+    <value>Uploads it as {0}. Your image on this PC is not changed.</value>
+  </data>
+  <data name="Workload_Text_Use_the_Kube_tab_to_view_2d1a36" xml:space="preserve">
+    <value>Use the Kube tab to view and edit the full manifest, or Describe for a detailed status view.</value>
+  </data>
+  <data name="Workload_Text_Use_the_default_distribution_acde81" xml:space="preserve">
+    <value>Use the default distribution</value>
+  </data>
+  <data name="Workload_Text_Username_e3b89e" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="Workload_Text_Username_optional_e946bd" xml:space="preserve">
+    <value>Username (optional)</value>
+  </data>
+  <data name="Workload_Text_VERSION_7b60b8" xml:space="preserve">
+    <value>VERSION</value>
+  </data>
+  <data name="Workload_Text_Version_4c5726" xml:space="preserve">
+    <value>Version:</value>
+  </data>
+  <data name="Workload_Text_View_config_maps_10b7d7" xml:space="preserve">
+    <value>View config maps</value>
+  </data>
+  <data name="Workload_Text_View_cronjobs_48b192" xml:space="preserve">
+    <value>View cronjobs</value>
+  </data>
+  <data name="Workload_Text_View_deployments_493d62" xml:space="preserve">
+    <value>View deployments</value>
+  </data>
+  <data name="Workload_Text_View_ingresses_7e863c" xml:space="preserve">
+    <value>View ingresses</value>
+  </data>
+  <data name="Workload_Text_View_jobs_700ab4" xml:space="preserve">
+    <value>View jobs</value>
+  </data>
+  <data name="Workload_Text_View_nodes_b3f9e1" xml:space="preserve">
+    <value>View nodes</value>
+  </data>
+  <data name="Workload_Text_View_persistent_volume_claims_d8409f" xml:space="preserve">
+    <value>View persistent volume claims</value>
+  </data>
+  <data name="Workload_Text_View_pods_ca4b26" xml:space="preserve">
+    <value>View pods</value>
+  </data>
+  <data name="Workload_Text_View_port_forwarding_475977" xml:space="preserve">
+    <value>View port forwarding</value>
+  </data>
+  <data name="Workload_Text_View_secrets_02923f" xml:space="preserve">
+    <value>View secrets</value>
+  </data>
+  <data name="Workload_Text_View_services_85affc" xml:space="preserve">
+    <value>View services</value>
+  </data>
+  <data name="Workload_Text_Volumes_binds_one_per_line_source_e95df3" xml:space="preserve">
+    <value>Volumes / binds (one per line: source:destination)</value>
+  </data>
+  <data name="Workload_Text_Volumes_one_per_line_source_destination_4707bc" xml:space="preserve">
+    <value>Volumes (one per line, source:destination)</value>
+  </data>
+  <data name="Workload_Text_WSL_session_restarted_mount_slots_released_c52c57" xml:space="preserve">
+    <value>WSL session restarted — mount slots released. Bring your projects up again.</value>
+  </data>
+  <data name="Workload_Text_WSL_template_a8eeed" xml:space="preserve">
+    <value>WSL template</value>
+  </data>
+  <data name="Workload_Text_Warning_0_bebde3" xml:space="preserve">
+    <value>
+  Warning: {0}</value>
+  </data>
+  <data name="Workload_Text_Warnings_f11208" xml:space="preserve">
+    <value>Warnings:</value>
+  </data>
+  <data name="Workload_Text_What_this_does_03f458" xml:space="preserve">
+    <value>What this does</value>
+  </data>
+  <data name="Workload_Text_Which_deployment_44c49c" xml:space="preserve">
+    <value>Which deployment?</value>
+  </data>
+  <data name="Workload_Text_Will_pull_0_8e5c64" xml:space="preserve">
+    <value>Will pull: {0}</value>
+  </data>
+  <data name="Workload_Text_Will_pull_1cbdae" xml:space="preserve">
+    <value>Will pull: —</value>
+  </data>
+  <data name="Workload_Text_Will_pull_all_tags_in_0_c1c7d0" xml:space="preserve">
+    <value>Will pull all tags in: {0}</value>
+  </data>
+  <data name="Workload_Text_Workspace_0_738edb" xml:space="preserve">
+    <value>Workspace: {0}</value>
+  </data>
+  <data name="Workload_Text_Workspace_folder_0_c8349c" xml:space="preserve">
+    <value>Workspace folder: {0}</value>
+  </data>
+  <data name="Workload_Text_You_don_t_have_any_custom_1b1898" xml:space="preserve">
+    <value>You don't have any custom or imported templates yet. Create or import one first, or use a card's Export… to share a built-in template.</value>
+  </data>
+  <data name="Workload_Text_You_ll_be_added_using_your_49ca44" xml:space="preserve">
+    <value>You'll be added using your Azure sign-in — a short-lived token is fetched automatically, so no registry username or password is needed.</value>
+  </data>
+  <data name="Workload_Text_You_re_not_signed_in_to_3581f2" xml:space="preserve">
+    <value>You're not signed in to Azure.</value>
+  </data>
+  <data name="Workload_Text_You_re_not_signed_in_to_8756be" xml:space="preserve">
+    <value>You're not signed in to {0}. Pushing needs an account there: sign in on the Registries page, then push again.</value>
+  </data>
+  <data name="Workload_Text_You_re_on_0_Upgrading_straight_9b7945" xml:space="preserve">
+    <value>You're on {0}. Upgrading straight to {1} would skip intermediate minor versions (v{2}.{3} … v{4}.{5}), which the Kubernetes version-skew policy does not allow.
+
+Upgrade to {6} first instead? You can repeat the upgrade afterwards to continue toward {7}.</value>
+  </data>
+  <data name="Workload_Text_active_968796" xml:space="preserve">
+    <value>active</value>
+  </data>
+  <data name="Workload_Text_and_0_more_7bbbe9" xml:space="preserve">
+    <value>• …and {0} more.</value>
+  </data>
+  <data name="Workload_Text_and_0_more_a38682" xml:space="preserve">
+    <value>
+• …and {0} more.</value>
+  </data>
+  <data name="Workload_Text_and_its_data_volumes_fee57a" xml:space="preserve">
+    <value> and its data volumes</value>
+  </data>
+  <data name="Workload_Text_command_0_d5f841" xml:space="preserve">
+    <value>command: {0}</value>
+  </data>
+  <data name="Workload_Text_downloads_0_1_2_6a06ac" xml:space="preserve">
+    <value>downloads {0} {1} ({2})</value>
+  </data>
+  <data name="Workload_Text_e_g_172_28_0_0_c3ba25" xml:space="preserve">
+    <value>e.g. 172.28.0.0/16</value>
+  </data>
+  <data name="Workload_Text_e_g_172_28_0_1_af839f" xml:space="preserve">
+    <value>e.g. 172.28.0.1</value>
+  </data>
+  <data name="Workload_Text_e_g_172_28_5_0_dba741" xml:space="preserve">
+    <value>e.g. 172.28.5.0/24</value>
+  </data>
+  <data name="Workload_Text_e_g_3_8c2fb7" xml:space="preserve">
+    <value>e.g. 3</value>
+  </data>
+  <data name="Workload_Text_e_g_8080_452a03" xml:space="preserve">
+    <value>e.g. 8080</value>
+  </data>
+  <data name="Workload_Text_e_g_80_d3a954" xml:space="preserve">
+    <value>e.g. 80</value>
+  </data>
+  <data name="Workload_Text_e_g_Company_ACR_68810c" xml:space="preserve">
+    <value>e.g. Company ACR</value>
+  </data>
+  <data name="Workload_Text_e_g_Databases_da64e7" xml:space="preserve">
+    <value>e.g. Databases</value>
+  </data>
+  <data name="Workload_Text_e_g_My_PostgreSQL_bb660a" xml:space="preserve">
+    <value>e.g. My PostgreSQL</value>
+  </data>
+  <data name="Workload_Text_e_g_app_net_8fe647" xml:space="preserve">
+    <value>e.g. app-net</value>
+  </data>
+  <data name="Workload_Text_e_g_curl_fsS_http_localhost_bd1c87" xml:space="preserve">
+    <value>e.g. curl -fsS http://localhost:8080/health</value>
+  </data>
+  <data name="Workload_Text_e_g_default_credentials_shown_after_ecb42d" xml:space="preserve">
+    <value>e.g. default credentials, shown after launch</value>
+  </data>
+  <data name="Workload_Text_e_g_my_postgres_8c1cd3" xml:space="preserve">
+    <value>e.g. my-postgres</value>
+  </data>
+  <data name="Workload_Text_e_g_my_stack_defd5e" xml:space="preserve">
+    <value>e.g. my-stack</value>
+  </data>
+  <data name="Workload_Text_e_g_myregistry_azurecr_io_ghcr_6930ef" xml:space="preserve">
+    <value>e.g. myregistry.azurecr.io, ghcr.io</value>
+  </data>
+  <data name="Workload_Text_e_g_postgres_16_0a25a7" xml:space="preserve">
+    <value>e.g. postgres:16</value>
+  </data>
+  <data name="Workload_Text_e_g_team_myapp_1_0_201728" xml:space="preserve">
+    <value>e.g. team/myapp:1.0</value>
+  </data>
+  <data name="Workload_Text_e_g_ubuntu_latest_d7980e" xml:space="preserve">
+    <value>e.g. ubuntu:latest</value>
+  </data>
+  <data name="Workload_Text_e_g_ubuntu_latest_or_myapp_78466f" xml:space="preserve">
+    <value>e.g. ubuntu:latest or myapp:1.0</value>
+  </data>
+  <data name="Workload_Text_e_g_v1_36_2_k3s1_f05394" xml:space="preserve">
+    <value>e.g. v1.36.2+k3s1</value>
+  </data>
+  <data name="Workload_Text_entrypoint_0_a89ece" xml:space="preserve">
+    <value>entrypoint: {0}</value>
+  </data>
+  <data name="Workload_Text_env_0_48f549" xml:space="preserve">
+    <value>env: {0}</value>
+  </data>
+  <data name="Workload_Text_image_0_13f3da" xml:space="preserve">
+    <value>image: {0}</value>
+  </data>
+  <data name="Workload_Text_image_6105d6" xml:space="preserve">
+    <value>image</value>
+  </data>
+  <data name="Workload_Text_images_21b2ee" xml:space="preserve">
+    <value>images</value>
+  </data>
+  <data name="Workload_Text_issue_4a5028" xml:space="preserve">
+    <value>issue</value>
+  </data>
+  <data name="Workload_Text_issues_02e3fe" xml:space="preserve">
+    <value>issues</value>
+  </data>
+  <data name="Workload_Text_k3s_installer_script_changed_31ef79" xml:space="preserve">
+    <value>k3s installer script changed</value>
+  </data>
+  <data name="Workload_Text_k3s_is_starting_This_usually_takes_142d0c" xml:space="preserve">
+    <value>k3s is starting. This usually takes a few seconds.</value>
+  </data>
+  <data name="Workload_Text_k3s_is_starting_WSL_just_started_497de6" xml:space="preserve">
+    <value>k3s is starting… WSL just started its distribution.</value>
+  </data>
+  <data name="Workload_Text_k3s_single_node_cluster_00d0f8" xml:space="preserve">
+    <value>k3s single-node cluster</value>
+  </data>
+  <data name="Workload_Text_localhost_919010" xml:space="preserve">
+    <value>localhost:</value>
+  </data>
+  <data name="Workload_Text_mount_0_0f247a" xml:space="preserve">
+    <value>mount: {0}</value>
+  </data>
+  <data name="Workload_Text_name_0_f86121" xml:space="preserve">
+    <value>name: {0}</value>
+  </data>
+  <data name="Workload_Text_network_0_4deab9" xml:space="preserve">
+    <value>network: {0}</value>
+  </data>
+  <data name="Workload_Text_no_image_dc74e6" xml:space="preserve">
+    <value>(no image)</value>
+  </data>
+  <data name="Workload_Text_no_logs_b52742" xml:space="preserve">
+    <value>(no logs)</value>
+  </data>
+  <data name="Workload_Text_port_0_f21231" xml:space="preserve">
+    <value>port: {0}</value>
+  </data>
+  <data name="Workload_Text_publishes_0_e65451" xml:space="preserve">
+    <value>publishes {0}</value>
+  </data>
+  <data name="Workload_Text_service_9df6b0" xml:space="preserve">
+    <value>service</value>
+  </data>
+  <data name="Workload_Text_services_ef1c4b" xml:space="preserve">
+    <value>services</value>
+  </data>
+  <data name="Workload_Text_setting_ec72b9" xml:space="preserve">
+    <value>setting</value>
+  </data>
+  <data name="Workload_Text_settings_cde0fb" xml:space="preserve">
+    <value>settings</value>
+  </data>
+  <data name="Workload_Text_stop_timeout_0_5571f3" xml:space="preserve">
+    <value>stop timeout: {0}</value>
+  </data>
+  <data name="Workload_Text_the_WSL_distribution_0_55fe8a" xml:space="preserve">
+    <value>the WSL distribution "{0}"</value>
+  </data>
+  <data name="Workload_Text_unknown_b23a6a" xml:space="preserve">
+    <value>unknown</value>
+  </data>
+  <data name="Workload_Text_used_only_to_log_in_now_fe26ce" xml:space="preserve">
+    <value>used only to log in now</value>
+  </data>
+  <data name="Workload_Text_user_0_b84b5c" xml:space="preserve">
+    <value>user: {0}</value>
+  </data>
+  <data name="Workload_Text_username_or_token_name_39f3c5" xml:space="preserve">
+    <value>username or token name</value>
+  </data>
+  <data name="Workload_Text_using_your_GPU_4b145b" xml:space="preserve">
+    <value> using your GPU</value>
+  </data>
+  <data name="Workload_Text_workdir_0_95c98f" xml:space="preserve">
+    <value>workdir: {0}</value>
+  </data>
+  <data name="Workload_Text_wslc_mount_limit_reached_c1cb82" xml:space="preserve">
+    <value>wslc mount limit reached</value>
+  </data>
+  <data name="Workload_Text_your_WSL_distribution_f67676" xml:space="preserve">
+    <value>your WSL distribution</value>
+  </data>
+  <data name="Workload_Additional_031a8f0f65" xml:space="preserve">
+    <value>Failed</value>
+  </data>
+  <data name="Workload_Additional_0c7823e8c7" xml:space="preserve">
+    <value>Container</value>
+  </data>
+  <data name="Workload_Additional_1f43948106" xml:space="preserve">
+    <value>Built-in</value>
+  </data>
+  <data name="Workload_Additional_284fe05548" xml:space="preserve">
+    <value>{0} {1} ({2})</value>
+  </data>
+  <data name="Workload_Additional_321f179c80" xml:space="preserve">
+    <value>Imported</value>
+  </data>
+  <data name="Workload_Additional_331551b0de" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="Workload_Additional_40f68cf75f" xml:space="preserve">
+    <value>Restarting</value>
+  </data>
+  <data name="Workload_Additional_494ca78f73" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="Workload_Additional_51e1357de8" xml:space="preserve">
+    <value>Lost</value>
+  </data>
+  <data name="Workload_Additional_5fa7aac537" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="Workload_Additional_6d9a6f97a5" xml:space="preserve">
+    <value>Succeeded</value>
+  </data>
+  <data name="Workload_Additional_85fc46c17c" xml:space="preserve">
+    <value>Exited</value>
+  </data>
+  <data name="Workload_Additional_9d6ee0d551" xml:space="preserve">
+    <value>NotReady</value>
+  </data>
+  <data name="Workload_Additional_b86d11af79" xml:space="preserve">
+    <value>Down</value>
+  </data>
+  <data name="Workload_Additional_d06cc9afdf" xml:space="preserve">
+    <value>Bound</value>
+  </data>
+  <data name="Workload_Additional_d70b9e24bc" xml:space="preserve">
+    <value>Created</value>
+  </data>
+  <data name="Workload_Additional_e159b06187" xml:space="preserve">
+    <value>Paused</value>
+  </data>
+  <data name="Workload_Additional_e674447337" xml:space="preserve">
+    <value>Available</value>
+  </data>
+  <data name="Workload_Additional_ec9b10a4a7" xml:space="preserve">
+    <value>Dead</value>
+  </data>
+  <data name="Workload_Additional_f33deea9b1" xml:space="preserve">
+    <value>Released</value>
+  </data>
+  <data name="Workload_Additional_f4ccae29e1" xml:space="preserve">
+    <value>Running</value>
+  </data>
+  <data name="Workload_Final_140bedbf9c" xml:space="preserve">
+    <value>none</value>
+  </data>
+  <data name="Workload_Final_1aa4cb0bcc" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="Workload_Final_7a91db72b7" xml:space="preserve">
+    <value>Remove failed</value>
+  </data>
+  <data name="Workload_Final_9cd854d29b" xml:space="preserve">
+    <value>Start failed</value>
+  </data>
+  <data name="Workload_Final_c695ffc1a0" xml:space="preserve">
+    <value> (failed)</value>
+  </data>
 </root>
