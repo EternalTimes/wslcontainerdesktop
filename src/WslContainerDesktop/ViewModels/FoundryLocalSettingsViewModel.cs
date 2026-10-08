@@ -33,6 +33,8 @@ public partial class FoundryLocalSettingsViewModel : ObservableObject
     private readonly FoundryLocalSetupService _setup;
     private readonly FoundryLocalInitialSetupService? _initialSetup;
     private FoundryLocalConnectionPlan? _connectionPlan;
+    private FoundryLocalInventory? _lastInventory;
+    private string? _lastInventoryDisplay;
     private int _configurationRevision;
     private bool _confirmingConnection;
     private bool _applyingReadyConfiguration;
@@ -148,7 +150,8 @@ public partial class FoundryLocalSettingsViewModel : ObservableObject
     /// <summary>Refreshes only displayed text, preserving the endpoint, model, and active workflows.</summary>
     private void RefreshLocalizedText()
     {
-        InventoryText = UiText.TranslateLines(InventoryText);
+        InventoryText = _lastInventory is not null && InventoryText == _lastInventoryDisplay
+            ? _lastInventoryDisplay = FormatInventory(_lastInventory) : UiText.TranslateLines(InventoryText);
         Status = UiText.TranslateLines(Status);
         SetupStatus = UiText.TranslateLines(SetupStatus);
         foreach (var property in new[] { nameof(AcquisitionGuidance), nameof(MemoryPolicy),
@@ -178,6 +181,8 @@ public partial class FoundryLocalSettingsViewModel : ObservableObject
     private void ConfigurationChanged()
     {
         InvalidateDiscovery();
+        _lastInventory = null;
+        _lastInventoryDisplay = null;
         RunOperationCommand.Cancel();
         _capabilities.Invalidate();
         _settings.Save();
@@ -189,6 +194,8 @@ public partial class FoundryLocalSettingsViewModel : ObservableObject
     public void OnProviderChanged()
     {
         InvalidateDiscovery();
+        _lastInventory = null;
+        _lastInventoryDisplay = null;
         RunOperationCommand.Cancel();
         _capabilities.Invalidate();
         InventoryText = UiText.Get("Common_Text0157", "Provider changed. Refresh metadata after selecting Foundry Local.");
@@ -444,16 +451,8 @@ public partial class FoundryLocalSettingsViewModel : ObservableObject
             var inventory = await _runtime.ReadInventoryAsync(configuration, ct);
             ct.ThrowIfCancellationRequested();
             if (!IsCurrent(configuration)) return;
-            var rows = inventory.Catalog.Take(100).Select(m =>
-                UiText.Get("Common_Text0180", "{0} | cached: {1} | loaded: {2}\n", m.Id, (inventory.CacheStateKnown ? UiText.Translate(inventory.Cached.Contains(m.Id).ToString()) : UiText.Get("Common_Text0191", "unknown")), (inventory.LoadStateKnown ? UiText.Translate(inventory.Loaded.Contains(m.Id).ToString()) : UiText.Get("Common_Text0191", "unknown"))) +
-                UiText.Get("Common_Text0181", "  version: {0}; size MB: {1}; license: {2}\n", Known(m.Version), m.FileSizeMb?.ToString() ?? UiText.Get("Common_Text0191", "unknown"), Known(m.License)) +
-                UiText.Get("Common_Text0182", "  license information: {0}; task: {1}; format: {2}\n", Known(m.LicenseDescription), Known(m.Task), Known(m.ModelType)) +
-                UiText.Get("Common_Text0183", "  hardware target: {0}; EP: {1} (advertised, not validated); tools advertised: {2}", Known(m.DeviceType), Known(m.ExecutionProvider), m.SupportsToolCalling is { } supportsTools ? UiText.Translate(supportsTools.ToString()) : UiText.Get("Common_Text0191", "unknown")));
-            InventoryText = AiTextSanitizer.Sanitize(
-                UiText.Get("Common_Text0184", "Catalog: {0}; cached: {1}; loaded: {2}.\n", inventory.Catalog.Count, (inventory.CacheStateKnown ? inventory.Cached.Count.ToString() : UiText.Get("Common_Text0191", "unknown")), (inventory.LoadStateKnown ? inventory.Loaded.Count.ToString() : UiText.Get("Common_Text0191", "unknown"))) +
-                UiText.Get("Common_Text0185", "Cached IDs: {0}\nLoaded IDs: {1}\n", (inventory.CacheStateKnown ? string.Join(", ", inventory.Cached.Take(100)) : UiText.Get("Common_Text0191", "unknown")), (inventory.LoadStateKnown ? string.Join(", ", inventory.Loaded.Take(100)) : UiText.Get("Common_Text0191", "unknown"))) +
-                UiText.Get("Common_Text0186", "Showing up to 100 catalog entries. Registered external entries are not eligible for local inference.\n") +
-                string.Join("\n", rows), AiTextSanitizer.DiagnosticLimit);
+            _lastInventory = inventory;
+            InventoryText = _lastInventoryDisplay = FormatInventory(inventory);
             if (operation == "refresh") Status = UiText.Get("Common_Text0187", "Metadata refreshed. No load, download or inference was requested.");
         }
         catch (OperationCanceledException ex)
@@ -475,6 +474,21 @@ public partial class FoundryLocalSettingsViewModel : ObservableObject
             _logger.LogError(ex, "Unexpected Foundry Local operation failure.");
             ShowFailure(ex, operation, configuration, unexpected: true);
         }
+    }
+
+    /// <summary>Reformats observed metadata without another network request or runtime operation.</summary>
+    private static string FormatInventory(FoundryLocalInventory inventory)
+    {
+        var rows = inventory.Catalog.Take(100).Select(m =>
+            UiText.Get("Common_Text0180", "{0} | cached: {1} | loaded: {2}\n", m.Id, (inventory.CacheStateKnown ? UiText.Translate(inventory.Cached.Contains(m.Id).ToString()) : UiText.Get("Common_Text0191", "unknown")), (inventory.LoadStateKnown ? UiText.Translate(inventory.Loaded.Contains(m.Id).ToString()) : UiText.Get("Common_Text0191", "unknown"))) +
+            UiText.Get("Common_Text0181", "  version: {0}; size MB: {1}; license: {2}\n", Known(m.Version), m.FileSizeMb?.ToString() ?? UiText.Get("Common_Text0191", "unknown"), Known(m.License)) +
+            UiText.Get("Common_Text0182", "  license information: {0}; task: {1}; format: {2}\n", Known(m.LicenseDescription), Known(m.Task), Known(m.ModelType)) +
+            UiText.Get("Common_Text0183", "  hardware target: {0}; EP: {1} (advertised, not validated); tools advertised: {2}", Known(m.DeviceType), Known(m.ExecutionProvider), m.SupportsToolCalling is { } supportsTools ? UiText.Translate(supportsTools.ToString()) : UiText.Get("Common_Text0191", "unknown")));
+        return AiTextSanitizer.Sanitize(
+            UiText.Get("Common_Text0184", "Catalog: {0}; cached: {1}; loaded: {2}.\n", inventory.Catalog.Count, (inventory.CacheStateKnown ? inventory.Cached.Count.ToString() : UiText.Get("Common_Text0191", "unknown")), (inventory.LoadStateKnown ? inventory.Loaded.Count.ToString() : UiText.Get("Common_Text0191", "unknown"))) +
+            UiText.Get("Common_Text0185", "Cached IDs: {0}\nLoaded IDs: {1}\n", (inventory.CacheStateKnown ? string.Join(", ", inventory.Cached.Take(100)) : UiText.Get("Common_Text0191", "unknown")), (inventory.LoadStateKnown ? string.Join(", ", inventory.Loaded.Take(100)) : UiText.Get("Common_Text0191", "unknown"))) +
+            UiText.Get("Common_Text0186", "Showing up to 100 catalog entries. Registered external entries are not eligible for local inference.\n") +
+            string.Join("\n", rows), AiTextSanitizer.DiagnosticLimit);
     }
 
     /// <summary>Helper for the show failure workflow in this view model.</summary>
