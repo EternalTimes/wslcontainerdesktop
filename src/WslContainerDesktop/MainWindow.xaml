@@ -51,6 +51,7 @@
                             Height="16"
                             Data="M8,0 L9.6,6.4 L16,8 L9.6,9.6 L8,16 L6.4,9.6 L0,8 L6.4,6.4 Z" />
                         <TextBlock
+                            x:Name="AssistantLabel"
                             VerticalAlignment="Center"
                             Style="{ThemeResource BodyStrongTextBlockStyle}"
                             x:Uid="Nav_Assistant" />
@@ -219,6 +220,7 @@
                                     Style="{ThemeResource AccentButtonStyle}"
                                     Visibility="{x:Bind local:MainWindow.ToVisibility(Updates.IsUpdateButtonVisible), Mode=OneWay}" />
                                 <Button
+                                    x:Name="WhatsNewButton"
                                     Command="{x:Bind Updates.ViewReleaseNotesCommand}"
                                     x:Uid="Update_WhatsNew"
                                     Visibility="{x:Bind local:MainWindow.ToVisibility(Updates.IsReleaseNotesVisible), Mode=OneWay}" />
