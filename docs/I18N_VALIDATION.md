@@ -58,8 +58,8 @@ Final complete suite, `dotnet test` for both target frameworks:
 The 19 skips are existing opt-in engine/runtime/Foundry scenarios. They were not enabled for this
 localization validation. Final focused resource/language/Compose tests passed 40 cases per framework.
 The final full run used the assemblies compiled by that focused run (`--no-build --no-restore`).
-TRX results are in the worktree's ignored `tests/WslContainerDesktop.Tests/TestResults` directory,
-with the `final-i18n` prefix.
+TRX results are saved beside the test package in its `validation` subdirectory,
+with the `final-i18n` prefix; generated results were removed from the worktree.
 
 Resource guards cover locale parity, exact and case-insensitive duplicates, format arguments,
 explicit lookup keys, control-type compatibility, attached-property names and live UID mirrors.
