@@ -70,10 +70,10 @@
         </StackPanel>
 
         <InfoBar
+            x:Uid="Root_Static_Compose_Supervision" i18n:Localization.Uid="Root_Static_Compose_Supervision"
             Grid.Row="2"
             IsClosable="False"
             IsOpen="True"
-            Message="App-owned health probes, restart policies, and auto-heal require this app to be running. Supported native health checks are managed by WSLC. When the app relaunches, app-owned supervision resumes for projects whose containers still exist."
             Severity="Informational" />
 
         <!--  Table: column header (wide only) + list  -->

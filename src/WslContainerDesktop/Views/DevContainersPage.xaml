@@ -42,10 +42,10 @@
         </StackPanel>
 
         <InfoBar
+            x:Uid="Root_Static_DevContainers_Support" i18n:Localization.Uid="Root_Static_DevContainers_Support"
             Grid.Row="2"
             IsClosable="False"
             IsOpen="True"
-            Message="Supports image-, build-, and Compose-based dev containers with workspace mounts, port forwarding, users/environment, Features, and lifecycle commands. Warnings only flag options the WSL container engine cannot reproduce."
             Severity="Informational" />
 
         <Grid Grid.Row="3">

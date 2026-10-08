@@ -10725,4 +10725,70 @@ License: {2} — {3}
   <data name="Common_LocalAiFailedOperation_211" xml:space="preserve">
     <value>部分运行时清理 失败或中断，不会自动以 CPU 模式重试。</value>
   </data>
+  <data name="Root_Network_BuiltInSingular" xml:space="preserve">
+    <value>{0} 个内置网络</value>
+  </data>
+  <data name="Root_Network_BuiltInPlural" xml:space="preserve">
+    <value>{0} 个内置网络</value>
+  </data>
+  <data name="Root_Network_UserSingularBuiltInSingular" xml:space="preserve">
+    <value>{0} 个用户网络 + {1} 个内置网络</value>
+  </data>
+  <data name="Root_Network_UserSingularBuiltInPlural" xml:space="preserve">
+    <value>{0} 个用户网络 + {1} 个内置网络</value>
+  </data>
+  <data name="Root_Network_UserPluralBuiltInSingular" xml:space="preserve">
+    <value>{0} 个用户网络 + {1} 个内置网络</value>
+  </data>
+  <data name="Root_Network_UserPluralBuiltInPlural" xml:space="preserve">
+    <value>{0} 个用户网络 + {1} 个内置网络</value>
+  </data>
+  <data name="Root_Static_Compose_Supervision.Message" xml:space="preserve">
+    <value>由应用执行的健康探测、重启策略和自动修复需要此应用保持运行。受支持的原生健康检查由 WSLC 管理。应用重新启动后，会恢复对容器仍然存在的项目的监控与管理。</value>
+  </data>
+  <data name="Root_Static_DevContainers_Support.Message" xml:space="preserve">
+    <value>支持基于镜像、构建和 Compose 的开发容器，可配置工作区挂载、端口转发、用户与环境变量、Features 功能扩展及生命周期命令。仅对 WSL 容器引擎无法实现的选项显示警告。</value>
+  </data>
+  <data name="Root_Static_Settings_Animations.OnContent" xml:space="preserve">
+    <value>开</value>
+  </data>
+  <data name="Root_Static_Settings_Animations.OffContent" xml:space="preserve">
+    <value>关</value>
+  </data>
+  <data name="Root_Static_Settings_Animations.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>动画</value>
+  </data>
+  <data name="Root_Static_Settings_RestartOnLaunch.OnContent" xml:space="preserve">
+    <value>开</value>
+  </data>
+  <data name="Root_Static_Settings_RestartOnLaunch.OffContent" xml:space="preserve">
+    <value>关</value>
+  </data>
+  <data name="Root_Static_Settings_RestartOnLaunch.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>启动时重启正在运行的容器</value>
+  </data>
+  <data name="Root_Static_Settings_RunAtSignIn.OnContent" xml:space="preserve">
+    <value>开</value>
+  </data>
+  <data name="Root_Static_Settings_RunAtSignIn.OffContent" xml:space="preserve">
+    <value>关</value>
+  </data>
+  <data name="Root_Static_Settings_RunAtSignIn.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>登录时运行</value>
+  </data>
+  <data name="Root_Static_Settings_CheckUpdates.OnContent" xml:space="preserve">
+    <value>开</value>
+  </data>
+  <data name="Root_Static_Settings_CheckUpdates.OffContent" xml:space="preserve">
+    <value>关</value>
+  </data>
+  <data name="Root_Static_Settings_CheckUpdates.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>应用启动时检查更新</value>
+  </data>
+  <data name="Root_Static_Settings_RefreshOllamaModels.Content" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="Root_Static_Settings_RefreshOpenAiModels.Content" xml:space="preserve">
+    <value>刷新</value>
+  </data>
 </root>

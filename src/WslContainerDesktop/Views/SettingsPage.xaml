@@ -153,10 +153,9 @@
                                 x:Uid="Settings_Behavior_Animations_Help" i18n:Localization.Uid="Settings_Behavior_Animations_Help"
                                 TextWrapping="Wrap" />
                         </StackPanel>
-                        <ToggleSwitch x:Uid="Settings_Toggle" i18n:Localization.Uid="Settings_Toggle"
+                        <ToggleSwitch x:Uid="Root_Static_Settings_Animations" i18n:Localization.Uid="Root_Static_Settings_Animations"
                             Grid.Column="1"
                             MinWidth="0"
-                            AutomationProperties.Name="Animations"
                             IsOn="{x:Bind ViewModel.PageAnimations, Mode=TwoWay}" />
                     </Grid>
                     <Border Height="1" Background="{ThemeResource DividerStrokeColorDefaultBrush}" />
@@ -191,10 +190,9 @@
                                 x:Uid="Settings_Behavior_Restart_Help" i18n:Localization.Uid="Settings_Behavior_Restart_Help"
                                 TextWrapping="Wrap" />
                         </StackPanel>
-                        <ToggleSwitch x:Uid="Settings_Toggle" i18n:Localization.Uid="Settings_Toggle"
+                        <ToggleSwitch x:Uid="Root_Static_Settings_RestartOnLaunch" i18n:Localization.Uid="Root_Static_Settings_RestartOnLaunch"
                             Grid.Column="1"
                             MinWidth="0"
-                            AutomationProperties.Name="Restart running containers on launch"
                             IsOn="{x:Bind ViewModel.RestartRunningContainersOnLaunch, Mode=TwoWay}" />
                     </Grid>
                     <Border Height="1" Background="{ThemeResource DividerStrokeColorDefaultBrush}" />
@@ -211,10 +209,9 @@
                                 Text="{x:Bind ViewModel.RunAtLoginNote, Mode=OneWay}"
                                 TextWrapping="Wrap" />
                         </StackPanel>
-                        <ToggleSwitch x:Uid="Settings_Toggle" i18n:Localization.Uid="Settings_Toggle"
+                        <ToggleSwitch x:Uid="Root_Static_Settings_RunAtSignIn" i18n:Localization.Uid="Root_Static_Settings_RunAtSignIn"
                             Grid.Column="1"
                             MinWidth="0"
-                            AutomationProperties.Name="Run at sign-in"
                             IsEnabled="{x:Bind ViewModel.RunAtLoginEnabled, Mode=OneWay}"
                             IsOn="{x:Bind ViewModel.RunAtLogin, Mode=TwoWay}" />
                     </Grid>
@@ -583,11 +580,11 @@
                                         SelectedValue="{x:Bind ViewModel.AiOllamaModel, Mode=TwoWay}"
                                         SelectedValuePath="Id" />
                                     <Button
+                                        x:Uid="Root_Static_Settings_RefreshOllamaModels" i18n:Localization.Uid="Root_Static_Settings_RefreshOllamaModels"
                                         AutomationProperties.AutomationId="RefreshOllamaModelsButton"
                                         Grid.Column="1"
                                         VerticalAlignment="Bottom"
-                                        Command="{x:Bind ViewModel.RefreshOllamaModelsCommand}"
-                                        Content="Refresh" />
+                                        Command="{x:Bind ViewModel.RefreshOllamaModelsCommand}" />
                                 </Grid>
                                 <TextBlock
                                     x:Uid="Settings_Ai_Ollama_Model_Help" i18n:Localization.Uid="Settings_Ai_Ollama_Model_Help"
@@ -646,10 +643,10 @@
                                         ItemsSource="{x:Bind ViewModel.OpenAiModels, Mode=OneWay}"
                                         Text="{x:Bind ViewModel.AiOpenAiModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                     <Button
+                                        x:Uid="Root_Static_Settings_RefreshOpenAiModels" i18n:Localization.Uid="Root_Static_Settings_RefreshOpenAiModels"
                                         Grid.Column="1"
                                         VerticalAlignment="Bottom"
-                                        Command="{x:Bind ViewModel.RefreshOpenAiModelsCommand}"
-                                        Content="Refresh" />
+                                        Command="{x:Bind ViewModel.RefreshOpenAiModelsCommand}" />
                                 </Grid>
                             </StackPanel>
                             <Grid ColumnSpacing="8" Visibility="{x:Bind ViewModel.ShowAiSecretSettings, Mode=OneWay, Converter={StaticResource BoolToVis}}">
@@ -862,10 +859,9 @@
                                 x:Uid="Settings_Updates_OnLaunch_Help" i18n:Localization.Uid="Settings_Updates_OnLaunch_Help"
                                 TextWrapping="Wrap" />
                         </StackPanel>
-                        <ToggleSwitch x:Uid="Settings_Toggle" i18n:Localization.Uid="Settings_Toggle"
+                        <ToggleSwitch x:Uid="Root_Static_Settings_CheckUpdates" i18n:Localization.Uid="Root_Static_Settings_CheckUpdates"
                             Grid.Column="1"
                             MinWidth="0"
-                            AutomationProperties.Name="Check for updates when the app starts"
                             IsOn="{x:Bind ViewModel.CheckForUpdatesOnLaunch, Mode=TwoWay}" />
                     </Grid>
                     <Grid ColumnSpacing="12">
