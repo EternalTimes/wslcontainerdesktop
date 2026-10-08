@@ -35,6 +35,8 @@ where the signed MSIX and installation steps live.
 - **Language and theme choices stay visible when their menus close.** Updating translated option
   labels preserves selection and the selected theme. Language changes update existing controls,
   preserving unfinished input and operation state.
+- **Compose previews include images that will be downloaded.** The summary now recognizes the
+  actual plan's download description and counts a shared image once across services and replicas.
 
 ## [2.2.0] — 2026-10-07
 

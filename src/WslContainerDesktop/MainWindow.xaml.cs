@@ -120,7 +120,7 @@ public sealed partial class MainWindow : Window
 
     private void OnWindowActivated(object sender, WindowActivatedEventArgs args)
     {
-        if (args.WindowActivationState == WindowActivationState.Deactivated || _settings.Language != AppLanguage.SystemDefault)
+        if (args.WindowActivationState == WindowActivationState.Deactivated || AppLanguage.Normalize(_settings.Language) != AppLanguage.SystemDefault)
             return;
         try { ApplyLanguage(_settings.Language, refreshUi: true); }
         catch (Exception ex)
