@@ -28,7 +28,7 @@
             HorizontalAlignment="Stretch"
             Spacing="16">
 
-            <TextBlock Style="{ThemeResource TitleTextBlockStyle}" Text="Settings" />
+            <TextBlock Style="{ThemeResource TitleTextBlockStyle}" x:Uid="Settings_Title" />
 
             <!--  Language — first, so the whole page can be read in the chosen language  -->
             <TextBlock
@@ -62,7 +62,7 @@
             <TextBlock
                 Margin="2,4,0,0"
                 Style="{ThemeResource BodyStrongTextBlockStyle}"
-                Text="Container engine" />
+                x:Uid="Settings_Engine_Header" />
             <Border Style="{StaticResource Card}">
                 <StackPanel Spacing="12">
                     <Grid ColumnSpacing="12">
@@ -72,18 +72,18 @@
                         </Grid.ColumnDefinitions>
                         <TextBox
                             Grid.Column="0"
-                            Header="Path to wslc.exe"
+                            x:Uid="Settings_Engine_Path_Header"
                             Text="{x:Bind ViewModel.WslcPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                         <Button
                             Grid.Column="1"
                             VerticalAlignment="Bottom"
                             Command="{x:Bind ViewModel.TestConnectionCommand}"
-                            Content="Test connection" />
+                            x:Uid="Settings_Engine_Test" />
                     </Grid>
                     <StackPanel Orientation="Horizontal" Spacing="8">
                         <TextBlock
                             Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                            Text="Engine version:" />
+                            x:Uid="Settings_Engine_Version" />
                         <TextBlock FontWeight="SemiBold" Text="{x:Bind ViewModel.EngineVersion, Mode=OneWay}" />
                     </StackPanel>
                 </StackPanel>
@@ -93,19 +93,19 @@
             <TextBlock
                 Margin="2,4,0,0"
                 Style="{ThemeResource BodyStrongTextBlockStyle}"
-                Text="Dev Containers"
+                x:Uid="Settings_DevContainers_Header"
                 Visibility="Collapsed" />
             <Border Style="{StaticResource Card}" Visibility="Collapsed">
                 <StackPanel Spacing="6">
                     <TextBox
-                        Header="npm registry for feature builds"
+                        x:Uid="Settings_DevContainers_Registry_Header"
                         PlaceholderText="https://packagefeedproxy.microsoft.io/npm/"
                         Text="{x:Bind ViewModel.DevContainerNpmRegistry, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <TextBlock
                         FontSize="12"
                         Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                         TextWrapping="Wrap"
-                        Text="Node/npm-based Dev Container features fetch packages from the public npm registry, which some corporate networks block. Set a registry or proxy URL here and it will be injected into feature builds as NPM_CONFIG_REGISTRY. Leave blank to use each feature's default." />
+                        x:Uid="Settings_DevContainers_Registry_Help" />
                 </StackPanel>
             </Border>
 
@@ -113,7 +113,7 @@
             <TextBlock
                 Margin="2,4,0,0"
                 Style="{ThemeResource BodyStrongTextBlockStyle}"
-                Text="Behavior" />
+                x:Uid="Settings_Behavior_Header" />
             <Border Style="{StaticResource Card}">
                 <StackPanel Spacing="4">
                     <Grid Padding="0,8" ColumnSpacing="12">
@@ -122,11 +122,11 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Spacing="2">
-                            <TextBlock Text="Minimize to system tray on close" />
+                            <TextBlock x:Uid="Settings_Behavior_CloseToTray_Label" />
                             <TextBlock
                                 FontSize="12"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="Keep the app running in the tray instead of exiting." />
+                                x:Uid="Settings_Behavior_CloseToTray_Help" />
                         </StackPanel>
                         <ToggleSwitch
                             Grid.Column="1"
@@ -140,11 +140,11 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Spacing="2">
-                            <TextBlock Text="Animations" />
+                            <TextBlock x:Uid="Settings_Behavior_Animations_Label" />
                             <TextBlock
                                 FontSize="12"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="Slide pages and lists in and animate the navigation highlight. Turn off for instant, animation-free navigation. Progress indicators still spin."
+                                x:Uid="Settings_Behavior_Animations_Help"
                                 TextWrapping="Wrap" />
                         </StackPanel>
                         <ToggleSwitch
@@ -160,11 +160,11 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Spacing="2">
-                            <TextBlock Text="Start minimized to tray" />
+                            <TextBlock x:Uid="Settings_Behavior_StartMinimized_Label" />
                             <TextBlock
                                 FontSize="12"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="Launch into the tray without showing the window." />
+                                x:Uid="Settings_Behavior_StartMinimized_Help" />
                         </StackPanel>
                         <ToggleSwitch
                             Grid.Column="1"
@@ -178,11 +178,11 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Spacing="2">
-                            <TextBlock Text="Restart running containers on launch" />
+                            <TextBlock x:Uid="Settings_Behavior_Restart_Label" />
                             <TextBlock
                                 FontSize="12"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="After a reboot or WSL shutdown, start any containers that were running again. Containers you stopped yourself stay stopped."
+                                x:Uid="Settings_Behavior_Restart_Help"
                                 TextWrapping="Wrap" />
                         </StackPanel>
                         <ToggleSwitch
@@ -198,7 +198,7 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Spacing="2">
-                            <TextBlock Text="Start when I sign in" />
+                            <TextBlock x:Uid="Settings_Behavior_SignIn_Label" />
                             <TextBlock
                                 FontSize="12"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
@@ -219,11 +219,11 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Spacing="2">
-                            <TextBlock Text="Auto-refresh interval" />
+                            <TextBlock x:Uid="Settings_Behavior_Refresh_Label" />
                             <TextBlock
                                 FontSize="12"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="How often container status is polled (seconds)." />
+                                x:Uid="Settings_Behavior_Refresh_Help" />
                         </StackPanel>
                         <NumberBox
                             Grid.Column="1"
@@ -266,7 +266,7 @@
             <TextBlock
                 Margin="2,4,0,0"
                 Style="{ThemeResource BodyStrongTextBlockStyle}"
-                Text="Notifications" />
+                x:Uid="Settings_Notify_Header" />
             <Border Style="{StaticResource Card}">
                 <StackPanel Spacing="4">
                     <Grid Padding="0,8" ColumnSpacing="12">
@@ -275,11 +275,11 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Spacing="2">
-                            <TextBlock Text="Show notifications" />
+                            <TextBlock x:Uid="Settings_Notify_Master_Label" />
                             <TextBlock
                                 FontSize="12"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="Master switch for toast notifications. Turn off to mute everything." />
+                                x:Uid="Settings_Notify_Master_Help" />
                         </StackPanel>
                         <ToggleSwitch
                             Grid.Column="1"
@@ -293,11 +293,11 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Spacing="2">
-                            <TextBlock Text="Image pull &amp; build" />
+                            <TextBlock x:Uid="Settings_Notify_Image_Label" />
                             <TextBlock
                                 FontSize="12"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="Notify when an image pull or build completes or fails." />
+                                x:Uid="Settings_Notify_Image_Help" />
                         </StackPanel>
                         <ToggleSwitch
                             Grid.Column="1"
@@ -312,11 +312,11 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Spacing="2">
-                            <TextBlock Text="Container stopped" />
+                            <TextBlock x:Uid="Settings_Notify_Stopped_Label" />
                             <TextBlock
                                 FontSize="12"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="Notify when a running container exits or crashes." />
+                                x:Uid="Settings_Notify_Stopped_Help" />
                         </StackPanel>
                         <ToggleSwitch
                             Grid.Column="1"
@@ -331,11 +331,11 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Spacing="2">
-                            <TextBlock Text="Engine availability" />
+                            <TextBlock x:Uid="Settings_Notify_Engine_Label" />
                             <TextBlock
                                 FontSize="12"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="Notify when the container engine goes down or recovers." />
+                                x:Uid="Settings_Notify_Engine_Help" />
                         </StackPanel>
                         <ToggleSwitch
                             Grid.Column="1"
@@ -350,7 +350,7 @@
             <TextBlock
                 Margin="2,4,0,0"
                 Style="{ThemeResource BodyStrongTextBlockStyle}"
-                Text="AI diagnostics" />
+                x:Uid="Settings_Ai_Header" />
             <Border Style="{StaticResource Card}">
                 <StackPanel Spacing="12">
                     <Grid ColumnSpacing="12">
@@ -359,11 +359,11 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Spacing="2">
-                            <TextBlock Text="Enable AI features" />
+                            <TextBlock x:Uid="Settings_Ai_Enable_Label" />
                             <TextBlock
                                 FontSize="12"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="Off by default. Diagnosis offers a reviewable preview; assistant chat sends sanitized text and tool evidence during each turn."
+                                x:Uid="Settings_Ai_Enable_Help"
                                 TextWrapping="Wrap" />
                         </StackPanel>
                         <ToggleSwitch
@@ -405,31 +405,31 @@
                         CornerRadius="6">
                         <StackPanel Spacing="10">
                             <StackPanel Spacing="2">
-                                <TextBlock FontWeight="SemiBold" Text="Quick start: run AI locally" />
+                                <TextBlock FontWeight="SemiBold" x:Uid="Settings_Ai_QuickStart_Title" />
                                 <TextBlock
                                     FontSize="12"
                                     Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                    Text="One click sets up Ollama in an app-managed container, downloads a model if you need one, and selects it as your provider."
+                                    x:Uid="Settings_Ai_QuickStart_Help"
                                     TextWrapping="Wrap" />
                                 <Expander
                                     HorizontalAlignment="Stretch"
                                     HorizontalContentAlignment="Stretch"
-                                    Header="What setup does">
+                                    x:Uid="Settings_Ai_WhatSetup_Header">
                                     <StackPanel Spacing="8">
                                         <TextBlock
                                             FontSize="12"
                                             Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                            Text="Setup manages only the app's own container on 127.0.0.1 and reuses an Ollama image already on this machine. It never adopts unrelated runtimes."
+                                            x:Uid="Settings_Ai_WhatSetup_P1"
                                             TextWrapping="Wrap" />
                                         <TextBlock
                                             FontSize="12"
                                             Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                            Text="If no model is installed, setup offers to download one and asks first. You can pick a different model below at any time."
+                                            x:Uid="Settings_Ai_WhatSetup_P2"
                                             TextWrapping="Wrap" />
                                         <TextBlock
                                             FontSize="12"
                                             Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                            Text="GPU acceleration and model capabilities are never assumed; setup checks what the model supports and tells you the result."
+                                            x:Uid="Settings_Ai_WhatSetup_P3"
                                             TextWrapping="Wrap" />
                                     </StackPanel>
                                 </Expander>
@@ -443,18 +443,18 @@
                                     Visibility="{x:Bind ViewModel.ShowLocalSetupButtons, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                                     <StackPanel Orientation="Horizontal" Spacing="6">
                                         <FontIcon FontSize="13" Glyph="&#xE945;" />
-                                        <TextBlock Text="Set up Ollama" />
+                                        <TextBlock x:Uid="Settings_Ai_SetupOllama" />
                                     </StackPanel>
                                 </Button>
                                 <Button
                                     AutomationProperties.AutomationId="CancelSetUpLocalAiButton"
                                     Command="{x:Bind ViewModel.SetUpLocalAiCancelCommand}"
-                                    Content="Cancel setup"
+                                    x:Uid="Settings_Ai_CancelSetup"
                                     Visibility="{x:Bind ViewModel.SetUpLocalAiCommand.IsRunning, Mode=OneWay, Converter={StaticResource BoolToVis}}" />
                                 <Button
                                     AutomationProperties.AutomationId="RemoveLocalAiButton"
                                     Command="{x:Bind ViewModel.RemoveLocalAiCommand}"
-                                    Content="Remove Ollama"
+                                    x:Uid="Settings_Ai_RemoveOllama"
                                     Visibility="{x:Bind ViewModel.ShowRemoveOllama, Mode=OneWay, Converter={StaticResource BoolToVis}}" />
                             </StackPanel>
                             <TextBlock
@@ -487,7 +487,7 @@
                             <Expander
                                 HorizontalAlignment="Stretch"
                                 HorizontalContentAlignment="Stretch"
-                                Header="Technical details"
+                                x:Uid="Settings_Ai_Technical_Header"
                                 Visibility="{x:Bind ViewModel.LocalAiFeedback.HasTechnicalDetails, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                                 <StackPanel Spacing="8">
                                     <TextBlock
@@ -500,43 +500,43 @@
                                     <Button
                                         AutomationProperties.AutomationId="CopyLocalAiFeedbackDetailsButton"
                                         Command="{x:Bind ViewModel.CopyLocalAiFeedbackDetailsCommand}"
-                                        Content="Copy details" />
+                                        x:Uid="Settings_Ai_CopyDetails" />
                                 </StackPanel>
                             </Expander>
                         </StackPanel>
                     </Border>
                     <ComboBox
                         AutomationProperties.AutomationId="AiProviderComboBox"
-                        Header="Provider"
+                        x:Uid="Settings_Ai_Provider_Header"
                         MinWidth="260"
                         SelectedIndex="{x:Bind ViewModel.SelectedAiProviderIndex, Mode=TwoWay}">
-                        <ComboBoxItem Content="None" />
-                        <ComboBoxItem Content="GitHub Copilot (recommended)" />
-                        <ComboBoxItem Content="Ollama (local)" />
-                        <ComboBoxItem Content="Azure OpenAI" />
-                        <ComboBoxItem Content="OpenAI-compatible" />
+                        <ComboBoxItem x:Uid="Settings_Ai_Provider_None" />
+                        <ComboBoxItem x:Uid="Settings_Ai_Provider_Copilot" />
+                        <ComboBoxItem x:Uid="Settings_Ai_Provider_Ollama" />
+                        <ComboBoxItem x:Uid="Settings_Ai_Provider_Azure" />
+                        <ComboBoxItem x:Uid="Settings_Ai_Provider_OpenAI" />
                     </ComboBox>
                     <Expander
                         HorizontalAlignment="Stretch"
                         HorizontalContentAlignment="Stretch"
-                        Header="Data sharing and privacy"
+                        x:Uid="Settings_Ai_Privacy_Header"
                         Visibility="{x:Bind ViewModel.ShowAiProviderSettings, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                         <TextBlock
                             FontSize="12"
                             IsTextSelectionEnabled="True"
-                            Text="Recognized sensitive fields and credential patterns are masked before AI evidence and assistant audit details are shortened. Detection is not perfect: unlabelled or encoded secrets may remain. Review diagnosis previews and do not paste secrets into chat. The selected provider receives chat and tool evidence; local inference requires a local endpoint. Diagnosis fixes are copy-only; assistant mutations follow the app's approval settings."
+                            x:Uid="Settings_Ai_Privacy_Help"
                             TextWrapping="Wrap" />
                     </Expander>
                     <Expander
                         HorizontalAlignment="Stretch"
                         HorizontalContentAlignment="Stretch"
-                        Header="Provider settings"
+                        x:Uid="Settings_Ai_ProviderSettings_Header"
                         Visibility="{x:Bind ViewModel.ShowAiProviderSettings, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                         <StackPanel Spacing="10">
                             <StackPanel Spacing="10" Visibility="{x:Bind ViewModel.ShowGitHubCopilotSettings, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                                 <Button
                                     Command="{x:Bind ViewModel.SignInGitHubCopilotCommand}"
-                                    Content="GitHub Copilot sign-in info" />
+                                    x:Uid="Settings_Ai_Copilot_SignIn" />
                                 <Grid ColumnSpacing="8">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
@@ -545,7 +545,7 @@
                                     <ComboBox
                                         Grid.Column="0"
                                         DisplayMemberPath="DisplayName"
-                                        Header="GitHub Copilot model"
+                                        x:Uid="Settings_Ai_Copilot_Model_Header"
                                         ItemsSource="{x:Bind ViewModel.GitHubCopilotModels, Mode=OneWay}"
                                         SelectedValue="{x:Bind ViewModel.AiGitHubCopilotModel, Mode=TwoWay}"
                                         SelectedValuePath="Id" />
@@ -553,13 +553,13 @@
                                         Grid.Column="1"
                                         VerticalAlignment="Bottom"
                                         Command="{x:Bind ViewModel.RefreshGitHubCopilotModelsCommand}"
-                                        Content="Refresh models" />
+                                        x:Uid="Settings_Ai_Copilot_Refresh" />
                                 </Grid>
                             </StackPanel>
                             <StackPanel Spacing="10" Visibility="{x:Bind ViewModel.ShowOllamaSettings, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                                 <TextBox
                                     AutomationProperties.AutomationId="AiOllamaEndpointTextBox"
-                                    Header="Ollama endpoint"
+                                    x:Uid="Settings_Ai_Ollama_Endpoint_Header"
                                     Text="{x:Bind ViewModel.AiOllamaEndpoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                 <Grid ColumnSpacing="8">
                                     <Grid.ColumnDefinitions>
@@ -571,7 +571,7 @@
                                         Grid.Column="0"
                                         HorizontalAlignment="Stretch"
                                         DisplayMemberPath="DisplayName"
-                                        Header="Ollama model (installed)"
+                                        x:Uid="Settings_Ai_Ollama_Model_Header"
                                         ItemsSource="{x:Bind ViewModel.OllamaModels, Mode=OneWay}"
                                         SelectedValue="{x:Bind ViewModel.AiOllamaModel, Mode=TwoWay}"
                                         SelectedValuePath="Id" />
@@ -583,7 +583,7 @@
                                         Content="Refresh" />
                                 </Grid>
                                 <TextBlock
-                                    Text="Downloads a model on the configured endpoint, which may be remote. Model names and tags can change over time, so a name alone does not tell you what you will get or whether it supports tool calling."
+                                    x:Uid="Settings_Ai_Ollama_Model_Help"
                                     TextWrapping="Wrap"
                                     Style="{StaticResource CaptionTextBlockStyle}" />
                                 <Grid ColumnSpacing="8">
@@ -594,15 +594,14 @@
                                     <TextBox
                                         AutomationProperties.AutomationId="OllamaPullModelTextBox"
                                         Grid.Column="0"
-                                        Header="Pull a model"
-                                        PlaceholderText="Audited model reference"
+                                        x:Uid="Settings_Ai_Ollama_Pull"
                                         Text="{x:Bind ViewModel.OllamaPullModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                     <Button
                                         AutomationProperties.AutomationId="PullOllamaModelButton"
                                         Grid.Column="1"
                                         VerticalAlignment="Bottom"
                                         Command="{x:Bind ViewModel.PullOllamaModelCommand}"
-                                        Content="Pull" />
+                                        x:Uid="Settings_Ai_Ollama_Pull" />
                                 </Grid>
                                 <ProgressBar
                                     IsIndeterminate="True"
@@ -610,22 +609,22 @@
                             </StackPanel>
                             <StackPanel Spacing="10" Visibility="{x:Bind ViewModel.ShowAzureOpenAiSettings, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                                 <TextBox
-                                    Header="Azure OpenAI endpoint"
+                                    x:Uid="Settings_Ai_Azure_Endpoint_Header"
                                     PlaceholderText="https://your-resource.openai.azure.com"
                                     Text="{x:Bind ViewModel.AiAzureOpenAiEndpoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                 <TextBox
-                                    Header="Azure OpenAI deployment"
+                                    x:Uid="Settings_Ai_Azure_Deployment_Header"
                                     Text="{x:Bind ViewModel.AiAzureOpenAiDeployment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                             <StackPanel Spacing="10" Visibility="{x:Bind ViewModel.ShowOpenAiSettings, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                                 <TextBox
-                                    Header="OpenAI-compatible endpoint (base URL)"
+                                    x:Uid="Settings_Ai_OpenAI_Endpoint_Header"
                                     PlaceholderText="https://api.openai.com/v1"
                                     Text="{x:Bind ViewModel.AiOpenAiEndpoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                 <TextBlock
                                     FontSize="12"
                                     Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                    Text="Point this at any server that speaks the OpenAI chat-completions API. Examples: https://api.openai.com/v1 (OpenAI), http://localhost:11434/v1 (Ollama), http://localhost:1234/v1 (LM Studio), http://localhost:8000/v1 (vLLM / llama.cpp). Include the version segment your server uses; /chat/completions is appended automatically."
+                                    x:Uid="Settings_Ai_OpenAI_Endpoint_Help"
                                     TextWrapping="Wrap" />
                                 <Grid ColumnSpacing="8">
                                     <Grid.ColumnDefinitions>
@@ -635,7 +634,7 @@
                                     <ComboBox
                                         Grid.Column="0"
                                         HorizontalAlignment="Stretch"
-                                        Header="OpenAI-compatible model"
+                                        x:Uid="Settings_Ai_OpenAI_Model_Header"
                                         IsEditable="True"
                                         ItemsSource="{x:Bind ViewModel.OpenAiModels, Mode=OneWay}"
                                         Text="{x:Bind ViewModel.AiOpenAiModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
@@ -654,13 +653,12 @@
                                 <PasswordBox
                                     x:Name="AiApiKeyBox"
                                     Grid.Column="0"
-                                    Header="API key"
-                                    PlaceholderText="Stored in Windows Credential Manager (optional for local OpenAI-compatible servers)" />
+                                    x:Uid="Settings_Ai_ApiKey" />
                                 <Button
                                     Grid.Column="1"
                                     VerticalAlignment="Bottom"
                                     Click="SaveAiApiKey_Click"
-                                    Content="Save key" />
+                                    x:Uid="Settings_Ai_SaveKey" />
                             </Grid>
                         </StackPanel>
                     </Expander>
@@ -673,17 +671,17 @@
                             Grid.Column="0"
                             VerticalAlignment="Center"
                             Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                            Text="Verify capabilities separately. Tests use synthetic prompts, never container data or app actions."
+                            x:Uid="Settings_Ai_Capabilities_Help"
                             TextWrapping="Wrap" />
                         <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8">
                             <Button
                                 AutomationProperties.AutomationId="TestAiProviderButton"
                                 Command="{x:Bind ViewModel.TestAiProviderCommand}"
-                                Content="Test capabilities" />
+                                x:Uid="Settings_Ai_TestCapabilities" />
                             <Button
                                 AutomationProperties.AutomationId="CancelAiCapabilityTestButton"
                                 Command="{x:Bind ViewModel.TestAiProviderCancelCommand}"
-                                Content="Cancel test" />
+                                x:Uid="Settings_Ai_CancelTest" />
                         </StackPanel>
                     </Grid>
                     <Expander
@@ -711,7 +709,7 @@
                     <Expander
                         HorizontalAlignment="Stretch"
                         HorizontalContentAlignment="Stretch"
-                        Header="Technical details"
+                        x:Uid="Settings_Ai_Technical_Header"
                         Visibility="{x:Bind ViewModel.ProviderFeedback.HasTechnicalDetails, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                         <StackPanel Spacing="8">
                             <TextBlock
@@ -724,18 +722,18 @@
                             <Button
                                 AutomationProperties.AutomationId="CopyProviderFeedbackDetailsButton"
                                 Command="{x:Bind ViewModel.CopyProviderFeedbackDetailsCommand}"
-                                Content="Copy details" />
+                                x:Uid="Settings_Ai_CopyDetails" />
                         </StackPanel>
                     </Expander>
                     <Expander
                         HorizontalAlignment="Stretch"
                         HorizontalContentAlignment="Stretch"
-                        Header="Container AI Assistant permissions"
+                        x:Uid="Settings_Ai_Permissions_Header"
                         Visibility="{x:Bind ViewModel.ShowAiProviderSettings, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                         <StackPanel Spacing="12">
                             <TextBlock
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="Read-only tools always run automatically. For every other tool, turn its switch on to let the assistant run it without asking. Anything left off will prompt you for approval each time."
+                                x:Uid="Settings_Ai_Permissions_Help"
                                 TextWrapping="Wrap" />
                             <Border
                                 Padding="12"
@@ -747,27 +745,23 @@
                                     <StackPanel Spacing="6">
                                         <ToggleSwitch
                                             AutomationProperties.AutomationId="AssistantAllowDestructiveToggle"
-                                            Header="Allow the assistant to delete things"
                                             IsOn="{x:Bind ViewModel.AssistantAllowDestructive, Mode=TwoWay}"
-                                            OffContent="Off — it cannot delete"
-                                            OnContent="On — it can delete" />
+                                            x:Uid="Settings_Ai_AllowDelete" />
                                         <TextBlock
                                             FontSize="12"
                                             Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                            Text="Off by default. Until you turn this on, the assistant cannot remove containers, volumes or networks, or delete Kubernetes resources — it will say the action is turned off instead of asking. Removing a volume destroys the data in it."
+                                            x:Uid="Settings_Ai_AllowDelete_Help"
                                             TextWrapping="Wrap" />
                                     </StackPanel>
                                     <StackPanel Spacing="6">
                                         <ToggleSwitch
                                             AutomationProperties.AutomationId="AssistantApproveEverythingToggle"
-                                            Header="Let the assistant act without asking"
                                             IsOn="{x:Bind ViewModel.AssistantApproveEverything, Mode=TwoWay}"
-                                            OffContent="Ask me first (recommended)"
-                                            OnContent="Never ask" />
+                                            x:Uid="Settings_Ai_AutoApprove" />
                                         <TextBlock
                                             FontSize="12"
                                             Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                            Text="Skips every prompt, including the Compose review that the switches below cannot turn off. It only waives asking — it does not grant deleting, and plans the app cannot apply safely are still refused. Everything still appears in Activity."
+                                            x:Uid="Settings_Ai_AutoApprove_Help"
                                             TextWrapping="Wrap" />
                                     </StackPanel>
                                 </StackPanel>
@@ -786,8 +780,7 @@
                                                             Header="{x:Bind DisplayName}"
                                                             IsEnabled="{x:Bind IsEnabled, Mode=OneWay}"
                                                             IsOn="{x:Bind AutoApprove, Mode=TwoWay}"
-                                                            OffContent="Require approval"
-                                                            OnContent="Run automatically" />
+                                                            x:Uid="Settings_Ai_Perm" />
                                                     </DataTemplate>
                                                 </ItemsControl.ItemTemplate>
                                             </ItemsControl>
@@ -804,7 +797,7 @@
             <TextBlock
                 Margin="2,4,0,0"
                 Style="{ThemeResource BodyStrongTextBlockStyle}"
-                Text="Diagnostics" />
+                x:Uid="Settings_Diag_Header" />
             <Border Style="{StaticResource Card}">
                 <Grid ColumnSpacing="12">
                     <Grid.ColumnDefinitions>
@@ -812,18 +805,18 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0" Spacing="2">
-                        <TextBlock Text="Application logs" />
+                        <TextBlock x:Uid="Settings_Diag_Logs_Label" />
                         <TextBlock
                             FontSize="12"
                             Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                            Text="Rolling diagnostic logs for troubleshooting. Share these when reporting an issue."
+                            x:Uid="Settings_Diag_Logs_Help"
                             TextWrapping="Wrap" />
                     </StackPanel>
                     <Button
                         Grid.Column="1"
                         VerticalAlignment="Center"
                         Command="{x:Bind ViewModel.OpenLogsFolderCommand}"
-                        Content="Open logs folder" />
+                        x:Uid="Settings_Diag_OpenLogs" />
                 </Grid>
             </Border>
 
@@ -831,10 +824,10 @@
             <TextBlock
                 Margin="2,4,0,0"
                 Style="{ThemeResource BodyStrongTextBlockStyle}"
-                Text="About" />
+                x:Uid="Settings_About_Header" />
             <Border Style="{StaticResource Card}">
                 <StackPanel Spacing="6">
-                    <TextBlock FontWeight="SemiBold" Text="WSL Container Desktop" />
+                    <TextBlock FontWeight="SemiBold" x:Uid="Settings_About_Title" />
                     <TextBlock
                         FontSize="12"
                         Foreground="{ThemeResource TextFillColorSecondaryBrush}"
@@ -842,11 +835,11 @@
                     <TextBlock
                         FontSize="12"
                         Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                        Text="A native WinUI 3 manager for WSL containers (wslc)." />
+                        x:Uid="Settings_About_Tagline" />
                     <StackPanel Margin="-12,0,0,0" Orientation="Horizontal">
-                        <HyperlinkButton Content="Learn about WSL containers" NavigateUri="https://aka.ms/wslc" />
-                        <HyperlinkButton Content="View on GitHub" NavigateUri="{x:Bind ViewModel.RepositoryUri}" />
-                        <HyperlinkButton Content="Report an issue" NavigateUri="{x:Bind ViewModel.NewIssueUri}" />
+                        <HyperlinkButton x:Uid="Settings_About_Learn" NavigateUri="https://aka.ms/wslc" />
+                        <HyperlinkButton x:Uid="Settings_About_GitHub" NavigateUri="{x:Bind ViewModel.RepositoryUri}" />
+                        <HyperlinkButton x:Uid="Settings_About_Report" NavigateUri="{x:Bind ViewModel.NewIssueUri}" />
                     </StackPanel>
                     <Border Height="1" Background="{ThemeResource DividerStrokeColorDefaultBrush}" />
                     <Grid Padding="0,8" ColumnSpacing="12">
@@ -855,11 +848,11 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Spacing="2">
-                            <TextBlock Text="Check for updates when the app starts" />
+                            <TextBlock x:Uid="Settings_Updates_OnLaunch_Label" />
                             <TextBlock
                                 FontSize="12"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="Look for a newer release on GitHub at launch and offer to install it. Nothing is installed until you choose Update now."
+                                x:Uid="Settings_Updates_OnLaunch_Help"
                                 TextWrapping="Wrap" />
                         </StackPanel>
                         <ToggleSwitch
@@ -884,7 +877,7 @@
                             Grid.Column="1"
                             AutomationProperties.AutomationId="CheckForUpdatesButton"
                             Command="{x:Bind Updates.CheckForUpdatesCommand}"
-                            Content="Check for updates" />
+                            x:Uid="Settings_Updates_Check" />
                     </Grid>
                 </StackPanel>
             </Border>
