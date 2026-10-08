@@ -9090,4 +9090,223 @@ License: {2} — {3}
   <data name="Common_Canceled" xml:space="preserve">
     <value>已取消。</value>
   </data>
+  <data name="Common_Images" xml:space="preserve">
+    <value>镜像</value>
+  </data>
+  <data name="Common_Volumes" xml:space="preserve">
+    <value>数据卷</value>
+  </data>
+  <data name="Common_Networks" xml:space="preserve">
+    <value>网络</value>
+  </data>
+  <data name="Common_Templates" xml:space="preserve">
+    <value>模板</value>
+  </data>
+  <data name="Common_ModelReasoningCaption" xml:space="preserve">
+    <value>{0} — {1} · 推理</value>
+  </data>
+  <data name="Common_ContainerCreatedTitle" xml:space="preserve">
+    <value>已创建 {0}</value>
+  </data>
+  <data name="Common_ContainerStartingTitle" xml:space="preserve">
+    <value>已启动 {0}</value>
+  </data>
+  <data name="Common_ContainerRemovedTitle" xml:space="preserve">
+    <value>已移除 {0}</value>
+  </data>
+  <data name="Common_HealthyTitle" xml:space="preserve">
+    <value>{0} 健康</value>
+  </data>
+  <data name="Common_StartingTitle" xml:space="preserve">
+    <value>{0} 正在启动</value>
+  </data>
+  <data name="Common_EngineEvent_container_create" xml:space="preserve">
+    <value>容器已创建：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_container_start" xml:space="preserve">
+    <value>容器已启动：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_container_stop" xml:space="preserve">
+    <value>容器已停止：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_container_die" xml:space="preserve">
+    <value>容器已退出：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_container_kill" xml:space="preserve">
+    <value>容器已强制停止：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_container_destroy" xml:space="preserve">
+    <value>容器已移除：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_container_remove" xml:space="preserve">
+    <value>容器已移除：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_container_pause" xml:space="preserve">
+    <value>容器已暂停：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_container_unpause" xml:space="preserve">
+    <value>容器已恢复：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_container_restart" xml:space="preserve">
+    <value>容器已重启：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_container_update" xml:space="preserve">
+    <value>容器已更新：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_image_pull" xml:space="preserve">
+    <value>镜像已拉取：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_image_push" xml:space="preserve">
+    <value>镜像已推送：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_image_tag" xml:space="preserve">
+    <value>镜像已添加标签：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_image_untag" xml:space="preserve">
+    <value>镜像已移除标签：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_image_delete" xml:space="preserve">
+    <value>镜像已删除：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_image_build" xml:space="preserve">
+    <value>镜像已构建：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_image_save" xml:space="preserve">
+    <value>镜像已导出：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_image_load" xml:space="preserve">
+    <value>镜像已导入：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_network_create" xml:space="preserve">
+    <value>网络已创建：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_network_connect" xml:space="preserve">
+    <value>网络已连接：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_network_disconnect" xml:space="preserve">
+    <value>网络已断开：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_network_destroy" xml:space="preserve">
+    <value>网络已移除：{0}</value>
+  </data>
+  <data name="Common_EngineEvent_network_remove" xml:space="preserve">
+    <value>网络已移除：{0}</value>
+  </data>
+  <data name="Common_ConnectionCache_True_True" xml:space="preserve">
+    <value>已缓存：是；已加载：是。</value>
+  </data>
+  <data name="Common_ConnectionCache_True_False" xml:space="preserve">
+    <value>已缓存：是；已加载：否。</value>
+  </data>
+  <data name="Common_ConnectionCache_True_unknown" xml:space="preserve">
+    <value>已缓存：是；已加载：未知。</value>
+  </data>
+  <data name="Common_ConnectionCache_False_True" xml:space="preserve">
+    <value>已缓存：否；已加载：是。</value>
+  </data>
+  <data name="Common_ConnectionCache_False_False" xml:space="preserve">
+    <value>已缓存：否；已加载：否。</value>
+  </data>
+  <data name="Common_ConnectionCache_False_unknown" xml:space="preserve">
+    <value>已缓存：否；已加载：未知。</value>
+  </data>
+  <data name="Common_ConnectionCache_unknown_True" xml:space="preserve">
+    <value>已缓存：未知；已加载：是。</value>
+  </data>
+  <data name="Common_ConnectionCache_unknown_False" xml:space="preserve">
+    <value>已缓存：未知；已加载：否。</value>
+  </data>
+  <data name="Common_ConnectionCache_unknown_unknown" xml:space="preserve">
+    <value>已缓存：未知；已加载：未知。</value>
+  </data>
+  <data name="Common_EngineHealthMismatch_healthy_0" xml:space="preserve">
+    <value>引擎健康状态：健康；现有引擎检查与请求的检查不同。应用探测和自动恢复已暂停，以避免重复检查。请明确重新创建以应用所需设置。</value>
+  </data>
+  <data name="Common_EngineHealthMismatch_healthy_1" xml:space="preserve">
+    <value>引擎健康状态：健康；现有引擎检查与请求的检查不同。应用探测和自动恢复已暂停，以避免重复检查。请明确重新创建以应用所需设置。；无法遵守小于一秒的间隔（调度分辨率为一秒）</value>
+  </data>
+  <data name="Common_EngineHealthMismatch_healthy_2" xml:space="preserve">
+    <value>引擎健康状态：健康；现有引擎检查与请求的检查不同。应用探测和自动恢复已暂停，以避免重复检查。请明确重新创建以应用所需设置。；引擎健康状态：不健康（独立于 TCP 重启策略报告）</value>
+  </data>
+  <data name="Common_EngineHealthMismatch_healthy_3" xml:space="preserve">
+    <value>引擎健康状态：健康；现有引擎检查与请求的检查不同。应用探测和自动恢复已暂停，以避免重复检查。请明确重新创建以应用所需设置。；引擎健康状态：正在启动</value>
+  </data>
+  <data name="Common_EngineHealthMismatch_healthy_4" xml:space="preserve">
+    <value>引擎健康状态：健康；现有引擎检查与请求的检查不同。应用探测和自动恢复已暂停，以避免重复检查。请明确重新创建以应用所需设置。；引擎健康状态：未知</value>
+  </data>
+  <data name="Common_EngineHealthMismatch_unhealthy_0" xml:space="preserve">
+    <value>引擎健康状态：不健康；现有引擎检查与请求的检查不同。应用探测和自动恢复已暂停，以避免重复检查。请明确重新创建以应用所需设置。</value>
+  </data>
+  <data name="Common_EngineHealthMismatch_unhealthy_1" xml:space="preserve">
+    <value>引擎健康状态：不健康；现有引擎检查与请求的检查不同。应用探测和自动恢复已暂停，以避免重复检查。请明确重新创建以应用所需设置。；无法遵守小于一秒的间隔（调度分辨率为一秒）</value>
+  </data>
+  <data name="Common_EngineHealthMismatch_unhealthy_2" xml:space="preserve">
+    <value>引擎健康状态：不健康；现有引擎检查与请求的检查不同。应用探测和自动恢复已暂停，以避免重复检查。请明确重新创建以应用所需设置。；引擎健康状态：不健康（独立于 TCP 重启策略报告）</value>
+  </data>
+  <data name="Common_EngineHealthMismatch_unhealthy_3" xml:space="preserve">
+    <value>引擎健康状态：不健康；现有引擎检查与请求的检查不同。应用探测和自动恢复已暂停，以避免重复检查。请明确重新创建以应用所需设置。；引擎健康状态：正在启动</value>
+  </data>
+  <data name="Common_EngineHealthMismatch_unhealthy_4" xml:space="preserve">
+    <value>引擎健康状态：不健康；现有引擎检查与请求的检查不同。应用探测和自动恢复已暂停，以避免重复检查。请明确重新创建以应用所需设置。；引擎健康状态：未知</value>
+  </data>
+  <data name="Common_LocalAiRemovalVolumeChanged_Absent" xml:space="preserve">
+    <value>运行时：不存在。移除期间模型卷已改变，因此无法删除。 删除前请在“卷”页面检查 wslcd-ollama。</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Absent_Absent" xml:space="preserve">
+    <value>运行时：不存在；模型数据：不存在，未删除。 移除已中断或无法确认。重试前请检查引擎状态。</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Absent_Retained" xml:space="preserve">
+    <value>运行时：不存在；模型数据：已保留，未删除。 移除已中断或无法确认。重试前请检查引擎状态。</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Absent_Removed" xml:space="preserve">
+    <value>运行时：不存在；模型数据：已移除，未删除。 移除已中断或无法确认。重试前请检查引擎状态。</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Absent_Unknown" xml:space="preserve">
+    <value>运行时：不存在；模型数据：未知，未删除。 移除已中断或无法确认。重试前请检查引擎状态。</value>
+  </data>
+  <data name="Common_LocalAiRemovalVolumeChanged_Retained" xml:space="preserve">
+    <value>运行时：已保留。移除期间模型卷已改变，因此无法删除。 删除前请在“卷”页面检查 wslcd-ollama。</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Retained_Absent" xml:space="preserve">
+    <value>运行时：已保留；模型数据：不存在，未删除。 移除已中断或无法确认。重试前请检查引擎状态。</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Retained_Retained" xml:space="preserve">
+    <value>运行时：已保留；模型数据：已保留，未删除。 移除已中断或无法确认。重试前请检查引擎状态。</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Retained_Removed" xml:space="preserve">
+    <value>运行时：已保留；模型数据：已移除，未删除。 移除已中断或无法确认。重试前请检查引擎状态。</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Retained_Unknown" xml:space="preserve">
+    <value>运行时：已保留；模型数据：未知，未删除。 移除已中断或无法确认。重试前请检查引擎状态。</value>
+  </data>
+  <data name="Common_LocalAiRemovalVolumeChanged_Removed" xml:space="preserve">
+    <value>运行时：已移除。移除期间模型卷已改变，因此无法删除。 删除前请在“卷”页面检查 wslcd-ollama。</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Removed_Absent" xml:space="preserve">
+    <value>运行时：已移除；模型数据：不存在，未删除。 移除已中断或无法确认。重试前请检查引擎状态。</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Removed_Retained" xml:space="preserve">
+    <value>运行时：已移除；模型数据：已保留，未删除。 移除已中断或无法确认。重试前请检查引擎状态。</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Removed_Removed" xml:space="preserve">
+    <value>运行时：已移除；模型数据：已移除，未删除。 移除已中断或无法确认。重试前请检查引擎状态。</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Removed_Unknown" xml:space="preserve">
+    <value>运行时：已移除；模型数据：未知，未删除。 移除已中断或无法确认。重试前请检查引擎状态。</value>
+  </data>
+  <data name="Common_LocalAiRemovalVolumeChanged_Unknown" xml:space="preserve">
+    <value>运行时：未知。移除期间模型卷已改变，因此无法删除。 删除前请在“卷”页面检查 wslcd-ollama。</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Unknown_Absent" xml:space="preserve">
+    <value>运行时：未知；模型数据：不存在，未删除。 移除已中断或无法确认。重试前请检查引擎状态。</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Unknown_Retained" xml:space="preserve">
+    <value>运行时：未知；模型数据：已保留，未删除。 移除已中断或无法确认。重试前请检查引擎状态。</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Unknown_Removed" xml:space="preserve">
+    <value>运行时：未知；模型数据：已移除，未删除。 移除已中断或无法确认。重试前请检查引擎状态。</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Unknown_Unknown" xml:space="preserve">
+    <value>运行时：未知；模型数据：未知，未删除。 移除已中断或无法确认。重试前请检查引擎状态。</value>
+  </data>
 </root>

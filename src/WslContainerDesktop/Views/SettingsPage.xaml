@@ -551,7 +551,7 @@
                                     </Grid.ColumnDefinitions>
                                     <ComboBox
                                         Grid.Column="0"
-                                        DisplayMemberPath="DisplayName"
+                                        DisplayMemberPath="LocalizedDisplayName"
                                         x:Uid="Settings_Ai_Copilot_Model_Header" i18n:Localization.Uid="Settings_Ai_Copilot_Model_Header"
                                         ItemsSource="{x:Bind ViewModel.GitHubCopilotModels, Mode=OneWay}"
                                         SelectedValue="{x:Bind ViewModel.AiGitHubCopilotModel, Mode=TwoWay}"
@@ -577,7 +577,7 @@
                                         AutomationProperties.AutomationId="AiOllamaModelComboBox"
                                         Grid.Column="0"
                                         HorizontalAlignment="Stretch"
-                                        DisplayMemberPath="DisplayName"
+                                        DisplayMemberPath="LocalizedDisplayName"
                                         x:Uid="Settings_Ai_Ollama_Model_Header" i18n:Localization.Uid="Settings_Ai_Ollama_Model_Header"
                                         ItemsSource="{x:Bind ViewModel.OllamaModels, Mode=OneWay}"
                                         SelectedValue="{x:Bind ViewModel.AiOllamaModel, Mode=TwoWay}"

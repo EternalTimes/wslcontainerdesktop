@@ -9090,4 +9090,223 @@ Model staging contacts the official Azure model registry and pinned Azure Blob c
   <data name="Common_Canceled" xml:space="preserve">
     <value>Canceled.</value>
   </data>
+  <data name="Common_Images" xml:space="preserve">
+    <value>Images</value>
+  </data>
+  <data name="Common_Volumes" xml:space="preserve">
+    <value>Volumes</value>
+  </data>
+  <data name="Common_Networks" xml:space="preserve">
+    <value>Networks</value>
+  </data>
+  <data name="Common_Templates" xml:space="preserve">
+    <value>Templates</value>
+  </data>
+  <data name="Common_ModelReasoningCaption" xml:space="preserve">
+    <value>{0} — {1} · reasoning</value>
+  </data>
+  <data name="Common_ContainerCreatedTitle" xml:space="preserve">
+    <value>{0} created</value>
+  </data>
+  <data name="Common_ContainerStartingTitle" xml:space="preserve">
+    <value>{0} started</value>
+  </data>
+  <data name="Common_ContainerRemovedTitle" xml:space="preserve">
+    <value>{0} removed</value>
+  </data>
+  <data name="Common_HealthyTitle" xml:space="preserve">
+    <value>{0} is healthy</value>
+  </data>
+  <data name="Common_StartingTitle" xml:space="preserve">
+    <value>{0} is starting</value>
+  </data>
+  <data name="Common_EngineEvent_container_create" xml:space="preserve">
+    <value>container create: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_container_start" xml:space="preserve">
+    <value>container start: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_container_stop" xml:space="preserve">
+    <value>container stop: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_container_die" xml:space="preserve">
+    <value>container die: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_container_kill" xml:space="preserve">
+    <value>container kill: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_container_destroy" xml:space="preserve">
+    <value>container destroy: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_container_remove" xml:space="preserve">
+    <value>container remove: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_container_pause" xml:space="preserve">
+    <value>container pause: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_container_unpause" xml:space="preserve">
+    <value>container unpause: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_container_restart" xml:space="preserve">
+    <value>container restart: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_container_update" xml:space="preserve">
+    <value>container update: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_image_pull" xml:space="preserve">
+    <value>image pull: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_image_push" xml:space="preserve">
+    <value>image push: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_image_tag" xml:space="preserve">
+    <value>image tag: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_image_untag" xml:space="preserve">
+    <value>image untag: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_image_delete" xml:space="preserve">
+    <value>image delete: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_image_build" xml:space="preserve">
+    <value>image build: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_image_save" xml:space="preserve">
+    <value>image save: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_image_load" xml:space="preserve">
+    <value>image load: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_network_create" xml:space="preserve">
+    <value>network create: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_network_connect" xml:space="preserve">
+    <value>network connect: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_network_disconnect" xml:space="preserve">
+    <value>network disconnect: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_network_destroy" xml:space="preserve">
+    <value>network destroy: {0}</value>
+  </data>
+  <data name="Common_EngineEvent_network_remove" xml:space="preserve">
+    <value>network remove: {0}</value>
+  </data>
+  <data name="Common_ConnectionCache_True_True" xml:space="preserve">
+    <value>Cached: True; loaded: True.</value>
+  </data>
+  <data name="Common_ConnectionCache_True_False" xml:space="preserve">
+    <value>Cached: True; loaded: False.</value>
+  </data>
+  <data name="Common_ConnectionCache_True_unknown" xml:space="preserve">
+    <value>Cached: True; loaded: unknown.</value>
+  </data>
+  <data name="Common_ConnectionCache_False_True" xml:space="preserve">
+    <value>Cached: False; loaded: True.</value>
+  </data>
+  <data name="Common_ConnectionCache_False_False" xml:space="preserve">
+    <value>Cached: False; loaded: False.</value>
+  </data>
+  <data name="Common_ConnectionCache_False_unknown" xml:space="preserve">
+    <value>Cached: False; loaded: unknown.</value>
+  </data>
+  <data name="Common_ConnectionCache_unknown_True" xml:space="preserve">
+    <value>Cached: unknown; loaded: True.</value>
+  </data>
+  <data name="Common_ConnectionCache_unknown_False" xml:space="preserve">
+    <value>Cached: unknown; loaded: False.</value>
+  </data>
+  <data name="Common_ConnectionCache_unknown_unknown" xml:space="preserve">
+    <value>Cached: unknown; loaded: unknown.</value>
+  </data>
+  <data name="Common_EngineHealthMismatch_healthy_0" xml:space="preserve">
+    <value>Engine health: healthy; existing engine check differs from the requested check. App probes/autoheal are suspended to avoid duplicate checks. Recreate explicitly to apply desired settings.</value>
+  </data>
+  <data name="Common_EngineHealthMismatch_healthy_1" xml:space="preserve">
+    <value>Engine health: healthy; existing engine check differs from the requested check. App probes/autoheal are suspended to avoid duplicate checks. Recreate explicitly to apply desired settings.; sub-second intervals cannot be honored (1s scheduler resolution)</value>
+  </data>
+  <data name="Common_EngineHealthMismatch_healthy_2" xml:space="preserve">
+    <value>Engine health: healthy; existing engine check differs from the requested check. App probes/autoheal are suspended to avoid duplicate checks. Recreate explicitly to apply desired settings.; engine health: unhealthy (reported independently of the TCP restart policy)</value>
+  </data>
+  <data name="Common_EngineHealthMismatch_healthy_3" xml:space="preserve">
+    <value>Engine health: healthy; existing engine check differs from the requested check. App probes/autoheal are suspended to avoid duplicate checks. Recreate explicitly to apply desired settings.; engine health: starting</value>
+  </data>
+  <data name="Common_EngineHealthMismatch_healthy_4" xml:space="preserve">
+    <value>Engine health: healthy; existing engine check differs from the requested check. App probes/autoheal are suspended to avoid duplicate checks. Recreate explicitly to apply desired settings.; engine health: unknown</value>
+  </data>
+  <data name="Common_EngineHealthMismatch_unhealthy_0" xml:space="preserve">
+    <value>Engine health: unhealthy; existing engine check differs from the requested check. App probes/autoheal are suspended to avoid duplicate checks. Recreate explicitly to apply desired settings.</value>
+  </data>
+  <data name="Common_EngineHealthMismatch_unhealthy_1" xml:space="preserve">
+    <value>Engine health: unhealthy; existing engine check differs from the requested check. App probes/autoheal are suspended to avoid duplicate checks. Recreate explicitly to apply desired settings.; sub-second intervals cannot be honored (1s scheduler resolution)</value>
+  </data>
+  <data name="Common_EngineHealthMismatch_unhealthy_2" xml:space="preserve">
+    <value>Engine health: unhealthy; existing engine check differs from the requested check. App probes/autoheal are suspended to avoid duplicate checks. Recreate explicitly to apply desired settings.; engine health: unhealthy (reported independently of the TCP restart policy)</value>
+  </data>
+  <data name="Common_EngineHealthMismatch_unhealthy_3" xml:space="preserve">
+    <value>Engine health: unhealthy; existing engine check differs from the requested check. App probes/autoheal are suspended to avoid duplicate checks. Recreate explicitly to apply desired settings.; engine health: starting</value>
+  </data>
+  <data name="Common_EngineHealthMismatch_unhealthy_4" xml:space="preserve">
+    <value>Engine health: unhealthy; existing engine check differs from the requested check. App probes/autoheal are suspended to avoid duplicate checks. Recreate explicitly to apply desired settings.; engine health: unknown</value>
+  </data>
+  <data name="Common_LocalAiRemovalVolumeChanged_Absent" xml:space="preserve">
+    <value>Runtime: Absent. The model volume changed during removal, so it could not be deleted. Inspect 'wslcd-ollama' in Volumes before deleting it.</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Absent_Absent" xml:space="preserve">
+    <value>Runtime: Absent; model data: Absent, not deleted. Removal was interrupted or could not be confirmed. Inspect engine state before retrying.</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Absent_Retained" xml:space="preserve">
+    <value>Runtime: Absent; model data: Retained, not deleted. Removal was interrupted or could not be confirmed. Inspect engine state before retrying.</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Absent_Removed" xml:space="preserve">
+    <value>Runtime: Absent; model data: Removed, not deleted. Removal was interrupted or could not be confirmed. Inspect engine state before retrying.</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Absent_Unknown" xml:space="preserve">
+    <value>Runtime: Absent; model data: Unknown, not deleted. Removal was interrupted or could not be confirmed. Inspect engine state before retrying.</value>
+  </data>
+  <data name="Common_LocalAiRemovalVolumeChanged_Retained" xml:space="preserve">
+    <value>Runtime: Retained. The model volume changed during removal, so it could not be deleted. Inspect 'wslcd-ollama' in Volumes before deleting it.</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Retained_Absent" xml:space="preserve">
+    <value>Runtime: Retained; model data: Absent, not deleted. Removal was interrupted or could not be confirmed. Inspect engine state before retrying.</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Retained_Retained" xml:space="preserve">
+    <value>Runtime: Retained; model data: Retained, not deleted. Removal was interrupted or could not be confirmed. Inspect engine state before retrying.</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Retained_Removed" xml:space="preserve">
+    <value>Runtime: Retained; model data: Removed, not deleted. Removal was interrupted or could not be confirmed. Inspect engine state before retrying.</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Retained_Unknown" xml:space="preserve">
+    <value>Runtime: Retained; model data: Unknown, not deleted. Removal was interrupted or could not be confirmed. Inspect engine state before retrying.</value>
+  </data>
+  <data name="Common_LocalAiRemovalVolumeChanged_Removed" xml:space="preserve">
+    <value>Runtime: Removed. The model volume changed during removal, so it could not be deleted. Inspect 'wslcd-ollama' in Volumes before deleting it.</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Removed_Absent" xml:space="preserve">
+    <value>Runtime: Removed; model data: Absent, not deleted. Removal was interrupted or could not be confirmed. Inspect engine state before retrying.</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Removed_Retained" xml:space="preserve">
+    <value>Runtime: Removed; model data: Retained, not deleted. Removal was interrupted or could not be confirmed. Inspect engine state before retrying.</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Removed_Removed" xml:space="preserve">
+    <value>Runtime: Removed; model data: Removed, not deleted. Removal was interrupted or could not be confirmed. Inspect engine state before retrying.</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Removed_Unknown" xml:space="preserve">
+    <value>Runtime: Removed; model data: Unknown, not deleted. Removal was interrupted or could not be confirmed. Inspect engine state before retrying.</value>
+  </data>
+  <data name="Common_LocalAiRemovalVolumeChanged_Unknown" xml:space="preserve">
+    <value>Runtime: Unknown. The model volume changed during removal, so it could not be deleted. Inspect 'wslcd-ollama' in Volumes before deleting it.</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Unknown_Absent" xml:space="preserve">
+    <value>Runtime: Unknown; model data: Absent, not deleted. Removal was interrupted or could not be confirmed. Inspect engine state before retrying.</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Unknown_Retained" xml:space="preserve">
+    <value>Runtime: Unknown; model data: Retained, not deleted. Removal was interrupted or could not be confirmed. Inspect engine state before retrying.</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Unknown_Removed" xml:space="preserve">
+    <value>Runtime: Unknown; model data: Removed, not deleted. Removal was interrupted or could not be confirmed. Inspect engine state before retrying.</value>
+  </data>
+  <data name="Common_LocalAiRemovalInterrupted_Unknown_Unknown" xml:space="preserve">
+    <value>Runtime: Unknown; model data: Unknown, not deleted. Removal was interrupted or could not be confirmed. Inspect engine state before retrying.</value>
+  </data>
 </root>

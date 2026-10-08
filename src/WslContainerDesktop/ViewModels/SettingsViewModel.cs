@@ -553,7 +553,7 @@ public partial class SettingsViewModel : ObservableObject
                         && (!tool.IsDestructive || _settings.AiAssistantAllowDestructive),
                 })
                 .ToList();
-            groups.Add(new AssistantToolPermissionGroup { Header = group.Header, Tools = tools });
+            groups.Add(new AssistantToolPermissionGroup { Header = UiText.Translate(group.Header), Tools = tools });
         }
 
         return groups;
@@ -1894,6 +1894,8 @@ public partial class SettingsViewModel : ObservableObject
     {
         RunAtLoginNote = UiText.Translate(RunAtLoginNote);
         EngineVersion = UiText.Translate(EngineVersion);
+        foreach (var model in GitHubCopilotModels.Concat(OllamaModels))
+            model.RefreshLanguage();
         ProviderFeedback = LocalizedFeedback(ProviderFeedback);
         LocalAiFeedback = LocalizedFeedback(LocalAiFeedback);
         foreach (var group in AssistantToolPermissions)
@@ -1927,4 +1929,16 @@ public partial class SettingsViewModel : ObservableObject
 }
 
 /// <summary>Defines the AiModelOption type used by WSL Container Desktop.</summary>
-public sealed record AiModelOption(string Id, string DisplayName);
+public sealed record AiModelOption(string Id, string DisplayName) : System.ComponentModel.INotifyPropertyChanged
+{
+    /// <summary>Localizes app-owned annotations while preserving the exact model ID and name.</summary>
+    public string LocalizedDisplayName => string.Equals(Id, DisplayName, StringComparison.Ordinal)
+        ? DisplayName : UiText.Translate(DisplayName);
+
+    /// <summary>Raised when an app-owned caption changes language.</summary>
+    public event System.ComponentModel.PropertyChangedEventHandler? PropertyChanged;
+
+    /// <summary>Updates the caption without replacing the selected model object.</summary>
+    public void RefreshLanguage() =>
+        PropertyChanged?.Invoke(this, new(nameof(LocalizedDisplayName)));
+}

@@ -28,7 +28,7 @@ public partial class AssistantToolPermission : ObservableObject
     public AssistantToolPermission(string name, string displayName, bool autoApprove, Action<string, bool> onChanged)
     {
         Name = name;
-        DisplayName = displayName;
+        DisplayName = UiText.Translate(displayName);
         _autoApprove = autoApprove;
         _onChanged = onChanged;
     }

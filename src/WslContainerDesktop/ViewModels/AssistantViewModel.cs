@@ -530,7 +530,7 @@ public partial class AssistantViewModel : ObservableObject
     {
         Severity = value.Severity,
         Title = UiText.Translate(value.Title),
-        Message = UiText.Translate(value.Message),
+        Message = UiText.TranslateLines(value.Message),
         TechnicalDetails = value.TechnicalDetails,
     };
 
