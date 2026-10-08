@@ -15,6 +15,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System.Xml.Linq;
+using System.Text.RegularExpressions;
 using WslContainerDesktop.Services;
 using Xunit;
 
@@ -50,6 +51,56 @@ public sealed class I18nResourceTests
         var chinese = ResourceKeys(Path.Combine(strings, "zh-Hans", "Resources.resw"));
 
         Assert.Equal(english, chinese);
+        Assert.Equal(english.Length, english.Distinct(StringComparer.Ordinal).Count());
+        Assert.Equal(chinese.Length, chinese.Distinct(StringComparer.Ordinal).Count());
+    }
+
+    [Fact]
+    public void AllXamlUidsHaveResourcesAndCompatibleControlTypes()
+    {
+        var source = SourceDirectory();
+        var keys = ResourceKeys(Path.Combine(source, "Strings", "en-US", "Resources.resw"));
+        var uid = XName.Get("Uid", "http://schemas.microsoft.com/winfx/2006/xaml");
+        var assignments = Directory.EnumerateFiles(source, "*.xaml", SearchOption.AllDirectories)
+            .Where(path => !path.Contains(Path.DirectorySeparatorChar + "obj" + Path.DirectorySeparatorChar)
+                && !path.Contains(Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar))
+            .SelectMany(path => XDocument.Load(path).Descendants()
+                .Where(element => element.Attribute(uid) is not null)
+                .Select(element => (Uid: element.Attribute(uid)!.Value, Type: element.Name.LocalName)));
+        foreach (var group in assignments.GroupBy(item => item.Uid))
+        {
+            Assert.Single(group.Select(item => item.Type).Distinct());
+            Assert.Contains(keys, key => key.StartsWith(group.Key + ".", StringComparison.Ordinal));
+            if (group.First().Type is "TextBlock" or "TextBox" or "PasswordBox" or "Run")
+                Assert.DoesNotContain(group.Key + ".Content", keys);
+        }
+    }
+
+    [Fact]
+    public void LocalesKeepTheSameFormatArgumentsAndEveryExplicitLookupExists()
+    {
+        var source = SourceDirectory();
+        Dictionary<string, string> Read(string locale) => XDocument.Load(Path.Combine(source, "Strings", locale, "Resources.resw"))
+            .Root!.Elements("data").ToDictionary(element => element.Attribute("name")!.Value,
+                element => element.Element("value")!.Value, StringComparer.Ordinal);
+        var english = Read("en-US");
+        var chinese = Read("zh-Hans");
+        Assert.DoesNotContain(english.Keys, key => key.EndsWith(".Tag", StringComparison.Ordinal));
+        Assert.All(english.Keys.Where(key => key.Contains("ToolTipService.ToolTip")),
+            key => Assert.Contains(".[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip", key));
+        Assert.All(english.Keys.Where(key => key.Contains("AutomationProperties.Name")),
+            key => Assert.Contains(".[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name", key));
+        var placeholders = new Regex(@"(?<!\{)\{(\d+)(?:,-?\d+)?(?::[^{}]*)?\}(?!\})");
+        string[] Args(string value) => placeholders.Matches(value).Select(match => match.Groups[1].Value).Distinct().Order().ToArray();
+        foreach (var entry in english)
+            Assert.Equal(Args(entry.Value), Args(chinese[entry.Key]));
+
+        var lookups = new Regex("UiText\\.Get\\(\\s*\"([^\"]+)\"");
+        foreach (var file in Directory.EnumerateFiles(source, "*.cs", SearchOption.AllDirectories)
+            .Where(path => !path.Contains(Path.DirectorySeparatorChar + "obj" + Path.DirectorySeparatorChar)
+                && !path.Contains(Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar)))
+            foreach (Match match in lookups.Matches(File.ReadAllText(file)))
+                Assert.True(english.ContainsKey(match.Groups[1].Value), $"Missing resource {match.Groups[1].Value} used in {file}.");
     }
 
     /// <summary>

@@ -94,7 +94,7 @@
     <value>立即生效。</value>
   </data>
   <data name="Settings_Theme_Option_System" xml:space="preserve">
-    <value>使用系统默认</value>
+    <value>跟随系统</value>
   </data>
   <data name="Settings_Theme_Option_Light" xml:space="preserve">
     <value>浅色</value>
@@ -447,4 +447,48 @@
   <data name="Settings_About_Report.Content" xml:space="preserve">
     <value>反馈问题</value>
   </data>
+  <data name="Root_AssistantButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>容器 AI 助手</value></data>
+  <data name="Root_EngineUnreachable" xml:space="preserve"><value>WSL Container Desktop — 无法连接引擎</value></data>
+  <data name="Root_ContainerUnhealthy" xml:space="preserve"><value> · 有容器健康检查异常</value></data>
+  <data name="Root_ContainerDown" xml:space="preserve"><value> · 有容器已停止</value></data>
+  <data name="Root_StatusUnknown" xml:space="preserve"><value>状态：未知</value></data>
+  <data name="Root_Update_001" xml:space="preserve"><value>立即更新</value></data>
+  <data name="Root_Update_002" xml:space="preserve"><value>仅安装后的应用支持更新。</value></data>
+  <data name="Root_Update_003" xml:space="preserve"><value>尚未检查。</value></data>
+  <data name="Root_Update_004" xml:space="preserve"><value>更新已安装</value></data>
+  <data name="Root_Update_005" xml:space="preserve"><value>WSL Container Desktop 已更新至 {0}。</value></data>
+  <data name="Root_Update_006" xml:space="preserve"><value>已更新至 {0}。</value></data>
+  <data name="Root_Update_007" xml:space="preserve"><value>更新未完成</value></data>
+  <data name="Root_Update_008" xml:space="preserve"><value>未安装 {0}，当前仍为 {1}。可以在设置中重试。</value></data>
+  <data name="Root_Update_009" xml:space="preserve"><value>更新至 {0} 的操作未完成。</value></data>
+  <data name="Root_Update_010" xml:space="preserve"><value>正在下载 {0}</value></data>
+  <data name="Root_Update_011" xml:space="preserve"><value>正在开始下载…</value></data>
+  <data name="Root_Update_012" xml:space="preserve"><value>重新启动 WSL Container Desktop 以使用 {0}。</value></data>
+  <data name="Root_Update_013" xml:space="preserve"><value>已安装 {0}，重新启动应用后生效。</value></data>
+  <data name="Root_Update_014" xml:space="preserve"><value>更新失败</value></data>
+  <data name="Root_Update_015" xml:space="preserve"><value>重试</value></data>
+  <data name="Root_Update_016" xml:space="preserve"><value>更新至 {0} 失败。</value></data>
+  <data name="Root_Update_017" xml:space="preserve"><value>发生意外错误，详情见应用日志。</value></data>
+  <data name="Root_Update_018" xml:space="preserve"><value>正在检查更新…</value></data>
+  <data name="Root_Update_019" xml:space="preserve"><value>已是最新版本（{0}）。</value></data>
+  <data name="Root_Update_020" xml:space="preserve"><value>发现新版本 {0}。</value></data>
+  <data name="Root_Update_021" xml:space="preserve"><value>发现新版本 {0}</value></data>
+  <data name="Root_Update_022" xml:space="preserve"><value>当前为 {0}。更新会下载新版本、关闭应用、完成安装后重新打开。运行中的容器会继续运行。</value></data>
+  <data name="Root_Update_023" xml:space="preserve"><value>当前为 {0}。此副本不是已安装的签名发布版，无法自动更新，请从 GitHub 获取发布版。</value></data>
+  <data name="Root_Update_024" xml:space="preserve"><value>已下载 {0}%。</value></data>
+  <data name="Root_Update_025" xml:space="preserve"><value>正在准备安装</value></data>
+  <data name="Root_Update_026" xml:space="preserve"><value>下载已完成，更新将在一分钟内开始安装。</value></data>
+  <data name="Root_Update_027" xml:space="preserve"><value>正在检查下载内容</value></data>
+  <data name="Root_Update_028" xml:space="preserve"><value>正在确认安装包是同一发布者提供的新版 WSL Container Desktop。</value></data>
+  <data name="Root_Update_029" xml:space="preserve"><value>正在安装更新</value></data>
+  <data name="Root_Update_030" xml:space="preserve"><value>WSL Container Desktop 将关闭、安装更新，随后重新打开。</value></data>
+  <data name="Root_Update_031" xml:space="preserve"><value>GitHub 暂时限制了此网络的请求，请稍后重试。</value></data>
+  <data name="Root_Update_032" xml:space="preserve"><value>检查更新时 GitHub 返回 {0} {1}。</value></data>
+  <data name="Root_Update_033" xml:space="preserve"><value>GitHub 未及时响应更新检查。</value></data>
+  <data name="Root_Update_034" xml:space="preserve"><value>无法连接 GitHub 检查更新。</value></data>
+  <data name="Root_Update_035" xml:space="preserve"><value>GitHub 的更新检查响应无法读取。</value></data>
+  <data name="Root_Update_036" xml:space="preserve"><value>仅安装后的应用支持更新。</value></data>
+  <data name="Root_Update_037" xml:space="preserve"><value>此副本不是已安装的签名发布版，无法自动更新。请从 GitHub 安装发布版。</value></data>
+  <data name="Root_Update_038" xml:space="preserve"><value>更新下载超时，已停止。</value></data>
+  <data name="Root_Update_039" xml:space="preserve"><value>下载的文件不是可读取的应用安装包。</value></data>
 </root>

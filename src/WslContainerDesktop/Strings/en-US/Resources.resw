@@ -447,4 +447,48 @@
   <data name="Settings_About_Report.Content" xml:space="preserve">
     <value>Report an issue</value>
   </data>
+  <data name="Root_AssistantButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Container AI Assistant</value></data>
+  <data name="Root_EngineUnreachable" xml:space="preserve"><value>WSL Container Desktop — engine unreachable</value></data>
+  <data name="Root_ContainerUnhealthy" xml:space="preserve"><value> · a container is unhealthy</value></data>
+  <data name="Root_ContainerDown" xml:space="preserve"><value> · a container is down</value></data>
+  <data name="Root_StatusUnknown" xml:space="preserve"><value>Status: unknown</value></data>
+  <data name="Root_Update_001" xml:space="preserve"><value>Update now</value></data>
+  <data name="Root_Update_002" xml:space="preserve"><value>Updates are available only for the installed app.</value></data>
+  <data name="Root_Update_003" xml:space="preserve"><value>Not checked yet.</value></data>
+  <data name="Root_Update_004" xml:space="preserve"><value>Update installed</value></data>
+  <data name="Root_Update_005" xml:space="preserve"><value>WSL Container Desktop is now version {0}.</value></data>
+  <data name="Root_Update_006" xml:space="preserve"><value>Updated to version {0}.</value></data>
+  <data name="Root_Update_007" xml:space="preserve"><value>The update did not finish</value></data>
+  <data name="Root_Update_008" xml:space="preserve"><value>Version {0} was not installed; you are still on {1}. You can try again from Settings.</value></data>
+  <data name="Root_Update_009" xml:space="preserve"><value>The update to {0} did not finish.</value></data>
+  <data name="Root_Update_010" xml:space="preserve"><value>Downloading version {0}</value></data>
+  <data name="Root_Update_011" xml:space="preserve"><value>Starting download…</value></data>
+  <data name="Root_Update_012" xml:space="preserve"><value>Restart WSL Container Desktop to start using version {0}.</value></data>
+  <data name="Root_Update_013" xml:space="preserve"><value>Version {0} is installed; restart the app to use it.</value></data>
+  <data name="Root_Update_014" xml:space="preserve"><value>Update failed</value></data>
+  <data name="Root_Update_015" xml:space="preserve"><value>Try again</value></data>
+  <data name="Root_Update_016" xml:space="preserve"><value>The update to {0} failed.</value></data>
+  <data name="Root_Update_017" xml:space="preserve"><value>Something unexpected went wrong. The app log has the details.</value></data>
+  <data name="Root_Update_018" xml:space="preserve"><value>Checking for updates…</value></data>
+  <data name="Root_Update_019" xml:space="preserve"><value>You're up to date (version {0}).</value></data>
+  <data name="Root_Update_020" xml:space="preserve"><value>Version {0} is available.</value></data>
+  <data name="Root_Update_021" xml:space="preserve"><value>Version {0} is available</value></data>
+  <data name="Root_Update_022" xml:space="preserve"><value>You have {0}. Updating downloads the new version, closes the app, installs it and reopens it. Running containers keep running.</value></data>
+  <data name="Root_Update_023" xml:space="preserve"><value>You have {0}. This copy is not a signed release install, so it can't update itself; get the release from GitHub.</value></data>
+  <data name="Root_Update_024" xml:space="preserve"><value>{0}% downloaded.</value></data>
+  <data name="Root_Update_025" xml:space="preserve"><value>Getting ready to install</value></data>
+  <data name="Root_Update_026" xml:space="preserve"><value>The download is complete. The update will install in less than a minute.</value></data>
+  <data name="Root_Update_027" xml:space="preserve"><value>Checking the download</value></data>
+  <data name="Root_Update_028" xml:space="preserve"><value>Making sure the package is a newer WSL Container Desktop from the same publisher.</value></data>
+  <data name="Root_Update_029" xml:space="preserve"><value>Installing the update</value></data>
+  <data name="Root_Update_030" xml:space="preserve"><value>WSL Container Desktop will close, install the update and reopen in a moment.</value></data>
+  <data name="Root_Update_031" xml:space="preserve"><value>GitHub is limiting requests from this network right now. Try again later.</value></data>
+  <data name="Root_Update_032" xml:space="preserve"><value>GitHub returned {0} {1} when checking for updates.</value></data>
+  <data name="Root_Update_033" xml:space="preserve"><value>GitHub did not answer the update check in time.</value></data>
+  <data name="Root_Update_034" xml:space="preserve"><value>Could not reach GitHub to check for updates.</value></data>
+  <data name="Root_Update_035" xml:space="preserve"><value>GitHub returned an unreadable answer to the update check.</value></data>
+  <data name="Root_Update_036" xml:space="preserve"><value>Updates are only available for the installed app.</value></data>
+  <data name="Root_Update_037" xml:space="preserve"><value>This copy is not a signed release install, so it cannot update itself. Install the release from GitHub instead.</value></data>
+  <data name="Root_Update_038" xml:space="preserve"><value>The update download took too long and was stopped.</value></data>
+  <data name="Root_Update_039" xml:space="preserve"><value>The downloaded file is not a readable app package.</value></data>
 </root>

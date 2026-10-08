@@ -76,70 +76,13 @@ public App()
 public new static App Current => (App)Application.Current;
 
     /// <summary>
-    /// The override this process has already written, or <see langword="null"/> while the app has
-    /// written none and is therefore following the system.
+    /// Resolves the saved preference before writing MRT. Empty/null are storage markers only: MRT
+    /// rejects an empty HSTRING. The app language list includes persistent overrides, so it cannot
+    /// tell us the Windows display language even before this process has written anything.
     /// </summary>
-    private static string? _appliedLanguageOverride;
-
-    /// <summary>
-    /// MRT's own top-ranked app language, captured before this process writes any override. Empty
-    /// means it was never captured.
-    /// </summary>
-    private static string _systemLanguageTag = string.Empty;
-
-    /// <summary>
-    /// Points MRT's app-wide resource context at a language, which is what x:Uid strings read when
-    /// XAML is constructed.
-    /// </summary>
-    /// <remarks>
-    /// MRT's setter rejects an empty string, and a null string is the very same empty HSTRING at the
-    /// ABI boundary, so "follow the system" can never be written here — passing it throws
-    /// <c>E_INVALIDARG</c> and ends the launch before the window is built. A process that has not
-    /// overridden anything instead leaves the setter alone, which is what following the system
-    /// actually means, formats included. The override cannot be cleared once written, so only a live
-    /// switch back to "follow the system" needs a stand-in: the language MRT itself had ranked first,
-    /// which resolves to the same resources the unset override would have picked.
-    /// </remarks>
-    /// <param name="tag">BCP-47 tag, or empty/null to follow the system.</param>
-    internal static void ApplyPrimaryLanguageOverride(string? tag)
-    {
-        // Read MRT's own ranking before anything is written: once an override exists this list starts
-        // with the override, so asking later would only ever echo the language being replaced.
-        var systemTag = SystemLanguageTag();
-
-        var normalized = AppLanguage.Normalize(tag);
-        if (normalized.Length == 0)
-        {
-            if (_appliedLanguageOverride is null)
-            {
-                return; // nothing to undo: never overriding is the faithful "follow the system"
-            }
-
-            normalized = AppLanguage.MatchSupported(systemTag);
-            if (normalized.Length == 0)
-            {
-                return;
-            }
-        }
-
-        Microsoft.Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = normalized;
-        _appliedLanguageOverride = normalized;
-    }
-
-    /// <summary>
-    /// MRT's top-ranked app language, read once at startup before this process overrides anything.
-    /// MRT offers no way to clear an override, so this is what stands in for the unset one.
-    /// </summary>
-    private static string SystemLanguageTag()
-    {
-        if (_systemLanguageTag.Length == 0)
-        {
-            var languages = Microsoft.Windows.Globalization.ApplicationLanguages.Languages;
-            _systemLanguageTag = languages.Count > 0 ? languages[0] : string.Empty;
-        }
-
-        return _systemLanguageTag;
-    }
+    internal static string ApplyPrimaryLanguageOverride(string? preference) => AppLanguage.Apply(
+        preference, SystemUiLanguages.Get(),
+        effective => Microsoft.Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = effective);
 
 /// <summary>Root dependency-injection provider used by views to resolve their view models.</summary>
 public IServiceProvider Services { get; }
@@ -183,12 +126,16 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
 
     // x:Uid resolves during XAML construction, before a root element can inherit Language.
     // Set MRT's app-wide override before constructing the window or its pages.
-    ApplyPrimaryLanguageOverride(settings.Language);
+    var effectiveLanguage = ApplyPrimaryLanguageOverride(settings.Language);
 
     // Before anything is constructed: view models build their display text in their constructors, so
     // the localizer's language has to be settled first or they would cache the previous locale for
     // the whole session.
-    Services.GetRequiredService<ITextLocalizer>().SetLanguage(settings.Language);
+    var textLocalizer = Services.GetRequiredService<ITextLocalizer>();
+    textLocalizer.SetLanguage(effectiveLanguage);
+    UiText.Initialize(textLocalizer.Get);
+    UiText.SetLanguage(effectiveLanguage);
+    UiText.LanguageChanged += (_, _) => UpdateTray();
 
         // Reclaim files staged from containers in previous sessions (including any a crash left
         // behind), since they are never deleted while the app is running.
@@ -445,7 +392,7 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
     }
 
     private void OnHealthNotification(string title, string message) =>
-        _tray?.ShowNotification(title, message);
+        _tray?.ShowNotification(UiText.Translate(title), UiText.Translate(message));
 
     /// <summary>Rolls the engine status and per-container health into the single tray glyph.</summary>
     private void UpdateTray()
@@ -464,22 +411,22 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
 
         var tooltip = _engineHealth switch
         {
-            EngineHealth.Healthy => $"WSL Container Desktop — {_engineSummary}",
-            EngineHealth.Down => "WSL Container Desktop — engine unreachable",
+            EngineHealth.Healthy => $"WSL Container Desktop — {UiText.Translate(_engineSummary)}",
+            EngineHealth.Down => UiText.Get("Root_EngineUnreachable", "WSL Container Desktop — engine unreachable"),
             _ => "WSL Container Desktop",
         };
 
         if (health == EngineHealth.Degraded)
         {
-            tooltip += " · a container is unhealthy";
+            tooltip += UiText.Get("Root_ContainerUnhealthy", " · a container is unhealthy");
         }
         else if (health == EngineHealth.Down && _engineHealth == EngineHealth.Healthy)
         {
-            tooltip += " · a container is down";
+            tooltip += UiText.Get("Root_ContainerDown", " · a container is down");
         }
 
         var settings = Services.GetRequiredService<ISettingsService>();
-        var statusText = _engineSummary.Length == 0 ? "Status: unknown" : _engineSummary;
+        var statusText = _engineSummary.Length == 0 ? UiText.Get("Root_StatusUnknown", "Status: unknown") : UiText.Translate(_engineSummary);
         _tray?.UpdateStatus(health, tooltip, statusText, _runningCount, _lastContainers, settings.NotificationsEnabled);
     }
 
