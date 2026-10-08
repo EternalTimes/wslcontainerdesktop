@@ -1,7 +1,7 @@
 <!-- WSL Container Desktop - Copyright (C) 2026 Michael Hacker.
      Licensed under GNU GPL version 3 or later; without any warranty.
      See https://www.gnu.org/licenses/. -->
-<ContentDialog
+<ContentDialog x:Uid="Workload_ComposePreviewDialog_001"
     x:Class="WslContainerDesktop.Dialogs.ComposePreviewDialog"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -11,7 +11,6 @@
     Title="{x:Bind ViewModel.Title}"
     PrimaryButtonText="{x:Bind ViewModel.ApplyLabel}"
     IsPrimaryButtonEnabled="{x:Bind ViewModel.CanApply}"
-    CloseButtonText="Cancel"
     DefaultButton="Close">
     <ContentDialog.Resources>
         <x:Double x:Key="ContentDialogMaxWidth">880</x:Double>
@@ -39,7 +38,7 @@
                 Severity="{x:Bind Severity}"
                 Message="{x:Bind ViewModel.Summary}" />
             <StackPanel Spacing="4">
-                <TextBlock Text="What this does" Style="{StaticResource BodyStrongTextBlockStyle}" />
+                <TextBlock x:Uid="Workload_ComposePreviewDialog_002"  Style="{StaticResource BodyStrongTextBlockStyle}" />
                 <TextBlock
                     AutomationProperties.AutomationId="ComposePreviewOutcome"
                     Text="{x:Bind ViewModel.Outcome}"
@@ -60,8 +59,8 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate x:DataType="models:ComposeCompatibilitySetting">
                             <StackPanel Spacing="4" Padding="0,6">
-                                <TextBlock Text="{x:Bind Summary}" TextWrapping="Wrap" Style="{StaticResource BodyStrongTextBlockStyle}" />
-                                <TextBlock Text="{x:Bind Detail}" TextWrapping="Wrap" IsTextSelectionEnabled="True" />
+                                <TextBlock Text="{x:Bind Summary, Converter={StaticResource UiTextConverter}}" TextWrapping="Wrap" Style="{StaticResource BodyStrongTextBlockStyle}" />
+                                <TextBlock Text="{x:Bind Detail, Converter={StaticResource UiTextConverter}}" TextWrapping="Wrap" IsTextSelectionEnabled="True" />
                             </StackPanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
@@ -81,16 +80,15 @@
                     VerticalScrollBarVisibility="Auto"
                     VerticalScrollMode="Enabled"
                     HorizontalScrollBarVisibility="Disabled">
-                    <ItemsControl
+                    <ItemsControl x:Uid="Workload_ComposePreviewDialog_003"
                         AutomationProperties.AutomationId="ComposePreviewSettings"
-                        AutomationProperties.Name="Resolved Compose settings and compatibility"
                         ItemsSource="{x:Bind ViewModel.Settings}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate x:DataType="models:ComposeCompatibilitySetting">
                                 <StackPanel Spacing="4" Padding="0,6">
-                                    <TextBlock Text="{x:Bind Summary}" TextWrapping="Wrap" Style="{StaticResource BodyStrongTextBlockStyle}" />
+                                    <TextBlock Text="{x:Bind Summary, Converter={StaticResource UiTextConverter}}" TextWrapping="Wrap" Style="{StaticResource BodyStrongTextBlockStyle}" />
                                     <TextBlock
-                                        Text="{x:Bind Detail}"
+                                        Text="{x:Bind Detail, Converter={StaticResource UiTextConverter}}"
                                         TextWrapping="Wrap"
                                         FontSize="12"
                                         Foreground="{ThemeResource TextFillColorSecondaryBrush}"
