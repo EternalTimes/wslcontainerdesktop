@@ -59,12 +59,15 @@ public static class UiText
         {
             english[entry.Key] = entry.English;
             chinese[entry.Key] = entry.Chinese;
+            // A positional-only format belongs to its explicit Get call. Registering it as a
+            // free-text pattern would match arbitrary stderr, user names and other unknown text.
+            var hasTemplateWords = FormatPlaceholder.Replace(entry.English, "").Any(char.IsLetter);
             foreach (var source in new[] { entry.English, entry.Chinese }.Distinct())
             {
                 if (source.Length == 0) continue;
                 if (!FormatPlaceholder.IsMatch(source))
                     exact.TryAdd(source, entry.Key);
-                else if (DisplayTemplate.Create(entry.Key, source) is { } template)
+                else if (hasTemplateWords && DisplayTemplate.Create(entry.Key, source) is { } template)
                     templates.Add(template);
             }
         }
@@ -81,6 +84,18 @@ public static class UiText
     /// <summary>Gets a resource; the English fallback also permits engine-only tests without an app.</summary>
     public static string Get(string key, string english, params object?[] args)
     {
+        // Attached-property names contain namespace dots. Read their exact catalog key rather
+        // than converting those dots into MRT subtree separators.
+        if (key.Contains(".[using:", StringComparison.Ordinal))
+        {
+            var catalog = LanguageTag == "zh-Hans" ? _chinese : _english;
+            if (catalog.TryGetValue(key, out var propertyText))
+            {
+                if (args.Length == 0) return propertyText;
+                try { return string.Format(CultureInfo.CurrentUICulture, propertyText, args); }
+                catch (FormatException) { /* Keep the same English fallback as normal lookups. */ }
+            }
+        }
         var resolve = _resolve;
         if (resolve is not null)
         {

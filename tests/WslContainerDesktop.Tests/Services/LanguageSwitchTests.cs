@@ -73,6 +73,7 @@ public sealed class DisplayTranslationTests : IDisposable
         ["Test_Progress"] = "已下载 {0}%，镜像 {1}。",
         ["Test_Label"] = "刷新",
         ["Test_Repeated"] = "{0} 已结束；{0} 已停止。",
+        ["Test_Outcome"] = "{0} 个{1}（{2}）",
     };
 
     public DisplayTranslationTests() => UiText.Configure((key, args) => string.Format(_resources[key], args),
@@ -80,6 +81,8 @@ public sealed class DisplayTranslationTests : IDisposable
         ("Test_Progress", "{0}% downloaded for image {1}.", "已下载 {0}%，镜像 {1}。"),
         ("Test_Label", "Refresh", "刷新"),
         ("Test_Repeated", "{0} finished; {0} stopped.", "{0} 已结束；{0} 已停止。"),
+        ("Test_Outcome", "{0} {1} ({2})", "{0} 个{1}（{2}）"),
+        ("Test_Button.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name", "Restart", "重启"),
     ]);
 
     [Fact]
@@ -101,5 +104,26 @@ public sealed class DisplayTranslationTests : IDisposable
         Assert.Equal("刷新", UiText.Translate("Refresh"));
     }
 
-    public void Dispose() => UiText.Configure(null);
+    [Fact]
+    public void PositionalOnlyFormatsCannotCaptureUnknownErrors()
+    {
+        const string error = "stderr: invalid response (HTTP 502)";
+        Assert.Equal(error, UiText.Translate(error));
+        Assert.Equal("2 个容器（已停止）", UiText.Get("Test_Outcome", "{0} {1} ({2})", 2, "容器", "已停止"));
+    }
+
+    [Fact]
+    public void AttachedPropertyLabelsUseExactKeysInBothLocales()
+    {
+        UiText.SetLanguage("zh-Hans");
+        Assert.Equal("重启", UiText.Translate("Restart"));
+        UiText.SetLanguage("en-US");
+        Assert.Equal("Restart", UiText.Translate("重启"));
+    }
+
+    public void Dispose()
+    {
+        UiText.Configure(null);
+        UiText.SetLanguage("en-US");
+    }
 }
