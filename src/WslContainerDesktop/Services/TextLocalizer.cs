@@ -30,9 +30,8 @@ public interface ITextLocalizer
     string Get(string key, params object?[] args);
 
     /// <summary>
-    /// Switches the language used by subsequent <see cref="Get"/> calls. Pass
-    /// <see cref="AppLanguage.SystemDefault"/> to follow the system again. Set once at startup,
-    /// before any view model is constructed.
+    /// Switches the language used by subsequent <see cref="Get"/> calls. Pass a nonempty effective
+    /// language returned by <see cref="AppLanguage.Resolve"/>. Set before constructing view models.
     /// </summary>
     void SetLanguage(string tag);
 
@@ -63,9 +62,8 @@ public sealed class TextLocalizer : ITextLocalizer
     private readonly ResourceManager _resourceManager = new();
 
     /// <summary>
-    /// Context with the language qualifier pinned to the user's choice, or null to let MRT use the
-    /// system display language. Rebuilt rather than mutated because <see cref="ResourceContext"/> is
-    /// not thread-safe and reads happen on the UI thread.
+    /// Context pinned to the resolved language. Rebuilt under the lookup lock because
+    /// <see cref="ResourceContext"/> is not thread-safe.
     /// </summary>
     private ResourceContext? _overrideContext;
     private string _languageTag = "en-US";
@@ -81,6 +79,7 @@ public sealed class TextLocalizer : ITextLocalizer
             throw new ArgumentException("Resolve the system preference before passing a language to the resource context.", nameof(tag));
         lock (_sync)
         {
+            if (_overrideContext is not null && _languageTag == normalized) return;
             _overrideContext = CreateContext(_resourceManager, normalized);
             _languageTag = normalized;
             _cache.Clear();
@@ -88,7 +87,7 @@ public sealed class TextLocalizer : ITextLocalizer
 
         _logger.LogInformation(
             "UI language set to {Language}.",
-            normalized.Length == 0 ? "system default" : normalized);
+            normalized);
     }
 
     /// <inheritdoc/>
