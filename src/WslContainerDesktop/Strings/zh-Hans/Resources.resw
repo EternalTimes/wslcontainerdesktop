@@ -83,10 +83,7 @@
     <value>语言</value>
   </data>
   <data name="Settings_Language_Help.Text" xml:space="preserve">
-    <value>将在下次启动应用时生效。</value>
-  </data>
-  <data name="Settings_Language_Changed.Text" xml:space="preserve">
-    <value>重启 WSL Container Desktop 后应用新语言。</value>
+    <value>立即生效。</value>
   </data>
   <data name="Settings_Language_Option_System" xml:space="preserve">
     <value>跟随系统</value>

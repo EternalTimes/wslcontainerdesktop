@@ -13,12 +13,17 @@ where the signed MSIX and installation steps live.
 ## [Unreleased]
 
 ### Added
-- **A UI language setting on the Settings page**. You can now choose the app's UI language from
-  **System default**, **English**, or **简体中文 (Simplified Chinese)**. The choice is saved
-  immediately; a restart reminder is shown while the current session is still running, because the
-  app's `x:Uid` resources are resolved when it does. The Appearance section header and the Theme
-  label and helper text are now resolved from resources; the remaining page strings are migrated in
-  focused batches in later releases.
+- **A UI language setting at the top of the Settings page**. You can now choose the app's UI
+  language from **System default**, **English**, or **简体中文 (Simplified Chinese)**, and the
+  change takes effect immediately — the app re-renders in the new language without a restart. The
+  setting sits first so you can read the rest of the page in the language you just picked. The
+  Appearance section header and the Theme label and helper text are now resolved from resources;
+  the remaining page strings are migrated in focused batches in later releases.
+
+### Fixed
+- **The app no longer fails to start with an unusable-language error.** Following the system
+  language no longer assigns an empty language tag, which Windows rejected and which ended the
+  launch before the tray icon finished setting itself up.
 
 ## [2.2.0] — 2026-10-07
 
