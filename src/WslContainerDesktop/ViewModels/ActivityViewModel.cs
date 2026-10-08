@@ -209,8 +209,7 @@ public partial class ActivityViewModel : ObservableObject
         {
             for (var i = 0; i < translated.Length; i++)
                 Filters[i] = translated[i];
-            _selectedFilter = Filters[index];
-            OnPropertyChanged(nameof(SelectedFilter));
+            SelectedFilter = Filters[index];
         }
         finally
         {
