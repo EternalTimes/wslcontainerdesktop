@@ -215,6 +215,10 @@
             </Border>
 
             <!--  Language  -->
+            <TextBlock
+                Margin="2,4,0,0"
+                Style="{ThemeResource BodyStrongTextBlockStyle}"
+                x:Uid="Settings_Language_Header" />
             <Border Style="{StaticResource Card}">
                 <StackPanel Spacing="4">
                     <Grid Padding="0,8" ColumnSpacing="12">

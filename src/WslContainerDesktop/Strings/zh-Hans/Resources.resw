@@ -76,6 +76,9 @@
   <data name="Settings_Theme_Option_Dark" xml:space="preserve">
     <value>深色</value>
   </data>
+  <data name="Settings_Language_Header.Text" xml:space="preserve">
+    <value>语言</value>
+  </data>
   <data name="Settings_Language_Label.Text" xml:space="preserve">
     <value>语言</value>
   </data>

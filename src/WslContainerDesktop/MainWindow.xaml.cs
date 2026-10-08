@@ -496,14 +496,31 @@ public sealed partial class MainWindow : Window
     /// system one. Setting it on the root is enough: Language inherits down the element tree, which
     /// is why pages do not need to set it themselves.
     /// </summary>
+    /// <remarks>
+    /// An empty tag means "follow the system" and must leave the property untouched: WinUI's default
+    /// already is the user's preferred app language, and assigning the empty string is rejected as an
+    /// unusable BCP-47 tag (COMException 0x800F0904), which would kill the launch.
+    /// </remarks>
     public void ApplyLanguage(string languageTag)
     {
-        if (Content is FrameworkElement root)
+        var tag = AppLanguage.Normalize(languageTag);
+        if (tag.Length == 0 || Content is not FrameworkElement root)
+        {
+            return;
+        }
+
+        try
         {
             // WinUI 3 types FrameworkElement.Language as a plain BCP-47 string rather than a
-            // Windows.Globalization.Language object. An empty tag means "no override", which sends
-            // every lookup back to the ambient system resource context.
-            root.Language = AppLanguage.Normalize(languageTag);
+            // Windows.Globalization.Language object.
+            root.Language = tag;
+        }
+        catch (Exception ex)
+        {
+            // A language the OS cannot accept must never stop the app from starting: the root keeps
+            // its default, so the page still renders in the system language.
+            App.Current.Services.GetService<ILoggerFactory>()?.CreateLogger<MainWindow>()
+                .LogWarning(ex, "Could not apply the UI language {Language}; using the system language.", tag);
         }
     }
 }
