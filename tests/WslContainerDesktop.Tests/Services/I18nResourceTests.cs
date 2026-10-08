@@ -85,6 +85,60 @@ public sealed class I18nResourceTests
     }
 
     [Fact]
+    public void StaticEnglishUiTextHasResourcesAndLiveLanguageRefresh()
+    {
+        var source = SourceDirectory();
+        var keys = ResourceKeys(Path.Combine(source, "Strings", "en-US", "Resources.resw"))
+            .ToHashSet(StringComparer.Ordinal);
+        var uid = XName.Get("Uid", "http://schemas.microsoft.com/winfx/2006/xaml");
+        var liveUid = XName.Get("Localization.Uid", "using:WslContainerDesktop.Helpers");
+        var textProperties = new HashSet<string>(StringComparer.Ordinal)
+        {
+            "Text", "Header", "Content", "PlaceholderText", "Title", "Description", "Message",
+            "OnContent", "OffContent", "Label", "PaneTitle", "PrimaryButtonText", "SecondaryButtonText",
+            "CloseButtonText", "ToolTipService.ToolTip", "AutomationProperties.Name",
+        };
+        // Exact technical labels and product names stay English. Do not exempt prose merely
+        // because it contains one of these words (such as an untranslated WSL error message).
+        var technicalLabels = new HashSet<string>(StringComparer.Ordinal)
+        {
+            "CPU", "GPU", "IP", "IPV4", "IPv4", "IPV6", "IPv6", "ID", "PID", "API", "Aa",
+            "TCP", "UDP", "HTTP", "HTTPS", "DNS", "URL", "YAML", "JSON", "STDIN", "TTY",
+            "Kubernetes", "k3s", "Compose", "Docker", "WSL", "WSLC", "WSL Container Desktop",
+            "OpenAI", "Azure OpenAI", "Ollama", "Foundry Local", "GitHub Copilot", "MiniMax",
+        };
+        var missing = new List<string>();
+        foreach (var folder in new[] { "Views", "Dialogs" })
+            foreach (var file in Directory.EnumerateFiles(Path.Combine(source, folder), "*.xaml", SearchOption.AllDirectories))
+                foreach (var element in XDocument.Load(file).Descendants())
+                    foreach (var attribute in element.Attributes().Where(attribute =>
+                        attribute.Name.NamespaceName.Length == 0 && textProperties.Contains(attribute.Name.LocalName)))
+                    {
+                        var value = attribute.Value.Trim();
+                        if (value.StartsWith("{}", StringComparison.Ordinal)) value = value[2..];
+                        else if (value.StartsWith('{')) continue; // Binding, x:Bind and other markup extensions.
+                        if (!value.Any(char.IsAsciiLetter) || technicalLabels.Contains(value) ||
+                            Uri.TryCreate(value, UriKind.Absolute, out var uri) && uri.Scheme is "http" or "https")
+                            continue;
+
+                        var property = attribute.Name.LocalName switch
+                        {
+                            "AutomationProperties.Name" => "[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name",
+                            "ToolTipService.ToolTip" => "[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip",
+                            var name => name,
+                        };
+                        var resourceUid = element.Attribute(uid)?.Value;
+                        if (string.IsNullOrWhiteSpace(resourceUid) || element.Attribute(liveUid)?.Value != resourceUid ||
+                            !keys.Contains(resourceUid + "." + property))
+                            missing.Add($"{Path.GetRelativePath(source, file)}: {element.Name.LocalName}.{attribute.Name.LocalName} = '{value}'");
+                    }
+
+        Assert.True(missing.Count == 0,
+            "Static UI prose needs x:Uid, matching Localization.Uid and a resource for its exact property:\n" +
+            string.Join("\n", missing));
+    }
+
+    [Fact]
     public void LocalesKeepTheSameFormatArgumentsAndEveryExplicitLookupExists()
     {
         var source = SourceDirectory();
