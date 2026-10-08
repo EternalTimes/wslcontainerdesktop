@@ -85,8 +85,10 @@ public sealed class ComposePreviewViewModel(ComposeCompatibilityPreview preview)
             if (services.Count > 0)
                 parts.Add(UiText.Get("Workload_Additional_284fe05548", "{0} {1} ({2})", services.Count, Word(services.Count, "service"), string.Join(", ", services)));
 
+            // The preview has no typed ImageAction; this prefix comes from the raw projection's
+            // two Pull branches. Use that application-owned evidence before display translation.
             var pulls = Settings
-                .Where(s => s.Setting == "image" && s.Explanation.Contains("Pull", StringComparison.OrdinalIgnoreCase))
+                .Where(s => s.Setting == "image" && s.Explanation.StartsWith("Downloads this image", StringComparison.Ordinal))
                 .Select(s => s.EffectiveValue.Trim())
                 .Where(v => v.Length > 0)
                 .Distinct(StringComparer.Ordinal)
