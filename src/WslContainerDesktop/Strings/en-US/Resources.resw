@@ -100,4 +100,53 @@
   <data name="Settings_Language_Option_ChineseSimplified" xml:space="preserve">
     <value>简体中文</value>
   </data>
+  <!--  Shell navigation  -->
+  <data name="Nav_Assistant.Text" xml:space="preserve">
+    <value>Assistant</value>
+  </data>
+  <data name="Nav_Dashboard.Content" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="Nav_Containers.Content" xml:space="preserve">
+    <value>Containers</value>
+  </data>
+  <data name="Nav_Images.Content" xml:space="preserve">
+    <value>Images</value>
+  </data>
+  <data name="Nav_Volumes.Content" xml:space="preserve">
+    <value>Volumes</value>
+  </data>
+  <data name="Nav_Networks.Content" xml:space="preserve">
+    <value>Networks</value>
+  </data>
+  <data name="Nav_Endpoints.Content" xml:space="preserve">
+    <value>Endpoints</value>
+  </data>
+  <data name="Nav_Activity.Content" xml:space="preserve">
+    <value>Activity</value>
+  </data>
+  <data name="Nav_Registries.Content" xml:space="preserve">
+    <value>Registries</value>
+  </data>
+  <data name="Nav_Compose.Content" xml:space="preserve">
+    <value>Compose</value>
+  </data>
+  <data name="Nav_DevContainers.Content" xml:space="preserve">
+    <value>Dev Containers</value>
+  </data>
+  <data name="Nav_Templates.Content" xml:space="preserve">
+    <value>Templates</value>
+  </data>
+  <data name="Nav_Kubernetes.Content" xml:space="preserve">
+    <value>Kubernetes</value>
+  </data>
+  <data name="Nav_WslEngine.Content" xml:space="preserve">
+    <value>WSL engine</value>
+  </data>
+  <data name="Nav_Reclaim.Content" xml:space="preserve">
+    <value>Disk usage</value>
+  </data>
+  <data name="Update_WhatsNew.Content" xml:space="preserve">
+    <value>What's new</value>
+  </data>
 </root>

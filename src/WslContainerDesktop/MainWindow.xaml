@@ -53,7 +53,7 @@
                         <TextBlock
                             VerticalAlignment="Center"
                             Style="{ThemeResource BodyStrongTextBlockStyle}"
-                            Text="Assistant" />
+                            x:Uid="Nav_Assistant" />
                     </StackPanel>
                 </Button>
             </TitleBar.RightHeader>
@@ -71,63 +71,63 @@
             ItemInvoked="NavView_ItemInvoked"
             SelectionChanged="NavView_SelectionChanged">
             <NavigationView.MenuItems>
-                <NavigationViewItem Content="Dashboard" IsSelected="True" Tag="dashboard">
+                <NavigationViewItem x:Uid="Nav_Dashboard" IsSelected="True" Tag="dashboard">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE80F;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Content="Containers" Tag="containers">
+                <NavigationViewItem x:Uid="Nav_Containers" Tag="containers">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE7F4;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Content="Images" Tag="images">
+                <NavigationViewItem x:Uid="Nav_Images" Tag="images">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xEB9F;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Content="Volumes" Tag="volumes">
+                <NavigationViewItem x:Uid="Nav_Volumes" Tag="volumes">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE8B7;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Content="Networks" Tag="networks">
+                <NavigationViewItem x:Uid="Nav_Networks" Tag="networks">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE968;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Content="Endpoints" Tag="endpoints">
+                <NavigationViewItem x:Uid="Nav_Endpoints" Tag="endpoints">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE774;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Content="Activity" Tag="activity">
+                <NavigationViewItem x:Uid="Nav_Activity" Tag="activity">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE81C;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Content="Registries" Tag="registries">
+                <NavigationViewItem x:Uid="Nav_Registries" Tag="registries">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE753;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Content="Compose" Tag="compose">
+                <NavigationViewItem x:Uid="Nav_Compose" Tag="compose">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE81E;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <!-- Hidden until we have a better VS Code integration; re-enable by removing Visibility="Collapsed" -->
-                <NavigationViewItem Content="Dev Containers" Tag="devcontainers" Visibility="Collapsed">
+                <NavigationViewItem x:Uid="Nav_DevContainers" Tag="devcontainers" Visibility="Collapsed">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE8B7;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Content="Templates" Tag="templates">
+                <NavigationViewItem x:Uid="Nav_Templates" Tag="templates">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE71D;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Content="Kubernetes" Tag="kubernetes">
+                <NavigationViewItem x:Uid="Nav_Kubernetes" Tag="kubernetes">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xEB3C;" />
                     </NavigationViewItem.Icon>
@@ -135,12 +135,12 @@
             </NavigationView.MenuItems>
 
             <NavigationView.FooterMenuItems>
-                <NavigationViewItem Content="WSL engine" Tag="wsl">
+                <NavigationViewItem x:Uid="Nav_WslEngine" Tag="wsl">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE977;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Content="Disk usage" Tag="reclaim">
+                <NavigationViewItem x:Uid="Nav_Reclaim" Tag="reclaim">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xEDA2;" />
                     </NavigationViewItem.Icon>
@@ -220,7 +220,7 @@
                                     Visibility="{x:Bind local:MainWindow.ToVisibility(Updates.IsUpdateButtonVisible), Mode=OneWay}" />
                                 <Button
                                     Command="{x:Bind Updates.ViewReleaseNotesCommand}"
-                                    Content="What's new"
+                                    x:Uid="Update_WhatsNew"
                                     Visibility="{x:Bind local:MainWindow.ToVisibility(Updates.IsReleaseNotesVisible), Mode=OneWay}" />
                             </StackPanel>
                         </StackPanel>
