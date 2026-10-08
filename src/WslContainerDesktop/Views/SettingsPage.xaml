@@ -128,7 +128,7 @@
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                 x:Uid="Settings_Behavior_CloseToTray_Help" />
                         </StackPanel>
-                        <ToggleSwitch
+                        <ToggleSwitch x:Uid="Settings_Toggle"
                             Grid.Column="1"
                             MinWidth="0"
                             IsOn="{x:Bind ViewModel.CloseToTray, Mode=TwoWay}" />
@@ -147,7 +147,7 @@
                                 x:Uid="Settings_Behavior_Animations_Help"
                                 TextWrapping="Wrap" />
                         </StackPanel>
-                        <ToggleSwitch
+                        <ToggleSwitch x:Uid="Settings_Toggle"
                             Grid.Column="1"
                             MinWidth="0"
                             AutomationProperties.Name="Animations"
@@ -166,7 +166,7 @@
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                 x:Uid="Settings_Behavior_StartMinimized_Help" />
                         </StackPanel>
-                        <ToggleSwitch
+                        <ToggleSwitch x:Uid="Settings_Toggle"
                             Grid.Column="1"
                             MinWidth="0"
                             IsOn="{x:Bind ViewModel.StartMinimized, Mode=TwoWay}" />
@@ -185,7 +185,7 @@
                                 x:Uid="Settings_Behavior_Restart_Help"
                                 TextWrapping="Wrap" />
                         </StackPanel>
-                        <ToggleSwitch
+                        <ToggleSwitch x:Uid="Settings_Toggle"
                             Grid.Column="1"
                             MinWidth="0"
                             AutomationProperties.Name="Restart running containers on launch"
@@ -205,7 +205,7 @@
                                 Text="{x:Bind ViewModel.RunAtLoginNote, Mode=OneWay}"
                                 TextWrapping="Wrap" />
                         </StackPanel>
-                        <ToggleSwitch
+                        <ToggleSwitch x:Uid="Settings_Toggle"
                             Grid.Column="1"
                             MinWidth="0"
                             AutomationProperties.Name="Run at sign-in"
@@ -281,7 +281,7 @@
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                 x:Uid="Settings_Notify_Master_Help" />
                         </StackPanel>
-                        <ToggleSwitch
+                        <ToggleSwitch x:Uid="Settings_Toggle"
                             Grid.Column="1"
                             MinWidth="0"
                             IsOn="{x:Bind ViewModel.NotificationsEnabled, Mode=TwoWay}" />
@@ -299,7 +299,7 @@
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                 x:Uid="Settings_Notify_Image_Help" />
                         </StackPanel>
-                        <ToggleSwitch
+                        <ToggleSwitch x:Uid="Settings_Toggle"
                             Grid.Column="1"
                             MinWidth="0"
                             IsEnabled="{x:Bind ViewModel.NotificationsEnabled, Mode=OneWay}"
@@ -318,7 +318,7 @@
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                 x:Uid="Settings_Notify_Stopped_Help" />
                         </StackPanel>
-                        <ToggleSwitch
+                        <ToggleSwitch x:Uid="Settings_Toggle"
                             Grid.Column="1"
                             MinWidth="0"
                             IsEnabled="{x:Bind ViewModel.NotificationsEnabled, Mode=OneWay}"
@@ -337,7 +337,7 @@
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                 x:Uid="Settings_Notify_Engine_Help" />
                         </StackPanel>
-                        <ToggleSwitch
+                        <ToggleSwitch x:Uid="Settings_Toggle"
                             Grid.Column="1"
                             MinWidth="0"
                             IsEnabled="{x:Bind ViewModel.NotificationsEnabled, Mode=OneWay}"
@@ -366,7 +366,7 @@
                                 x:Uid="Settings_Ai_Enable_Help"
                                 TextWrapping="Wrap" />
                         </StackPanel>
-                        <ToggleSwitch
+                        <ToggleSwitch x:Uid="Settings_Toggle"
                             Grid.Column="1"
                             MinWidth="0"
                             IsOn="{x:Bind ViewModel.AiFeaturesEnabled, Mode=TwoWay}" />
@@ -601,7 +601,7 @@
                                         Grid.Column="1"
                                         VerticalAlignment="Bottom"
                                         Command="{x:Bind ViewModel.PullOllamaModelCommand}"
-                                        x:Uid="Settings_Ai_Ollama_Pull" />
+                                        x:Uid="Settings_Ai_Ollama_PullButton" />
                                 </Grid>
                                 <ProgressBar
                                     IsIndeterminate="True"
@@ -855,7 +855,7 @@
                                 x:Uid="Settings_Updates_OnLaunch_Help"
                                 TextWrapping="Wrap" />
                         </StackPanel>
-                        <ToggleSwitch
+                        <ToggleSwitch x:Uid="Settings_Toggle"
                             Grid.Column="1"
                             MinWidth="0"
                             AutomationProperties.Name="Check for updates when the app starts"

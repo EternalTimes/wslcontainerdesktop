@@ -115,6 +115,10 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
     var settings = Services.GetRequiredService<ISettingsService>();
     settings.Load();
 
+    // x:Uid resolves during XAML construction, before a root element can inherit Language.
+    // Set MRT's app-wide override before constructing the window or its pages.
+    Microsoft.Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = settings.Language;
+
     // Before anything is constructed: view models build their display text in their constructors, so
     // the localizer's language has to be settled first or they would cache the previous locale for
     // the whole session.

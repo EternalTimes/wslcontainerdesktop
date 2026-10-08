@@ -598,17 +598,7 @@ public partial class SettingsViewModel : ObservableObject
             _ => 0,
         };
 
-        // Populate the option lists from the localizer rather than hard-coding ComboBoxItem content,
-        // so each language is offered in its own script.
-        ThemeOptions = new[]
-        {
-            _localizer.Get("Settings_Theme_Option_System"),
-            _localizer.Get("Settings_Theme_Option_Light"),
-            _localizer.Get("Settings_Theme_Option_Dark"),
-        };
-        LanguageOptions = AppLanguage.Supported
-            .Select(option => _localizer.Get(option.ResourceKey))
-            .ToArray();
+        RefreshLocalizedOptions();
 
         // Seed the backing fields directly: assigning the observable properties here would run their
         // change handlers, persisting a value the user never chose.
@@ -945,19 +935,47 @@ public partial class SettingsViewModel : ObservableObject
     public event EventHandler<string>? ThemeChangeRequested;
 
     /// <summary>Localized theme names, in the order <see cref="SelectedThemeIndex"/> expects.</summary>
-    public IReadOnlyList<string> ThemeOptions { get; }
+    public ObservableCollection<string> ThemeOptions { get; } = new();
 
     /// <summary>Localized UI language names, in the order <see cref="SelectedLanguageIndex"/> expects.</summary>
-    public IReadOnlyList<string> LanguageOptions { get; }
+    public ObservableCollection<string> LanguageOptions { get; } = new();
+
+    private void RefreshLocalizedOptions()
+    {
+        var themes = new[]
+        {
+            _localizer.Get("Settings_Theme_Option_System"),
+            _localizer.Get("Settings_Theme_Option_Light"),
+            _localizer.Get("Settings_Theme_Option_Dark"),
+        };
+        var languages = AppLanguage.Supported
+            .Select(option => _localizer.Get(option.ResourceKey))
+            .ToArray();
+        UpdateOptions(ThemeOptions, themes);
+        UpdateOptions(LanguageOptions, languages);
+    }
+
+    private static void UpdateOptions(ObservableCollection<string> options, IReadOnlyList<string> translated)
+    {
+        for (var i = 0; i < translated.Count; i++)
+        {
+            if (i == options.Count)
+                options.Add(translated[i]);
+            else if (options[i] != translated[i])
+                options[i] = translated[i];
+        }
+    }
 
     /// <summary>Handles selected UI language index changed and persists the choice.</summary>
     partial void OnSelectedLanguageIndexChanged(int value)
     {
-        // Defensive: the index arrives from the ComboBox, but a stale binding restore or a hand-edited
-        // view could deliver one outside the supported set.
-        var tag = AppLanguage.Supported is { Count: > 0 } options && value >= 0 && value < options.Count
-            ? options[value].Tag
-            : AppLanguage.SystemDefault;
+        // A ComboBox can briefly report -1 while its items are replaced. That is not a user choice.
+        if (value < 0 || value >= AppLanguage.Supported.Count)
+        {
+            return;
+        }
+
+        var tag = AppLanguage.Supported[value].Tag;
 
         _settings.Language = tag;
         _settings.Save();
@@ -966,9 +984,12 @@ public partial class SettingsViewModel : ObservableObject
         // which no element-tree reload can reach.
         _localizer.SetLanguage(tag);
 
-        // Mirrors the theme flow: the view model persists and raises, and the shell decides how to
-        // apply it. The shell rebuilds its visual tree so already-loaded x:Uid strings re-resolve.
+        // The shell refreshes its own labels and navigates to a fresh page for x:Uid resources.
         LanguageChangeRequested?.Invoke(this, tag);
+
+        // Refresh after the shell changes the app-wide resource override. The option collection stays
+        // bound across the navigation, so changing its items updates the newly loaded picker.
+        RefreshLocalizedOptions();
     }
 
     /// <summary>Raised after the language choice is persisted, carrying the new BCP-47 tag (empty = system).</summary>

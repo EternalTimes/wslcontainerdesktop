@@ -33,12 +33,6 @@ public sealed partial class SettingsPage : Page
         Updates = App.Current.Services.GetRequiredService<AppUpdateViewModel>();
         InitializeComponent();
 
-        ViewModel.ThemeChangeRequested += (_, theme) => App.Current.MainWindow?.ApplyTheme(theme);
-
-        // The shell rebuilds its visual tree so already-loaded x:Uid strings re-resolve, which is what
-        // makes a language change show up without a restart.
-        ViewModel.LanguageChangeRequested += (_, language) =>
-            App.Current.MainWindow?.ApplyLanguage(language, reloadTree: true);
     }
 
     /// <summary>Settings view model bound by the page.</summary>
@@ -50,6 +44,8 @@ public sealed partial class SettingsPage : Page
     protected override void OnNavigatedTo(NavigationEventArgs e)
     {
         base.OnNavigatedTo(e);
+        ViewModel.ThemeChangeRequested += OnThemeChangeRequested;
+        ViewModel.LanguageChangeRequested += OnLanguageChangeRequested;
         UiSafe.Run(async () =>
         {
             await ViewModel.LoadVersionAsync();
@@ -60,6 +56,19 @@ public sealed partial class SettingsPage : Page
             await ViewModel.LoadOllamaModelsAsync();
         });
     }
+
+    protected override void OnNavigatedFrom(NavigationEventArgs e)
+    {
+        ViewModel.ThemeChangeRequested -= OnThemeChangeRequested;
+        ViewModel.LanguageChangeRequested -= OnLanguageChangeRequested;
+        base.OnNavigatedFrom(e);
+    }
+
+    private void OnThemeChangeRequested(object? sender, string theme) =>
+        App.Current.MainWindow?.ApplyTheme(theme);
+
+    private void OnLanguageChangeRequested(object? sender, string language) =>
+        App.Current.MainWindow?.ApplyLanguage(language, refreshUi: true);
 
     private void SaveAiApiKey_Click(object sender, RoutedEventArgs e)
     {

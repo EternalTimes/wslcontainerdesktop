@@ -147,6 +147,15 @@
   <data name="Nav_Reclaim.Content" xml:space="preserve">
     <value>Disk usage</value>
   </data>
+  <data name="Nav_Settings.Content" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Settings_Toggle.OnContent" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="Settings_Toggle.OffContent" xml:space="preserve">
+    <value>Off</value>
+  </data>
   <data name="Update_WhatsNew.Content" xml:space="preserve">
     <value>What's new</value>
   </data>
@@ -327,7 +336,7 @@
   <data name="Settings_Ai_Ollama_Pull.PlaceholderText" xml:space="preserve">
     <value>Audited model reference</value>
   </data>
-  <data name="Settings_Ai_Ollama_Pull.Content" xml:space="preserve">
+  <data name="Settings_Ai_Ollama_PullButton.Content" xml:space="preserve">
     <value>Pull</value>
   </data>
   <data name="Settings_Ai_Azure_Endpoint_Header.Header" xml:space="preserve">

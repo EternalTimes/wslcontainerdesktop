@@ -22,6 +22,10 @@ where the signed MSIX and installation steps live.
   you choose. The remaining pages are migrated in focused batches in later releases.
 
 ### Fixed
+- **Settings opens normally after localization.** A shared translation key made WinUI try to apply a
+  button label to a text box, which stopped the page from loading.
+- **Changing the UI language keeps Settings open and updates the navigation immediately.** The
+  selected language is also applied before the window loads on the next launch.
 - **The app no longer fails to start with an unusable-language error.** Following the system
   language no longer assigns an empty language tag, which Windows rejected and which ended the
   launch before the tray icon finished setting itself up.
