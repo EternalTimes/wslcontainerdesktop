@@ -9400,7 +9400,7 @@ Model staging contacts the official Azure model registry and pinned Azure Blob c
   <data name="Root_Audit_Enum_Application" xml:space="preserve">
     <value>Application</value>
   </data>
-  <data name="Root_Audit_Enum_application" xml:space="preserve">
+  <data name="Root_Audit_Enum_ApplicationLowercase" xml:space="preserve">
     <value>application</value>
   </data>
   <data name="Root_Audit_Enum_No" xml:space="preserve">
