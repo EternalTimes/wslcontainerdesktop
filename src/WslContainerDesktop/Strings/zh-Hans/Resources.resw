@@ -94,4 +94,53 @@
   <data name="Settings_Language_Option_ChineseSimplified" xml:space="preserve">
     <value>简体中文</value>
   </data>
+  <!--  Shell navigation  -->
+  <data name="Nav_Assistant.Text" xml:space="preserve">
+    <value>助手</value>
+  </data>
+  <data name="Nav_Dashboard.Content" xml:space="preserve">
+    <value>仪表板</value>
+  </data>
+  <data name="Nav_Containers.Content" xml:space="preserve">
+    <value>容器</value>
+  </data>
+  <data name="Nav_Images.Content" xml:space="preserve">
+    <value>镜像</value>
+  </data>
+  <data name="Nav_Volumes.Content" xml:space="preserve">
+    <value>数据卷</value>
+  </data>
+  <data name="Nav_Networks.Content" xml:space="preserve">
+    <value>网络</value>
+  </data>
+  <data name="Nav_Endpoints.Content" xml:space="preserve">
+    <value>端口映射</value>
+  </data>
+  <data name="Nav_Activity.Content" xml:space="preserve">
+    <value>活动</value>
+  </data>
+  <data name="Nav_Registries.Content" xml:space="preserve">
+    <value>镜像仓库</value>
+  </data>
+  <data name="Nav_Compose.Content" xml:space="preserve">
+    <value>Compose</value>
+  </data>
+  <data name="Nav_DevContainers.Content" xml:space="preserve">
+    <value>开发容器</value>
+  </data>
+  <data name="Nav_Templates.Content" xml:space="preserve">
+    <value>模板</value>
+  </data>
+  <data name="Nav_Kubernetes.Content" xml:space="preserve">
+    <value>Kubernetes</value>
+  </data>
+  <data name="Nav_WslEngine.Content" xml:space="preserve">
+    <value>WSL 引擎</value>
+  </data>
+  <data name="Nav_Reclaim.Content" xml:space="preserve">
+    <value>磁盘占用</value>
+  </data>
+  <data name="Update_WhatsNew.Content" xml:space="preserve">
+    <value>更新说明</value>
+  </data>
 </root>
