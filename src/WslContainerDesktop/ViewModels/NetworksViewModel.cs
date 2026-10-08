@@ -30,7 +30,27 @@ public partial class NetworksViewModel : ObservableObject
 {
     /// <summary>Text projected for the active UI language.</summary>
     [System.Text.Json.Serialization.JsonIgnore]
-    public string StatusMessageDisplay => UiText.Translate(StatusMessage);
+    public string StatusMessageDisplay
+    {
+        get
+        {
+            if (_loadedSummary is not { } summary || StatusMessage != summary.Raw)
+                return UiText.Translate(StatusMessage);
+            if (summary.UserCount == 0)
+                return summary.BuiltInCount == 1
+                    ? UiText.Get("Root_Network_BuiltInSingular", "{0} built-in network", summary.BuiltInCount)
+                    : UiText.Get("Root_Network_BuiltInPlural", "{0} built-in networks", summary.BuiltInCount);
+            if (summary.UserCount == 1)
+                return summary.BuiltInCount == 1
+                    ? UiText.Get("Root_Network_UserSingularBuiltInSingular", "{0} user network + {1} built-in network", summary.UserCount, summary.BuiltInCount)
+                    : UiText.Get("Root_Network_UserSingularBuiltInPlural", "{0} user network + {1} built-in networks", summary.UserCount, summary.BuiltInCount);
+            return summary.BuiltInCount == 1
+                ? UiText.Get("Root_Network_UserPluralBuiltInSingular", "{0} user networks + {1} built-in network", summary.UserCount, summary.BuiltInCount)
+                : UiText.Get("Root_Network_UserPluralBuiltInPlural", "{0} user networks + {1} built-in networks", summary.UserCount, summary.BuiltInCount);
+        }
+    }
+
+    private (string Raw, int BuiltInCount, int UserCount)? _loadedSummary;
 
     private readonly IWslcService _wslc;
     private readonly DialogService _dialogs;
@@ -105,9 +125,11 @@ public partial class NetworksViewModel : ObservableObject
             var builtInCount = Networks.Count(n => n.IsBuiltIn);
             var userCount = Networks.Count - builtInCount;
             var builtInLabel = $"{builtInCount} built-in network{(builtInCount == 1 ? "" : "s")}";
-            StatusMessage = userCount == 0
+            var rawSummary = userCount == 0
                 ? builtInLabel
                 : $"{userCount} user network{(userCount == 1 ? "" : "s")} + {builtInLabel}";
+            _loadedSummary = (rawSummary, builtInCount, userCount);
+            StatusMessage = rawSummary;
 
             // The list is shown now; "Used by" fills in afterwards so it never holds up the page.
             _ = ResolveUsageAsync(networks);

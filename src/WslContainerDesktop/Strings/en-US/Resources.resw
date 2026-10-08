@@ -10725,4 +10725,70 @@ Setup needs the network. Cancelling partway does not undo what already completed
   <data name="Common_LocalAiFailedOperation_211" xml:space="preserve">
     <value>Partial runtime cleanup failed or was interrupted. No automatic CPU retry will be attempted.</value>
   </data>
+  <data name="Root_Network_BuiltInSingular" xml:space="preserve">
+    <value>{0} built-in network</value>
+  </data>
+  <data name="Root_Network_BuiltInPlural" xml:space="preserve">
+    <value>{0} built-in networks</value>
+  </data>
+  <data name="Root_Network_UserSingularBuiltInSingular" xml:space="preserve">
+    <value>{0} user network + {1} built-in network</value>
+  </data>
+  <data name="Root_Network_UserSingularBuiltInPlural" xml:space="preserve">
+    <value>{0} user network + {1} built-in networks</value>
+  </data>
+  <data name="Root_Network_UserPluralBuiltInSingular" xml:space="preserve">
+    <value>{0} user networks + {1} built-in network</value>
+  </data>
+  <data name="Root_Network_UserPluralBuiltInPlural" xml:space="preserve">
+    <value>{0} user networks + {1} built-in networks</value>
+  </data>
+  <data name="Root_Static_Compose_Supervision.Message" xml:space="preserve">
+    <value>App-owned health probes, restart policies, and auto-heal require this app to be running. Supported native health checks are managed by WSLC. When the app relaunches, app-owned supervision resumes for projects whose containers still exist.</value>
+  </data>
+  <data name="Root_Static_DevContainers_Support.Message" xml:space="preserve">
+    <value>Supports image-, build-, and Compose-based dev containers with workspace mounts, port forwarding, users/environment, Features, and lifecycle commands. Warnings only flag options the WSL container engine cannot reproduce.</value>
+  </data>
+  <data name="Root_Static_Settings_Animations.OnContent" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="Root_Static_Settings_Animations.OffContent" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="Root_Static_Settings_Animations.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Animations</value>
+  </data>
+  <data name="Root_Static_Settings_RestartOnLaunch.OnContent" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="Root_Static_Settings_RestartOnLaunch.OffContent" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="Root_Static_Settings_RestartOnLaunch.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Restart running containers on launch</value>
+  </data>
+  <data name="Root_Static_Settings_RunAtSignIn.OnContent" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="Root_Static_Settings_RunAtSignIn.OffContent" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="Root_Static_Settings_RunAtSignIn.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Run at sign-in</value>
+  </data>
+  <data name="Root_Static_Settings_CheckUpdates.OnContent" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="Root_Static_Settings_CheckUpdates.OffContent" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="Root_Static_Settings_CheckUpdates.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Check for updates when the app starts</value>
+  </data>
+  <data name="Root_Static_Settings_RefreshOllamaModels.Content" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Root_Static_Settings_RefreshOpenAiModels.Content" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
 </root>
