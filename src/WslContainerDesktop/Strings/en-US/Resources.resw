@@ -82,6 +82,9 @@
   <data name="Settings_Theme_Option_Dark" xml:space="preserve">
     <value>Dark</value>
   </data>
+  <data name="Settings_Language_Header.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="Settings_Language_Label.Text" xml:space="preserve">
     <value>Language</value>
   </data>
