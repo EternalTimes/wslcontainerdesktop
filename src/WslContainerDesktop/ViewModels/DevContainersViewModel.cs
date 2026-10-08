@@ -409,7 +409,7 @@ public partial class DevContainersViewModel(
             sb.AppendLine(UiText.Get("Workload_Text_Warnings_f11208", "Warnings:"));
             foreach (var warning in warnings.Take(12))
             {
-                sb.AppendLine("• " + warning);
+                sb.AppendLine("• " + UiText.TranslateLines(warning));
             }
             if (warnings.Count > 12)
             {

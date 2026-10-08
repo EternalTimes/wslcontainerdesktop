@@ -27,12 +27,15 @@ namespace WslContainerDesktop.ViewModels;
 public partial class ContainerRowViewModel : ObservableObject
 {
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string PortsDisplayText => UiText.Translate(PortsDisplay);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string SizeDisplayText => UiText.Translate(SizeDisplay);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string SizeShortDisplay => UiText.Translate(SizeShort);
 
     /// <summary>

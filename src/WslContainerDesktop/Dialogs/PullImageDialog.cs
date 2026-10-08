@@ -294,7 +294,7 @@ public sealed class PullImageDialog : ContentDialog
 
         if (!result.IsOk)
         {
-            _browseStatus.Text = result.Message ?? UiText.Get("Workload_Text_Could_not_list_repositories_50d18d", "Could not list repositories.");
+            _browseStatus.Text = result.Message is { } message ? UiText.TranslateLines(message) : UiText.Get("Workload_Text_Could_not_list_repositories_50d18d", "Could not list repositories.");
             return;
         }
 
@@ -353,7 +353,7 @@ public sealed class PullImageDialog : ContentDialog
 
         if (!result.IsOk)
         {
-            _browseStatus.Text = result.Message ?? UiText.Get("Workload_Text_Could_not_list_tags_fe3b7c", "Could not list tags.");
+            _browseStatus.Text = result.Message is { } message ? UiText.TranslateLines(message) : UiText.Get("Workload_Text_Could_not_list_tags_fe3b7c", "Could not list tags.");
             return;
         }
 

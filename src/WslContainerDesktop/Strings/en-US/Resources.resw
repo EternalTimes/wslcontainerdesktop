@@ -9309,4 +9309,128 @@ Model staging contacts the official Azure model registry and pinned Azure Blob c
   <data name="Common_LocalAiRemovalInterrupted_Unknown_Unknown" xml:space="preserve">
     <value>Runtime: Unknown; model data: Unknown, not deleted. Removal was interrupted or could not be confirmed. Inspect engine state before retrying.</value>
   </data>
+  <data name="Root_Audit_Change_Added" xml:space="preserve">
+    <value>Added</value>
+  </data>
+  <data name="Root_Audit_Change_Changed" xml:space="preserve">
+    <value>Changed</value>
+  </data>
+  <data name="Root_Audit_Change_Deleted" xml:space="preserve">
+    <value>Deleted</value>
+  </data>
+  <data name="Root_Audit_Change_Unknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="Root_Audit_Wsl_DefaultMemory" xml:space="preserve">
+    <value>Default (≈50% of host RAM)</value>
+  </data>
+  <data name="Root_Audit_Wsl_DefaultProcessors" xml:space="preserve">
+    <value>Default (all logical processors)</value>
+  </data>
+  <data name="Root_Audit_Wsl_DefaultSwap" xml:space="preserve">
+    <value>Default (≈25% of host RAM)</value>
+  </data>
+  <data name="Root_Audit_HostCommands_Title" xml:space="preserve">
+    <value>Allow Windows host commands?</value>
+  </data>
+  <data name="Root_Audit_HostCommands_Run" xml:space="preserve">
+    <value>Run on Windows</value>
+  </data>
+  <data name="Root_Audit_HostCommands_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Root_Audit_HostCommands_Explanation" xml:space="preserve">
+    <value>These initializeCommand scripts run on your Windows host with your user privileges, NOT inside the container. They can read, change, or delete your files and run other programs. Only allow commands you trust. Approval applies only to this start or rebuild.</value>
+  </data>
+  <data name="Root_Audit_HostCommands_Workspace" xml:space="preserve">
+    <value>Windows workspace (working directory):</value>
+  </data>
+  <data name="Root_Audit_HostCommands_Escaping" xml:space="preserve">
+    <value>Escaped display: backslashes appear as \\, and invisible controls/format characters as \uXXXX or \UXXXXXXXX. Ordinary script line breaks are preserved. The original text executes.</value>
+  </data>
+  <data name="Root_Audit_HostCommands_Order" xml:space="preserve">
+    <value>Commands, in execution order (cmd.exe /d /c):</value>
+  </data>
+  <data name="Root_Audit_HostCommands_Command" xml:space="preserve">
+    <value>Command {0}:
+{1}</value>
+  </data>
+  <data name="Root_Audit_Compose_Summary" xml:space="preserve">
+    <value>{0} · {1} — {2}{3}</value>
+  </data>
+  <data name="Root_Audit_Compose_Capability" xml:space="preserve">
+    <value> (capability: {0})</value>
+  </data>
+  <data name="Root_Audit_Compose_Source" xml:space="preserve">
+    <value>Source: {0}</value>
+  </data>
+  <data name="Root_Audit_Compose_Instance" xml:space="preserve">
+    <value>{0} · {1} · {2} · {3}</value>
+  </data>
+  <data name="Root_Audit_Compose_ProbeOwner" xml:space="preserve">
+    <value>Probe owner: {0}; auto-heal owner: application</value>
+  </data>
+  <data name="Root_Audit_Compose_RestartOwner" xml:space="preserve">
+    <value>{0}; owner: {1}</value>
+  </data>
+  <data name="Root_Audit_Run_ForegroundInteractive" xml:space="preserve">
+    <value>Keep STDIN open (-i) needs Run in background (-d). The app has no terminal to attach to a foreground container, so the run would wait forever. Turn on -d, then open a terminal to the container to interact with it.</value>
+  </data>
+  <data name="Root_Audit_Enum_Supported" xml:space="preserve">
+    <value>Supported</value>
+  </data>
+  <data name="Root_Audit_Enum_Approximated" xml:space="preserve">
+    <value>Approximated</value>
+  </data>
+  <data name="Root_Audit_Enum_Ignored" xml:space="preserve">
+    <value>Ignored</value>
+  </data>
+  <data name="Root_Audit_Enum_Blocked" xml:space="preserve">
+    <value>Blocked</value>
+  </data>
+  <data name="Root_Audit_Enum_Unsupported" xml:space="preserve">
+    <value>Unsupported</value>
+  </data>
+  <data name="Root_Audit_Enum_LegacyRun" xml:space="preserve">
+    <value>LegacyRun</value>
+  </data>
+  <data name="Root_Audit_Enum_NativeCreateConnectStart" xml:space="preserve">
+    <value>NativeCreateConnectStart</value>
+  </data>
+  <data name="Root_Audit_Enum_Application" xml:space="preserve">
+    <value>Application</value>
+  </data>
+  <data name="Root_Audit_Enum_application" xml:space="preserve">
+    <value>application</value>
+  </data>
+  <data name="Root_Audit_Enum_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Root_Audit_Enum_OnFailure" xml:space="preserve">
+    <value>OnFailure</value>
+  </data>
+  <data name="Root_Audit_Enum_Always" xml:space="preserve">
+    <value>Always</value>
+  </data>
+  <data name="Root_Audit_Enum_UnlessStopped" xml:space="preserve">
+    <value>UnlessStopped</value>
+  </data>
+  <data name="Root_Audit_Enum_Keep" xml:space="preserve">
+    <value>Keep</value>
+  </data>
+  <data name="Root_Audit_Enum_Recreate" xml:space="preserve">
+    <value>Recreate</value>
+  </data>
+  <data name="Root_Audit_Enum_Unchanged" xml:space="preserve">
+    <value>Unchanged</value>
+  </data>
+  <data name="Root_Audit_Enum_Missing" xml:space="preserve">
+    <value>Missing</value>
+  </data>
+  <data name="Root_Audit_Enum_Incompatible" xml:space="preserve">
+    <value>Incompatible</value>
+  </data>
+  <data name="Root_Audit_Enum_NotRequired" xml:space="preserve">
+    <value>NotRequired</value>
+  </data>
 </root>

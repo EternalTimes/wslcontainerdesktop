@@ -92,7 +92,7 @@ public sealed class SaveRunProfileDialog : ContentDialog
         {
             var warningText = new TextBlock
             {
-                Text = UiText.Get("Workload_Text_Review_storage_before_saving_4c4ee4", "Review storage before saving:\n\n") + string.Join("\n\n", warnings.Distinct(StringComparer.Ordinal))
+                Text = UiText.Get("Workload_Text_Review_storage_before_saving_4c4ee4", "Review storage before saving:\n\n") + string.Join("\n\n", warnings.Distinct(StringComparer.Ordinal).Select(UiText.TranslateLines))
                      + UiText.Get("Workload_Text_Cancel_to_keep_profiles_unchanged_or_64ca1c", "\n\nCancel to keep profiles unchanged, or save and review storage after loading the profile."),
                 TextWrapping = TextWrapping.Wrap,
                 Width = 440,

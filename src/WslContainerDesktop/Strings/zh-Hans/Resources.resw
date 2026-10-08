@@ -9309,4 +9309,128 @@ License: {2} — {3}
   <data name="Common_LocalAiRemovalInterrupted_Unknown_Unknown" xml:space="preserve">
     <value>运行时：未知；模型数据：未知，未删除。 移除已中断或无法确认。重试前请检查引擎状态。</value>
   </data>
+  <data name="Root_Audit_Change_Added" xml:space="preserve">
+    <value>已添加</value>
+  </data>
+  <data name="Root_Audit_Change_Changed" xml:space="preserve">
+    <value>已修改</value>
+  </data>
+  <data name="Root_Audit_Change_Deleted" xml:space="preserve">
+    <value>已删除</value>
+  </data>
+  <data name="Root_Audit_Change_Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="Root_Audit_Wsl_DefaultMemory" xml:space="preserve">
+    <value>默认（约为主机内存的 50%）</value>
+  </data>
+  <data name="Root_Audit_Wsl_DefaultProcessors" xml:space="preserve">
+    <value>默认（全部逻辑处理器）</value>
+  </data>
+  <data name="Root_Audit_Wsl_DefaultSwap" xml:space="preserve">
+    <value>默认（约为主机内存的 25%）</value>
+  </data>
+  <data name="Root_Audit_HostCommands_Title" xml:space="preserve">
+    <value>允许执行 Windows 主机命令？</value>
+  </data>
+  <data name="Root_Audit_HostCommands_Run" xml:space="preserve">
+    <value>在 Windows 上运行</value>
+  </data>
+  <data name="Root_Audit_HostCommands_Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Root_Audit_HostCommands_Explanation" xml:space="preserve">
+    <value>这些 initializeCommand 脚本将在 Windows 主机上以你的用户权限运行，不在容器中执行。它们可以读取、修改或删除你的文件，也可以运行其他程序。请只允许你信任的命令。本次授权仅用于此次启动或重建。</value>
+  </data>
+  <data name="Root_Audit_HostCommands_Workspace" xml:space="preserve">
+    <value>Windows 工作区（工作目录）：</value>
+  </data>
+  <data name="Root_Audit_HostCommands_Escaping" xml:space="preserve">
+    <value>转义显示：反斜杠显示为 \\，不可见的控制字符或格式字符显示为 \uXXXX 或 \UXXXXXXXX。保留脚本中的普通换行。执行时使用原始文本。</value>
+  </data>
+  <data name="Root_Audit_HostCommands_Order" xml:space="preserve">
+    <value>命令，按执行顺序排列（cmd.exe /d /c）：</value>
+  </data>
+  <data name="Root_Audit_HostCommands_Command" xml:space="preserve">
+    <value>命令 {0}：
+{1}</value>
+  </data>
+  <data name="Root_Audit_Compose_Summary" xml:space="preserve">
+    <value>{0} · {1} — {2}{3}</value>
+  </data>
+  <data name="Root_Audit_Compose_Capability" xml:space="preserve">
+    <value>（功能支持：{0}）</value>
+  </data>
+  <data name="Root_Audit_Compose_Source" xml:space="preserve">
+    <value>来源：{0}</value>
+  </data>
+  <data name="Root_Audit_Compose_Instance" xml:space="preserve">
+    <value>{0} · {1} · {2} · {3}</value>
+  </data>
+  <data name="Root_Audit_Compose_ProbeOwner" xml:space="preserve">
+    <value>探测执行方：{0}；自动恢复执行方：应用</value>
+  </data>
+  <data name="Root_Audit_Compose_RestartOwner" xml:space="preserve">
+    <value>{0}；执行方：{1}</value>
+  </data>
+  <data name="Root_Audit_Run_ForegroundInteractive" xml:space="preserve">
+    <value>保持 STDIN 开启（-i）需要启用后台运行（-d）。应用无法将终端连接到前台容器，因此运行操作会一直等待。请启用 -d，再打开容器终端进行交互。</value>
+  </data>
+  <data name="Root_Audit_Enum_Supported" xml:space="preserve">
+    <value>已支持</value>
+  </data>
+  <data name="Root_Audit_Enum_Approximated" xml:space="preserve">
+    <value>近似实现</value>
+  </data>
+  <data name="Root_Audit_Enum_Ignored" xml:space="preserve">
+    <value>已忽略</value>
+  </data>
+  <data name="Root_Audit_Enum_Blocked" xml:space="preserve">
+    <value>已阻止</value>
+  </data>
+  <data name="Root_Audit_Enum_Unsupported" xml:space="preserve">
+    <value>不支持</value>
+  </data>
+  <data name="Root_Audit_Enum_LegacyRun" xml:space="preserve">
+    <value>旧版 run</value>
+  </data>
+  <data name="Root_Audit_Enum_NativeCreateConnectStart" xml:space="preserve">
+    <value>原生创建、连接并启动</value>
+  </data>
+  <data name="Root_Audit_Enum_Application" xml:space="preserve">
+    <value>应用</value>
+  </data>
+  <data name="Root_Audit_Enum_application" xml:space="preserve">
+    <value>应用</value>
+  </data>
+  <data name="Root_Audit_Enum_No" xml:space="preserve">
+    <value>不自动重启</value>
+  </data>
+  <data name="Root_Audit_Enum_OnFailure" xml:space="preserve">
+    <value>失败时重启</value>
+  </data>
+  <data name="Root_Audit_Enum_Always" xml:space="preserve">
+    <value>始终</value>
+  </data>
+  <data name="Root_Audit_Enum_UnlessStopped" xml:space="preserve">
+    <value>除非手动停止</value>
+  </data>
+  <data name="Root_Audit_Enum_Keep" xml:space="preserve">
+    <value>保留</value>
+  </data>
+  <data name="Root_Audit_Enum_Recreate" xml:space="preserve">
+    <value>重建</value>
+  </data>
+  <data name="Root_Audit_Enum_Unchanged" xml:space="preserve">
+    <value>未更改</value>
+  </data>
+  <data name="Root_Audit_Enum_Missing" xml:space="preserve">
+    <value>缺失</value>
+  </data>
+  <data name="Root_Audit_Enum_Incompatible" xml:space="preserve">
+    <value>不兼容</value>
+  </data>
+  <data name="Root_Audit_Enum_NotRequired" xml:space="preserve">
+    <value>不需要</value>
+  </data>
 </root>

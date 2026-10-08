@@ -34,57 +34,75 @@ namespace WslContainerDesktop.ViewModels;
 public partial class WslEngineViewModel : ObservableObject
 {
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string StatusMessageDisplay => UiText.Translate(StatusMessage);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string EngineStatusTextDisplay => UiText.Translate(EngineStatusText);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string EngineVersionDisplay => UiText.Translate(EngineVersion);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string WslVersionDisplay => UiText.Translate(WslVersion);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string KernelVersionDisplay => UiText.Translate(KernelVersion);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string LatestWslVersionDisplay => UiText.Translate(LatestWslVersion);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string UpdateMessageDisplay => UiText.Translate(UpdateMessage);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string UpdateCheckFailedMessageDisplay => UiText.Translate(UpdateCheckFailedMessage);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string ConfigNoteDisplay => UiText.Translate(ConfigNote);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string SettingsFilePathDisplay => UiText.Translate(SettingsFilePath);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string ContainerStorageLocationDisplay => UiText.Translate(ContainerStorageLocation);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string ContainerStorageSizeDisplay => UiText.Translate(ContainerStorageSize);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string StorageEditNoteDisplay => UiText.Translate(StorageEditNote);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string SessionCpuCountDisplay => UiText.Translate(SessionCpuCount);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string SessionMemorySizeDisplay => UiText.Translate(SessionMemorySize);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string SessionMaxStorageSizeDisplay => UiText.Translate(SessionMaxStorageSize);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string SessionDefaultBindingAddressDisplay => UiText.Translate(SessionDefaultBindingAddress);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string CredentialStoreDisplay => UiText.Translate(CredentialStore);
 
     private readonly IWslSystemService _system;

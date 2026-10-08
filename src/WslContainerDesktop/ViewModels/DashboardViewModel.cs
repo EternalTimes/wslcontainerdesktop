@@ -111,9 +111,11 @@ public partial class DashboardStatRow : ObservableObject
 public partial class DashboardViewModel : ObservableObject
 {
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string EngineStatusDisplay => UiText.Translate(EngineStatus);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string EngineVersionDisplay => UiText.Translate(EngineVersion);
 
     private readonly IWslcService _wslc;

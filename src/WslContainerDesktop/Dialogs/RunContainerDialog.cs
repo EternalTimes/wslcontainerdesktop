@@ -224,7 +224,7 @@ public sealed class RunContainerDialog : ContentDialog
         // -i without -d would leave `wslc run` waiting on input nobody can type, so Run is disabled.
         _interactiveWarning = new TextBlock
         {
-            Text = RunContainerOptions.ForegroundInteractiveError,
+            Text = UiText.Get("Root_Audit_Run_ForegroundInteractive", RunContainerOptions.ForegroundInteractiveError),
             FontSize = 12,
             Foreground = (Microsoft.UI.Xaml.Media.Brush)Application.Current.Resources["SystemFillColorCautionBrush"],
             TextWrapping = TextWrapping.Wrap,
@@ -544,7 +544,7 @@ public sealed class RunContainerDialog : ContentDialog
             ApplyOptions(prefill, null);
             if (warnings is { Count: > 0 })
             {
-                ShowProfileStatus(UiText.Get("Workload_Text_Imported_from_docker_run_Notes_7e3213", "Imported from docker run. Notes: ") + string.Join("  •  ", warnings));
+                ShowProfileStatus(UiText.Get("Workload_Text_Imported_from_docker_run_Notes_7e3213", "Imported from docker run. Notes: ") + string.Join("  •  ", warnings.Select(UiText.TranslateLines)));
             }
         }
     }
