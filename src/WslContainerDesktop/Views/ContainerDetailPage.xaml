@@ -1124,7 +1124,7 @@
                                                 Grid.Column="2"
                                                 FontSize="12"
                                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                                Text="{x:Bind TypeDisplay, Mode=OneWay}"
+                                                Text="{x:Bind LocalizedTypeDisplay, Mode=OneWay}"
                                                 VerticalAlignment="Center" />
                                             <TextBlock
                                                 Grid.Column="3"
@@ -1317,7 +1317,7 @@
                                             Height="22"
                                             Background="{x:Bind KindColorHex, Converter={StaticResource HexToBrush}}"
                                             CornerRadius="4"
-                                            ToolTipService.ToolTip="{x:Bind KindLabel}"
+                                            ToolTipService.ToolTip="{x:Bind KindLabel, Converter={StaticResource UiTextConverter}}"
                                             VerticalAlignment="Center">
                                             <TextBlock
                                                 FontSize="12"

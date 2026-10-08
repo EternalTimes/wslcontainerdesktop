@@ -15,6 +15,8 @@
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 using WslContainerDesktop.Services;
+using WslContainerDesktop.Models;
+using System.Text.Json;
 using Xunit;
 
 namespace WslContainerDesktop.Tests.Services;
@@ -119,6 +121,19 @@ public sealed class DisplayTranslationTests : IDisposable
         Assert.Equal("重启", UiText.Translate("Restart"));
         UiText.SetLanguage("en-US");
         Assert.Equal("Restart", UiText.Translate("重启"));
+    }
+
+    [Fact]
+    public void LocalizedPreviewFieldsDoNotChangeTheSerializedEvidence()
+    {
+        var setting = new ComposeCompatibilitySetting("Refresh", "image",
+            ComposeSettingDisposition.Supported, "nginx:latest", "external explanation", "compose.yaml");
+        using var json = JsonDocument.Parse(JsonSerializer.Serialize(setting));
+        Assert.Equal("Refresh", json.RootElement.GetProperty("Service").GetString());
+        Assert.Equal("nginx:latest", json.RootElement.GetProperty("EffectiveValue").GetString());
+        Assert.Equal("external explanation", json.RootElement.GetProperty("Explanation").GetString());
+        Assert.False(json.RootElement.TryGetProperty("DisplaySummary", out _));
+        Assert.False(json.RootElement.TryGetProperty("DisplayDetail", out _));
     }
 
     public void Dispose()

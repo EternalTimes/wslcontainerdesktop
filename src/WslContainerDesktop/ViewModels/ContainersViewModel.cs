@@ -33,18 +33,23 @@ namespace WslContainerDesktop.ViewModels;
 public partial class ContainersViewModel : ObservableObject, IDisposable
 {
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string StatusMessageDisplay => UiText.Translate(StatusMessage);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string FilesStatusMessageDisplay => UiText.Translate(FilesStatusMessage);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string FilesUnavailableReasonDisplay => UiText.Translate(FilesUnavailableReason);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string ChangesStatusMessageDisplay => UiText.Translate(ChangesStatusMessage);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string AiConfidenceDisplay => UiText.Translate(AiConfidence);
 
     private const int MaxInlinePreviewBytes = 65_536;

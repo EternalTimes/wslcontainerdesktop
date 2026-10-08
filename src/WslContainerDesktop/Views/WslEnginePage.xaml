@@ -340,15 +340,15 @@
                             </StackPanel>
                             <TextBlock>
                                 <Run x:Uid="Resource_WslEngine_031" i18n:Localization.Uid="Resource_WslEngine_031" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
-                                <Run Text="{x:Bind ViewModel.MemoryLimit, Mode=OneWay}" />
+                        <Run Text="{x:Bind ViewModel.MemoryLimit, Mode=OneWay, Converter={StaticResource UiTextConverter}}" />
                             </TextBlock>
                             <TextBlock>
                                 <Run x:Uid="Resource_WslEngine_032" i18n:Localization.Uid="Resource_WslEngine_032" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
-                                <Run Text="{x:Bind ViewModel.ProcessorLimit, Mode=OneWay}" />
+                        <Run Text="{x:Bind ViewModel.ProcessorLimit, Mode=OneWay, Converter={StaticResource UiTextConverter}}" />
                             </TextBlock>
                             <TextBlock>
                                 <Run x:Uid="Resource_WslEngine_033" i18n:Localization.Uid="Resource_WslEngine_033" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
-                                <Run Text="{x:Bind ViewModel.SwapLimit, Mode=OneWay}" />
+                        <Run Text="{x:Bind ViewModel.SwapLimit, Mode=OneWay, Converter={StaticResource UiTextConverter}}" />
                             </TextBlock>
                             <TextBlock
                                 FontSize="12"

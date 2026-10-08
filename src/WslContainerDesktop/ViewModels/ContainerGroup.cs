@@ -43,6 +43,7 @@ public sealed class ContainerGroup : ObservableCollection<ContainerRowViewModel>
     public string Title { get; }
 
     /// <summary>Localized header without changing the stable project identity.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string DisplayTitle => IsProject ? Title : UiText.Get("Resource_Text_1d10323c27ec", "Standalone");
 
     internal void RefreshLocalizedText() =>

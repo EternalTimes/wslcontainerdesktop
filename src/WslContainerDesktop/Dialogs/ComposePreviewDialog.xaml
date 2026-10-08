@@ -60,8 +60,8 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate x:DataType="models:ComposeCompatibilitySetting">
                             <StackPanel Spacing="4" Padding="0,6">
-                                <TextBlock Text="{x:Bind Summary, Converter={StaticResource UiTextConverter}}" TextWrapping="Wrap" Style="{StaticResource BodyStrongTextBlockStyle}" />
-                                <TextBlock Text="{x:Bind Detail, Converter={StaticResource UiTextConverter}}" TextWrapping="Wrap" IsTextSelectionEnabled="True" />
+                                <TextBlock Text="{x:Bind DisplaySummary}" TextWrapping="Wrap" Style="{StaticResource BodyStrongTextBlockStyle}" />
+                                <TextBlock Text="{x:Bind DisplayDetail}" TextWrapping="Wrap" IsTextSelectionEnabled="True" />
                             </StackPanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
@@ -87,9 +87,9 @@
                         <ItemsControl.ItemTemplate>
                             <DataTemplate x:DataType="models:ComposeCompatibilitySetting">
                                 <StackPanel Spacing="4" Padding="0,6">
-                                    <TextBlock Text="{x:Bind Summary, Converter={StaticResource UiTextConverter}}" TextWrapping="Wrap" Style="{StaticResource BodyStrongTextBlockStyle}" />
+                                    <TextBlock Text="{x:Bind DisplaySummary}" TextWrapping="Wrap" Style="{StaticResource BodyStrongTextBlockStyle}" />
                                     <TextBlock
-                                        Text="{x:Bind Detail, Converter={StaticResource UiTextConverter}}"
+                                        Text="{x:Bind DisplayDetail}"
                                         TextWrapping="Wrap"
                                         FontSize="12"
                                         Foreground="{ThemeResource TextFillColorSecondaryBrush}"

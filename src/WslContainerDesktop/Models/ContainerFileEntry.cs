@@ -66,12 +66,16 @@ public sealed class ContainerFileEntry : CommunityToolkit.Mvvm.ComponentModel.Ob
 
     /// <summary>Gets the friendly file type label shown in the container file browser.</summary>
     public string TypeDisplay => IsDirectory
-        ? UiText.Get("Resource_Text_30baa24967e0", "Folder")
+        ? "Folder"
         : IsSymlink
-            ? UiText.Get("Resource_Text_e2012dea310d", "Shortcut")
+            ? "Shortcut"
             : string.IsNullOrEmpty(System.IO.Path.GetExtension(Name))
-                ? UiText.Get("Resource_Text_2c3cafa4db3f", "File")
-                : UiText.Get("Resource_Text_399694e59ed3", "{0} File", System.IO.Path.GetExtension(Name).TrimStart('.').ToUpperInvariant());
+                ? "File"
+                : $"{System.IO.Path.GetExtension(Name).TrimStart('.').ToUpperInvariant()} File";
+
+    /// <summary>Localized file type shown by the UI without changing serialized file metadata.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string LocalizedTypeDisplay => UiText.Translate(TypeDisplay);
 
     /// <summary>Gets the owner display.</summary>
     public string OwnerDisplay => string.IsNullOrWhiteSpace(Group) || string.Equals(Owner, Group, StringComparison.Ordinal)

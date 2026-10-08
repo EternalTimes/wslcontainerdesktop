@@ -30,9 +30,11 @@ namespace WslContainerDesktop.ViewModels;
 public partial class RegistriesViewModel : ObservableObject
 {
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string StatusMessageDisplay => UiText.Translate(StatusMessage);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string PolicyInfoMessageDisplay => UiText.Translate(PolicyInfoMessage);
 
     private readonly IWslcService _wslc;

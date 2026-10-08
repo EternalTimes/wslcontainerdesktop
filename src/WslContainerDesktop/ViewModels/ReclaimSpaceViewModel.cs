@@ -33,9 +33,11 @@ namespace WslContainerDesktop.ViewModels;
 public partial class ReclaimSpaceViewModel : ObservableObject
 {
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string StatusMessageDisplay => UiText.Translate(StatusMessage);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string StorageLocationDisplay => UiText.Translate(StorageLocation);
 
     /// <summary>How many of the largest images to surface in the "largest images" list.</summary>

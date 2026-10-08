@@ -165,7 +165,7 @@ public partial class ComposeViewModel : ObservableObject
                 StatusMessage += UiText.Get("Workload_Text_Container_status_unavailable_0_f892d1", " - Container status unavailable: {0}", inventoryError);
             if (_supervisor.ReconciliationWarnings.Count > 0)
             {
-                StatusMessage += UiText.Get("Workload_Text_Network_attention_f45fdf", " - Network attention: ") + string.Join("; ", _supervisor.ReconciliationWarnings);
+                StatusMessage += UiText.Get("Workload_Text_Network_attention_f45fdf", " - Network attention: ") + string.Join("; ", _supervisor.ReconciliationWarnings.Select(UiText.TranslateLines));
             }
         }
         finally
@@ -244,7 +244,7 @@ public partial class ComposeViewModel : ObservableObject
         if (project.Warnings.Count > 0)
         {
             const int maxShown = 12;
-            var shown = project.Warnings.Take(maxShown).Select(new ComposePreviewProjection(project).Redact);
+            var shown = project.Warnings.Take(maxShown).Select(new ComposePreviewProjection(project).Redact).Select(UiText.TranslateLines);
             var more = project.Warnings.Count - maxShown;
             var body = string.Join("\n", shown.Select(w => "• " + w));
             if (more > 0)
@@ -475,9 +475,9 @@ public partial class ComposeViewModel : ObservableObject
                 // when that action did not succeed.
                 var reason = service.Success ? null : result.Plan?.Services.FirstOrDefault(entry =>
                     string.Equals(entry.InstanceKey, service.InstanceKey, StringComparison.Ordinal))?.Reason;
-                return safe.Redact($"• {service.InstanceKey}: {UiText.Translate(service.Action.ToString())}{(service.Success ? "" : UiText.Get("Workload_Final_c695ffc1a0", " (failed)"))} — {service.Detail}" +
-                    (string.IsNullOrWhiteSpace(reason) || reason == service.Detail ? "" : UiText.Get("Workload_Text_Reason_0_2fa689", "\n  Reason: {0}", reason)) +
-                    (string.IsNullOrWhiteSpace(service.Warning) ? "" : UiText.Get("Workload_Text_Warning_0_bebde3", "\n  Warning: {0}", service.Warning)));
+                return safe.Redact($"• {service.InstanceKey}: {UiText.Translate(service.Action.ToString())}{(service.Success ? "" : UiText.Get("Workload_Final_c695ffc1a0", " (failed)"))} — {UiText.TranslateLines(service.Detail)}" +
+                    (string.IsNullOrWhiteSpace(reason) || reason == service.Detail ? "" : UiText.Get("Workload_Text_Reason_0_2fa689", "\n  Reason: {0}", UiText.TranslateLines(reason))) +
+                    (string.IsNullOrWhiteSpace(service.Warning) ? "" : UiText.Get("Workload_Text_Warning_0_bebde3", "\n  Warning: {0}", UiText.TranslateLines(service.Warning))));
             })));
     }
 

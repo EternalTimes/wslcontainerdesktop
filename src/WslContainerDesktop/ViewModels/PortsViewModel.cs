@@ -56,6 +56,7 @@ public sealed class PortEndpointRow
     public bool IsHttp => Protocol.Equals("tcp", StringComparison.OrdinalIgnoreCase);
 
     /// <summary>Compact container-side port/protocol text for the list.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string PortDisplay => $"{ContainerPort}/{Protocol}";
 }
 
@@ -66,9 +67,11 @@ public sealed class PortEndpointRow
 public partial class PortsViewModel : ObservableObject
 {
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string InventorySummaryDisplay => UiText.Translate(InventorySummary);
 
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string EmptyMessageDisplay => UiText.Translate(EmptyMessage);
 
     private readonly StatusMonitor _monitor;

@@ -29,6 +29,7 @@ namespace WslContainerDesktop.ViewModels;
 public partial class NetworksViewModel : ObservableObject
 {
     /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
     public string StatusMessageDisplay => UiText.Translate(StatusMessage);
 
     private readonly IWslcService _wslc;
