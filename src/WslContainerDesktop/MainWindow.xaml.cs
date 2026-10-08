@@ -535,8 +535,8 @@ public sealed partial class MainWindow : Window
     /// Applies the app-wide resource language and pins the shell root's inherited language.
     /// </summary>
     /// <remarks>
-    /// An empty tag means "follow the system". Clear the root's previous explicit language instead
-    /// of assigning the empty string, which WinUI rejects as an unusable BCP-47 tag.
+    /// An empty tag means "follow the system": both the MRT override and the root's explicit
+    /// language are cleared, because WinUI rejects an empty string as a malformed BCP-47 tag.
     /// </remarks>
     /// <param name="languageTag">BCP-47 tag, or empty to follow the system.</param>
     /// <param name="refreshUi">
@@ -546,7 +546,7 @@ public sealed partial class MainWindow : Window
     public void ApplyLanguage(string languageTag, bool refreshUi = false)
     {
         var tag = AppLanguage.Normalize(languageTag);
-        Microsoft.Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = tag;
+        App.ApplyPrimaryLanguageOverride(tag);
         if (Content is not FrameworkElement root)
         {
             return;

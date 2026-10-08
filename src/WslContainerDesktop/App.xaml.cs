@@ -75,6 +75,72 @@ public App()
 /// <summary>Returns the running app instance with the concrete <see cref="App"/> type.</summary>
 public new static App Current => (App)Application.Current;
 
+    /// <summary>
+    /// The override this process has already written, or <see langword="null"/> while the app has
+    /// written none and is therefore following the system.
+    /// </summary>
+    private static string? _appliedLanguageOverride;
+
+    /// <summary>
+    /// MRT's own top-ranked app language, captured before this process writes any override. Empty
+    /// means it was never captured.
+    /// </summary>
+    private static string _systemLanguageTag = string.Empty;
+
+    /// <summary>
+    /// Points MRT's app-wide resource context at a language, which is what x:Uid strings read when
+    /// XAML is constructed.
+    /// </summary>
+    /// <remarks>
+    /// MRT's setter rejects an empty string, and a null string is the very same empty HSTRING at the
+    /// ABI boundary, so "follow the system" can never be written here — passing it throws
+    /// <c>E_INVALIDARG</c> and ends the launch before the window is built. A process that has not
+    /// overridden anything instead leaves the setter alone, which is what following the system
+    /// actually means, formats included. The override cannot be cleared once written, so only a live
+    /// switch back to "follow the system" needs a stand-in: the language MRT itself had ranked first,
+    /// which resolves to the same resources the unset override would have picked.
+    /// </remarks>
+    /// <param name="tag">BCP-47 tag, or empty/null to follow the system.</param>
+    internal static void ApplyPrimaryLanguageOverride(string? tag)
+    {
+        // Read MRT's own ranking before anything is written: once an override exists this list starts
+        // with the override, so asking later would only ever echo the language being replaced.
+        var systemTag = SystemLanguageTag();
+
+        var normalized = AppLanguage.Normalize(tag);
+        if (normalized.Length == 0)
+        {
+            if (_appliedLanguageOverride is null)
+            {
+                return; // nothing to undo: never overriding is the faithful "follow the system"
+            }
+
+            normalized = AppLanguage.MatchSupported(systemTag);
+            if (normalized.Length == 0)
+            {
+                return;
+            }
+        }
+
+        Microsoft.Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = normalized;
+        _appliedLanguageOverride = normalized;
+    }
+
+    /// <summary>
+    /// MRT's top-ranked app language, read once at startup before this process overrides anything.
+    /// MRT offers no way to clear an override, so this is what stands in for the unset one.
+    /// </summary>
+    private static string SystemLanguageTag()
+    {
+        if (_systemLanguageTag.Length == 0)
+        {
+            var languages = Microsoft.Windows.Globalization.ApplicationLanguages.Languages;
+            _systemLanguageTag = languages.Count > 0 ? languages[0] : string.Empty;
+        }
+
+        return _systemLanguageTag;
+    }
+
 /// <summary>Root dependency-injection provider used by views to resolve their view models.</summary>
 public IServiceProvider Services { get; }
 
@@ -117,7 +183,7 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
 
     // x:Uid resolves during XAML construction, before a root element can inherit Language.
     // Set MRT's app-wide override before constructing the window or its pages.
-    Microsoft.Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = settings.Language;
+    ApplyPrimaryLanguageOverride(settings.Language);
 
     // Before anything is constructed: view models build their display text in their constructors, so
     // the localizer's language has to be settled first or they would cache the previous locale for
