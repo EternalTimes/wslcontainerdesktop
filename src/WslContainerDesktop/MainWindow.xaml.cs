@@ -532,23 +532,21 @@ public sealed partial class MainWindow : Window
     }
 
     /// <summary>
-    /// Pins the shell root's language so x:Uid lookups resolve against that locale instead of the
-    /// system one. Setting it on the root is enough: Language inherits down the element tree, which
-    /// is why pages do not need to set it themselves.
+    /// Applies the app-wide resource language and pins the shell root's inherited language.
     /// </summary>
     /// <remarks>
-    /// An empty tag means "follow the system" and must leave the property untouched: WinUI's default
-    /// already is the user's preferred app language, and assigning the empty string is rejected as an
-    /// unusable BCP-47 tag (COMException 0x800F0904), which would kill the launch.
+    /// An empty tag means "follow the system". Clear the root's previous explicit language instead
+    /// of assigning the empty string, which WinUI rejects as an unusable BCP-47 tag.
     /// </remarks>
     /// <param name="languageTag">BCP-47 tag, or empty to follow the system.</param>
-    /// <param name="reloadTree">
-    /// Whether to rebuild the visual tree so already-loaded elements re-resolve their resources.
-    /// False at startup, when the tree is still being constructed and reloading it would be wasteful.
+    /// <param name="refreshUi">
+    /// Whether to refresh shell labels and navigate to a fresh page after a runtime switch.
+    /// False at startup, before the window is shown.
     /// </param>
-    public void ApplyLanguage(string languageTag, bool reloadTree = false)
+    public void ApplyLanguage(string languageTag, bool refreshUi = false)
     {
         var tag = AppLanguage.Normalize(languageTag);
+        Microsoft.Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = tag;
         if (Content is not FrameworkElement root)
         {
             return;
@@ -571,44 +569,33 @@ public sealed partial class MainWindow : Window
                 return;
             }
         }
-
-        if (reloadTree)
+        else
         {
-            ReloadForLanguage();
+            root.ClearValue(FrameworkElement.LanguageProperty);
+        }
+
+        if (refreshUi)
+        {
+            RefreshForLanguage();
         }
     }
 
     /// <summary>
-    /// Rebuilds the shell's visual tree so every element resolves its resources against the current
-    /// language. x:Uid strings are read when an element loads, so changing Language alone would leave
-    /// already-loaded pages in the old language; re-creating the tree is what makes a switch visible
-    /// without a restart. The user stays on the page they were on.
+    /// Updates the existing shell and navigates to a fresh page so its x:Uid resources are read again.
+    /// Detaching and reattaching the same shell does not re-run x:Uid lookups.
     /// </summary>
-    private void ReloadForLanguage()
+    private void RefreshForLanguage()
     {
         try
         {
-            var tree = (UIElement?)Content;
-            Content = null;
-            ApplyTheme(_settings.Theme);
-
-            // Detaching and re-attaching the same root is what makes every element re-run its
-            // x:Uid lookup; the tree itself is always the one InitializeComponent built.
-            if (tree is FrameworkElement root)
-            {
-                Content = root;
-            }
-            else
-            {
-                InitializeComponent();
-                if (Content is FrameworkElement rebuilt)
-                {
-                    rebuilt.Loaded += OnRootLoaded;
-                }
-            }
+            RefreshShellText();
 
             var tag = _currentTag;
-            if (PageTypeFor(tag) is { } pageType)
+            if (tag == "settings")
+            {
+                NavFrame.NavigateWithPreference(typeof(SettingsPage));
+            }
+            else if (PageTypeFor(tag) is { } pageType)
             {
                 NavFrame.NavigateWithPreference(pageType);
             }
@@ -625,5 +612,32 @@ public sealed partial class MainWindow : Window
             App.Current.Services.GetService<ILoggerFactory>()?.CreateLogger<MainWindow>()
                 .LogWarning(ex, "Could not rebuild the UI after switching language.");
         }
+    }
+
+    private void RefreshShellText()
+    {
+        var text = App.Current.Services.GetRequiredService<ITextLocalizer>();
+        foreach (var item in NavView.MenuItems.Concat(NavView.FooterMenuItems))
+        {
+            if (item is NavigationViewItem { Tag: string tag } navItem)
+            {
+                var key = tag switch
+                {
+                    "wsl" => "Nav_WslEngine.Content",
+                    "reclaim" => "Nav_Reclaim.Content",
+                    "devcontainers" => "Nav_DevContainers.Content",
+                    _ => $"Nav_{char.ToUpperInvariant(tag[0])}{tag[1..]}.Content",
+                };
+                navItem.Content = text.Get(key);
+            }
+        }
+
+        if (NavView.SettingsItem is NavigationViewItem settingsItem)
+        {
+            settingsItem.Content = text.Get("Nav_Settings.Content");
+        }
+
+        AssistantLabel.Text = text.Get("Nav_Assistant.Text");
+        WhatsNewButton.Content = text.Get("Update_WhatsNew.Content");
     }
 }
