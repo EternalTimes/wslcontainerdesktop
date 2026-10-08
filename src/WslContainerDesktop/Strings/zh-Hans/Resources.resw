@@ -5343,4 +5343,681 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_WslEngine_004.Text" xml:space="preserve">
     <value>刷新</value>
   </data>
+  <data name="Resource_ReclaimSpace_001.Text" xml:space="preserve">
+    <value>磁盘使用情况</value>
+  </data>
+  <data name="Resource_ReclaimSpace_002.Text" xml:space="preserve">
+    <value>全部回收</value>
+  </data>
+  <data name="Resource_ReclaimSpace_004.Text" xml:space="preserve">
+    <value>可回收空间（悬空镜像和已停止的容器）</value>
+  </data>
+  <data name="Resource_ReclaimSpace_005.Text" xml:space="preserve">
+    <value>容器存储：</value>
+  </data>
+  <data name="Resource_ReclaimSpace_006.Content" xml:space="preserve">
+    <value>打开 WSL 引擎存储设置</value>
+  </data>
+  <data name="Resource_ReclaimSpace_007.Text" xml:space="preserve">
+    <value>wslc 不报告卷大小，因此仅显示卷数量。容器大小仅包括可写层；镜像层计入镜像大小。</value>
+  </data>
+  <data name="Resource_ReclaimSpace_008.Text" xml:space="preserve">
+    <value>镜像</value>
+  </data>
+  <data name="Resource_ReclaimSpace_009.Text" xml:space="preserve">
+    <value>总计：</value>
+  </data>
+  <data name="Resource_ReclaimSpace_011.Text" xml:space="preserve">
+    <value>可回收：</value>
+  </data>
+  <data name="Resource_ReclaimSpace_012.Text" xml:space="preserve">
+    <value>个悬空镜像</value>
+  </data>
+  <data name="Resource_ReclaimSpace_013.Content" xml:space="preserve">
+    <value>删除悬空镜像</value>
+  </data>
+  <data name="Resource_ReclaimSpace_014.Text" xml:space="preserve">
+    <value>容器</value>
+  </data>
+  <data name="Resource_ReclaimSpace_015.Text" xml:space="preserve">
+    <value>总计：</value>
+  </data>
+  <data name="Resource_ReclaimSpace_016.Text" xml:space="preserve">
+    <value>已停止：</value>
+  </data>
+  <data name="Resource_ReclaimSpace_017.Text" xml:space="preserve">
+    <value>可回收</value>
+  </data>
+  <data name="Resource_ReclaimSpace_018.Text" xml:space="preserve">
+    <value>可回收：</value>
+  </data>
+  <data name="Resource_ReclaimSpace_019.Content" xml:space="preserve">
+    <value>删除已停止的容器</value>
+  </data>
+  <data name="Resource_ReclaimSpace_020.Text" xml:space="preserve">
+    <value>卷</value>
+  </data>
+  <data name="Resource_ReclaimSpace_021.Text" xml:space="preserve">
+    <value>总计：</value>
+  </data>
+  <data name="Resource_ReclaimSpace_022.Text" xml:space="preserve">
+    <value>未使用：</value>
+  </data>
+  <data name="Resource_ReclaimSpace_023.Text" xml:space="preserve">
+    <value>（检查快照）</value>
+  </data>
+  <data name="Resource_ReclaimSpace_024.Content" xml:space="preserve">
+    <value>删除未使用的卷</value>
+  </data>
+  <data name="Resource_ReclaimSpace_025.Text" xml:space="preserve">
+    <value>最大的镜像</value>
+  </data>
+  <data name="Resource_ReclaimSpace_026.Text" xml:space="preserve">
+    <value>暂无镜像。</value>
+  </data>
+  <data name="Resource_ReclaimSpace_027.Text" xml:space="preserve">
+    <value>悬空镜像</value>
+  </data>
+  <data name="Resource_ReclaimSpace_028.Text" xml:space="preserve">
+    <value>暂无悬空镜像。</value>
+  </data>
+  <data name="Resource_ReclaimSpace_029.Text" xml:space="preserve">
+    <value>未使用的卷</value>
+  </data>
+  <data name="Resource_ReclaimSpace_030.Text" xml:space="preserve">
+    <value>没有确认未使用的卷，不计入使用情况未知的卷。</value>
+  </data>
+  <data name="Resource_Text_0166d7b870bb" xml:space="preserve">
+    <value>重启 wslc 会话？这会停止所有运行中的容器并释放</value>
+  </data>
+  <data name="Resource_Text_01c18eb220c6" xml:space="preserve">
+    <value>WSL 更新</value>
+  </data>
+  <data name="Resource_Text_0359792c6c6b" xml:space="preserve">
+    <value>；引擎健康状态：异常（独立于 TCP 重启策略报告）</value>
+  </data>
+  <data name="Resource_Text_04271cf5765a" xml:space="preserve">
+    <value>WSL 已是最新版本。</value>
+  </data>
+  <data name="Resource_Text_095d3c7448a1" xml:space="preserve">
+    <value>{0} 个用户网络 + {1} 个内置网络</value>
+  </data>
+  <data name="Resource_Text_0b5e1b6073eb" xml:space="preserve">
+    <value>关闭失败</value>
+  </data>
+  <data name="Resource_Text_0cb1ba8ea3a2" xml:space="preserve">
+    <value>没有可以删除的已停止容器。</value>
+  </data>
+  <data name="Resource_Text_0ce59716077c" xml:space="preserve">
+    <value>{0} 个悬空镜像仍被容器使用，暂时无法删除。</value>
+  </data>
+  <data name="Resource_Text_0d71e15cbf09" xml:space="preserve">
+    <value>引擎：需要 WSL {0} 或更高版本</value>
+  </data>
+  <data name="Resource_Text_0e2a97ecc9c6" xml:space="preserve">
+    <value>和容器以应用更新。
+
+</value>
+  </data>
+  <data name="Resource_Text_0fcd01286567" xml:space="preserve">
+    <value>；引擎健康状态：健康</value>
+  </data>
+  <data name="Resource_Text_10c53e7c5a84" xml:space="preserve">
+    <value>引擎：运行中 · {0}/{1} 个容器已启动</value>
+  </data>
+  <data name="Resource_Text_12e94e9a2dab" xml:space="preserve">
+    <value>；引擎健康状态：启动中</value>
+  </data>
+  <data name="Resource_Text_158cc9f59175" xml:space="preserve">
+    <value>关闭 WSL</value>
+  </data>
+  <data name="Resource_Text_186e2d1c099d" xml:space="preserve">
+    <value>请选择空文件夹。</value>
+  </data>
+  <data name="Resource_Text_1a3de446d590" xml:space="preserve">
+    <value>{0} 个镜像有可用更新。</value>
+  </data>
+  <data name="Resource_Text_1a709936ef89" xml:space="preserve">
+    <value>相关卷中的数据将丢失。</value>
+  </data>
+  <data name="Resource_Text_1b671ba390e8" xml:space="preserve">
+    <value>正在保存 {0} 个镜像…</value>
+  </data>
+  <data name="Resource_Text_1b730013ccc6" xml:space="preserve">
+    <value>不可用，重启失败 {0} 次后已停止</value>
+  </data>
+  <data name="Resource_Text_1b82a339cce8" xml:space="preserve">
+    <value>删除未使用的卷</value>
+  </data>
+  <data name="Resource_Text_1bdc17c5e2f9" xml:space="preserve">
+    <value>卷已清理</value>
+  </data>
+  <data name="Resource_Text_1bdd56ae0fa8" xml:space="preserve">
+    <value>不会迁移现有镜像、容器或卷，它们将保留在原位置直到被删除。</value>
+  </data>
+  <data name="Resource_Text_21208bca20bf" xml:space="preserve">
+    <value>
+
+部分步骤报告了错误：
+</value>
+  </data>
+  <data name="Resource_Text_21c35eca493e" xml:space="preserve">
+    <value>已为 {0} 移除健康检查。现有引擎健康检查未更改；要更改原生健康检查，必须明确重新创建容器。</value>
+  </data>
+  <data name="Resource_Text_2473c08e7012" xml:space="preserve">
+    <value>{0} 个用户网络 + {1} 个内置网络</value>
+  </data>
+  <data name="Resource_Text_24cced7ad554" xml:space="preserve">
+    <value>异常，正在自动重启（{0}/{1}）</value>
+  </data>
+  <data name="Resource_Text_25a9fd5664a4" xml:space="preserve">
+    <value>正在关闭 WSL…</value>
+  </data>
+  <data name="Resource_Text_26ae79518a04" xml:space="preserve">
+    <value>{0} 个内置网络</value>
+  </data>
+  <data name="Resource_Text_272b9b240c75" xml:space="preserve">
+    <value>计算磁盘使用情况失败</value>
+  </data>
+  <data name="Resource_Text_2789780f8eaa" xml:space="preserve">
+    <value>已删除 {0}（约 {1} 可写层数据）和 {2}。</value>
+  </data>
+  <data name="Resource_Text_27a4ad826e52" xml:space="preserve">
+    <value>{0} 个网络</value>
+  </data>
+  <data name="Resource_Text_294bf49261bc" xml:space="preserve">
+    <value>已将 {0} 个镜像保存到 {1}。要恢复，请选择导入 → 恢复已保存的镜像…。</value>
+  </data>
+  <data name="Resource_Text_29c8b895b569" xml:space="preserve">
+    <value>已为 {0} 配置健康检查。现有引擎健康检查未更改；要更改原生健康检查，必须明确重新创建容器。</value>
+  </data>
+  <data name="Resource_Text_2a606e7bd51e" xml:space="preserve">
+    <value>更改容器存储</value>
+  </data>
+  <data name="Resource_Text_2e0629ec10b6" xml:space="preserve">
+    <value>从镜像回收了 {0}。
+</value>
+  </data>
+  <data name="Resource_Text_2eccf3bfe77f" xml:space="preserve">
+    <value>使用情况未知不能证明可以清理，由引擎决定哪些卷可以清理。</value>
+  </data>
+  <data name="Resource_Text_30f822a886d2" xml:space="preserve">
+    <value>不可用，健康检查失败</value>
+  </data>
+  <data name="Resource_Text_314c9caa1b7f" xml:space="preserve">
+    <value>1 个悬空镜像仍被容器使用，暂时无法删除。</value>
+  </data>
+  <data name="Resource_Text_329d3a0b20b8" xml:space="preserve">
+    <value>无法检查 WSL 更新。</value>
+  </data>
+  <data name="Resource_Text_33b145c8b2b7" xml:space="preserve">
+    <value>将 wslc session.storagePath 恢复默认值？不会迁移或删除自定义位置的现有数据。</value>
+  </data>
+  <data name="Resource_Text_3704caed7179" xml:space="preserve">
+    <value>引擎：已被策略禁用</value>
+  </data>
+  <data name="Resource_Text_375ebb8cbe29" xml:space="preserve">
+    <value>读取 WSL 状态失败</value>
+  </data>
+  <data name="Resource_Text_37feecdf46e6" xml:space="preserve">
+    <value>{0} 个卷 - 使用情况不完整；未知不代表未使用</value>
+  </data>
+  <data name="Resource_Text_384a147ad9e2" xml:space="preserve">
+    <value>无法更新容器存储</value>
+  </data>
+  <data name="Resource_Text_3b79a6c4b800" xml:space="preserve">
+    <value>健康检查：启动中（启动宽限期）</value>
+  </data>
+  <data name="Resource_Text_3c286a27f602" xml:space="preserve">
+    <value> - 卷使用情况不完整；不将未知卷计为未使用</value>
+  </data>
+  <data name="Resource_Text_3d0a8265cd96" xml:space="preserve">
+    <value>正在等待您批准管理员提示…</value>
+  </data>
+  <data name="Resource_Text_400850b7845e" xml:space="preserve">
+    <value>关闭所有 WSL 发行版？这会停止容器引擎和所有运行中的</value>
+  </data>
+  <data name="Resource_Text_427386f5c663" xml:space="preserve">
+    <value>引擎：无法访问</value>
+  </data>
+  <data name="Resource_Text_4321ed28ed60" xml:space="preserve">
+    <value>立即重启 wslc 会话以使用默认存储位置？运行中的容器将被停止。</value>
+  </data>
+  <data name="Resource_Text_4431f8cf9e48" xml:space="preserve">
+    <value>{0} 个镜像有可用更新。</value>
+  </data>
+  <data name="Resource_Text_447d795e6433" xml:space="preserve">
+    <value>已回收 {0}。</value>
+  </data>
+  <data name="Resource_Text_44b494daae4c" xml:space="preserve">
+    <value>异常；停止失败：{0}</value>
+  </data>
+  <data name="Resource_Text_44c57abd888a" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="Resource_Text_4554f5b256b4" xml:space="preserve">
+    <value>{0} 个容器</value>
+  </data>
+  <data name="Resource_Text_45ab6f8c492b" xml:space="preserve">
+    <value>健康检查运行期间容器发生变化，正在等待新的健康状态。</value>
+  </data>
+  <data name="Resource_Text_4b16ccc50cc2" xml:space="preserve">
+    <value>回收完成</value>
+  </data>
+  <data name="Resource_Text_4bbeda1834be" xml:space="preserve">
+    <value>引擎健康状态：未知</value>
+  </data>
+  <data name="Resource_Text_4c92f0c7ac07" xml:space="preserve">
+    <value>{0} 个卷 - 使用情况不完整；未知不代表未使用</value>
+  </data>
+  <data name="Resource_Text_4de04cd91a3d" xml:space="preserve">
+    <value>更新失败</value>
+  </data>
+  <data name="Resource_Text_4e7dc421021d" xml:space="preserve">
+    <value>此 Windows 版本会重定向应用对 wslc 设置文件的写入。请使用“编辑设置文件”设置 session.storagePath。</value>
+  </data>
+  <data name="Resource_Text_4f75bf557ab2" xml:space="preserve">
+    <value>回收空间</value>
+  </data>
+  <data name="Resource_Text_511e101f8c63" xml:space="preserve">
+    <value>将此空文件夹用于新的 wslc 会话存储？
+
+</value>
+  </data>
+  <data name="Resource_Text_51f0128d112d" xml:space="preserve">
+    <value>删除所有悬空镜像、已停止的容器和未使用的卷？
+
+</value>
+  </data>
+  <data name="Resource_Text_52d3e18e950e" xml:space="preserve">
+    <value>安装 WSL 更新需要管理员权限。如果屏幕上没有提示，请点击任务栏上闪烁的盾牌图标。确认已验证发布者为 Microsoft Corporation，然后选择“是”。批准后更新将继续。</value>
+  </data>
+  <data name="Resource_Text_540058a14492" xml:space="preserve">
+    <value>{0} 个镜像</value>
+  </data>
+  <data name="Resource_Text_5affb4df88db" xml:space="preserve">
+    <value>删除已停止的容器</value>
+  </data>
+  <data name="Resource_Text_6257dda9c3b7" xml:space="preserve">
+    <value>删除悬空镜像</value>
+  </data>
+  <data name="Resource_Text_6387127193e5" xml:space="preserve">
+    <value>应用健康状态：健康（应用必须保持打开）</value>
+  </data>
+  <data name="Resource_Text_642b5cd982d4" xml:space="preserve">
+    <value>容器</value>
+  </data>
+  <data name="Resource_Text_64fbd995d3b6" xml:space="preserve">
+    <value>更改</value>
+  </data>
+  <data name="Resource_Text_65185f58e126" xml:space="preserve">
+    <value>不可用，尝试重启 {0} 次后仍未运行</value>
+  </data>
+  <data name="Resource_Text_6600d6e1e67c" xml:space="preserve">
+    <value>回收</value>
+  </data>
+  <data name="Resource_Text_66ebcf92eed0" xml:space="preserve">
+    <value>Microsoft Corporation。</value>
+  </data>
+  <data name="Resource_Text_67036bb84e14" xml:space="preserve">
+    <value>会话已重启</value>
+  </data>
+  <data name="Resource_Text_6a03ca0cd0bc" xml:space="preserve">
+    <value>更新 WSL</value>
+  </data>
+  <data name="Resource_Text_6c69c777e254" xml:space="preserve">
+    <value>已在 {0} 中配置</value>
+  </data>
+  <data name="Resource_Text_6c71adfba230" xml:space="preserve">
+    <value>健康检查不可用：{0}</value>
+  </data>
+  <data name="Resource_Text_6d483483caef" xml:space="preserve">
+    <value>{0} 个镜像</value>
+  </data>
+  <data name="Resource_Text_724bb41984d2" xml:space="preserve">
+    <value>引擎的会话绑定挂载槽位，之后可以重新启动容器。</value>
+  </data>
+  <data name="Resource_Text_765e0ff4d3a2" xml:space="preserve">
+    <value>{0} 个卷</value>
+  </data>
+  <data name="Resource_Text_7a387cfd8187" xml:space="preserve">
+    <value>正在更新 WSL…</value>
+  </data>
+  <data name="Resource_Text_7a4d99920018" xml:space="preserve">
+    <value>删除所有未使用的卷？其中的数据将丢失。
+
+</value>
+  </data>
+  <data name="Resource_Text_7abc2e1d9338" xml:space="preserve">
+    <value>Windows 正在等待您的许可</value>
+  </data>
+  <data name="Resource_Text_7ad21d18fd8e" xml:space="preserve">
+    <value>正在读取 WSL 状态…</value>
+  </data>
+  <data name="Resource_Text_7b1133fe472d" xml:space="preserve">
+    <value>容器已清理</value>
+  </data>
+  <data name="Resource_Text_7e34d9a960e3" xml:space="preserve">
+    <value>{0} 个卷</value>
+  </data>
+  <data name="Resource_Text_7f306af804b7" xml:space="preserve">
+    <value>引擎健康状态：异常；现有引擎检查与请求的检查不同。已暂停应用探测和自动修复以避免重复检查，请明确重新创建容器以应用所需设置。</value>
+  </data>
+  <data name="Resource_Text_80440979c561" xml:space="preserve">
+    <value>需要管理员权限</value>
+  </data>
+  <data name="Resource_Text_87a6c0db4629" xml:space="preserve">
+    <value>已将 {0} 个镜像保存到 {1}。要恢复，请选择导入 → 恢复已保存的镜像…。</value>
+  </data>
+  <data name="Resource_Text_890767d3faf6" xml:space="preserve">
+    <value>回收未能完成。请刷新清单后重试，部分清理可能已完成。
+
+{0}</value>
+  </data>
+  <data name="Resource_Text_8b70a928916e" xml:space="preserve">
+    <value>必须重启 wslc 会话才能使用新位置。</value>
+  </data>
+  <data name="Resource_Text_94f2148dac71" xml:space="preserve">
+    <value>（包含预览版本）</value>
+  </data>
+  <data name="Resource_Text_9f4e1409cfc8" xml:space="preserve">
+    <value>没有明显可回收的空间</value>
+  </data>
+  <data name="Resource_Text_a030f21b7587" xml:space="preserve">
+    <value>健康检查…</value>
+  </data>
+  <data name="Resource_Text_a14e2c207668" xml:space="preserve">
+    <value>{0} 个网络</value>
+  </data>
+  <data name="Resource_Text_a4b3c40db4fd" xml:space="preserve">
+    <value>打开设置失败</value>
+  </data>
+  <data name="Resource_Text_aa4b203eb7a5" xml:space="preserve">
+    <value>磁盘使用情况刷新已取消或超时，显示的数据可能已过期</value>
+  </data>
+  <data name="Resource_Text_aa982ce8233d" xml:space="preserve">
+    <value>{0}（虚拟 {1}）</value>
+  </data>
+  <data name="Resource_Text_ab2343b36d42" xml:space="preserve">
+    <value>已为 {0} 禁用健康检查。现有引擎健康检查未更改；要更改原生健康检查，必须明确重新创建容器。</value>
+  </data>
+  <data name="Resource_Text_af1b479de70a" xml:space="preserve">
+    <value>引擎健康状态：启动中</value>
+  </data>
+  <data name="Resource_Text_b134bd555a2f" xml:space="preserve">
+    <value>重启</value>
+  </data>
+  <data name="Resource_Text_b5923a83c0ff" xml:space="preserve">
+    <value>已将 {0} 个镜像保存到 {1}。要恢复，请选择导入 → 恢复已保存的镜像…。</value>
+  </data>
+  <data name="Resource_Text_bb93366308e4" xml:space="preserve">
+    <value>删除 {0}，最多回收 {1}？</value>
+  </data>
+  <data name="Resource_Text_bcdfeeb41d5c" xml:space="preserve">
+    <value>Windows 将请求管理员权限以安装更新。</value>
+  </data>
+  <data name="Resource_Text_bf17162e3be7" xml:space="preserve">
+    <value>健康检查已禁用</value>
+  </data>
+  <data name="Resource_Text_c1b7111021d0" xml:space="preserve">
+    <value>已删除 {0}，回收约 {1}。</value>
+  </data>
+  <data name="Resource_Text_c2e180b03882" xml:space="preserve">
+    <value>健康检查失败（连续失败 {0} 次），正在等待重试阈值。</value>
+  </data>
+  <data name="Resource_Text_c4c99614fe10" xml:space="preserve">
+    <value>{0} 个用户网络 + {1} 个内置网络</value>
+  </data>
+  <data name="Resource_Text_c52ad8ebd665" xml:space="preserve">
+    <value>重启失败</value>
+  </data>
+  <data name="Resource_Text_c6792f417830" xml:space="preserve">
+    <value>立即重启 wslc 会话以使用新的存储位置？运行中的容器将被停止。</value>
+  </data>
+  <data name="Resource_Text_c77cb4166afa" xml:space="preserve">
+    <value>wslc 会话已终止，在下一次容器操作时将自动重启。</value>
+  </data>
+  <data name="Resource_Text_c981dceb2438" xml:space="preserve">
+    <value>重启 WSL 会话</value>
+  </data>
+  <data name="Resource_Text_cb532cdfbdcf" xml:space="preserve">
+    <value>正在计算磁盘使用情况…</value>
+  </data>
+  <data name="Resource_Text_cbe25898d894" xml:space="preserve">
+    <value>引擎：错误（{0}）</value>
+  </data>
+  <data name="Resource_Text_cc95aa7e0053" xml:space="preserve">
+    <value>重置容器存储</value>
+  </data>
+  <data name="Resource_Text_cc989e9f84dc" xml:space="preserve">
+    <value>悬空镜像和已停止的容器最多可回收 {0} - 卷使用情况不完整；不将未知卷计为未使用</value>
+  </data>
+  <data name="Resource_Text_d0961f4abdcf" xml:space="preserve">
+    <value>未找到 .wslconfig，WSL 正在使用内置默认值。</value>
+  </data>
+  <data name="Resource_Text_d368cdcd9d44" xml:space="preserve">
+    <value>WSL {0} 已可用（已安装 {1}）。</value>
+  </data>
+  <data name="Resource_Text_d89984bc3e37" xml:space="preserve">
+    <value>{0} 个容器</value>
+  </data>
+  <data name="Resource_Text_da8843228766" xml:space="preserve">
+    <value>正在重启 wslc 会话…</value>
+  </data>
+  <data name="Resource_Text_da88488d0792" xml:space="preserve">
+    <value>无法使用此文件夹</value>
+  </data>
+  <data name="Resource_Text_db4bcc70ee6e" xml:space="preserve">
+    <value>如果没有出现提示，请查看任务栏上闪烁的</value>
+  </data>
+  <data name="Resource_Text_df08e49b2d70" xml:space="preserve">
+    <value>删除所有已停止的容器（{0} 个候选），从可写层回收约 {1}？</value>
+  </data>
+  <data name="Resource_Text_dfff3239aafb" xml:space="preserve">
+    <value>引擎健康状态：健康；现有引擎检查与请求的检查不同。已暂停应用探测和自动修复以避免重复检查，请明确重新创建容器以应用所需设置。</value>
+  </data>
+  <data name="Resource_Text_e078a35843db" xml:space="preserve">
+    <value> 文件</value>
+  </data>
+  <data name="Resource_Text_e12b09d77632" xml:space="preserve">
+    <value>正在安装 WSL 更新…</value>
+  </data>
+  <data name="Resource_Text_e1c15dc66a9e" xml:space="preserve">
+    <value>{0} 个用户网络 + {1} 个内置网络</value>
+  </data>
+  <data name="Resource_Text_e34d2baea976" xml:space="preserve">
+    <value>默认（{0}）</value>
+  </data>
+  <data name="Resource_Text_e44dfa6f6650" xml:space="preserve">
+    <value>卷</value>
+  </data>
+  <data name="Resource_Text_e4a8dff56b8c" xml:space="preserve">
+    <value>引擎：环境要求检查失败</value>
+  </data>
+  <data name="Resource_Text_e535a0653a7e" xml:space="preserve">
+    <value>尚未检查健康状态。</value>
+  </data>
+  <data name="Resource_Text_e65f3f93250a" xml:space="preserve">
+    <value>容器，并关闭此计算机上的其他 WSL 会话。</value>
+  </data>
+  <data name="Resource_Text_e6b622c86d28" xml:space="preserve">
+    <value>引擎健康状态：健康</value>
+  </data>
+  <data name="Resource_Text_e75039654b0d" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="Resource_Text_e7785ed12222" xml:space="preserve">
+    <value>如果拒绝或关闭了管理员提示，请再次点击更新并选择“是”。</value>
+  </data>
+  <data name="Resource_Text_e87f9d9dc7c2" xml:space="preserve">
+    <value>{0} 个内置网络</value>
+  </data>
+  <data name="Resource_Text_e8b433d94d09" xml:space="preserve">
+    <value>镜像已清理</value>
+  </data>
+  <data name="Resource_Text_ec038ed93a63" xml:space="preserve">
+    <value>下载并安装最新的 WSL 更新{0}？这会停止所有运行中的发行版</value>
+  </data>
+  <data name="Resource_Text_ed004457aa24" xml:space="preserve">
+    <value>引擎：未找到 wslc</value>
+  </data>
+  <data name="Resource_Text_efe270c11a51" xml:space="preserve">
+    <value>盾牌图标，并确认其中显示的已验证发布者为</value>
+  </data>
+  <data name="Resource_Text_f0a36b7fe84a" xml:space="preserve">
+    <value>{0} 个镜像有可用更新。</value>
+  </data>
+  <data name="Resource_Text_f16a08791848" xml:space="preserve">
+    <value>wslc 设置文件尚不存在。请使用“编辑设置文件”（或运行一次 wslc settings）创建文件，然后返回此页面。</value>
+  </data>
+  <data name="Resource_Text_f1c4d162a3ad" xml:space="preserve">
+    <value>无法读取 wslc 设置文件。</value>
+  </data>
+  <data name="Resource_Text_f28c97906351" xml:space="preserve">
+    <value>悬空镜像和已停止的容器最多可回收 {0}</value>
+  </data>
+  <data name="Resource_Text_f4ad4c094dc2" xml:space="preserve">
+    <value>必须重启 wslc 会话才能使用默认位置。</value>
+  </data>
+  <data name="Resource_Text_f4e0a08f5571" xml:space="preserve">
+    <value>；引擎健康状态：未知</value>
+  </data>
+  <data name="Resource_Text_f8dd182982c0" xml:space="preserve">
+    <value>正在保存 {0} 个镜像…</value>
+  </data>
+  <data name="Resource_Text_fb107b55608b" xml:space="preserve">
+    <value>没有可以删除的悬空镜像。</value>
+  </data>
+  <data name="Resource_Text_fb91e24fa52d" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="Resource_Text_fbee6d8e80d2" xml:space="preserve">
+    <value>使用情况是快照，在元数据可用时包含已停止的容器。</value>
+  </data>
+  <data name="Resource_Text_fe232b5bb527" xml:space="preserve">
+    <value>立即重启会话？</value>
+  </data>
+  <data name="Resource_Text_ff17ab13fcd0" xml:space="preserve">
+    <value>已将 {0} 个镜像保存到 {1}。要恢复，请选择导入 → 恢复已保存的镜像…。</value>
+  </data>
+  <data name="Resource_WslEngine_001.Text" xml:space="preserve">
+    <value>WSL 引擎</value>
+  </data>
+  <data name="Resource_WslEngine_002.Text" xml:space="preserve">
+    <value>重启 WSL 会话</value>
+  </data>
+  <data name="Resource_WslEngine_003.Text" xml:space="preserve">
+    <value>关闭 WSL</value>
+  </data>
+  <data name="Resource_WslEngine_005.Text" xml:space="preserve">
+    <value>WSL 更新</value>
+  </data>
+  <data name="Resource_WslEngine_006.Text" xml:space="preserve">
+    <value>已安装版本：</value>
+  </data>
+  <data name="Resource_WslEngine_007.Text" xml:space="preserve">
+    <value>最新可用版本：</value>
+  </data>
+  <data name="Resource_WslEngine_008.Text" xml:space="preserve">
+    <value>WSL 已是最新版本。</value>
+  </data>
+  <data name="Resource_WslEngine_009.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>立即更新</value>
+  </data>
+  <data name="Resource_WslEngine_010.Text" xml:space="preserve">
+    <value>立即更新</value>
+  </data>
+  <data name="Resource_WslEngine_011.OffContent" xml:space="preserve">
+    <value>稳定通道（推荐）</value>
+  </data>
+  <data name="Resource_WslEngine_011.OnContent" xml:space="preserve">
+    <value>包含预览版本</value>
+  </data>
+  <data name="Resource_WslEngine_012.Text" xml:space="preserve">
+    <value>包含 WSL 预览版本</value>
+  </data>
+  <data name="Resource_WslEngine_013.Text" xml:space="preserve">
+    <value>WSL 容器已在稳定通道正式发布（WSL 3.0.1 或更高版本）。仅在需要尝试可能不够稳定的预览版本时开启此选项。</value>
+  </data>
+  <data name="Resource_WslEngine_014.Text" xml:space="preserve">
+    <value>容器存储</value>
+  </data>
+  <data name="Resource_WslEngine_015.Text" xml:space="preserve">
+    <value>位置：</value>
+  </data>
+  <data name="Resource_WslEngine_016.Text" xml:space="preserve">
+    <value>会话磁盘大小：</value>
+  </data>
+  <data name="Resource_WslEngine_017.Text" xml:space="preserve">
+    <value>更改位置仅影响后续会话的存储，不会迁移现有镜像、容器或卷。</value>
+  </data>
+  <data name="Resource_WslEngine_018.Content" xml:space="preserve">
+    <value>更改位置…</value>
+  </data>
+  <data name="Resource_WslEngine_019.Content" xml:space="preserve">
+    <value>恢复默认值</value>
+  </data>
+  <data name="Resource_WslEngine_020.Text" xml:space="preserve">
+    <value>容器会话设置</value>
+  </data>
+  <data name="Resource_WslEngine_021.Text" xml:space="preserve">
+    <value>CPU 数量：</value>
+  </data>
+  <data name="Resource_WslEngine_022.Text" xml:space="preserve">
+    <value>内存：</value>
+  </data>
+  <data name="Resource_WslEngine_023.Text" xml:space="preserve">
+    <value>最大存储空间：</value>
+  </data>
+  <data name="Resource_WslEngine_024.Text" xml:space="preserve">
+    <value>默认绑定地址：</value>
+  </data>
+  <data name="Resource_WslEngine_025.Text" xml:space="preserve">
+    <value>凭据存储：</value>
+  </data>
+  <data name="Resource_WslEngine_026.Content" xml:space="preserve">
+    <value>编辑设置文件</value>
+  </data>
+  <data name="Resource_WslEngine_027.Text" xml:space="preserve">
+    <value>WSL 平台</value>
+  </data>
+  <data name="Resource_WslEngine_028.Text" xml:space="preserve">
+    <value>WSL 版本：</value>
+  </data>
+  <data name="Resource_WslEngine_029.Text" xml:space="preserve">
+    <value>内核：</value>
+  </data>
+  <data name="Resource_WslEngine_030.Text" xml:space="preserve">
+    <value>资源限制（.wslconfig）</value>
+  </data>
+  <data name="Resource_WslEngine_031.Text" xml:space="preserve">
+    <value>内存：</value>
+  </data>
+  <data name="Resource_WslEngine_032.Text" xml:space="preserve">
+    <value>处理器：</value>
+  </data>
+  <data name="Resource_WslEngine_033.Text" xml:space="preserve">
+    <value>交换空间：</value>
+  </data>
+  <data name="Resource_WslEngine_034.Text" xml:space="preserve">
+    <value>发行版</value>
+  </data>
+  <data name="Resource_WslEngine_035.Text" xml:space="preserve">
+    <value>尚未安装 WSL 发行版。</value>
+  </data>
+  <data name="Resource_WslEngine_036.Text" xml:space="preserve">
+    <value>WSL 容器在独立虚拟机中运行，无需安装发行版。只有可选的 Kubernetes（k3s）集群需要发行版。</value>
+  </data>
+  <data name="Resource_WslEngine_037.Content" xml:space="preserve">
+    <value>如何安装发行版</value>
+  </data>
+  <data name="Resource_WslEngine_038.Text" xml:space="preserve">
+    <value>无法读取 WSL 发行版列表，请点击刷新重试。</value>
+  </data>
+  <data name="Resource_WslEngine_Extra1.Title" xml:space="preserve">
+    <value>有可用更新</value>
+  </data>
+  <data name="Resource_WslEngine_Extra2.Title" xml:space="preserve">
+    <value>无法检查更新</value>
+  </data>
 </root>
