@@ -30,6 +30,34 @@
 
             <TextBlock Style="{ThemeResource TitleTextBlockStyle}" Text="Settings" />
 
+            <!--  Language — first, so the whole page can be read in the chosen language  -->
+            <TextBlock
+                Margin="2,4,0,0"
+                Style="{ThemeResource BodyStrongTextBlockStyle}"
+                x:Uid="Settings_Language_Header" />
+            <Border Style="{StaticResource Card}">
+                <StackPanel Spacing="4">
+                    <Grid Padding="0,8" ColumnSpacing="12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Spacing="2">
+                            <TextBlock x:Uid="Settings_Language_Label" />
+                            <TextBlock
+                                FontSize="12"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                x:Uid="Settings_Language_Help" />
+                        </StackPanel>
+                        <ComboBox
+                            Grid.Column="1"
+                            MinWidth="160"
+                            ItemsSource="{x:Bind ViewModel.LanguageOptions}"
+                            SelectedIndex="{x:Bind ViewModel.SelectedLanguageIndex, Mode=TwoWay}" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+
             <!--  Engine  -->
             <TextBlock
                 Margin="2,4,0,0"
@@ -232,41 +260,6 @@
                         ItemsSource="{x:Bind ViewModel.ThemeOptions}"
                         SelectedIndex="{x:Bind ViewModel.SelectedThemeIndex, Mode=TwoWay}" />
                 </Grid>
-            </Border>
-
-            <!--  Language  -->
-            <TextBlock
-                Margin="2,4,0,0"
-                Style="{ThemeResource BodyStrongTextBlockStyle}"
-                x:Uid="Settings_Language_Header" />
-            <Border Style="{StaticResource Card}">
-                <StackPanel Spacing="4">
-                    <Grid Padding="0,8" ColumnSpacing="12">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column="0" Spacing="2">
-                            <TextBlock x:Uid="Settings_Language_Label" />
-                            <TextBlock
-                                FontSize="12"
-                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                x:Uid="Settings_Language_Help" />
-                        </StackPanel>
-                        <ComboBox
-                            Grid.Column="1"
-                            MinWidth="160"
-                            ItemsSource="{x:Bind ViewModel.LanguageOptions}"
-                            SelectedIndex="{x:Bind ViewModel.SelectedLanguageIndex, Mode=TwoWay}" />
-                    </Grid>
-                    <TextBlock
-                        Margin="0,0,0,8"
-                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                        FontSize="12"
-                        TextWrapping="Wrap"
-                        Visibility="{x:Bind ViewModel.LanguageChangePending, Mode=OneWay, Converter={StaticResource BoolToVis}}"
-                        x:Uid="Settings_Language_Changed" />
-                </StackPanel>
             </Border>
 
             <!--  Notifications  -->

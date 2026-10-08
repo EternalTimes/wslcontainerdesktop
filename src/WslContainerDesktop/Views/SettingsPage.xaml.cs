@@ -34,6 +34,11 @@ public sealed partial class SettingsPage : Page
         InitializeComponent();
 
         ViewModel.ThemeChangeRequested += (_, theme) => App.Current.MainWindow?.ApplyTheme(theme);
+
+        // The shell rebuilds its visual tree so already-loaded x:Uid strings re-resolve, which is what
+        // makes a language change show up without a restart.
+        ViewModel.LanguageChangeRequested += (_, language) =>
+            App.Current.MainWindow?.ApplyLanguage(language, reloadTree: true);
     }
 
     /// <summary>Settings view model bound by the page.</summary>

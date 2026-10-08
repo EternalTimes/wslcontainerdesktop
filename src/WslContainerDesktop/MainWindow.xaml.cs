@@ -541,26 +541,89 @@ public sealed partial class MainWindow : Window
     /// already is the user's preferred app language, and assigning the empty string is rejected as an
     /// unusable BCP-47 tag (COMException 0x800F0904), which would kill the launch.
     /// </remarks>
-    public void ApplyLanguage(string languageTag)
+    /// <param name="languageTag">BCP-47 tag, or empty to follow the system.</param>
+    /// <param name="reloadTree">
+    /// Whether to rebuild the visual tree so already-loaded elements re-resolve their resources.
+    /// False at startup, when the tree is still being constructed and reloading it would be wasteful.
+    /// </param>
+    public void ApplyLanguage(string languageTag, bool reloadTree = false)
     {
         var tag = AppLanguage.Normalize(languageTag);
-        if (tag.Length == 0 || Content is not FrameworkElement root)
+        if (Content is not FrameworkElement root)
         {
             return;
         }
 
+        if (tag.Length > 0)
+        {
+            try
+            {
+                // WinUI 3 types FrameworkElement.Language as a plain BCP-47 string rather than a
+                // Windows.Globalization.Language object.
+                root.Language = tag;
+            }
+            catch (Exception ex)
+            {
+                // A language the OS cannot accept must never stop the app from starting: the root keeps
+                // its default, so the page still renders in the system language.
+                App.Current.Services.GetService<ILoggerFactory>()?.CreateLogger<MainWindow>()
+                    .LogWarning(ex, "Could not apply the UI language {Language}; using the system language.", tag);
+                return;
+            }
+        }
+
+        if (reloadTree)
+        {
+            ReloadForLanguage();
+        }
+    }
+
+    /// <summary>
+    /// Rebuilds the shell's visual tree so every element resolves its resources against the current
+    /// language. x:Uid strings are read when an element loads, so changing Language alone would leave
+    /// already-loaded pages in the old language; re-creating the tree is what makes a switch visible
+    /// without a restart. The user stays on the page they were on.
+    /// </summary>
+    private void ReloadForLanguage()
+    {
         try
         {
-            // WinUI 3 types FrameworkElement.Language as a plain BCP-47 string rather than a
-            // Windows.Globalization.Language object.
-            root.Language = tag;
+            var tree = (UIElement?)Content;
+            Content = null;
+            ApplyTheme(_settings.Theme);
+
+            // Detaching and re-attaching the same root is what makes every element re-run its
+            // x:Uid lookup; the tree itself is always the one InitializeComponent built.
+            if (tree is FrameworkElement root)
+            {
+                Content = root;
+            }
+            else
+            {
+                InitializeComponent();
+                if (Content is FrameworkElement rebuilt)
+                {
+                    rebuilt.Loaded += OnRootLoaded;
+                }
+            }
+
+            var tag = _currentTag;
+            if (PageTypeFor(tag) is { } pageType)
+            {
+                NavFrame.NavigateWithPreference(pageType);
+            }
+            else
+            {
+                NavFrame.NavigateWithPreference(typeof(DashboardPage));
+            }
+
+            RefreshRequirementGate();
+            RefreshAssistantButtonVisibility();
         }
         catch (Exception ex)
         {
-            // A language the OS cannot accept must never stop the app from starting: the root keeps
-            // its default, so the page still renders in the system language.
             App.Current.Services.GetService<ILoggerFactory>()?.CreateLogger<MainWindow>()
-                .LogWarning(ex, "Could not apply the UI language {Language}; using the system language.", tag);
+                .LogWarning(ex, "Could not rebuild the UI after switching language.");
         }
     }
 }

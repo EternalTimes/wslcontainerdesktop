@@ -89,10 +89,7 @@
     <value>Language</value>
   </data>
   <data name="Settings_Language_Help.Text" xml:space="preserve">
-    <value>Applies the next time the app starts.</value>
-  </data>
-  <data name="Settings_Language_Changed.Text" xml:space="preserve">
-    <value>Restart WSL Container Desktop to apply the new language.</value>
+    <value>Applies immediately.</value>
   </data>
   <data name="Settings_Language_Option_System" xml:space="preserve">
     <value>Match system</value>
