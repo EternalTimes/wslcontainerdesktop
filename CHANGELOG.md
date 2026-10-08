@@ -17,8 +17,9 @@ where the signed MSIX and installation steps live.
   language from **System default**, **English**, or **简体中文 (Simplified Chinese)**, and the
   change takes effect immediately — the app re-renders in the new language without a restart. The
   setting sits first so you can read the rest of the page in the language you just picked. The
-  Appearance section header and the Theme label and helper text are now resolved from resources;
-  the remaining page strings are migrated in focused batches in later releases.
+  left navigation rail and the whole Settings page — engine, dev containers, behavior, appearance,
+  notifications, AI and provider setup, diagnostics, updates and about — now follow the language
+  you choose. The remaining pages are migrated in focused batches in later releases.
 
 ### Fixed
 - **The app no longer fails to start with an unusable-language error.** Following the system
