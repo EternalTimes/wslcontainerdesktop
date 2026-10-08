@@ -37,6 +37,27 @@ internal static class AppLanguage
     /// <summary>Language tag meaning "do not override; use the system's display language".</summary>
     public const string SystemDefault = "";
 
+    /// <summary>Resolves the saved preference into a nonempty tag suitable for WinRT setters.</summary>
+    public static string Resolve(string? preference, IEnumerable<string> systemLanguages)
+    {
+        var explicitTag = Normalize(preference);
+        if (explicitTag.Length > 0) return explicitTag;
+        foreach (var systemTag in systemLanguages)
+        {
+            var match = MatchSupported(systemTag);
+            if (match.Length > 0) return match;
+        }
+        return "en-US";
+    }
+
+    /// <summary>The boundary between the empty system preference and the native language setter.</summary>
+    public static string Apply(string? preference, IEnumerable<string> systemLanguages, Action<string> writer)
+    {
+        var effective = Resolve(preference, systemLanguages);
+        writer(effective);
+        return effective;
+    }
+
     /// <summary>Selectable languages, in the order the Settings page lists them.</summary>
     public static readonly IReadOnlyList<AppLanguageOption> Supported = new[]
     {
@@ -74,8 +95,8 @@ internal static class AppLanguage
     /// language override has to be rewritten to stand in for an unset one.
     /// </summary>
     /// <remarks>
-    /// Returns <see cref="SystemDefault"/> when nothing matches, which leaves the caller to keep the
-    /// override it already had. Scripts are compared after inferring one from the region, so a
+    /// Returns <see cref="SystemDefault"/> when nothing matches. The resolver then tries the next
+    /// Windows language or its explicit English fallback. Scripts are compared after inferring one from the region, so a
     /// traditional Chinese tag (<c>zh-TW</c>, <c>zh-Hant</c>) does not pick the simplified resources
     /// while <c>zh-CN</c> still does.
     /// </remarks>

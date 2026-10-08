@@ -93,12 +93,30 @@ public partial class SettingsViewModel : ObservableObject
         "Automatically launch WSL Container Desktop when you sign in to Windows.";
 
     /// <summary>Bindable state for selected theme index used by the view.</summary>
-    [ObservableProperty]
     private int _selectedThemeIndex;
 
+    public int SelectedThemeIndex
+    {
+        get => _selectedThemeIndex;
+        set
+        {
+            if (value < 0 || value >= ThemeOptions.Count || !SetProperty(ref _selectedThemeIndex, value)) return;
+            OnSelectedThemeIndexChanged(value);
+        }
+    }
+
     /// <summary>Bindable state for the selected UI language index used by the view.</summary>
-    [ObservableProperty]
     private int _selectedLanguageIndex;
+
+    public int SelectedLanguageIndex
+    {
+        get => _selectedLanguageIndex;
+        set
+        {
+            if (value < 0 || value >= LanguageOptions.Count || !SetProperty(ref _selectedLanguageIndex, value)) return;
+            OnSelectedLanguageIndexChanged(value);
+        }
+    }
 
     /// <summary>Bindable state for notifications enabled used by the view.</summary>
     [ObservableProperty]
@@ -603,6 +621,7 @@ public partial class SettingsViewModel : ObservableObject
         // Seed the backing fields directly: assigning the observable properties here would run their
         // change handlers, persisting a value the user never chose.
         _selectedLanguageIndex = AppLanguage.IndexOf(settings.Language);
+        UiText.LanguageChanged += (_, _) => RefreshLocalizedOptions();
     }
 
     /// <summary>Handles wslc path changed changes and updates related view-model state.</summary>
@@ -920,7 +939,7 @@ public partial class SettingsViewModel : ObservableObject
     }
 
     /// <summary>Handles selected theme index changed changes and updates related view-model state.</summary>
-    partial void OnSelectedThemeIndexChanged(int value)
+    private void OnSelectedThemeIndexChanged(int value)
     {
         _settings.Theme = value switch
         {
@@ -935,10 +954,10 @@ public partial class SettingsViewModel : ObservableObject
     public event EventHandler<string>? ThemeChangeRequested;
 
     /// <summary>Localized theme names, in the order <see cref="SelectedThemeIndex"/> expects.</summary>
-    public ObservableCollection<string> ThemeOptions { get; } = new();
+    public ObservableCollection<LocalizedOption> ThemeOptions { get; } = new();
 
     /// <summary>Localized UI language names, in the order <see cref="SelectedLanguageIndex"/> expects.</summary>
-    public ObservableCollection<string> LanguageOptions { get; } = new();
+    public ObservableCollection<LocalizedOption> LanguageOptions { get; } = new();
 
     private void RefreshLocalizedOptions()
     {
@@ -955,19 +974,19 @@ public partial class SettingsViewModel : ObservableObject
         UpdateOptions(LanguageOptions, languages);
     }
 
-    private static void UpdateOptions(ObservableCollection<string> options, IReadOnlyList<string> translated)
+    private static void UpdateOptions(ObservableCollection<LocalizedOption> options, IReadOnlyList<string> translated)
     {
         for (var i = 0; i < translated.Count; i++)
         {
             if (i == options.Count)
-                options.Add(translated[i]);
-            else if (options[i] != translated[i])
-                options[i] = translated[i];
+                options.Add(new LocalizedOption(i.ToString(System.Globalization.CultureInfo.InvariantCulture), translated[i]));
+            else
+                options[i].DisplayName = translated[i];
         }
     }
 
     /// <summary>Handles selected UI language index changed and persists the choice.</summary>
-    partial void OnSelectedLanguageIndexChanged(int value)
+    private void OnSelectedLanguageIndexChanged(int value)
     {
         // A ComboBox can briefly report -1 while its items are replaced. That is not a user choice.
         if (value < 0 || value >= AppLanguage.Supported.Count)
@@ -979,10 +998,6 @@ public partial class SettingsViewModel : ObservableObject
 
         _settings.Language = tag;
         _settings.Save();
-
-        // The localizer has to be switched too: it serves the strings the Settings page itself builds,
-        // which no element-tree reload can reach.
-        _localizer.SetLanguage(tag);
 
         // The shell refreshes its own labels and navigates to a fresh page for x:Uid resources.
         LanguageChangeRequested?.Invoke(this, tag);

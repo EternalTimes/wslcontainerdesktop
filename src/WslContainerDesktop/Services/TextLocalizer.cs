@@ -14,7 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-using System.Collections.Concurrent;
 using Microsoft.Extensions.Logging;
 using Microsoft.Windows.ApplicationModel.Resources;
 
@@ -36,6 +35,9 @@ public interface ITextLocalizer
     /// before any view model is constructed.
     /// </summary>
     void SetLanguage(string tag);
+
+    /// <summary>The nonempty effective language shared with MRT and the shell.</summary>
+    string LanguageTag { get; }
 }
 
 /// <summary>
@@ -53,7 +55,8 @@ public sealed class TextLocalizer : ITextLocalizer
     private const string StringsMapName = "Resources";
 
     private readonly ILogger<TextLocalizer> _logger;
-    private readonly ConcurrentDictionary<string, string> _cache = new(StringComparer.Ordinal);
+    private readonly object _sync = new();
+    private readonly Dictionary<string, string> _cache = new(StringComparer.Ordinal);
     private readonly HashSet<string> _reportedMissing = new(StringComparer.Ordinal);
 
     /// <summary>Resource manager for the app's own resources.pri.</summary>
@@ -65,6 +68,8 @@ public sealed class TextLocalizer : ITextLocalizer
     /// not thread-safe and reads happen on the UI thread.
     /// </summary>
     private ResourceContext? _overrideContext;
+    private string _languageTag = "en-US";
+    public string LanguageTag { get { lock (_sync) return _languageTag; } }
 
     public TextLocalizer(ILogger<TextLocalizer> logger) => _logger = logger;
 
@@ -72,8 +77,14 @@ public sealed class TextLocalizer : ITextLocalizer
     public void SetLanguage(string tag)
     {
         var normalized = AppLanguage.Normalize(tag);
-        _overrideContext = normalized.Length == 0 ? null : CreateContext(_resourceManager, normalized);
-        _cache.Clear();
+        if (normalized.Length == 0)
+            throw new ArgumentException("Resolve the system preference before passing a language to the resource context.", nameof(tag));
+        lock (_sync)
+        {
+            _overrideContext = CreateContext(_resourceManager, normalized);
+            _languageTag = normalized;
+            _cache.Clear();
+        }
 
         _logger.LogInformation(
             "UI language set to {Language}.",
@@ -83,7 +94,12 @@ public sealed class TextLocalizer : ITextLocalizer
     /// <inheritdoc/>
     public string Get(string key, params object?[] args)
     {
-        var resolved = _cache.GetOrAdd(key, static (k, self) => self.Resolve(k), this);
+        string resolved;
+        lock (_sync)
+        {
+            if (!_cache.TryGetValue(key, out resolved!))
+                _cache[key] = resolved = Resolve(key);
+        }
 
         if (args is null || args.Length == 0)
         {
