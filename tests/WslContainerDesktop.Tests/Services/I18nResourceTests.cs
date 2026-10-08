@@ -61,12 +61,17 @@ public sealed class I18nResourceTests
         var source = SourceDirectory();
         var keys = ResourceKeys(Path.Combine(source, "Strings", "en-US", "Resources.resw"));
         var uid = XName.Get("Uid", "http://schemas.microsoft.com/winfx/2006/xaml");
+        var liveUid = XName.Get("Localization.Uid", "using:WslContainerDesktop.Helpers");
         var assignments = Directory.EnumerateFiles(source, "*.xaml", SearchOption.AllDirectories)
             .Where(path => !path.Contains(Path.DirectorySeparatorChar + "obj" + Path.DirectorySeparatorChar)
                 && !path.Contains(Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar))
             .SelectMany(path => XDocument.Load(path).Descendants()
                 .Where(element => element.Attribute(uid) is not null)
-                .Select(element => (Uid: element.Attribute(uid)!.Value, Type: element.Name.LocalName)));
+                .Select(element =>
+                {
+                    Assert.Equal(element.Attribute(uid)!.Value, element.Attribute(liveUid)?.Value);
+                    return (Uid: element.Attribute(uid)!.Value, Type: element.Name.LocalName);
+                }));
         foreach (var group in assignments.GroupBy(item => item.Uid))
         {
             Assert.Single(group.Select(item => item.Type).Distinct());
@@ -126,11 +131,8 @@ public sealed class I18nResourceTests
     }
 
     /// <summary>
-    /// Covers the stand-in used when the language override has to stand in for an unset one. MRT
-    /// refuses an empty string on its setter and will not clear an override once written, so a live
-    /// switch back to "follow the system" writes the language MRT had ranked first instead. Matching
-    /// has to land on the same resources the unset override would have picked, which means the script
-    /// subtag decides: a traditional Chinese language must not land on the simplified resources.
+    /// Maps independent Windows UI preferences to the shipped resources. The script subtag decides:
+    /// a traditional Chinese language must not land on the simplified resources.
     /// </summary>
     [Theory]
     [InlineData("en-US", "en-US")]        // exact
@@ -143,7 +145,7 @@ public sealed class I18nResourceTests
     [InlineData("zh-TW", "")]             // traditional script must not pick simplified resources
     [InlineData("zh-Hant", "")]
     [InlineData("zh", "")]                // ambiguous script: decline rather than guess
-    [InlineData("de-DE", "")]             // unsupported: let the caller leave the override alone
+    [InlineData("de-DE", "")]             // unsupported: Resolve checks the next preference or falls back
     [InlineData("fr", "")]
     [InlineData("", "")]
     [InlineData("   ", "")]

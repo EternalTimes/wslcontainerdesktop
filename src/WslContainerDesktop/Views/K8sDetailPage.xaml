@@ -3,6 +3,7 @@
     x:Class="WslContainerDesktop.Views.K8sDetailPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:i18n="using:WslContainerDesktop.Helpers"
     xmlns:converters="using:WslContainerDesktop.Helpers"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -29,7 +30,7 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <Button x:Uid="Workload_K8sDetailPage_001"
+            <Button x:Uid="Workload_K8sDetailPage_001" i18n:Localization.Uid="Workload_K8sDetailPage_001"
                 Grid.Column="0"
                 Width="40"
                 Height="40"
@@ -76,38 +77,38 @@
                 VerticalAlignment="Center"
                 Orientation="Horizontal"
                 Spacing="6">
-                <Button x:Uid="Workload_K8sDetailPage_002"
+                <Button x:Uid="Workload_K8sDetailPage_002" i18n:Localization.Uid="Workload_K8sDetailPage_002"
                     Command="{x:Bind ViewModel.ScaleCommand}"
                     Visibility="{x:Bind ViewModel.SupportsScale, Converter={StaticResource BoolToVis}}">
                     <StackPanel Orientation="Horizontal" Spacing="8">
                         <FontIcon FontSize="14" Glyph="&#xE740;" />
-                        <TextBlock x:Uid="Workload_K8sDetailPage_003"  />
+                        <TextBlock x:Uid="Workload_K8sDetailPage_003" i18n:Localization.Uid="Workload_K8sDetailPage_003"  />
                     </StackPanel>
                 </Button>
-                <Button x:Uid="Workload_K8sDetailPage_004"
+                <Button x:Uid="Workload_K8sDetailPage_004" i18n:Localization.Uid="Workload_K8sDetailPage_004"
                     Command="{x:Bind ViewModel.RestartCommand}"
 
                     Visibility="{x:Bind ViewModel.SupportsScale, Converter={StaticResource BoolToVis}}">
                     <FontIcon FontSize="14" Glyph="&#xE72C;" />
                 </Button>
-                <Button x:Uid="Workload_K8sDetailPage_005"
+                <Button x:Uid="Workload_K8sDetailPage_005" i18n:Localization.Uid="Workload_K8sDetailPage_005"
                     Command="{x:Bind ViewModel.TriggerCronCommand}"
                     Visibility="{x:Bind ViewModel.SupportsCron, Converter={StaticResource BoolToVis}}">
                     <StackPanel Orientation="Horizontal" Spacing="8">
                         <FontIcon FontSize="14" Glyph="&#xE768;" />
-                        <TextBlock x:Uid="Workload_K8sDetailPage_006"  />
+                        <TextBlock x:Uid="Workload_K8sDetailPage_006" i18n:Localization.Uid="Workload_K8sDetailPage_006"  />
                     </StackPanel>
                 </Button>
-                <Button x:Uid="Workload_K8sDetailPage_007"
+                <Button x:Uid="Workload_K8sDetailPage_007" i18n:Localization.Uid="Workload_K8sDetailPage_007"
                     Command="{x:Bind ViewModel.ToggleSuspendCommand}"
 
                     Visibility="{x:Bind ViewModel.SupportsCron, Converter={StaticResource BoolToVis}}">
                     <FontIcon FontSize="14" Glyph="&#xE769;" />
                 </Button>
-                <Button x:Uid="Workload_K8sDetailPage_008" Command="{x:Bind ViewModel.RefreshAllCommand}"  >
+                <Button x:Uid="Workload_K8sDetailPage_008" i18n:Localization.Uid="Workload_K8sDetailPage_008" Command="{x:Bind ViewModel.RefreshAllCommand}"  >
                     <FontIcon FontSize="14" Glyph="&#xE72C;" />
                 </Button>
-                <Button x:Uid="Workload_K8sDetailPage_009"   Command="{x:Bind ViewModel.DeleteCommand}">
+                <Button x:Uid="Workload_K8sDetailPage_009" i18n:Localization.Uid="Workload_K8sDetailPage_009"   Command="{x:Bind ViewModel.DeleteCommand}">
                     <FontIcon FontSize="14" Glyph="&#xE74D;" />
                 </Button>
             </StackPanel>
@@ -123,7 +124,7 @@
             x:Name="DetailTabs"
             Grid.Row="2"
             SelectionChanged="DetailTabs_SelectionChanged">
-            <SelectorBarItem x:Uid="Workload_K8sDetailPage_010"
+            <SelectorBarItem x:Uid="Workload_K8sDetailPage_010" i18n:Localization.Uid="Workload_K8sDetailPage_010"
                 x:Name="TabSummary"
                 IsSelected="True"
                 >
@@ -131,17 +132,17 @@
                     <FontIcon Glyph="&#xE946;" />
                 </SelectorBarItem.Icon>
             </SelectorBarItem>
-            <SelectorBarItem x:Uid="Workload_K8sDetailPage_011" x:Name="TabKube" >
+            <SelectorBarItem x:Uid="Workload_K8sDetailPage_011" i18n:Localization.Uid="Workload_K8sDetailPage_011" x:Name="TabKube" >
                 <SelectorBarItem.Icon>
                     <FontIcon Glyph="&#xE943;" />
                 </SelectorBarItem.Icon>
             </SelectorBarItem>
-            <SelectorBarItem x:Uid="Workload_K8sDetailPage_012" x:Name="TabDescribe" >
+            <SelectorBarItem x:Uid="Workload_K8sDetailPage_012" i18n:Localization.Uid="Workload_K8sDetailPage_012" x:Name="TabDescribe" >
                 <SelectorBarItem.Icon>
                     <FontIcon Glyph="&#xE7C3;" />
                 </SelectorBarItem.Icon>
             </SelectorBarItem>
-            <SelectorBarItem x:Uid="Workload_K8sDetailPage_013" x:Name="TabLogs" >
+            <SelectorBarItem x:Uid="Workload_K8sDetailPage_013" i18n:Localization.Uid="Workload_K8sDetailPage_013" x:Name="TabLogs" >
                 <SelectorBarItem.Icon>
                     <FontIcon Glyph="&#xE9D9;" />
                 </SelectorBarItem.Icon>
@@ -160,27 +161,27 @@
                 <ScrollViewer Padding="20,16">
                     <StackPanel Spacing="14">
                         <StackPanel Spacing="4">
-                            <TextBlock x:Uid="Workload_K8sDetailPage_014"
+                            <TextBlock x:Uid="Workload_K8sDetailPage_014" i18n:Localization.Uid="Workload_K8sDetailPage_014"
                                 FontSize="12"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                  />
                             <TextBlock Text="{x:Bind ViewModel.DisplayKind, Mode=OneWay}" />
                         </StackPanel>
                         <StackPanel Spacing="4">
-                            <TextBlock x:Uid="Workload_K8sDetailPage_015"
+                            <TextBlock x:Uid="Workload_K8sDetailPage_015" i18n:Localization.Uid="Workload_K8sDetailPage_015"
                                 FontSize="12"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                  />
                             <TextBlock FontWeight="SemiBold" Text="{x:Bind ViewModel.Title, Mode=OneWay}" />
                         </StackPanel>
                         <StackPanel Spacing="4">
-                            <TextBlock x:Uid="Workload_K8sDetailPage_016"
+                            <TextBlock x:Uid="Workload_K8sDetailPage_016" i18n:Localization.Uid="Workload_K8sDetailPage_016"
                                 FontSize="12"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                  />
                             <TextBlock Text="{x:Bind ViewModel.Subtitle, Mode=OneWay}" />
                         </StackPanel>
-                        <TextBlock x:Uid="Workload_K8sDetailPage_017"
+                        <TextBlock x:Uid="Workload_K8sDetailPage_017" i18n:Localization.Uid="Workload_K8sDetailPage_017"
                             Margin="0,4,0,0"
                             FontSize="12"
                             Foreground="{ThemeResource TextFillColorSecondaryBrush}"
@@ -205,13 +206,13 @@
                         Style="{ThemeResource AccentButtonStyle}">
                         <StackPanel Orientation="Horizontal" Spacing="8">
                             <FontIcon FontSize="14" Glyph="&#xE898;" />
-                            <TextBlock x:Uid="Workload_K8sDetailPage_018"  />
+                            <TextBlock x:Uid="Workload_K8sDetailPage_018" i18n:Localization.Uid="Workload_K8sDetailPage_018"  />
                         </StackPanel>
                     </Button>
                     <Button Command="{x:Bind ViewModel.RefreshAllCommand}">
                         <StackPanel Orientation="Horizontal" Spacing="8">
                             <FontIcon FontSize="14" Glyph="&#xE72C;" />
-                            <TextBlock x:Uid="Workload_K8sDetailPage_019"  />
+                            <TextBlock x:Uid="Workload_K8sDetailPage_019" i18n:Localization.Uid="Workload_K8sDetailPage_019"  />
                         </StackPanel>
                     </Button>
                     <ProgressRing
@@ -264,7 +265,7 @@
                 <Button Grid.Row="0" Command="{x:Bind ViewModel.RefreshLogsCommand}">
                     <StackPanel Orientation="Horizontal" Spacing="8">
                         <FontIcon FontSize="14" Glyph="&#xE72C;" />
-                        <TextBlock x:Uid="Workload_K8sDetailPage_020"  />
+                        <TextBlock x:Uid="Workload_K8sDetailPage_020" i18n:Localization.Uid="Workload_K8sDetailPage_020"  />
                     </StackPanel>
                 </Button>
                 <Border
