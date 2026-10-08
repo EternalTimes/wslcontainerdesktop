@@ -9433,4 +9433,1296 @@ Model staging contacts the official Azure model registry and pinned Azure Blob c
   <data name="Root_Audit_Enum_NotRequired" xml:space="preserve">
     <value>NotRequired</value>
   </data>
+  <data name="Common_Complete0000" xml:space="preserve">
+    <value>The assistant will carry out every action immediately — including removing containers and volumes, and deploying Compose stacks it wrote itself.
+
+You will not be asked again until you turn this back off. Actions still appear in Activity, and plans the app cannot apply safely are still refused.</value>
+  </data>
+  <data name="Common_Complete0001" xml:space="preserve">
+    <value>The assistant will carry out every action immediately — including removing containers and volumes, and deploying Compose stacks it wrote itself.</value>
+  </data>
+  <data name="Common_Complete0002" xml:space="preserve">
+    <value>You will not be asked again until you turn this back off. Actions still appear in Activity, and plans the app cannot apply safely are still refused.</value>
+  </data>
+  <data name="Common_Complete0003" xml:space="preserve">
+    <value>The assistant will be able to remove containers, volumes and networks, and delete Kubernetes resources. Removing a volume destroys the data in it, and none of this can be undone by the app.
+
+It will still ask before each one unless you also auto-approve that action below.</value>
+  </data>
+  <data name="Common_Complete0004" xml:space="preserve">
+    <value>The assistant will be able to remove containers, volumes and networks, and delete Kubernetes resources. Removing a volume destroys the data in it, and none of this can be undone by the app.</value>
+  </data>
+  <data name="Common_Complete0005" xml:space="preserve">
+    <value>Startup is turned off for this app in Windows Task Manager (Startup apps). Re-enable it there to allow launching at sign-in.</value>
+  </data>
+  <data name="Common_Complete0006" xml:space="preserve">
+    <value>This app's startup is controlled in Task Manager → Startup apps. Please enable it there.</value>
+  </data>
+  <data name="Common_Complete0007" xml:space="preserve">
+    <value>Startup for this app is turned off in Windows Task Manager (Startup apps). Enable it there to allow launching at sign-in.</value>
+  </data>
+  <data name="Common_Complete0008" xml:space="preserve">
+    <value>Download '{0}' to {1}?
+
+Models can be several GB and are downloaded by the Ollama runtime.</value>
+  </data>
+  <data name="Common_Complete0009" xml:space="preserve">
+    <value>Download '{0}' to {1}?</value>
+  </data>
+  <data name="Common_Complete0010" xml:space="preserve">
+    <value>The runtime is ready but has no model yet, so it cannot answer anything.
+
+Download {0}? It is a small chat model that supports tool calling, so the AI assistant can work.
+
+• About 5 GB, downloaded by the Ollama runtime
+• You can pick a different model later under Provider</value>
+  </data>
+  <data name="Common_Complete0011" xml:space="preserve">
+    <value>The runtime is ready but has no model yet, so it cannot answer anything.</value>
+  </data>
+  <data name="Common_Complete0012" xml:space="preserve">
+    <value>Download {0}? It is a small chat model that supports tool calling, so the AI assistant can work.</value>
+  </data>
+  <data name="Common_Complete0013" xml:space="preserve">
+    <value>• About 5 GB, downloaded by the Ollama runtime</value>
+  </data>
+  <data name="Common_Complete0014" xml:space="preserve">
+    <value>Using model '{0}', but tool calling was not confirmed, so the assistant stays hidden. Try a tool-capable model such as qwen2.5:7b, or use Test capabilities for details.</value>
+  </data>
+  <data name="Common_Complete0015" xml:space="preserve">
+    <value>This removes the app's '{0}' container.
+
+Ollama installed outside this app, other containers, and remote endpoints are not touched.</value>
+  </data>
+  <data name="Common_Complete0016" xml:space="preserve">
+    <value>This removes the app's '{0}' container.</value>
+  </data>
+  <data name="Common_Complete0017" xml:space="preserve">
+    <value>Downloaded models can be several GB.
+
+Delete them to free the space, or keep them so setting up again is fast.</value>
+  </data>
+  <data name="Common_Complete0018" xml:space="preserve">
+    <value>Downloaded models can be several GB.</value>
+  </data>
+  <data name="Common_Complete0019" xml:space="preserve">
+    <value>{0} | cached: {1} | loaded: {2}
+  version: {3}; size MB: {4}; license: {5}
+  license information: {6}; task: {7}; format: {8}
+  hardware target: {9}; EP: {10} (advertised, not validated); tools advertised: {11}</value>
+  </data>
+  <data name="Common_Complete0020" xml:space="preserve">
+    <value>{0} | cached: {1} | loaded: {2}</value>
+  </data>
+  <data name="Common_Complete0021" xml:space="preserve">
+    <value>  version: {0}; size MB: {1}; license: {2}</value>
+  </data>
+  <data name="Common_Complete0022" xml:space="preserve">
+    <value>  license information: {0}; task: {1}; format: {2}</value>
+  </data>
+  <data name="Common_Complete0023" xml:space="preserve">
+    <value>Catalog: {0}; cached: {1}; loaded: {2}.
+Cached IDs: {3}
+Loaded IDs: {4}
+Showing up to 100 catalog entries. Registered external entries are not eligible for local inference.
+</value>
+  </data>
+  <data name="Common_Complete0024" xml:space="preserve">
+    <value>Catalog: {0}; cached: {1}; loaded: {2}.</value>
+  </data>
+  <data name="Common_Complete0025" xml:space="preserve">
+    <value>Cached IDs: {0}</value>
+  </data>
+  <data name="Common_Complete0026" xml:space="preserve">
+    <value>Loaded IDs: {0}</value>
+  </data>
+  <data name="Common_Complete0027" xml:space="preserve">
+    <value>Showing up to 100 catalog entries. Registered external entries are not eligible for local inference.</value>
+  </data>
+  <data name="Common_Complete0028" xml:space="preserve">
+    <value> Any tool calls it already completed still happened and were recorded; review them before retrying, and try narrowing the request into a single step.</value>
+  </data>
+  <data name="Common_Complete0029" xml:space="preserve">
+    <value>This removes the Foundry Local runtime from this PC.
+
+• Downloaded models are kept on disk
+• Shared Windows components stay installed
+• Your other AI providers are unchanged
+
+You can set it up again from Quick start.</value>
+  </data>
+  <data name="Common_Complete0030" xml:space="preserve">
+    <value>This removes the Foundry Local runtime from this PC.</value>
+  </data>
+  <data name="Common_Complete0031" xml:space="preserve">
+    <value>• Downloaded models are kept on disk</value>
+  </data>
+  <data name="Common_Complete0032" xml:space="preserve">
+    <value>• Shared Windows components stay installed</value>
+  </data>
+  <data name="Common_Complete0033" xml:space="preserve">
+    <value>• Your other AI providers are unchanged</value>
+  </data>
+  <data name="Common_Complete0034" xml:space="preserve">
+    <value>This sets up Foundry Local on this PC and prepares a small CPU chat model, then selects it as your AI provider.
+
+• Downloads about 878 MB of model files (Apache-2.0 licensed)
+• Uses roughly 1.76 GB of disk once prepared
+• Keeps any existing Foundry installation, models and settings
+• Runs one short local test prompt; your project data is never sent
+
+Setup needs the network. Cancelling partway does not undo what already completed.</value>
+  </data>
+  <data name="Common_Complete0035" xml:space="preserve">
+    <value>This sets up Foundry Local on this PC and prepares a small CPU chat model, then selects it as your AI provider.</value>
+  </data>
+  <data name="Common_Complete0036" xml:space="preserve">
+    <value>• Downloads about 878 MB of model files (Apache-2.0 licensed)</value>
+  </data>
+  <data name="Common_Complete0037" xml:space="preserve">
+    <value>• Uses roughly 1.76 GB of disk once prepared</value>
+  </data>
+  <data name="Common_Complete0038" xml:space="preserve">
+    <value>• Keeps any existing Foundry installation, models and settings</value>
+  </data>
+  <data name="Common_Complete0039" xml:space="preserve">
+    <value>• Runs one short local test prompt; your project data is never sent</value>
+  </data>
+  <data name="Common_Complete0040" xml:space="preserve">
+    <value>volumes, and deploying Compose stacks it wrote itself.</value>
+  </data>
+  <data name="Common_Complete0041" xml:space="preserve">
+    <value>the app.</value>
+  </data>
+  <data name="Common_Complete0042" xml:space="preserve">
+    <value>Connected to WSL container engine.</value>
+  </data>
+  <data name="Common_Complete0043" xml:space="preserve">
+    <value>Could not reach the WSL container engine using:</value>
+  </data>
+  <data name="Common_Complete0044" xml:space="preserve">
+    <value>Review and confirm to change the endpoint setting.</value>
+  </data>
+  <data name="Common_Complete0045" xml:space="preserve">
+    <value>Enter an exact model ID advertised by this server, then discover again. No model was selected automatically.</value>
+  </data>
+  <data name="Common_Complete0046" xml:space="preserve">
+    <value>Settings and runtime were not changed. Enter the actual endpoint manually or inspect the standalone installation.</value>
+  </data>
+  <data name="Common_Complete0047" xml:space="preserve">
+    <value>No fallback or acquisition was attempted. Refresh state before retrying.</value>
+  </data>
+  <data name="Common_Complete0048" xml:space="preserve">
+    <value>AI features are turned off.</value>
+  </data>
+  <data name="Common_Complete0049" xml:space="preserve">
+    <value>Turn them on in Settings &gt; AI.</value>
+  </data>
+  <data name="Common_Complete0050" xml:space="preserve">
+    <value>No AI provider is configured.</value>
+  </data>
+  <data name="Common_Complete0051" xml:space="preserve">
+    <value>Choose one in Settings &gt; AI.</value>
+  </data>
+  <data name="Common_Complete0052" xml:space="preserve">
+    <value>The provider has not been checked yet.</value>
+  </data>
+  <data name="Common_Complete0053" xml:space="preserve">
+    <value>Use Test capabilities in Settings &gt; AI diagnostics.</value>
+  </data>
+  <data name="Common_Complete0054" xml:space="preserve">
+    <value>Foundry Local returned an unrecognized CLI version.</value>
+  </data>
+  <data name="Common_Complete0055" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Foundry Local returned an unrecognized CLI version. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0056" xml:space="preserve">
+    <value>Foundry Local returned an unrecognized CLI version. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0057" xml:space="preserve">
+    <value>This CLI does not advertise a recognized server/service status command. No fallback was attempted.</value>
+  </data>
+  <data name="Common_Complete0058" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: This CLI does not advertise a recognized server/service status command. No fallback was attempted. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0059" xml:space="preserve">
+    <value>This CLI does not advertise a recognized server/service status command. No fallback was attempted. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0060" xml:space="preserve">
+    <value>The installed CLI does not advertise status in its server/service help. Enter the actual endpoint manually; no status syntax was inferred from the version.</value>
+  </data>
+  <data name="Common_Complete0061" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: The installed CLI does not advertise status in its server/service help. Enter the actual endpoint manually; no status syntax was inferred from the version. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0062" xml:space="preserve">
+    <value>The installed CLI does not advertise status in its server/service help. Enter the actual endpoint manually; no status syntax was inferred from the version. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0063" xml:space="preserve">
+    <value>Foundry Local is stopped. Stale stored URLs/PIDs cannot be used; explicitly start the runtime before connecting.</value>
+  </data>
+  <data name="Common_Complete0064" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Foundry Local is stopped. Stale stored URLs/PIDs cannot be used; explicitly start the runtime before connecting. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0065" xml:space="preserve">
+    <value>Foundry Local is stopped. Stale stored URLs/PIDs cannot be used; explicitly start the runtime before connecting. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0066" xml:space="preserve">
+    <value>Foundry Local reports multiple service URLs; choose the actual endpoint explicitly.</value>
+  </data>
+  <data name="Common_Complete0067" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Foundry Local reports multiple service URLs; choose the actual endpoint explicitly. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0068" xml:space="preserve">
+    <value>Foundry Local reports multiple service URLs; choose the actual endpoint explicitly. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0069" xml:space="preserve">
+    <value>Standalone server status is supported only for observed CLI 0.10.3.</value>
+  </data>
+  <data name="Common_Complete0070" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Standalone server status is supported only for observed CLI 0.10.3. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0071" xml:space="preserve">
+    <value>Standalone server status is supported only for observed CLI 0.10.3. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0072" xml:space="preserve">
+    <value>Unknown start acknowledgement. The daemon may be running; inspect status. No automatic retry or stop.</value>
+  </data>
+  <data name="Common_Complete0073" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Unknown start acknowledgement. The daemon may be running; inspect status. No automatic retry or stop. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0074" xml:space="preserve">
+    <value>Unknown start acknowledgement. The daemon may be running; inspect status. No automatic retry or stop. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0075" xml:space="preserve">
+    <value>Invalid start URL.</value>
+  </data>
+  <data name="Common_Complete0076" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Invalid start URL. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0077" xml:space="preserve">
+    <value>Invalid start URL. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0078" xml:space="preserve">
+    <value>Only the exact audited CPU model version can be managed. No alias or catalog-selected variant is permitted.</value>
+  </data>
+  <data name="Common_Complete0079" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Only the exact audited CPU model version can be managed. No alias or catalog-selected variant is permitted. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0080" xml:space="preserve">
+    <value>Only the exact audited CPU model version can be managed. No alias or catalog-selected variant is permitted. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0081" xml:space="preserve">
+    <value>Lifecycle operations require the verified standalone CLI 0.10.3 contract.</value>
+  </data>
+  <data name="Common_Complete0082" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Lifecycle operations require the verified standalone CLI 0.10.3 contract. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0083" xml:space="preserve">
+    <value>Lifecycle operations require the verified standalone CLI 0.10.3 contract. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0084" xml:space="preserve">
+    <value>Foundry did not confirm the requested mutation. Outcome is uncertain; inspect status. No automatic retry.</value>
+  </data>
+  <data name="Common_Complete0085" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Foundry did not confirm the requested mutation. Outcome is uncertain; inspect status. No automatic retry. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0086" xml:space="preserve">
+    <value>Foundry did not confirm the requested mutation. Outcome is uncertain; inspect status. No automatic retry. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0087" xml:space="preserve">
+    <value>Unknown Foundry server-status schema.</value>
+  </data>
+  <data name="Common_Complete0088" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Unknown Foundry server-status schema. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0089" xml:space="preserve">
+    <value>Unknown Foundry server-status schema. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0090" xml:space="preserve">
+    <value>Running Foundry status lacks a process/start identity or service URLs.</value>
+  </data>
+  <data name="Common_Complete0091" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Running Foundry status lacks a process/start identity or service URLs. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0092" xml:space="preserve">
+    <value>Running Foundry status lacks a process/start identity or service URLs. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0093" xml:space="preserve">
+    <value>Unknown Foundry URL metadata.</value>
+  </data>
+  <data name="Common_Complete0094" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Unknown Foundry URL metadata. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0095" xml:space="preserve">
+    <value>Unknown Foundry URL metadata. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0096" xml:space="preserve">
+    <value>Foundry status has missing or duplicate service URLs.</value>
+  </data>
+  <data name="Common_Complete0097" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Foundry status has missing or duplicate service URLs. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0098" xml:space="preserve">
+    <value>Foundry status has missing or duplicate service URLs. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0099" xml:space="preserve">
+    <value>Cache-location schema is verified only for CLI 0.10.3. No cache or model mutation attempted.</value>
+  </data>
+  <data name="Common_Complete0100" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Cache-location schema is verified only for CLI 0.10.3. No cache or model mutation attempted. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0101" xml:space="preserve">
+    <value>Cache-location schema is verified only for CLI 0.10.3. No cache or model mutation attempted. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0102" xml:space="preserve">
+    <value>This CLI does not advertise cache commands; no fallback attempted.</value>
+  </data>
+  <data name="Common_Complete0103" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: This CLI does not advertise cache commands; no fallback attempted. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0104" xml:space="preserve">
+    <value>This CLI does not advertise cache commands; no fallback attempted. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0105" xml:space="preserve">
+    <value>This CLI does not advertise cache location; no fallback attempted.</value>
+  </data>
+  <data name="Common_Complete0106" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: This CLI does not advertise cache location; no fallback attempted. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0107" xml:space="preserve">
+    <value>This CLI does not advertise cache location; no fallback attempted. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0108" xml:space="preserve">
+    <value>Unknown Foundry cache-location schema. No cache or settings changed.</value>
+  </data>
+  <data name="Common_Complete0109" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Unknown Foundry cache-location schema. No cache or settings changed. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0110" xml:space="preserve">
+    <value>Unknown Foundry cache-location schema. No cache or settings changed. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0111" xml:space="preserve">
+    <value>Foundry reported an unsafe cache location. No files written.</value>
+  </data>
+  <data name="Common_Complete0112" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Foundry reported an unsafe cache location. No files written. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0113" xml:space="preserve">
+    <value>Foundry reported an unsafe cache location. No files written. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0114" xml:space="preserve">
+    <value>Foundry Local CLI was not found on the absolute Windows PATH. No installation or runtime start was attempted. Standalone metadata requires CLI process identity even for a manually entered runtime URL.</value>
+  </data>
+  <data name="Common_Complete0115" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Foundry Local CLI was not found on the absolute Windows PATH. No installation or runtime start was attempted. Standalone metadata requires CLI process identity even for a manually entered runtime URL. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0116" xml:space="preserve">
+    <value>Foundry Local CLI was not found on the absolute Windows PATH. No installation or runtime start was attempted. Standalone metadata requires CLI process identity even for a manually entered runtime URL. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0117" xml:space="preserve">
+    <value>Foundry Local CLI discovery failed. Inspect the standalone installation and running server; no automatic retry, install or start was attempted.</value>
+  </data>
+  <data name="Common_Complete0118" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Foundry Local CLI discovery failed. Inspect the standalone installation and running server; no automatic retry, install or start was attempted. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0119" xml:space="preserve">
+    <value>Foundry Local CLI discovery failed. Inspect the standalone installation and running server; no automatic retry, install or start was attempted. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0120" xml:space="preserve">
+    <value>Foundry Local CLI discovery output exceeded its metadata limit.</value>
+  </data>
+  <data name="Common_Complete0121" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Foundry Local CLI discovery output exceeded its metadata limit. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0122" xml:space="preserve">
+    <value>Foundry Local CLI discovery output exceeded its metadata limit. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0123" xml:space="preserve">
+    <value>Server status did not report exactly one unambiguous endpoint. Enter the actual loopback URL manually; no default port was inferred.</value>
+  </data>
+  <data name="Common_Complete0124" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Server status did not report exactly one unambiguous endpoint. Enter the actual loopback URL manually; no default port was inferred. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0125" xml:space="preserve">
+    <value>Server status did not report exactly one unambiguous endpoint. Enter the actual loopback URL manually; no default port was inferred. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0126" xml:space="preserve">
+    <value>An absolute local setup cache is required.</value>
+  </data>
+  <data name="Common_Complete0127" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: An absolute local setup cache is required. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0128" xml:space="preserve">
+    <value>An absolute local setup cache is required. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0129" xml:space="preserve">
+    <value>No approved download manifest is available.</value>
+  </data>
+  <data name="Common_Complete0130" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: No approved download manifest is available. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0131" xml:space="preserve">
+    <value>No approved download manifest is available. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0132" xml:space="preserve">
+    <value>Setup cache has no existing local parent.</value>
+  </data>
+  <data name="Common_Complete0133" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Setup cache has no existing local parent. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0134" xml:space="preserve">
+    <value>Setup cache has no existing local parent. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0135" xml:space="preserve">
+    <value>The approved prerequisite entry is missing, duplicated or has a different size.</value>
+  </data>
+  <data name="Common_Complete0136" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: The approved prerequisite entry is missing, duplicated or has a different size. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0137" xml:space="preserve">
+    <value>The approved prerequisite entry is missing, duplicated or has a different size. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0138" xml:space="preserve">
+    <value>Download Content-Length differs from the approved exact size.</value>
+  </data>
+  <data name="Common_Complete0139" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Download Content-Length differs from the approved exact size. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0140" xml:space="preserve">
+    <value>Download Content-Length differs from the approved exact size. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0141" xml:space="preserve">
+    <value>Download redirect is outside the approved HTTPS release-asset hosts.</value>
+  </data>
+  <data name="Common_Complete0142" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Download redirect is outside the approved HTTPS release-asset hosts. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0143" xml:space="preserve">
+    <value>Download redirect is outside the approved HTTPS release-asset hosts. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0144" xml:space="preserve">
+    <value>Download redirect could not be resolved within its limit.</value>
+  </data>
+  <data name="Common_Complete0145" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Download redirect could not be resolved within its limit. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0146" xml:space="preserve">
+    <value>Download redirect could not be resolved within its limit. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0147" xml:space="preserve">
+    <value>Approved artifact download failed with HTTP {0}. No retry was attempted.</value>
+  </data>
+  <data name="Common_Complete0148" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Approved artifact download failed with HTTP {0}. No retry was attempted. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0149" xml:space="preserve">
+    <value>Approved artifact download failed with HTTP {0}. No retry was attempted. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0150" xml:space="preserve">
+    <value>Download redirect limit exceeded.</value>
+  </data>
+  <data name="Common_Complete0151" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Download redirect limit exceeded. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0152" xml:space="preserve">
+    <value>Download redirect limit exceeded. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0153" xml:space="preserve">
+    <value>Artifact exceeds its approved size; download/extraction stopped.</value>
+  </data>
+  <data name="Common_Complete0154" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Artifact exceeds its approved size; download/extraction stopped. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0155" xml:space="preserve">
+    <value>Artifact exceeds its approved size; download/extraction stopped. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0156" xml:space="preserve">
+    <value>Artifact size/SHA256 does not match the approved manifest; partial retained, never installed.</value>
+  </data>
+  <data name="Common_Complete0157" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Artifact size/SHA256 does not match the approved manifest; partial retained, never installed. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0158" xml:space="preserve">
+    <value>Artifact size/SHA256 does not match the approved manifest; partial retained, never installed. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0159" xml:space="preserve">
+    <value>Existing setup cache failed verification and was retained. Remove the corrupt cached artifact manually before retrying.</value>
+  </data>
+  <data name="Common_Complete0160" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Existing setup cache failed verification and was retained. Remove the corrupt cached artifact manually before retrying. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0161" xml:space="preserve">
+    <value>Existing setup cache failed verification and was retained. Remove the corrupt cached artifact manually before retrying. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0162" xml:space="preserve">
+    <value>Reparse points are not allowed in the setup cache.</value>
+  </data>
+  <data name="Common_Complete0163" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Reparse points are not allowed in the setup cache. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0164" xml:space="preserve">
+    <value>Reparse points are not allowed in the setup cache. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0165" xml:space="preserve">
+    <value>Foundry Local requires an explicit loopback HTTP(S) URL and port, optionally ending in /v1. Remote hosts, credentials, query strings and fragments are not allowed.</value>
+  </data>
+  <data name="Common_Complete0166" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Foundry Local requires an explicit loopback HTTP(S) URL and port, optionally ending in /v1. Remote hosts, credentials, query strings and fragments are not allowed. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0167" xml:space="preserve">
+    <value>Foundry Local requires an explicit loopback HTTP(S) URL and port, optionally ending in /v1. Remote hosts, credentials, query strings and fragments are not allowed. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0168" xml:space="preserve">
+    <value>Foundry Local socket destinations must be loopback.</value>
+  </data>
+  <data name="Common_Complete0169" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Foundry Local socket destinations must be loopback. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0170" xml:space="preserve">
+    <value>Foundry Local socket destinations must be loopback. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0171" xml:space="preserve">
+    <value>An explicit Foundry Local socket port is required.</value>
+  </data>
+  <data name="Common_Complete0172" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: An explicit Foundry Local socket port is required. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0173" xml:space="preserve">
+    <value>An explicit Foundry Local socket port is required. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0174" xml:space="preserve">
+    <value>Original setup approval/configuration changed. No further mutation requested.</value>
+  </data>
+  <data name="Common_Complete0175" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Original setup approval/configuration changed. No further mutation requested. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0176" xml:space="preserve">
+    <value>Original setup approval/configuration changed. No further mutation requested. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0177" xml:space="preserve">
+    <value>The existing server changed during preparation. Files retained; review the new server before loading.</value>
+  </data>
+  <data name="Common_Complete0178" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: The existing server changed during preparation. Files retained; review the new server before loading. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0179" xml:space="preserve">
+    <value>The existing server changed during preparation. Files retained; review the new server before loading. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0180" xml:space="preserve">
+    <value>No unambiguous running endpoint was observed. Prepared files retained; no endpoint guessed.</value>
+  </data>
+  <data name="Common_Complete0181" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: No unambiguous running endpoint was observed. Prepared files retained; no endpoint guessed. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0182" xml:space="preserve">
+    <value>No unambiguous running endpoint was observed. Prepared files retained; no endpoint guessed. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0183" xml:space="preserve">
+    <value>The prepared server was replaced during catalog inspection. No replacement server will be loaded.</value>
+  </data>
+  <data name="Common_Complete0184" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: The prepared server was replaced during catalog inspection. No replacement server will be loaded. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0185" xml:space="preserve">
+    <value>The prepared server was replaced during catalog inspection. No replacement server will be loaded. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0186" xml:space="preserve">
+    <value>The runtime did not discover the registered model. No catalog alias or different variant will be loaded.</value>
+  </data>
+  <data name="Common_Complete0187" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: The runtime did not discover the registered model. No catalog alias or different variant will be loaded. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0188" xml:space="preserve">
+    <value>The runtime did not discover the registered model. No catalog alias or different variant will be loaded. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0189" xml:space="preserve">
+    <value>A prepared local package path is required.</value>
+  </data>
+  <data name="Common_Complete0190" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: A prepared local package path is required. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0191" xml:space="preserve">
+    <value>A prepared local package path is required. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0192" xml:space="preserve">
+    <value>Reparse points are not allowed for prepared packages.</value>
+  </data>
+  <data name="Common_Complete0193" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Reparse points are not allowed for prepared packages. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0194" xml:space="preserve">
+    <value>Reparse points are not allowed for prepared packages. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0195" xml:space="preserve">
+    <value>Prepared package bytes do not match the approved artifact.</value>
+  </data>
+  <data name="Common_Complete0196" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Prepared package bytes do not match the approved artifact. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0197" xml:space="preserve">
+    <value>Prepared package bytes do not match the approved artifact. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0198" xml:space="preserve">
+    <value>An absolute local model cache is required.</value>
+  </data>
+  <data name="Common_Complete0199" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: An absolute local model cache is required. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0200" xml:space="preserve">
+    <value>An absolute local model cache is required. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0201" xml:space="preserve">
+    <value>An exact nine-file model manifest is required.</value>
+  </data>
+  <data name="Common_Complete0202" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: An exact nine-file model manifest is required. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0203" xml:space="preserve">
+    <value>An exact nine-file model manifest is required. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0204" xml:space="preserve">
+    <value>Model staging cancelled; partial files retained.</value>
+  </data>
+  <data name="Common_Complete0205" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Model staging cancelled; partial files retained. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0206" xml:space="preserve">
+    <value>Model staging cancelled; partial files retained. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0207" xml:space="preserve">
+    <value>Model staging deadline exceeded; partial files retained. No automatic retry.</value>
+  </data>
+  <data name="Common_Complete0208" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Model staging deadline exceeded; partial files retained. No automatic retry. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0209" xml:space="preserve">
+    <value>Model staging deadline exceeded; partial files retained. No automatic retry. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0210" xml:space="preserve">
+    <value>Model staging failed. Check cache access and connectivity; remove corrupt cache files and their receipts manually before retrying. Partial files retained; no automatic retry.</value>
+  </data>
+  <data name="Common_Complete0211" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Model staging failed. Check cache access and connectivity; remove corrupt cache files and their receipts manually before retrying. Partial files retained; no automatic retry. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0212" xml:space="preserve">
+    <value>Model staging failed. Check cache access and connectivity; remove corrupt cache files and their receipts manually before retrying. Partial files retained; no automatic retry. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0213" xml:space="preserve">
+    <value>Pinned model publication dates do not satisfy the seven-day dependency age policy.</value>
+  </data>
+  <data name="Common_Complete0214" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Pinned model publication dates do not satisfy the seven-day dependency age policy. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0215" xml:space="preserve">
+    <value>Pinned model publication dates do not satisfy the seven-day dependency age policy. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0216" xml:space="preserve">
+    <value>Model payload contains unexpected entries. Remove unexpected cache entries manually before retrying.</value>
+  </data>
+  <data name="Common_Complete0217" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Model payload contains unexpected entries. Remove unexpected cache entries manually before retrying. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0218" xml:space="preserve">
+    <value>Model payload contains unexpected entries. Remove unexpected cache entries manually before retrying. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0219" xml:space="preserve">
+    <value>Incomplete model cache receipt pair. Remove the affected file and receipt manually before retrying; unreceipted bytes are never reused.</value>
+  </data>
+  <data name="Common_Complete0220" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Incomplete model cache receipt pair. Remove the affected file and receipt manually before retrying; unreceipted bytes are never reused. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0221" xml:space="preserve">
+    <value>Incomplete model cache receipt pair. Remove the affected file and receipt manually before retrying; unreceipted bytes are never reused. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0222" xml:space="preserve">
+    <value>Model response ETag, Last-Modified or Content-Length is missing or differs from the pinned manifest. No retry.</value>
+  </data>
+  <data name="Common_Complete0223" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Model response ETag, Last-Modified or Content-Length is missing or differs from the pinned manifest. No retry. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0224" xml:space="preserve">
+    <value>Model response ETag, Last-Modified or Content-Length is missing or differs from the pinned manifest. No retry. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0225" xml:space="preserve">
+    <value>Encoded or partial model responses are not accepted.</value>
+  </data>
+  <data name="Common_Complete0226" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Encoded or partial model responses are not accepted. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0227" xml:space="preserve">
+    <value>Encoded or partial model responses are not accepted. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0228" xml:space="preserve">
+    <value>Model cache receipt is oversized; manual cache recovery is required.</value>
+  </data>
+  <data name="Common_Complete0229" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Model cache receipt is oversized; manual cache recovery is required. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0230" xml:space="preserve">
+    <value>Model cache receipt is oversized; manual cache recovery is required. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0231" xml:space="preserve">
+    <value>Malformed model cache receipt; manual cache recovery is required.</value>
+  </data>
+  <data name="Common_Complete0232" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Malformed model cache receipt; manual cache recovery is required. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0233" xml:space="preserve">
+    <value>Malformed model cache receipt; manual cache recovery is required. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0234" xml:space="preserve">
+    <value>Duplicate model cache receipt fields; manual cache recovery is required.</value>
+  </data>
+  <data name="Common_Complete0235" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Duplicate model cache receipt fields; manual cache recovery is required. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0236" xml:space="preserve">
+    <value>Duplicate model cache receipt fields; manual cache recovery is required. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0237" xml:space="preserve">
+    <value>Model cache receipt does not match the pinned manifest; remove the affected file and receipt manually before retrying.</value>
+  </data>
+  <data name="Common_Complete0238" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Model cache receipt does not match the pinned manifest; remove the affected file and receipt manually before retrying. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0239" xml:space="preserve">
+    <value>Model cache receipt does not match the pinned manifest; remove the affected file and receipt manually before retrying. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0240" xml:space="preserve">
+    <value>Model cache integrity failed; remove the affected file and receipt manually before retrying.</value>
+  </data>
+  <data name="Common_Complete0241" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Model cache integrity failed; remove the affected file and receipt manually before retrying. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0242" xml:space="preserve">
+    <value>Model cache integrity failed; remove the affected file and receipt manually before retrying. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0243" xml:space="preserve">
+    <value>Model registry metadata exceeds the 64 KiB limit.</value>
+  </data>
+  <data name="Common_Complete0244" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Model registry metadata exceeds the 64 KiB limit. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0245" xml:space="preserve">
+    <value>Model registry metadata exceeds the 64 KiB limit. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0246" xml:space="preserve">
+    <value>Model registry metadata has an unknown shape.</value>
+  </data>
+  <data name="Common_Complete0247" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Model registry metadata has an unknown shape. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0248" xml:space="preserve">
+    <value>Model registry metadata has an unknown shape. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0249" xml:space="preserve">
+    <value>Model registry blobSasUri is missing, ambiguous or outside the exact approved HTTPS origin/container.</value>
+  </data>
+  <data name="Common_Complete0250" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Model registry blobSasUri is missing, ambiguous or outside the exact approved HTTPS origin/container. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0251" xml:space="preserve">
+    <value>Model registry blobSasUri is missing, ambiguous or outside the exact approved HTTPS origin/container. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0252" xml:space="preserve">
+    <value>Model staging requires HTTP 200; received HTTP {0}. Redirects, credential refresh and automatic retries are disabled.</value>
+  </data>
+  <data name="Common_Complete0253" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Model staging requires HTTP 200; received HTTP {0}. Redirects, credential refresh and automatic retries are disabled. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0254" xml:space="preserve">
+    <value>Model staging requires HTTP 200; received HTTP {0}. Redirects, credential refresh and automatic retries are disabled. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0255" xml:space="preserve">
+    <value>Model metadata or receipt exceeds its bounded size.</value>
+  </data>
+  <data name="Common_Complete0256" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Model metadata or receipt exceeds its bounded size. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0257" xml:space="preserve">
+    <value>Model metadata or receipt exceeds its bounded size. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0258" xml:space="preserve">
+    <value>Model stream exceeds its pinned size; partial retained, never completed.</value>
+  </data>
+  <data name="Common_Complete0259" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Model stream exceeds its pinned size; partial retained, never completed. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0260" xml:space="preserve">
+    <value>Model stream exceeds its pinned size; partial retained, never completed. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0261" xml:space="preserve">
+    <value>Model stream is shorter than its pinned size; partial retained, never completed.</value>
+  </data>
+  <data name="Common_Complete0262" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Model stream is shorter than its pinned size; partial retained, never completed. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0263" xml:space="preserve">
+    <value>Model stream is shorter than its pinned size; partial retained, never completed. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0264" xml:space="preserve">
+    <value>Model cache requires an existing local parent.</value>
+  </data>
+  <data name="Common_Complete0265" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Model cache requires an existing local parent. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0266" xml:space="preserve">
+    <value>Model cache requires an existing local parent. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0267" xml:space="preserve">
+    <value>The exact nine-file pinned manifest is required.</value>
+  </data>
+  <data name="Common_Complete0268" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: The exact nine-file pinned manifest is required. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0269" xml:space="preserve">
+    <value>The exact nine-file pinned manifest is required. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0270" xml:space="preserve">
+    <value>Foundry cache registration requires Windows.</value>
+  </data>
+  <data name="Common_Complete0271" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Foundry cache registration requires Windows. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0272" xml:space="preserve">
+    <value>Foundry cache registration requires Windows. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0273" xml:space="preserve">
+    <value>Staged model identity or byte count differs from the pinned manifest.</value>
+  </data>
+  <data name="Common_Complete0274" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Staged model identity or byte count differs from the pinned manifest. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0275" xml:space="preserve">
+    <value>Staged model identity or byte count differs from the pinned manifest. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0276" xml:space="preserve">
+    <value>The staged model must have the stager's pinned v4 layout.</value>
+  </data>
+  <data name="Common_Complete0277" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: The staged model must have the stager's pinned v4 layout. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0278" xml:space="preserve">
+    <value>The staged model must have the stager's pinned v4 layout. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0279" xml:space="preserve">
+    <value>The external cache must not be inside the staged model directory.</value>
+  </data>
+  <data name="Common_Complete0280" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: The external cache must not be inside the staged model directory. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0281" xml:space="preserve">
+    <value>The external cache must not be inside the staged model directory. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0282" xml:space="preserve">
+    <value>A source receipt does not match the pinned model manifest.</value>
+  </data>
+  <data name="Common_Complete0283" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: A source receipt does not match the pinned model manifest. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0284" xml:space="preserve">
+    <value>A source receipt does not match the pinned model manifest. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0285" xml:space="preserve">
+    <value>Staged model content no longer matches its integrity receipt.</value>
+  </data>
+  <data name="Common_Complete0286" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Staged model content no longer matches its integrity receipt. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0287" xml:space="preserve">
+    <value>Staged model content no longer matches its integrity receipt. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0288" xml:space="preserve">
+    <value>Existing registration is not a compatible app-owned reservation.</value>
+  </data>
+  <data name="Common_Complete0289" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Existing registration is not a compatible app-owned reservation. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0290" xml:space="preserve">
+    <value>Existing registration is not a compatible app-owned reservation. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0291" xml:space="preserve">
+    <value>Owned partial storage contains an unexpected entry.</value>
+  </data>
+  <data name="Common_Complete0292" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Owned partial storage contains an unexpected entry. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0293" xml:space="preserve">
+    <value>Owned partial storage contains an unexpected entry. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0294" xml:space="preserve">
+    <value>The registration sentinel is not owned by this reservation.</value>
+  </data>
+  <data name="Common_Complete0295" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: The registration sentinel is not owned by this reservation. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0296" xml:space="preserve">
+    <value>The registration sentinel is not owned by this reservation. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0297" xml:space="preserve">
+    <value>Registered model content differs from verified staging; manual recovery is required.</value>
+  </data>
+  <data name="Common_Complete0298" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Registered model content differs from verified staging; manual recovery is required. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0299" xml:space="preserve">
+    <value>Registered model content differs from verified staging; manual recovery is required. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0300" xml:space="preserve">
+    <value>Registered inference metadata differs from the pinned scanner metadata.</value>
+  </data>
+  <data name="Common_Complete0301" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Registered inference metadata differs from the pinned scanner metadata. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0302" xml:space="preserve">
+    <value>Registered inference metadata differs from the pinned scanner metadata. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0303" xml:space="preserve">
+    <value>Model file size differs from the pinned manifest.</value>
+  </data>
+  <data name="Common_Complete0304" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Model file size differs from the pinned manifest. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0305" xml:space="preserve">
+    <value>Model file size differs from the pinned manifest. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0306" xml:space="preserve">
+    <value>Missing registration receipt.</value>
+  </data>
+  <data name="Common_Complete0307" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Missing registration receipt. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0308" xml:space="preserve">
+    <value>Missing registration receipt. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0309" xml:space="preserve">
+    <value>Duplicate receipt property.</value>
+  </data>
+  <data name="Common_Complete0310" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Duplicate receipt property. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0311" xml:space="preserve">
+    <value>Duplicate receipt property. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0312" xml:space="preserve">
+    <value>Oversized registration metadata.</value>
+  </data>
+  <data name="Common_Complete0313" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Oversized registration metadata. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0314" xml:space="preserve">
+    <value>Oversized registration metadata. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0315" xml:space="preserve">
+    <value>An absolute local path without traversal or device syntax is required.</value>
+  </data>
+  <data name="Common_Complete0316" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: An absolute local path without traversal or device syntax is required. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0317" xml:space="preserve">
+    <value>An absolute local path without traversal or device syntax is required. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0318" xml:space="preserve">
+    <value>Cannot inspect a registration entry.</value>
+  </data>
+  <data name="Common_Complete0319" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Cannot inspect a registration entry. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0320" xml:space="preserve">
+    <value>Cannot inspect a registration entry. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0321" xml:space="preserve">
+    <value>Model directory contains unexpected entries; nothing was overwritten.</value>
+  </data>
+  <data name="Common_Complete0322" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Model directory contains unexpected entries; nothing was overwritten. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0323" xml:space="preserve">
+    <value>Model directory contains unexpected entries; nothing was overwritten. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0324" xml:space="preserve">
+    <value>Cannot exclusively access an ordinary local registration entry.</value>
+  </data>
+  <data name="Common_Complete0325" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Cannot exclusively access an ordinary local registration entry. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0326" xml:space="preserve">
+    <value>Cannot exclusively access an ordinary local registration entry. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0327" xml:space="preserve">
+    <value>Reparse points and unexpected entry types are not allowed in model registration.</value>
+  </data>
+  <data name="Common_Complete0328" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Reparse points and unexpected entry types are not allowed in model registration. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0329" xml:space="preserve">
+    <value>Reparse points and unexpected entry types are not allowed in model registration. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0330" xml:space="preserve">
+    <value>Foundry Local inference</value>
+  </data>
+  <data name="Common_Complete0331" xml:space="preserve">
+    <value>AI was disabled or the Foundry Local configuration changed; this turn cannot be sent.</value>
+  </data>
+  <data name="Common_Complete0332" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: AI was disabled or the Foundry Local configuration changed; this turn cannot be sent. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0333" xml:space="preserve">
+    <value>AI was disabled or the Foundry Local configuration changed; this turn cannot be sent. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0334" xml:space="preserve">
+    <value>Foundry Local configuration changed. Refresh before requesting model changes.</value>
+  </data>
+  <data name="Common_Complete0335" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Foundry Local configuration changed. Refresh before requesting model changes. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0336" xml:space="preserve">
+    <value>Foundry Local configuration changed. Refresh before requesting model changes. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0337" xml:space="preserve">
+    <value>A Foundry Local configuration is required.</value>
+  </data>
+  <data name="Common_Complete0338" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: A Foundry Local configuration is required. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0339" xml:space="preserve">
+    <value>A Foundry Local configuration is required. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0340" xml:space="preserve">
+    <value>Choose the actual Foundry Local model ID; no default model or alias is inferred.</value>
+  </data>
+  <data name="Common_Complete0341" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Choose the actual Foundry Local model ID; no default model or alias is inferred. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0342" xml:space="preserve">
+    <value>Choose the actual Foundry Local model ID; no default model or alias is inferred. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0343" xml:space="preserve">
+    <value>Complete approval details exceed the display limit. No download or installation can be authorized.</value>
+  </data>
+  <data name="Common_Complete0344" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Complete approval details exceed the display limit. No download or installation can be authorized. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0345" xml:space="preserve">
+    <value>Complete approval details exceed the display limit. No download or installation can be authorized. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0346" xml:space="preserve">
+    <value>Foundry Local restarted during metadata observation. Refresh before inference.</value>
+  </data>
+  <data name="Common_Complete0347" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Foundry Local restarted during metadata observation. Refresh before inference. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0348" xml:space="preserve">
+    <value>Foundry Local restarted during metadata observation. Refresh before inference. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0349" xml:space="preserve">
+    <value>Unknown Foundry v1 model-list schema.</value>
+  </data>
+  <data name="Common_Complete0350" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Unknown Foundry v1 model-list schema. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0351" xml:space="preserve">
+    <value>Unknown Foundry v1 model-list schema. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0352" xml:space="preserve">
+    <value>Unknown Foundry v1 model identity.</value>
+  </data>
+  <data name="Common_Complete0353" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Unknown Foundry v1 model identity. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0354" xml:space="preserve">
+    <value>Unknown Foundry v1 model identity. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0355" xml:space="preserve">
+    <value>Duplicate Foundry v1 model identities.</value>
+  </data>
+  <data name="Common_Complete0356" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Duplicate Foundry v1 model identities. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0357" xml:space="preserve">
+    <value>Duplicate Foundry v1 model identities. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0358" xml:space="preserve">
+    <value>Foundry Local is stopped; stale stored URLs cannot authorize a connection.</value>
+  </data>
+  <data name="Common_Complete0359" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Foundry Local is stopped; stale stored URLs cannot authorize a connection. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0360" xml:space="preserve">
+    <value>Foundry Local is stopped; stale stored URLs cannot authorize a connection. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0361" xml:space="preserve">
+    <value>Configured Foundry endpoint does not match the observed standalone process. No fallback attempted.</value>
+  </data>
+  <data name="Common_Complete0362" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Configured Foundry endpoint does not match the observed standalone process. No fallback attempted. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0363" xml:space="preserve">
+    <value>Configured Foundry endpoint does not match the observed standalone process. No fallback attempted. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0364" xml:space="preserve">
+    <value>Setup approval was invalidated. No further load or inference requested.</value>
+  </data>
+  <data name="Common_Complete0365" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Setup approval was invalidated. No further load or inference requested. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0366" xml:space="preserve">
+    <value>Setup approval was invalidated. No further load or inference requested. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0367" xml:space="preserve">
+    <value>Load requires the exact registered CPU model version.</value>
+  </data>
+  <data name="Common_Complete0368" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Load requires the exact registered CPU model version. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0369" xml:space="preserve">
+    <value>Load requires the exact registered CPU model version. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0370" xml:space="preserve">
+    <value>The prepared server was replaced before model loading. No replacement server was adopted.</value>
+  </data>
+  <data name="Common_Complete0371" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: The prepared server was replaced before model loading. No replacement server was adopted. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0372" xml:space="preserve">
+    <value>The prepared server was replaced before model loading. No replacement server was adopted. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0373" xml:space="preserve">
+    <value>Foundry restarted during model loading. Readiness was not accepted.</value>
+  </data>
+  <data name="Common_Complete0374" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Foundry restarted during model loading. Readiness was not accepted. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0375" xml:space="preserve">
+    <value>Foundry restarted during model loading. Readiness was not accepted. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0376" xml:space="preserve">
+    <value>The loaded model did not return the expected synthetic readiness response.</value>
+  </data>
+  <data name="Common_Complete0377" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: The loaded model did not return the expected synthetic readiness response. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0378" xml:space="preserve">
+    <value>The loaded model did not return the expected synthetic readiness response. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0379" xml:space="preserve">
+    <value>Foundry restarted during readiness verification.</value>
+  </data>
+  <data name="Common_Complete0380" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: Foundry restarted during readiness verification. Prepared files/packages are retained. No fallback, automatic retry or cleanup.</value>
+  </data>
+  <data name="Common_Complete0381" xml:space="preserve">
+    <value>Foundry restarted during readiness verification. No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0382" xml:space="preserve">
+    <value>Approval invalidated; no registration requested. Verified setup cache is retained for offline reuse. Any interrupted .partial files are retained, never reused or installed; they may be removed manually from the setup cache.</value>
+  </data>
+  <data name="Common_Complete0383" xml:space="preserve">
+    <value>Cancelled or timed out; Windows registration may still complete. No rollback/uninstall attempted. Verified setup cache is retained for offline reuse. Any interrupted .partial files are retained, never reused or installed; they may be removed manually from the setup cache.</value>
+  </data>
+  <data name="Common_Complete0384" xml:space="preserve">
+    <value>Setup cancelled or timed out before registration; no package installation requested. Verified setup cache is retained for offline reuse. Any interrupted .partial files are retained, never reused or installed; they may be removed manually from the setup cache.</value>
+  </data>
+  <data name="Common_Complete0385" xml:space="preserve">
+    <value>Runtime setup failed ({0}); no automatic retry or cleanup. Verified setup cache is retained for offline reuse. Any interrupted .partial files are retained, never reused or installed; they may be removed manually from the setup cache.</value>
+  </data>
+  <data name="Common_Complete0386" xml:space="preserve">
+    <value>Original configuration changed; nothing installed. Verified setup cache is retained for offline reuse. Any interrupted .partial files are retained, never reused or installed; they may be removed manually from the setup cache.</value>
+  </data>
+  <data name="Common_Complete0387" xml:space="preserve">
+    <value>Checking explicit runtime-only installation consent... Verified setup cache is retained for offline reuse. Any interrupted .partial files are retained, never reused or installed; they may be removed manually from the setup cache.</value>
+  </data>
+  <data name="Common_Complete0388" xml:space="preserve">
+    <value>Runtime-only installation declined; nothing installed. Verified setup cache is retained for offline reuse. Any interrupted .partial files are retained, never reused or installed; they may be removed manually from the setup cache.</value>
+  </data>
+  <data name="Common_Complete0389" xml:space="preserve">
+    <value>Approval invalidated by configuration change; nothing installed. Verified setup cache is retained for offline reuse. Any interrupted .partial files are retained, never reused or installed; they may be removed manually from the setup cache.</value>
+  </data>
+  <data name="Common_Complete0390" xml:space="preserve">
+    <value>Installing the exact prepared user-scope MSIX and dependency; no server start or model setup… Verified setup cache is retained for offline reuse. Any interrupted .partial files are retained, never reused or installed; they may be removed manually from the setup cache.</value>
+  </data>
+  <data name="Common_Complete0391" xml:space="preserve">
+    <value>Configuration changed during Windows deployment; the runtime may be installed. Settings were not changed. Inspect packages before retrying. Verified setup cache is retained for offline reuse. Any interrupted .partial files are retained, never reused or installed; they may be removed manually from the setup cache.</value>
+  </data>
+  <data name="Common_Complete0392" xml:space="preserve">
+    <value>Windows deployment did not confirm the exact runtime version. No retry or uninstall attempted; inspect packages. Verified setup cache is retained for offline reuse. Any interrupted .partial files are retained, never reused or installed; they may be removed manually from the setup cache.</value>
+  </data>
+  <data name="Common_Complete0393" xml:space="preserve">
+    <value>Installation cancelled; Windows deployment may still complete. No rollback or uninstall attempted. Inspect packages before retrying. Verified setup cache is retained for offline reuse. Any interrupted .partial files are retained, never reused or installed; they may be removed manually from the setup cache.</value>
+  </data>
+  <data name="Common_Complete0394" xml:space="preserve">
+    <value>Preparation cancelled. No installation requested. Verified setup cache is retained for offline reuse. Any interrupted .partial files are retained, never reused or installed; they may be removed manually from the setup cache.</value>
+  </data>
+  <data name="Common_Complete0395" xml:space="preserve">
+    <value>Prepared installation failed ({0}). No automatic retry, download or cleanup attempted. Verified setup cache is retained for offline reuse. Any interrupted .partial files are retained, never reused or installed; they may be removed manually from the setup cache.</value>
+  </data>
+  <data name="Common_Complete0396" xml:space="preserve">
+    <value>Exact runtime package registered for this user; Microsoft x64 VCLibs prerequisite observed (existing newer versions preserved). No server started or settings changed by this runtime-only step. Registration alone is not model readiness. Standalone 0.10.3 CPU initialization was exercised separately; that is not proof of this app's signed-package deployment or every hardware configuration. Setup registers packages only; it does not start Foundry or fetch missing DLLs, execution providers or models.</value>
+  </data>
+  <data name="Common_Complete0397" xml:space="preserve">
+    <value>Exact runtime package registered for this user; Microsoft x64 VCLibs prerequisite observed (existing newer versions preserved). No server started or settings changed by this runtime-only step. Registration alone is not model readiness. Standalone 0.10.3 CPU initialization was exercised separately; that is not proof of this app's signed-package deployment or every hardware configuration. Setup registers packages only; it does not start Foundry or fetch missing DLLs, execution providers or models. Verified setup cache is retained for offline reuse. Any interrupted .partial files are retained, never reused or installed; they may be removed manually from the setup cache.</value>
+  </data>
+  <data name="Common_Complete0398" xml:space="preserve">
+    <value>Nine pinned CPU model files are staged and reusable offline. They are NOT registered in Foundry or loaded; endpoint/model settings remain unchanged. Staged using pinned official-origin ETags, dates and sizes. Local SHA256 receipts provide subsequent cache integrity, not independent publisher verification. Not registered or loaded.</value>
+  </data>
+  <data name="Common_Complete0399" xml:space="preserve">
+    <value>Model-file preparation cancelled. No runtime or settings changed. Interrupted .partial files are retained and never resumed. Repeated staging rehashes completed files; corrupt or unreceipted cache requires manual recovery before retrying.</value>
+  </data>
+  <data name="Common_Complete0400" xml:space="preserve">
+    <value>Using model '{0}'. Checking what this model supports…</value>
+  </data>
+  <data name="Common_Complete0401" xml:space="preserve">
+    <value>{0} No runtime or settings changed.</value>
+  </data>
+  <data name="Common_Complete0402" xml:space="preserve">
+    <value>Setup cache: {0}</value>
+  </data>
+  <data name="Common_Complete0403" xml:space="preserve">
+    <value>Model-file staging (not the Foundry runtime cache): {0}</value>
+  </data>
+  <data name="Common_Complete0404" xml:space="preserve">
+    <value>Preparation failed: {0}</value>
+  </data>
+  <data name="Common_Complete0405" xml:space="preserve">
+    <value>Discovered catalog IDs (up to 100): {0}</value>
+  </data>
+  <data name="Common_Complete0406" xml:space="preserve">
+    <value>Discovery failed: {0}</value>
+  </data>
+  <data name="Common_Complete0407" xml:space="preserve">
+    <value>Recent engine events unavailable: {0}</value>
+  </data>
+  <data name="Common_Complete0408" xml:space="preserve">
+    <value>Initial-model setup did not confirm readiness: {0}</value>
+  </data>
+  <data name="Common_Complete0409" xml:space="preserve">
+    <value>; engine health: {0}</value>
+  </data>
+  <data name="Common_SetupUnavailable" xml:space="preserve">
+    <value>Unavailable</value>
+  </data>
+  <data name="Common_LocalAiSetupRecovery" xml:space="preserve">
+    <value>{0} {1} Model data was not deleted ({2}). {3}{4}</value>
+  </data>
+  <data name="Common_LocalAiFailedOperation_155" xml:space="preserve">
+    <value>Runtime start failed or was interrupted. No automatic CPU retry will be attempted.</value>
+  </data>
+  <data name="Common_LocalAiFailedOperation_158" xml:space="preserve">
+    <value>Model volume creation failed or was interrupted. No automatic CPU retry will be attempted.</value>
+  </data>
+  <data name="Common_LocalAiFailedOperation_163" xml:space="preserve">
+    <value>Runtime creation failed or was interrupted. No automatic CPU retry will be attempted.</value>
+  </data>
+  <data name="Common_LocalAiFailedOperation_174" xml:space="preserve">
+    <value>Runtime removal failed or was interrupted. No automatic CPU retry will be attempted.</value>
+  </data>
+  <data name="Common_LocalAiFailedOperation_191" xml:space="preserve">
+    <value>Runtime ownership inspection failed or was interrupted. No automatic CPU retry will be attempted.</value>
+  </data>
+  <data name="Common_LocalAiFailedOperation_199" xml:space="preserve">
+    <value>Model volume ownership inspection failed or was interrupted. No automatic CPU retry will be attempted.</value>
+  </data>
+  <data name="Common_LocalAiFailedOperation_211" xml:space="preserve">
+    <value>Partial runtime cleanup failed or was interrupted. No automatic CPU retry will be attempted.</value>
+  </data>
 </root>
