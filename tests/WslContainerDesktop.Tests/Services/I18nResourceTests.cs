@@ -15,6 +15,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System.Xml.Linq;
+using System.Text.RegularExpressions;
 using WslContainerDesktop.Services;
 using Xunit;
 
@@ -50,6 +51,118 @@ public sealed class I18nResourceTests
         var chinese = ResourceKeys(Path.Combine(strings, "zh-Hans", "Resources.resw"));
 
         Assert.Equal(english, chinese);
+        Assert.Equal(english.Length, english.Distinct(StringComparer.Ordinal).Count());
+        Assert.Equal(chinese.Length, chinese.Distinct(StringComparer.Ordinal).Count());
+        // PRI names are case insensitive even though XML permits differently cased data keys.
+        Assert.Equal(english.Length, english.Distinct(StringComparer.OrdinalIgnoreCase).Count());
+        Assert.Equal(chinese.Length, chinese.Distinct(StringComparer.OrdinalIgnoreCase).Count());
+    }
+
+    [Fact]
+    public void AllXamlUidsHaveResourcesAndCompatibleControlTypes()
+    {
+        var source = SourceDirectory();
+        var keys = ResourceKeys(Path.Combine(source, "Strings", "en-US", "Resources.resw"));
+        var uid = XName.Get("Uid", "http://schemas.microsoft.com/winfx/2006/xaml");
+        var liveUid = XName.Get("Localization.Uid", "using:WslContainerDesktop.Helpers");
+        var assignments = Directory.EnumerateFiles(source, "*.xaml", SearchOption.AllDirectories)
+            .Where(path => !path.Contains(Path.DirectorySeparatorChar + "obj" + Path.DirectorySeparatorChar)
+                && !path.Contains(Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar))
+            .SelectMany(path => XDocument.Load(path).Descendants()
+                .Where(element => element.Attribute(uid) is not null)
+                .Select(element =>
+                {
+                    Assert.Equal(element.Attribute(uid)!.Value, element.Attribute(liveUid)?.Value);
+                    return (Uid: element.Attribute(uid)!.Value, Type: element.Name.LocalName);
+                }));
+        foreach (var group in assignments.GroupBy(item => item.Uid))
+        {
+            Assert.Single(group.Select(item => item.Type).Distinct());
+            Assert.Contains(keys, key => key.StartsWith(group.Key + ".", StringComparison.Ordinal));
+            if (group.First().Type is "TextBlock" or "TextBox" or "PasswordBox" or "Run")
+                Assert.DoesNotContain(group.Key + ".Content", keys);
+        }
+    }
+
+    [Fact]
+    public void StaticEnglishUiTextHasResourcesAndLiveLanguageRefresh()
+    {
+        var source = SourceDirectory();
+        var keys = ResourceKeys(Path.Combine(source, "Strings", "en-US", "Resources.resw"))
+            .ToHashSet(StringComparer.Ordinal);
+        var uid = XName.Get("Uid", "http://schemas.microsoft.com/winfx/2006/xaml");
+        var liveUid = XName.Get("Localization.Uid", "using:WslContainerDesktop.Helpers");
+        var textProperties = new HashSet<string>(StringComparer.Ordinal)
+        {
+            "Text", "Header", "Content", "PlaceholderText", "Title", "Description", "Message",
+            "OnContent", "OffContent", "Label", "PaneTitle", "PrimaryButtonText", "SecondaryButtonText",
+            "CloseButtonText", "ToolTipService.ToolTip", "AutomationProperties.Name",
+        };
+        // Exact technical labels and product names stay English. Do not exempt prose merely
+        // because it contains one of these words (such as an untranslated WSL error message).
+        var technicalLabels = new HashSet<string>(StringComparer.Ordinal)
+        {
+            "CPU", "GPU", "IP", "IPV4", "IPv4", "IPV6", "IPv6", "ID", "PID", "API", "Aa",
+            "TCP", "UDP", "HTTP", "HTTPS", "DNS", "URL", "YAML", "JSON", "STDIN", "TTY",
+            "Kubernetes", "k3s", "Compose", "Docker", "WSL", "WSLC", "WSL Container Desktop",
+            "OpenAI", "Azure OpenAI", "Ollama", "Foundry Local", "GitHub Copilot", "MiniMax",
+        };
+        var missing = new List<string>();
+        foreach (var folder in new[] { "Views", "Dialogs" })
+            foreach (var file in Directory.EnumerateFiles(Path.Combine(source, folder), "*.xaml", SearchOption.AllDirectories))
+                foreach (var element in XDocument.Load(file).Descendants())
+                    foreach (var attribute in element.Attributes().Where(attribute =>
+                        attribute.Name.NamespaceName.Length == 0 && textProperties.Contains(attribute.Name.LocalName)))
+                    {
+                        var value = attribute.Value.Trim();
+                        if (value.StartsWith("{}", StringComparison.Ordinal)) value = value[2..];
+                        else if (value.StartsWith('{')) continue; // Binding, x:Bind and other markup extensions.
+                        if (!value.Any(char.IsAsciiLetter) || technicalLabels.Contains(value) ||
+                            Uri.TryCreate(value, UriKind.Absolute, out var uri) && uri.Scheme is "http" or "https")
+                            continue;
+
+                        var property = attribute.Name.LocalName switch
+                        {
+                            "AutomationProperties.Name" => "[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name",
+                            "ToolTipService.ToolTip" => "[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip",
+                            var name => name,
+                        };
+                        var resourceUid = element.Attribute(uid)?.Value;
+                        if (string.IsNullOrWhiteSpace(resourceUid) || element.Attribute(liveUid)?.Value != resourceUid ||
+                            !keys.Contains(resourceUid + "." + property))
+                            missing.Add($"{Path.GetRelativePath(source, file)}: {element.Name.LocalName}.{attribute.Name.LocalName} = '{value}'");
+                    }
+
+        Assert.True(missing.Count == 0,
+            "Static UI prose needs x:Uid, matching Localization.Uid and a resource for its exact property:\n" +
+            string.Join("\n", missing));
+    }
+
+    [Fact]
+    public void LocalesKeepTheSameFormatArgumentsAndEveryExplicitLookupExists()
+    {
+        var source = SourceDirectory();
+        Dictionary<string, string> Read(string locale) => XDocument.Load(Path.Combine(source, "Strings", locale, "Resources.resw"))
+            .Root!.Elements("data").ToDictionary(element => element.Attribute("name")!.Value,
+                element => element.Element("value")!.Value, StringComparer.Ordinal);
+        var english = Read("en-US");
+        var chinese = Read("zh-Hans");
+        Assert.DoesNotContain(english.Keys, key => key.EndsWith(".Tag", StringComparison.Ordinal));
+        Assert.All(english.Keys.Where(key => key.Contains("ToolTipService.ToolTip")),
+            key => Assert.Contains(".[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip", key));
+        Assert.All(english.Keys.Where(key => key.Contains("AutomationProperties.Name")),
+            key => Assert.Contains(".[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name", key));
+        var placeholders = new Regex(@"(?<!\{)\{(\d+)(?:,-?\d+)?(?::[^{}]*)?\}(?!\})");
+        string[] Args(string value) => placeholders.Matches(value).Select(match => match.Groups[1].Value).Distinct().Order().ToArray();
+        foreach (var entry in english)
+            Assert.Equal(Args(entry.Value), Args(chinese[entry.Key]));
+
+        var lookups = new Regex("UiText\\.Get\\(\\s*\"([^\"]+)\"");
+        foreach (var file in Directory.EnumerateFiles(source, "*.cs", SearchOption.AllDirectories)
+            .Where(path => !path.Contains(Path.DirectorySeparatorChar + "obj" + Path.DirectorySeparatorChar)
+                && !path.Contains(Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar)))
+            foreach (Match match in lookups.Matches(File.ReadAllText(file)))
+                Assert.True(english.ContainsKey(match.Groups[1].Value), $"Missing resource {match.Groups[1].Value} used in {file}.");
     }
 
     /// <summary>
@@ -75,11 +188,8 @@ public sealed class I18nResourceTests
     }
 
     /// <summary>
-    /// Covers the stand-in used when the language override has to stand in for an unset one. MRT
-    /// refuses an empty string on its setter and will not clear an override once written, so a live
-    /// switch back to "follow the system" writes the language MRT had ranked first instead. Matching
-    /// has to land on the same resources the unset override would have picked, which means the script
-    /// subtag decides: a traditional Chinese language must not land on the simplified resources.
+    /// Maps independent Windows UI preferences to the shipped resources. The script subtag decides:
+    /// a traditional Chinese language must not land on the simplified resources.
     /// </summary>
     [Theory]
     [InlineData("en-US", "en-US")]        // exact
@@ -92,7 +202,7 @@ public sealed class I18nResourceTests
     [InlineData("zh-TW", "")]             // traditional script must not pick simplified resources
     [InlineData("zh-Hant", "")]
     [InlineData("zh", "")]                // ambiguous script: decline rather than guess
-    [InlineData("de-DE", "")]             // unsupported: let the caller leave the override alone
+    [InlineData("de-DE", "")]             // unsupported: Resolve checks the next preference or falls back
     [InlineData("fr", "")]
     [InlineData("", "")]
     [InlineData("   ", "")]

@@ -17,9 +17,9 @@ where the signed MSIX and installation steps live.
   language from **System default**, **English**, or **简体中文 (Simplified Chinese)**, and the
   change takes effect immediately — the app re-renders in the new language without a restart. The
   setting sits first so you can read the rest of the page in the language you just picked. The
-  left navigation rail and the whole Settings page — engine, dev containers, behavior, appearance,
-  notifications, AI and provider setup, diagnostics, updates and about — now follow the language
-  you choose. The remaining pages are migrated in focused batches in later releases.
+  navigation, resource and workload pages, dialogs, assistant controls, status messages and
+  notifications now follow that choice. Technical names such as WSL, Docker, Compose, Kubernetes,
+  Ollama, API, JSON and YAML keep their established spelling.
 
 ### Fixed
 - **Settings opens normally after localization.** A shared translation key made WinUI try to apply a
@@ -29,6 +29,14 @@ where the signed MSIX and installation steps live.
 - **The app no longer fails to start with an unusable-language error.** Following the system
   language no longer assigns an empty language tag, which Windows rejected and which ended the
   launch before the tray icon finished setting itself up.
+- **System default follows Windows' display language after an explicit language choice.** It reads
+  Windows' language preferences independently of the app's persisted override, and always applies
+  a supported, nonempty tag. The choice also survives relaunch.
+- **Language and theme choices stay visible when their menus close.** Updating translated option
+  labels preserves selection and the selected theme. Language changes update existing controls,
+  preserving unfinished input and operation state.
+- **Compose previews include images that will be downloaded.** The summary now recognizes the
+  actual plan's download description and counts a shared image once across services and replicas.
 
 ## [2.2.0] — 2026-10-07
 

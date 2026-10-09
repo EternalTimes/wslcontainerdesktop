@@ -19,7 +19,10 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
 using WslContainerDesktop.Models;
+using WslContainerDesktop.Helpers;
 using WslContainerDesktop.ViewModels;
+
+using WslContainerDesktop.Services;
 
 namespace WslContainerDesktop.Views;
 
@@ -31,15 +34,33 @@ public sealed partial class K8sDetailPage : Page
     {
         ViewModel = App.Current.Services.GetRequiredService<K8sDetailViewModel>();
         InitializeComponent();
-        ViewModel.Deleted += OnDeleted;
+        Loaded += OnLoadedForLanguage;
+        Unloaded += OnUnloadedForLanguage;
+    }
+
+    private void OnLoadedForLanguage(object sender, RoutedEventArgs e)
+    {
+        UiText.LanguageChanged -= OnLanguageChanged;
+        UiText.LanguageChanged += OnLanguageChanged;
+        OnLanguageChanged(this, EventArgs.Empty);
+    }
+
+    private void OnUnloadedForLanguage(object sender, RoutedEventArgs e) =>
+        UiText.LanguageChanged -= OnLanguageChanged;
+
+    private void OnLanguageChanged(object? sender, EventArgs e)
+    {
+        ViewModel.RefreshLanguage();
+        Bindings.Update();
     }
 
     /// <summary>Kubernetes resource detail view model bound by the page.</summary>
     public K8sDetailViewModel ViewModel { get; }
 
-    protected override async void OnNavigatedTo(NavigationEventArgs e)
+    protected override void OnNavigatedTo(NavigationEventArgs e)
     {
         base.OnNavigatedTo(e);
+        ViewModel.Deleted += OnDeleted;
 
         // Hide the Logs tab for kinds that don't produce logs.
         TabLogs.Visibility = e.Parameter is K8sResourceRef { SupportsLogs: true }
@@ -48,7 +69,7 @@ public sealed partial class K8sDetailPage : Page
 
         if (e.Parameter is K8sResourceRef reference)
         {
-            await ViewModel.LoadAsync(reference);
+            UiSafe.Run(() => ViewModel.LoadAsync(reference));
         }
     }
 

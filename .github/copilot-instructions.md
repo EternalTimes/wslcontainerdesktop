@@ -56,9 +56,10 @@ in its own right, independent of how reputable the publisher is or how badly a f
   the same control type with compatible properties; a TextBox cannot consume a Button's `.Content`.
   Run `I18nResourceTests` as a quick check, then open the affected page in a packaged test build:
   the XAML compiler does not catch every resource property error.
-- `x:Uid` strings are resolved when XAML is constructed. Set the app language override before the
-  shell is constructed, then create a fresh page after a runtime switch and refresh shell labels.
-  Detaching and reattaching the same root does not reapply its `x:Uid` strings.
+- Set the nonempty effective language before constructing the shell. Pair each `x:Uid` with
+  `i18n:Localization.Uid` so a runtime language switch updates existing controls and preserves
+  input, selection and operation state. Refresh computed display properties on `UiText.LanguageChanged`.
+  See [the localization guide](../docs/LOCALIZATION.md) for resource and protocol-value rules.
 - Before a handoff, state the commit hash, page group, new resource key count, build and UI checks,
   known gaps, and which group the next assistant may edit. Recount remaining hard-coded display text
   from the current tree; old estimates become stale after every batch.
