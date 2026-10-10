@@ -6057,10 +6057,10 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>模型</value>
   </data>
   <data name="Common_Text0014" xml:space="preserve">
-    <value>版本 {0}.{1}.{2}</value>
+    <value>版本 {0}.{1}.{2}.{3}</value>
   </data>
   <data name="Common_Text0015" xml:space="preserve">
-    <value>版本 1.0.0</value>
+    <value>版本 1.0.0.0</value>
   </data>
   <data name="Common_Text0016" xml:space="preserve">
     <value>允许助手无需询问即可执行操作？</value>
