@@ -10,6 +10,28 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html). Each version links to its release,
 where the signed MSIX and installation steps live.
 
+## [Unreleased]
+
+### Added
+
+- **A UI language setting at the top of Settings** lets you choose **System default**,
+  **English**, or **简体中文 (Simplified Chinese)** without restarting. Navigation, pages,
+  dialogs, assistant controls, status messages and notifications follow that choice.
+  Technical names such as WSL, Docker, Compose, Kubernetes, Ollama, API, JSON and YAML
+  keep their established spelling.
+
+### Fixed
+
+- **Settings loads correctly and remains open when the UI language changes.** Navigation
+  and existing controls update immediately, preserving unfinished input and operation state.
+- **System default follows Windows' display language after an explicit language choice**
+  and survives relaunch. Startup always uses a supported language tag, preventing the
+  unusable-language error that previously stopped the app from launching.
+- **Language and theme choices stay visible when their menus close.** Updating translated
+  option labels preserves selection and the selected theme.
+- **Compose previews include images that will be downloaded.** A shared image is counted
+  once across services and replicas.
+
 ## [2.2.0] — 2026-10-07
 
 ### Changed
