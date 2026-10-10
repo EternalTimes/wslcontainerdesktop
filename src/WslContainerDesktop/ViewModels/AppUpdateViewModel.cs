@@ -434,5 +434,7 @@ public partial class AppUpdateViewModel : ObservableObject
     }
 
     /// <summary>Helper for the display workflow in this view model.</summary>
-    private static string Display(Version? v) => v is null ? "unknown" : $"{v.Major}.{v.Minor}.{v.Build}";
+    private static string Display(Version? v) => v is null ? "unknown"
+        : v.Revision > 0 ? $"{v.Major}.{v.Minor}.{v.Build}.{v.Revision}"
+        : $"{v.Major}.{v.Minor}.{v.Build}";
 }

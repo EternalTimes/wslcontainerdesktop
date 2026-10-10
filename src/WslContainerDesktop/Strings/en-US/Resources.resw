@@ -6057,10 +6057,10 @@ Some steps reported errors:
     <value>Model</value>
   </data>
   <data name="Common_Text0014" xml:space="preserve">
-    <value>Version {0}.{1}.{2}</value>
+    <value>Version {0}.{1}.{2}.{3}</value>
   </data>
   <data name="Common_Text0015" xml:space="preserve">
-    <value>Version 1.0.0</value>
+    <value>Version 1.0.0.0</value>
   </data>
   <data name="Common_Text0016" xml:space="preserve">
     <value>Let the assistant act without asking?</value>

@@ -45,6 +45,16 @@
     <EmbeddedResource Include="Strings\zh-Hans\Resources.resw" LogicalName="UiText.zh-Hans.resw" />
   </ItemGroup>
 
+  <!-- The launcher can override only the revision in a copy, without editing the tracked manifest. -->
+  <Target Name="WslcdUseLauncherManifest" BeforeTargets="PrepareForBuild"
+          Condition="'$(LauncherAppxManifest)' != ''">
+    <Error Condition="!Exists('$(LauncherAppxManifest)')" Text="Launcher manifest not found: $(LauncherAppxManifest)" />
+    <ItemGroup>
+      <AppxManifest Remove="@(AppxManifest)" />
+      <AppxManifest Include="$(LauncherAppxManifest)" />
+    </ItemGroup>
+  </Target>
+
   <!--
     Defining the "Msix" ProjectCapability here allows the Single-project MSIX Packaging
     Tools extension to be activated for this project even if the Windows App SDK Nuget

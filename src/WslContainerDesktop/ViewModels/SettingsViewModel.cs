@@ -394,12 +394,12 @@ public partial class SettingsViewModel : ObservableObject
         try
         {
             var v = Windows.ApplicationModel.Package.Current.Id.Version;
-            return UiText.Get("Common_Text0014", "Version {0}.{1}.{2}", v.Major, v.Minor, v.Build);
+            return UiText.Get("Common_Text0014", "Version {0}.{1}.{2}.{3}", v.Major, v.Minor, v.Build, v.Revision);
         }
         catch
         {
             var v = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-            return v is null ? UiText.Get("Common_Text0015", "Version 1.0.0") : UiText.Get("Common_Text0014", "Version {0}.{1}.{2}", v.Major, v.Minor, v.Build);
+            return v is null ? UiText.Get("Common_Text0015", "Version 1.0.0.0") : UiText.Get("Common_Text0014", "Version {0}.{1}.{2}.{3}", v.Major, v.Minor, v.Build, v.Revision);
         }
     }
 
