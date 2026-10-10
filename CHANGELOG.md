@@ -13,30 +13,24 @@ where the signed MSIX and installation steps live.
 ## [Unreleased]
 
 ### Added
-- **A UI language setting at the top of the Settings page**. You can now choose the app's UI
-  language from **System default**, **English**, or **简体中文 (Simplified Chinese)**, and the
-  change takes effect immediately — the app re-renders in the new language without a restart. The
-  setting sits first so you can read the rest of the page in the language you just picked. The
-  navigation, resource and workload pages, dialogs, assistant controls, status messages and
-  notifications now follow that choice. Technical names such as WSL, Docker, Compose, Kubernetes,
-  Ollama, API, JSON and YAML keep their established spelling.
+
+- **A UI language setting at the top of Settings** lets you choose **System default**,
+  **English**, or **简体中文 (Simplified Chinese)** without restarting. Navigation, pages,
+  dialogs, assistant controls, status messages and notifications follow that choice.
+  Technical names such as WSL, Docker, Compose, Kubernetes, Ollama, API, JSON and YAML
+  keep their established spelling.
 
 ### Fixed
-- **Settings opens normally after localization.** A shared translation key made WinUI try to apply a
-  button label to a text box, which stopped the page from loading.
-- **Changing the UI language keeps Settings open and updates the navigation immediately.** The
-  selected language is also applied before the window loads on the next launch.
-- **The app no longer fails to start with an unusable-language error.** Following the system
-  language no longer assigns an empty language tag, which Windows rejected and which ended the
-  launch before the tray icon finished setting itself up.
-- **System default follows Windows' display language after an explicit language choice.** It reads
-  Windows' language preferences independently of the app's persisted override, and always applies
-  a supported, nonempty tag. The choice also survives relaunch.
-- **Language and theme choices stay visible when their menus close.** Updating translated option
-  labels preserves selection and the selected theme. Language changes update existing controls,
-  preserving unfinished input and operation state.
-- **Compose previews include images that will be downloaded.** The summary now recognizes the
-  actual plan's download description and counts a shared image once across services and replicas.
+
+- **Settings loads correctly and remains open when the UI language changes.** Navigation
+  and existing controls update immediately, preserving unfinished input and operation state.
+- **System default follows Windows' display language after an explicit language choice**
+  and survives relaunch. Startup always uses a supported language tag, preventing the
+  unusable-language error that previously stopped the app from launching.
+- **Language and theme choices stay visible when their menus close.** Updating translated
+  option labels preserves selection and the selected theme.
+- **Compose previews include images that will be downloaded.** A shared image is counted
+  once across services and replicas.
 
 ## [2.2.0] — 2026-10-07
 
