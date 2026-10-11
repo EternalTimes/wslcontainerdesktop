@@ -10,6 +10,13 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html). Each version links to its release,
 where the signed MSIX and installation steps live.
 
+## [Unreleased]
+
+### Added
+- **The About page includes the build's short commit hash after the app version**, making it
+  easier to identify the exact build when reporting a problem. Builds without an embedded commit
+  hash continue to display the version alone.
+
 ## [2.2.0] — 2026-10-07
 
 ### Changed
