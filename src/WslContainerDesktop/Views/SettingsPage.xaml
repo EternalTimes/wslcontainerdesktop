@@ -835,7 +835,7 @@
                     <TextBlock
                         FontSize="12"
                         Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                        Text="{x:Bind ViewModel.AppVersion}" />
+                        Text="{x:Bind ViewModel.AppVersion, Mode=OneWay}" />
                     <TextBlock
                         FontSize="12"
                         Foreground="{ThemeResource TextFillColorSecondaryBrush}"
