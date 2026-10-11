@@ -34,6 +34,11 @@ where the signed MSIX and installation steps live.
   the engine, including when adding a registry and logging in immediately. Other registries
   preserve username case and characters. Authorization-header errors show credential guidance.
 
+- **Registry logout now confirms that stored credentials are gone.** An already absent login
+  completes normally, while engine errors, remaining credentials, and unreadable credential
+  metadata keep the registry entry and its login state intact. Docker Hub logout checks its
+  independent engine keys without treating similar private-registry hostnames as Docker Hub.
+
 ## [2.2.0] — 2026-10-07
 
 ### Changed

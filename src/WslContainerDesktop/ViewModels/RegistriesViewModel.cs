@@ -44,6 +44,7 @@ public partial class RegistriesViewModel : ObservableObject
     private readonly DialogService _dialogs;
     private readonly RegistryAuthRefresher _authRefresher;
     private readonly IRegistryCredentialStore _credentials;
+    private readonly RegistryLogoutService _registryLogout;
     private readonly IWslPolicyService _policy;
 
     /// <summary>Whether busy for view binding.</summary>
@@ -68,7 +69,7 @@ public partial class RegistriesViewModel : ObservableObject
     public ObservableCollection<RegistryEntry> Registries { get; } = new();
 
     /// <summary>Creates the Registries view model and stores its injected services.</summary>
-    public RegistriesViewModel(IWslcService wslc, IAzureCliService azure, ISettingsService settings, DialogService dialogs, RegistryAuthRefresher authRefresher, IRegistryCredentialStore credentials, IWslPolicyService policy)
+    public RegistriesViewModel(IWslcService wslc, IAzureCliService azure, ISettingsService settings, DialogService dialogs, RegistryAuthRefresher authRefresher, IRegistryCredentialStore credentials, IWslPolicyService policy, RegistryLogoutService registryLogout)
     {
         _wslc = wslc;
         _azure = azure;
@@ -76,6 +77,7 @@ public partial class RegistriesViewModel : ObservableObject
         _dialogs = dialogs;
         _authRefresher = authRefresher;
         _credentials = credentials;
+        _registryLogout = registryLogout;
         _policy = policy;
     }
 
@@ -345,27 +347,42 @@ public partial class RegistriesViewModel : ObservableObject
         StatusMessage = $"Logging out of {registry.Name}…";
         try
         {
-            var result = await _wslc.LogoutRegistryAsync(registry.LoginServer);
-            if (result.Success)
+            if (await LogoutCoreAsync(registry))
             {
-                // Docker Hub reverts to anonymous access; user-added registries become "not logged in".
-                registry.LoginState = registry.IsDefault
-                    ? Models.RegistryLoginState.Anonymous
-                    : Models.RegistryLoginState.LoggedOut;
-                registry.Username = null;
                 _settings.Save();
-                StatusMessage = $"Logged out of {registry.Name}.";
-            }
-            else
-            {
-                await _dialogs.ShowMessageAsync(UiText.Get("Resource_Text_d2313d7e8a46", "Logout failed"), result.ErrorText);
-                StatusMessage = $"Logout of {registry.Name} failed.";
             }
         }
         finally
         {
             IsBusy = false;
         }
+    }
+
+    /// <summary>Clears the row's login state only after the shared logout service confirms completion.</summary>
+    private async Task<bool> LogoutCoreAsync(RegistryEntry registry)
+    {
+        var result = await _registryLogout.LogoutAsync(registry.LoginServer);
+        if (result.Status != RegistryLogoutStatus.Completed)
+        {
+            var error = result.Status switch
+            {
+                RegistryLogoutStatus.CredentialsRemain =>
+                    UiText.Get("RegistryLogout_CredentialsRemain", "A stored login remains for this registry. Refresh its login state and try logging out again."),
+                RegistryLogoutStatus.CredentialStateUnknown =>
+                    UiText.Get("RegistryLogout_CredentialStateUnknown", "The stored login state could not be checked. Refresh its login state before trying again."),
+                _ => result.Error?.ErrorText ?? string.Empty,
+            };
+            await _dialogs.ShowMessageAsync(UiText.Get("Resource_Text_d2313d7e8a46", "Logout failed"), error);
+            StatusMessage = $"Logout of {registry.Name} failed.";
+            return false;
+        }
+
+        registry.LoginState = registry.IsDefault
+            ? Models.RegistryLoginState.Anonymous
+            : Models.RegistryLoginState.LoggedOut;
+        registry.Username = null;
+        StatusMessage = $"Logged out of {registry.Name}.";
+        return true;
     }
 
     /// <summary>Command handler for remove actions triggered from the view.</summary>
@@ -386,20 +403,23 @@ public partial class RegistriesViewModel : ObservableObject
             return;
         }
 
-        // Best-effort logout so stored credentials don't linger.
+        IsBusy = true;
         try
         {
-            await _wslc.LogoutRegistryAsync(registry.Host);
-        }
-        catch
-        {
-            // ignore
-        }
+            if (!await LogoutCoreAsync(registry))
+            {
+                return;
+            }
 
-        _settings.Registries.Remove(registry);
-        _settings.Save();
-        Registries.Remove(registry);
-        StatusMessage = $"Removed {registry.Name}.";
+            _settings.Registries.Remove(registry);
+            _settings.Save();
+            Registries.Remove(registry);
+            StatusMessage = $"Removed {registry.Name}.";
+        }
+        finally
+        {
+            IsBusy = false;
+        }
     }
 
     /// <summary>Refreshes display projections after a UI language change.</summary>

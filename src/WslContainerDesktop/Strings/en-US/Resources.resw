@@ -10800,4 +10800,10 @@ Setup needs the network. Cancelling partway does not undo what already completed
   <data name="RegistryLogin_AuthorizationHeaderRejected" xml:space="preserve">
     <value>The registry rejected the authorization header. Check your username and password or access token, then log in again.</value>
   </data>
+  <data name="RegistryLogout_CredentialsRemain" xml:space="preserve">
+    <value>A stored login remains for this registry. Refresh its login state and try logging out again.</value>
+  </data>
+  <data name="RegistryLogout_CredentialStateUnknown" xml:space="preserve">
+    <value>The stored login state could not be checked. Refresh its login state before trying again.</value>
+  </data>
 </root>
