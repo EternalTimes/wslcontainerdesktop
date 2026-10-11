@@ -46,15 +46,9 @@ public static class CommandErrorText
                 "Use an approved registry or contact your administrator.";
         }
 
-        // Docker Hub answers a name it cannot parse with "malformed HTTP Authorization header"
-        // rather than a wrong-password error, so the account is usually fine and only the name
-        // is not. A Docker ID is 4 to 30 lower-case letters and digits.
         if (text.Contains("malformed HTTP Authorization header", StringComparison.OrdinalIgnoreCase))
         {
-            return "The registry rejected the username in the authorization header. A Docker Hub Docker ID is " +
-                "4 to 30 lower-case letters and digits with no other characters — log in again with your Docker ID " +
-                "exactly as Docker Hub shows it. If you use an access token, keep the Docker ID in the username " +
-                "field and put the token in the password field.";
+            return "The registry rejected the authorization header. Check your username and password or access token, then log in again.";
         }
 
         return text.Trim();
@@ -63,4 +57,5 @@ public static class CommandErrorText
     /// <summary>True when the raw engine error says WSL containers are disabled by machine policy.</summary>
     public static bool IsWslContainersDisabled(string text) =>
         text.Contains("WSL container is disabled by the computer policy", StringComparison.OrdinalIgnoreCase);
+
 }

@@ -20,10 +20,7 @@ using Xunit;
 namespace WslContainerDesktop.Tests.Helpers;
 
 /// <summary>
-/// Covers registry username normalization and support checks. Docker Hub rejects a username
-/// containing upper-case, non-ASCII or most punctuation characters with
-/// "malformed HTTP Authorization header" instead of a wrong-password error, so the name must
-/// be folded to lower case before it reaches the engine.
+/// Covers Docker Hub host recognition, username normalization and Docker ID format checks.
 /// </summary>
 public sealed class RegistryUsernameTests
 {
@@ -37,15 +34,18 @@ public sealed class RegistryUsernameTests
     [Theory]
     [InlineData("Contoso.Deploy", "Contoso.Deploy")]
     [InlineData("00000000-0000-0000-0000-000000000000", "00000000-0000-0000-0000-000000000000")]
-    public void OtherRegistriesKeepTheCaseTheyWereGiven(string typed, string expected) =>
+    [InlineData("Ｔｉｒａｍｉｓｕ", "Ｔｉｒａｍｉｓｕ")]
+    [InlineData("Ｔiramisu", "Ｔiramisu")]
+    [InlineData("  Contoso.Deploy  ", "Contoso.Deploy")]
+    public void OtherRegistriesOnlyTrimTheUsername(string typed, string expected) =>
         Assert.Equal(expected, RegistryUsername.Normalize(typed, dockerHub: false));
 
     [Theory]
-    [InlineData("Ｔｉｒａｍｉｓｕ", "Tiramisu")]   // full-width latin
-    [InlineData("Ｔiramisu", "Tiramisu")]           // full-width prefix only
+    [InlineData("Ｔｉｒａｍｉｓｕ", "tiramisu")]   // full-width latin
+    [InlineData("Ｔiramisu", "tiramisu")]           // full-width prefix only
     [InlineData("tiramisu　", "tiramisu")]         // ideographic space
-    public void FullWidthInputFromAnImeIsFoldedBackToAscii(string typed, string expected) =>
-        Assert.Equal(expected, RegistryUsername.Normalize(typed, dockerHub: false));
+    public void DockerHubFullWidthInputIsFoldedBackToAscii(string typed, string expected) =>
+        Assert.Equal(expected, RegistryUsername.Normalize(typed, dockerHub: true));
 
     [Theory]
     [InlineData(null)]
@@ -80,19 +80,6 @@ public sealed class RegistryUsernameTests
     public void NamesDockerHubRejectsAreNotSupported(string user) =>
         Assert.False(RegistryUsername.IsSupportedByDockerHub(user, dockerHub: true));
 
-    [Fact]
-    public void TheDockerHubRuleIsFourToThirtyCharacters()
-    {
-        Assert.Equal(4, RegistryUsername.MinDockerHubNameLength);
-        Assert.Equal(30, RegistryUsername.MaxDockerHubNameLength);
-        Assert.True(RegistryUsername.IsSupportedByDockerHub(
-            new string('a', RegistryUsername.MinDockerHubNameLength), dockerHub: true));
-        Assert.True(RegistryUsername.IsSupportedByDockerHub(
-            new string('a', RegistryUsername.MaxDockerHubNameLength), dockerHub: true));
-        Assert.False(RegistryUsername.IsSupportedByDockerHub(
-            new string('a', RegistryUsername.MaxDockerHubNameLength + 1), dockerHub: true));
-    }
-
     [Theory]
     [InlineData("Tiramisucat")]
     [InlineData("用户")]
@@ -105,9 +92,32 @@ public sealed class RegistryUsernameTests
     [InlineData("registry-1.docker.io", true)]
     [InlineData("index.docker.io", true)]
     [InlineData("https://index.docker.io/v1/", true)]
+    [InlineData("https://registry-1.docker.io/v2/", true)]
+    [InlineData("http://docker.io", true)]
+    [InlineData("https://docker.io:443", true)]
+    [InlineData("http://docker.io:80", true)]
+    [InlineData("docker.io:443", true)]
+    [InlineData("  DOCKER.IO  ", true)]
     [InlineData("DOCKER.IO", true)]
     [InlineData("contoso.azurecr.io", false)]
     [InlineData("ghcr.io", false)]
+    [InlineData("docker.io.example.com", false)]
+    [InlineData("mydocker.io", false)]
+    [InlineData("subdomain.docker.io", false)]
+    [InlineData("https://docker.io.example.com/v1/", false)]
+    [InlineData("https://registry.example.com/docker.io", false)]
+    [InlineData("https://docker.io@registry.example.com", false)]
+    [InlineData("https://username@docker.io", false)]
+    [InlineData("https://username:password@docker.io", false)]
+    [InlineData("https://@docker.io", false)]
+    [InlineData("https://docker.io:5000", false)]
+    [InlineData("http://docker.io:443", false)]
+    [InlineData("docker.io:5000", false)]
+    [InlineData("ftp://docker.io", false)]
+    [InlineData("https://docker.io?registry=example.com", false)]
+    [InlineData("https://docker.io#registry", false)]
+    [InlineData("https://docker.io\\@registry.example.com", false)]
+    [InlineData("not a host", false)]
     [InlineData("", false)]
     [InlineData(null, false)]
     public void DockerHubHostsAreRecognized(string? host, bool expected) =>

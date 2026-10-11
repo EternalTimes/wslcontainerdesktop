@@ -14,12 +14,10 @@ where the signed MSIX and installation steps live.
 
 ### Fixed
 
-- **Logging in to Docker Hub accepts your account name as you type it.** Docker Hub only
-  accepts lower-case usernames, and used to answer anything else — including a name with a
-  capital letter — with an unreadable "malformed HTTP Authorization header" engine error
-  rather than a wrong-password message. The name is now corrected before it is sent, and if
-  it still contains characters Docker Hub cannot use, the dialog says so instead of
-  failing silently.
+- **Docker Hub username corrections apply at every login entry point.** Private registries
+  preserve username case and full-width characters. Docker Hub usernames are folded to
+  lower-case ASCII and checked before login. Authorization-header errors show general
+  credential guidance instead of assuming Docker Hub account rules.
 
 ## [2.2.0] — 2026-10-07
 

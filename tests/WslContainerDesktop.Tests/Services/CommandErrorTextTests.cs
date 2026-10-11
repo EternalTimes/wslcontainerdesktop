@@ -20,9 +20,7 @@ using Xunit;
 namespace WslContainerDesktop.Tests.Services;
 
 /// <summary>
-/// Covers engine-error translation. Docker Hub answers an unusable username with
-/// "malformed HTTP Authorization header" inside the raw <c>wslc</c> dump; the user needs to be
-/// told to lower-case the account name, not to read the engine's protocol error.
+/// Covers registry authorization guidance while preserving engine-owned errors.
 /// </summary>
 public sealed class CommandErrorTextTests
 {
@@ -37,7 +35,19 @@ public sealed class CommandErrorTextTests
 
         Assert.DoesNotContain("malformed HTTP Authorization header", friendly, StringComparison.OrdinalIgnoreCase);
         Assert.DoesNotContain("E_FAIL", friendly, StringComparison.Ordinal);
-        Assert.Contains("4 to 30", friendly, StringComparison.Ordinal);
+        Assert.Contains("username and password or access token", friendly, StringComparison.Ordinal);
+        Assert.DoesNotContain("Docker Hub", friendly, StringComparison.Ordinal);
+    }
+
+    [Fact]
+    public void PrivateRegistryAuthorizationErrorsDoNotShowDockerHubAccountRules()
+    {
+        const string raw = "Get https://registry.example.com/v2/: malformed HTTP Authorization header";
+        var friendly = CommandErrorText.Friendly(raw);
+
+        Assert.Contains("authorization header", friendly, StringComparison.Ordinal);
+        Assert.DoesNotContain("Docker ID", friendly, StringComparison.Ordinal);
+        Assert.DoesNotContain("4 to 30", friendly, StringComparison.Ordinal);
     }
 
     [Fact]
@@ -61,4 +71,5 @@ public sealed class CommandErrorTextTests
     [InlineData("   ")]
     public void EmptyEngineOutputStaysEmpty(string raw) =>
         Assert.Equal(string.Empty, CommandErrorText.Friendly(raw));
+
 }

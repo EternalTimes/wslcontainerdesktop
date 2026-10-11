@@ -29,6 +29,7 @@ public sealed class RegistryLoginDialog : ContentDialog
     private readonly PasswordBox _passwordBox;
     private readonly TextBlock _userError;
     private readonly bool _dockerHub;
+    private bool _foldingCase;
 
     /// <summary>Gets or sets the username.</summary>
     public string Username { get; private set; } = string.Empty;
@@ -40,9 +41,7 @@ public sealed class RegistryLoginDialog : ContentDialog
     /// <param name="registryName">The registry name value supplied by the caller.</param>
     /// <param name="prefillUsername">The prefill username value supplied by the caller.</param>
     /// <param name="dockerHub">
-    /// True for the built-in Docker Hub entry, whose usernames are lower-case only. The typed name
-    /// is normalized for it, because Docker Hub reports an unusable name as a malformed
-    /// Authorization header instead of as a wrong password.
+    /// True for Docker Hub, whose Docker IDs use lower-case letters and digits.
     /// </param>
     public RegistryLoginDialog(string registryName, string? prefillUsername, bool dockerHub = false)
     {
@@ -62,9 +61,8 @@ public sealed class RegistryLoginDialog : ContentDialog
 
         _userError = new TextBlock
         {
-            // Lower case and full-width input are already folded in by Normalize, so this only
-            // ever appears for a name Docker Hub could never have issued.
-            Text = "A Docker Hub username is 4 to 30 lower-case letters and digits, with no other characters. Enter your Docker ID exactly as Docker Hub shows it; if you use an access token, keep the Docker ID here and put the token in the password field.",
+            // Normalize handles upper case and full-width ASCII before validation.
+            Text = "A Docker Hub Docker ID is 4 to 30 letters and digits. Upper case is corrected for you; remove anything else, such as Chinese text, spaces or punctuation. If you use an access token, keep the Docker ID here and put the token in the password field.",
             TextWrapping = TextWrapping.Wrap,
             Visibility = Visibility.Collapsed,
             Foreground = new SolidColorBrush(Microsoft.UI.Colors.IndianRed),
@@ -81,14 +79,56 @@ public sealed class RegistryLoginDialog : ContentDialog
             Children = { _userBox, _userError, _passwordBox },
         };
 
+        _userBox.TextChanged += OnUserTextChanged;
         PrimaryButtonClick += OnPrimary;
+    }
+
+    /// <summary>
+    /// Makes ASCII case correction visible while typing. Submit-time normalization also covers
+    /// prefilled usernames and full-width input.
+    /// </summary>
+    private void OnUserTextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (!_dockerHub || _foldingCase)
+        {
+            return;
+        }
+
+        var text = _userBox.Text;
+
+        // Plain ASCII only: rewriting text while an IME composition is in flight would corrupt it.
+        foreach (var c in text)
+        {
+            if (c > (char)0x7F)
+            {
+                return;
+            }
+        }
+
+        var lowered = text.ToLowerInvariant();
+        if (string.Equals(lowered, text, StringComparison.Ordinal))
+        {
+            return;
+        }
+
+        var caret = _userBox.SelectionStart;
+        _foldingCase = true;
+        try
+        {
+            _userBox.Text = lowered;
+            // Case folding never changes the length, so the caret index still lands in bounds.
+            _userBox.SelectionStart = Math.Min(caret, lowered.Length);
+        }
+        finally
+        {
+            _foldingCase = false;
+        }
     }
 
     private void OnPrimary(ContentDialog sender, ContentDialogButtonClickEventArgs args)
     {
-        // Docker Hub only accepts a lower-case account name, and reports anything else as a
-        // malformed Authorization header. Fold the typed name here so the login can succeed,
-        // and show the result so the correction is visible rather than silent.
+        // Full-width folding and trimming still happen on submit; the live fold above covers
+        // only ASCII case so an IME composition is never rewritten mid-entry.
         var normalized = RegistryUsername.Normalize(_userBox.Text, _dockerHub);
         if (!string.Equals(normalized, _userBox.Text, StringComparison.Ordinal))
         {

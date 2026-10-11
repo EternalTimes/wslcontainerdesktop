@@ -290,6 +290,17 @@ public partial class RegistriesViewModel : ObservableObject
     /// <summary>Helper for the login core workflow in this view model.</summary>
     private async Task LoginCoreAsync(RegistryEntry registry, string username, string password)
     {
+        // Both the existing-registry dialog and Add -> Log in now reach this boundary.
+        var dockerHub = RegistryUsername.IsDockerHub(registry.LoginServer);
+        username = RegistryUsername.Normalize(username, dockerHub);
+        if (!RegistryUsername.IsSupportedByDockerHub(username, dockerHub))
+        {
+            await _dialogs.ShowMessageAsync("Login failed",
+                "A Docker Hub Docker ID is 4 to 30 letters and digits. Upper case is corrected for you; remove anything else, such as Chinese text, spaces or punctuation. If you use an access token, keep the Docker ID here and put the token in the password field.");
+            StatusMessage = $"Login to {registry.Name} failed.";
+            return;
+        }
+
         IsBusy = true;
         StatusMessage = $"Logging in to {registry.Name}…";
         try

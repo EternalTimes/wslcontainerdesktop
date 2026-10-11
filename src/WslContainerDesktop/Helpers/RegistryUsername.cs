@@ -18,14 +18,8 @@ namespace WslContainerDesktop.Helpers;
 
 /// <summary>
 /// Cleans up a registry username before it is handed to <c>wslc login</c>.
-///
-/// Docker Hub issues a Docker ID of 4 to 30 numbers and lower-case letters only — no special
-/// characters and no spaces (<see href="https://docs.docker.com/faqs/accounts/">Docker account FAQ</see>).
-/// When the typed name falls outside that rule, Docker Hub's token service does not report a
-/// wrong password: it rejects the request as <c>unknown: malformed HTTP Authorization header</c>,
-/// which surfaces as an opaque <c>E_FAIL</c> engine dump. The account is fine; only the name is
-/// not. Folding case and full-width input here turns most of those dead ends into a login that
-/// works, and <see cref="IsSupportedByDockerHub"/> names what still cannot work.
+/// Docker IDs use 4 to 30 lower-case letters and digits
+/// (<see href="https://docs.docker.com/faqs/accounts/">Docker account FAQ</see>).
 /// </summary>
 public static class RegistryUsername
 {
@@ -43,30 +37,45 @@ public static class RegistryUsername
             return false;
         }
 
-        var h = host.Trim();
-        return h.Contains("docker.io", StringComparison.OrdinalIgnoreCase);
+        var address = host.Trim();
+        if (address.Contains('\\') || address.Contains('@'))
+        {
+            return false;
+        }
+
+        if (!address.Contains("://", StringComparison.Ordinal))
+        {
+            address = "https://" + address;
+        }
+
+        if (!Uri.TryCreate(address, UriKind.Absolute, out var uri) ||
+            (uri.Scheme != Uri.UriSchemeHttp && uri.Scheme != Uri.UriSchemeHttps) ||
+            !uri.IsDefaultPort || !string.IsNullOrEmpty(uri.UserInfo) ||
+            !string.IsNullOrEmpty(uri.Query) || !string.IsNullOrEmpty(uri.Fragment))
+        {
+            return false;
+        }
+
+        return string.Equals(uri.Host, "docker.io", StringComparison.OrdinalIgnoreCase) ||
+            string.Equals(uri.Host, "index.docker.io", StringComparison.OrdinalIgnoreCase) ||
+            string.Equals(uri.Host, "registry-1.docker.io", StringComparison.OrdinalIgnoreCase);
     }
 
     /// <summary>
-    /// Prepares the typed username for the engine: trims it, folds full-width characters back
-    /// to their half-width ASCII form (a frequent Chinese-IME slip that produces an otherwise
-    /// unusable name), and lower-cases it for Docker Hub, whose usernames are always lower-case.
+    /// Trims the username, folding full-width ASCII and upper case only for Docker Hub.
+    /// Other registries keep their original characters and case.
     /// </summary>
     /// <param name="raw">The text as typed in the login dialog.</param>
     /// <param name="dockerHub">True when the target registry is Docker Hub.</param>
     public static string Normalize(string? raw, bool dockerHub)
     {
-        var text = ToHalfWidth(raw ?? string.Empty).Trim();
-        return dockerHub ? text.ToLowerInvariant() : text;
+        var text = raw ?? string.Empty;
+        return dockerHub ? ToHalfWidth(text).Trim().ToLowerInvariant() : text.Trim();
     }
 
     /// <summary>
-    /// True when Docker Hub can actually accept <paramref name="user"/>. Docker Hub's own rule is
-    /// 4 to 30 characters of numbers and lower-case letters only, with no special characters or
-    /// spaces. Beyond the account-creation rule, anything Docker Hub cannot parse is reported as a
-    /// malformed Authorization header rather than as a wrong password, so catching it here keeps
-    /// that opaque engine error out of the login flow. Always true for non-Docker-Hub registries,
-    /// whose username rules vary.
+    /// Checks the normalized username against Docker Hub's Docker ID format.
+    /// Always true for other registries, whose username rules vary.
     /// </summary>
     public static bool IsSupportedByDockerHub(string? user, bool dockerHub)
     {
