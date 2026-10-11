@@ -10,6 +10,15 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html). Each version links to its release,
 where the signed MSIX and installation steps live.
 
+## [Unreleased]
+
+### Fixed
+
+- **Registry logout now confirms that stored credentials are gone.** An already absent login
+  completes normally, while engine errors, remaining credentials, and unreadable credential
+  metadata keep the registry entry and its login state intact. Docker Hub logout checks its
+  independent engine keys without treating similar private-registry hostnames as Docker Hub.
+
 ## [2.2.0] — 2026-10-07
 
 ### Changed

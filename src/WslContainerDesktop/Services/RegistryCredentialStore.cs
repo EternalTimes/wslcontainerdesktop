@@ -16,8 +16,20 @@
 
 using System.Runtime.InteropServices;
 using Microsoft.Extensions.Logging;
+using WslContainerDesktop.Helpers;
 
 namespace WslContainerDesktop.Services;
+
+/// <summary>Whether registry login metadata is present, absent, or could not be read.</summary>
+public enum RegistryCredentialStatus
+{
+    /// <summary>All matching credential keys are absent.</summary>
+    Missing,
+    /// <summary>At least one matching credential exists.</summary>
+    Present,
+    /// <summary>No credential was found, but at least one key could not be checked.</summary>
+    Unavailable,
+}
 
 /// <summary>Reads registry login state from the store where the wslc engine keeps it.</summary>
 public interface IRegistryCredentialStore
@@ -28,6 +40,9 @@ public interface IRegistryCredentialStore
     /// when available. The secret itself is never read.
     /// </summary>
     bool IsLoggedIn(string server, out string? username);
+
+    /// <summary>Checks login metadata without treating a credential-store read failure as absence.</summary>
+    RegistryCredentialStatus GetLoginStatus(string server, out string? username);
 
     /// <summary>
     /// Reads the stored username and secret for <paramref name="server"/> so a caller can
@@ -42,33 +57,61 @@ public interface IRegistryCredentialStore
 /// <summary>
 /// Reads the wslc engine's registry credentials from the Windows Credential Manager. wslc's default
 /// credential backend is <c>wincred</c>, which stores each registry login as a Generic credential
-/// named <c>wslc-credential/&lt;server&gt;</c> (e.g. <c>wslc-credential/docker.io</c>). Only the
-/// presence and the stored username are read — never the secret blob — so this can drive an
-/// accurate "logged in / anonymous" indicator that reflects logins made from the CLI too.
+/// named <c>wslc-credential/&lt;server&gt;</c>. Login-state checks read only presence and the stored
+/// username, so the indicator reflects CLI logins without copying the secret blob.
 /// </summary>
-public sealed class RegistryCredentialStore(ILogger<RegistryCredentialStore> logger) : IRegistryCredentialStore
+public sealed class RegistryCredentialStore : IRegistryCredentialStore
 {
     private const string TargetPrefix = "wslc-credential/";
     private const int CRED_TYPE_GENERIC = 1;
+    private const int ERROR_NOT_FOUND = 1168;
+    private readonly ILogger<RegistryCredentialStore> _logger;
+    private readonly Func<string, (int ErrorCode, string? Username)> _readMetadata;
+
+    /// <summary>Creates the read-only view of Windows registry credential metadata.</summary>
+    public RegistryCredentialStore(ILogger<RegistryCredentialStore> logger)
+    {
+        _logger = logger;
+        _readMetadata = ReadMetadata;
+    }
+
+    internal RegistryCredentialStore(ILogger<RegistryCredentialStore> logger,
+        Func<string, (int ErrorCode, string? Username)> readMetadata)
+    {
+        _logger = logger;
+        _readMetadata = readMetadata;
+    }
 
     /// <inheritdoc/>
-    public bool IsLoggedIn(string server, out string? username)
+    public bool IsLoggedIn(string server, out string? username) =>
+        GetLoginStatus(server, out username) == RegistryCredentialStatus.Present;
+
+    /// <inheritdoc/>
+    public RegistryCredentialStatus GetLoginStatus(string server, out string? username)
     {
         username = null;
         if (string.IsNullOrWhiteSpace(server))
         {
-            return false;
+            return RegistryCredentialStatus.Missing;
         }
 
+        var status = RegistryCredentialStatus.Missing;
         foreach (var candidate in CandidateServers(server))
         {
-            if (TryReadUser(TargetPrefix + candidate, out username))
+            var metadata = _readMetadata(TargetPrefix + candidate);
+            if (metadata.ErrorCode == 0)
             {
-                return true;
+                username = metadata.Username;
+                return RegistryCredentialStatus.Present;
+            }
+
+            if (metadata.ErrorCode != ERROR_NOT_FOUND)
+            {
+                status = RegistryCredentialStatus.Unavailable;
             }
         }
 
-        return false;
+        return status;
     }
 
     /// <inheritdoc/>
@@ -91,19 +134,36 @@ public sealed class RegistryCredentialStore(ILogger<RegistryCredentialStore> log
 
         return false;
     }
+
     /// <summary>
-    /// Returns the requested server plus Docker Hub aliases because <c>wslc</c> may store any canonical form.
+    /// Checks the original input, the engine's host-and-port key, and any matching Docker Hub aliases.
     /// </summary>
     private static IEnumerable<string> CandidateServers(string server)
     {
         var s = server.Trim();
+        var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { s };
         yield return s;
 
-        if (IsDockerHub(s))
+        // The engine strips a URI scheme and path before choosing its credential key.
+        // Keep the explicit port and case: Uri normalization would lose a default port.
+        var scheme = s.IndexOf("://", StringComparison.Ordinal);
+        var host = scheme >= 0 ? s[(scheme + 3)..] : s;
+        var path = host.IndexOf('/');
+        if (path >= 0)
+        {
+            host = host[..path];
+        }
+
+        if (host.Length > 0 && seen.Add(host))
+        {
+            yield return host;
+        }
+
+        if (RegistryServerAddress.IsDockerHub(s))
         {
             foreach (var alias in new[] { "docker.io", "index.docker.io", "registry-1.docker.io", "https://index.docker.io/v1/" })
             {
-                if (!string.Equals(alias, s, StringComparison.OrdinalIgnoreCase))
+                if (seen.Add(alias))
                 {
                     yield return alias;
                 }
@@ -111,28 +171,24 @@ public sealed class RegistryCredentialStore(ILogger<RegistryCredentialStore> log
         }
     }
 
-    private static bool IsDockerHub(string server) =>
-        server.Contains("docker.io", StringComparison.OrdinalIgnoreCase);
-
-    private bool TryReadUser(string target, out string? username)
+    private (int ErrorCode, string? Username) ReadMetadata(string target)
     {
-        username = null;
         var handle = IntPtr.Zero;
         try
         {
             if (!CredReadW(target, CRED_TYPE_GENERIC, 0, out handle))
             {
-                return false;
+                var error = Marshal.GetLastWin32Error();
+                return (error == 0 ? -1 : error, null);
             }
 
             var cred = Marshal.PtrToStructure<CREDENTIAL>(handle);
-            username = string.IsNullOrWhiteSpace(cred.UserName) ? null : cred.UserName;
-            return true;
+            return (0, string.IsNullOrWhiteSpace(cred.UserName) ? null : cred.UserName);
         }
         catch (Exception ex)
         {
-            logger.LogDebug(ex, "Failed to read credential {Target}.", target);
-            return false;
+            _logger.LogDebug(ex, "Failed to read credential {Target}.", target);
+            return (-1, null);
         }
         finally
         {
@@ -171,7 +227,7 @@ public sealed class RegistryCredentialStore(ILogger<RegistryCredentialStore> log
         }
         catch (Exception ex)
         {
-            logger.LogDebug(ex, "Failed to read credential secret {Target}.", target);
+            _logger.LogDebug(ex, "Failed to read credential secret {Target}.", target);
             return false;
         }
         finally
