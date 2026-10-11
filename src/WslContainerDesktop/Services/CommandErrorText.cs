@@ -17,11 +17,11 @@
 namespace WslContainerDesktop.Services;
 
 /// <summary>
-/// Maps raw <c>wslc.exe</c> policy errors to messages a user can act on without seeing engine jargon.
+/// Maps recognized raw <c>wslc.exe</c> errors to messages a user can act on without seeing engine jargon.
 /// </summary>
 public static class CommandErrorText
 {
-    /// <summary>Returns a trimmed message, replacing recognized WSL policy failures with friendly guidance.</summary>
+    /// <summary>Returns a trimmed message, replacing recognized engine failures with friendly guidance.</summary>
     public static string Friendly(string text)
     {
         if (string.IsNullOrWhiteSpace(text))
@@ -57,5 +57,4 @@ public static class CommandErrorText
     /// <summary>True when the raw engine error says WSL containers are disabled by machine policy.</summary>
     public static bool IsWslContainersDisabled(string text) =>
         text.Contains("WSL container is disabled by the computer policy", StringComparison.OrdinalIgnoreCase);
-
 }

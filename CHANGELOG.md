@@ -14,10 +14,9 @@ where the signed MSIX and installation steps live.
 
 ### Fixed
 
-- **Docker Hub username corrections apply at every login entry point.** Private registries
-  preserve username case and full-width characters. Docker Hub usernames are folded to
-  lower-case ASCII and checked before login. Authorization-header errors show general
-  credential guidance instead of assuming Docker Hub account rules.
+- **Docker Hub login corrects uppercase and full-width usernames** before sending them to
+  the engine, including when adding a registry and logging in immediately. Other registries
+  preserve username case and characters. Authorization-header errors show credential guidance.
 
 ## [2.2.0] — 2026-10-07
 

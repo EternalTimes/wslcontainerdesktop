@@ -16,8 +16,6 @@
 
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Media;
-
 using WslContainerDesktop.Helpers;
 
 namespace WslContainerDesktop.Dialogs;
@@ -27,9 +25,9 @@ public sealed class RegistryLoginDialog : ContentDialog
 {
     private readonly TextBox _userBox;
     private readonly PasswordBox _passwordBox;
-    private readonly TextBlock _userError;
     private readonly bool _dockerHub;
     private bool _foldingCase;
+    private bool _isComposing;
 
     /// <summary>Gets or sets the username.</summary>
     public string Username { get; private set; } = string.Empty;
@@ -37,12 +35,10 @@ public sealed class RegistryLoginDialog : ContentDialog
     /// <summary>Gets or sets the password.</summary>
     public string Password { get; private set; } = string.Empty;
 
-    /// <summary>Creates a new <c>RegistryLoginDialog</c> and wires the state used by the dialog or model.</summary>
+    /// <summary>Creates a new &lt;c&gt;RegistryLoginDialog&lt;/c&gt; and wires the state used by the dialog or model.</summary>
     /// <param name="registryName">The registry name value supplied by the caller.</param>
     /// <param name="prefillUsername">The prefill username value supplied by the caller.</param>
-    /// <param name="dockerHub">
-    /// True for Docker Hub, whose Docker IDs use lower-case letters and digits.
-    /// </param>
+    /// <param name="dockerHub">Whether to normalize usernames for Docker Hub.</param>
     public RegistryLoginDialog(string registryName, string? prefillUsername, bool dockerHub = false)
     {
         _dockerHub = dockerHub;
@@ -54,18 +50,9 @@ public sealed class RegistryLoginDialog : ContentDialog
         _userBox = new TextBox
         {
             Header = "Username",
-            PlaceholderText = "username or token name",
+            PlaceholderText = dockerHub ? "Docker ID or organization namespace" : "username or token name",
             Text = prefillUsername ?? string.Empty,
             MinWidth = 360,
-        };
-
-        _userError = new TextBlock
-        {
-            // Normalize handles upper case and full-width ASCII before validation.
-            Text = "A Docker Hub Docker ID is 4 to 30 letters and digits. Upper case is corrected for you; remove anything else, such as Chinese text, spaces or punctuation. If you use an access token, keep the Docker ID here and put the token in the password field.",
-            TextWrapping = TextWrapping.Wrap,
-            Visibility = Visibility.Collapsed,
-            Foreground = new SolidColorBrush(Microsoft.UI.Colors.IndianRed),
         };
 
         _passwordBox = new PasswordBox
@@ -73,30 +60,41 @@ public sealed class RegistryLoginDialog : ContentDialog
             Header = "Password / token",
         };
 
-        Content = new StackPanel
+        var panel = new StackPanel
         {
             Spacing = 10,
-            Children = { _userBox, _userError, _passwordBox },
+            Children = { _userBox, _passwordBox },
         };
 
-        _userBox.TextChanged += OnUserTextChanged;
+        if (_dockerHub)
+        {
+            panel.Children.Insert(1, new TextBlock
+            {
+                Text = "Use your Docker ID for a password or personal access token, or your organization namespace for an organization access token. Put the token in the password field.",
+                TextWrapping = TextWrapping.Wrap,
+            });
+        }
+
+        Content = panel;
+        _userBox.TextCompositionStarted += (_, _) => _isComposing = true;
+        _userBox.TextCompositionEnded += (_, _) =>
+        {
+            _isComposing = false;
+            FoldAsciiCase();
+        };
+        _userBox.TextChanged += (_, _) => FoldAsciiCase();
         PrimaryButtonClick += OnPrimary;
     }
 
-    /// <summary>
-    /// Makes ASCII case correction visible while typing. Submit-time normalization also covers
-    /// prefilled usernames and full-width input.
-    /// </summary>
-    private void OnUserTextChanged(object sender, TextChangedEventArgs e)
+    /// <summary>Shows ASCII case correction after input commits, preserving the selection and IME composition.</summary>
+    private void FoldAsciiCase()
     {
-        if (!_dockerHub || _foldingCase)
+        if (!_dockerHub || _foldingCase || _isComposing)
         {
             return;
         }
 
         var text = _userBox.Text;
-
-        // Plain ASCII only: rewriting text while an IME composition is in flight would corrupt it.
         foreach (var c in text)
         {
             if (c > (char)0x7F)
@@ -111,13 +109,14 @@ public sealed class RegistryLoginDialog : ContentDialog
             return;
         }
 
-        var caret = _userBox.SelectionStart;
+        var selectionStart = _userBox.SelectionStart;
+        var selectionLength = _userBox.SelectionLength;
         _foldingCase = true;
         try
         {
             _userBox.Text = lowered;
-            // Case folding never changes the length, so the caret index still lands in bounds.
-            _userBox.SelectionStart = Math.Min(caret, lowered.Length);
+            selectionStart = Math.Min(selectionStart, lowered.Length);
+            _userBox.Select(selectionStart, Math.Min(selectionLength, lowered.Length - selectionStart));
         }
         finally
         {
@@ -127,26 +126,13 @@ public sealed class RegistryLoginDialog : ContentDialog
 
     private void OnPrimary(ContentDialog sender, ContentDialogButtonClickEventArgs args)
     {
-        // Full-width folding and trimming still happen on submit; the live fold above covers
-        // only ASCII case so an IME composition is never rewritten mid-entry.
-        var normalized = RegistryUsername.Normalize(_userBox.Text, _dockerHub);
-        if (!string.Equals(normalized, _userBox.Text, StringComparison.Ordinal))
+        // Submit also covers prefilled values and full-width input that the live ASCII fold skips.
+        Username = RegistryUsername.Normalize(_userBox.Text, _dockerHub);
+        if (!string.Equals(Username, _userBox.Text, StringComparison.Ordinal))
         {
-            _userBox.Text = normalized;
+            _userBox.Text = Username;
         }
-
-        Username = normalized;
         Password = _passwordBox.Password;
-
-        if (!RegistryUsername.IsSupportedByDockerHub(Username, _dockerHub))
-        {
-            args.Cancel = true;
-            _userError.Visibility = Visibility.Visible;
-            _userBox.Focus(FocusState.Programmatic);
-            return;
-        }
-
-        _userError.Visibility = Visibility.Collapsed;
 
         if (string.IsNullOrEmpty(Password))
         {

@@ -20,7 +20,7 @@ using Xunit;
 namespace WslContainerDesktop.Tests.Helpers;
 
 /// <summary>
-/// Covers Docker Hub host recognition, username normalization and Docker ID format checks.
+/// Covers Docker Hub host recognition and username normalization without changing other registries.
 /// </summary>
 public sealed class RegistryUsernameTests
 {
@@ -36,6 +36,7 @@ public sealed class RegistryUsernameTests
     [InlineData("00000000-0000-0000-0000-000000000000", "00000000-0000-0000-0000-000000000000")]
     [InlineData("Ｔｉｒａｍｉｓｕ", "Ｔｉｒａｍｉｓｕ")]
     [InlineData("Ｔiramisu", "Ｔiramisu")]
+    [InlineData("　Ｔiramisu　", "Ｔiramisu")]
     [InlineData("  Contoso.Deploy  ", "Contoso.Deploy")]
     public void OtherRegistriesOnlyTrimTheUsername(string typed, string expected) =>
         Assert.Equal(expected, RegistryUsername.Normalize(typed, dockerHub: false));
@@ -55,37 +56,13 @@ public sealed class RegistryUsernameTests
         Assert.Equal(string.Empty, RegistryUsername.Normalize(typed, dockerHub: true));
 
     [Theory]
-    [InlineData("tiramisucat")]
-    [InlineData("abcd")]
-    [InlineData("user99")]
-    [InlineData("1234")]
-    [InlineData("a12345678901234567890123456789")]  // exactly 30
-    public void NamesWithinTheDockerHubRuleAreSupported(string user) =>
-        Assert.True(RegistryUsername.IsSupportedByDockerHub(user, dockerHub: true));
-
-    [Theory]
-    [InlineData("Tiramisucat")]   // upper case: the reported failure
-    [InlineData("User")]
-    [InlineData("user name")]    // embedded space
-    [InlineData("user!name")]
-    [InlineData("user.name")]    // Docker IDs allow no special characters at all
-    [InlineData("user_name")]
-    [InlineData("user-name")]
-    [InlineData("me@example.com")]
-    [InlineData("用户")]           // non-ASCII
-    [InlineData("Ｕｓｅｒ")]        // full-width
-    [InlineData("")]             // empty
-    [InlineData("abc")]          // under 4 characters
-    [InlineData("a123456789012345678901234567890")]  // 31 characters
-    public void NamesDockerHubRejectsAreNotSupported(string user) =>
-        Assert.False(RegistryUsername.IsSupportedByDockerHub(user, dockerHub: true));
-
-    [Theory]
-    [InlineData("Tiramisucat")]
-    [InlineData("用户")]
-    [InlineData("")]
-    public void OtherRegistriesImposeNoCharsetOfTheirOwnHere(string user) =>
-        Assert.True(RegistryUsername.IsSupportedByDockerHub(user, dockerHub: false));
+    [InlineData("ABC", "abc")]
+    [InlineData("Acme-Team", "acme-team")]
+    [InlineData("User_Name", "user_name")]
+    [InlineData("用户", "用户")]
+    [InlineData("a123456789012345678901234567890", "a123456789012345678901234567890")]
+    public void NormalizationLeavesUsernameValidationToTheRegistry(string typed, string expected) =>
+        Assert.Equal(expected, RegistryUsername.Normalize(typed, dockerHub: true));
 
     [Theory]
     [InlineData("docker.io", true)]

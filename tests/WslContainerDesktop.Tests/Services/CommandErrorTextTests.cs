@@ -19,9 +19,7 @@ using Xunit;
 
 namespace WslContainerDesktop.Tests.Services;
 
-/// <summary>
-/// Covers registry authorization guidance while preserving engine-owned errors.
-/// </summary>
+/// <summary>Verifies actionable registry guidance and preservation of unrelated engine errors.</summary>
 public sealed class CommandErrorTextTests
 {
     private const string EngineDump =
@@ -32,7 +30,6 @@ public sealed class CommandErrorTextTests
     public void MalformedAuthorizationHeaderBecomesActionableGuidance()
     {
         var friendly = CommandErrorText.Friendly(EngineDump);
-
         Assert.DoesNotContain("malformed HTTP Authorization header", friendly, StringComparison.OrdinalIgnoreCase);
         Assert.DoesNotContain("E_FAIL", friendly, StringComparison.Ordinal);
         Assert.Contains("username and password or access token", friendly, StringComparison.Ordinal);
@@ -44,7 +41,6 @@ public sealed class CommandErrorTextTests
     {
         const string raw = "Get https://registry.example.com/v2/: malformed HTTP Authorization header";
         var friendly = CommandErrorText.Friendly(raw);
-
         Assert.Contains("authorization header", friendly, StringComparison.Ordinal);
         Assert.DoesNotContain("Docker ID", friendly, StringComparison.Ordinal);
         Assert.DoesNotContain("4 to 30", friendly, StringComparison.Ordinal);
@@ -54,16 +50,21 @@ public sealed class CommandErrorTextTests
     public void WrongPasswordStaysTheEnginesOwnMessage()
     {
         const string raw = "来自引擎的错误信息: Get \"https://registry-1.docker.io/v2/\": unauthorized: incorrect username or password";
-
         Assert.Equal(raw, CommandErrorText.Friendly(raw));
     }
 
     [Fact]
     public void PolicyErrorsStillWinOverRegistryGuidance()
     {
-        const string raw = "registry.example.com is blocked by the computer policy";
-
+        const string raw = "registry.example.com is blocked by the computer policy: malformed HTTP Authorization header";
         Assert.Contains("approved registry list", CommandErrorText.Friendly(raw), StringComparison.Ordinal);
+    }
+
+    [Fact]
+    public void UnrelatedEngineErrorsStayUnchanged()
+    {
+        const string raw = "Create container failed: The system cannot find the file specified. Error code: ERROR_FILE_NOT_FOUND";
+        Assert.Equal(raw, CommandErrorText.Friendly(raw));
     }
 
     [Theory]
@@ -71,5 +72,4 @@ public sealed class CommandErrorTextTests
     [InlineData("   ")]
     public void EmptyEngineOutputStaysEmpty(string raw) =>
         Assert.Equal(string.Empty, CommandErrorText.Friendly(raw));
-
 }

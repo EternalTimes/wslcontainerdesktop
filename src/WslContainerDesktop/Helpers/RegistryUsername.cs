@@ -18,17 +18,11 @@ namespace WslContainerDesktop.Helpers;
 
 /// <summary>
 /// Cleans up a registry username before it is handed to <c>wslc login</c>.
-/// Docker IDs use 4 to 30 lower-case letters and digits
-/// (<see href="https://docs.docker.com/faqs/accounts/">Docker account FAQ</see>).
+/// Docker Hub input is folded to lower-case ASCII where possible. The registry validates the
+/// resulting username, which can identify an individual account or an organization.
 /// </summary>
 public static class RegistryUsername
 {
-    /// <summary>Shortest Docker Hub account name Docker will issue.</summary>
-    public const int MinDockerHubNameLength = 4;
-
-    /// <summary>Longest Docker Hub account name Docker will issue.</summary>
-    public const int MaxDockerHubNameLength = 30;
-
     /// <summary>True when <paramref name="host"/> names Docker Hub rather than a private registry.</summary>
     public static bool IsDockerHub(string? host)
     {
@@ -71,34 +65,6 @@ public static class RegistryUsername
     {
         var text = raw ?? string.Empty;
         return dockerHub ? ToHalfWidth(text).Trim().ToLowerInvariant() : text.Trim();
-    }
-
-    /// <summary>
-    /// Checks the normalized username against Docker Hub's Docker ID format.
-    /// Always true for other registries, whose username rules vary.
-    /// </summary>
-    public static bool IsSupportedByDockerHub(string? user, bool dockerHub)
-    {
-        if (!dockerHub)
-        {
-            return true;
-        }
-
-        if (user is null || user.Length is < MinDockerHubNameLength or > MaxDockerHubNameLength)
-        {
-            return false;
-        }
-
-        foreach (var c in user)
-        {
-            var ok = c is >= 'a' and <= 'z' or >= '0' and <= '9';
-            if (!ok)
-            {
-                return false;
-            }
-        }
-
-        return true;
     }
 
     /// <summary>
