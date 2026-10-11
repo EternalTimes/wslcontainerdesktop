@@ -58,37 +58,26 @@ Run from the repository root on Windows, using the x64 .NET SDK accepted by
 
 ```powershell
 $tests = 'tests\WslContainerDesktop.Tests\WslContainerDesktop.Tests.csproj'
-dotnet test $tests -c Debug -p:Platform=x64 --filter 'FullyQualifiedName~I18nResourceTests|FullyQualifiedName~LanguageSwitchTests|FullyQualifiedName~DisplayTranslationTests|FullyQualifiedName~ComposePreviewDownloadTests'
+dotnet test $tests -c Debug -p:Platform=x64 --filter 'FullyQualifiedName~I18nResourceTests|FullyQualifiedName~LanguageSwitchTests|FullyQualifiedName~DisplayTranslationTests|FullyQualifiedName~ComposePreviewLocalizationTests'
 dotnet test $tests -c Debug -p:Platform=x64
+dotnet build src\WslContainerDesktop\WslContainerDesktop.csproj -c Debug -p:Platform=x64
 ```
 
 The focused checks cover resource parity, duplicate keys, format arguments, XAML
 property compatibility and live UID mirrors; language resolution and message
-translation; preservation of unknown output and serialized evidence; and Compose
-download counts in both languages. The full suite runs both configured target
-frameworks on Windows. Require a successful build with no warnings or errors.
+translation; preservation of unknown output and serialized evidence; and localized
+Compose preview messages. The full suite runs both configured target frameworks
+on Windows. The build command compiles the application without registration or
+launch. Report warnings, errors and skipped checks in the validation summary.
 
-### Package the checked-out sources
+### Packaged GUI validation
 
-The launcher defaults to x64 Debug, generates an unsigned MSIX, registers the fresh
-layout and launches with package identity. Use `-PackageOnly` to build without
-registration or launch; `-Revision` overrides only the fourth version component:
-
-```powershell
-.\tools\launcher\Build-And-Run.ps1 -PackageOnly
-.\tools\launcher\Build-And-Run.ps1 -PackageOnly -Revision 2
-```
-
-The first three components come from the source manifest, which the launcher leaves
-unchanged. Output goes to a fresh directory under the ignored `AppPackages/Launcher`.
-Use the release workflow for signed installation and distribution packages; its
-three-part SemVer release numbering is independent of this local revision override.
-
-### GUI smoke checks
-
-Inspect the latest sources and compiled PRI resources in a packaged WinUI build.
-Use a separate package identity for isolated smoke tests; the default launcher
-redeploys the registered application identity.
+Use a fresh build registered with MSIX package identity for GUI checks. The existing
+`tools/launcher/Build-And-Run.ps1` rebuilds the x64 Debug application, registers its
+fresh output and launches it. Registration affects the installed application with
+the same identity, including when run from another worktree. Coordinate smoke runs
+and use a separate package identity for isolated testing. Use the existing release
+workflow for signed installation and distribution packages.
 
 1. Check Settings in English and Simplified Chinese, including its lower sections,
    tooltips and collapsed language/theme labels. Controls should display the selected

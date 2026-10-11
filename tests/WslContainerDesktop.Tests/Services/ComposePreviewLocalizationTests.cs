@@ -25,7 +25,7 @@ using Xunit;
 namespace WslContainerDesktop.Tests.Services;
 
 [Collection("UiText")]
-public sealed class ComposePreviewDownloadTests : IDisposable
+public sealed class ComposePreviewLocalizationTests : IDisposable
 {
     private readonly Dictionary<string, string> _english = ReadCatalog("en-US");
     private readonly Dictionary<string, string> _chinese = ReadCatalog("zh-Hans");
@@ -35,53 +35,54 @@ public sealed class ComposePreviewDownloadTests : IDisposable
     [InlineData("zh-Hans", ComposeServiceAction.Create)]
     [InlineData("en-US", ComposeServiceAction.Recreate)]
     [InlineData("zh-Hans", ComposeServiceAction.Recreate)]
-    public void ActualProjectionCountsDistinctDownloadsInBothLanguages(string language, ComposeServiceAction action)
+    public void ActualProjectionLocalizesDisplayWithoutChangingRawEvidence(string language, ComposeServiceAction action)
     {
         ConfigureLanguage(language);
         var web = Service("web", "registry.invalid/shared:latest");
-        var worker = Service("worker", web.Options.Image);
-        var db = Service("db", "registry.invalid/db:latest");
-        var cached = Service("cached", "registry.invalid/cached:latest");
-        var built = Service("built", "registry.invalid/built:latest");
-        var project = new ComposeProject { Name = "demo", Services = [web, worker, db, cached, built] };
-        var plan = new ComposeReconciliationPlan([
-            Entry(web, ComposeImageAction.Pull, action) with { DesiredReplicas = 2 },
-            Entry(web, ComposeImageAction.Pull, action) with { DesiredReplicas = 2, InstanceIndex = 2, ContainerName = "demo_web_2" },
-            Entry(worker, ComposeImageAction.Pull, action),
-            Entry(db, ComposeImageAction.Pull, action),
-            Entry(cached, ComposeImageAction.None, ComposeServiceAction.Keep),
-            Entry(built, ComposeImageAction.Build, action),
-        ]);
+        web.Options.PortMappings.Add("8080:80");
+        var project = new ComposeProject { Name = "demo", Services = [web] };
+        var plan = new ComposeReconciliationPlan([Entry(web, ComposeImageAction.Pull, action)]);
         var preview = new ComposePreviewProjection(project).Create(project, new(), plan);
         var rawEvidence = JsonSerializer.Serialize(preview);
         var model = new ComposePreviewViewModel(preview);
 
-        Assert.Contains(language == "zh-Hans"
-            ? "下载 2 个镜像（registry.invalid/shared:latest, registry.invalid/db:latest）"
-            : "downloads 2 images (registry.invalid/shared:latest, registry.invalid/db:latest)", model.Outcome);
-        Assert.DoesNotContain(cached.Options.Image, model.Outcome);
-        Assert.DoesNotContain(built.Options.Image, model.Outcome);
+        Assert.StartsWith(language == "zh-Hans" ? "检查 Compose " : "Review Compose ", model.Title);
+        Assert.EndsWith(language == "zh-Hans" ? "：demo" : ": demo", model.Title);
+        Assert.Equal(language == "zh-Hans" ? "应用已检查的计划" : "Apply reviewed plan", model.ApplyLabel);
+        Assert.Contains(language == "zh-Hans" ? "1 个服务（web）" : "1 service (web)", model.Outcome);
+        Assert.Contains(language == "zh-Hans" ? "开放 8080:80" : "publishes 8080:80", model.Outcome);
+        Assert.Equal(preview.CanApply, model.CanApply);
+        Assert.Equal(preview.HasWarnings, model.HasWarnings);
         Assert.Same(preview.Settings, model.Settings);
+        foreach (var setting in model.Settings)
+        {
+            Assert.Contains(setting.Service + " · " + setting.Setting, setting.DisplaySummary);
+            Assert.Contains(language == "zh-Hans" ? "来源：" : "Source: ", setting.DisplayDetail);
+        }
+        Assert.Contains(web.Options.Image, model.Settings.Single(setting => setting.Setting == "image").DisplayDetail);
         Assert.Equal(rawEvidence, JsonSerializer.Serialize(preview));
     }
 
     [Theory]
-    [InlineData("en-US", ComposeImageAction.None)]
-    [InlineData("zh-Hans", ComposeImageAction.None)]
-    [InlineData("en-US", ComposeImageAction.Build)]
-    [InlineData("zh-Hans", ComposeImageAction.Build)]
-    public void CachedAndBuiltImagesAreNotAnnouncedAsDownloads(string language, ComposeImageAction imageAction)
+    [InlineData("en-US")]
+    [InlineData("zh-Hans")]
+    public void OutcomeLocalizesApplicationTextUsingUnmodifiedRawSettings(string language)
     {
         ConfigureLanguage(language);
-        var service = Service("web", "registry.invalid/image:latest");
-        var project = new ComposeProject { Name = "demo", Services = [service] };
-        var plan = new ComposeReconciliationPlan([Entry(service, imageAction, ComposeServiceAction.Create)]);
-        var preview = new ComposePreviewProjection(project).Create(project, new(), plan);
+        var preview = new ComposeCompatibilityPreview("demo", ComposeLifecycleOperation.Up,
+        [
+            new("web", "instances", ComposeSettingDisposition.Supported, "demo_web_1", "", "Fixture"),
+            new("web", "image", ComposeSettingDisposition.Supported, "registry.invalid/image:latest", "Pull this image.", "Fixture"),
+            new("web", "ports", ComposeSettingDisposition.Supported, "8080:80", "", "Fixture"),
+        ]);
+        var rawEvidence = JsonSerializer.Serialize(preview);
 
         var outcome = new ComposePreviewViewModel(preview).Outcome;
 
-        Assert.DoesNotContain(language == "zh-Hans" ? "下载" : "downloads", outcome);
-        Assert.DoesNotContain(service.Options.Image, outcome);
+        Assert.Equal(language == "zh-Hans"
+            ? "1 个服务（web） · 下载 1 个镜像（registry.invalid/image:latest） · 开放 8080:80."
+            : "1 service (web) · downloads 1 image (registry.invalid/image:latest) · publishes 8080:80.", outcome);
+        Assert.Equal(rawEvidence, JsonSerializer.Serialize(preview));
     }
 
     private void ConfigureLanguage(string language)

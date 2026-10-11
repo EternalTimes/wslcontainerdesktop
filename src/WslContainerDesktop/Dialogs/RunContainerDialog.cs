@@ -682,7 +682,7 @@ public sealed class RunContainerDialog : ContentDialog
 
         if (string.IsNullOrWhiteSpace(value) ||
             string.Equals(value, UiText.Get("Workload_Text_Default_bridge_83f3d5", "Default (bridge)"), StringComparison.OrdinalIgnoreCase) ||
-            string.Equals(value, "Default (bridge)", StringComparison.OrdinalIgnoreCase))
+            value.StartsWith("Default", StringComparison.OrdinalIgnoreCase))
         {
             return null;
         }

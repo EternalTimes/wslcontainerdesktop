@@ -65,13 +65,26 @@ public sealed class ContainerFileEntry : CommunityToolkit.Mvvm.ComponentModel.Ob
             : "\uE8A5";
 
     /// <summary>Gets the friendly file type label shown in the container file browser.</summary>
-    public string TypeDisplay => IsDirectory
-        ? "Folder"
-        : IsSymlink
-            ? "Shortcut"
-            : string.IsNullOrEmpty(System.IO.Path.GetExtension(Name))
-                ? "File"
-                : $"{System.IO.Path.GetExtension(Name).TrimStart('.').ToUpperInvariant()} File";
+    public string TypeDisplay
+    {
+        get
+        {
+            if (_typeDisplay is null)
+            {
+                if (IsDirectory) _typeDisplay = "Folder";
+                else if (IsSymlink) _typeDisplay = "Shortcut";
+                else
+                {
+                    var ext = System.IO.Path.GetExtension(Name);
+                    _typeDisplay = string.IsNullOrEmpty(ext) ? "File" : ext.TrimStart('.').ToUpperInvariant() + " File";
+                }
+            }
+
+            return _typeDisplay;
+        }
+    }
+
+    private string? _typeDisplay;
 
     /// <summary>Localized file type shown by the UI without changing serialized file metadata.</summary>
     [System.Text.Json.Serialization.JsonIgnore]

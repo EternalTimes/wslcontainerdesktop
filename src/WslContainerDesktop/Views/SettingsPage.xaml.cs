@@ -34,7 +34,7 @@ public sealed partial class SettingsPage : Page
         ViewModel = App.Current.Services.GetRequiredService<SettingsViewModel>();
         Updates = App.Current.Services.GetRequiredService<AppUpdateViewModel>();
         InitializeComponent();
-
+        ViewModel.ThemeChangeRequested += (_, theme) => App.Current.MainWindow?.ApplyTheme(theme);
     }
 
     /// <summary>Settings view model bound by the page.</summary>
@@ -46,7 +46,6 @@ public sealed partial class SettingsPage : Page
     protected override void OnNavigatedTo(NavigationEventArgs e)
     {
         base.OnNavigatedTo(e);
-        ViewModel.ThemeChangeRequested += OnThemeChangeRequested;
         ViewModel.LanguageChangeRequested += OnLanguageChangeRequested;
         UiSafe.Run(async () =>
         {
@@ -61,13 +60,9 @@ public sealed partial class SettingsPage : Page
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
     {
-        ViewModel.ThemeChangeRequested -= OnThemeChangeRequested;
         ViewModel.LanguageChangeRequested -= OnLanguageChangeRequested;
         base.OnNavigatedFrom(e);
     }
-
-    private void OnThemeChangeRequested(object? sender, string theme) =>
-        App.Current.MainWindow?.ApplyTheme(theme);
 
     private void OnLanguageChangeRequested(object? sender, string language) =>
         App.Current.MainWindow?.ApplyLanguage(language, refreshUi: true);

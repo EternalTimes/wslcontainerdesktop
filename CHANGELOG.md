@@ -20,17 +20,13 @@ where the signed MSIX and installation steps live.
   Technical names such as WSL, Docker, Compose, Kubernetes, Ollama, API, JSON and YAML
   keep their established spelling.
 
-### Fixed
-
-- **Settings loads correctly and remains open when the UI language changes.** Navigation
-  and existing controls update immediately, preserving unfinished input and operation state.
-- **System default follows Windows' display language after an explicit language choice**
-  and survives relaunch. Startup always uses a supported language tag, preventing the
-  unusable-language error that previously stopped the app from launching.
-- **Language and theme choices stay visible when their menus close.** Updating translated
-  option labels preserves selection and the selected theme.
-- **Compose previews include images that will be downloaded.** A shared image is counted
-  once across services and replicas.
+- **Language changes refresh Settings, navigation and existing controls in place,**
+  preserving unfinished input, selections and operation state.
+- **System default resolves Windows' display language independently of a saved app
+  language override.** The preference survives relaunch, and startup resolves it to a
+  supported language tag before creating the UI.
+- **Language and theme choices stay visible when their menus close.** Translated option
+  labels update without clearing selection or changing the selected theme.
 
 ## [2.2.0] — 2026-10-07
 

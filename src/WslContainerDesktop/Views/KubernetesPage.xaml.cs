@@ -34,6 +34,7 @@ public sealed partial class KubernetesPage : Page
     {
         ViewModel = App.Current.Services.GetRequiredService<KubernetesViewModel>();
         InitializeComponent();
+        ViewModel.OperationLogUpdated += OnOperationLogUpdated;
         Loaded += OnLoadedForLanguage;
         Unloaded += OnUnloadedForLanguage;
     }
@@ -60,13 +61,11 @@ public sealed partial class KubernetesPage : Page
     protected override void OnNavigatedTo(NavigationEventArgs e)
     {
         base.OnNavigatedTo(e);
-        ViewModel.OperationLogUpdated += OnOperationLogUpdated;
         UiSafe.Run(() => ViewModel.InitializeAsync());
     }
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
     {
-        ViewModel.OperationLogUpdated -= OnOperationLogUpdated;
         base.OnNavigatedFrom(e);
         ViewModel.Deactivate();
     }
