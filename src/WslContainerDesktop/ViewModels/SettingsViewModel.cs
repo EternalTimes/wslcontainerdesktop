@@ -17,6 +17,7 @@
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Reflection;
 using System.Text.Json;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -387,20 +388,33 @@ public partial class SettingsViewModel : ObservableObject
 
     /// <summary>
     /// The app's version for display. Reads the packaged identity version (which the release
-    /// pipeline stamps into the MSIX), falling back to the assembly version when unpackaged.
+    /// pipeline stamps into the MSIX), falling back to the assembly version when unpackaged,
+    /// and appends the short commit hash embedded by the SDK at build time when available.
     /// </summary>
     private static string ResolveAppVersion()
     {
+        var assembly = typeof(SettingsViewModel).Assembly;
+        string version;
         try
         {
             var v = Windows.ApplicationModel.Package.Current.Id.Version;
-            return UiText.Get("Common_Text0014", "Version {0}.{1}.{2}", v.Major, v.Minor, v.Build);
+            version = UiText.Get("Common_Text0014", "Version {0}.{1}.{2}", v.Major, v.Minor, v.Build);
         }
         catch
         {
-            var v = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-            return v is null ? UiText.Get("Common_Text0015", "Version 1.0.0") : UiText.Get("Common_Text0014", "Version {0}.{1}.{2}", v.Major, v.Minor, v.Build);
+            var v = assembly.GetName().Version;
+            version = v is null ? UiText.Get("Common_Text0015", "Version 1.0.0") : UiText.Get("Common_Text0014", "Version {0}.{1}.{2}", v.Major, v.Minor, v.Build);
         }
+
+        var informationalVersion = assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
+        var separator = informationalVersion?.IndexOf('+') ?? -1;
+        if (separator < 0)
+            return version;
+
+        var revision = informationalVersion![(separator + 1)..];
+        return revision.Length >= 7 && revision.All(Uri.IsHexDigit)
+            ? $"{version} ({revision[..7]})"
+            : version;
     }
 
     /// <summary>Bindable state for git hub copilot models used by the view.</summary>

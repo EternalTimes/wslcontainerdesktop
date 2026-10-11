@@ -28,6 +28,10 @@ where the signed MSIX and installation steps live.
 - **Language and theme choices stay visible when their menus close.** Translated option
   labels update without clearing selection or changing the selected theme.
 
+- **The About page includes the build's short commit hash after the app version**, making it
+  easier to identify the exact build when reporting a problem. Builds without an embedded commit
+  hash continue to display the version alone.
+
 ### Fixed
 
 - **Docker Hub login corrects uppercase and full-width usernames** before sending them to
