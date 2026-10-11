@@ -10,6 +10,17 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html). Each version links to its release,
 where the signed MSIX and installation steps live.
 
+## [Unreleased]
+
+### Fixed
+
+- **Logging in to Docker Hub accepts your account name as you type it.** Docker Hub only
+  accepts lower-case usernames, and used to answer anything else — including a name with a
+  capital letter — with an unreadable "malformed HTTP Authorization header" engine error
+  rather than a wrong-password message. The name is now corrected before it is sent, and if
+  it still contains characters Docker Hub cannot use, the dialog says so instead of
+  failing silently.
+
 ## [2.2.0] — 2026-10-07
 
 ### Changed

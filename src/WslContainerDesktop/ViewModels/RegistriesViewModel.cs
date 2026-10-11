@@ -18,6 +18,7 @@ using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using WslContainerDesktop.Dialogs;
+using WslContainerDesktop.Helpers;
 using WslContainerDesktop.Models;
 using WslContainerDesktop.Services;
 
@@ -277,7 +278,7 @@ public partial class RegistriesViewModel : ObservableObject
             return;
         }
 
-        var dialog = new RegistryLoginDialog(registry.Name, registry.Username);
+        var dialog = new RegistryLoginDialog(registry.Name, registry.Username, RegistryUsername.IsDockerHub(registry.LoginServer));
         if (await _dialogs.ShowDialogAsync(dialog) != Microsoft.UI.Xaml.Controls.ContentDialogResult.Primary)
         {
             return;
