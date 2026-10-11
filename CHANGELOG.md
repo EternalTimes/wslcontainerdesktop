@@ -28,6 +28,12 @@ where the signed MSIX and installation steps live.
 - **Language and theme choices stay visible when their menus close.** Translated option
   labels update without clearing selection or changing the selected theme.
 
+### Fixed
+
+- **Docker Hub login corrects uppercase and full-width usernames** before sending them to
+  the engine, including when adding a registry and logging in immediately. Other registries
+  preserve username case and characters. Authorization-header errors show credential guidance.
+
 ## [2.2.0] — 2026-10-07
 
 ### Changed

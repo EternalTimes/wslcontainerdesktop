@@ -78,6 +78,7 @@
     <Compile Include="..\..\src\WslContainerDesktop\Helpers\AssistantTurnDispatch.cs" Link="Helpers\AssistantTurnDispatch.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Helpers\FlagHelp.cs" Link="Helpers\FlagHelp.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Helpers\PushDestination.cs" Link="Helpers\PushDestination.cs" />
+    <Compile Include="..\..\src\WslContainerDesktop\Helpers\RegistryUsername.cs" Link="Helpers\RegistryUsername.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Helpers\LogLineOrder.cs" Link="Helpers\LogLineOrder.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\AiDiagnosticsService.cs" Link="Services\AiDiagnosticsService.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\AssistantArgumentException.cs" Link="Services\AssistantArgumentException.cs" />
