@@ -10,6 +10,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html). Each version links to its release,
 where the signed MSIX and installation steps live.
 
+## [Unreleased]
+
+### Fixed
+- **Re-enabling animations no longer leaves selection bars beside every navigation item.**
+
 ## [2.2.0] — 2026-10-07
 
 ### Changed
