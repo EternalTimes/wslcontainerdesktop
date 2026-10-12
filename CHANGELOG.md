@@ -10,6 +10,15 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html). Each version links to its release,
 where the signed MSIX and installation steps live.
 
+## [Unreleased]
+
+### Fixed
+- **Turning animations back on keeps the navigation highlight on the selected section.**
+  Previously, disabling and re-enabling animations showed a selection bar beside every section
+  until you visited each one ([#139](https://github.com/mhackermsft/wslcontainerdesktop/issues/139)).
+  With animations disabled, the highlight now moves instantly instead of being hidden, including
+  when switching to or from Settings.
+
 ## [2.2.0] — 2026-10-07
 
 ### Changed

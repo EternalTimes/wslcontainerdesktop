@@ -14,9 +14,13 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+using System.Numerics;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.UI.Composition;
+using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Hosting;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Media.Animation;
 using WslContainerDesktop.Services;
@@ -66,26 +70,80 @@ public static class FrameNavigationExtensions
     }
 
     /// <summary>
-    /// Shows or hides the navigation pane's sliding selection indicator. The selected item keeps
-    /// its highlight; only the bar that animates between items is hidden. The walk stops at any
-    /// <see cref="Frame"/>, so the hosted page is neither scanned nor affected.
+    /// Completes the navigation indicators' Composition animations at the current selection.
+    /// The selected item's bar remains visible. The walk stops at any <see cref="Frame"/>,
+    /// so the hosted page is neither scanned nor affected.
     /// </summary>
-    public static void SetNavIndicatorVisible(DependencyObject root, bool visible)
+    public static void CompleteNavIndicatorAnimations(DependencyObject root) =>
+        CompleteNavIndicatorAnimations(root, selected: false);
+
+    /// <summary>Completes indicators and waits for their queued Composition completion callbacks.</summary>
+    public static Task CompleteNavIndicatorAnimationsAsync(NavigationView navigation)
+    {
+        var compositor = ElementCompositionPreview.GetElementVisual(navigation).Compositor;
+        var completion = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var batch = compositor.CreateScopedBatch(CompositionBatchTypes.Animation);
+        var sentinel = compositor.CreateSpriteVisual();
+        sentinel.Opacity = 0;
+        var animation = compositor.CreateScalarKeyFrameAnimation();
+        animation.InsertKeyFrame(1, 1);
+        animation.Duration = TimeSpan.FromMilliseconds(1);
+
+        void OnCompleted(object sender, CompositionBatchCompletedEventArgs args)
+        {
+            batch.Completed -= OnCompleted;
+            sentinel.Dispose();
+            animation.Dispose();
+            batch.Dispose();
+            // The compositor must process the stops before completing this later animation.
+            // Let WinUI's queued completion handlers run before admitting another slide.
+            if (!navigation.DispatcherQueue.TryEnqueue(DispatcherQueuePriority.Low, () => completion.TrySetResult()))
+            {
+                completion.TrySetResult();
+            }
+        }
+
+        batch.Completed += OnCompleted;
+        CompleteNavIndicatorAnimations(navigation);
+        sentinel.StartAnimation("Opacity", animation);
+        batch.End();
+        return completion.Task;
+    }
+
+    private static void CompleteNavIndicatorAnimations(DependencyObject root, bool selected)
     {
         if (root is Frame)
         {
             return;
         }
 
+        if (root is NavigationViewItem item)
+        {
+            selected = item.IsSelected;
+        }
+
         if (root is FrameworkElement { Name: "SelectionIndicator" } indicator)
         {
-            indicator.Opacity = visible ? 1 : 0;
+            var visual = ElementCompositionPreview.GetElementVisual(indicator);
+            // NavigationView starts animations on component paths, so stop those exact paths.
+            visual.StopAnimation("Opacity");
+            visual.StopAnimation("Offset.X");
+            visual.StopAnimation("Offset.Y");
+            visual.StopAnimation("Scale.X");
+            visual.StopAnimation("Scale.Y");
+            visual.StopAnimation("CenterPoint.X");
+            visual.StopAnimation("CenterPoint.Y");
+            visual.Offset = Vector3.Zero;
+            visual.Scale = Vector3.One;
+            visual.CenterPoint = Vector3.Zero;
+            indicator.Opacity = selected ? 1 : 0;
+            visual.Opacity = selected ? 1 : 0;
         }
 
         var count = VisualTreeHelper.GetChildrenCount(root);
         for (var i = 0; i < count; i++)
         {
-            SetNavIndicatorVisible(VisualTreeHelper.GetChild(root, i), visible);
+            CompleteNavIndicatorAnimations(VisualTreeHelper.GetChild(root, i), selected);
         }
     }
 

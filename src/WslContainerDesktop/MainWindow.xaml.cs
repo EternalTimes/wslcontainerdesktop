@@ -273,19 +273,8 @@ public sealed partial class MainWindow : Window
         }
     }
 
-    private bool _navIndicatorHidden;
     private bool? _appliedAnimations;
-
-    /// <summary>Hides or restores the nav pane's sliding selection indicator to match the animations setting.</summary>
-    private void ApplyNavIndicatorPreference()
-    {
-        var animate = _settings.PageAnimations;
-        if (!animate || _navIndicatorHidden)
-        {
-            FrameNavigationExtensions.SetNavIndicatorVisible(NavView, animate);
-            _navIndicatorHidden = !animate;
-        }
-    }
+    private Task _navIndicatorSettlement = Task.CompletedTask;
 
     /// <summary>Applies the animations setting to the shell and the current page (used when the setting changes).</summary>
     private void ApplyAnimationPreference()
@@ -297,7 +286,7 @@ public sealed partial class MainWindow : Window
         }
 
         _appliedAnimations = _settings.PageAnimations;
-        ApplyNavIndicatorPreference();
+        CompleteNavIndicatorAnimationsIfRequired();
         if (NavFrame.Content is DependencyObject page)
         {
             FrameNavigationExtensions.ApplyItemTransitions(page, _settings.PageAnimations);
@@ -306,10 +295,11 @@ public sealed partial class MainWindow : Window
 
     private void NavView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
     {
-        // The indicator is (re)created as selection moves; re-hide it once layout has caught up.
-        if (!_settings.PageAnimations)
+        // WinUI starts the indicator animation before raising SelectionChanged. Complete it
+        // synchronously, then reconcile newly realized templates and batch completion callbacks.
+        if (!_settings.PageAnimations || !_navIndicatorSettlement.IsCompleted)
         {
-            DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Low, ApplyNavIndicatorPreference);
+            CompleteNavIndicatorAnimationsIfRequired();
         }
 
         if (args.IsSettingsSelected)
@@ -330,6 +320,23 @@ public sealed partial class MainWindow : Window
 
             RefreshRequirementGate();
         }
+    }
+
+    private void CompleteNavIndicatorAnimationsIfRequired()
+    {
+        if (_settings.PageAnimations && _navIndicatorSettlement.IsCompleted)
+        {
+            return;
+        }
+
+        _navIndicatorSettlement = FrameNavigationExtensions.CompleteNavIndicatorAnimationsAsync(NavView);
+        DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Low, () =>
+        {
+            if (!_settings.PageAnimations || !_navIndicatorSettlement.IsCompleted)
+            {
+                _navIndicatorSettlement = FrameNavigationExtensions.CompleteNavIndicatorAnimationsAsync(NavView);
+            }
+        });
     }
 
     /// <summary>Maps a navigation item's Tag to the page it opens, or null for an unknown tag.</summary>
