@@ -130,6 +130,7 @@
     <Compile Include="..\..\src\WslContainerDesktop\Models\RunContainerOptions.cs" Link="Models\RunContainerOptions.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Models\RunContainerMount.cs" Link="Models\RunContainerMount.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\ISettingsService.cs" Link="Services\ISettingsService.cs" />
+    <Compile Include="..\..\src\WslContainerDesktop\Services\WslcSessionContext.cs" Link="Services\WslcSessionContext.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\SettingsService.cs" Link="Services\SettingsService.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\AppConstants.cs" Link="Services\AppConstants.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\CommandErrorText.cs" Link="Services\CommandErrorText.cs" />

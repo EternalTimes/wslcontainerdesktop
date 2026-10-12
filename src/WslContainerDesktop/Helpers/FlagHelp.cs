@@ -170,8 +170,8 @@ public static class FlagHelp
     public static readonly FlagHelpEntry RestartWslSession = Entry(
         "restart-wsl-session",
         "Restart WSL session",
-        "wslc system session terminate",
-        "wslc system session terminate ends the WSL container session. Every running container in it stops; the session starts again automatically on the next container command, and containers must be started again.");
+        "wslc [--session <name>] system session terminate",
+        "Terminates the selected WSL container session (or the default CLI session). Every running container in it stops; the session starts again automatically on the next container command, and containers must be started again.");
 
     /// <summary>Help entry for shutting down all WSL distributions.</summary>
     public static readonly FlagHelpEntry ShutdownWsl = Entry(

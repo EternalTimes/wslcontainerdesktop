@@ -12,6 +12,10 @@ where the signed MSIX and installation steps live.
 
 ## [Unreleased]
 
+### Added
+- **Switch container sessions** on the WSL Engine page to view and manage containers created by
+  apps using the WSL Containers API, separately from the default CLI session.
+
 ### Fixed
 - **Re-enabling animations no longer leaves selection bars beside every navigation item.**
 

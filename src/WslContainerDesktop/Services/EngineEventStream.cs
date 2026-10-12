@@ -34,6 +34,7 @@ public sealed class EngineEventStream : IEngineEventStream, IDisposable
 
     private readonly ISettingsService _settings;
     private readonly IWslRequirementService _requirements;
+    private readonly WslcSessionContext _sessionContext;
     private readonly Func<Action, bool> _enqueue;
     private readonly ILogger<EngineEventStream> _logger;
     private readonly object _gate = new();
@@ -60,8 +61,9 @@ public sealed class EngineEventStream : IEngineEventStream, IDisposable
         ISettingsService settings,
         IWslRequirementService requirements,
         DispatcherQueue dispatcher,
-        ILogger<EngineEventStream> logger)
-        : this(settings, requirements, action => dispatcher.TryEnqueue(() => action()), logger)
+        ILogger<EngineEventStream> logger,
+        WslcSessionContext sessionContext)
+        : this(settings, requirements, action => dispatcher.TryEnqueue(() => action()), logger, sessionContext)
     {
     }
 #endif
@@ -71,12 +73,14 @@ public sealed class EngineEventStream : IEngineEventStream, IDisposable
         ISettingsService settings,
         IWslRequirementService requirements,
         Func<Action, bool> enqueue,
-        ILogger<EngineEventStream> logger)
+        ILogger<EngineEventStream> logger,
+        WslcSessionContext? sessionContext = null)
     {
         _settings = settings;
         _requirements = requirements;
         _enqueue = enqueue;
         _logger = logger;
+        _sessionContext = sessionContext ?? new WslcSessionContext();
         _streamPath = settings.WslcPath;
         _settings.Changed += OnSettingsChanged;
         _requirements.Changed += OnRequirementChanged;
@@ -279,7 +283,10 @@ public sealed class EngineEventStream : IEngineEventStream, IDisposable
             StandardOutputEncoding = Encoding.UTF8,
             StandardErrorEncoding = Encoding.UTF8,
         };
-        psi.ArgumentList.Add("events");
+        foreach (var argument in _sessionContext.AddSessionSelector(["events"]))
+        {
+            psi.ArgumentList.Add(argument);
+        }
         if (_lastEventTimestamp is { } last)
         {
             psi.ArgumentList.Add("--since");

@@ -510,6 +510,7 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
         });
 
         services.AddSingleton<ISettingsService, SettingsService>();
+        services.AddSingleton<WslcSessionContext>();
         services.AddSingleton<ProcessRunner>();
         services.AddSingleton<IWslPolicyRegistryReader, RegistryWslPolicyRegistryReader>();
         services.AddSingleton<IWslPolicyService, WslPolicyService>();
@@ -612,7 +613,8 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
             sp.GetRequiredService<IWslRequirementService>(),
             DispatcherQueue.GetForCurrentThread()
                 ?? throw new InvalidOperationException("EngineEventStream must first be resolved on the UI thread."),
-            sp.GetRequiredService<ILogger<EngineEventStream>>()));
+            sp.GetRequiredService<ILogger<EngineEventStream>>(),
+            sp.GetRequiredService<WslcSessionContext>()));
 
         // StatusMonitor needs the UI DispatcherQueue. Because the singleton is first resolved from
         // OnLaunched (which runs on the UI thread), the factory can capture the dispatcher directly
