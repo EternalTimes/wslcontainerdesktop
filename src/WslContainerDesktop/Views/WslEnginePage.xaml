@@ -84,6 +84,27 @@
                     </Button>
                 </StackPanel>
 
+                <StackPanel Spacing="6">
+                    <TextBlock FontWeight="SemiBold" Text="Container session" />
+                    <ComboBox
+                        AutomationProperties.AutomationId="WslcSessionSelector"
+                        AutomationProperties.Name="Container session"
+                        Width="360"
+                        HorizontalAlignment="Left"
+                        DisplayMemberPath="DisplayName"
+                        ItemsSource="{x:Bind ViewModel.WslcSessions, Mode=OneWay}"
+                        SelectedItem="{x:Bind ViewModel.SelectedWslcSession, Mode=TwoWay}" />
+                    <TextBlock
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        Text="Container, image, volume and network commands use this session. SDK-created sessions are separate from the default CLI session."
+                        TextWrapping="Wrap" />
+                    <InfoBar
+                        IsClosable="False"
+                        IsOpen="{x:Bind ViewModel.HasSessionWarning, Mode=OneWay}"
+                        Message="{x:Bind ViewModel.SessionWarning, Mode=OneWay}"
+                        Severity="Warning" />
+                </StackPanel>
+
                 <!--  WSL updates  -->
                 <Border Style="{StaticResource StatCard}">
                     <StackPanel Spacing="12">
