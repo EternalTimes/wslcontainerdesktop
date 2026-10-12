@@ -87,6 +87,8 @@
                 <StackPanel Spacing="6">
                     <TextBlock FontWeight="SemiBold" Text="Container session" />
                     <ComboBox
+                        AutomationProperties.AutomationId="WslcSessionSelector"
+                        AutomationProperties.Name="Container session"
                         Width="360"
                         HorizontalAlignment="Left"
                         DisplayMemberPath="DisplayName"
