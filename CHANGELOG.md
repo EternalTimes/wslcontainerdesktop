@@ -12,6 +12,8 @@ where the signed MSIX and installation steps live.
 
 ## [Unreleased]
 
+## [2.2.1] — 2026-10-12
+
 ### Added
 - **Switch container sessions** on the WSL Engine page to view and manage containers created by
   apps using the WSL Containers API, separately from the default CLI session.
@@ -583,7 +585,8 @@ rather than assuming one schema or flag set.
 Older versions (1.0.0 – 1.5.3) predate this changelog. Their tags remain in the repository, and
 their changes can be reviewed with `git log v1.5.2..v1.5.3` and similar.
 
-[Unreleased]: https://github.com/mhackermsft/wslcontainerdesktop/compare/v2.2.0...main
+[Unreleased]: https://github.com/mhackermsft/wslcontainerdesktop/compare/v2.2.1...main
+[2.2.1]: https://github.com/mhackermsft/wslcontainerdesktop/releases/tag/v2.2.1
 [2.2.0]: https://github.com/mhackermsft/wslcontainerdesktop/releases/tag/v2.2.0
 [2.1.0]: https://github.com/mhackermsft/wslcontainerdesktop/releases/tag/v2.1.0
 [2.0.1]: https://github.com/mhackermsft/wslcontainerdesktop/releases/tag/v2.0.1
