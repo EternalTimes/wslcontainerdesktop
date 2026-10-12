@@ -16,6 +16,8 @@
     <StartupObject>WslContainerDesktop.Tests.Services.ComposeConformanceWorker</StartupObject>
     <NoWarn>$(NoWarn);MVVMTK0045</NoWarn>
     <DefineConstants>$(DefineConstants);WSLCD_TEST_NO_DISPATCHER</DefineConstants>
+    <!-- The WSL Containers projection was built against this Windows SDK targeting-pack assembly version. -->
+    <WindowsSdkPackageVersion Condition="'$(TargetFramework)' == 'net10.0-windows10.0.26100.0'">10.0.28000.87</WindowsSdkPackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,6 +27,8 @@
     <!-- Match the already-audited app SDK graph for deterministic app-owned Copilot binding tests. -->
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.2" Condition="'$(TargetFramework)' == 'net10.0-windows10.0.26100.0'" />
     <PackageReference Include="GitHub.Copilot.SDK" Version="1.0.7" Condition="'$(TargetFramework)' == 'net10.0-windows10.0.26100.0'" />
+    <!-- Exercise sessions created through the same SDK that exposed the session-selection issue. -->
+    <PackageReference Include="Microsoft.WSL.Containers" Version="3.0.1" Condition="'$(TargetFramework)' == 'net10.0-windows10.0.26100.0'" />
     <PackageReference Include="xunit" Version="2.9.3" />
     <PackageReference Include="YamlDotNet" Version="16.3.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4">
