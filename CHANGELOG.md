@@ -14,6 +14,10 @@ where the signed MSIX and installation steps live.
 
 ### Added
 
+- **The About page includes the build's short commit hash after the app version**, making it
+  easier to identify the exact build when reporting a problem. Builds without an embedded commit
+  hash continue to display the version alone.
+
 - **A UI language setting at the top of Settings** lets you choose **System default**,
   **English**, or **简体中文 (Simplified Chinese)** without restarting. Navigation, pages,
   dialogs, assistant controls, status messages and notifications follow that choice.
