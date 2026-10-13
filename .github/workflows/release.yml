@@ -17,6 +17,11 @@ on:
 permissions:
   contents: write
 
+# Serialize all release refs so latest-version comparison and publication cannot race.
+concurrency:
+  group: release-publication
+  cancel-in-progress: false
+
 jobs:
   release:
     runs-on: windows-latest
@@ -29,6 +34,14 @@ jobs:
           # prior attempt's version-stamp commit is visible and release targets stay reachable.
           ref: ${{ github.ref_name }}
           fetch-depth: 0 # need tags to detect version clashes
+
+      - name: Check installer (Windows PowerShell 5.1)
+        shell: powershell
+        run: ./tests/Install.Tests.ps1
+
+      - name: Check installer (PowerShell 7)
+        shell: pwsh
+        run: ./tests/Install.Tests.ps1
 
       - name: Setup .NET 10
         uses: actions/setup-dotnet@v4
@@ -165,8 +178,11 @@ jobs:
           $leaf = $col[0]
           [System.IO.File]::WriteAllBytes((Join-Path $stage 'WSLContainerDesktop-Signing.cer'), $leaf.Export('Cert'))
 
-          # Include the end-user installer script.
-          Copy-Item './build/Install.ps1' (Join-Path $stage 'Install.ps1')
+          # Pin the helper to the same release and exported certificate as the MSIX.
+          ./build/Stage-InstallScript.ps1 -Version $ver -Repository '${{ github.repository }}' `
+            -CertificatePath (Join-Path $stage 'WSLContainerDesktop-Signing.cer') `
+            -PackagePath (Join-Path $stage "WSLContainerDesktop_${ver}_x64.msix") `
+            -OutputPath (Join-Path $stage 'Install.ps1')
 
           Write-Host "Staged assets:"
           Get-ChildItem $stage | ForEach-Object { Write-Host " - $($_.Name) ($([math]::Round($_.Length/1MB,1)) MB)" }
@@ -183,12 +199,33 @@ jobs:
 
           **[What's new in this version](https://github.com/${{ github.repository }}/blob/${{ steps.ver.outputs.tag }}/CHANGELOG.md)** — full changelog.
 
-          ### Install (recommended: two commands, no script)
+          ### Install (recommended: download only the helper)
 
-          Downloaded files are flagged "from the internet" (Mark of the Web), so Windows' default
-          ``RemoteSigned`` policy blocks the unsigned ``Install.ps1``. The most reliable way to install
-          is to run the two underlying steps yourself — interactive commands are **not** subject to
-          script-signing policy.
+          1. Download **[Install.ps1](https://github.com/${{ github.repository }}/releases/download/${{ steps.ver.outputs.tag }}/Install.ps1)** below into a writable folder.
+          2. Open PowerShell in that folder and run:
+
+          ``````powershell
+          powershell -ExecutionPolicy Bypass -File .\Install.ps1
+          ``````
+
+          3. The helper downloads and verifies this release's missing **``.cer``** and **``.msix``**.
+             Approve the administrator prompt to trust the displayed publisher certificate.
+             The app then installs in your original Windows session.
+          4. Launch **WSL Container Desktop** from the Start menu.
+
+          Internet access is needed only for missing assets. For offline installation, put this release's
+          ``.cer`` and ``.msix`` beside the script first. Saved scripts stay pinned to their original release;
+          download a fresh helper from the latest stable release to install a newer version.
+
+          ``-ExecutionPolicy Bypass`` applies only to this PowerShell process; it does not change your
+          machine's policy. It avoids the default ``RemoteSigned`` block on this unsigned downloaded script.
+          Alternatively, unblock only the helper, then right-click **Install.ps1** > **Run with PowerShell**:
+
+          ``````powershell
+          Unblock-File -Path .\Install.ps1
+          ``````
+
+          ### Manual installation (without a script)
 
           1. Download the **``.msix``** and **``.cer``** assets below into the same folder.
           2. Open that folder, then open an **elevated** PowerShell (Run as administrator).
@@ -203,25 +240,6 @@ jobs:
 
           The first command trusts the app's self-signed publisher certificate (``CN=Michael Hacker``)
           so Windows accepts the sideloaded package; the second installs (or updates) the app.
-
-          ### Alternative: use the Install.ps1 helper script
-
-          If you'd rather use the bundled script, download **``Install.ps1``** as well, then run it in a
-          way that bypasses the script-signing block (do **one** of these):
-
-          - From an elevated PowerShell in the download folder:
-
-            ``````powershell
-            powershell -ExecutionPolicy Bypass -File .\Install.ps1
-            ``````
-
-          - **Or** strip the Mark of the Web first, then right-click **Install.ps1** > **Run with PowerShell**:
-
-            ``````powershell
-            Unblock-File -Path .\*
-            ``````
-
-          The script self-elevates, trusts the certificate, and installs the package.
 
           ### Updating
 
@@ -238,7 +256,18 @@ jobs:
             '--notes-file', $notesPath,
             '--target', "${{ steps.bump.outputs.sha }}"
           )
-          if ('${{ github.event.inputs.prerelease }}' -eq 'true') { $ghArgs += '--prerelease' }
+          if ('${{ github.event.inputs.prerelease }}' -eq 'true') {
+            $ghArgs += @('--prerelease', '--latest=false')
+          } else {
+            $latestTag = gh api 'repos/${{ github.repository }}/releases/latest' --jq '.tag_name' 2>&1
+            if ($LASTEXITCODE -ne 0) {
+              if (($latestTag -join "`n") -notmatch 'HTTP 404') {
+                throw "Could not query latest stable release: $($latestTag -join '; ')"
+              }
+              $latestTag = ''
+            }
+            $ghArgs += ./build/Get-ReleaseLatestFlag.ps1 -Version '${{ steps.ver.outputs.version }}' -LatestTag "$latestTag"
+          }
           Get-ChildItem "${{ steps.stage.outputs.dir }}" | ForEach-Object { $ghArgs += $_.FullName }
 
           $maxAttempts = 5

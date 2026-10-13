@@ -33,6 +33,78 @@ namespace WslContainerDesktop.ViewModels;
 /// </summary>
 public partial class WslEngineViewModel : ObservableObject
 {
+    /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string StatusMessageDisplay => UiText.Translate(StatusMessage);
+
+    /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string EngineStatusTextDisplay => UiText.Translate(EngineStatusText);
+
+    /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string EngineVersionDisplay => UiText.Translate(EngineVersion);
+
+    /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string WslVersionDisplay => UiText.Translate(WslVersion);
+
+    /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string KernelVersionDisplay => UiText.Translate(KernelVersion);
+
+    /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string LatestWslVersionDisplay => UiText.Translate(LatestWslVersion);
+
+    /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string UpdateMessageDisplay => UiText.Translate(UpdateMessage);
+
+    /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string UpdateCheckFailedMessageDisplay => UiText.Translate(UpdateCheckFailedMessage);
+
+    /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string ConfigNoteDisplay => UiText.Translate(ConfigNote);
+
+    /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string SettingsFilePathDisplay => UiText.Translate(SettingsFilePath);
+
+    /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string ContainerStorageLocationDisplay => UiText.Translate(ContainerStorageLocation);
+
+    /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string ContainerStorageSizeDisplay => UiText.Translate(ContainerStorageSize);
+
+    /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string StorageEditNoteDisplay => UiText.Translate(StorageEditNote);
+
+    /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string SessionCpuCountDisplay => UiText.Translate(SessionCpuCount);
+
+    /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string SessionMemorySizeDisplay => UiText.Translate(SessionMemorySize);
+
+    /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string SessionMaxStorageSizeDisplay => UiText.Translate(SessionMaxStorageSize);
+
+    /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string SessionDefaultBindingAddressDisplay => UiText.Translate(SessionDefaultBindingAddress);
+
+    /// <summary>Text projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string CredentialStoreDisplay => UiText.Translate(CredentialStore);
+
     private readonly IWslSystemService _system;
     private readonly IWslcService _wslc;
     private readonly StatusMonitor _monitor;
@@ -40,6 +112,9 @@ public partial class WslEngineViewModel : ObservableObject
     private readonly ISettingsService _settings;
     private readonly IWslcSettingsFileService _wslcSettings;
     private readonly IEngineEventStream _events;
+    private readonly WslcSessionContext _sessionContext;
+    private bool _refreshingSessions;
+    private static readonly WslcSessionChoice DefaultWslcSessionChoice = new(null, "Default CLI session");
 
     /// <summary>Whether busy for view binding.</summary>
     [ObservableProperty]
@@ -47,11 +122,13 @@ public partial class WslEngineViewModel : ObservableObject
 
     /// <summary>Bindable state for status message used by the view.</summary>
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(StatusMessageDisplay))]
     private string _statusMessage = "Ready";
 
     // ---- Engine ----
     /// <summary>Bindable state for engine status text used by the view.</summary>
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(EngineStatusTextDisplay))]
     private string _engineStatusText = "Checking…";
 
     /// <summary>Bindable state for engine status brush used by the view.</summary>
@@ -60,15 +137,18 @@ public partial class WslEngineViewModel : ObservableObject
 
     /// <summary>Bindable state for engine version used by the view.</summary>
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(EngineVersionDisplay))]
     private string _engineVersion = "Unknown";
 
     // ---- Platform ----
     /// <summary>Bindable state for wsl version used by the view.</summary>
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(WslVersionDisplay))]
     private string _wslVersion = "Unknown";
 
     /// <summary>Bindable state for kernel version used by the view.</summary>
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(KernelVersionDisplay))]
     private string _kernelVersion = "Unknown";
 
     // ---- Updates ----
@@ -86,10 +166,12 @@ public partial class WslEngineViewModel : ObservableObject
 
     /// <summary>Latest WSL version available on the selected channel (from the release feed).</summary>
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(LatestWslVersionDisplay))]
     private string _latestWslVersion = "Unknown";
 
     /// <summary>Message shown in the update notice InfoBar.</summary>
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(UpdateMessageDisplay))]
     private string _updateMessage = string.Empty;
 
     /// <summary>True when the last update check could not be completed (e.g. offline).</summary>
@@ -98,6 +180,7 @@ public partial class WslEngineViewModel : ObservableObject
 
     /// <summary>Message shown when the update check failed.</summary>
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(UpdateCheckFailedMessageDisplay))]
     private string _updateCheckFailedMessage = string.Empty;
 
     /// <summary>Include pre-release WSL builds when checking for and applying updates.</summary>
@@ -119,18 +202,22 @@ public partial class WslEngineViewModel : ObservableObject
 
     /// <summary>Bindable state for config note used by the view.</summary>
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(ConfigNoteDisplay))]
     private string _configNote = string.Empty;
 
     /// <summary>Bindable state for settings file path used by the view.</summary>
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(SettingsFilePathDisplay))]
     private string _settingsFilePath = "Unknown";
 
     /// <summary>Bindable state for container storage location used by the view.</summary>
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(ContainerStorageLocationDisplay))]
     private string _containerStorageLocation = "Unknown";
 
     /// <summary>Bindable state for container storage size used by the view.</summary>
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(ContainerStorageSizeDisplay))]
     private string _containerStorageSize = "Unknown";
 
     /// <summary>Bindable state for storage edit available used by the view.</summary>
@@ -139,30 +226,59 @@ public partial class WslEngineViewModel : ObservableObject
 
     /// <summary>Bindable state for storage edit note used by the view.</summary>
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(StorageEditNoteDisplay))]
     private string _storageEditNote = string.Empty;
 
     /// <summary>Bindable state for session cpu count used by the view.</summary>
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(SessionCpuCountDisplay))]
     private string _sessionCpuCount = "default";
 
     /// <summary>Bindable state for session memory size used by the view.</summary>
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(SessionMemorySizeDisplay))]
     private string _sessionMemorySize = "default";
 
     /// <summary>Bindable state for session max storage size used by the view.</summary>
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(SessionMaxStorageSizeDisplay))]
     private string _sessionMaxStorageSize = "default";
 
     /// <summary>Bindable state for session default binding address used by the view.</summary>
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(SessionDefaultBindingAddressDisplay))]
     private string _sessionDefaultBindingAddress = "default";
 
     /// <summary>Bindable state for credential store used by the view.</summary>
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(CredentialStoreDisplay))]
     private string _credentialStore = "default";
 
     /// <summary>Registered distros and their run state.</summary>
     public ObservableCollection<WslDistroStatus> Distros { get; } = new();
+
+    /// <summary>Sessions the user can target with WSLC operations.</summary>
+    public ObservableCollection<WslcSessionChoice> WslcSessions { get; } =
+    [
+        DefaultWslcSessionChoice,
+    ];
+
+    /// <summary>Selected WSLC session; null targets the CLI's default session.</summary>
+    [ObservableProperty]
+    private WslcSessionChoice? _selectedWslcSession = DefaultWslcSessionChoice;
+
+    /// <summary>Explains why named session choices could not be refreshed.</summary>
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(SessionWarningDisplay))]
+    private string _sessionWarning = string.Empty;
+
+    /// <summary>Whether the session discovery warning is visible.</summary>
+    [ObservableProperty]
+    private bool _hasSessionWarning;
+
+    /// <summary>Session discovery warning projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string SessionWarningDisplay => UiText.Translate(SessionWarning);
 
     /// <summary>True while <c>wsl --update</c> runs, so the administrator-prompt guidance shows.</summary>
     [ObservableProperty]
@@ -196,7 +312,7 @@ public partial class WslEngineViewModel : ObservableObject
     private CancellationTokenSource? _updateCts;
 
     /// <summary>Creates the WslEngine view model and stores its injected services.</summary>
-    public WslEngineViewModel(IWslSystemService system, IWslcService wslc, StatusMonitor monitor, DialogService dialogs, ISettingsService settings, IWslcSettingsFileService wslcSettings, IEngineEventStream events)
+    public WslEngineViewModel(IWslSystemService system, IWslcService wslc, StatusMonitor monitor, DialogService dialogs, ISettingsService settings, IWslcSettingsFileService wslcSettings, IEngineEventStream events, WslcSessionContext sessionContext)
     {
         _system = system;
         _wslc = wslc;
@@ -205,7 +321,55 @@ public partial class WslEngineViewModel : ObservableObject
         _settings = settings;
         _wslcSettings = wslcSettings;
         _events = events;
+        _sessionContext = sessionContext;
         _includePreRelease = settings.WslUpdatePreRelease;
+        RefreshLocalizedSessionChoices();
+        UiText.LanguageChanged += (_, _) =>
+        {
+            RefreshLocalizedSessionChoices();
+            OnPropertyChanged(nameof(SessionWarningDisplay));
+        };
+    }
+
+    private void RefreshLocalizedSessionChoices()
+    {
+        var selectedName = SelectedWslcSession?.Name;
+        var sessionNames = WslcSessions
+            .Where(session => session.Name is not null)
+            .Select(session => session.Name!)
+            .ToArray();
+
+        _refreshingSessions = true;
+        try
+        {
+            WslcSessions.Clear();
+            WslcSessions.Add(new WslcSessionChoice(
+                null, UiText.Get("WslEngine_Session_Default", "Default CLI session")));
+            foreach (var name in sessionNames)
+            {
+                WslcSessions.Add(new WslcSessionChoice(name, name));
+            }
+
+            SelectedWslcSession = WslcSessions.FirstOrDefault(session =>
+                string.Equals(session.Name, selectedName, StringComparison.OrdinalIgnoreCase))
+                ?? WslcSessions[0];
+        }
+        finally
+        {
+            _refreshingSessions = false;
+        }
+    }
+
+    partial void OnSelectedWslcSessionChanged(WslcSessionChoice? value)
+    {
+        if (_refreshingSessions)
+        {
+            return;
+        }
+
+        _sessionContext.Select(value?.Name);
+        _events.Restart();
+        _monitor.RequestRefresh();
     }
 
     /// <summary>Command handler for refresh actions triggered from the view.</summary>
@@ -220,6 +384,7 @@ public partial class WslEngineViewModel : ObservableObject
 
             var versionResult = await _wslc.GetVersionAsync();
             EngineVersion = versionResult.Success ? versionResult.StandardOutput.Trim() : "Unreachable";
+            await RefreshWslcSessionsAsync();
             await RefreshContainerEnvironmentAsync();
 
             var platform = await _system.GetPlatformInfoAsync();
@@ -248,7 +413,7 @@ public partial class WslEngineViewModel : ObservableObject
         catch (Exception ex)
         {
             StatusMessage = "Error";
-            await _dialogs.ShowMessageAsync("Failed to read WSL status", ex.Message);
+            await _dialogs.ShowMessageAsync(UiText.Get("Resource_Text_375ebb8cbe29", "Failed to read WSL status"), ex.Message);
         }
         finally
         {
@@ -258,6 +423,61 @@ public partial class WslEngineViewModel : ObservableObject
         // Update availability is a network round-trip; run it after the page is populated so it
         // never blocks the core status from rendering.
         await CheckForUpdateAsync();
+    }
+
+    private async Task RefreshWslcSessionsAsync()
+    {
+        try
+        {
+            var systemInfo = await _wslc.GetSystemInfoAsync();
+            var previousSelection = SelectedWslcSession;
+            var previousSessionName = _sessionContext.SelectedSessionName;
+            var names = systemInfo.Server.Sessions
+                .Select(session => session.Name)
+                .Where(name => !string.IsNullOrWhiteSpace(name))
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .OrderBy(name => name, StringComparer.OrdinalIgnoreCase);
+
+            _refreshingSessions = true;
+            try
+            {
+                WslcSessions.Clear();
+                WslcSessions.Add(new WslcSessionChoice(
+                    null, UiText.Get("WslEngine_Session_Default", "Default CLI session")));
+                foreach (var name in names)
+                {
+                    WslcSessions.Add(new WslcSessionChoice(name, name));
+                }
+
+                SelectedWslcSession = WslcSessions.FirstOrDefault(session =>
+                    string.Equals(session.Name, previousSelection?.Name, StringComparison.OrdinalIgnoreCase))
+                    ?? WslcSessions[0];
+            }
+            finally
+            {
+                _refreshingSessions = false;
+            }
+
+            if (!string.Equals(previousSessionName, SelectedWslcSession?.Name, StringComparison.OrdinalIgnoreCase))
+            {
+                _sessionContext.Select(SelectedWslcSession?.Name);
+                _events.Restart();
+                _monitor.RequestRefresh();
+            }
+
+            SessionWarning = string.Empty;
+            HasSessionWarning = false;
+        }
+        catch (Exception ex) when (ex is not OperationCanceledException)
+        {
+            SessionWarning = $"Could not load WSLC sessions: {ex.Message}";
+            HasSessionWarning = true;
+            if (WslcSessions.Count == 0)
+            {
+                WslcSessions.Add(new WslcSessionChoice(
+                    null, UiText.Get("WslEngine_Session_Default", "Default CLI session")));
+            }
+        }
     }
 
     /// <summary>Refreshes container environment state for the view model.</summary>
@@ -370,15 +590,15 @@ public partial class WslEngineViewModel : ObservableObject
     [RelayCommand]
     private async Task UpdateWslAsync()
     {
-        var channel = IncludePreRelease ? " (including pre-release builds)" : string.Empty;
+        var channel = IncludePreRelease ? UiText.Get("Resource_Text_94f2148dac71", " (including pre-release builds)") : string.Empty;
         var ok = await _dialogs.ShowConfirmAsync(
-            "Update WSL",
-            $"Download and install the latest WSL update{channel}? This stops all running distros " +
-            "and containers while the update is applied.\n\n" +
-            WslUpdateElevation.BeforeUpdateNote + " If no prompt appears, look for a flashing " +
-            "shield icon on the taskbar, and check that it shows Microsoft Corporation as the " +
-            "verified publisher.",
-            "Update");
+            UiText.Get("Resource_Text_6a03ca0cd0bc", "Update WSL"),
+            UiText.Get("Resource_Text_ec038ed93a63", "Download and install the latest WSL update{0}? This stops all running distros ", channel) +
+            UiText.Get("Resource_Text_0e2a97ecc9c6", "and containers while the update is applied.\n\n") +
+            UiText.Translate(WslUpdateElevation.BeforeUpdateNote) + UiText.Get("Resource_Text_db4bcc70ee6e", " If no prompt appears, look for a flashing ") +
+            UiText.Get("Resource_Text_efe270c11a51", "shield icon on the taskbar, and check that it shows Microsoft Corporation as the ") +
+            UiText.Get("Resource_Text_66ebcf92eed0", "verified publisher."),
+            UiText.Get("Resource_Text_fb91e24fa52d", "Update"));
         if (!ok)
         {
             return;
@@ -400,15 +620,15 @@ public partial class WslEngineViewModel : ObservableObject
             _monitor.RequestRefresh();
             if (result.Success)
             {
-                await _dialogs.ShowMessageAsync("WSL update",
+                await _dialogs.ShowMessageAsync(UiText.Get("Resource_Text_01c18eb220c6", "WSL update"),
                     string.IsNullOrWhiteSpace(result.StandardOutput)
-                        ? "WSL is up to date."
+                        ? UiText.Get("Resource_Text_04271cf5765a", "WSL is up to date.")
                         : result.StandardOutput.Trim());
             }
             else
             {
-                await _dialogs.ShowMessageAsync("Update failed",
-                    sawPrompt ? $"{result.ErrorText}\n\n{WslUpdateElevation.DeclinedHint}" : result.ErrorText);
+                await _dialogs.ShowMessageAsync(UiText.Get("Resource_Text_4de04cd91a3d", "Update failed"),
+                    sawPrompt ? $"{result.ErrorText}\n\n{UiText.Translate(WslUpdateElevation.DeclinedHint)}" : result.ErrorText);
             }
         }
         finally
@@ -450,11 +670,16 @@ public partial class WslEngineViewModel : ObservableObject
     [RelayCommand]
     private async Task RestartSessionAsync()
     {
+        var sessionName = SelectedWslcSession?.Name is null
+            ? UiText.Get("WslEngine_Session_Default", "Default CLI session")
+            : SelectedWslcSession.DisplayName;
         var ok = await _dialogs.ShowConfirmAsync(
-            "Restart WSL session",
-            "Restart the wslc session? This stops all running containers and releases the " +
-            "engine's per-session bind-mount slots. Containers can be started again afterwards.",
-            "Restart");
+            UiText.Get("Resource_Text_c981dceb2438", "Restart WSL session"),
+            UiText.Get(
+                "WslEngine_RestartSessionConfirmation",
+                "Restart the {0}? This stops all running containers and releases the engine's per-session bind-mount slots. Containers can be started again afterwards.",
+                sessionName),
+            UiText.Get("Resource_Text_b134bd555a2f", "Restart"));
         if (!ok)
         {
             return;
@@ -464,23 +689,29 @@ public partial class WslEngineViewModel : ObservableObject
     }
 
     /// <summary>Helper for the restart session core workflow in this view model.</summary>
-    private async Task RestartSessionCoreAsync()
+    private async Task RestartSessionCoreAsync(bool selectedSession = true)
     {
         IsBusy = true;
         StatusMessage = "Restarting the wslc session…";
         try
         {
-            _events.Restart();
-            var result = await _wslc.RestartSessionAsync();
+            if (selectedSession)
+            {
+                _events.Restart();
+            }
+
+            var result = selectedSession
+                ? await _wslc.RestartSessionAsync()
+                : await _wslc.RestartDefaultSessionAsync();
             _monitor.RequestRefresh();
             if (result.Success)
             {
-                await _dialogs.ShowMessageAsync("Session restarted",
-                    "The wslc session was terminated. It restarts automatically on the next container action.");
+                await _dialogs.ShowMessageAsync(UiText.Get("Resource_Text_67036bb84e14", "Session restarted"),
+                    UiText.Get("Resource_Text_c77cb4166afa", "The wslc session was terminated. It restarts automatically on the next container action."));
             }
             else
             {
-                await _dialogs.ShowMessageAsync("Restart failed", result.ErrorText);
+                await _dialogs.ShowMessageAsync(UiText.Get("Resource_Text_c52ad8ebd665", "Restart failed"), result.ErrorText);
             }
         }
         finally
@@ -495,10 +726,10 @@ public partial class WslEngineViewModel : ObservableObject
     private async Task ShutdownWslAsync()
     {
         var ok = await _dialogs.ShowConfirmAsync(
-            "Shut down WSL",
-            "Shut down all WSL distros? This stops the container engine and every running " +
-            "container, and closes any other WSL sessions on this machine.",
-            "Shut down");
+            UiText.Get("Resource_Text_158cc9f59175", "Shut down WSL"),
+            UiText.Get("Resource_Text_400850b7845e", "Shut down all WSL distros? This stops the container engine and every running ") +
+            UiText.Get("Resource_Text_e65f3f93250a", "container, and closes any other WSL sessions on this machine."),
+            UiText.Get("Resource_Text_e75039654b0d", "Shut down"));
         if (!ok)
         {
             return;
@@ -512,7 +743,7 @@ public partial class WslEngineViewModel : ObservableObject
             _monitor.RequestRefresh();
             if (!result.Success)
             {
-                await _dialogs.ShowMessageAsync("Shutdown failed", result.ErrorText);
+                await _dialogs.ShowMessageAsync(UiText.Get("Resource_Text_0b5e1b6073eb", "Shutdown failed"), result.ErrorText);
             }
         }
         finally
@@ -528,7 +759,7 @@ public partial class WslEngineViewModel : ObservableObject
         var result = await _wslc.OpenSettingsAsync();
         if (!result.Success)
         {
-            await _dialogs.ShowMessageAsync("Open settings failed", result.ErrorText);
+            await _dialogs.ShowMessageAsync(UiText.Get("Resource_Text_a4b3c40db4fd", "Open settings failed"), result.ErrorText);
         }
     }
 
@@ -542,16 +773,16 @@ public partial class WslEngineViewModel : ObservableObject
         var validation = _wslcSettings.ValidateStoragePath(folder);
         if (!validation.IsValid)
         {
-            await _dialogs.ShowMessageAsync("Can't use this folder", validation.Message ?? "Choose an empty folder.");
+            await _dialogs.ShowMessageAsync(UiText.Get("Resource_Text_da88488d0792", "Can't use this folder"), UiText.Translate(validation.Message ?? "Choose an empty folder."));
             return;
         }
 
         var ok = await _dialogs.ShowConfirmAsync(
-            "Change container storage",
-            "Use this empty folder for new wslc session storage?\n\n" +
-            "Existing images, containers and volumes are not migrated. They remain in the old location until deleted. " +
-            "The wslc session must restart before the new location is used.",
-            "Change");
+            UiText.Get("Resource_Text_2a606e7bd51e", "Change container storage"),
+            UiText.Get("Resource_Text_511e101f8c63", "Use this empty folder for new wslc session storage?\n\n") +
+            UiText.Get("Resource_Text_1bdd56ae0fa8", "Existing images, containers and volumes are not migrated. They remain in the old location until deleted. ") +
+            UiText.Get("Resource_Text_8b70a928916e", "The wslc session must restart before the new location is used."),
+            UiText.Get("Resource_Text_64fbd995d3b6", "Change"));
         if (!ok)
         {
             return;
@@ -563,9 +794,12 @@ public partial class WslEngineViewModel : ObservableObject
         }
 
         await RefreshAsync();
-        if (await _dialogs.ShowConfirmAsync("Restart session now?", "Restart the wslc session now so the new storage location is used? Running containers are stopped.", "Restart"))
+        if (await _dialogs.ShowConfirmAsync(
+                UiText.Get("Resource_Text_fe232b5bb527", "Restart default session now?"),
+                UiText.Get("Resource_Text_c6792f417830", "Restart the default CLI session now so the new storage location is used? Running containers in that session are stopped."),
+                UiText.Get("Resource_Text_b134bd555a2f", "Restart")))
         {
-            await RestartSessionCoreAsync();
+            await RestartSessionCoreAsync(selectedSession: false);
         }
     }
 
@@ -580,7 +814,7 @@ public partial class WslEngineViewModel : ObservableObject
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidOperationException or ArgumentException)
         {
             // Not swallowed: the reason is shown to the user, who can fall back to Edit settings file.
-            await _dialogs.ShowMessageAsync("Couldn't update container storage", ex.Message);
+            await _dialogs.ShowMessageAsync(UiText.Get("Resource_Text_384a147ad9e2", "Couldn't update container storage"), ex.Message);
             return false;
         }
     }
@@ -590,10 +824,10 @@ public partial class WslEngineViewModel : ObservableObject
     private async Task ResetStorageLocationAsync()
     {
         var ok = await _dialogs.ShowConfirmAsync(
-            "Reset container storage",
-            "Reset wslc session.storagePath to default? Existing data in a custom location is not migrated or deleted. " +
-            "The wslc session must restart before the default location is used.",
-            "Reset");
+            UiText.Get("Resource_Text_cc95aa7e0053", "Reset container storage"),
+            UiText.Get("Resource_Text_33b145c8b2b7", "Reset wslc session.storagePath to default? Existing data in a custom location is not migrated or deleted. ") +
+            UiText.Get("Resource_Text_f4ad4c094dc2", "The wslc session must restart before the default location is used."),
+            UiText.Get("Resource_Text_44c57abd888a", "Reset"));
         if (!ok)
         {
             return;
@@ -605,9 +839,12 @@ public partial class WslEngineViewModel : ObservableObject
         }
 
         await RefreshAsync();
-        if (await _dialogs.ShowConfirmAsync("Restart session now?", "Restart the wslc session now so the default storage location is used? Running containers are stopped.", "Restart"))
+        if (await _dialogs.ShowConfirmAsync(
+                UiText.Get("Resource_Text_fe232b5bb527", "Restart default session now?"),
+                UiText.Get("Resource_Text_4321ed28ed60", "Restart the default CLI session now so the default storage location is used? Running containers in that session are stopped."),
+                UiText.Get("Resource_Text_b134bd555a2f", "Restart")))
         {
-            await RestartSessionCoreAsync();
+            await RestartSessionCoreAsync(selectedSession: false);
         }
     }
 
@@ -624,5 +861,11 @@ public partial class WslEngineViewModel : ObservableObject
         return Version.TryParse(value, out var parsed) && parsed.Revision == 0
             ? $"{parsed.Major}.{parsed.Minor}.{parsed.Build}"
             : value;
+    }
+
+    /// <summary>Refreshes display projections after a UI language change.</summary>
+    internal void RefreshLocalizedText()
+    {
+        OnPropertyChanged(string.Empty);
     }
 }
