@@ -12,6 +12,22 @@ where the signed MSIX and installation steps live.
 
 ## [Unreleased]
 
+### Added
+
+- **A UI language setting at the top of Settings** lets you choose **System default**,
+  **English**, or **简体中文 (Simplified Chinese)** without restarting. Navigation, pages,
+  dialogs, assistant controls, status messages and notifications follow that choice.
+  Technical names such as WSL, Docker, Compose, Kubernetes, Ollama, API, JSON and YAML
+  keep their established spelling.
+
+- **Language changes refresh Settings, navigation and existing controls in place,**
+  preserving unfinished input, selections and operation state.
+- **System default resolves Windows' display language independently of a saved app
+  language override.** The preference survives relaunch, and startup resolves it to a
+  supported language tag before creating the UI.
+- **Language and theme choices stay visible when their menus close.** Translated option
+  labels update without clearing selection or changing the selected theme.
+
 ### Fixed
 - **The release installer downloads its missing files automatically.** Download only `Install.ps1`;
   it fetches the certificate and MSIX for its own release, while matching local files still work
