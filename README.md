@@ -199,10 +199,36 @@ A native **WinUI 3 / .NET 10** desktop application for managing **WSL containers
 
 Prebuilt, signed packages are published on the [**Releases**](https://github.com/mhackermsft/wslcontainerdesktop/releases) page.
 
-Downloaded files are flagged "from the internet" (Mark of the Web), so Windows' default `RemoteSigned`
-execution policy blocks the unsigned `Install.ps1` with *"…is not digitally signed."* The most reliable
-install is to run the two underlying steps yourself — interactive commands are **not** subject to
-script-signing policy.
+**Installer helper (automatic downloads starting with the next release).** Download only
+[**Install.ps1 from the latest stable release**](https://github.com/mhackermsft/wslcontainerdesktop/releases/latest/download/Install.ps1)
+into a writable folder, open PowerShell there, and run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\Install.ps1
+```
+
+The helper downloads its release's missing `.cer` and `.msix`, verifies both against the hashes
+embedded in the script, and shows the publisher certificate. Approve the administrator prompt
+to trust that certificate; only certificate import is elevated, and the app installs in your
+original Windows session. Launch **WSL Container Desktop**
+from the Start menu. Internet access is needed only for missing files; for offline installation,
+download that release's certificate and MSIX into the script's folder first.
+
+A saved script installs its original release, **not** whatever is newest when you run it.
+Download a fresh helper using the link above for the latest stable version. Scripts attached to
+older releases still require both assets to be downloaded manually.
+
+Downloaded scripts are flagged "from the internet" (Mark of the Web). The command above avoids the
+default `RemoteSigned` block with a process-only execution-policy override; it does not change the
+machine's policy. Alternatively, unblock only the helper and then right-click **Install.ps1** →
+**Run with PowerShell**:
+
+```powershell
+Unblock-File -Path .\Install.ps1
+```
+
+**Manual installation (without a script).** Interactive commands are not subject to script-signing
+policy:
 
 1. Open the latest release and download these assets into the same folder:
    - `WSLContainerDesktop_<version>_x64.msix` — the app (self-contained; it bundles the .NET and Windows App SDK runtimes).
@@ -226,19 +252,6 @@ it downloads the release, closes, installs it and reopens. It only installs a pa
 build of this app signed with the same certificate as the one you installed. Turn the check off, or
 check by hand, under **Settings → About**. You can also still update manually by repeating the steps
 above with a newer release — it updates in place.
-
-**Prefer the bundled `Install.ps1` script?** Download it too, then run it in a way that bypasses the
-script-signing block — either from an elevated PowerShell in the download folder:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\Install.ps1
-```
-
-…or strip the Mark of the Web first and then right-click **`Install.ps1`** → **Run with PowerShell**:
-
-```powershell
-Unblock-File -Path .\*
-```
 
 > [!NOTE]
 > The package is **self-signed**. The steps above trust the included certificate so Windows will accept it; you can inspect the `.cer` first (right-click → Open). You still need **WSL 3.0.1 or later** (below) installed for the app to do anything.
