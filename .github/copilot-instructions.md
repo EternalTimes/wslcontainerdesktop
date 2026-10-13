@@ -47,23 +47,39 @@ in its own right, independent of how reputable the publisher is or how badly a f
 
 ## Localization
 
-- Keep localization changes focused and include the affected XAML or C# display text and both
-  locale resources in the same change.
+- Localization is part of every UI or application-feature change, not only work explicitly about
+  languages. Before finishing, check every affected user-visible surface: page and dialog text,
+  buttons, tooltips, accessibility names/help, notifications, tray/status text, and loading, empty,
+  progress, confirmation, and error states.
+- Every new or changed app-authored display string must use a resource key and be updated in both
+  `Strings/en-US/Resources.resw` and `Strings/zh-Hans/Resources.resw` in the same change. Do not
+  leave new UI text as a hard-coded English literal. Use `x:Uid` for XAML and the existing keyed
+  lookup (`ITextLocalizer.Get` or `UiText.Get`) for C#-created text. Do not add new call sites that
+  translate already-rendered sentences with `UiText.Translate` or `TranslateLines`; use a resource
+  key and format arguments instead. When touching an existing sentence-matching call site, prefer
+  migrating it to a keyed lookup.
+- For dynamic messages, localize the fixed wording with a keyed template and pass variable values
+  separately. Preserve user input, engine/OS output, logs, commands, configuration values,
+  identifiers, and other protocol data; do not translate them as free-form text. Translate only
+  app-authored wording around such values.
 - Keep `Strings/en-US/Resources.resw` and `Strings/zh-Hans/Resources.resw` key sets identical. A
   `x:Uid` applies every matching property to every element with that Uid. Share one Uid only among
   the same control type with compatible properties; a TextBox cannot consume a Button's `.Content`.
-  Resource keys must also be unique ignoring case. Run `I18nResourceTests` as a quick check,
-  then open the affected page in a packaged test build: the XAML compiler does not catch every
-  resource property error.
+  Resource keys must also be unique ignoring case. Keep translated wording accurate and natural;
+  preserve product names, commands, flags, identifiers, and other values that must remain literal.
 - Set the nonempty effective language before constructing the shell. Pair each `x:Uid` with
   `i18n:Localization.Uid` so a runtime language switch updates existing controls and preserves
   input, selection and operation state. Refresh computed display properties on `UiText.LanguageChanged`.
-  An empty saved preference means System default; resolve it independently of the persisted
-  application override before writing to WinRT language APIs. See
-  [the localization guide](../docs/LOCALIZATION.md) for resource and protocol-value rules.
-- Follow [the localization validation steps](../docs/LOCALIZATION.md#validate-changes) for
-  automated checks and packaged GUI coverage. Record the tested version, date and remaining gaps.
-  Automated tests do not verify WinUI rendering or state retention during language switching.
+  When adding or changing computed text, verify it refreshes in place on a language switch without
+  resetting user input, selection, or ongoing operation state. An empty saved preference means
+  System default; resolve it independently of the persisted application override before writing to
+  WinRT language APIs. See [the localization guide](../docs/LOCALIZATION.md) for resource and
+  protocol-value rules.
+- Run `I18nResourceTests` and the focused language-switch tests. Then open the affected UI in a
+  packaged test build and verify it in both English and Simplified Chinese; the XAML compiler does
+  not catch every resource-property error, and automated tests do not verify WinUI rendering or
+  state retention. Follow [the localization validation steps](../docs/LOCALIZATION.md#validate-changes)
+  and record the tested version, date, and remaining gaps.
 
 ## Releasing
 
