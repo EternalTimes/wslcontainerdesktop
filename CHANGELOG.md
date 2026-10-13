@@ -12,6 +12,20 @@ where the signed MSIX and installation steps live.
 
 ## [Unreleased]
 
+### Fixed
+- **The release installer downloads its missing files automatically.** Download only `Install.ps1`;
+  it fetches the certificate and MSIX for its own release, while matching local files still work
+  offline. Saved scripts stay pinned to their original version; download a fresh helper from the
+  latest stable release to install that version
+  ([#132](https://github.com/mhackermsft/wslcontainerdesktop/issues/132)).
+- **Installer validation happens before certificate trust.** The helper verifies the release
+  assets and package identity, elevates only certificate import, and installs the app in the
+  original user's session. Older maintenance releases no longer replace a newer stable release
+  as the latest installer download.
+- The unstamped repository installer refuses certificate trust; use a release's pinned helper
+  for online or offline installation. Release publication is serialized to prevent competing
+  releases from changing "latest" out of order.
+
 ## [2.2.1] — 2026-10-12
 
 ### Added
