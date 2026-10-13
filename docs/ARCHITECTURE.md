@@ -548,12 +548,19 @@ The Registries page shows the current allowlist or invalid-policy banner.
 
 ### WSL container system info and settings file
 
-`WslcService.GetSystemInfoAsync` runs `wslc system info --format json` and deserializes the client
-and server model (`WslcSystemInfo`): client/version/platform fields, `Client.SettingsFile`, server
-session-manager version and active sessions. These are diagnostic detail rather than something a
-user acts on, so the WSL Engine page does not show them; `AiDiagnosticsService` adds the sanitized
-model to diagnosis evidence, and the assistant tool catalog exposes the same read-only data as `engine_system_info`; `WslcSystemInfo.Sanitized`
-replaces the user's profile prefix in `SettingsFile` with `%USERPROFILE%`.
+`WslcService.GetSystemInfoAsync` runs `wslc system info --format json` without session scoping and
+deserializes the client and server model (`WslcSystemInfo`): client/version/platform fields,
+`Client.SettingsFile`, server session-manager version and active sessions. The WSL Engine page
+uses those active session names to populate the session selector. `WslcSessionContext` carries
+the user's selected session to `ProcessRunner`, which prepends `--session <name>` to resource
+commands; version, settings and system-info diagnostics remain unscoped. The long-lived
+`EngineEventStream` and native copy commands apply the same selection. The default CLI session
+remains the initial choice. Storage-path changes still target and, when requested, restart the
+default CLI session explicitly, independent of the selected runtime session. `AiDiagnosticsService`
+adds the sanitized model to diagnosis evidence,
+and the assistant tool catalog exposes the same read-only data as `engine_system_info`;
+`WslcSystemInfo.Sanitized` replaces the user's profile prefix in `SettingsFile` with
+`%USERPROFILE%`.
 
 `WslcSettingsFileService` reads the settings path from `system info` (`Client.SettingsFile`) and
 falls back to `%LOCALAPPDATA%\wslc\settings.yaml` only when system info is unavailable. It parses

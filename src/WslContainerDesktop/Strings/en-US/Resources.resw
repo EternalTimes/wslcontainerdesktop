@@ -5427,9 +5427,6 @@ Includes stopped containers, which rejoin this network when they start.</value>
   <data name="Resource_ReclaimSpace_030.Text" xml:space="preserve">
     <value>No volumes confirmed unused. Unknown usage is not counted.</value>
   </data>
-  <data name="Resource_Text_0166d7b870bb" xml:space="preserve">
-    <value>Restart the wslc session? This stops all running containers and releases the </value>
-  </data>
   <data name="Resource_Text_01c18eb220c6" xml:space="preserve">
     <value>WSL update</value>
   </data>
@@ -5581,7 +5578,7 @@ Some steps reported errors:
     <value>Engine: unreachable</value>
   </data>
   <data name="Resource_Text_4321ed28ed60" xml:space="preserve">
-    <value>Restart the wslc session now so the default storage location is used? Running containers are stopped.</value>
+    <value>Restart the default CLI session now so the default storage location is used? Running containers in that session are stopped.</value>
   </data>
   <data name="Resource_Text_4431f8cf9e48" xml:space="preserve">
     <value>{0} images can be updated.</value>
@@ -5673,9 +5670,6 @@ Some steps reported errors:
   </data>
   <data name="Resource_Text_6d483483caef" xml:space="preserve">
     <value>{0} image</value>
-  </data>
-  <data name="Resource_Text_724bb41984d2" xml:space="preserve">
-    <value>engine's per-session bind-mount slots. Containers can be started again afterwards.</value>
   </data>
   <data name="Resource_Text_765e0ff4d3a2" xml:space="preserve">
     <value>{0} volumes</value>
@@ -5772,7 +5766,7 @@ Some steps reported errors:
     <value>Restart failed</value>
   </data>
   <data name="Resource_Text_c6792f417830" xml:space="preserve">
-    <value>Restart the wslc session now so the new storage location is used? Running containers are stopped.</value>
+    <value>Restart the default CLI session now so the new storage location is used? Running containers in that session are stopped.</value>
   </data>
   <data name="Resource_Text_c77cb4166afa" xml:space="preserve">
     <value>The wslc session was terminated. It restarts automatically on the next container action.</value>
@@ -5895,7 +5889,7 @@ Some steps reported errors:
     <value>Usage is a snapshot, including stopped containers when metadata is available. </value>
   </data>
   <data name="Resource_Text_fe232b5bb527" xml:space="preserve">
-    <value>Restart session now?</value>
+    <value>Restart default session now?</value>
   </data>
   <data name="Resource_Text_ff17ab13fcd0" xml:space="preserve">
     <value>Saved {0} images to {1}. To bring them back, use Import → Restore saved images….</value>
@@ -6019,6 +6013,24 @@ Some steps reported errors:
   </data>
   <data name="Resource_WslEngine_Extra2.Title" xml:space="preserve">
     <value>Couldn't check for updates</value>
+  </data>
+  <data name="Resource_WslEngine_Extra3.Text" xml:space="preserve">
+    <value>Container session</value>
+  </data>
+  <data name="Resource_WslEngine_Extra4.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Container session</value>
+  </data>
+  <data name="Resource_WslEngine_Extra5.Text" xml:space="preserve">
+    <value>Container, image, volume and network commands use this session. SDK-created sessions are separate from the default CLI session.</value>
+  </data>
+  <data name="WslEngine_RestartSessionConfirmation" xml:space="preserve">
+    <value>Restart the {0}? This stops all running containers and releases the engine's per-session bind-mount slots. Containers can be started again afterwards.</value>
+  </data>
+  <data name="WslEngine_Session_Default" xml:space="preserve">
+    <value>Default CLI session</value>
+  </data>
+  <data name="WslEngine_Session_LoadFailure" xml:space="preserve">
+    <value>Could not load WSLC sessions: {0}</value>
   </data>
   <data name="Common_Text0000" xml:space="preserve">
     <value>Automatically launch WSL Container Desktop when you sign in to Windows.</value>
@@ -6958,7 +6970,7 @@ Use Test capabilities in Settings &gt; AI diagnostics.</value>
     <value>Restart WSL session</value>
   </data>
   <data name="Common_Text0316" xml:space="preserve">
-    <value>wslc system session terminate ends the WSL container session. Every running container in it stops; the session starts again automatically on the next container command, and containers must be started again.</value>
+    <value>wslc [--session &lt;name&gt;] system session terminate ends the selected WSL container session (or the default CLI session). Every running container in it stops; the session starts again automatically on the next container command, and containers must be started again.</value>
   </data>
   <data name="Common_Text0317" xml:space="preserve">
     <value>Shut down WSL</value>

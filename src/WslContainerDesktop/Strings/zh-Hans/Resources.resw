@@ -5427,9 +5427,6 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_ReclaimSpace_030.Text" xml:space="preserve">
     <value>没有确认未使用的数据卷，不计入使用情况未知的数据卷。</value>
   </data>
-  <data name="Resource_Text_0166d7b870bb" xml:space="preserve">
-    <value>重启 wslc 会话？这会停止所有运行中的容器并释放</value>
-  </data>
   <data name="Resource_Text_01c18eb220c6" xml:space="preserve">
     <value>WSL 更新</value>
   </data>
@@ -5581,7 +5578,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>引擎：无法访问</value>
   </data>
   <data name="Resource_Text_4321ed28ed60" xml:space="preserve">
-    <value>立即重启 wslc 会话以使用默认存储位置？运行中的容器将被停止。</value>
+    <value>立即重启默认 CLI 会话以使用默认存储位置？该会话中的运行容器将被停止。</value>
   </data>
   <data name="Resource_Text_4431f8cf9e48" xml:space="preserve">
     <value>{0} 个镜像有可用更新。</value>
@@ -5673,9 +5670,6 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   </data>
   <data name="Resource_Text_6d483483caef" xml:space="preserve">
     <value>{0} 个镜像</value>
-  </data>
-  <data name="Resource_Text_724bb41984d2" xml:space="preserve">
-    <value>引擎的会话绑定挂载槽位，之后可以重新启动容器。</value>
   </data>
   <data name="Resource_Text_765e0ff4d3a2" xml:space="preserve">
     <value>{0} 个数据卷</value>
@@ -5772,7 +5766,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>重启失败</value>
   </data>
   <data name="Resource_Text_c6792f417830" xml:space="preserve">
-    <value>立即重启 wslc 会话以使用新的存储位置？运行中的容器将被停止。</value>
+    <value>立即重启默认 CLI 会话以使用新的存储位置？该会话中的运行容器将被停止。</value>
   </data>
   <data name="Resource_Text_c77cb4166afa" xml:space="preserve">
     <value>wslc 会话已终止，在下一次容器操作时将自动重启。</value>
@@ -5895,7 +5889,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>使用情况是快照，在元数据可用时包含已停止的容器。</value>
   </data>
   <data name="Resource_Text_fe232b5bb527" xml:space="preserve">
-    <value>立即重启会话？</value>
+    <value>立即重启默认会话？</value>
   </data>
   <data name="Resource_Text_ff17ab13fcd0" xml:space="preserve">
     <value>已将 {0} 个镜像保存到 {1}。要恢复，请选择导入 → 恢复已保存的镜像…。</value>
@@ -6019,6 +6013,24 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   </data>
   <data name="Resource_WslEngine_Extra2.Title" xml:space="preserve">
     <value>无法检查更新</value>
+  </data>
+  <data name="Resource_WslEngine_Extra3.Text" xml:space="preserve">
+    <value>容器会话</value>
+  </data>
+  <data name="Resource_WslEngine_Extra4.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>容器会话</value>
+  </data>
+  <data name="Resource_WslEngine_Extra5.Text" xml:space="preserve">
+    <value>容器、镜像、数据卷和网络命令会使用此会话。由 SDK 创建的会话与默认 CLI 会话彼此独立。</value>
+  </data>
+  <data name="WslEngine_RestartSessionConfirmation" xml:space="preserve">
+    <value>重启{0}？这会停止所有运行中的容器并释放引擎按会话分配的绑定挂载槽位。之后可以重新启动容器。</value>
+  </data>
+  <data name="WslEngine_Session_Default" xml:space="preserve">
+    <value>默认 CLI 会话</value>
+  </data>
+  <data name="WslEngine_Session_LoadFailure" xml:space="preserve">
+    <value>无法加载 WSLC 会话：{0}</value>
   </data>
   <data name="Common_Text0000" xml:space="preserve">
     <value>登录 Windows 时自动启动 WSL Container Desktop。</value>
@@ -6958,7 +6970,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
     <value>重启 WSL 会话</value>
   </data>
   <data name="Common_Text0316" xml:space="preserve">
-    <value>wslc system session terminate 结束 WSL 容器会话，其中所有运行中的容器都会停止。下次执行容器命令时会话会自动启动，但容器仍需重新启动。</value>
+    <value>wslc [--session &lt;name&gt;] system session terminate 用于结束所选 WSL 容器会话（或默认 CLI 会话）。其中所有运行中的容器都会停止；下次执行容器命令时会话会自动启动，但容器仍需重新启动。</value>
   </data>
   <data name="Common_Text0317" xml:space="preserve">
     <value>关闭 WSL</value>

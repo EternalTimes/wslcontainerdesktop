@@ -63,6 +63,8 @@ public interface IWslcService
     /// <summary>Terminates the current wslc session, releasing leaked bind-mount slots and stopping
     /// all running containers. See the implementation for the wslc volume-limit rationale.</summary>
     Task<CommandResult> RestartSessionAsync(CancellationToken ct = default);
+    /// <summary>Terminates the default CLI session regardless of the selected session.</summary>
+    Task<CommandResult> RestartDefaultSessionAsync(CancellationToken ct = default);
 
     /// <summary>Verifies how a host path bind-mounts inside the wslc VM, to detect the config/secret
     /// bind race where runc pre-creates a missing source as a directory. Distinguishes a clean file

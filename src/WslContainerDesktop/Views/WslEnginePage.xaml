@@ -85,7 +85,33 @@
                     </Button>
                 </StackPanel>
 
-                <!-- WSL updates  -->
+                <StackPanel Spacing="6">
+                    <TextBlock
+                        x:Uid="Resource_WslEngine_Extra3"
+                        i18n:Localization.Uid="Resource_WslEngine_Extra3"
+                        FontWeight="SemiBold" />
+                    <ComboBox
+                        x:Uid="Resource_WslEngine_Extra4"
+                        i18n:Localization.Uid="Resource_WslEngine_Extra4"
+                        AutomationProperties.AutomationId="WslcSessionSelector"
+                        Width="360"
+                        HorizontalAlignment="Left"
+                        DisplayMemberPath="DisplayName"
+                        ItemsSource="{x:Bind ViewModel.WslcSessions, Mode=OneWay}"
+                        SelectedItem="{x:Bind ViewModel.SelectedWslcSession, Mode=TwoWay}" />
+                    <TextBlock
+                        x:Uid="Resource_WslEngine_Extra5"
+                        i18n:Localization.Uid="Resource_WslEngine_Extra5"
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        TextWrapping="Wrap" />
+                    <InfoBar
+                        IsClosable="False"
+                        IsOpen="{x:Bind ViewModel.HasSessionWarning, Mode=OneWay}"
+                        Message="{x:Bind ViewModel.SessionWarningDisplay, Mode=OneWay}"
+                        Severity="Warning" />
+                </StackPanel>
+
+                <!--  WSL updates  -->
                 <Border Style="{StaticResource StatCard}">
                     <StackPanel Spacing="12">
                         <StackPanel Orientation="Horizontal" Spacing="8">

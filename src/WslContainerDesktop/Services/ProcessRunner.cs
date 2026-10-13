@@ -26,7 +26,7 @@ namespace WslContainerDesktop.Services;
 /// Every captured wslc child is added to <see cref="ChildProcessJob.Shared"/> so none outlives the app;
 /// <see cref="RunInteractive"/> terminal windows are deliberately left independent.
 /// </summary>
-public sealed class ProcessRunner(ISettingsService settings)
+public sealed class ProcessRunner(ISettingsService settings, WslcSessionContext? sessionContext = null)
 {
     /// <summary>Upper bound for a non-interactive mutation; a hung engine call ends instead of blocking forever.</summary>
     internal static readonly TimeSpan MutationTimeout = TimeSpan.FromMinutes(10);
@@ -39,6 +39,12 @@ public sealed class ProcessRunner(ISettingsService settings)
     public Task<CommandResult> RunAsync(
         IEnumerable<string> arguments,
         CancellationToken cancellationToken = default) =>
+        RunAtPathAsync(settings.WslcPath, ApplySession(arguments), cancellationToken);
+
+    /// <summary>Runs a WSLC command without the selected session, for global diagnostics such as system info.</summary>
+    public Task<CommandResult> RunUnscopedAsync(
+        IEnumerable<string> arguments,
+        CancellationToken cancellationToken = default) =>
         RunAtPathAsync(settings.WslcPath, arguments, cancellationToken);
 
     /// <summary>
@@ -47,7 +53,7 @@ public sealed class ProcessRunner(ISettingsService settings)
     public Task<CommandResult> RunNonInteractiveAsync(
         IEnumerable<string> arguments,
         CancellationToken cancellationToken = default) =>
-        RunNonInteractiveAtPathAsync(settings.WslcPath, arguments, MutationTimeout, cancellationToken);
+        RunNonInteractiveAtPathAsync(settings.WslcPath, ApplySession(arguments), MutationTimeout, cancellationToken);
 
     /// <summary>
     /// Runs wslc with stdin redirected and immediately closed, so a confirmation prompt reads EOF
@@ -97,7 +103,7 @@ public sealed class ProcessRunner(ISettingsService settings)
         IEnumerable<string> arguments,
         Action<string> onLine,
         CancellationToken cancellationToken = default) =>
-        RunCoreAsync(settings.WslcPath, arguments, onLine, cancellationToken);
+        RunCoreAsync(settings.WslcPath, ApplySession(arguments), onLine, cancellationToken);
 
     /// <summary>Runs against a captured executable path so a shared probe cannot mix engines.</summary>
     internal static Task<CommandResult> RunAtPathAsync(
@@ -160,7 +166,7 @@ public sealed class ProcessRunner(ISettingsService settings)
         CancellationToken cancellationToken = default)
     {
         return ProcessExecutor.RunAsync(
-            CreateStartInfo(settings.WslcPath, arguments, redirectInput: true),
+            CreateStartInfo(settings.WslcPath, ApplySession(arguments), redirectInput: true),
             stdin: stdin,
             launchErrorContext: $"Could not launch '{settings.WslcPath}'.",
             killOnAppExit: true,
@@ -172,9 +178,13 @@ public sealed class ProcessRunner(ISettingsService settings)
         string executablePath,
         IEnumerable<string> arguments,
         string inputPath,
-        CancellationToken cancellationToken = default)
+        CancellationToken cancellationToken = default,
+        string? sessionName = null)
     {
-        var psi = WslcCopyInput.CreateStartInfo(executablePath, arguments, inputPath);
+        var scopedArguments = string.IsNullOrWhiteSpace(sessionName)
+            ? arguments
+            : new[] { "--session", sessionName }.Concat(arguments);
+        var psi = WslcCopyInput.CreateStartInfo(executablePath, scopedArguments, inputPath);
         return ProcessExecutor.RunAsync(psi,
             launchErrorContext: $"Could not launch '{executablePath}'.",
             killOnAppExit: true,
@@ -197,11 +207,27 @@ public sealed class ProcessRunner(ISettingsService settings)
             CreateNoWindow = false,
         };
 
-        foreach (var arg in arguments)
+        foreach (var arg in ApplySession(arguments))
         {
             psi.ArgumentList.Add(arg);
         }
 
         Process.Start(psi);
+    }
+
+    private IEnumerable<string> ApplySession(IEnumerable<string> arguments)
+    {
+        var args = arguments as IReadOnlyList<string> ?? arguments.ToArray();
+        if (args.Count == 0 ||
+            string.Equals(args[0], "version", StringComparison.OrdinalIgnoreCase) ||
+            string.Equals(args[0], "settings", StringComparison.OrdinalIgnoreCase) ||
+            (args.Count > 1 &&
+             string.Equals(args[0], "system", StringComparison.OrdinalIgnoreCase) &&
+             string.Equals(args[1], "info", StringComparison.OrdinalIgnoreCase)))
+        {
+            return args;
+        }
+
+        return sessionContext?.AddSessionSelector(args) ?? args;
     }
 }

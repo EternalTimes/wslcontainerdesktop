@@ -15,6 +15,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System.Diagnostics;
+using System.Reflection;
 using WslContainerDesktop.Models;
 using WslContainerDesktop.Services;
 using Xunit;
@@ -46,6 +47,23 @@ public sealed class ProcessRunnerNonInteractiveTests
         }
 
         Assert.Equal(["container", "prune"], nonInteractive.ArgumentList);
+    }
+
+    [WindowsFact]
+    public async Task RunnerTargetsSelectedSessionButLeavesGlobalInfoUnscoped()
+    {
+        using var stub = new WslcStub();
+        var settings = DispatchProxy.Create<ISettingsService, WslcCapabilitiesServiceTests.SettingsProxy>();
+        settings.WslcPath = stub.Quiet;
+        var session = new WslcSessionContext();
+        session.Select("SDKSession");
+        var runner = new ProcessRunner(settings, session);
+
+        Assert.True((await runner.RunAsync(["list"])).Success);
+        Assert.True((await runner.RunAsync(["system", "info"])).Success);
+
+        Assert.Equal("--session SDKSession list", stub.Invocations(stub.Quiet)[0]);
+        Assert.Equal("system info", stub.Invocations(stub.Quiet)[1]);
     }
 
     [WindowsFact]

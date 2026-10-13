@@ -172,8 +172,8 @@ public static class FlagHelp
     public static FlagHelpEntry RestartWslSession => Entry(
         "restart-wsl-session",
         UiText.Get("Common_Text0314", "Restart WSL session"),
-        "wslc system session terminate",
-        UiText.Get("Common_Text0316", "wslc system session terminate ends the WSL container session. Every running container in it stops; the session starts again automatically on the next container command, and containers must be started again."));
+        "wslc [--session <name>] system session terminate",
+        UiText.Get("Common_Text0316", "wslc [--session <name>] system session terminate ends the selected WSL container session (or the default CLI session). Every running container in it stops; the session starts again automatically on the next container command, and containers must be started again."));
 
     /// <summary>Help entry for shutting down all WSL distributions.</summary>
     public static FlagHelpEntry ShutdownWsl => Entry(
