@@ -31,6 +31,9 @@ public interface ISettingsService
     /// <summary>Play UI animations: page slides, list item entrances and the nav highlight slide.</summary>
     bool PageAnimations { get; set; }
 
+    /// <summary>Show the navigation selection indicator independently of the animations setting.</summary>
+    bool NavigationIndicatorEnabled { get; set; }
+
     /// <summary>Start the app minimized to the tray.</summary>
     bool StartMinimized { get; set; }
 

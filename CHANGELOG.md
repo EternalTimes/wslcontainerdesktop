@@ -12,12 +12,16 @@ where the signed MSIX and installation steps live.
 
 ## [Unreleased]
 
+### Added
+- **Show or hide the navigation selection indicator** independently of animations in Settings.
+  The indicator is shown by default.
+
 ### Fixed
 - **Turning animations back on keeps the navigation highlight on the selected section.**
   Previously, disabling and re-enabling animations showed a selection bar beside every section
   until you visited each one ([#139](https://github.com/mhackermsft/wslcontainerdesktop/issues/139)).
-  With animations disabled, the highlight now moves instantly instead of being hidden, including
-  when switching to or from Settings.
+  When the indicator is enabled, turning animations off moves the highlight instantly instead
+  of hiding it, including when switching to or from Settings.
 
 ## [2.2.0] — 2026-10-07
 

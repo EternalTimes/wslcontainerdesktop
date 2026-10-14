@@ -770,6 +770,7 @@ public sealed class Wslc301RuntimeTests
         public int RefreshIntervalSeconds { get; set; }
         public bool CloseToTray { get; set; }
         public bool PageAnimations { get; set; } = true;
+        public bool NavigationIndicatorEnabled { get; set; } = true;
         public bool StartMinimized { get; set; }
         public bool RestartRunningContainersOnLaunch { get; set; }
         public string Theme { get; set; } = "Default";

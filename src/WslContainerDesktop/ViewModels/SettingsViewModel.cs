@@ -70,6 +70,10 @@ public partial class SettingsViewModel : ObservableObject
     [ObservableProperty]
     private bool _pageAnimations;
 
+    /// <summary>Bindable state for showing the navigation selection indicator independently of animations.</summary>
+    [ObservableProperty]
+    private bool _navigationIndicatorEnabled;
+
     /// <summary>Bindable state for start minimized used by the view.</summary>
     [ObservableProperty]
     private bool _startMinimized;
@@ -562,6 +566,7 @@ public partial class SettingsViewModel : ObservableObject
         _refreshIntervalSeconds = settings.RefreshIntervalSeconds;
         _closeToTray = settings.CloseToTray;
         _pageAnimations = settings.PageAnimations;
+        _navigationIndicatorEnabled = settings.NavigationIndicatorEnabled;
         _startMinimized = settings.StartMinimized;
         _restartRunningContainersOnLaunch = settings.RestartRunningContainersOnLaunch;
         _notificationsEnabled = settings.NotificationsEnabled;
@@ -618,6 +623,13 @@ public partial class SettingsViewModel : ObservableObject
     partial void OnPageAnimationsChanged(bool value)
     {
         _settings.PageAnimations = value;
+        _settings.Save();
+    }
+
+    /// <summary>Persists the indicator switch; the shell applies it live via the settings Changed event.</summary>
+    partial void OnNavigationIndicatorEnabledChanged(bool value)
+    {
+        _settings.NavigationIndicatorEnabled = value;
         _settings.Save();
     }
 

@@ -27,7 +27,7 @@ using WslContainerDesktop.Services;
 
 namespace WslContainerDesktop.Helpers;
 
-/// <summary>Navigation and visual-tree helpers that honor the "Animations" setting.</summary>
+/// <summary>Navigation and visual-tree helpers that honor animation and indicator preferences.</summary>
 public static class FrameNavigationExtensions
 {
     // A list's own item transitions, kept while they are stripped so turning animations back on restores them.
@@ -37,6 +37,14 @@ public static class FrameNavigationExtensions
             typeof(TransitionCollection),
             typeof(FrameNavigationExtensions),
             new PropertyMetadata(null));
+
+    // A saved local value also marks the indicator as hidden, so no second flag is needed.
+    private static readonly DependencyProperty OriginalIndicatorVisibilityProperty =
+        DependencyProperty.RegisterAttached(
+            "OriginalIndicatorVisibility",
+            typeof(Visibility),
+            typeof(FrameNavigationExtensions),
+            new PropertyMetadata(Visibility.Visible));
 
     // Until something has been stripped there is nothing to restore, so an animations-on walk can be skipped.
     private static bool s_anyStripped;
@@ -70,16 +78,17 @@ public static class FrameNavigationExtensions
     }
 
     /// <summary>
-    /// Completes the navigation indicators' Composition animations at the current selection.
-    /// The selected item's bar remains visible. The walk stops at any <see cref="Frame"/>,
-    /// so the hosted page is neither scanned nor affected.
+    /// Applies indicator visibility and completes its animations at the current selection.
+    /// Waits for queued native completion callbacks only when an animation was stopped.
+    /// Hosted pages are excluded at the <see cref="Frame"/> boundary.
     /// </summary>
-    public static void CompleteNavIndicatorAnimations(DependencyObject root) =>
-        CompleteNavIndicatorAnimations(root, selected: false);
-
-    /// <summary>Completes indicators and waits for their queued Composition completion callbacks.</summary>
-    public static Task CompleteNavIndicatorAnimationsAsync(NavigationView navigation)
+    public static Task CompleteNavIndicatorAnimationsAsync(NavigationView navigation, bool visible = true)
     {
+        if (!CompleteNavIndicatorAnimations(navigation, visible, selected: false))
+        {
+            return Task.CompletedTask;
+        }
+
         var compositor = ElementCompositionPreview.GetElementVisual(navigation).Compositor;
         var completion = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
         var batch = compositor.CreateScopedBatch(CompositionBatchTypes.Animation);
@@ -104,17 +113,16 @@ public static class FrameNavigationExtensions
         }
 
         batch.Completed += OnCompleted;
-        CompleteNavIndicatorAnimations(navigation);
         sentinel.StartAnimation("Opacity", animation);
         batch.End();
         return completion.Task;
     }
 
-    private static void CompleteNavIndicatorAnimations(DependencyObject root, bool selected)
+    private static bool CompleteNavIndicatorAnimations(DependencyObject root, bool visible, bool selected)
     {
         if (root is Frame)
         {
-            return;
+            return false;
         }
 
         if (root is NavigationViewItem item)
@@ -122,30 +130,51 @@ public static class FrameNavigationExtensions
             selected = item.IsSelected;
         }
 
+        var stoppedAnimation = false;
         if (root is FrameworkElement { Name: "SelectionIndicator" } indicator)
         {
             var visual = ElementCompositionPreview.GetElementVisual(indicator);
             // NavigationView starts animations on component paths, so stop those exact paths.
-            visual.StopAnimation("Opacity");
-            visual.StopAnimation("Offset.X");
-            visual.StopAnimation("Offset.Y");
-            visual.StopAnimation("Scale.X");
-            visual.StopAnimation("Scale.Y");
-            visual.StopAnimation("CenterPoint.X");
-            visual.StopAnimation("CenterPoint.Y");
+            foreach (var path in IndicatorAnimationPaths)
+            {
+                stoppedAnimation |= visual.TryGetAnimationController(path) is not null;
+                visual.StopAnimation(path);
+            }
             visual.Offset = Vector3.Zero;
             visual.Scale = Vector3.One;
             visual.CenterPoint = Vector3.Zero;
             indicator.Opacity = selected ? 1 : 0;
             visual.Opacity = selected ? 1 : 0;
+
+            // Settle before hiding or revealing the indicator so its animation is still observable
+            // and restoring visibility never exposes a stale selection or an intermediate slide.
+            var originalVisibility = indicator.ReadLocalValue(OriginalIndicatorVisibilityProperty);
+            if (visible)
+            {
+                if (originalVisibility is Visibility original)
+                {
+                    indicator.Visibility = original;
+                    indicator.ClearValue(OriginalIndicatorVisibilityProperty);
+                }
+            }
+            else if (originalVisibility is not Visibility)
+            {
+                indicator.SetValue(OriginalIndicatorVisibilityProperty, indicator.Visibility);
+                indicator.Visibility = Visibility.Collapsed;
+            }
         }
 
         var count = VisualTreeHelper.GetChildrenCount(root);
         for (var i = 0; i < count; i++)
         {
-            CompleteNavIndicatorAnimations(VisualTreeHelper.GetChild(root, i), selected);
+            stoppedAnimation |= CompleteNavIndicatorAnimations(VisualTreeHelper.GetChild(root, i), visible, selected);
         }
+
+        return stoppedAnimation;
     }
+
+    private static readonly string[] IndicatorAnimationPaths =
+        ["Opacity", "Offset.X", "Offset.Y", "Scale.X", "Scale.Y", "CenterPoint.X", "CenterPoint.Y"];
 
     /// <summary>
     /// Removes (or, when <paramref name="animate"/> is true, restores) the item entrance/add/reorder

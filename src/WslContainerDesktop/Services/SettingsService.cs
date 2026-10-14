@@ -55,6 +55,8 @@ public sealed class SettingsService : ISettingsService
     /// <inheritdoc/>
     public bool PageAnimations { get; set; } = true;
     /// <inheritdoc/>
+    public bool NavigationIndicatorEnabled { get; set; } = true;
+    /// <inheritdoc/>
     public bool StartMinimized { get; set; }
     /// <inheritdoc/>
     public bool RestartRunningContainersOnLaunch { get; set; } = true;
@@ -174,6 +176,7 @@ public sealed class SettingsService : ISettingsService
             RefreshIntervalSeconds = Math.Clamp(dto.RefreshIntervalSeconds, AppConstants.RefreshIntervalMinSeconds, AppConstants.RefreshIntervalMaxSeconds);
             CloseToTray = dto.CloseToTray;
             PageAnimations = dto.PageAnimations;
+            NavigationIndicatorEnabled = dto.NavigationIndicatorEnabled;
             StartMinimized = dto.StartMinimized;
             RestartRunningContainersOnLaunch = dto.RestartRunningContainersOnLaunch;
             Theme = string.IsNullOrWhiteSpace(dto.Theme) ? "Default" : dto.Theme;
@@ -321,6 +324,7 @@ public sealed class SettingsService : ISettingsService
                 RefreshIntervalSeconds = RefreshIntervalSeconds,
                 CloseToTray = CloseToTray,
                 PageAnimations = PageAnimations,
+                NavigationIndicatorEnabled = NavigationIndicatorEnabled,
                 StartMinimized = StartMinimized,
                 RestartRunningContainersOnLaunch = RestartRunningContainersOnLaunch,
                 Theme = Theme,
@@ -449,6 +453,7 @@ public sealed class SettingsService : ISettingsService
         public int RefreshIntervalSeconds { get; set; } = 5;
         public bool CloseToTray { get; set; } = true;
         public bool PageAnimations { get; set; } = true;
+        public bool NavigationIndicatorEnabled { get; set; } = true;
         public bool StartMinimized { get; set; }
         public bool RestartRunningContainersOnLaunch { get; set; } = true;
         public string? Theme { get; set; }

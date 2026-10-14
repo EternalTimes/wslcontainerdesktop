@@ -132,6 +132,27 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Spacing="2">
+                            <TextBlock Text="Navigation selection indicator" />
+                            <TextBlock
+                                FontSize="12"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                Text="Show the bar beside the selected navigation item. This setting is independent of Animations."
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                        <ToggleSwitch
+                            Grid.Column="1"
+                            MinWidth="0"
+                            AutomationProperties.Name="Navigation selection indicator"
+                            AutomationProperties.AutomationId="NavigationIndicatorToggle"
+                            IsOn="{x:Bind ViewModel.NavigationIndicatorEnabled, Mode=TwoWay}" />
+                    </Grid>
+                    <Border Height="1" Background="{ThemeResource DividerStrokeColorDefaultBrush}" />
+                    <Grid Padding="0,8" ColumnSpacing="12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Spacing="2">
                             <TextBlock Text="Start minimized to tray" />
                             <TextBlock
                                 FontSize="12"

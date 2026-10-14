@@ -274,20 +274,25 @@ public sealed partial class MainWindow : Window
     }
 
     private bool? _appliedAnimations;
+    private bool? _appliedIndicatorVisibility;
     private Task _navIndicatorSettlement = Task.CompletedTask;
+    private bool _navIndicatorReconcileQueued;
 
     /// <summary>Applies the animations setting to the shell and the current page (used when the setting changes).</summary>
     private void ApplyAnimationPreference()
     {
         // Every settings save raises Changed; only re-walk the tree when this setting actually flipped.
-        if (_appliedAnimations == _settings.PageAnimations)
+        var animationsChanged = _appliedAnimations != _settings.PageAnimations;
+        var indicatorChanged = _appliedIndicatorVisibility != _settings.NavigationIndicatorEnabled;
+        if (!animationsChanged && !indicatorChanged)
         {
             return;
         }
 
         _appliedAnimations = _settings.PageAnimations;
-        CompleteNavIndicatorAnimationsIfRequired();
-        if (NavFrame.Content is DependencyObject page)
+        _appliedIndicatorVisibility = _settings.NavigationIndicatorEnabled;
+        CompleteNavIndicatorAnimationsIfRequired(force: indicatorChanged);
+        if (animationsChanged && NavFrame.Content is DependencyObject page)
         {
             FrameNavigationExtensions.ApplyItemTransitions(page, _settings.PageAnimations);
         }
@@ -297,10 +302,7 @@ public sealed partial class MainWindow : Window
     {
         // WinUI starts the indicator animation before raising SelectionChanged. Complete it
         // synchronously, then reconcile newly realized templates and batch completion callbacks.
-        if (!_settings.PageAnimations || !_navIndicatorSettlement.IsCompleted)
-        {
-            CompleteNavIndicatorAnimationsIfRequired();
-        }
+        CompleteNavIndicatorAnimationsIfRequired();
 
         if (args.IsSettingsSelected)
         {
@@ -322,21 +324,42 @@ public sealed partial class MainWindow : Window
         }
     }
 
-    private void CompleteNavIndicatorAnimationsIfRequired()
+    private bool NavIndicatorCompletionRequired =>
+        !_settings.PageAnimations || !_settings.NavigationIndicatorEnabled || !_navIndicatorSettlement.IsCompleted;
+
+    private void CompleteNavIndicatorAnimationsIfRequired(bool force = false)
     {
-        if (_settings.PageAnimations && _navIndicatorSettlement.IsCompleted)
+        if (!force && !NavIndicatorCompletionRequired)
         {
             return;
         }
 
-        _navIndicatorSettlement = FrameNavigationExtensions.CompleteNavIndicatorAnimationsAsync(NavView);
-        DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Low, () =>
+        CompleteNavIndicatorAnimations();
+        if (!_navIndicatorReconcileQueued)
         {
-            if (!_settings.PageAnimations || !_navIndicatorSettlement.IsCompleted)
-            {
-                _navIndicatorSettlement = FrameNavigationExtensions.CompleteNavIndicatorAnimationsAsync(NavView);
-            }
-        });
+            _navIndicatorReconcileQueued = DispatcherQueue.TryEnqueue(
+                Microsoft.UI.Dispatching.DispatcherQueuePriority.Low, ReconcileNavIndicators);
+        }
+    }
+
+    private void ReconcileNavIndicators()
+    {
+        _navIndicatorReconcileQueued = false;
+        if (NavIndicatorCompletionRequired)
+        {
+            CompleteNavIndicatorAnimations();
+        }
+    }
+
+    private void CompleteNavIndicatorAnimations()
+    {
+        var settlement = FrameNavigationExtensions.CompleteNavIndicatorAnimationsAsync(
+            NavView, _settings.NavigationIndicatorEnabled);
+        // A walk with nothing left to stop must not release an earlier completion fence.
+        if (!settlement.IsCompleted)
+        {
+            _navIndicatorSettlement = settlement;
+        }
     }
 
     /// <summary>Maps a navigation item's Tag to the page it opens, or null for an unknown tag.</summary>
