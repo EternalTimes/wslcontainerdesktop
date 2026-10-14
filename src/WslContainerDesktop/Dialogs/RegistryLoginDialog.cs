@@ -16,6 +16,7 @@
 
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using WslContainerDesktop.Helpers;
 
 using WslContainerDesktop.Services;
 
@@ -26,6 +27,9 @@ public sealed class RegistryLoginDialog : ContentDialog
 {
     private readonly TextBox _userBox;
     private readonly PasswordBox _passwordBox;
+    private readonly bool _dockerHub;
+    private bool _foldingCase;
+    private bool _isComposing;
 
     /// <summary>Gets or sets the username.</summary>
     public string Username { get; private set; } = string.Empty;
@@ -36,8 +40,10 @@ public sealed class RegistryLoginDialog : ContentDialog
     /// <summary>Creates a new &lt;c&gt;RegistryLoginDialog&lt;/c&gt; and wires the state used by the dialog or model.</summary>
     /// <param name="registryName">The registry name value supplied by the caller.</param>
     /// <param name="prefillUsername">The prefill username value supplied by the caller.</param>
-    public RegistryLoginDialog(string registryName, string? prefillUsername)
+    /// <param name="dockerHub">Whether to normalize usernames for Docker Hub.</param>
+    public RegistryLoginDialog(string registryName, string? prefillUsername, bool dockerHub = false)
     {
+        _dockerHub = dockerHub;
         Title = UiText.Get("Workload_Text_Log_in_to_0_78a87c", "Log in to {0}", registryName);
         PrimaryButtonText = UiText.Get("Workload_Text_Log_in_c18984", "Log in");
         CloseButtonText = UiText.Get("Workload_Text_Cancel_19766e", "Cancel");
@@ -46,7 +52,9 @@ public sealed class RegistryLoginDialog : ContentDialog
         _userBox = new TextBox
         {
             Header = UiText.Get("Workload_Text_Username_e3b89e", "Username"),
-            PlaceholderText = UiText.Get("Workload_Text_username_or_token_name_39f3c5", "username or token name"),
+            PlaceholderText = dockerHub
+                ? UiText.Get("Workload_Text_Docker_ID_or_organization_namespace_a1c4e7", "Docker ID or organization namespace")
+                : UiText.Get("Workload_Text_username_or_token_name_39f3c5", "username or token name"),
             Text = prefillUsername ?? string.Empty,
             MinWidth = 360,
         };
@@ -56,18 +64,80 @@ public sealed class RegistryLoginDialog : ContentDialog
             Header = UiText.Get("Workload_Text_Password_token_051a24", "Password / token"),
         };
 
-        Content = new StackPanel
+        var panel = new StackPanel
         {
             Spacing = 10,
             Children = { _userBox, _passwordBox },
         };
 
+        if (_dockerHub)
+        {
+            panel.Children.Insert(1, new TextBlock
+            {
+                Text = UiText.Get(
+                    "Workload_Text_Docker_Hub_login_hint_5d2b9f",
+                    "Use your Docker ID for a password or personal access token, or your organization namespace for an organization access token. Put the token in the password field."),
+                TextWrapping = TextWrapping.Wrap,
+            });
+        }
+
+        Content = panel;
+        _userBox.TextCompositionStarted += (_, _) => _isComposing = true;
+        _userBox.TextCompositionEnded += (_, _) =>
+        {
+            _isComposing = false;
+            FoldAsciiCase();
+        };
+        _userBox.TextChanged += (_, _) => FoldAsciiCase();
         PrimaryButtonClick += OnPrimary;
+    }
+
+    /// <summary>Shows ASCII case correction after input commits, preserving the selection and IME composition.</summary>
+    private void FoldAsciiCase()
+    {
+        if (!_dockerHub || _foldingCase || _isComposing)
+        {
+            return;
+        }
+
+        var text = _userBox.Text;
+        foreach (var c in text)
+        {
+            if (c > (char)0x7F)
+            {
+                return;
+            }
+        }
+
+        var lowered = text.ToLowerInvariant();
+        if (string.Equals(lowered, text, StringComparison.Ordinal))
+        {
+            return;
+        }
+
+        var selectionStart = _userBox.SelectionStart;
+        var selectionLength = _userBox.SelectionLength;
+        _foldingCase = true;
+        try
+        {
+            _userBox.Text = lowered;
+            selectionStart = Math.Min(selectionStart, lowered.Length);
+            _userBox.Select(selectionStart, Math.Min(selectionLength, lowered.Length - selectionStart));
+        }
+        finally
+        {
+            _foldingCase = false;
+        }
     }
 
     private void OnPrimary(ContentDialog sender, ContentDialogButtonClickEventArgs args)
     {
-        Username = _userBox.Text.Trim();
+        // Submit also covers prefilled values and full-width input that the live ASCII fold skips.
+        Username = RegistryUsername.Normalize(_userBox.Text, _dockerHub);
+        if (!string.Equals(Username, _userBox.Text, StringComparison.Ordinal))
+        {
+            _userBox.Text = Username;
+        }
         Password = _passwordBox.Password;
 
         if (string.IsNullOrEmpty(Password))

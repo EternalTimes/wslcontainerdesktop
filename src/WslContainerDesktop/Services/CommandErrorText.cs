@@ -19,13 +19,13 @@ using WslContainerDesktop.Models;
 namespace WslContainerDesktop.Services;
 
 /// <summary>
-/// Maps raw <c>wslc.exe</c> policy errors to messages a user can act on without seeing engine jargon.
+/// Maps recognized raw <c>wslc.exe</c> errors to messages a user can act on without seeing engine jargon.
 /// </summary>
 public static class CommandErrorText
 {
     private static readonly string[] ErrorCodePrefixes = ["Error code:", "Error code：", "错误代码:", "错误代码："];
 
-    /// <summary>Returns a trimmed message, replacing recognized WSL policy failures with friendly guidance.</summary>
+    /// <summary>Returns a trimmed message, replacing recognized engine failures with friendly guidance.</summary>
     public static string Friendly(string text)
     {
         if (string.IsNullOrWhiteSpace(text))
@@ -48,6 +48,11 @@ public static class CommandErrorText
         {
             return "This registry is not on your organization's approved registry list (WSLContainerRegistryAllowlist). " +
                 "Use an approved registry or contact your administrator.";
+        }
+
+        if (text.Contains("malformed HTTP Authorization header", StringComparison.OrdinalIgnoreCase))
+        {
+            return "The registry rejected the authorization header. Check your username and password or access token, then log in again.";
         }
 
         return text.Trim();

@@ -3227,6 +3227,12 @@ Upgrade to {6} first instead? You can repeat the upgrade afterwards to continue 
   <data name="Workload_Text_username_or_token_name_39f3c5" xml:space="preserve">
     <value>username or token name</value>
   </data>
+  <data name="Workload_Text_Docker_ID_or_organization_namespace_a1c4e7" xml:space="preserve">
+    <value>Docker ID or organization namespace</value>
+  </data>
+  <data name="Workload_Text_Docker_Hub_login_hint_5d2b9f" xml:space="preserve">
+    <value>Use your Docker ID for a password or personal access token, or your organization namespace for an organization access token. Put the token in the password field.</value>
+  </data>
   <data name="Workload_Text_using_your_GPU_4b145b" xml:space="preserve">
     <value> using your GPU</value>
   </data>

@@ -3227,6 +3227,12 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Workload_Text_username_or_token_name_39f3c5" xml:space="preserve">
     <value>用户名或令牌名称</value>
   </data>
+  <data name="Workload_Text_Docker_ID_or_organization_namespace_a1c4e7" xml:space="preserve">
+    <value>Docker ID 或组织命名空间</value>
+  </data>
+  <data name="Workload_Text_Docker_Hub_login_hint_5d2b9f" xml:space="preserve">
+    <value>使用 Docker ID 配合密码或个人访问令牌，或使用组织命名空间配合组织访问令牌。请将令牌填入密码字段。</value>
+  </data>
   <data name="Workload_Text_using_your_GPU_4b145b" xml:space="preserve">
     <value>，使用 GPU</value>
   </data>

@@ -18,6 +18,7 @@ using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using WslContainerDesktop.Dialogs;
+using WslContainerDesktop.Helpers;
 using WslContainerDesktop.Models;
 using WslContainerDesktop.Services;
 
@@ -289,7 +290,8 @@ public partial class RegistriesViewModel : ObservableObject
             return;
         }
 
-        var dialog = new RegistryLoginDialog(registry.Name, registry.Username);
+        var dialog = new RegistryLoginDialog(
+            registry.Name, registry.Username, RegistryUsername.IsDockerHub(registry.LoginServer));
         if (await _dialogs.ShowDialogAsync(dialog) != Microsoft.UI.Xaml.Controls.ContentDialogResult.Primary)
         {
             return;
@@ -301,6 +303,7 @@ public partial class RegistriesViewModel : ObservableObject
     /// <summary>Helper for the login core workflow in this view model.</summary>
     private async Task LoginCoreAsync(RegistryEntry registry, string username, string password)
     {
+        username = RegistryUsername.Normalize(username, RegistryUsername.IsDockerHub(registry.LoginServer));
         IsBusy = true;
         StatusMessage = $"Logging in to {registry.Name}…";
         try
