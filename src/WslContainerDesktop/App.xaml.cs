@@ -549,6 +549,7 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
         services.AddSingleton<IWindowVisibility>(sp => sp.GetRequiredService<WindowVisibility>());
         services.AddSingleton<IAzureCliService, AzureCliService>();
         services.AddSingleton<IRegistryCredentialStore, RegistryCredentialStore>();
+        services.AddSingleton<RegistryLogoutService>();
         services.AddSingleton<IAiCredentialStore, AiCredentialStore>();
         services.AddSingleton<FoundryLocalHttpClient>();
         services.AddSingleton<FoundryLocalStandaloneRuntimeService>();

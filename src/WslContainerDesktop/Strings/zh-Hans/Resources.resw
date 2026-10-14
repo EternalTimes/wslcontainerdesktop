@@ -5094,6 +5094,28 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Resource_Text_d2078b7339a5" xml:space="preserve">
     <value>保存为运行配置</value>
   </data>
+  <data name="Resource_Text_242b7214af2f" xml:space="preserve">
+    <value>此注册表仍保留已存储的登录信息。请刷新其登录状态后再次尝试退出登录。</value>
+  </data>
+  <data name="Resource_Text_edf6b3a96ba2" xml:space="preserve">
+    <value>无法检查已存储的登录状态。请刷新其登录状态后重试。</value>
+  </data>
+  <data name="Resource_Text_7365035604d7" xml:space="preserve">
+    <value>仍然删除</value>
+  </data>
+  <data name="Resource_Text_fb681c03faa9" xml:space="preserve">
+    <value>退出登录未完成，已存储的登录信息可能仍然保留。
+
+{0}
+
+仍要将“{1}”从列表中删除吗？</value>
+  </data>
+  <data name="Resource_Text_4e48f3941162" xml:space="preserve">
+    <value>已删除 {0}；其已存储的登录信息可能仍然保留。</value>
+  </data>
+  <data name="Resource_Text_441c9ae8b3cd" xml:space="preserve">
+    <value>退出登录未完成。</value>
+  </data>
   <data name="Resource_Text_d2313d7e8a46" xml:space="preserve">
     <value>退出登录失败</value>
   </data>

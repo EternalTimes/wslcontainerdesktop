@@ -5094,6 +5094,28 @@ Includes stopped containers, which rejoin this network when they start.</value>
   <data name="Resource_Text_d2078b7339a5" xml:space="preserve">
     <value>Save as run profile</value>
   </data>
+  <data name="Resource_Text_242b7214af2f" xml:space="preserve">
+    <value>A stored login remains for this registry. Refresh its login state and try logging out again.</value>
+  </data>
+  <data name="Resource_Text_edf6b3a96ba2" xml:space="preserve">
+    <value>The stored login state could not be checked. Refresh its login state before trying again.</value>
+  </data>
+  <data name="Resource_Text_7365035604d7" xml:space="preserve">
+    <value>Remove anyway</value>
+  </data>
+  <data name="Resource_Text_fb681c03faa9" xml:space="preserve">
+    <value>Logout did not complete, so a stored login may remain.
+
+{0}
+
+Remove "{1}" from the list anyway?</value>
+  </data>
+  <data name="Resource_Text_4e48f3941162" xml:space="preserve">
+    <value>{0} was removed, but its stored login may remain.</value>
+  </data>
+  <data name="Resource_Text_441c9ae8b3cd" xml:space="preserve">
+    <value>Logout did not complete.</value>
+  </data>
   <data name="Resource_Text_d2313d7e8a46" xml:space="preserve">
     <value>Logout failed</value>
   </data>

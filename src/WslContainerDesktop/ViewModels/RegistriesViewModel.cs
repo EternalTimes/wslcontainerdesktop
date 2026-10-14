@@ -43,6 +43,7 @@ public partial class RegistriesViewModel : ObservableObject
     private readonly DialogService _dialogs;
     private readonly RegistryAuthRefresher _authRefresher;
     private readonly IRegistryCredentialStore _credentials;
+    private readonly RegistryLogoutService _registryLogout;
     private readonly IWslPolicyService _policy;
 
     /// <summary>Whether busy for view binding.</summary>
@@ -67,7 +68,7 @@ public partial class RegistriesViewModel : ObservableObject
     public ObservableCollection<RegistryEntry> Registries { get; } = new();
 
     /// <summary>Creates the Registries view model and stores its injected services.</summary>
-    public RegistriesViewModel(IWslcService wslc, IAzureCliService azure, ISettingsService settings, DialogService dialogs, RegistryAuthRefresher authRefresher, IRegistryCredentialStore credentials, IWslPolicyService policy)
+    public RegistriesViewModel(IWslcService wslc, IAzureCliService azure, ISettingsService settings, DialogService dialogs, RegistryAuthRefresher authRefresher, IRegistryCredentialStore credentials, IWslPolicyService policy, RegistryLogoutService registryLogout)
     {
         _wslc = wslc;
         _azure = azure;
@@ -75,6 +76,7 @@ public partial class RegistriesViewModel : ObservableObject
         _dialogs = dialogs;
         _authRefresher = authRefresher;
         _credentials = credentials;
+        _registryLogout = registryLogout;
         _policy = policy;
     }
 
@@ -342,20 +344,14 @@ public partial class RegistriesViewModel : ObservableObject
         StatusMessage = $"Logging out of {registry.Name}…";
         try
         {
-            var result = await _wslc.LogoutRegistryAsync(registry.LoginServer);
-            if (result.Success)
+            var error = await TryLogoutAsync(registry);
+            if (error is null)
             {
-                // Docker Hub reverts to anonymous access; user-added registries become "not logged in".
-                registry.LoginState = registry.IsDefault
-                    ? Models.RegistryLoginState.Anonymous
-                    : Models.RegistryLoginState.LoggedOut;
-                registry.Username = null;
                 _settings.Save();
-                StatusMessage = $"Logged out of {registry.Name}.";
             }
             else
             {
-                await _dialogs.ShowMessageAsync(UiText.Get("Resource_Text_d2313d7e8a46", "Logout failed"), result.ErrorText);
+                await _dialogs.ShowMessageAsync(UiText.Get("Resource_Text_d2313d7e8a46", "Logout failed"), error);
                 StatusMessage = $"Logout of {registry.Name} failed.";
             }
         }
@@ -363,6 +359,47 @@ public partial class RegistriesViewModel : ObservableObject
         {
             IsBusy = false;
         }
+    }
+
+    /// <summary>
+    /// Logs out through the shared service and clears the row's login state only once completion is
+    /// confirmed. Returns null on success, otherwise the localized reason the logout did not complete.
+    /// </summary>
+    private async Task<string?> TryLogoutAsync(RegistryEntry registry)
+    {
+        RegistryLogoutResult result;
+        try
+        {
+            result = await _registryLogout.LogoutAsync(registry.LoginServer);
+        }
+        catch (Exception ex) when (ex is not OperationCanceledException)
+        {
+            return string.IsNullOrWhiteSpace(ex.Message)
+                ? UiText.Get("Resource_Text_441c9ae8b3cd", "Logout did not complete.")
+                : ex.Message;
+        }
+
+        if (result.Status != RegistryLogoutStatus.Completed)
+        {
+            var error = result.Status switch
+            {
+                RegistryLogoutStatus.CredentialsRemain => UiText.Get("Resource_Text_242b7214af2f",
+                    "A stored login remains for this registry. Refresh its login state and try logging out again."),
+                RegistryLogoutStatus.CredentialStateUnknown => UiText.Get("Resource_Text_edf6b3a96ba2",
+                    "The stored login state could not be checked. Refresh its login state before trying again."),
+                _ => result.Error?.ErrorText ?? string.Empty,
+            };
+            return string.IsNullOrWhiteSpace(error)
+                ? UiText.Get("Resource_Text_441c9ae8b3cd", "Logout did not complete.")
+                : error;
+        }
+
+        registry.LoginState = registry.IsDefault
+            ? Models.RegistryLoginState.Anonymous
+            : Models.RegistryLoginState.LoggedOut;
+        registry.Username = null;
+        StatusMessage = $"Logged out of {registry.Name}.";
+        return null;
     }
 
     /// <summary>Command handler for remove actions triggered from the view.</summary>
@@ -383,20 +420,36 @@ public partial class RegistriesViewModel : ObservableObject
             return;
         }
 
-        // Best-effort logout so stored credentials don't linger.
+        IsBusy = true;
         try
         {
-            await _wslc.LogoutRegistryAsync(registry.Host);
-        }
-        catch
-        {
-            // ignore
-        }
+            var error = await TryLogoutAsync(registry);
+            if (error is not null)
+            {
+                var removeAnyway = await _dialogs.ShowConfirmAsync(
+                    UiText.Get("Resource_Text_d2313d7e8a46", "Logout failed"),
+                    UiText.Get("Resource_Text_fb681c03faa9",
+                        "Logout did not complete, so a stored login may remain.\n\n{0}\n\nRemove \"{1}\" from the list anyway?",
+                        error, registry.Name),
+                    UiText.Get("Resource_Text_7365035604d7", "Remove anyway"));
+                if (!removeAnyway)
+                {
+                    StatusMessage = $"Logout of {registry.Name} failed.";
+                    return;
+                }
+            }
 
-        _settings.Registries.Remove(registry);
-        _settings.Save();
-        Registries.Remove(registry);
-        StatusMessage = $"Removed {registry.Name}.";
+            _settings.Registries.Remove(registry);
+            _settings.Save();
+            Registries.Remove(registry);
+            StatusMessage = error is null
+                ? $"Removed {registry.Name}."
+                : $"{registry.Name} was removed, but its stored login may remain.";
+        }
+        finally
+        {
+            IsBusy = false;
+        }
     }
 
     /// <summary>Refreshes display projections after a UI language change.</summary>
