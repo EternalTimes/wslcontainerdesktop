@@ -10803,4 +10803,19 @@ Setup needs the network. Cancelling partway does not undo what already completed
   <data name="Root_Static_Settings_RefreshOpenAiModels.Content" xml:space="preserve">
     <value>Refresh</value>
   </data>
+  <data name="RegistryLogin_DockerHubUsernamePlaceholder" xml:space="preserve">
+    <value>Docker ID or organization namespace</value>
+  </data>
+  <data name="RegistryLogin_DockerHubCredentialHint" xml:space="preserve">
+    <value>Use your Docker ID for a password or personal access token, or your organization namespace for an organization access token. Put the token in the password field.</value>
+  </data>
+  <data name="RegistryLogin_AuthorizationHeaderRejected" xml:space="preserve">
+    <value>The registry rejected the authorization header. Check your username and password or access token, then log in again.</value>
+  </data>
+  <data name="RegistryLogout_CredentialsRemain" xml:space="preserve">
+    <value>A stored login remains for this registry. Refresh its login state and try logging out again.</value>
+  </data>
+  <data name="RegistryLogout_CredentialStateUnknown" xml:space="preserve">
+    <value>The stored login state could not be checked. Refresh its login state before trying again.</value>
+  </data>
 </root>

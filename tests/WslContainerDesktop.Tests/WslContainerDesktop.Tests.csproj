@@ -82,6 +82,7 @@
     <Compile Include="..\..\src\WslContainerDesktop\Helpers\AssistantTurnDispatch.cs" Link="Helpers\AssistantTurnDispatch.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Helpers\FlagHelp.cs" Link="Helpers\FlagHelp.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Helpers\PushDestination.cs" Link="Helpers\PushDestination.cs" />
+    <Compile Include="..\..\src\WslContainerDesktop\Helpers\RegistryUsername.cs" Link="Helpers\RegistryUsername.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Helpers\LogLineOrder.cs" Link="Helpers\LogLineOrder.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\AiDiagnosticsService.cs" Link="Services\AiDiagnosticsService.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\AssistantArgumentException.cs" Link="Services\AssistantArgumentException.cs" />
@@ -141,6 +142,9 @@
     <Compile Include="..\..\src\WslContainerDesktop\Services\UiText.cs" Link="Services\UiText.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\LocalizedOption.cs" Link="Services\LocalizedOption.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\CommandErrorText.cs" Link="Services\CommandErrorText.cs" />
+    <Compile Include="..\..\src\WslContainerDesktop\Helpers\RegistryServerAddress.cs" Link="Helpers\RegistryServerAddress.cs" />
+    <Compile Include="..\..\src\WslContainerDesktop\Services\RegistryCredentialStore.cs" Link="Services\RegistryCredentialStore.cs" />
+    <Compile Include="..\..\src\WslContainerDesktop\Services\RegistryLogoutService.cs" Link="Services\RegistryLogoutService.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\IWslPolicyService.cs" Link="Services\IWslPolicyService.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\IWslRequirementService.cs" Link="Services\IWslRequirementService.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\WslRequirementService.cs" Link="Services\WslRequirementService.cs" />
@@ -243,7 +247,6 @@
     <Compile Include="..\..\src\WslContainerDesktop\Services\TemplateCatalog.cs" Link="Services\TemplateCatalog.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\IUserTemplateStore.cs" Link="Services\IUserTemplateStore.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\RegistryCatalogService.cs" Link="Services\RegistryCatalogService.cs" />
-    <Compile Include="..\..\src\WslContainerDesktop\Services\RegistryCredentialStore.cs" Link="Services\RegistryCredentialStore.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Services\IAzureCliService.cs" Link="Services\IAzureCliService.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Models\StackTemplate.cs" Link="Models\StackTemplate.cs" />
     <Compile Include="..\..\src\WslContainerDesktop\Models\K8sResources.cs" Link="Models\K8sResources.cs" />

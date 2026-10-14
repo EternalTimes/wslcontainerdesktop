@@ -10803,4 +10803,19 @@ License: {2} — {3}
   <data name="Root_Static_Settings_RefreshOpenAiModels.Content" xml:space="preserve">
     <value>刷新</value>
   </data>
+  <data name="RegistryLogin_DockerHubUsernamePlaceholder" xml:space="preserve">
+    <value>Docker ID 或组织命名空间</value>
+  </data>
+  <data name="RegistryLogin_DockerHubCredentialHint" xml:space="preserve">
+    <value>使用密码或个人访问令牌时填写 Docker ID，使用组织访问令牌时填写组织命名空间。请将令牌填入密码框。</value>
+  </data>
+  <data name="RegistryLogin_AuthorizationHeaderRejected" xml:space="preserve">
+    <value>镜像仓库拒绝了授权标头。请检查用户名及密码或访问令牌，然后重新登录。</value>
+  </data>
+  <data name="RegistryLogout_CredentialsRemain" xml:space="preserve">
+    <value>此镜像仓库仍保存着登录凭据。请刷新登录状态，然后再次尝试注销。</value>
+  </data>
+  <data name="RegistryLogout_CredentialStateUnknown" xml:space="preserve">
+    <value>无法检查保存的登录状态。请刷新登录状态后再试。</value>
+  </data>
 </root>
