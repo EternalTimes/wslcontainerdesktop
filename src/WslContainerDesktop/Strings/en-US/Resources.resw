@@ -5110,8 +5110,8 @@ Includes stopped containers, which rejoin this network when they start.</value>
 
 Remove "{1}" from the list anyway?</value>
   </data>
-  <data name="Resource_Text_ae6e0e75bd63" xml:space="preserve">
-    <value>Removed {0}; its stored login may remain.</value>
+  <data name="Resource_Text_4e48f3941162" xml:space="preserve">
+    <value>{0} was removed, but its stored login may remain.</value>
   </data>
   <data name="Resource_Text_441c9ae8b3cd" xml:space="preserve">
     <value>Logout did not complete.</value>

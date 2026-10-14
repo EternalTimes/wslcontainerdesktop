@@ -5110,7 +5110,7 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
 
 仍要将“{1}”从列表中删除吗？</value>
   </data>
-  <data name="Resource_Text_ae6e0e75bd63" xml:space="preserve">
+  <data name="Resource_Text_4e48f3941162" xml:space="preserve">
     <value>已删除 {0}；其已存储的登录信息可能仍然保留。</value>
   </data>
   <data name="Resource_Text_441c9ae8b3cd" xml:space="preserve">

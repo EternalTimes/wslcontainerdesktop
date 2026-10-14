@@ -444,7 +444,7 @@ public partial class RegistriesViewModel : ObservableObject
             Registries.Remove(registry);
             StatusMessage = error is null
                 ? $"Removed {registry.Name}."
-                : $"Removed {registry.Name}; its stored login may remain.";
+                : $"{registry.Name} was removed, but its stored login may remain.";
         }
         finally
         {
