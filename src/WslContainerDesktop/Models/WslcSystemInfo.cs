@@ -119,6 +119,16 @@ public sealed record WslcSessionInfo
     public int CreatorPid { get; init; }
 }
 
+/// <summary>Session option shown in the WSL Engine page.</summary>
+public sealed class WslcSessionChoice(string? name, string displayName)
+{
+    /// <summary>Gets the WSLC session name, or null for the default CLI session.</summary>
+    public string? Name { get; } = name;
+
+    /// <summary>Gets the label shown in the session picker.</summary>
+    public string DisplayName { get; } = displayName;
+}
+
 /// <summary>Model object that stores wslc settings file information used by services, view models, or dialogs.</summary>
 public sealed class WslcSettingsFile
 {

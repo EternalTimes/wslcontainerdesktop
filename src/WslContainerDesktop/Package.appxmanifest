@@ -12,7 +12,7 @@
   <Identity
     Name="393193CD-4A5B-4502-BC94-7C6AF142CD28"
     Publisher="CN=Michael Hacker"
-    Version="2.2.0.0" />
+    Version="2.3.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="393193CD-4A5B-4502-BC94-7C6AF142CD28" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
@@ -27,8 +27,14 @@
     <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26226.0" />
   </Dependencies>
 
+  <!--
+    Packaged WinUI 3 only ships localized resources for the languages declared here: x-generate
+    means "whatever the build infers", which silently drops every Strings\<language> folder. Every
+    locale under Strings\ must be listed here to reach the app at runtime.
+  -->
   <Resources>
-    <Resource Language="x-generate"/>
+    <Resource Language="en-US"/>
+    <Resource Language="zh-Hans"/>
   </Resources>
 
   <Applications>
