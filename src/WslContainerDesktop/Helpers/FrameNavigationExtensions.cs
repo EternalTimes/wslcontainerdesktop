@@ -34,6 +34,20 @@ public static class FrameNavigationExtensions
             typeof(FrameNavigationExtensions),
             new PropertyMetadata(null));
 
+    private static readonly DependencyProperty OriginalIndicatorVisibilityProperty =
+        DependencyProperty.RegisterAttached(
+            "OriginalIndicatorVisibility",
+            typeof(Visibility),
+            typeof(FrameNavigationExtensions),
+            new PropertyMetadata(Visibility.Visible));
+
+    private static readonly DependencyProperty IsIndicatorVisibilityMaskedProperty =
+        DependencyProperty.RegisterAttached(
+            "IsIndicatorVisibilityMasked",
+            typeof(bool),
+            typeof(FrameNavigationExtensions),
+            new PropertyMetadata(false));
+
     // Until something has been stripped there is nothing to restore, so an animations-on walk can be skipped.
     private static bool s_anyStripped;
 
@@ -66,8 +80,8 @@ public static class FrameNavigationExtensions
     }
 
     /// <summary>
-    /// Shows or hides the navigation pane's sliding selection indicator. The selected item keeps
-    /// its highlight; only the bar that animates between items is hidden. The walk stops at any
+    /// Shows or hides the navigation pane's sliding selection indicator without changing its
+    /// opacity, which NavigationView owns to represent selection. The walk stops at any
     /// <see cref="Frame"/>, so the hosted page is neither scanned nor affected.
     /// </summary>
     public static void SetNavIndicatorVisible(DependencyObject root, bool visible)
@@ -79,7 +93,21 @@ public static class FrameNavigationExtensions
 
         if (root is FrameworkElement { Name: "SelectionIndicator" } indicator)
         {
-            indicator.Opacity = visible ? 1 : 0;
+            if (visible)
+            {
+                if ((bool)indicator.GetValue(IsIndicatorVisibilityMaskedProperty))
+                {
+                    indicator.Visibility = (Visibility)indicator.GetValue(OriginalIndicatorVisibilityProperty);
+                    indicator.ClearValue(OriginalIndicatorVisibilityProperty);
+                    indicator.ClearValue(IsIndicatorVisibilityMaskedProperty);
+                }
+            }
+            else if (!(bool)indicator.GetValue(IsIndicatorVisibilityMaskedProperty))
+            {
+                indicator.SetValue(OriginalIndicatorVisibilityProperty, indicator.Visibility);
+                indicator.SetValue(IsIndicatorVisibilityMaskedProperty, true);
+                indicator.Visibility = Visibility.Collapsed;
+            }
         }
 
         var count = VisualTreeHelper.GetChildrenCount(root);
