@@ -3227,6 +3227,12 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   <data name="Workload_Text_username_or_token_name_39f3c5" xml:space="preserve">
     <value>用户名或令牌名称</value>
   </data>
+  <data name="Workload_Text_Docker_ID_or_organization_namespace_a1c4e7" xml:space="preserve">
+    <value>Docker ID 或组织命名空间</value>
+  </data>
+  <data name="Workload_Text_Docker_Hub_login_hint_5d2b9f" xml:space="preserve">
+    <value>使用 Docker ID 配合密码或个人访问令牌，或使用组织命名空间配合组织访问令牌。请将令牌填入密码字段。</value>
+  </data>
   <data name="Workload_Text_using_your_GPU_4b145b" xml:space="preserve">
     <value>，使用 GPU</value>
   </data>
@@ -5093,6 +5099,28 @@ k3s 项目更新安装脚本时会出现这种情况；请仅在信任来源时�
   </data>
   <data name="Resource_Text_d2078b7339a5" xml:space="preserve">
     <value>保存为运行配置</value>
+  </data>
+  <data name="Resource_Text_242b7214af2f" xml:space="preserve">
+    <value>此注册表仍保留已存储的登录信息。请刷新其登录状态后再次尝试退出登录。</value>
+  </data>
+  <data name="Resource_Text_edf6b3a96ba2" xml:space="preserve">
+    <value>无法检查已存储的登录状态。请刷新其登录状态后重试。</value>
+  </data>
+  <data name="Resource_Text_7365035604d7" xml:space="preserve">
+    <value>仍然删除</value>
+  </data>
+  <data name="Resource_Text_fb681c03faa9" xml:space="preserve">
+    <value>退出登录未完成，已存储的登录信息可能仍然保留。
+
+{0}
+
+仍要将“{1}”从列表中删除吗？</value>
+  </data>
+  <data name="Resource_Text_4e48f3941162" xml:space="preserve">
+    <value>已删除 {0}；其已存储的登录信息可能仍然保留。</value>
+  </data>
+  <data name="Resource_Text_441c9ae8b3cd" xml:space="preserve">
+    <value>退出登录未完成。</value>
   </data>
   <data name="Resource_Text_d2313d7e8a46" xml:space="preserve">
     <value>退出登录失败</value>
@@ -10802,20 +10830,5 @@ License: {2} — {3}
   </data>
   <data name="Root_Static_Settings_RefreshOpenAiModels.Content" xml:space="preserve">
     <value>刷新</value>
-  </data>
-  <data name="RegistryLogin_DockerHubUsernamePlaceholder" xml:space="preserve">
-    <value>Docker ID 或组织命名空间</value>
-  </data>
-  <data name="RegistryLogin_DockerHubCredentialHint" xml:space="preserve">
-    <value>使用密码或个人访问令牌时填写 Docker ID，使用组织访问令牌时填写组织命名空间。请将令牌填入密码框。</value>
-  </data>
-  <data name="RegistryLogin_AuthorizationHeaderRejected" xml:space="preserve">
-    <value>镜像仓库拒绝了授权标头。请检查用户名及密码或访问令牌，然后重新登录。</value>
-  </data>
-  <data name="RegistryLogout_CredentialsRemain" xml:space="preserve">
-    <value>此镜像仓库仍保存着登录凭据。请刷新登录状态，然后再次尝试注销。</value>
-  </data>
-  <data name="RegistryLogout_CredentialStateUnknown" xml:space="preserve">
-    <value>无法检查保存的登录状态。请刷新登录状态后再试。</value>
   </data>
 </root>

@@ -3227,6 +3227,12 @@ Upgrade to {6} first instead? You can repeat the upgrade afterwards to continue 
   <data name="Workload_Text_username_or_token_name_39f3c5" xml:space="preserve">
     <value>username or token name</value>
   </data>
+  <data name="Workload_Text_Docker_ID_or_organization_namespace_a1c4e7" xml:space="preserve">
+    <value>Docker ID or organization namespace</value>
+  </data>
+  <data name="Workload_Text_Docker_Hub_login_hint_5d2b9f" xml:space="preserve">
+    <value>Use your Docker ID for a password or personal access token, or your organization namespace for an organization access token. Put the token in the password field.</value>
+  </data>
   <data name="Workload_Text_using_your_GPU_4b145b" xml:space="preserve">
     <value> using your GPU</value>
   </data>
@@ -5093,6 +5099,28 @@ Includes stopped containers, which rejoin this network when they start.</value>
   </data>
   <data name="Resource_Text_d2078b7339a5" xml:space="preserve">
     <value>Save as run profile</value>
+  </data>
+  <data name="Resource_Text_242b7214af2f" xml:space="preserve">
+    <value>A stored login remains for this registry. Refresh its login state and try logging out again.</value>
+  </data>
+  <data name="Resource_Text_edf6b3a96ba2" xml:space="preserve">
+    <value>The stored login state could not be checked. Refresh its login state before trying again.</value>
+  </data>
+  <data name="Resource_Text_7365035604d7" xml:space="preserve">
+    <value>Remove anyway</value>
+  </data>
+  <data name="Resource_Text_fb681c03faa9" xml:space="preserve">
+    <value>Logout did not complete, so a stored login may remain.
+
+{0}
+
+Remove "{1}" from the list anyway?</value>
+  </data>
+  <data name="Resource_Text_4e48f3941162" xml:space="preserve">
+    <value>{0} was removed, but its stored login may remain.</value>
+  </data>
+  <data name="Resource_Text_441c9ae8b3cd" xml:space="preserve">
+    <value>Logout did not complete.</value>
   </data>
   <data name="Resource_Text_d2313d7e8a46" xml:space="preserve">
     <value>Logout failed</value>
@@ -10802,20 +10830,5 @@ Setup needs the network. Cancelling partway does not undo what already completed
   </data>
   <data name="Root_Static_Settings_RefreshOpenAiModels.Content" xml:space="preserve">
     <value>Refresh</value>
-  </data>
-  <data name="RegistryLogin_DockerHubUsernamePlaceholder" xml:space="preserve">
-    <value>Docker ID or organization namespace</value>
-  </data>
-  <data name="RegistryLogin_DockerHubCredentialHint" xml:space="preserve">
-    <value>Use your Docker ID for a password or personal access token, or your organization namespace for an organization access token. Put the token in the password field.</value>
-  </data>
-  <data name="RegistryLogin_AuthorizationHeaderRejected" xml:space="preserve">
-    <value>The registry rejected the authorization header. Check your username and password or access token, then log in again.</value>
-  </data>
-  <data name="RegistryLogout_CredentialsRemain" xml:space="preserve">
-    <value>A stored login remains for this registry. Refresh its login state and try logging out again.</value>
-  </data>
-  <data name="RegistryLogout_CredentialStateUnknown" xml:space="preserve">
-    <value>The stored login state could not be checked. Refresh its login state before trying again.</value>
   </data>
 </root>

@@ -53,7 +53,7 @@ public sealed class RegistryLoginDialog : ContentDialog
         {
             Header = UiText.Get("Workload_Text_Username_e3b89e", "Username"),
             PlaceholderText = dockerHub
-                ? UiText.Get("RegistryLogin_DockerHubUsernamePlaceholder", "Docker ID or organization namespace")
+                ? UiText.Get("Workload_Text_Docker_ID_or_organization_namespace_a1c4e7", "Docker ID or organization namespace")
                 : UiText.Get("Workload_Text_username_or_token_name_39f3c5", "username or token name"),
             Text = prefillUsername ?? string.Empty,
             MinWidth = 360,
@@ -74,7 +74,9 @@ public sealed class RegistryLoginDialog : ContentDialog
         {
             panel.Children.Insert(1, new TextBlock
             {
-                Text = UiText.Get("RegistryLogin_DockerHubCredentialHint", "Use your Docker ID for a password or personal access token, or your organization namespace for an organization access token. Put the token in the password field."),
+                Text = UiText.Get(
+                    "Workload_Text_Docker_Hub_login_hint_5d2b9f",
+                    "Use your Docker ID for a password or personal access token, or your organization namespace for an organization access token. Put the token in the password field."),
                 TextWrapping = TextWrapping.Wrap,
             });
         }
