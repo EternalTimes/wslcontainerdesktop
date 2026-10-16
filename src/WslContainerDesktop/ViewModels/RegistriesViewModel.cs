@@ -347,9 +347,15 @@ public partial class RegistriesViewModel : ObservableObject
         StatusMessage = $"Logging out of {registry.Name}…";
         try
         {
-            if (await LogoutCoreAsync(registry))
+            var error = await TryLogoutAsync(registry);
+            if (error is null)
             {
                 _settings.Save();
+            }
+            else
+            {
+                await _dialogs.ShowMessageAsync(UiText.Get("Resource_Text_d2313d7e8a46", "Logout failed"), error);
+                StatusMessage = $"Logout of {registry.Name} failed.";
             }
         }
         finally
@@ -358,23 +364,37 @@ public partial class RegistriesViewModel : ObservableObject
         }
     }
 
-    /// <summary>Clears the row's login state only after the shared logout service confirms completion.</summary>
-    private async Task<bool> LogoutCoreAsync(RegistryEntry registry)
+    /// <summary>
+    /// Logs out through the shared service and clears the row's login state only once completion is
+    /// confirmed. Returns null on success, otherwise the localized reason the logout did not complete.
+    /// </summary>
+    private async Task<string?> TryLogoutAsync(RegistryEntry registry)
     {
-        var result = await _registryLogout.LogoutAsync(registry.LoginServer);
+        RegistryLogoutResult result;
+        try
+        {
+            result = await _registryLogout.LogoutAsync(registry.LoginServer);
+        }
+        catch (Exception ex) when (ex is not OperationCanceledException)
+        {
+            return string.IsNullOrWhiteSpace(ex.Message)
+                ? UiText.Get("Resource_Text_441c9ae8b3cd", "Logout did not complete.")
+                : ex.Message;
+        }
+
         if (result.Status != RegistryLogoutStatus.Completed)
         {
             var error = result.Status switch
             {
-                RegistryLogoutStatus.CredentialsRemain =>
-                    UiText.Get("RegistryLogout_CredentialsRemain", "A stored login remains for this registry. Refresh its login state and try logging out again."),
-                RegistryLogoutStatus.CredentialStateUnknown =>
-                    UiText.Get("RegistryLogout_CredentialStateUnknown", "The stored login state could not be checked. Refresh its login state before trying again."),
+                RegistryLogoutStatus.CredentialsRemain => UiText.Get("Resource_Text_242b7214af2f",
+                    "A stored login remains for this registry. Refresh its login state and try logging out again."),
+                RegistryLogoutStatus.CredentialStateUnknown => UiText.Get("Resource_Text_edf6b3a96ba2",
+                    "The stored login state could not be checked. Refresh its login state before trying again."),
                 _ => result.Error?.ErrorText ?? string.Empty,
             };
-            await _dialogs.ShowMessageAsync(UiText.Get("Resource_Text_d2313d7e8a46", "Logout failed"), error);
-            StatusMessage = $"Logout of {registry.Name} failed.";
-            return false;
+            return string.IsNullOrWhiteSpace(error)
+                ? UiText.Get("Resource_Text_441c9ae8b3cd", "Logout did not complete.")
+                : error;
         }
 
         registry.LoginState = registry.IsDefault
@@ -382,7 +402,7 @@ public partial class RegistriesViewModel : ObservableObject
             : Models.RegistryLoginState.LoggedOut;
         registry.Username = null;
         StatusMessage = $"Logged out of {registry.Name}.";
-        return true;
+        return null;
     }
 
     /// <summary>Command handler for remove actions triggered from the view.</summary>
@@ -406,15 +426,28 @@ public partial class RegistriesViewModel : ObservableObject
         IsBusy = true;
         try
         {
-            if (!await LogoutCoreAsync(registry))
+            var error = await TryLogoutAsync(registry);
+            if (error is not null)
             {
-                return;
+                var removeAnyway = await _dialogs.ShowConfirmAsync(
+                    UiText.Get("Resource_Text_d2313d7e8a46", "Logout failed"),
+                    UiText.Get("Resource_Text_fb681c03faa9",
+                        "Logout did not complete, so a stored login may remain.\n\n{0}\n\nRemove \"{1}\" from the list anyway?",
+                        error, registry.Name),
+                    UiText.Get("Resource_Text_7365035604d7", "Remove anyway"));
+                if (!removeAnyway)
+                {
+                    StatusMessage = $"Logout of {registry.Name} failed.";
+                    return;
+                }
             }
 
             _settings.Registries.Remove(registry);
             _settings.Save();
             Registries.Remove(registry);
-            StatusMessage = $"Removed {registry.Name}.";
+            StatusMessage = error is null
+                ? $"Removed {registry.Name}."
+                : $"{registry.Name} was removed, but its stored login may remain.";
         }
         finally
         {

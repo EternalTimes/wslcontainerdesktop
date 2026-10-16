@@ -49,11 +49,18 @@ public sealed class FlagHelpTests
     }
 
     [Fact]
-    public void OptionEntriesUseFlagSyntax()
+    public void OptionTokensUseFlagSyntax()
     {
-        foreach (var entry in FlagHelp.All.Where(entry => entry.Flag.Contains("--", StringComparison.Ordinal)))
+        foreach (var entry in FlagHelp.All)
         {
-            Assert.StartsWith("-", entry.Flag);
+            for (var index = entry.Flag.IndexOf("--", StringComparison.Ordinal);
+                 index >= 0;
+                 index = entry.Flag.IndexOf("--", index + 2, StringComparison.Ordinal))
+            {
+                Assert.True(
+                    index == 0 || char.IsWhiteSpace(entry.Flag[index - 1]) || entry.Flag[index - 1] == '[',
+                    $"Option token in '{entry.Flag}' must start a token or a bracketed synopsis.");
+            }
         }
     }
 }

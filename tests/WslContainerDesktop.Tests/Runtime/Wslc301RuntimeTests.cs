@@ -20,6 +20,11 @@ using Microsoft.Extensions.Logging.Abstractions;
 using WslContainerDesktop.Models;
 using WslContainerDesktop.Services;
 using WslContainerDesktop.Tests.Services;
+using SdkContainer = Microsoft.WSL.Containers.Container;
+using SdkContainerSettings = Microsoft.WSL.Containers.ContainerSettings;
+using SdkDeleteContainerOption = Microsoft.WSL.Containers.DeleteContainerOption;
+using SdkSession = Microsoft.WSL.Containers.Session;
+using SdkSessionSettings = Microsoft.WSL.Containers.SessionSettings;
 using Xunit;
 
 namespace WslContainerDesktop.Tests.Runtime;
@@ -29,6 +34,92 @@ namespace WslContainerDesktop.Tests.Runtime;
 /// </summary>
 public sealed class Wslc301RuntimeTests
 {
+    [WslcRuntimeFact]
+    [Trait("Category", "WslcRuntime")]
+    public async Task SdkCreatedSessionIsDiscoveredAndItsContainerIsVisibleOnlyWhenSelected()
+    {
+        await using var lease = new WslcRuntimeLease();
+        await lease.InitializeAsync(requireNginxImage: false);
+
+        var sessionName = lease.Name("sdk-session");
+        var containerName = lease.Name("sdk-container");
+        var image = (await lease.Service.ListImagesAsync(lease.Ct, showAll: true))
+            .Where(candidate => candidate.Size > 0 &&
+                !string.IsNullOrWhiteSpace(candidate.Repository) &&
+                !string.IsNullOrWhiteSpace(candidate.Tag) &&
+                candidate.Tag != "<none>")
+            .OrderBy(candidate => candidate.Size)
+            .FirstOrDefault()
+            ?? throw new InvalidOperationException("The default WSLC session must have a tagged local image for the SDK session test.");
+        var imageArchive = Path.Combine(lease.CreateDirectory("sdk-image"), "session-test.tar");
+        WslcRuntimeLease.Require(
+            await lease.Service.SaveImagesAsync([image.Reference], imageArchive, lease.Ct),
+            "save image for SDK-created session");
+
+        var session = new SdkSession(new SdkSessionSettings(sessionName, lease.CreateDirectory("sdk-session-storage")));
+        SdkContainer? container = null;
+        var sessionStarted = false;
+        try
+        {
+            session.Start();
+            sessionStarted = true;
+            await session.LoadImageAsync(imageArchive);
+            container = session.CreateContainer(new SdkContainerSettings(image.Reference)
+            {
+                Name = containerName,
+            });
+
+            await SpinUntilAsync(async () =>
+            {
+                var info = await lease.Service.GetSystemInfoAsync(lease.Ct);
+                return info.Server.Sessions.Any(active =>
+                    string.Equals(active.Name, sessionName, StringComparison.Ordinal));
+            }, lease.Ct);
+
+            lease.SessionContext.Select(sessionName);
+            var selectedSessionContainers = await lease.Service.ListContainersAsync(all: true, ct: lease.Ct);
+            Assert.Contains(selectedSessionContainers, item =>
+                string.Equals(item.Name.TrimStart('/'), containerName, StringComparison.Ordinal));
+
+            lease.SessionContext.Select(null);
+            var defaultSessionContainers = await lease.Service.ListContainersAsync(all: true, ct: lease.Ct);
+            Assert.DoesNotContain(defaultSessionContainers, item =>
+                string.Equals(item.Name.TrimStart('/'), containerName, StringComparison.Ordinal));
+        }
+        finally
+        {
+            try
+            {
+                if (container is not null)
+                {
+                    try
+                    {
+                        container.Delete(SdkDeleteContainerOption.Force);
+                    }
+                    finally
+                    {
+                        container.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                try
+                {
+                    if (sessionStarted)
+                    {
+                        session.Terminate();
+                    }
+                }
+                finally
+                {
+                    session.Dispose();
+                    lease.SessionContext.Select(null);
+                }
+            }
+        }
+    }
+
     [WslcRuntimeFact]
     [Trait("Category", "WslcRuntime")]
     public async Task NativeRestartRestartsRunningStartsStoppedAndAcceptsSignalTimeout()
@@ -562,21 +653,24 @@ public sealed class Wslc301RuntimeTests
         {
             Suffix = Guid.NewGuid().ToString("N")[..12];
             Settings = new RuntimeSettings(WslcPath);
-            Runner = new ProcessRunner(Settings);
+            SessionContext = new WslcSessionContext();
+            Runner = new ProcessRunner(Settings, SessionContext);
             Capabilities = new WslcCapabilitiesService(Settings, NullLogger<WslcCapabilitiesService>.Instance);
             var fileTransferStaging = CreateDirectory("file-transfer-staging");
             Service = new WslcService(Runner, NullLogger<WslcService>.Instance, Capabilities, Settings,
-                new RestartSuppressionState(), fileTransferStagingRoot: () => fileTransferStaging);
+                new RestartSuppressionState(), fileTransferStagingRoot: () => fileTransferStaging,
+                sessionContext: SessionContext);
         }
 
         public string Suffix { get; }
         public RuntimeSettings Settings { get; }
+        public WslcSessionContext SessionContext { get; }
         public ProcessRunner Runner { get; }
         public WslcCapabilitiesService Capabilities { get; }
         public IWslcService Service { get; }
         public CancellationToken Ct => _timeout.Token;
 
-        public async Task InitializeAsync()
+        public async Task InitializeAsync(bool requireNginxImage = true)
         {
             if (!File.Exists(WslcPath))
             {
@@ -585,9 +679,16 @@ public sealed class Wslc301RuntimeTests
 
             var version = await Service.GetVersionAsync(Ct);
             Require(version, "wslc version");
-            Assert.Contains("3.0.1", version.StandardOutput + version.StandardError, StringComparison.Ordinal);
+            var versionOutput = version.StandardOutput + version.StandardError;
+            Assert.True(WslcVersionParser.TryParseOutput(versionOutput, out _, out var parsedVersion),
+                $"Could not parse wslc version output: {versionOutput}");
+            Assert.True(parsedVersion >= new Version(3, 0, 1, 0),
+                $"wslc 3.0.1 or later is required, but found {parsedVersion}.");
             var images = await Service.ListImagesAsync(Ct, showAll: true);
-            Assert.Contains(images, i => i.Repository == "nginx" && i.Tag == "alpine");
+            if (requireNginxImage)
+            {
+                Assert.Contains(images, i => i.Repository == "nginx" && i.Tag == "alpine");
+            }
             _initialized = true;
         }
 

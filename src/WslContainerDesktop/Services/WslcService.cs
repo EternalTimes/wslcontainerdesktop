@@ -34,7 +34,8 @@ public sealed class WslcService(
     ISettingsService settings,
     RestartSuppressionState suppression,
     IWslPolicyService? policy = null,
-    Func<string>? fileTransferStagingRoot = null) : IWslcService
+    Func<string>? fileTransferStagingRoot = null,
+    WslcSessionContext? sessionContext = null) : IWslcService
 {
     private readonly IWslcCapabilitiesService _capabilities = capabilities;
     private readonly IWslPolicyService _policy = policy ?? AllowAllWslPolicyService.Instance;
@@ -48,7 +49,10 @@ public sealed class WslcService(
     private const int PendingHealthLimit = 256;
 
     private WslcFileTransfer FileTransfer => new(
-        ProcessRunner.RunAtPathAsync, ProcessRunner.RunCopyWithInputFileAtPathAsync, () => settings.WslcPath,
+        (path, arguments, ct) => ProcessRunner.RunAtPathAsync(path, sessionContext?.AddSessionSelector(arguments) ?? arguments, ct),
+        (path, arguments, input, ct) => ProcessRunner.RunCopyWithInputFileAtPathAsync(
+            path, arguments, input, ct, sessionContext?.SelectedSessionName),
+        () => settings.WslcPath,
         () => fileTransferStagingRoot?.Invoke() ??
             Path.Combine(Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path, "file-transfer"));
 
@@ -75,14 +79,14 @@ public sealed class WslcService(
     /// Gets version information for callers in the service or view-model layer.
     /// </summary>
     public Task<CommandResult> GetVersionAsync(CancellationToken ct = default) =>
-        runner.RunAsync(["version"], ct);
+        runner.RunUnscopedAsync(["version"], ct);
 
     /// <summary>
     /// Gets system information for callers in the service or view-model layer.
     /// </summary>
     public async Task<WslcSystemInfo> GetSystemInfoAsync(CancellationToken ct = default)
     {
-        var result = await runner.RunAsync(["system", "info", "--format", "json"], ct).ConfigureAwait(false);
+        var result = await runner.RunUnscopedAsync(["system", "info", "--format", "json"], ct).ConfigureAwait(false);
         if (!result.Success)
         {
             throw new InvalidOperationException($"System info failed: {result.ErrorText}");
@@ -136,6 +140,10 @@ public sealed class WslcService(
     /// </summary>
     public Task<CommandResult> RestartSessionAsync(CancellationToken ct = default) =>
         runner.RunAsync(["system", "session", "terminate"], ct);
+
+    /// <summary>Terminates the default CLI session for default-session storage changes.</summary>
+    public Task<CommandResult> RestartDefaultSessionAsync(CancellationToken ct = default) =>
+        runner.RunUnscopedAsync(["system", "session", "terminate"], ct);
 
     /// <summary>
     /// Verifies bind mount before a later operation relies on it.

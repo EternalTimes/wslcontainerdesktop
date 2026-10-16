@@ -112,6 +112,9 @@ public partial class WslEngineViewModel : ObservableObject
     private readonly ISettingsService _settings;
     private readonly IWslcSettingsFileService _wslcSettings;
     private readonly IEngineEventStream _events;
+    private readonly WslcSessionContext _sessionContext;
+    private bool _refreshingSessions;
+    private static readonly WslcSessionChoice DefaultWslcSessionChoice = new(null, "Default CLI session");
 
     /// <summary>Whether busy for view binding.</summary>
     [ObservableProperty]
@@ -254,6 +257,29 @@ public partial class WslEngineViewModel : ObservableObject
     /// <summary>Registered distros and their run state.</summary>
     public ObservableCollection<WslDistroStatus> Distros { get; } = new();
 
+    /// <summary>Sessions the user can target with WSLC operations.</summary>
+    public ObservableCollection<WslcSessionChoice> WslcSessions { get; } =
+    [
+        DefaultWslcSessionChoice,
+    ];
+
+    /// <summary>Selected WSLC session; null targets the CLI's default session.</summary>
+    [ObservableProperty]
+    private WslcSessionChoice? _selectedWslcSession = DefaultWslcSessionChoice;
+
+    /// <summary>Explains why named session choices could not be refreshed.</summary>
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(SessionWarningDisplay))]
+    private string _sessionWarning = string.Empty;
+
+    /// <summary>Whether the session discovery warning is visible.</summary>
+    [ObservableProperty]
+    private bool _hasSessionWarning;
+
+    /// <summary>Session discovery warning projected for the active UI language.</summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public string SessionWarningDisplay => UiText.Translate(SessionWarning);
+
     /// <summary>True while <c>wsl --update</c> runs, so the administrator-prompt guidance shows.</summary>
     [ObservableProperty]
     private bool _isUpdatingWsl;
@@ -286,7 +312,7 @@ public partial class WslEngineViewModel : ObservableObject
     private CancellationTokenSource? _updateCts;
 
     /// <summary>Creates the WslEngine view model and stores its injected services.</summary>
-    public WslEngineViewModel(IWslSystemService system, IWslcService wslc, StatusMonitor monitor, DialogService dialogs, ISettingsService settings, IWslcSettingsFileService wslcSettings, IEngineEventStream events)
+    public WslEngineViewModel(IWslSystemService system, IWslcService wslc, StatusMonitor monitor, DialogService dialogs, ISettingsService settings, IWslcSettingsFileService wslcSettings, IEngineEventStream events, WslcSessionContext sessionContext)
     {
         _system = system;
         _wslc = wslc;
@@ -295,7 +321,55 @@ public partial class WslEngineViewModel : ObservableObject
         _settings = settings;
         _wslcSettings = wslcSettings;
         _events = events;
+        _sessionContext = sessionContext;
         _includePreRelease = settings.WslUpdatePreRelease;
+        RefreshLocalizedSessionChoices();
+        UiText.LanguageChanged += (_, _) =>
+        {
+            RefreshLocalizedSessionChoices();
+            OnPropertyChanged(nameof(SessionWarningDisplay));
+        };
+    }
+
+    private void RefreshLocalizedSessionChoices()
+    {
+        var selectedName = SelectedWslcSession?.Name;
+        var sessionNames = WslcSessions
+            .Where(session => session.Name is not null)
+            .Select(session => session.Name!)
+            .ToArray();
+
+        _refreshingSessions = true;
+        try
+        {
+            WslcSessions.Clear();
+            WslcSessions.Add(new WslcSessionChoice(
+                null, UiText.Get("WslEngine_Session_Default", "Default CLI session")));
+            foreach (var name in sessionNames)
+            {
+                WslcSessions.Add(new WslcSessionChoice(name, name));
+            }
+
+            SelectedWslcSession = WslcSessions.FirstOrDefault(session =>
+                string.Equals(session.Name, selectedName, StringComparison.OrdinalIgnoreCase))
+                ?? WslcSessions[0];
+        }
+        finally
+        {
+            _refreshingSessions = false;
+        }
+    }
+
+    partial void OnSelectedWslcSessionChanged(WslcSessionChoice? value)
+    {
+        if (_refreshingSessions)
+        {
+            return;
+        }
+
+        _sessionContext.Select(value?.Name);
+        _events.Restart();
+        _monitor.RequestRefresh();
     }
 
     /// <summary>Command handler for refresh actions triggered from the view.</summary>
@@ -310,6 +384,7 @@ public partial class WslEngineViewModel : ObservableObject
 
             var versionResult = await _wslc.GetVersionAsync();
             EngineVersion = versionResult.Success ? versionResult.StandardOutput.Trim() : "Unreachable";
+            await RefreshWslcSessionsAsync();
             await RefreshContainerEnvironmentAsync();
 
             var platform = await _system.GetPlatformInfoAsync();
@@ -348,6 +423,61 @@ public partial class WslEngineViewModel : ObservableObject
         // Update availability is a network round-trip; run it after the page is populated so it
         // never blocks the core status from rendering.
         await CheckForUpdateAsync();
+    }
+
+    private async Task RefreshWslcSessionsAsync()
+    {
+        try
+        {
+            var systemInfo = await _wslc.GetSystemInfoAsync();
+            var previousSelection = SelectedWslcSession;
+            var previousSessionName = _sessionContext.SelectedSessionName;
+            var names = systemInfo.Server.Sessions
+                .Select(session => session.Name)
+                .Where(name => !string.IsNullOrWhiteSpace(name))
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .OrderBy(name => name, StringComparer.OrdinalIgnoreCase);
+
+            _refreshingSessions = true;
+            try
+            {
+                WslcSessions.Clear();
+                WslcSessions.Add(new WslcSessionChoice(
+                    null, UiText.Get("WslEngine_Session_Default", "Default CLI session")));
+                foreach (var name in names)
+                {
+                    WslcSessions.Add(new WslcSessionChoice(name, name));
+                }
+
+                SelectedWslcSession = WslcSessions.FirstOrDefault(session =>
+                    string.Equals(session.Name, previousSelection?.Name, StringComparison.OrdinalIgnoreCase))
+                    ?? WslcSessions[0];
+            }
+            finally
+            {
+                _refreshingSessions = false;
+            }
+
+            if (!string.Equals(previousSessionName, SelectedWslcSession?.Name, StringComparison.OrdinalIgnoreCase))
+            {
+                _sessionContext.Select(SelectedWslcSession?.Name);
+                _events.Restart();
+                _monitor.RequestRefresh();
+            }
+
+            SessionWarning = string.Empty;
+            HasSessionWarning = false;
+        }
+        catch (Exception ex) when (ex is not OperationCanceledException)
+        {
+            SessionWarning = $"Could not load WSLC sessions: {ex.Message}";
+            HasSessionWarning = true;
+            if (WslcSessions.Count == 0)
+            {
+                WslcSessions.Add(new WslcSessionChoice(
+                    null, UiText.Get("WslEngine_Session_Default", "Default CLI session")));
+            }
+        }
     }
 
     /// <summary>Refreshes container environment state for the view model.</summary>
@@ -540,10 +670,15 @@ public partial class WslEngineViewModel : ObservableObject
     [RelayCommand]
     private async Task RestartSessionAsync()
     {
+        var sessionName = SelectedWslcSession?.Name is null
+            ? UiText.Get("WslEngine_Session_Default", "Default CLI session")
+            : SelectedWslcSession.DisplayName;
         var ok = await _dialogs.ShowConfirmAsync(
             UiText.Get("Resource_Text_c981dceb2438", "Restart WSL session"),
-            UiText.Get("Resource_Text_0166d7b870bb", "Restart the wslc session? This stops all running containers and releases the ") +
-            UiText.Get("Resource_Text_724bb41984d2", "engine's per-session bind-mount slots. Containers can be started again afterwards."),
+            UiText.Get(
+                "WslEngine_RestartSessionConfirmation",
+                "Restart the {0}? This stops all running containers and releases the engine's per-session bind-mount slots. Containers can be started again afterwards.",
+                sessionName),
             UiText.Get("Resource_Text_b134bd555a2f", "Restart"));
         if (!ok)
         {
@@ -554,14 +689,20 @@ public partial class WslEngineViewModel : ObservableObject
     }
 
     /// <summary>Helper for the restart session core workflow in this view model.</summary>
-    private async Task RestartSessionCoreAsync()
+    private async Task RestartSessionCoreAsync(bool selectedSession = true)
     {
         IsBusy = true;
         StatusMessage = "Restarting the wslc session…";
         try
         {
-            _events.Restart();
-            var result = await _wslc.RestartSessionAsync();
+            if (selectedSession)
+            {
+                _events.Restart();
+            }
+
+            var result = selectedSession
+                ? await _wslc.RestartSessionAsync()
+                : await _wslc.RestartDefaultSessionAsync();
             _monitor.RequestRefresh();
             if (result.Success)
             {
@@ -653,9 +794,12 @@ public partial class WslEngineViewModel : ObservableObject
         }
 
         await RefreshAsync();
-        if (await _dialogs.ShowConfirmAsync(UiText.Get("Resource_Text_fe232b5bb527", "Restart session now?"), UiText.Get("Resource_Text_c6792f417830", "Restart the wslc session now so the new storage location is used? Running containers are stopped."), UiText.Get("Resource_Text_b134bd555a2f", "Restart")))
+        if (await _dialogs.ShowConfirmAsync(
+                UiText.Get("Resource_Text_fe232b5bb527", "Restart default session now?"),
+                UiText.Get("Resource_Text_c6792f417830", "Restart the default CLI session now so the new storage location is used? Running containers in that session are stopped."),
+                UiText.Get("Resource_Text_b134bd555a2f", "Restart")))
         {
-            await RestartSessionCoreAsync();
+            await RestartSessionCoreAsync(selectedSession: false);
         }
     }
 
@@ -695,9 +839,12 @@ public partial class WslEngineViewModel : ObservableObject
         }
 
         await RefreshAsync();
-        if (await _dialogs.ShowConfirmAsync(UiText.Get("Resource_Text_fe232b5bb527", "Restart session now?"), UiText.Get("Resource_Text_4321ed28ed60", "Restart the wslc session now so the default storage location is used? Running containers are stopped."), UiText.Get("Resource_Text_b134bd555a2f", "Restart")))
+        if (await _dialogs.ShowConfirmAsync(
+                UiText.Get("Resource_Text_fe232b5bb527", "Restart default session now?"),
+                UiText.Get("Resource_Text_4321ed28ed60", "Restart the default CLI session now so the default storage location is used? Running containers in that session are stopped."),
+                UiText.Get("Resource_Text_b134bd555a2f", "Restart")))
         {
-            await RestartSessionCoreAsync();
+            await RestartSessionCoreAsync(selectedSession: false);
         }
     }
 

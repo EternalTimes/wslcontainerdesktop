@@ -12,7 +12,26 @@ where the signed MSIX and installation steps live.
 
 ## [Unreleased]
 
+### Fixed
+
+- **Docker Hub login corrects uppercase and full-width usernames** before sending them to
+  the engine, including when adding a registry and logging in immediately. Other registries
+  preserve username case and characters. Authorization-header errors show credential guidance.
+- **Registry logout now confirms that stored credentials are gone.** An already absent login
+  completes normally, while engine errors, remaining credentials, and unreadable credential
+  metadata keep the registry entry and its login state intact. Docker Hub logout checks its
+  independent engine keys without treating similar private-registry hostnames as Docker Hub.
+- **Removing a registry whose logout cannot be confirmed now offers "Remove anyway"** instead of
+  leaving the entry stuck in the list. Choosing it removes the entry and notes that its stored
+  login may remain. An unexpected logout error is reported in a dialog instead of being lost.
+
+## [2.3.0] — 2026-10-13
+
 ### Added
+
+- **The About page includes the build's short commit hash after the app version**, making it
+  easier to identify the exact build when reporting a problem. Builds without an embedded commit
+  hash continue to display the version alone.
 
 - **A UI language setting at the top of Settings** lets you choose **System default**,
   **English**, or **简体中文 (Simplified Chinese)** without restarting. Navigation, pages,
@@ -28,20 +47,28 @@ where the signed MSIX and installation steps live.
 - **Language and theme choices stay visible when their menus close.** Translated option
   labels update without clearing selection or changing the selected theme.
 
-- **The About page includes the build's short commit hash after the app version**, making it
-  easier to identify the exact build when reporting a problem. Builds without an embedded commit
-  hash continue to display the version alone.
+### Fixed
+- **The release installer downloads its missing files automatically.** Download only `Install.ps1`;
+  it fetches the certificate and MSIX for its own release, while matching local files still work
+  offline. Saved scripts stay pinned to their original version; download a fresh helper from the
+  latest stable release to install that version
+  ([#132](https://github.com/mhackermsft/wslcontainerdesktop/issues/132)).
+- **Installer validation happens before certificate trust.** The helper verifies the release
+  assets and package identity, elevates only certificate import, and installs the app in the
+  original user's session. Older maintenance releases no longer replace a newer stable release
+  as the latest installer download.
+- The unstamped repository installer refuses certificate trust; use a release's pinned helper
+  for online or offline installation. Release publication is serialized to prevent competing
+  releases from changing "latest" out of order.
+
+## [2.2.1] — 2026-10-12
+
+### Added
+- **Switch container sessions** on the WSL Engine page to view and manage containers created by
+  apps using the WSL Containers API, separately from the default CLI session.
 
 ### Fixed
-
-- **Docker Hub login corrects uppercase and full-width usernames** before sending them to
-  the engine, including when adding a registry and logging in immediately. Other registries
-  preserve username case and characters. Authorization-header errors show credential guidance.
-
-- **Registry logout now confirms that stored credentials are gone.** An already absent login
-  completes normally, while engine errors, remaining credentials, and unreadable credential
-  metadata keep the registry entry and its login state intact. Docker Hub logout checks its
-  independent engine keys without treating similar private-registry hostnames as Docker Hub.
+- **Re-enabling animations no longer leaves selection bars beside every navigation item.**
 
 ## [2.2.0] — 2026-10-07
 
@@ -607,7 +634,9 @@ rather than assuming one schema or flag set.
 Older versions (1.0.0 – 1.5.3) predate this changelog. Their tags remain in the repository, and
 their changes can be reviewed with `git log v1.5.2..v1.5.3` and similar.
 
-[Unreleased]: https://github.com/mhackermsft/wslcontainerdesktop/compare/v2.2.0...main
+[Unreleased]: https://github.com/mhackermsft/wslcontainerdesktop/compare/v2.3.0...main
+[2.3.0]: https://github.com/mhackermsft/wslcontainerdesktop/releases/tag/v2.3.0
+[2.2.1]: https://github.com/mhackermsft/wslcontainerdesktop/releases/tag/v2.2.1
 [2.2.0]: https://github.com/mhackermsft/wslcontainerdesktop/releases/tag/v2.2.0
 [2.1.0]: https://github.com/mhackermsft/wslcontainerdesktop/releases/tag/v2.1.0
 [2.0.1]: https://github.com/mhackermsft/wslcontainerdesktop/releases/tag/v2.0.1

@@ -13,6 +13,38 @@ unsigned, then signs it with `signtool` (from the `Microsoft.Windows.SDK.BuildTo
 package). It also exports the public `.cer` from the PFX and attaches it to the release so end
 users can trust the publisher.
 
+## Release installer helper
+
+The workflow stages `Install.ps1` with the resolved release version, repository, and SHA-256 of
+both the exported certificate and signed MSIX using `Stage-InstallScript.ps1`. The published helper downloads only
+missing assets from that exact release and verifies both hashes and the package identity before trusting the certificate. Matching
+local assets are reused for offline installation; conflicting certificates are rejected, not replaced.
+The hashes bind the assets to the downloaded script, not to an independent trust authority.
+Only captured, verified certificate bytes are sent to a fixed elevated import command; the helper
+never reruns a file from the download folder elevated. The verified package is held read-only,
+denying writes and replacement until installation finishes. Windows enforces the MSIX signature
+during deployment. The unstamped source helper refuses installation and certificate trust because
+it has no pinned asset hashes. Use the helper attached to a release, including for offline installs.
+
+Stable releases newer than the current latest stable version are explicitly marked latest;
+older maintenance releases and prereleases are not. The README's
+`releases/latest/download/Install.ps1` link therefore provides the latest stable helper. Saved
+helpers remain pinned to their original release. Release runs share a concurrency group so
+version comparison and publication cannot race across branches.
+
+This behavior starts with the first release containing the updated helper. Scripts already attached
+to older releases still need both assets downloaded manually. No signing certificate or package
+identity change is involved.
+
+Installer checks use only built-in PowerShell/.NET functionality and mock downloads, elevation,
+certificate import, and deployment. Run these from the repository root; the release workflow runs
+both before building:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tests\Install.Tests.ps1
+pwsh -NoProfile -File .\tests\Install.Tests.ps1
+```
+
 ## Why the same certificate matters
 
 Windows treats an MSIX update as the *same* app only when the new package has the **same
